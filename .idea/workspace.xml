@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="" />
+    <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/StoreProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/StoreProvider.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,8 +29,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "eslint.code.style.apply.dismiss": "true",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/mac/Current Projects/crypto-wzrd",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "/Users/mac/Current Projects/crypto-wzrd/node_modules/typescript/lib",
@@ -54,6 +65,7 @@
       <updated>1717623421907</updated>
       <workItem from="1717623422962" duration="41000" />
       <workItem from="1718021710176" duration="3825000" />
+      <workItem from="1718025545161" duration="1943000" />
     </task>
     <servers />
   </component>
