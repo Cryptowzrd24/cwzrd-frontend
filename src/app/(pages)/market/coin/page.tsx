@@ -1,7 +1,7 @@
-import React from 'react';
+import Coin from '@/app/components/coin';
 
-const Coin = () => {
-  return <div>Coins</div>;
-};
+const page =()=> {
+  return <Coin />;
+}
 
-export default Coin;
+export default page;
