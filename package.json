@@ -9,6 +9,9 @@
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
+  "engines": {
+    "node": ">=18.0.0 <21.0.0"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "class-variance-authority": "^0.7.0",

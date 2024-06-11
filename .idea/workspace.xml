@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/StoreProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/StoreProvider.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +23,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Node.js..eslintrc.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "eslint.code.style.apply.dismiss": "true",
     "git-widget-placeholder": "main",
@@ -39,6 +35,7 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "prettier.import.notification.dismissed": "true",
     "ts.external.directory.path": "/Users/mac/Current Projects/crypto-wzrd/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -47,6 +44,16 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/styles" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name=".eslintrc.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/.eslintrc.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js..eslintrc.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -66,6 +73,7 @@
       <workItem from="1717623422962" duration="41000" />
       <workItem from="1718021710176" duration="3825000" />
       <workItem from="1718025545161" duration="1943000" />
+      <workItem from="1718027502648" duration="13215000" />
     </task>
     <servers />
   </component>
