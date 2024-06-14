@@ -151,9 +151,9 @@ const theme = createTheme({
         },
         contained: {
           color: '#fff',
-          backgroundColor: colors.secondary, 
+          backgroundColor: colors.secondary,
           '&:hover': {
-            backgroundColor: '#927eff', 
+            backgroundColor: '#927eff',
           },
         },
         outlined: ({ theme }) => ({
