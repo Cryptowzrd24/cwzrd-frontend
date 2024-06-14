@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Sf Pro Display';
+  src: url('../assests/fonts/SFPRODISPLAYREGULAR.OTF');
+  font-weight: 400;
+  font-variant: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Sf Pro Display';
+  src: url('../assests/fonts/SFPRODISPLAYMEDIUM.OTF');
+  font-weight: 500;
+  font-variant: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Sf Pro Display';
+  src: url('../assests/fonts/SFPRODISPLAYBOLD.OTF');
+  font-weight: 700;
+  font-variant: normal;
+  font-display: block;
+}
+
+body {
+  font-family: 'Sf Pro Display';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}

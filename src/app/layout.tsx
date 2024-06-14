@@ -1,4 +1,8 @@
 import type { Metadata } from 'next';
+import theme from '@/theme';
+import { ThemeProvider } from '@mui/material';
+import Footer from './components/footer';
+import Navbar from './components/navbar';
 import './styles/globals.css';
 
 export const metadata: Metadata = {
@@ -12,8 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <ThemeProvider theme={theme}>
+      <html lang="en">
+        <body>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }
