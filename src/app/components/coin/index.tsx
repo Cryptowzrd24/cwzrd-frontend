@@ -1,16 +1,18 @@
 import React from 'react';
-import Hero from './hero';
+import Hero from '../hero-section/hero';
 import { Box, Container } from '@mui/material';
 import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import MemberShipBanner from '../banners/memberShipBanner';
+import HeroContent from './heroContent';
 
 function Coin() {
   return (
     <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
       <Box sx={{ mt: '80px' }}>
         <Hero />
+        <HeroContent />
       </Box>
       <Box sx={{ mt: '80px', mb: '80px' }}>
         <NewsLetterBanner />
