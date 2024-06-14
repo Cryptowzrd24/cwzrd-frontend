@@ -70,7 +70,35 @@
     * {
         @apply border-border;
     }
-    body {
-        @apply bg-background text-foreground;
-    }
 }
+
+@font-face {
+    font-family: 'Sf Pro Display';
+    src: url('../assets/fonts/SFPRODISPLAYREGULAR.OTF');
+    font-weight: 400;
+    font-variant: normal;
+    font-display: block;
+  }
+  
+  @font-face {
+    font-family: 'Sf Pro Display';
+    src: url('../assets/fonts/SFPRODISPLAYMEDIUM.OTF');
+    font-weight: 500;
+    font-variant: normal;
+    font-display: block;
+  }
+  
+  @font-face {
+    font-family: 'Sf Pro Display';
+    src: url('../assets/fonts/SFPRODISPLAYBOLD.OTF');
+    font-weight: 700;
+    font-variant: normal;
+    font-display: block;
+  }
+
+body {
+    @apply bg-background text-foreground;
+    font-family: 'Sf Pro Display';
+  }
+
+
