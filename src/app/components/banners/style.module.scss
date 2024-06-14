@@ -1,0 +1,28 @@
+.bannerBox {
+  position: relative;
+  background-image: url('/images/banner/banner1.png');
+  background-position: center center;
+  background-size: cover;
+  padding: 80px;
+  border-radius: 32px;
+}
+.bannerBox2 {
+  position: relative;
+  background-image: url('/images/banner/banner2.png');
+  background-position: center center;
+  background-size: cover;
+  padding: 80px;
+  border-radius: 32px;
+}
+.bannerBox img {
+  width: 100%;
+  height: auto;
+}
+
+.bannerText {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+}
