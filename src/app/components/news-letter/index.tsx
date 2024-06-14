@@ -1,12 +1,5 @@
 import React from 'react';
-// import Card from './news-letter-cards/card';
-// import CardContent from './news-letter-cards/cardContent';
-// import Image from 'next/image';
-// import cardBackround from '../../../public/images/news-letter/card-background.png';
-// import LiveExplorer from './live-explorer-cards/liveExplorer';
-// import LiveExplorerCard from './live-explorer-cards/liveExplorerCard';
-// import LiveExplorerCardList from './live-explorer-cards/liveExplorerCardList';
-// import ArrowRight from '../../../../public/icons/News-Letter/arrowRight';
+
 import { Box, Grid, Typography } from '@mui/material';
 import CardContent from './news-letter-cards/cardContent';
 import LiveExplorer from './live-explorer-cards/liveExplorer';
@@ -73,13 +66,6 @@ function NewsLetter() {
               borderRadius: '16px',
             }}
           >
-            {/* sx=
-            {{
-              backgroundImage: `url(${'/images/news-letter/card-background1.png'})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }} */}
             <LiveExplorer />
           </Grid>{' '}
         </Grid>
@@ -103,6 +89,10 @@ function NewsLetter() {
               gap: '4px',
               borderRadius: '56px',
               cursor: 'pointer',
+              transition: 'background 0.3s ease',
+              ':hover': {
+                background: 'rgba(17, 17, 17, 0.2)',
+              },
             }}
           >
             See All News

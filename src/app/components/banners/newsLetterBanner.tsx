@@ -1,17 +1,13 @@
 import { Box, Button, Stack, Typography } from '@mui/material';
-import Image from 'next/image';
 import React from 'react';
-import banner1 from '../../../../public/images/banner/Newletter .png';
 import styles from './style.module.scss';
 import ArrowRight from '../../../../public/icons/News-Letter/arrowRight';
 function NewsLetterBanner() {
   return (
     <Box className={styles.bannerBox}>
-      {/* <Image src={banner1} alt="banner" /> */}
       <Box>
         <Stack
           sx={{
-            // maxWidth: '1140px',
             width: '100%',
             margin: 'auto',
             gap: '8px',
@@ -34,7 +30,6 @@ function NewsLetterBanner() {
           <Typography
             variant="h2"
             sx={{
-              //   width: 'max-content',
               fontWeight: '500',
               mb: '8px',
               color: 'rgba(255, 255, 255, 1)',

@@ -62,7 +62,7 @@ const Card: React.FC<CardProps> = ({
             <Box
               sx={{
                 padding: '5px 12px',
-                background: '#1111110D', // Semi-transparent background color
+                background: '#1111110D',
                 borderRadius: '100px',
                 display: 'inline-block',
               }}
@@ -74,8 +74,8 @@ const Card: React.FC<CardProps> = ({
                     'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  fontSize: '10px', // Ensures that font size is consistent
-                  fontWeight: '500', // Maintains the weight from the variant
+                  fontSize: '10px',
+                  fontWeight: '500',
                 }}
               >
                 {title1}
@@ -84,7 +84,7 @@ const Card: React.FC<CardProps> = ({
             <Box
               sx={{
                 padding: '5px 12px',
-                background: '#1111110D', // Semi-transparent background color
+                background: '#1111110D',
                 borderRadius: '100px',
                 display: 'inline-block',
               }}
@@ -96,8 +96,8 @@ const Card: React.FC<CardProps> = ({
                     'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  fontSize: '10px', // Ensures that font size is consistent
-                  fontWeight: '500', // Maintains the weight from the variant
+                  fontSize: '10px',
+                  fontWeight: '500',
                 }}
               >
                 {title2}
@@ -106,7 +106,7 @@ const Card: React.FC<CardProps> = ({
             <Box
               sx={{
                 padding: '5px 12px',
-                background: '#1111110D', // Semi-transparent background color
+                background: '#1111110D',
                 borderRadius: '100px',
                 display: 'inline-block',
               }}
@@ -118,8 +118,8 @@ const Card: React.FC<CardProps> = ({
                     'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  fontSize: '10px', // Ensures that font size is consistent
-                  fontWeight: '500', // Maintains the weight from the variant
+                  fontSize: '10px',
+                  fontWeight: '500',
                 }}
               >
                 {title3}

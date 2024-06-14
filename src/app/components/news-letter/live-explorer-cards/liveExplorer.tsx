@@ -11,7 +11,6 @@ function LiveExplorer() {
         color: 'white',
         display: 'flex',
         flexDirection: 'column',
-        // justifyContent: "center",
         alignItems: 'start',
         paddingTop: '24px',
         borderRadius: '16px',

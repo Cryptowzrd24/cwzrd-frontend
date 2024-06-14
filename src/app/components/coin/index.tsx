@@ -5,8 +5,6 @@ import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import MemberShipBanner from '../banners/memberShipBanner';
-// import NewsLetter from '../news-letter';
-// import Technicals from '../technicals';
 
 function Coin() {
   return (

@@ -65,9 +65,13 @@ function Technicals() {
             gap: '4px',
             borderRadius: '56px',
             cursor: 'pointer',
+            transition: 'background 0.3s ease',
+            ':hover': {
+              background: 'rgba(17, 17, 17, 0.2)',
+            },
           }}
         >
-          See All Technicals{' '}
+          See All Technicals
           <span style={{ marginTop: '8px' }}>
             <ArrowRightBlack />
           </span>

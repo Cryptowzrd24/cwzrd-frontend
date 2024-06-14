@@ -2,8 +2,6 @@ import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import styles from './style.module.scss';
-import banner2 from '../../../../public/images/banner/banner2.png';
-// import memo from '../../../../public/images/banner/memo.png';
 import pic1 from '../../../../public/images/banner/2.png';
 import pic2 from '../../../../public/images/banner/3.png';
 import pic3 from '../../../../public/images/banner/4.png';
@@ -13,7 +11,6 @@ import pic5 from '../../../../public/images/banner/1.png';
 function MemberShipBanner() {
   return (
     <Box className={styles.bannerBox2}>
-      {/* <Image src={banner2} alt="banner" style={{ borderRadius: '24px' }} /> */}
       <Box>
         <Stack
           sx={{
@@ -39,7 +36,6 @@ function MemberShipBanner() {
           <Typography
             variant="h2"
             sx={{
-              //   width: 'max-content',
               fontWeight: '500',
               mb: '8px',
               color: 'rgba(255, 255, 255, 1)',
@@ -80,7 +76,7 @@ function MemberShipBanner() {
                 alignItems: 'center',
                 position: 'relative',
                 borderRadius: '50px',
-                overflow: 'hidden', // Keeps everything neat
+                overflow: 'hidden',
               }}
             >
               <Image
@@ -109,7 +105,7 @@ function MemberShipBanner() {
                 style={{
                   transform: 'translateX(-185%)',
                   zIndex: 3,
-                  background: '#fff', // Corrected the syntax here
+                  background: '#fff',
                   padding: '2px',
                   borderRadius: '50px',
                 }}
