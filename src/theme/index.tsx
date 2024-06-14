@@ -11,7 +11,7 @@ const theme = createTheme({
       main: colors.secondary,
     },
     common: {
-      black: '#000', // Example for common usage
+      black: '#000',
       white: '#fff',
     },
     success: {
@@ -150,10 +150,10 @@ const theme = createTheme({
           },
         },
         contained: {
-          color: '#fff', // Assuming you want white text
-          backgroundColor: colors.secondary, // Direct use if dynamic theme reference isn't working
+          color: '#fff',
+          backgroundColor: colors.secondary, 
           '&:hover': {
-            backgroundColor: '#927eff', // A lighter/darker version for hover
+            backgroundColor: '#927eff', 
           },
         },
         outlined: ({ theme }) => ({
