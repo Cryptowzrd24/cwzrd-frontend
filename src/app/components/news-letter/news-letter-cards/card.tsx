@@ -16,7 +16,6 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({
-  img1,
   img2,
   title1,
   title2,
@@ -33,15 +32,18 @@ const Card: React.FC<CardProps> = ({
           position: 'relative',
           display: 'flex',
           gap: '24px',
-          padding: '8px',
+          padding: '8px 24px 8px 8px',
           borderRadius: '12px',
           width: '100%',
           backgroundColor: '#fff',
           boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-          mt: '12px',
+          backgroundImage: `url('/images/news-letter/corner.png')`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'top right',
+          backgroundSize: '35%',
         }}
       >
-        <Box>
+        <Box height={160}>
           <Image
             src={img2}
             alt="main picture"
@@ -50,7 +52,7 @@ const Card: React.FC<CardProps> = ({
             className="rounded-lg"
           />
         </Box>
-        <Stack sx={{ mb: '10px', position: 'relative', zIndex: '1000' }}>
+        <Stack sx={{ position: 'relative', zIndex: '1000', width: '61%' }}>
           <Box
             sx={{
               display: 'flex',
@@ -127,47 +129,19 @@ const Card: React.FC<CardProps> = ({
             </Box>
           </Box>
           <Box>
-            <Typography
-              variant="h5"
-              sx={{ mb: '10px', maxWidth: '458px', width: '100%' }}
-            >
+            <Typography variant="h5" sx={{ mb: '4px', width: '100%' }}>
               {heading}
             </Typography>
             <Typography variant="body2" sx={{ mb: '10px' }}>
               {description}
             </Typography>
           </Box>
-          <Box
-            sx={{ background: '#1111110D', padding: '12px 16px', mb: '10px' }}
-          >
+          <Box sx={{ background: '#1111110D', padding: '12px 16px' }}>
             <Typography variant="subtitle1" sx={{ fontWeight: '500' }}>
               {date} | {author}
             </Typography>
           </Box>
         </Stack>
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            transform: {
-              xs: 'translateX(25%) translateY(-25%)',
-              sm: 'translateX(0) translateY(0)',
-            },
-            zIndex: 0,
-          }}
-        >
-          <Image
-            src={img1}
-            alt="picture"
-            width={405}
-            height={200}
-            style={{
-              borderRadius: '12px',
-              background: 'transparent',
-            }}
-          />
-        </Box>
       </Box>
     </>
   );

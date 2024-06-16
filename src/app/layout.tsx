@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material';
 import Footer from './components/footer';
 import Navbar from './components/navbar';
 import './styles/globals.css';
+import Ticker from '@/app/components/ticker';
 
 export const metadata: Metadata = {
   title: 'Crypto Wizard',
@@ -19,6 +20,7 @@ export default function RootLayout({
     <ThemeProvider theme={theme}>
       <html lang="en">
         <body>
+          <Ticker />
           <Navbar />
           {children}
           <Footer />

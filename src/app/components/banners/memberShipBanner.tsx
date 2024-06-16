@@ -46,11 +46,10 @@ function MemberShipBanner() {
           <Typography
             variant="body1"
             sx={{
-              color: 'rgba(255, 255, 255, 1)',
+              color: 'rgba(255, 255, 255, 0.8)',
               maxWidth: '1132px',
-              width: '100%',
+              width: '83%',
               margin: 'auto',
-              letterSpacing: '-0.1',
             }}
           >
             Unlock the door to trading success and become a part of the

@@ -2,6 +2,7 @@ import React from 'react';
 import TechnicalCardContent from './technicalCardContent';
 import { Box, Typography } from '@mui/material';
 import ArrowRightBlack from '../../../../public/icons/News-Letter/arrowRightBlack';
+
 function Technicals() {
   return (
     <>
@@ -35,6 +36,7 @@ function Technicals() {
             sx={{
               color: 'rgba(17, 17, 17, 0.8)',
               maxWidth: '630px',
+              lineHeight: '30px',
             }}
           >
             Receive expert commentary, market trends, and technical analysis
@@ -42,7 +44,7 @@ function Technicals() {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ mt: '72px', mb: '72px' }}>
+      <Box sx={{ marginBlock: '72px' }}>
         <TechnicalCardContent />
       </Box>
       <Box
@@ -57,7 +59,7 @@ function Technicals() {
           variant="body1"
           sx={{
             background: 'rgba(17, 17, 17, 0.05)',
-            padding: '16px 24px 16px 32px',
+            padding: '16px 32px',
             fontWeight: '600',
             display: 'flex',
             justifyContent: 'center',
@@ -66,15 +68,14 @@ function Technicals() {
             borderRadius: '56px',
             cursor: 'pointer',
             transition: 'background 0.3s ease',
+            lineHeight: 1,
             ':hover': {
               background: 'rgba(17, 17, 17, 0.2)',
             },
           }}
         >
           See All Technicals
-          <span style={{ marginTop: '8px' }}>
-            <ArrowRightBlack />
-          </span>
+          <ArrowRightBlack />
         </Typography>
       </Box>
     </>

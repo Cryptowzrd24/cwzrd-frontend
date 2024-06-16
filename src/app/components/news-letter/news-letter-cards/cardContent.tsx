@@ -2,9 +2,17 @@ import React from 'react';
 import Card from './card';
 import { CardData } from '../data';
 
+import './styles.module.css';
+
 const CardContent: React.FC = () => {
   return (
-    <div className="grid gap-4">
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 12,
+      }}
+    >
       {CardData.map((card) => (
         <Card
           key={card.id}
