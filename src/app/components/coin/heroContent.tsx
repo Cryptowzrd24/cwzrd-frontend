@@ -29,6 +29,7 @@ function HeroContent() {
           fontSize: '20px',
           maxWidth: '600px',
           lineHeight: '30px',
+          color: '#111111CC',
           mt: '32px',
         }}
       >
@@ -36,10 +37,10 @@ function HeroContent() {
         <span style={{ color: '#7248F7', fontWeight: '600', fontSize: '20px' }}>
           €2.26T.
         </span>{' '}
-        an increase of
+        an increase of{' '}
         <span style={{ color: '#1FD773', fontWeight: '600', fontSize: '20px' }}>
           +3.75%
-        </span>
+        </span>{' '}
         in the last 24 hours.{' '}
         {isExpanded && (
           <span>

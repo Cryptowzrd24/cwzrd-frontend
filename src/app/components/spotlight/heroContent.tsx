@@ -10,7 +10,7 @@ function HeroContent() {
   };
   return (
     <>
-      <Typography variant="h1" sx={{ maxWidth: '830px', width: '100%' }}>
+      <Typography variant="h1" sx={{ maxWidth: '754px', width: '100%' }}>
         Best{' '}
         <span
           style={{

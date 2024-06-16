@@ -76,7 +76,7 @@ function LiveExplorer() {
         <Clock />
         <Typography
           variant="caption"
-          sx={{ color: '#111111', letterSpacing: 2, mb: '1px' }}
+          sx={{ color: '#111111', letterSpacing: '1px', mb: '1px' }}
         >
           2 MINUTES AGO
         </Typography>

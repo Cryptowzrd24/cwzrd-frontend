@@ -10,6 +10,7 @@ interface CardProps {
   date: string;
   author: string;
 }
+
 interface LiveCardProps {
   id: string;
   title: string;
@@ -101,13 +102,6 @@ export const LiveCardData: LiveCardProps[] = [
   },
   {
     id: '4',
-    title:
-      'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
-    desc: "NASA's Drew Feusted and Ricky Arnold are to spend...",
-    image: '/images/news-letter/img4.png',
-  },
-  {
-    id: '5',
     title:
       'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
     desc: "NASA's Drew Feusted and Ricky Arnold are to spend...",

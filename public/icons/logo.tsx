@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function Logo() {
   return (
@@ -12,7 +12,7 @@ function Logo() {
       <g clipPath="url(#clip0_1322_13229)">
         <mask
           id="mask0_1322_13229"
-          style={{ maskType: "luminance" }}
+          style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
           x={0}
           y={0}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function LogoWhite() {
   return (
@@ -12,7 +12,7 @@ function LogoWhite() {
       <g clipPath="url(#clip0_1475_19937)">
         <mask
           id="mask0_1475_19937"
-          style={{ maskType: "luminance" }}
+          style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
           x={0}
           y={0}

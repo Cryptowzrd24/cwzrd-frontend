@@ -3,6 +3,7 @@ import theme from '@/theme';
 import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
+
 interface LiveCardProps {
   id: string;
   title: string;
@@ -23,15 +24,15 @@ function LiveExplorerCard({ title, desc, image }: LiveCardProps) {
           maxWidth: '298px',
           width: '100%',
           flexDirection: { lg: 'row', xs: 'column' },
-          // margin: 'auto',
+          boxShadow: '0px 4px 28px 0px #0000000D',
         }}
       >
         <Box>
           <Image
             src={image}
             alt="picture"
-            width={151}
-            height={100}
+            width={141}
+            height={126}
             style={{
               objectFit: 'cover',
               minWidth: '100%',
@@ -42,7 +43,7 @@ function LiveExplorerCard({ title, desc, image }: LiveCardProps) {
             }}
           />
         </Box>
-        <Stack>
+        <Stack marginTop={'12px'}>
           <Typography variant="subtitle2">{title}</Typography>
           <Typography
             variant="caption"

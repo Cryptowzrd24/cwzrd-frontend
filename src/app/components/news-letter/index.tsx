@@ -4,6 +4,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import CardContent from './news-letter-cards/cardContent';
 import LiveExplorer from './live-explorer-cards/liveExplorer';
 import ArrowRightBlack from '../../../../public/icons/News-Letter/arrowRightBlack';
+
 function NewsLetter() {
   return (
     <>
@@ -18,7 +19,7 @@ function NewsLetter() {
             alignItems: 'center',
           }}
         >
-          <Typography variant="h2" sx={{ maxWidth: '630px' }}>
+          <Typography variant="h2" sx={{ maxWidth: '650px' }}>
             News: All About{' '}
             <span
               style={{
@@ -37,6 +38,7 @@ function NewsLetter() {
             sx={{
               color: 'rgba(17, 17, 17, 0.8)',
               maxWidth: '630px',
+              lineHeight: '30px',
             }}
           >
             {' '}
@@ -81,7 +83,7 @@ function NewsLetter() {
             variant="body1"
             sx={{
               background: 'rgba(17, 17, 17, 0.05)',
-              padding: '16px 24px 16px 32px',
+              padding: '16px 32px',
               fontWeight: '600',
               display: 'flex',
               justifyContent: 'center',
@@ -90,15 +92,14 @@ function NewsLetter() {
               borderRadius: '56px',
               cursor: 'pointer',
               transition: 'background 0.3s ease',
+              lineHeight: 1,
               ':hover': {
                 background: 'rgba(17, 17, 17, 0.2)',
               },
             }}
           >
             See All News
-            <span style={{ marginTop: '8px' }}>
-              <ArrowRightBlack />
-            </span>
+            <ArrowRightBlack />
           </Typography>
         </Box>
       </Box>

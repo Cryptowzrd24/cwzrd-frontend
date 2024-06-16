@@ -2,6 +2,7 @@ import { Box, Button, Stack, Typography } from '@mui/material';
 import React from 'react';
 import styles from './style.module.scss';
 import ArrowRight from '../../../../public/icons/News-Letter/arrowRight';
+
 function NewsLetterBanner() {
   return (
     <Box className={styles.bannerBox}>
@@ -37,7 +38,7 @@ function NewsLetterBanner() {
           >
             Subscribe To Our Weekly Newsletter!
           </Typography>
-          <Typography variant="body1" sx={{ color: 'rgba(255, 255, 255, 1)' }}>
+          <Typography variant="body1" sx={{ color: '#FFFFFFCC' }}>
             Join our newsletter to receive the latest updates, insights, and
             analysis from our team of experts. Don't miss out on opportunities{' '}
           </Typography>
@@ -57,14 +58,7 @@ function NewsLetterBanner() {
             <input
               type="text"
               placeholder="Enter your email address"
-              style={{
-                fontSize: '16px',
-                fontWeight: '400',
-                color: 'rgba(17, 17, 17, 0.8)',
-                outline: 'none',
-                border: 'none',
-                fontFamily: 'inherit',
-              }}
+              className={styles.input}
             />
             <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
               <Button

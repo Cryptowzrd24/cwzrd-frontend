@@ -18,7 +18,7 @@ export const NavbarData: NavbarProps[] = [
   },
   {
     id: '4',
-    name: 'Broker',
+    name: 'Brokers',
   },
   {
     id: '5',
@@ -26,7 +26,7 @@ export const NavbarData: NavbarProps[] = [
   },
   {
     id: '6',
-    name: 'Technical',
+    name: 'Technicals',
   },
   {
     id: '7',

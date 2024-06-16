@@ -6,6 +6,7 @@ import Technicals from '../technicals';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import MemberShipBanner from '../banners/memberShipBanner';
 import HeroContent from './heroContent';
+import DataTable from '@/app/components/DataTable';
 
 function Coin() {
   return (
@@ -13,6 +14,9 @@ function Coin() {
       <Box sx={{ mt: '80px' }}>
         <Hero />
         <HeroContent />
+      </Box>
+      <Box sx={{ mt: '40px' }}>
+        <DataTable />
       </Box>
       <Box sx={{ mt: '80px', mb: '80px' }}>
         <NewsLetterBanner />
