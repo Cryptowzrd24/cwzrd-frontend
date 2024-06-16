@@ -1,5 +1,3 @@
-// useColumnDefs.js
-
 import { useMemo } from 'react';
 import { HeaderTooltip } from '@/app/components/HeaderTooltip';
 import { RowTooltip } from '@/app/components/RowTooltip';
@@ -13,8 +11,8 @@ import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 const useColumnDefs = (columns: any) => {
-  const columnDefs = useMemo(() => {
-    return columns.map((col) => {
+  return useMemo(() => {
+    return columns.map((col: any) => {
       switch (col.field) {
         case 'index':
           return {
@@ -35,7 +33,7 @@ const useColumnDefs = (columns: any) => {
             field: 'price',
             headerName: 'Price',
             width: 120,
-            valueFormatter: (p) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'percent_change_1h':
         case 'percent_change_24h':
@@ -44,8 +42,8 @@ const useColumnDefs = (columns: any) => {
             field: col.field,
             headerName: col.headerName,
             width: 90,
-            cellStyle: (p) => getPercentStyle(p.value),
-            valueFormatter: (p) => {
+            cellStyle: (p: any) => getPercentStyle(p.value),
+            valueFormatter: (p: any) => {
               const value = p.value;
               const formattedValue = priceNumberFormatter(value) + '%';
               return profitLossCheck(formattedValue);
@@ -56,7 +54,7 @@ const useColumnDefs = (columns: any) => {
             field: 'market_cap',
             headerComponent: HeaderComponent,
             width: 165,
-            valueFormatter: (p) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
             tooltipComponent: HeaderTooltip,
             headerTooltip: 'Market Cap',
           };
@@ -65,16 +63,16 @@ const useColumnDefs = (columns: any) => {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
             width: 165,
-            valueFormatter: (p) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'circulating_supply':
           return {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
             width: 165,
-            valueFormatter: (p) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
             tooltipComponent: RowTooltip,
-            tooltipValueGetter: (params) =>
+            tooltipValueGetter: (params: any) =>
               params.value == null || params.value === ''
                 ? '- Missing -'
                 : params.value,
@@ -98,22 +96,20 @@ const useColumnDefs = (columns: any) => {
             field: 'fdv',
             width: 165,
             headerComponent: HeaderComponent,
-            valueFormatter: (p) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'last7Added':
           return {
             field: 'last7Added',
             width: 165,
             headerName: 'Last 7 Added',
-            valueFormatter: (p) => p.value,
+            valueFormatter: (p: any) => p.value,
           };
         default:
           return col;
       }
     });
   }, [columns]);
-
-  return columnDefs;
 };
 
 export default useColumnDefs;

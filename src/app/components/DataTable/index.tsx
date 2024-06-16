@@ -320,7 +320,7 @@ const DataTable = ({ showNewCoins = false }) => {
         };
 
         const response = await axios(options);
-        const data = response.data.data.map((item) => ({
+        const data = response.data.data.map((item: any) => ({
           id: item.id,
           name: item.name,
           price: item.quote.USD.price,
@@ -344,6 +344,7 @@ const DataTable = ({ showNewCoins = false }) => {
     <div className="data-table-wrapper">
       <div className="ag-theme-material" style={{ height: 907 }}>
         <AgGridReact
+          // @ts-expect-error it's a type misconfigurd in ag-grid-react
           rowData={showNewCoins ? rowDataNewCoins : rowData}
           columnDefs={columnDefs}
           suppressRowClickSelection={true}
