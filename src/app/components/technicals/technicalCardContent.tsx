@@ -5,9 +5,9 @@ import TechnicalCard from './technicalCard';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 const TechnicalCardContent: React.FC = () => {
   const settings = {
-    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -16,15 +16,6 @@ const TechnicalCardContent: React.FC = () => {
   };
   return (
     <>
-      {/*<Box*/}
-      {/*  sx={{*/}
-      {/*    display: 'flex',*/}
-      {/*    padding: '16px',*/}
-      {/*    mb: '14px',*/}
-      {/*    gap: '30px',*/}
-      {/*    flexWrap: 'wrap',*/}
-      {/*  }}*/}
-      {/*>*/}
       <Slider {...settings}>
         {TechnicalCardData.map((card) => (
           <TechnicalCard
@@ -40,7 +31,6 @@ const TechnicalCardContent: React.FC = () => {
           />
         ))}
       </Slider>
-      {/*</Box>*/}
     </>
   );
 };

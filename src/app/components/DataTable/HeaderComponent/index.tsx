@@ -22,7 +22,7 @@ export const HeaderComponent = (props: IHeaderParams) => {
     [props.columnApi, props.column],
   );
 
-  const onHeaderClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  const onHeaderClick = () => {
     const currentSort = props.column.getSort();
     let nextSort: 'asc' | 'desc' | null;
     if (currentSort === 'asc') {
@@ -32,7 +32,7 @@ export const HeaderComponent = (props: IHeaderParams) => {
     } else {
       nextSort = 'asc';
     }
-    onSortRequested(nextSort, event);
+    onSortRequested(nextSort);
   };
 
   return (
