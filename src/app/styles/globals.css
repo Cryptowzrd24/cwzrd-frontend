@@ -38,3 +38,19 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+
+.text-light{
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.text-sm{
+  font-size: 16px;
+}
+
+.text-primary{
+  color: rgba(17, 17, 17, 1);
+ }
+ 
+ .font-semibold{
+   font-weight: 600;
+ }
