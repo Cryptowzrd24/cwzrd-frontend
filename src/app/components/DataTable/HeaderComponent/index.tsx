@@ -13,7 +13,7 @@ export const HeaderComponent = (props: IHeaderParams) => {
   const displayName = formatDisplayName(props.displayName);
 
   const onSortRequested = useCallback(
-    (order: 'asc' | 'desc' | null, event: React.MouseEvent<HTMLDivElement>) => {
+    (order: 'asc' | 'desc' | null) => {
       props.columnApi.applyColumnState({
         state: [{ colId: props.column.getColId(), sort: order }],
         applyOrder: false,

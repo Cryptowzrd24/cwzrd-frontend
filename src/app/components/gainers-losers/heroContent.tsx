@@ -19,7 +19,7 @@ function HeroContent() {
             WebkitTextFillColor: 'transparent',
           }}
         >
-          Gainer
+          Gainers
         </span>{' '}
         & Losers{' '}
       </Typography>

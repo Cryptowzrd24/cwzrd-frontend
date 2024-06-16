@@ -10,7 +10,7 @@ function HeroContent() {
   };
   return (
     <>
-      <Typography variant="h1">
+      <Typography variant="h1" sx={{ maxWidth: '754px', width: '100%' }}>
         Highest
         <span
           style={{
@@ -28,12 +28,14 @@ function HeroContent() {
       <Box
         sx={{
           fontSize: '20px',
-          maxWidth: '600px',
+          maxWidth: '830px',
           lineHeight: '30px',
           mt: '32px',
         }}
       >
-        Insights into the biggest events shaping the crypto industry.
+        CoinMarketCap ranks and scores exchanges based on traffic, liquidity,
+        trading volumes, and confidence in the legitimacy of trading volumes
+        reported.
         {isExpanded && (
           <span>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla

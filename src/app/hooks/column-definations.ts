@@ -100,13 +100,13 @@ const useColumnDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             valueFormatter: (p) => '$' + priceNumberFormatter(p.value),
           };
-          case 'last7Added':
-            return {
-              field: 'last7Added',
-              width: 165,
-              headerName: 'Last 7 Added',
-              valueFormatter: (p) => p.value,
-            };
+        case 'last7Added':
+          return {
+            field: 'last7Added',
+            width: 165,
+            headerName: 'Last 7 Added',
+            valueFormatter: (p) => p.value,
+          };
         default:
           return col;
       }

@@ -2,7 +2,6 @@
 import React from 'react';
 import { TechnicalCardData } from './data';
 import TechnicalCard from './technicalCard';
-import { Box } from '@mui/material';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
