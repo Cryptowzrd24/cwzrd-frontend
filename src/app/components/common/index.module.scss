@@ -1,0 +1,31 @@
+.market_cap_wrapper {
+    max-width: 315px;
+    min-width: 315px;
+    min-height: 225px;
+    border-style: solid;
+    max-height: 225px;
+    border-radius: 0.5rem;
+    border-width: 1px;
+    border-color: rgba(17, 17, 17, 0.1);
+    justify-content: flex-start;
+
+    .header_wrapper {
+        padding-top: 22px;
+        padding-bottom: 22px;
+        padding-left: 22px;
+        padding-right: 22px;
+
+        .heading {
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .value {
+            font-size: 24px;
+            line-height: 30px;
+            font-weight: 600;
+        }
+    }
+}
