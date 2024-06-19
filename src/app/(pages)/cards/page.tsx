@@ -1,6 +1,7 @@
 import React from "react";
 
 import GraphCard from "@/app/components/common/graphCard.component";
+import Card1 from "@/app/components/common/card1.component";
 
 
 const Components = () => {
@@ -28,11 +29,31 @@ const Components = () => {
 
     return (<>
 
-        <div className="px-20 py-20">
-            <GraphCard 
-                value={"36,606,531,750.36"} 
+        <div style={{ margin: "20px" }}>
+            <GraphCard
+                heading="🔥 Market CAP"
+                value={{ data: "36,606,531,750.36", prefix: "$" }}
                 percent={6.32}
-                graphAttr = {{type: 'area', data: areachartData} }
+                graphAttr={{ type: 'area', data: areachartData }}
+            />
+
+            <GraphCard
+                heading="🩸 Bitcoin Dominance"
+                value={{ data: "51.88", postfix: "%" }}
+                percent={-0.32}
+                graphAttr={{ type: 'area', data: areachartData }}
+            />
+
+            <GraphCard
+                heading="🔥 24 hour volume"
+                value={{ data: "51.88", prefix: "$" }}
+                percent={-0.32}
+                graphAttr={{ type: 'bar', data: areachartData }}
+            />
+
+            <Card1 
+                heading="✨ Recently Added" 
+                items={[{medal: "🥇", text1: "PEPI", text2: "PEPI", time: 4}]}
             />
         </div>
 

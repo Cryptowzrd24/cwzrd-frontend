@@ -3,7 +3,7 @@ export {}
 declare global {
     interface HighchartsChartOptions {
         chart: {
-          type: 'area';
+          type: 'area' | 'column';
           plotBorderWidth: number;
           plotMarginBottom: number;
         };
@@ -35,7 +35,7 @@ declare global {
           enabled: boolean;
         };
         title: { text: string | null};
-        series: HighchartsSeriesOptions[];
+        series: any;
         tooltip: {
           formatter: (this: Highcharts.TooltipFormatterContextObject) => string;
         };

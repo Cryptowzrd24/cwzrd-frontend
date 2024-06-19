@@ -20,6 +20,12 @@
             line-height: 18px;
             font-weight: 600;
             margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+
+            .stepper {
+                align-content: center;
+            }
         }
 
         .value {
@@ -28,4 +34,61 @@
             font-weight: 600;
         }
     }
+}
+
+
+.recently_added {
+    // border-radius: 4px;
+    // background-color: #f5f5f5;
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+
+            .medal {
+                min-width: 30px;
+            }
+
+            .profile_block {
+                max-width: 40px;
+                height: 40px;
+                border-radius: 75%;
+                border: 1px solid #b3b3b3;
+                background-color: #fff;
+
+                .image {
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    overflow: hidden;
+                    border-radius: 75%;
+                }
+            }
+
+            .title {
+                display: grid;
+                min-width: 100px;
+
+                span:nth-child(1) {
+                    font-weight: 700;
+                    line-height: 18px;
+                }
+
+                span:nth-child(2) {
+                    color: rgba(17, 17, 17, 0.6)
+                }
+            }
+        }
+    }
+
 }

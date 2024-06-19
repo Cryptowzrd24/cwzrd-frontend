@@ -1,0 +1,19 @@
+.step_indicator {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .step_item {
+    position: relative;
+    margin-right: 4px;
+    border-radius: 25px;
+    background-color: #F2F2F2;
+    border: 3px solid #1A111111;
+  }
+
+  .step_item.active {
+    background-color: #9BD3FF;
+    border: 3px solid black;
+  }
+}

@@ -1,13 +1,9 @@
 import React, { useEffect, useRef } from "react";
+
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from 'highcharts/highcharts';
 
-interface IAreaChartProps {
-    data: {x: string | number , y : string | number}[]
-    color: string
-}
-
-const AreaChart = (props : IAreaChartProps) => {
+const AreaChart = (props : IChartProps) => {
     const {data, color} = props
     const chartRef: any = useRef(null);
 
@@ -52,14 +48,14 @@ const AreaChart = (props : IAreaChartProps) => {
                 name: '',
                 data: data,
                 lineWidth: 1,
-                color: color,
+                color: `rgb( ${color})`,
                 fillOpacity: 0,
                 threshold: null,
                 fillColor: {
                     linearGradient: { x1: 0, x2: 0, y1: 1, y2: 0 },
                     stops: [
-                        [0, 'rgba(201, 242, 155, 0)'],
-                        [1, 'rgba(201, 242, 155, 1)'],
+                        [0, `rgba( ${color}, 0)`],
+                        [1, `rgba( ${color}, 1)`],
                     ],
     
                 },
@@ -72,7 +68,7 @@ const AreaChart = (props : IAreaChartProps) => {
             formatter: function () {
               const point = this.point;
               const yValue = point.y; 
-              return `<span style="color: black; font-weight: bold; padding: 2px; border-radius: 50%!important; margin-right: 2px;">$${yValue}</span>`;
+              return `<span style="color: black; font-weight: bold; padding: 2px; border-radius: 50%!important; margin-right: 2px;">${yValue}</span>`;
             },
           },
     };
