@@ -11,7 +11,7 @@ import { ListIcon } from '../../../../../public/icons/Grid-Header/list';
 import links from './data';
 
 const styles = {
-  link: (isActive: boolen) => ({
+  link: (isActive: boolean) => ({
     fontSize: 14,
     fontWeight: 700,
     color: isActive ? '#7248F7' : '#11111199',
