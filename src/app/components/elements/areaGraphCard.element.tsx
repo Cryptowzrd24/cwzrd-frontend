@@ -75,7 +75,7 @@ const AreaChart = (props : IChartProps) => {
 
     useEffect(() => {
         if (chartRef.current) {
-            chartRef.current?.chart.setSize(320, 104);
+            chartRef.current?.chart.setSize(320, 124);
             const xAxisElement = chartRef.current.chart.xAxis[0].axisGroup;
             xAxisElement?.destroy();
         }

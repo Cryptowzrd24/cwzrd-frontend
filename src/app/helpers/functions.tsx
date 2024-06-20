@@ -9,8 +9,15 @@ export const getGraphColor = (number: number) => {
 }
 
 export const getTimeAgoText = (value: Date | number) => {
-    if(typeof value === 'number') {
-        return value + ' Minutes Ago';
-    }
-    return ' Minutes Ago'
+    const minutesAgo = typeof value === 'number' ? value : "";
+    return `${minutesAgo} Minutes Ago`;
+};
+
+export const getVisitCount = (value: number) => {
+    const visited = value > 1000 ? `${value / 1000}k` : value;
+    return `${visited} Visited`;
+};
+
+export const numberWithCommas = (x: number)=> {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }

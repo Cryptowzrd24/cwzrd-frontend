@@ -4,6 +4,11 @@ import GraphCard from "@/app/components/common/graphCard.component";
 import Card1 from "@/app/components/common/card1.component";
 
 
+import frogImage from "@/app/assets/images/frogImage.png";
+import btc from "@/app/assets/images/btc.png"
+import nft from "@/app/assets/images/nft.png"
+import Card2 from "@/app/components/common/card2.component";
+
 const Components = () => {
 
     const areachartData = [
@@ -51,9 +56,63 @@ const Components = () => {
                 graphAttr={{ type: 'bar', data: areachartData }}
             />
 
-            <Card1 
-                heading="✨ Recently Added" 
-                items={[{medal: "🥇", text1: "PEPI", text2: "PEPI", time: 4}]}
+            <Card1
+                type="time"
+                heading="✨ Recently Added"
+                items={[
+                    { medal: "🥇", image: frogImage, text1: "PEPI", text2: "PEPI", time: 4 },
+                    { medal: "🥇", image: frogImage, text1: "PEPI", text2: "PEPI", time: 4 },
+                    { medal: "🥇", image: frogImage, text1: "PEPI", text2: "PEPI", time: 4 }
+                ]}
+            />
+
+            <Card1
+                type="percent"
+                heading="⭐️ Trending"
+                items={[
+                    { medal: "🥇", image: btc, text1: "Bitcoin", text2: "BTC", percent: 29.32 },
+                    { medal: "🥇", image: btc, text1: "Bitcoin", text2: "BTC", percent: 29.32 },
+                    { medal: "🥇", image: btc, text1: "Bitcoin", text2: "BTC", percent: -0.12 },
+                ]}
+            />
+
+            <Card1
+                type="visited"
+                heading="👁️ Most Visited"
+                items={[
+                    { medal: "🥇", image: btc, text1: "Bitcoin", text2: "BTC", count: 1900 },
+                    { medal: "🥇", image: btc, text1: "Bitcoin", text2: "BTC", count: 500 },
+                    { medal: "🥇", image: btc, text1: "Bitcoin", text2: "BTC", count: 2600 },
+                ]}
+            />
+
+            <Card1
+                type="price"
+                heading="📈 Highest Volume"
+                items={[
+                    { medal: "🥇", image: btc, text1: "Bitcoin", text2: "BTC", price: 37381.03 },
+                    { medal: "🥇", image: btc, text1: "Bitcoin", text2: "BTC", price: 37381.03 },
+                    { medal: "🥇", image: btc, text1: "Bitcoin", text2: "BTC", price: 37381.03 },
+                ]}
+            />
+
+            <Card1
+                type="nft"
+                heading="🎖 Top NFT Colllections"
+                items={[
+                    { medal: "🥇", image: nft, text1: "PudgyPenguins", text2: "ETH", count: 254567 },
+                    { medal: "🥇", image: nft, text1: "PudgyPenguins", text2: "ETH", count: 254567 },
+                    { medal: "🥇", image: nft, text1: "PudgyPenguins", text2: "ETH", count: 254567 },
+                ]}
+            />
+
+            <Card2
+                heading="🎖 Top Categories"
+                items={[
+                    { medal: "🥇", text1: "Base Ecosystem" , images : [nft, btc, frogImage ] },
+                    { medal: "🥇", text1: "Base Ecosystem" , images : [nft, btc, frogImage ] },
+                    { medal: "🥇", text1: "Base Ecosystem" , images : [nft, btc, frogImage ] },
+                ]}
             />
         </div>
 
