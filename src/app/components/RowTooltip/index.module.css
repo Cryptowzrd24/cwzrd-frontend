@@ -1,0 +1,33 @@
+.row-tooltip{
+    width: 270px;
+    height: 105px;
+    border-radius: 12px;
+    padding: 2px 12px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
+    font-family: 'Sf Pro Display';
+  }
+
+  .row-tooltip-percent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .row-tooltip-progress-bar{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .row-tooltip-circulating-supply{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .row-tooltip-max-supply{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -20px;
+  }
