@@ -1,10 +1,12 @@
 import { useMemo } from 'react';
-import { HeaderTooltip } from '@/app/components/HeaderTooltip';
-import { RowTooltip } from '@/app/components/RowTooltip';
-import { HeaderComponent } from '@/app/components/DataTable/HeaderComponent';
-import { CurrencyNameComponent } from '@/app/components/DataTable/NameComponent';
-import { IndexComponent } from '@/app/components/DataTable/IndexComponent';
-import { GraphComp } from '../components/DataTable/GraphComponent';
+import { HeaderTooltip } from '@/app/components/header-tooltip';
+import { RowTooltip } from '@/app/components/row-tooltip';
+import { HeaderComponent } from '@/app/components/data-table/header';
+import { CurrencyNameComponent } from '@/app/components/data-table/name';
+import { ID } from '@/app/components/data-table/id';
+import { GraphComp } from '../components/data-table/graph';
+import { ChainComp } from '../components/data-table/chain';
+import { VolumeComponent } from '../components/data-table/volume';
 
 import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
@@ -18,7 +20,7 @@ const useColumnDefs = (columns: any) => {
           return {
             field: 'index',
             headerName: '#',
-            cellRenderer: IndexComponent,
+            cellRenderer: ID,
             width: 70,
           };
         case 'name':
@@ -35,13 +37,34 @@ const useColumnDefs = (columns: any) => {
             width: 120,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
+        case 'protocols':
+          return {
+            field: 'protocols',
+            headerName: 'Protocols',
+            width: 120,
+            valueFormatter: (p: any) => priceNumberFormatter(p.value),
+          };
         case 'percent_change_1h':
         case 'percent_change_24h':
         case 'percent_change_7d':
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 90,
+            width: 100,
+            cellStyle: (p: any) => getPercentStyle(p.value),
+            valueFormatter: (p: any) => {
+              const value = p.value;
+              const formattedValue = priceNumberFormatter(value) + '%';
+              return profitLossCheck(formattedValue);
+            },
+          };
+        case 'percent_change_1D':
+        case 'percent_change_1W':
+        case 'percent_change_1M':
+          return {
+            field: col.field,
+            headerName: col.headerName,
+            width: 120,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
@@ -63,7 +86,7 @@ const useColumnDefs = (columns: any) => {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
             width: 165,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            cellRenderer: VolumeComponent,
           };
         case 'circulating_supply':
           return {
@@ -84,17 +107,41 @@ const useColumnDefs = (columns: any) => {
             headerName: 'Last 7 Days',
             cellRenderer: GraphComp,
           };
+        case 'market_cap_tvl':
+          return {
+            field: 'market_cap_tvl',
+            width: 165,
+            headerComponent: HeaderComponent,
+            headerName: 'Market Cap/TVL',
+            cellRenderer: GraphComp,
+          };
+        case 'market_cap_chain':
+          return {
+            field: 'market_cap',
+            headerComponent: HeaderComponent,
+            width: 165,
+            tooltipComponent: HeaderTooltip,
+            headerTooltip: 'Market Cap',
+            cellRenderer: GraphComp,
+          };
         case 'chain':
           return {
             field: 'chain',
-            width: 145,
+            width: 125,
             headerName: 'Chain',
-            cellRenderer: GraphComp,
+            cellRenderer: ChainComp,
           };
         case 'fdv':
           return {
             field: 'fdv',
             width: 165,
+            headerComponent: HeaderComponent,
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+          };
+        case 'tvl':
+          return {
+            field: 'tvl',
+            width: 235,
             headerComponent: HeaderComponent,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
