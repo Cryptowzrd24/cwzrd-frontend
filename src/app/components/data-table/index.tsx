@@ -8,8 +8,11 @@ import 'ag-grid-community/styles/ag-theme-material.css';
 import './index.css';
 
 import useColumnDefs from '@/app/hooks/column-definations';
+import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
+import useColumnChainsDefs from '@/app/hooks/data-grid/column-defination-chains';
+import useColumnNewCoinsDefs from '@/app/hooks/data-grid/column-defination-new-coins';
 
-const DataTable = ({ showNewCoins = false }) => {
+const DataTable = ({ showNewCoins = true }) => {
   const [rowData, setRowData] = useState([
     {
       index: 1,
@@ -166,6 +169,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.02,
       percent_change_24h: 12.58,
       volume_24h: 1319030534093,
+      fdv: 1319030,
       last7Added: '3 Hours Ago',
     },
     {
@@ -176,6 +180,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.12,
       percent_change_24h: 8.78,
       volume_24h: 123123123123,
+      fdv: 1319030,
       last7Added: '1 Day Ago',
     },
     {
@@ -186,6 +191,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.08,
       percent_change_24h: 10.58,
       volume_24h: 32123123123,
+      fdv: 1319030,
       last7Added: '2 Days Ago',
     },
     {
@@ -196,6 +202,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.22,
       percent_change_24h: 6.98,
       volume_24h: 4123123123,
+      fdv: 1319030,
       last7Added: '5 Days Ago',
     },
     {
@@ -206,6 +213,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.3,
       percent_change_24h: 9.32,
       volume_24h: 523123123,
+      fdv: 1319030,
       last7Added: '1 Week Ago',
     },
     {
@@ -216,6 +224,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.05,
       percent_change_24h: 15.75,
       volume_24h: 634123123,
+      fdv: 1319030,
       last7Added: '3 Days Ago',
     },
     {
@@ -226,6 +235,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.18,
       percent_change_24h: 13.45,
       volume_24h: 743212312,
+      fdv: 1319030,
       last7Added: '4 Days Ago',
     },
     {
@@ -236,6 +246,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.12,
       percent_change_24h: 7.67,
       volume_24h: 85123123,
+      fdv: 1319030,
       last7Added: '6 Days Ago',
     },
     {
@@ -246,6 +257,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.2,
       percent_change_24h: 14.2,
       volume_24h: 9123123,
+      fdv: 1319030,
       last7Added: '2 Weeks Ago',
     },
     {
@@ -256,6 +268,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.1,
       percent_change_24h: 11.1,
       volume_24h: 1023123,
+      fdv: 1319030,
       last7Added: '5 Hours Ago',
     },
     {
@@ -266,6 +279,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.22,
       percent_change_24h: 12.5,
       volume_24h: 1123123,
+      fdv: 1319030,
       last7Added: '8 Hours Ago',
     },
     {
@@ -276,6 +290,7 @@ const DataTable = ({ showNewCoins = false }) => {
       percent_change_1h: 0.25,
       percent_change_24h: 5.55,
       volume_24h: 123123123,
+      fdv: 1319030,
       last7Added: '10 Hours Ago',
     },
   ]);
@@ -440,8 +455,11 @@ const DataTable = ({ showNewCoins = false }) => {
     { field: 'market_cap_tvl', headerName: 'Market Cap/TVL' },
   ];
 
-  const columnDefs = useColumnDefs(showNewCoins ? columnsNewCoin : columns);
+  // const columnDefs = useColumnDefs(showNewCoins ? columnsNewCoin : columns);
   // const columnDefs = useColumnDefs(columnsChain);
+  const columnCoinsDef = useColumnCoinDefs(columns);
+  const columnNewCoinsDef = useColumnNewCoinsDefs(columnsNewCoin);
+  const columnNewChainsDef = useColumnChainsDefs(columnsChain);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -481,9 +499,9 @@ const DataTable = ({ showNewCoins = false }) => {
       <div className="ag-theme-material" style={{ height: 907 }}>
         <AgGridReact
           // @ts-expect-error it's a type misconfigurd in ag-grid-react
-          rowData={showNewCoins ? rowDataNewCoins : rowData}
-          // rowData={rowDataChains}
-          columnDefs={columnDefs}
+          // rowData={showNewCoins ? rowDataNewCoins : rowData}
+          rowData={rowDataNewCoins}
+          columnDefs={columnNewCoinsDef}
           suppressRowClickSelection={true}
           pagination={true}
           paginationAutoPageSize={true}
