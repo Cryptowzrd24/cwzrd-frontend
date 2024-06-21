@@ -8,12 +8,12 @@ import 'ag-grid-community/styles/ag-theme-material.css';
 import './index.css';
 
 import { CustomHeader } from './custom-header';
-import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
-import useColumnChainsDefs from '@/app/hooks/data-grid/column-defination-chains';
+// import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
+// import useColumnChainsDefs from '@/app/hooks/data-grid/column-defination-chains';
 import useColumnNewCoinsDefs from '@/app/hooks/data-grid/column-defination-new-coins';
 
-const DataTable = ({ showNewCoins = true }) => {
-  const [rowData, setRowData] = useState([
+const DataTable = () => {
+  const [, setRowData] = useState([
     {
       index: 1,
       name: 'Bitcoin BTC',
@@ -163,141 +163,141 @@ const DataTable = ({ showNewCoins = true }) => {
     },
   ]);
 
-  const [rowDataChains] = useState([
-    {
-      index: 1,
-      name: 'Solana SOL',
-      protocols: 930,
-      percent_change_1D: 0.02,
-      percent_change_1W: 12.58,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 2,
-      name: 'Avalanche AVAX',
-      protocols: 30,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 3,
-      name: 'Terra LUNA',
-      protocols: 45,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 4,
-      name: 'Binance Coin BNB',
-      protocols: 5,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 5,
-      name: 'Polygon MATIC',
-      protocols: 54,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 6,
-      name: 'THETA THETA',
-      protocols: 365,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 7,
-      name: 'Algorand ALGO',
-      protocols: 544,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 8,
-      name: 'Tezos XTZ',
-      protocols: 520,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 9,
-      name: 'Elrond EGLD',
-      protocols: 15,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 10,
-      name: 'Harmony ONE',
-      protocols: 113,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 11,
-      name: 'Hedera HBAR',
-      protocols: 45,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-    {
-      index: 12,
-      name: 'Celo CELO',
-      protocols: 9,
-      percent_change_1D: 0.12,
-      percent_change_1W: 8.78,
-      percent_change_1M: 12.58,
-      tvl: 47.83,
-      market_cap_tvl: 'graph',
-    },
-  ]);
+  // const [rowDataChains] = useState([
+  //   {
+  //     index: 1,
+  //     name: 'Solana SOL',
+  //     protocols: 930,
+  //     percent_change_1D: 0.02,
+  //     percent_change_1W: 12.58,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 2,
+  //     name: 'Avalanche AVAX',
+  //     protocols: 30,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 3,
+  //     name: 'Terra LUNA',
+  //     protocols: 45,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 4,
+  //     name: 'Binance Coin BNB',
+  //     protocols: 5,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 5,
+  //     name: 'Polygon MATIC',
+  //     protocols: 54,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 6,
+  //     name: 'THETA THETA',
+  //     protocols: 365,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 7,
+  //     name: 'Algorand ALGO',
+  //     protocols: 544,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 8,
+  //     name: 'Tezos XTZ',
+  //     protocols: 520,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 9,
+  //     name: 'Elrond EGLD',
+  //     protocols: 15,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 10,
+  //     name: 'Harmony ONE',
+  //     protocols: 113,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 11,
+  //     name: 'Hedera HBAR',
+  //     protocols: 45,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  //   {
+  //     index: 12,
+  //     name: 'Celo CELO',
+  //     protocols: 9,
+  //     percent_change_1D: 0.12,
+  //     percent_change_1W: 8.78,
+  //     percent_change_1M: 12.58,
+  //     tvl: 47.83,
+  //     market_cap_tvl: 'graph',
+  //   },
+  // ]);
 
-  const columns = [
-    { field: 'index' },
-    { field: 'name' },
-    { field: 'price' },
-    { field: 'percent_change_1h', headerName: '1h%' },
-    { field: 'percent_change_24h', headerName: '24h%' },
-    { field: 'percent_change_7d', headerName: '7d%' },
-    { field: 'market_cap' },
-    { field: 'volume_24h' },
-    { field: 'circulating_supply' },
-    { field: 'last7Days' },
-  ];
+  // const columns = [
+  //   { field: 'index' },
+  //   { field: 'name' },
+  //   { field: 'price' },
+  //   { field: 'percent_change_1h', headerName: '1h%' },
+  //   { field: 'percent_change_24h', headerName: '24h%' },
+  //   { field: 'percent_change_7d', headerName: '7d%' },
+  //   { field: 'market_cap' },
+  //   { field: 'volume_24h' },
+  //   { field: 'circulating_supply' },
+  //   { field: 'last7Days' },
+  // ];
 
   const columnsNewCoin = [
     { field: 'index' },
@@ -311,23 +311,23 @@ const DataTable = ({ showNewCoins = true }) => {
     { field: 'last7Added' },
   ];
 
-  const columnsChain = [
-    { field: 'index' },
-    { field: 'name' },
-    { field: 'protocols' },
-    { field: 'percent_change_1D', headerName: '1D Change' },
-    { field: 'percent_change_1W', headerName: '1W Chg.' },
-    { field: 'percent_change_1M', headerName: '1M Change' },
-    { field: 'tvl' },
-    { field: 'market_cap_chain' },
-    { field: 'market_cap_tvl', headerName: 'Market Cap/TVL' },
-  ];
+  // const columnsChain = [
+  //   { field: 'index' },
+  //   { field: 'name' },
+  //   { field: 'protocols' },
+  //   { field: 'percent_change_1D', headerName: '1D Change' },
+  //   { field: 'percent_change_1W', headerName: '1W Chg.' },
+  //   { field: 'percent_change_1M', headerName: '1M Change' },
+  //   { field: 'tvl' },
+  //   { field: 'market_cap_chain' },
+  //   { field: 'market_cap_tvl', headerName: 'Market Cap/TVL' },
+  // ];
 
   // const columnDefs = useColumnDefs(showNewCoins ? columnsNewCoin : columns);
   // const columnDefs = useColumnDefs(columnsChain);
-  const columnCoinsDef = useColumnCoinDefs(columns);
+  // const columnCoinsDef = useColumnCoinDefs(columns);
   const columnNewCoinsDef = useColumnNewCoinsDefs(columnsNewCoin);
-  const columnNewChainsDef = useColumnChainsDefs(columnsChain);
+  // const columnNewChainsDef = useColumnChainsDefs(columnsChain);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -363,8 +363,6 @@ const DataTable = ({ showNewCoins = true }) => {
       <CustomHeader />
       <div className="ag-theme-material" style={{ height: 907 }}>
         <AgGridReact
-          // @ts-expect-error it's a type misconfigurd in ag-grid-react
-          // rowData={showNewCoins ? rowDataNewCoins : rowData}
           rowData={rowDataNewCoins}
           columnDefs={columnNewCoinsDef}
           suppressRowClickSelection={true}
