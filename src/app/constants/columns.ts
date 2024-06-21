@@ -49,6 +49,19 @@ export const columnsHighestVol = [
   { field: 'last7Days' },
 ];
 
+export const columnsMostVisited = [
+  { field: 'index' },
+  { field: 'name' },
+  { field: 'price' },
+  { field: 'percent_change_1h', headerName: '1h%' },
+  { field: 'percent_change_24h', headerName: '24h%' },
+  { field: 'percent_change_7d', headerName: '7d%' },
+  { field: 'market_cap' },
+  { field: 'volume_24h' },
+  { field: 'circulating_supply' },
+  { field: 'last7Days' },
+];
+
 export const columnsNewCoin = [
   { field: 'index' },
   { field: 'name' },
