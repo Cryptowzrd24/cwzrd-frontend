@@ -69,7 +69,13 @@ const theme = createTheme({
         fontSize: '16px',
       },
     },
-
+    h6: {
+      fontSize: '24px',
+      lineHeight: '26.4px',
+      color: '#111111',
+      fontFamily: 'Sf Pro Text',
+      fontWeight: 'bold',
+    },
     body1: {
       fontSize: '18px',
       fontWeight: 400,
