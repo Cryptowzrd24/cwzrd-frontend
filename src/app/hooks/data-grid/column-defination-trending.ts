@@ -1,11 +1,9 @@
 import { useMemo } from 'react';
 import { HeaderTooltip } from '@/app/components/header-tooltip';
-import { RowTooltip } from '@/app/components/row-tooltip';
 import { HeaderComponent } from '@/app/components/data-table/header';
 import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
-import { VolumeComponent } from '../../components/data-table/volume';
 
 import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
