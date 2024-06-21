@@ -91,6 +91,45 @@ export const rowDataHighestVol = [
   },
 ];
 
+export const rowDataMostVisited = [
+  {
+    index: 1,
+    name: 'Bitcoin BTC',
+    price: 64950,
+    percent_change_1h: 0.28,
+    percent_change_24h: -4.28,
+    percent_change_7d: -2.28,
+    market_cap: 13190305393,
+    volume_24h: 1319030534093,
+    circulating_supply: 1319030534093,
+    last7Days: 'graph',
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 64950,
+    percent_change_1h: 0.28,
+    percent_change_24h: -4.28,
+    percent_change_7d: -2.28,
+    market_cap: 13190305393,
+    volume_24h: 1319030534093,
+    circulating_supply: 1319030534093,
+    last7Days: 'graph',
+  },
+  {
+    index: 3,
+    name: 'Solana SOL',
+    price: 64950,
+    percent_change_1h: 0.28,
+    percent_change_24h: -4.28,
+    percent_change_7d: -2.28,
+    market_cap: 13190305393,
+    volume_24h: 1319030534093,
+    circulating_supply: 1319030534093,
+    last7Days: 'graph',
+  },
+];
+
 export const rowDataNewCoins = [
   {
     index: 1,
@@ -324,5 +363,239 @@ export const rowDataLosers = [
     price: 7.8,
     percent_change_24h: 15.75,
     volume_24h: 634123123,
+  },
+];
+
+export const rowCompactTrending = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];
+
+export const rowCompactGainers = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];
+
+export const rowCompactLosers = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];
+
+export const rowCompactRecentlyAdded = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];
+
+export const rowCompactMostVisited = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];
+
+export const rowCompactHighestVolume = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
   },
 ];
