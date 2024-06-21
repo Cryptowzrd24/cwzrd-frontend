@@ -1,0 +1,110 @@
+import { useMemo } from 'react';
+import { HeaderTooltip } from '@/app/components/header-tooltip';
+import { HeaderComponent } from '@/app/components/data-table/header';
+import { CurrencyNameComponent } from '@/app/components/data-table/name';
+import { ID } from '@/app/components/data-table/id';
+import { GraphComp } from '../../components/data-table/graph';
+
+import { priceNumberFormatter } from '@/utils/price-number-formater';
+import { getPercentStyle } from '@/utils/profit-loss-color';
+import { profitLossCheck } from '@/utils/profit-loss-val-check';
+import { TopGainers } from '@/app/components/data-table/top-gainers';
+import { CategoryName } from '@/app/components/data-table/category-name';
+
+const useColumnCategoryDefs = (columns: any) => {
+  return useMemo(() => {
+    return columns.map((col: any) => {
+      switch (col.field) {
+        case 'index':
+          return {
+            field: 'index',
+            headerName: '#',
+            cellRenderer: ID,
+            width: 40,
+          };
+        case 'category':
+          return {
+            field: 'category',
+            headerName: 'Category',
+            cellRenderer: CategoryName,
+            width: 140,
+          };
+        case 'top_gainers':
+          return {
+            field: 'top_gainers',
+            headerName: 'Top Gainers',
+            width: 140,
+            cellRenderer: TopGainers,
+          };
+        case 'percent_change_1h':
+          return {
+            field: col.field,
+            headerName: col.headerName,
+            width: 90,
+            cellStyle: (p: any) => getPercentStyle(p.value),
+            valueFormatter: (p: any) => {
+              const value = p.value;
+              const formattedValue = priceNumberFormatter(value) + ' %';
+              return profitLossCheck(formattedValue);
+            },
+          };
+        case 'price_24h':
+          return {
+            field: 'price_24h',
+            headerName: '24h',
+            width: 120,
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+          };
+        case 'price_7d':
+          return {
+            field: 'price_7d',
+            headerName: '7d',
+            width: 120,
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+          };
+        case 'market_cap':
+          return {
+            field: 'market_cap',
+            headerComponent: HeaderComponent,
+            width: 135,
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            tooltipComponent: HeaderTooltip,
+            headerTooltip: 'Market Cap',
+          };
+        case 'dominance':
+          return {
+            field: 'dominance',
+            headerComponent: HeaderComponent,
+            width: 135,
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            tooltipComponent: HeaderTooltip,
+            headerTooltip: 'Dominance',
+          };
+        case 'volume_24h':
+          return {
+            field: 'volume_24h',
+            headerComponent: HeaderComponent,
+            width: 135,
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+          };
+        case '24h_volume':
+          return {
+            field: '24h_volume',
+            width: 125,
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+          };
+        case 'last7Days':
+          return {
+            field: 'last7Days',
+            width: 165,
+            headerName: 'Last 7 Days',
+            cellRenderer: GraphComp,
+          };
+        default:
+          return col;
+      }
+    });
+  }, [columns]);
+};
+
+export default useColumnCategoryDefs;
