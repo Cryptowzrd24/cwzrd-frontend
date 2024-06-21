@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/DataTable/custom-header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/DataTable/custom-header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/DataTable/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/DataTable/index.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +26,7 @@
     "Node.js..eslintrc.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "eslint.code.style.apply.dismiss": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "AN/CWZRD-22",
     "last_opened_file_path": "/Users/mac/Current Projects/crypto-wzrd",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -52,6 +48,9 @@
         <option name="reportName" value="crypto-wzrd/qodana/2024-06-20" />
       </LocalReportPersistedInfo>
     </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
