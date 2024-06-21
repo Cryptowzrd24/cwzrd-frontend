@@ -13,6 +13,45 @@ export const rowDataCoin = [
   },
 ];
 
+export const rowDataDefi = [
+  {
+    index: 1,
+    name: 'Bitcoin BTC',
+    price: 64950,
+    percent_change_1h: 0.28,
+    percent_change_24h: -4.28,
+    percent_change_7d: -2.28,
+    market_cap: 13190305393,
+    volume_24h: 1319030534093,
+    circulating_supply: 1319030534093,
+    last7Days: 'graph',
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 64950,
+    percent_change_1h: 0.28,
+    percent_change_24h: -4.28,
+    percent_change_7d: -2.28,
+    market_cap: 13190305393,
+    volume_24h: 1319030534093,
+    circulating_supply: 1319030534093,
+    last7Days: 'graph',
+  },
+  {
+    index: 3,
+    name: 'Solana SOL',
+    price: 64950,
+    percent_change_1h: 0.28,
+    percent_change_24h: -4.28,
+    percent_change_7d: -2.28,
+    market_cap: 13190305393,
+    volume_24h: 1319030534093,
+    circulating_supply: 1319030534093,
+    last7Days: 'graph',
+  },
+];
+
 export const rowDataNewCoins = [
   {
     index: 1,
