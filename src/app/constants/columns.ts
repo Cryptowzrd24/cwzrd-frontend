@@ -100,3 +100,40 @@ export const columnsLosers = [
   { field: 'volume_24h', headerName: 'Volume(24h)' },
   { field: 'percent_change_24h', headerName: '24h' },
 ];
+
+export const columnsCompactTrending = [
+  { field: 'index' },
+  { field: 'name' },
+  { field: 'price' },
+  { field: 'percent_change_24h', headerName: '24h%' },
+];
+export const columnsCompactGainers = [
+  { field: 'index' },
+  { field: 'name' },
+  { field: 'price' },
+  { field: 'percent_change_24h', headerName: '24h%' },
+];
+export const columnsCompactLosers = [
+  { field: 'index' },
+  { field: 'name' },
+  { field: 'price' },
+  { field: 'percent_change_24h', headerName: '24h%' },
+];
+export const columnsCompactHighestVolume = [
+  { field: 'index' },
+  { field: 'name' },
+  { field: 'price' },
+  { field: 'percent_change_24h', headerName: '24h%' },
+];
+export const columnsCompactMostVisited = [
+  { field: 'index' },
+  { field: 'name' },
+  { field: 'price' },
+  { field: 'percent_change_24h', headerName: '24h%' },
+];
+export const columnsCompactRecentlyAdded = [
+  { field: 'index' },
+  { field: 'name' },
+  { field: 'price' },
+  { field: 'percent_change_24h', headerName: '24h%' },
+];

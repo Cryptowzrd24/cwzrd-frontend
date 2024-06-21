@@ -365,3 +365,237 @@ export const rowDataLosers = [
     volume_24h: 634123123,
   },
 ];
+
+export const rowCompactTrending = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];
+
+export const rowCompactGainers = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];
+
+export const rowCompactLosers = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];
+
+export const rowCompactRecentlyAdded = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];
+
+export const rowCompactMostVisited = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];
+
+export const rowCompactHighestVolume = [
+  {
+    index: 1,
+    name: 'Solana SOL',
+    price: 6.495,
+    percent_change_24h: 12.58,
+  },
+  {
+    index: 2,
+    name: 'Avalanche AVAX',
+    price: 3.25,
+    percent_change_24h: 8.78,
+  },
+  {
+    index: 3,
+    name: 'Terra LUNA',
+    price: 5.5,
+    percent_change_24h: 10.58,
+  },
+  {
+    index: 4,
+    name: 'Binance Coin BNB',
+    price: 400.2,
+    percent_change_24h: 6.98,
+  },
+  {
+    index: 5,
+    name: 'Polygon MATIC',
+    price: 1.5,
+    percent_change_24h: 9.32,
+  },
+  {
+    index: 6,
+    name: 'THETA THETA',
+    price: 7.8,
+    percent_change_24h: 15.75,
+  },
+];

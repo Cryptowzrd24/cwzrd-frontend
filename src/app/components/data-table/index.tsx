@@ -30,6 +30,7 @@ const DataTable = ({
         </Typography>
       )}
       <AgGridReact
+        suppressHorizontalScroll={true}
         rowData={rowData}
         columnDefs={columnDefs}
         suppressRowClickSelection={true}
