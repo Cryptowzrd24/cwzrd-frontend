@@ -9,6 +9,7 @@ import { FilterIcon } from '../../../../../public/icons/Grid-Header/filter';
 import { BoxIcon } from '../../../../../public/icons/Grid-Header/box';
 import { ListIcon } from '../../../../../public/icons/Grid-Header/list';
 import links from './data';
+import { PageArrowDownIcon } from '../../../../../public/icons/Grid-Header/pageArrowDown';
 
 const styles = {
   link: (isActive: boolean) => ({
@@ -30,7 +31,7 @@ const styles = {
   },
   select: {
     '& .MuiSelect-select': {
-      width: '75px',
+      width: '23px',
       padding: '9.5px 16px',
       background: '#F0ECFF',
       color: '#7248F7',
@@ -39,10 +40,15 @@ const styles = {
       display: 'flex',
       alignItems: 'center',
       borderRadius: '8px',
-      minWidth: '64px',
     },
     '& .MuiSvgIcon-root': {
       color: '#7248F7',
+    },
+    '& .MuiOutlinedInput-notchedOutline': {
+      border: 'none',
+    },
+    '& .MuiSelect-icon': {
+      right: '15px',
     },
     backgroundColor: '#F0ECFF',
     borderRadius: '8px',
@@ -52,7 +58,7 @@ const styles = {
 export const CustomHeader = () => {
   const pathname = usePathname();
   const [pageSize, setPageSize] = useState(10);
-  const options = [10, 20, 30, 50];
+  const options = [10, 50, 100];
 
   const handleChange = (event: any) => {
     setPageSize(event.target.value);
@@ -103,7 +109,7 @@ export const CustomHeader = () => {
               sx={{ width: '1em', height: '1em', color: '#7248F7' }}
               {...props}
             >
-              <path d="M7 10l5 5 5-5z" />
+              <PageArrowDownIcon />
             </Box>
           )}
         >
