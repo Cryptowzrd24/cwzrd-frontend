@@ -6,7 +6,7 @@ import Technicals from '../technicals';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import MemberShipBanner from '../banners/memberShipBanner';
 import HeroContent from './heroContent';
-import DataTable from '@/app/components/DataTable';
+import DataTable from '@/app/components/data-table';
 import Stats from '@/app/components/stats';
 
 function Coin() {
