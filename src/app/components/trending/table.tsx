@@ -2,12 +2,12 @@
 import React from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
-import useColumnChainsDefs from '@/app/hooks/data-grid/column-defination-chains';
-import { columnsChain } from '@/app/constants/columns';
-import { rowDataChains } from '@/app/constants/row';
+import { columnsTrending } from '@/app/constants/columns';
+import useColumnTrendingDefs from '@/app/hooks/data-grid/column-defination-trending';
+import { rowDataTrending } from '@/app/constants/row';
 
 const Table = () => {
-  const columnChainsDef = useColumnChainsDefs(columnsChain);
+  const columnTrendingDef = useColumnTrendingDefs(columnsTrending);
 
   return (
     <div className="data-table-wrapper">
@@ -19,8 +19,8 @@ const Table = () => {
         }}
       >
         <DataTable
-          rowData={rowDataChains}
-          columnDefs={columnChainsDef}
+          rowData={rowDataTrending}
+          columnDefs={columnTrendingDef}
           width="100%"
         />
       </div>
