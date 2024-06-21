@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/icons/Grid-Header/box.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/Grid-Header/filter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/Grid-Header/list.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/Grid-Header/pageArrowDown.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/Grid-Header/search.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/arrowDown.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/stats/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/DataTable/custom-header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/DataTable/custom-header/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/DataTable/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/DataTable/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/coin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/coin/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,25 +25,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Node.js..eslintrc.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;eslint.code.style.apply.dismiss&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;stage&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mac/Current Projects/crypto-wzrd&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettier.import.notification.dismissed&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/mac/Current Projects/crypto-wzrd/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js..eslintrc.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "eslint.code.style.apply.dismiss": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/mac/Current Projects/crypto-wzrd",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettier.import.notification.dismissed": "true",
+    "ts.external.directory.path": "/Users/mac/Current Projects/crypto-wzrd/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="/private/var/folders/ww/jrc08l7s52d7g5fs4k381_dr0000gn/T/qodana_output/qodana.sarif.json" />
+        <option name="reportGuid" value="32c8378c-9893-479a-b48e-23b5db1a389e" />
+        <option name="reportName" value="crypto-wzrd/qodana/2024-06-20" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/icons/Grid-Header" />

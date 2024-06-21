@@ -97,7 +97,7 @@ const DataTable = ({ showNewCoins = false }) => {
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader /> {/* Add the Custom Header component here */}
+      <CustomHeader />
       <div className="ag-theme-material" style={{ height: 907 }}>
         <AgGridReact
           // @ts-expect-error it's a type misconfigurd in ag-grid-react
@@ -112,9 +112,6 @@ const DataTable = ({ showNewCoins = false }) => {
             fontFamily: 'SF Pro Display',
             fontSize: 16,
             fontWeight: 400,
-          }}
-          frameworkComponents={{
-            agColumnHeader: CustomHeader,
           }}
         />
       </div>
