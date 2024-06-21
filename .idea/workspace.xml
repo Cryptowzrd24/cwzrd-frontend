@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="" />
+    <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/assests/fonts/SFPROTEXTLIGHT.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/assests/fonts/SFPROTEXTREGULAR.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/chains/table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/coin/table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/gainers-losers/table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/new-coin/table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-gainers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-losers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/chains/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/chains/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/coin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/coin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/custom-header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/custom-header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/gainers-losers/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/gainers-losers/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/new-coin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/new-coin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/theme/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme/index.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,8 +44,8 @@
     "Node.js..eslintrc.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "eslint.code.style.apply.dismiss": "true",
-    "git-widget-placeholder": "AN/CWZRD-22",
-    "last_opened_file_path": "/Users/mac/Current Projects/crypto-wzrd",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/mac/Current Projects/crypto-wzrd/src/app/components/gainers-losers",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -53,7 +71,14 @@
     <option name="selectedOrLoading" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/components/gainers-losers" />
+      <recent name="$PROJECT_DIR$/src/app/components/chains" />
+      <recent name="$PROJECT_DIR$/src/app/components/new-coin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/components/new-coin" />
+      <recent name="$PROJECT_DIR$/src/app/assests/fonts" />
       <recent name="$PROJECT_DIR$/public/icons/Grid-Header" />
       <recent name="$PROJECT_DIR$/public/icons" />
       <recent name="$PROJECT_DIR$/src/app/styles" />

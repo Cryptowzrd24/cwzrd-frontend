@@ -6,6 +6,7 @@ import NewsLetterBanner from '../banners/newsLetterBanner';
 import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import MemberShipBanner from '../banners/memberShipBanner';
+import Table from '@/app/components/gainers-losers/table';
 
 const GainersLosers = () => {
   return (
@@ -14,6 +15,9 @@ const GainersLosers = () => {
         <Box sx={{ mt: '80px' }}>
           <Hero />
           <HeroContent />
+        </Box>
+        <Box sx={{ mt: '40px' }}>
+          <Table />
         </Box>
         <Box sx={{ mt: '80px', mb: '80px' }}>
           <NewsLetterBanner />
