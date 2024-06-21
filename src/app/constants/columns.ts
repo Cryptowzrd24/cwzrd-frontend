@@ -137,3 +137,16 @@ export const columnsCompactRecentlyAdded = [
   { field: 'price' },
   { field: 'percent_change_24h', headerName: '24h%' },
 ];
+
+export const columnsExchanges = [
+  { field: 'index' },
+  { field: 'exchange' },
+  { field: 'score' },
+  { field: 'trading_volume_24h', headerName: 'Trading Volume(24h)' },
+  { field: 'average_liquidity', headerName: 'Avg.Liquidity' },
+  { field: 'weekly_visits', headerName: 'Weekly Visits' },
+  { field: 'markets', headerName: '#Markets' },
+  { field: 'coins', headerName: '#Coins' },
+  { field: 'fiat_supported', headerName: 'Fiat Supported' },
+  { field: 'last7Days' },
+];
