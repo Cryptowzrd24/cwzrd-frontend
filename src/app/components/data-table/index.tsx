@@ -7,7 +7,7 @@ import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-material.css';
 import './index.css';
 
-import useColumnDefs from '@/app/hooks/column-definations';
+import { CustomHeader } from './custom-header';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import useColumnChainsDefs from '@/app/hooks/data-grid/column-defination-chains';
 import useColumnNewCoinsDefs from '@/app/hooks/data-grid/column-defination-new-coins';
@@ -24,138 +24,6 @@ const DataTable = ({ showNewCoins = true }) => {
       market_cap: 13190305393,
       volume_24h: 1319030534093,
       circulating_supply: 1319030534093,
-      last7Days: 'graph',
-    },
-    {
-      index: 2,
-      name: 'Ethereum ETH',
-      price: 2500,
-      percent_change_1h: 0.15,
-      percent_change_24h: -2.34,
-      percent_change_7d: -1.15,
-      market_cap: 20349083923,
-      volume_24h: 121239493123,
-      circulating_supply: 9999999932,
-      last7Days: 'graph',
-    },
-    {
-      index: 3,
-      name: 'Cardano ADA',
-      price: 2.35,
-      percent_change_1h: 0.1,
-      percent_change_24h: -1.12,
-      percent_change_7d: -0.9,
-      market_cap: 4532908392,
-      volume_24h: 34234234232,
-      circulating_supply: 4532908392,
-      last7Days: 'graph',
-    },
-    {
-      index: 4,
-      name: 'Ripple XRP',
-      price: 1.1,
-      percent_change_1h: 0.25,
-      percent_change_24h: -0.75,
-      percent_change_7d: -0.5,
-      market_cap: 2129839032,
-      volume_24h: 12312312312,
-      circulating_supply: 2129839032,
-      last7Days: 'graph',
-    },
-    {
-      index: 5,
-      name: 'Dogecoin DOGE',
-      price: 0.25,
-      percent_change_1h: 0.12,
-      percent_change_24h: -0.3,
-      percent_change_7d: -0.2,
-      market_cap: 129839038,
-      volume_24h: 1231231231,
-      circulating_supply: 129839038,
-      last7Days: 'graph',
-    },
-    {
-      index: 6,
-      name: 'Polkadot DOT',
-      price: 20.5,
-      percent_change_1h: 0.18,
-      percent_change_24h: -0.45,
-      percent_change_7d: -0.35,
-      market_cap: 983930320,
-      volume_24h: 981231231,
-      circulating_supply: 983930320,
-      last7Days: 'graph',
-    },
-    {
-      index: 7,
-      name: 'Uniswap UNI',
-      price: 25.3,
-      percent_change_1h: 0.2,
-      percent_change_24h: -0.5,
-      percent_change_7d: -0.4,
-      market_cap: 83930320,
-      volume_24h: 81231231,
-      circulating_supply: 83930320,
-      last7Days: 'graph',
-    },
-    {
-      index: 8,
-      name: 'Litecoin LTC',
-      price: 150.5,
-      percent_change_1h: 0.3,
-      percent_change_24h: -0.6,
-      percent_change_7d: -0.5,
-      market_cap: 6930320,
-      volume_24h: 62312312,
-      circulating_supply: 6930320,
-      last7Days: 'graph',
-    },
-    {
-      index: 9,
-      name: 'Chainlink LINK',
-      price: 30.2,
-      percent_change_1h: 0.15,
-      percent_change_24h: -0.25,
-      percent_change_7d: -0.15,
-      market_cap: 5930320,
-      volume_24h: 5123123,
-      circulating_supply: 5930320,
-      last7Days: 'graph',
-    },
-    {
-      index: 10,
-      name: 'Stellar XLM',
-      price: 0.35,
-      percent_change_1h: 0.22,
-      percent_change_24h: -0.35,
-      percent_change_7d: -0.25,
-      market_cap: 493032,
-      volume_24h: 423123,
-      circulating_supply: 493032,
-      last7Days: 'graph',
-    },
-    {
-      index: 11,
-      name: 'VeChain VET',
-      price: 0.1,
-      percent_change_1h: 0.12,
-      percent_change_24h: -0.22,
-      percent_change_7d: -0.12,
-      market_cap: 393032,
-      volume_24h: 323123,
-      circulating_supply: 393032,
-      last7Days: 'graph',
-    },
-    {
-      index: 12,
-      name: 'Filecoin FIL',
-      price: 40.0,
-      percent_change_1h: 0.1,
-      percent_change_24h: -0.2,
-      percent_change_7d: -0.1,
-      market_cap: 303032,
-      volume_24h: 223123,
-      circulating_supply: 303032,
       last7Days: 'graph',
     },
   ]);
@@ -467,10 +335,6 @@ const DataTable = ({ showNewCoins = true }) => {
         const options = {
           method: 'GET',
           url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
-          headers: {
-            // 'X-CMC_PRO_API_KEY': API_KEY,
-            // Accept: 'application/json',
-          },
         };
 
         const response = await axios(options);
@@ -496,6 +360,7 @@ const DataTable = ({ showNewCoins = true }) => {
 
   return (
     <div className="data-table-wrapper">
+      <CustomHeader />
       <div className="ag-theme-material" style={{ height: 907 }}>
         <AgGridReact
           // @ts-expect-error it's a type misconfigurd in ag-grid-react
