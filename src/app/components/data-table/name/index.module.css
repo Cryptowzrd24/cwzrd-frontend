@@ -1,0 +1,37 @@
+.currency-comp{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .name-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .currency-icon{
+    margin-top: -10px;
+    height: 22px;
+  }
+
+  .currency-comp p{
+    margin: 0;
+    padding: 0;
+    height: 22px;
+    margin-top: -15px;
+  }
+
+  .full-name{
+    font-size: 16px;
+    font-family: 'Sf Pro Display';
+    font-weight: 600;
+  }
+
+  .short-name{
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(17, 17, 17, 0.6);
+    font-family: 'Sf Pro Display'
+  }

@@ -1,0 +1,22 @@
+.volume-comp {
+  margin-top: -15px;
+}
+
+.volume-comp p {
+  margin: 0;
+  padding: 0;
+  height: 22px;
+}
+
+.price-main {
+  font-size: 16px;
+  font-family: 'Sf Pro Display';
+  font-weight: 400;
+}
+
+.sub-price {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(17, 17, 17, 0.6);
+  font-family: 'Sf Pro Display';
+}

@@ -1,9 +1,0 @@
-.currency-comp{
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .currency-comp p{
-    font-weight: bold;
-    margin: 0;
-  }
