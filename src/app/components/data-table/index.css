@@ -10,7 +10,7 @@
   --ag-row-height: 70px;
   --ag-list-item-height: 20px;
   --ag-row-hover-color:#f8fafd;
-  --ag-header-cell-hover-background-color:none,
+  --ag-header-cell-hover-background-color:none;
   font-family: 'Sf Pro Display',sans-serif;
 }
 
@@ -48,6 +48,7 @@
 
 .ag-theme-material .ag-row {
   cursor: pointer;
+  width: 1330px;
 }
 
 .ag-paging-panel{

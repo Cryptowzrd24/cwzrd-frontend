@@ -31,6 +31,15 @@
   font-display: block;
 }
 
+@font-face {
+  font-family: 'Sf Pro Text';
+  src: url('../assests/fonts/SFPROTEXTLIGHT.otf');
+  font-weight: 500;
+  font-variant: normal;
+  font-display: block;
+}
+
+
 body {
   font-family: 'Sf Pro Display';
   box-sizing: border-box;

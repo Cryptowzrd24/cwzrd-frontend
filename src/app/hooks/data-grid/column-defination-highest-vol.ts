@@ -4,15 +4,14 @@ import { RowTooltip } from '@/app/components/row-tooltip';
 import { HeaderComponent } from '@/app/components/data-table/header';
 import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
-import { GraphComp } from '../components/data-table/graph';
-import { ChainComp } from '../components/data-table/chain';
-import { VolumeComponent } from '../components/data-table/volume';
+import { GraphComp } from '../../components/data-table/graph';
+import { VolumeComponent } from '../../components/data-table/volume';
 
 import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
-const useColumnDefs = (columns: any) => {
+const useColumnHighestVolDefs = (columns: any) => {
   return useMemo(() => {
     return columns.map((col: any) => {
       switch (col.field) {
@@ -37,13 +36,6 @@ const useColumnDefs = (columns: any) => {
             width: 120,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
-        case 'protocols':
-          return {
-            field: 'protocols',
-            headerName: 'Protocols',
-            width: 120,
-            valueFormatter: (p: any) => priceNumberFormatter(p.value),
-          };
         case 'percent_change_1h':
         case 'percent_change_24h':
         case 'percent_change_7d':
@@ -54,21 +46,7 @@ const useColumnDefs = (columns: any) => {
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + '%';
-              return profitLossCheck(formattedValue);
-            },
-          };
-        case 'percent_change_1D':
-        case 'percent_change_1W':
-        case 'percent_change_1M':
-          return {
-            field: col.field,
-            headerName: col.headerName,
-            width: 120,
-            cellStyle: (p: any) => getPercentStyle(p.value),
-            valueFormatter: (p: any) => {
-              const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + '%';
+              const formattedValue = priceNumberFormatter(value) + ' %';
               return profitLossCheck(formattedValue);
             },
           };
@@ -107,51 +85,6 @@ const useColumnDefs = (columns: any) => {
             headerName: 'Last 7 Days',
             cellRenderer: GraphComp,
           };
-        case 'market_cap_tvl':
-          return {
-            field: 'market_cap_tvl',
-            width: 165,
-            headerComponent: HeaderComponent,
-            headerName: 'Market Cap/TVL',
-            cellRenderer: GraphComp,
-          };
-        case 'market_cap_chain':
-          return {
-            field: 'market_cap',
-            headerComponent: HeaderComponent,
-            width: 165,
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Market Cap',
-            cellRenderer: GraphComp,
-          };
-        case 'chain':
-          return {
-            field: 'chain',
-            width: 125,
-            headerName: 'Chain',
-            cellRenderer: ChainComp,
-          };
-        case 'fdv':
-          return {
-            field: 'fdv',
-            width: 165,
-            headerComponent: HeaderComponent,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-          };
-        case 'tvl':
-          return {
-            field: 'tvl',
-            width: 235,
-            headerComponent: HeaderComponent,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-          };
-        case 'last7Added':
-          return {
-            field: 'last7Added',
-            width: 165,
-            headerName: 'Last 7 Added',
-            valueFormatter: (p: any) => p.value,
-          };
         default:
           return col;
       }
@@ -159,4 +92,4 @@ const useColumnDefs = (columns: any) => {
   }, [columns]);
 };
 
-export default useColumnDefs;
+export default useColumnHighestVolDefs;
