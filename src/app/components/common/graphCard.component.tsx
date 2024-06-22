@@ -10,6 +10,7 @@ import { getGraphColor, getPositiveNegativeIcon } from "@/app/helpers/functions"
 
 import styles from "./index.module.scss";
 import BarChart from "../elements/barGraphCard.element";
+import { Card, Typography } from "@mui/material";
 
 
 
@@ -22,12 +23,12 @@ const GraphCard = (props: IMarketCapCardProps) => {
     }
 
     return (
-        <div className={styles.market_cap_wrapper}>
+        <Card className={styles.market_cap_wrapper}>
             <div className={styles.header_wrapper}>
-                <div className={styles.heading}>
-                    <div>
+            <div className={styles.heading}>
+                    <Typography sx={{fontSize: "14px", lineHeight: "18px", fontWeight: "600"}}>
                         {heading}
-                    </div>
+                    </Typography>
                     <div className={styles.stepper}>
                         <StepIndicator currentStep={currentStep} totalSteps={['1', '2', '3']} setStep={(index: number) => stepSetter(index)} />
                     </div>
@@ -45,7 +46,7 @@ const GraphCard = (props: IMarketCapCardProps) => {
                 {graphAttr.type === 'bar' ? <BarChart data={graphAttr.data} color={getGraphColor(percent)} /> : null}
 
             </div>
-        </div>
+        </Card>
     );
 };
 

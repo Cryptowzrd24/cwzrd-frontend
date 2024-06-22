@@ -1,8 +1,12 @@
 import React from "react"
 
-import styles from './index.module.scss'; 
+import styles from './index.module.scss';
 
-const StepIndicator = ({ currentStep, totalSteps, setStep } : IStepProps ) => {
+const StepIndicator = ({ currentStep, totalSteps, setStep, invertColor }: IStepProps) => {
+
+
+
+
   const renderSteps = () => {
     return totalSteps?.map((step, index) => {
       const isActive = index === currentStep
@@ -10,7 +14,8 @@ const StepIndicator = ({ currentStep, totalSteps, setStep } : IStepProps ) => {
         <li
           onClick={() => setStep && setStep(index + 1)}
           key={index}
-          className={`${styles.step_item} ${isActive ? styles.active : ''}`}
+          className={
+            `${invertColor ? styles.step_itemWhite : styles.step_itemDefault} ${isActive ? invertColor ? styles.activeWhite : styles.activeDefault : ''}`}
         >
         </li>
       )

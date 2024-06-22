@@ -21,6 +21,7 @@ declare global {
     }
 
     interface IStepProps {
+        invertColor?: boolean
         currentStep: number
         totalSteps?: string[]
         setStep?: (index: number) => void

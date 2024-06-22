@@ -2,12 +2,26 @@ import React from "react";
 
 import GraphCard from "@/app/components/common/graphCard.component";
 import Card1 from "@/app/components/common/card1.component";
+import Card2 from "@/app/components/common/card2.component";
+import Card3 from "@/app/components/common/card3.component";
 
+import { colorConfig } from "@/app/helpers/config";
 
-import frogImage from "@/app/assets/images/frogImage.png";
 import btc from "@/app/assets/images/btc.png"
 import nft from "@/app/assets/images/nft.png"
-import Card2 from "@/app/components/common/card2.component";
+import frogImage from "@/app/assets/images/frogImage.png";
+import dogImage from "@/app/assets/images/dogImage.png";
+import cardBgImage from "@/app/assets/images/cardImagebg.png"
+import cardBgImage2 from "@/app/assets/images/cardImagebg2.png"
+import cardBgImage3 from "@/app/assets/images/cardImagebg3.png"
+import cardBgImage4 from "@/app/assets/images/cardImagebg4.png"
+import cardBgImage5 from "@/app/assets/images/cardImagebg5.png"
+import cardBgImage6 from "@/app/assets/images/cardImagebg6.png"
+import cardBgImage7 from "@/app/assets/images/cardImagebg7.png"
+import cardBgImage8 from "@/app/assets/images/cardImagebg8.png"
+
+
+
 
 const Components = () => {
 
@@ -34,7 +48,7 @@ const Components = () => {
 
     return (<>
 
-        <div style={{ margin: "20px" }}>
+        <div style={{ margin: "20px", display: "flex", flexWrap: "wrap" }}>
             <GraphCard
                 heading="🔥 Market CAP"
                 value={{ data: "36,606,531,750.36", prefix: "$" }}
@@ -109,13 +123,352 @@ const Components = () => {
             <Card2
                 heading="🎖 Top Categories"
                 items={[
-                    { medal: "🥇", text1: "Base Ecosystem" , images : [nft, btc, frogImage ] },
-                    { medal: "🥇", text1: "Base Ecosystem" , images : [nft, btc, frogImage ] },
-                    { medal: "🥇", text1: "Base Ecosystem" , images : [nft, btc, frogImage ] },
+                    { medal: "🥇", text1: "Base Ecosystem", images: [nft, btc, frogImage] },
+                    { medal: "🥇", text1: "Base Ecosystem", images: [nft, btc, frogImage] },
+                    { medal: "🥇", text1: "Base Ecosystem", images: [nft, btc, frogImage] },
                 ]}
             />
-        </div>
 
+            <Card3
+                heading="Trending"
+                name="Bitcoin"
+                value="+29.32%"
+                desc="took the first place with a gain of"
+                end="in 7 days."
+            />
+
+            <Card3
+                heading="Recently Added"
+                name="PEPI"
+                value="24 minutes ago"
+                desc="is the most recent crypto, which added"
+            />
+
+            <Card3
+                heading="Most Visited"
+                name="Bitcoin"
+                value="18.3k"
+                desc="is placing in the first place with"
+                end="visitors"
+            />
+
+            <Card3
+                heading="Top Categories"
+                name="Base Ecosystem"
+                desc="takes first place for top categories."
+            />
+
+            <Card3
+                heading="Top NFT Colllections"
+                name="PudgyPenguins"
+                desc="is the Top NFT Colllections with"
+                value="254,567 ETH"
+            />
+
+            <Card3
+                heading="Highest Volume"
+                name="Bitcoin"
+                desc="took the first place with total volume"
+                value="$37,381.03."
+            />
+
+            <Card3
+                heading="Top Gain"
+                name="Dogwifhat"
+                desc="took the first place with a gain of"
+                value="+29.32%"
+                end="in 7 days."
+            />
+
+            <Card3
+                heading="Top Losers"
+                name="Dogwifhat"
+                desc="took the first place with a gain of"
+                value="-19.88 %"
+                end="in 7 days."
+            />
+
+            {/*  with image bg */}
+
+            <Card3
+                transparentButton={true}
+                bgImage={cardBgImage}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Trending"
+                name="Bitcoin"
+                value="+29.32%"
+                desc="are placing in the first place with"
+                end="in 7 days."
+            />
+
+            <Card3
+                transparentButton={true}
+                bgImage={cardBgImage2}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.red}
+                heading="Recently Added"
+                name="PEPI"
+                value="24 minutes ago"
+                desc="is the most recent crypto, which added"
+            />
+
+            <Card3
+                transparentButton={true}
+                bgImage={cardBgImage3}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Trending"
+                name="Bitcoin"
+                value="+18.3k"
+                desc="are placing in the first place with"
+                end="visitor."
+            />
+
+            <Card3
+                transparentButton={true}
+                bgImage={cardBgImage4}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.red}
+                heading="Top Categories"
+                name="Base Ecosystem"
+                desc="takes first place for top categories."
+            />
+
+            <Card3
+                transparentButton={true}
+                bgImage={cardBgImage5}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.red}
+                heading="Top NFT Colllections"
+                name="PudgyPenguins"
+                desc="is the Top NFT Colllections with"
+                value="254,567 ETH"
+            />
+
+            <Card3
+                transparentButton={true}
+                bgImage={cardBgImage6}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Highest Volume"
+                name="Bitcoin"
+                desc="took the first place with total volume"
+                value="$37,381.03."
+            />
+
+            <Card3
+                transparentButton={true}
+                bgImage={cardBgImage7}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Top Gain"
+                name="Dogwifhat"
+                desc="took the first place with a gain of"
+                value="+29.32%"
+                end="in 7 days."
+            />
+
+            <Card3
+                transparentButton={true}
+                bgImage={cardBgImage8}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Top Losers"
+                name="Dogwifhat"
+                desc="took the first place with a gain of"
+                value="-19.88 %"
+                end="in 7 days."
+            />
+
+            {/*  with blend image bg */}
+
+            <Card3
+                blendImage={btc}
+                transparentButton={true}
+                bgImage={cardBgImage}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Trending"
+                name="Bitcoin"
+                value="+29.32%"
+                desc="are placing in the first place with"
+                end="in 7 days."
+            />
+
+            <Card3
+                blendImage={frogImage}
+                transparentButton={true}
+                bgImage={cardBgImage2}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.red}
+                heading="Recently Added"
+                name="PEPI"
+                value="24 minutes ago"
+                desc="is the most recent crypto, which added"
+            />
+
+            <Card3
+                blendImage={btc}
+                transparentButton={true}
+                bgImage={cardBgImage3}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Trending"
+                name="Bitcoin"
+                value="+18.3k"
+                desc="are placing in the first place with"
+                end="visitor."
+            />
+
+            <Card3
+                blendImage={btc}
+                transparentButton={true}
+                bgImage={cardBgImage4}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.red}
+                heading="Top Categories"
+                name="Base Ecosystem"
+                desc="takes first place for top categories."
+            />
+
+            <Card3
+                blendImage={nft}
+                transparentButton={true}
+                bgImage={cardBgImage5}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.red}
+                heading="Top NFT Colllections"
+                name="PudgyPenguins"
+                desc="is the Top NFT Colllections with"
+                value="254,567 ETH"
+            />
+
+            <Card3
+                blendImage={btc}
+                transparentButton={true}
+                bgImage={cardBgImage6}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Highest Volume"
+                name="Bitcoin"
+                desc="took the first place with total volume"
+                value="$37,381.03."
+            />
+
+            <Card3
+                blendImage={dogImage}
+                transparentButton={true}
+                bgImage={cardBgImage7}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Top Gain"
+                name="Dogwifhat"
+                desc="took the first place with a gain of"
+                value="+29.32%"
+                end="in 7 days."
+            />
+
+            <Card3
+                blendImage={dogImage}
+                transparentButton={true}
+                bgImage={cardBgImage8}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Top Losers"
+                name="Dogwifhat"
+                desc="took the first place with a gain of"
+                value="-19.88 %"
+                end="in 7 days."
+            />
+
+            {/*  with color bg */}
+
+            <Card3
+                allWhite={true}
+                bgColor="linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)"
+                staticTextColor={colorConfig.white}
+                heading="Trending"
+                name="Bitcoin"
+                value="+29.32%"
+                desc="are placing in the first place with"
+                end="in 7 days."
+            />
+
+            <Card3
+                allWhite={true}
+                bgColor="linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)"
+                staticTextColor={colorConfig.white}
+                heading="Recently Added"
+                name="PEPI"
+                value="24 minutes ago"
+                desc="is the most recent crypto, which added"
+            />
+
+            <Card3
+                bgColor="linear-gradient(116.74deg, #634DFD -4.07%, #7E44F1 100.68%)"
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Trending"
+                name="Bitcoin"
+                value="+18.3k"
+                desc="are placing in the first place with"
+                end="visitor."
+            />
+
+            <Card3
+                transparentButton={true}
+                bgColor="linear-gradient(98.54deg, #200D5E 0%, #6C1B92 100%)"
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Top Categories"
+                name="Base Ecosystem"
+                desc="takes first place for top categories."
+            />
+
+            <Card3
+                allWhite={true}
+                bgColor="linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)"
+                staticTextColor={colorConfig.white}
+                heading="Top NFT Colllections"
+                name="PudgyPenguins"
+                desc="is the Top NFT Colllections with"
+                value="254,567 ETH"
+            />
+
+            <Card3
+                allWhite={true}
+                bgColor="linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)"
+                staticTextColor={colorConfig.white}
+                heading="Highest Volume"
+                name="Bitcoin"
+                desc="took the first place with total volume"
+                value="$37,381.03."
+            />
+
+            <Card3
+                bgColor="linear-gradient(116.74deg, #634DFD -4.07%, #7E44F1 100.68%)"
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Top Gain"
+                name="Dogwifhat"
+                desc="took the first place with a gain of"
+                value="+29.32%"
+                end="in 7 days."
+            />
+
+            <Card3
+                transparentButton={true}
+                bgColor="linear-gradient(98.54deg, #200D5E 0%, #6C1B92 100%)"
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Top Losers"
+                name="Dogwifhat"
+                desc="took the first place with a gain of"
+                value="-19.88 %"
+                end="in 7 days."
+            />
+        </div>
     </>)
 }
 

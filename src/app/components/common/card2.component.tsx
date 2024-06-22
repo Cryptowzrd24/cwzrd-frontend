@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from 'react'
 import Image from 'next/image'
+
 import StepIndicator from '../elements/stepIndicator.element'
 
 import styles from "./index.module.scss";
+import { Card, Typography } from '@mui/material';
 
 interface ICard2Props {
     heading: string
@@ -21,12 +23,12 @@ const Card2 = (props: ICard2Props) => {
     }
 
     return (
-        <div className={styles.market_cap_wrapper}>
+        <Card className={styles.market_cap_wrapper}>
             <div className={styles.header_wrapper}>
                 <div className={styles.heading}>
-                    <div>
+                    <Typography sx={{ fontSize: "14px", lineHeight: "18px", fontWeight: "600" }}>
                         {heading}
-                    </div>
+                    </Typography>
                     <div className={styles.stepper}>
                         <StepIndicator currentStep={currentStep} totalSteps={['1', '2', '3']} setStep={(index: number) => stepSetter(index)} />
                     </div>
@@ -60,7 +62,7 @@ const Card2 = (props: ICard2Props) => {
                     More &gt;
                 </div>
             </div>
-        </div>
+        </Card>
     )
 }
 
