@@ -137,3 +137,13 @@ export const columnsCompactRecentlyAdded = [
   { field: 'price' },
   { field: 'percent_change_24h', headerName: '24h%' },
 ];
+
+export const columnsAirdrops = [
+  { field: 'index' },
+  { field: 'project_name', headerName: 'Project Name' },
+  { field: 'description', headerName: 'Description' },
+  { field: 'airdrop_status', headerName: 'Airdrop Status' },
+  { field: 'task_types', headerName: 'Task Types' },
+  { field: 'eligibility_period', headerName: 'Eligibility Period' },
+  { field: 'cost_to_farm', headerName: 'Cost to farm' },
+];
