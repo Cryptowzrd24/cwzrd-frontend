@@ -600,6 +600,56 @@ export const rowCompactHighestVolume = [
   },
 ];
 
+export const rowAirdrops = [
+  {
+    index: 1,
+    project_name: { name: 'Hyperliquid' },
+    description: 'Liquid staking platform in Solana',
+    airdrop_status: { status: 'Confirmed', date: 'Apr 15,2024' },
+    task_types: 'Mint NFT',
+    eligibility_period: 'ON GOING',
+    cost_to_farm: '✅ Free',
+  },
+  {
+    index: 2,
+    project_name: { name: 'NIM Network', code: 'NIM' },
+    description: 'Order-book DEX',
+    airdrop_status: { status: 'Confirmed', date: 'Apr 15,2024' },
+    task_types: 'Mainnet',
+    eligibility_period: 'OVER',
+    cost_to_farm: '✅ Free',
+  },
+];
+
+export const rowDataCategory = [
+  {
+    index: 1,
+    category: 'Gaming',
+    top_gainers: 'icons',
+    percent_change_1h: -4.28,
+    price_24h: 123710.68,
+    price_7d: 123710.68,
+    market_cap: 13710.68,
+    dominance: 13710.68,
+    volume_24h: 13710.68,
+    '24h_volume': 13710.68,
+    last7Days: 'graph',
+  },
+  {
+    index: 2,
+    category: 'Cat-meme',
+    top_gainers: 'icons',
+    percent_change_1h: -4.28,
+    price_24h: 123710.68,
+    price_7d: 123710.68,
+    market_cap: 13710.68,
+    dominance: 13710.68,
+    volume_24h: 13710.68,
+    '24h_volume': 13710.68,
+    last7Days: 'graph',
+  },
+];
+
 export const rowDataExchange = [
   {
     index: 1,
