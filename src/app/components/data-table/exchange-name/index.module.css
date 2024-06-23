@@ -1,0 +1,25 @@
+.exchange-comp{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+
+  .exchange-icon{
+    margin-top: -10px;
+    height: 22px;
+  }
+
+  .exchange-comp p{
+    margin: 0;
+    padding: 0;
+    height: 22px;
+    margin-top: -20px;
+  }
+
+  .full-name{
+    font-size: 16px;
+    font-family: 'Sf Pro Display';
+    font-weight: 600;
+  }

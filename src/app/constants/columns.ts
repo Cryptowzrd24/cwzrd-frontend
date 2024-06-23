@@ -161,3 +161,16 @@ export const columnsCategories = [
   { field: '24h_volume', headerName: '24h Volume' },
   { field: 'last7Days' },
 ];
+
+export const columnsExchanges = [
+  { field: 'index' },
+  { field: 'exchange' },
+  { field: 'score' },
+  { field: 'trading_volume_24h', headerName: 'Trading Volume(24h)' },
+  { field: 'average_liquidity', headerName: 'Avg.Liquidity' },
+  { field: 'weekly_visits', headerName: 'Weekly Visits' },
+  { field: 'markets', headerName: '#Markets' },
+  { field: 'coins', headerName: '#Coins' },
+  { field: 'fiat_supported', headerName: 'Fiat Supported' },
+  { field: 'last7Days' },
+];
