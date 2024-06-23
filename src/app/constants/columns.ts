@@ -138,6 +138,30 @@ export const columnsCompactRecentlyAdded = [
   { field: 'percent_change_24h', headerName: '24h%' },
 ];
 
+export const columnsAirdrops = [
+  { field: 'index' },
+  { field: 'project_name', headerName: 'Project Name' },
+  { field: 'description', headerName: 'Description' },
+  { field: 'airdrop_status', headerName: 'Airdrop Status' },
+  { field: 'task_types', headerName: 'Task Types' },
+  { field: 'eligibility_period', headerName: 'Eligibility Period' },
+  { field: 'cost_to_farm', headerName: 'Cost to farm' },
+];
+
+export const columnsCategories = [
+  { field: 'index' },
+  { field: 'category' },
+  { field: 'top_gainers' },
+  { field: 'percent_change_1h', headerName: '1h%' },
+  { field: 'price_24h', headerName: '24h' },
+  { field: 'price_7d', headerName: '7d' },
+  { field: 'market_cap' },
+  { field: 'dominance' },
+  { field: 'volume_24h' },
+  { field: '24h_volume', headerName: '24h Volume' },
+  { field: 'last7Days' },
+];
+
 export const columnsExchanges = [
   { field: 'index' },
   { field: 'exchange' },
