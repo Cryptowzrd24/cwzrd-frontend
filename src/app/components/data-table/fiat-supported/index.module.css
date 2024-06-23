@@ -1,0 +1,26 @@
+.fiat-supported {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: -7px;
+}
+
+.fiat-supported h6 {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Sf Pro Display';
+  margin: 0;
+  padding: 0;
+}
+
+.fiat-supported p {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Sf Pro Display';
+  color: rgba(17, 17, 17, 0.6);
+  margin: 0;
+  padding: 0;
+  height: 22px;
+  margin-top: -5px;
+  margin-left: -100px;
+}
