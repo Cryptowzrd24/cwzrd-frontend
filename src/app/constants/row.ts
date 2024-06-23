@@ -600,6 +600,27 @@ export const rowCompactHighestVolume = [
   },
 ];
 
+export const rowAirdrops = [
+  {
+    index: 1,
+    project_name: { name: 'Hyperliquid' },
+    description: 'Liquid staking platform in Solana',
+    airdrop_status: { status: 'Confirmed', date: 'Apr 15,2024' },
+    task_types: 'Mint NFT',
+    eligibility_period: 'ON GOING',
+    cost_to_farm: '✅ Free',
+  },
+  {
+    index: 2,
+    project_name: { name: 'NIM Network', code: 'NIM' },
+    description: 'Order-book DEX',
+    airdrop_status: { status: 'Confirmed', date: 'Apr 15,2024' },
+    task_types: 'Mainnet',
+    eligibility_period: 'OVER',
+    cost_to_farm: '✅ Free',
+  },
+];
+
 export const rowDataCategory = [
   {
     index: 1,

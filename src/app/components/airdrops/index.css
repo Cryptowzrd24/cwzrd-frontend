@@ -1,0 +1,10 @@
+.ag-header-cell:last-child .ag-header-cell-label {
+    justify-content: flex-start;
+    text-align: left;
+
+}
+.ag-cell.ag-column-last{
+    justify-content: flex-start;
+    text-align: left;
+
+}
