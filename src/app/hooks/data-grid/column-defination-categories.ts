@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { HeaderTooltip } from '@/app/components/header-tooltip';
 import { HeaderComponent } from '@/app/components/data-table/header';
-import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
 
