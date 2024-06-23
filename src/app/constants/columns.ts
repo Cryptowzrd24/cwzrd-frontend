@@ -147,3 +147,17 @@ export const columnsAirdrops = [
   { field: 'eligibility_period', headerName: 'Eligibility Period' },
   { field: 'cost_to_farm', headerName: 'Cost to farm' },
 ];
+
+export const columnsCategories = [
+  { field: 'index' },
+  { field: 'category' },
+  { field: 'top_gainers' },
+  { field: 'percent_change_1h', headerName: '1h%' },
+  { field: 'price_24h', headerName: '24h' },
+  { field: 'price_7d', headerName: '7d' },
+  { field: 'market_cap' },
+  { field: 'dominance' },
+  { field: 'volume_24h' },
+  { field: '24h_volume', headerName: '24h Volume' },
+  { field: 'last7Days' },
+];

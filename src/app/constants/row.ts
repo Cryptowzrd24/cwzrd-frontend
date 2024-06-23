@@ -620,3 +620,32 @@ export const rowAirdrops = [
     cost_to_farm: '✅ Free',
   },
 ];
+
+export const rowDataCategory = [
+  {
+    index: 1,
+    category: 'Gaming',
+    top_gainers: 'icons',
+    percent_change_1h: -4.28,
+    price_24h: 123710.68,
+    price_7d: 123710.68,
+    market_cap: 13710.68,
+    dominance: 13710.68,
+    volume_24h: 13710.68,
+    '24h_volume': 13710.68,
+    last7Days: 'graph',
+  },
+  {
+    index: 2,
+    category: 'Cat-meme',
+    top_gainers: 'icons',
+    percent_change_1h: -4.28,
+    price_24h: 123710.68,
+    price_7d: 123710.68,
+    market_cap: 13710.68,
+    dominance: 13710.68,
+    volume_24h: 13710.68,
+    '24h_volume': 13710.68,
+    last7Days: 'graph',
+  },
+];
