@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+    /*justify-content: center;*/
+}
+
+.container__box {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.container__box-main-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111;
+    line-height: 20.4px;
+}
+
+.container__box-code-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: #11111199;
+    line-height: 15.6px;
+}
