@@ -5,32 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/circulating-supply/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/circulating-supply/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/date-component/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/date-component/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/layout/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/redux/reducers/apiKey.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/redux/reducers/data-grid.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/redux/reducers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/format-date.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/StoreProvider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/coin/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/coin/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/name/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/name/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/name/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/name/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/volume/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/volume/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/volume/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/volume/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/new-coin/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/new-coin/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/spotlight/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/spotlight/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/constants/columns.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/constants/columns.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-coin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-coin.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-new-coins.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-new-coins.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/redux/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/redux/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/custom-header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/custom-header/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/price-number-formater.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/price-number-formater.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +16,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -53,7 +33,7 @@
     "Node.js..eslintrc.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "eslint.code.style.apply.dismiss": "true",
-    "git-widget-placeholder": "Merging AN/CWZRD-25",
+    "git-widget-placeholder": "AN/CWZRD-25",
     "last_opened_file_path": "/Users/mac/Current Projects/crypto-wzrd/src/app/hooks/data-grid",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -68,6 +48,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="/private/var/folders/ww/jrc08l7s52d7g5fs4k381_dr0000gn/T/qodana_output/qodana.sarif.json" />
+        <option name="reportGuid" value="6287c34a-16c3-4041-aa62-7e32546ea2b1" />
+        <option name="reportName" value="crypto-wzrd/qodana/2024-06-24" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
   <component name="QodanaIsSelectedPersistenceService">
     <option name="selectedOrLoading" value="true" />
   </component>
@@ -122,7 +111,7 @@
       <workItem from="1718025545161" duration="1943000" />
       <workItem from="1718027502648" duration="13215000" />
       <workItem from="1719138654750" duration="1088000" />
-      <workItem from="1719248166722" duration="3632000" />
+      <workItem from="1719248166722" duration="5339000" />
     </task>
     <servers />
   </component>

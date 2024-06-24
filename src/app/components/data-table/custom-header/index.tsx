@@ -58,7 +58,7 @@ const styles = {
 
 interface CustomHeaderProps {
   search: string;
-  setSearch: (search: string) => void;
+  setSearch: any;
 }
 
 export const CustomHeader = ({ search, setSearch }: CustomHeaderProps) => {
