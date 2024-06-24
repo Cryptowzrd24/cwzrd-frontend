@@ -2,13 +2,26 @@ import { priceNumberFormatter } from '@/utils/price-number-formater';
 import styles from './index.module.css';
 
 import { CustomCellRendererProps } from 'ag-grid-react';
+import { usePathname } from 'next/navigation';
 
 export const VolumeComponent = (props: CustomCellRendererProps) => {
   const val = '$' + priceNumberFormatter(props.value);
+  const priceDiff = priceNumberFormatter(
+    props.data.volume_24h / props.data.price,
+  );
+  const pathName = usePathname();
+  const isPathNewCoin = pathName.includes('/market/new-coin');
+
   return (
-    <div className={styles['volume-comp']}>
+    <div
+      className={`${!isPathNewCoin ? styles['volume-comp'] : styles['margin-none']} `}
+    >
       <p className={styles['price-main']}>{val}</p>
-      <p className={styles['sub-price']}>9123123 USDT</p>
+      {!isPathNewCoin && (
+        <p
+          className={styles['sub-price']}
+        >{`${priceDiff} ${props.data.symbol}`}</p>
+      )}
     </div>
   );
 };

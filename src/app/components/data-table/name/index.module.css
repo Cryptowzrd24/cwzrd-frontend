@@ -2,10 +2,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-top: 7px;
     height: 70px;
-}
-
-.name-section {
+  }
+  
+  .name-section{
     display: flex;
     flex-direction: column;
     justify-content: center;

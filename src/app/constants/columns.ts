@@ -71,7 +71,7 @@ export const columnsNewCoin = [
   { field: 'percent_change_24h', headerName: '24h%' },
   { field: 'volume_24h' },
   { field: 'fdv' },
-  { field: 'last7Added' },
+  { field: 'date_added' },
 ];
 
 export const columnsChain = [
