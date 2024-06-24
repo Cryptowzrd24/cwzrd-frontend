@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import useColumnGainersDefs from '@/app/hooks/data-grid/column-defination-gainers';
@@ -11,9 +11,11 @@ const Table = () => {
   const columnGainersDef = useColumnGainersDefs(columnsGainers);
   const columnLosersDef = useColumnLosersDefs(columnsLosers);
 
+  const [search, setSearch] = useState('');
+
   return (
     <div className="data-table-wrapper">
-      <CustomHeader />
+      <CustomHeader search={search} setSearch={setSearch} />
       <div
         style={{
           display: 'flex',
@@ -23,12 +25,14 @@ const Table = () => {
         }}
       >
         <DataTable
+          search={search}
           title={'Top Gainers'}
           rowData={rowDataGainers}
           columnDefs={columnGainersDef}
           width="50%"
         />
         <DataTable
+          search={search}
           title={'Top Losers'}
           rowData={rowDataLosers}
           columnDefs={columnLosersDef}

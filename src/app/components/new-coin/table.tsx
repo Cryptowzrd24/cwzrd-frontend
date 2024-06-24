@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import useColumnNewCoinsDefs from '@/app/hooks/data-grid/column-defination-new-coins';
@@ -9,9 +9,11 @@ import { rowDataNewCoins } from '@/app/constants/row';
 const Table = () => {
   const columnNewCoinsDef = useColumnNewCoinsDefs(columnsNewCoin);
 
+  const [search, setSearch] = useState('');
+
   return (
     <div className="data-table-wrapper">
-      <CustomHeader />
+      <CustomHeader search={search} setSearch={setSearch} />
       <div
         style={{
           display: 'flex',
@@ -19,6 +21,7 @@ const Table = () => {
         }}
       >
         <DataTable
+          search={search}
           rowData={rowDataNewCoins}
           columnDefs={columnNewCoinsDef}
           width="100%"

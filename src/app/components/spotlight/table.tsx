@@ -42,9 +42,11 @@ const Table = () => {
     columnsCompactMostVisited,
   );
 
+  const [search, setSearch] = useState('');
+
   return (
     <div className="data-table-wrapper">
-      <CustomHeader />
+      <CustomHeader search={search} setSearch={setSearch} />
       <div
         style={{
           display: 'flex',
@@ -62,6 +64,7 @@ const Table = () => {
           }}
         >
           <DataTable
+            search={search}
             title={'Trending'}
             rowData={rowCompactTrending}
             columnDefs={columnTrendingDef}
@@ -69,6 +72,7 @@ const Table = () => {
             height={550}
           />
           <DataTable
+            search={search}
             title={'Biggest Gainers'}
             rowData={rowCompactGainers}
             columnDefs={columnGainersDef}
@@ -76,6 +80,7 @@ const Table = () => {
             height={550}
           />
           <DataTable
+            search={search}
             title={'Biggest Losers'}
             rowData={rowCompactLosers}
             columnDefs={columnLosersDef}
@@ -91,6 +96,7 @@ const Table = () => {
           }}
         >
           <DataTable
+            search={search}
             title={'Most Visited'}
             rowData={rowCompactMostVisited}
             columnDefs={columnMostVisitedDefs}
@@ -98,6 +104,7 @@ const Table = () => {
             height={550}
           />
           <DataTable
+            search={search}
             title={'Recently Added'}
             rowData={rowCompactRecentlyAdded}
             columnDefs={columnRecentlyAddedDef}
@@ -105,6 +112,7 @@ const Table = () => {
             height={550}
           />
           <DataTable
+            search={search}
             title={'Highest Volume'}
             rowData={rowCompactHighestVolume}
             columnDefs={columnHighestVolumeDef}
