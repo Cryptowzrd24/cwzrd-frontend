@@ -724,3 +724,30 @@ export const rowDataExchange = [
     last7Days: 'graph',
   },
 ];
+
+export const rowDataCollections = [
+  {
+    index: 1,
+    name: 'PudgyPenguins ETH',
+    volume_24: { amount: '254,567', percent: '+14.11 %' },
+    market_cap: '254,567',
+    floor_price: '254.67',
+    avg_price: { amount: '254,567 ETH', percent: '+14.11 %' },
+    sales: { amount: '14', percent: '-7.11 %' },
+    assets: '10,000',
+    owners: '5,730',
+    owners_percent: '34.72',
+  },
+  {
+    index: 2,
+    name: 'BoredApeYatch ETH',
+    volume_24: { amount: '254,567 ETH', percent: '-7.11 %' },
+    market_cap: '254,567',
+    floor_price: '254.67',
+    avg_price: { amount: '254,567 ETH', percent: '-7.11 %' },
+    sales: { amount: '38', percent: '-7.11 %' },
+    assets: '10,000',
+    owners: '5,730',
+    owners_percent: '34.72',
+  },
+];
