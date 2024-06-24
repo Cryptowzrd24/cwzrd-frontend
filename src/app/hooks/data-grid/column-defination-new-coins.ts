@@ -10,6 +10,7 @@ import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
+import { DateAdded } from '@/app/components/data-table/date-component';
 
 const useColumnNewCoinsDefs = (columns: any) => {
   return useMemo(() => {
@@ -70,12 +71,12 @@ const useColumnNewCoinsDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
-        case 'last7Added':
+        case 'date_added':
           return {
-            field: 'last7Added',
+            field: 'date_added',
             width: 140,
-            headerName: 'Last 7 Added',
-            valueFormatter: (p: any) => p.value,
+            headerName: 'Date Added',
+            cellRenderer: DateAdded,
           };
         default:
           return col;

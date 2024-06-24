@@ -1,5 +1,7 @@
 export const priceNumberFormatter = (price: number) => {
-  if (!price) return;
+  if (price === 0) {
+    return price;
+  }
   if (price % 1 === 0) {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   } else {

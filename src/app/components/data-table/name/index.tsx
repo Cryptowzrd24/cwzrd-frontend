@@ -5,7 +5,7 @@ import BitcoinIcon from '../../../../../public/icons/Ticker-Section/bitcoin';
 import { CustomCellRendererProps } from 'ag-grid-react';
 
 export const CurrencyNameComponent = (props: CustomCellRendererProps) => {
-  const [firstWord, secondWord] = props.value.split(' ');
+  const [firstWord] = props.value.split(' ');
   return (
     <div className={styles['currency-comp']}>
       <div className={styles['currency-icon']}>
@@ -13,7 +13,7 @@ export const CurrencyNameComponent = (props: CustomCellRendererProps) => {
       </div>
       <div className={styles['name-section']}>
         <p className={styles['full-name']}>{firstWord}</p>
-        <p className={styles['short-name']}>{secondWord}</p>
+        <p className={styles['short-name']}>{props.data.symbol}</p>
       </div>
     </div>
   );
