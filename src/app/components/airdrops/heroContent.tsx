@@ -17,7 +17,7 @@ function HeroContent() {
         MARKET CAP
       </Typography>
       <Typography variant="h1" sx={{ maxWidth: '830px', width: '100%' }}>
-        Top Cryptocurrency Spot
+        Potential{' '}
         <span
           style={{
             backgroundImage:
@@ -27,7 +27,7 @@ function HeroContent() {
             marginLeft: '8px',
           }}
         >
-          Exchanges{' '}
+          Airdrops{' '}
         </span>{' '}
       </Typography>
       <Box
