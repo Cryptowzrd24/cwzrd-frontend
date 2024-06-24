@@ -10,7 +10,6 @@ import { VolumeComponent } from '../../components/data-table/volume';
 import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
-import { CirculatingSupply } from '@/app/components/data-table/circulating-supply';
 
 const useColumnMostVisitedDefs = (columns: any) => {
   return useMemo(() => {
@@ -72,7 +71,7 @@ const useColumnMostVisitedDefs = (columns: any) => {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
             width: 165,
-            cellRenderer: CirculatingSupply,
+            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
             tooltipComponent: RowTooltip,
             tooltipValueGetter: (params: any) =>
               params.value == null || params.value === ''

@@ -30,21 +30,6 @@ export const dataGridApi = createApi({
         };
       },
     }),
-    fetchMostVisitedData: builder.query({
-      query: () => {
-        return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/most-visited`,
-          method: 'GET',
-          headers: {
-            'X-CMC_PRO_API_KEY': Key,
-          },
-        };
-      },
-    }),
   }),
 });
-export const {
-  useFetchCoinDataQuery,
-  useFetchNewCoinDataQuery,
-  useFetchMostVisitedDataQuery,
-} = dataGridApi;
+export const { useFetchCoinDataQuery, useFetchNewCoinDataQuery } = dataGridApi;
