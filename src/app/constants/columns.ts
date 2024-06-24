@@ -174,3 +174,16 @@ export const columnsExchanges = [
   { field: 'fiat_supported', headerName: 'Fiat Supported' },
   { field: 'last7Days' },
 ];
+
+export const columnsCollections = [
+  { field: 'index' },
+  { field: 'name' },
+  { field: 'volume_24' },
+  { field: 'market_cap' },
+  { field: 'floor_price' },
+  { field: 'avg_price' },
+  { field: 'sales' },
+  { field: 'assets' },
+  { field: 'owners' },
+  { field: 'owners_percent' },
+];
