@@ -13,6 +13,7 @@ interface DataTableProps {
   columnDefs: any[];
   height?: number;
   width?: string;
+  search?: string;
 }
 
 const DataTable = ({
@@ -21,6 +22,7 @@ const DataTable = ({
   columnDefs,
   height = 907,
   width = '100%',
+  search = '',
 }: DataTableProps) => {
   return (
     <div className="ag-theme-material" style={{ height, width }}>
@@ -38,6 +40,7 @@ const DataTable = ({
         suppressPaginationPanel={true}
         tooltipShowDelay={0}
         paginationPageSize={10}
+        quickFilterText={search}
         rowStyle={{
           fontFamily: 'SF Pro Display',
           fontSize: 16,

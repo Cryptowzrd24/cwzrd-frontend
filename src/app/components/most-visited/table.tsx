@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import { columnsMostVisited } from '@/app/constants/columns';
@@ -9,9 +9,11 @@ import useColumnMostVisitedDefs from '@/app/hooks/data-grid/column-defination-mo
 const Table = () => {
   const columnMostVisitedDef = useColumnMostVisitedDefs(columnsMostVisited);
 
+  const [search, setSearch] = useState('');
+
   return (
     <div className="data-table-wrapper">
-      <CustomHeader />
+      <CustomHeader search={search} setSearch={setSearch} />
       <div
         style={{
           display: 'flex',
@@ -19,6 +21,7 @@ const Table = () => {
         }}
       >
         <DataTable
+          search={search}
           rowData={rowDataMostVisited}
           columnDefs={columnMostVisitedDef}
           width="100%"

@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import { columnsAirdrops } from '@/app/constants/columns';
@@ -11,9 +11,11 @@ import './index.css';
 const Table = () => {
   const columnAirDropsDef = useColumnAirdropsDefs(columnsAirdrops);
 
+  const [search, setSearch] = useState('');
+
   return (
     <div className="data-table-wrapper">
-      <CustomHeader />
+      <CustomHeader search={search} setSearch={setSearch} />
       <div
         style={{
           display: 'flex',
@@ -21,6 +23,7 @@ const Table = () => {
         }}
       >
         <DataTable
+          search={search}
           rowData={rowAirdrops}
           columnDefs={columnAirDropsDef}
           width="100%"
