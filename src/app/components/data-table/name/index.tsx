@@ -8,9 +8,7 @@ export const CurrencyNameComponent = (props: CustomCellRendererProps) => {
   const [firstWord] = props.value.split(' ');
   return (
     <div className={styles['currency-comp']}>
-      <div className={styles['currency-icon']}>
-        <BitcoinIcon />
-      </div>
+      <BitcoinIcon />
       <div className={styles['name-section']}>
         <p className={styles['full-name']}>{firstWord}</p>
         <p className={styles['short-name']}>{props.data.symbol}</p>
