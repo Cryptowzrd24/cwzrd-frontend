@@ -7,7 +7,6 @@ import useColumnNewCoinsDefs from '@/app/hooks/data-grid/column-defination-new-c
 import { columnsNewCoin } from '@/app/constants/columns';
 import { useFetchNewCoinDataQuery } from '@/app/redux/reducers/data-grid';
 
-
 const Table = () => {
   const columnNewCoinsDef = useColumnNewCoinsDefs(columnsNewCoin);
 
