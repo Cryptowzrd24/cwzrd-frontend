@@ -1,0 +1,19 @@
+.score {
+  width: 47px;
+  height: 31px;
+  background: linear-gradient(180deg, #7248f7 0%, #bf48f7 100%);
+  padding: 5px, 12px, 5px, 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 17px;
+}
+
+.score p {
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  font-weight: 500;
+}
