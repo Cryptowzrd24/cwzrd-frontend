@@ -5,9 +5,12 @@ import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
 import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
+import { Pagination } from '@/app/components/data-table/pagination';
 
 const Table = () => {
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
+
+  const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const { data } = useFetchCoinDataQuery({});
   useEffect(() => {
@@ -31,15 +34,21 @@ const Table = () => {
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader />
+      <CustomHeader search={search} setSearch={setSearch} />
       <div
         style={{
           display: 'flex',
           gap: '36px',
         }}
       >
-        <DataTable rowData={rowData} columnDefs={columnCoinsDef} width="100%" />
+        <DataTable
+          search={search}
+          rowData={rowData}
+          columnDefs={columnCoinsDef}
+          width="100%"
+        />
       </div>
+      <Pagination />
     </div>
   );
 };

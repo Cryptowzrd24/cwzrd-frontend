@@ -9,6 +9,7 @@ const theme = createTheme({
     },
     secondary: {
       main: colors.secondary,
+      light: colors.lightPurple,
     },
     common: {
       black: '#000',
