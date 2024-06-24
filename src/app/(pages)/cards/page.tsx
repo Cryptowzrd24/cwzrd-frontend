@@ -4,6 +4,9 @@ import GraphCard from "@/app/components/common/graphCard.component";
 import Card1 from "@/app/components/common/card1.component";
 import Card2 from "@/app/components/common/card2.component";
 import Card3 from "@/app/components/common/card3.component";
+import Card4 from "@/app/components/common/card4.component";
+import Card5 from "@/app/components/common/card5.component";
+import Card6 from "@/app/components/common/card6.component";
 
 import { colorConfig } from "@/app/helpers/config";
 
@@ -19,6 +22,13 @@ import cardBgImage5 from "@/app/assets/images/cardImagebg5.png"
 import cardBgImage6 from "@/app/assets/images/cardImagebg6.png"
 import cardBgImage7 from "@/app/assets/images/cardImagebg7.png"
 import cardBgImage8 from "@/app/assets/images/cardImagebg8.png"
+import coinBgImage from "@/app/assets/images/coinImage.png"
+import newsImage from "@/app/assets/images/newsBgImage.png"
+import vectorImage from "@/app/assets/images/vector.png"
+import cardPerson from "@/app/assets/images/cardPersonTiles.png"
+
+
+
 
 
 
@@ -468,6 +478,42 @@ const Components = () => {
                 value="-19.88 %"
                 end="in 7 days."
             />
+
+
+            <Card4
+                bgImage={coinBgImage}
+                heading={"News"}
+                staticTextColor={colorConfig.white}
+                mainText="Why is Crypto Market Up Today?"
+                date={new Date()}
+                name={"John Smith"}
+            />
+
+            <Card4
+                bgImage={newsImage}
+                heading={"📈️ News"}
+                staticTextColor={colorConfig.white}
+                mainText="Gucci Burberry join Booming Scotland."
+                date={new Date()}
+                name={"John Smith"}
+            />
+
+            <Card5
+                heading="❇️ Features"
+                image={vectorImage}
+                text={"Learn from fellow traders' insights and strategies."}
+            />
+
+            <Card6 
+                 heading="❇️ Features"
+                 staticTextColor={colorConfig.white}
+                 image={cardPerson}
+                 mainText={"Private Members Chat"}
+                 subText={"Come chat it up with our analysts Billy & Martin and our worldwide community."}
+            />
+
+
+
         </div>
     </>)
 }

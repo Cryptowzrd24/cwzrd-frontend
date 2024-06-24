@@ -9,6 +9,8 @@ import { Button, Card, Stack, Typography } from '@mui/material';
 import styles from "./index.module.scss";
 import Image from 'next/image';
 import { colorConfig } from '@/app/helpers/config';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import CardHeader from './cardHeader.component';
 
 
 interface ICard3Props {
@@ -114,14 +116,12 @@ const Card3 = (props: ICard3Props) => {
             }
 
             <div className={styles.header_wrapper}>
-                <div className={styles.heading}>
-                    <Typography sx={{ fontSize: "14px", lineHeight: "18px", fontWeight: "600", color: `${staticTextColor ?? "unset"}` }}>
-                        {heading}
-                    </Typography>
-                    <div className={styles.stepper}>
-                        <StepIndicator currentStep={currentStep} invertColor={!!staticTextColor} totalSteps={['1', '2', '3']} setStep={(index: number) => stepSetter(index)} />
-                    </div>
-                </div>
+                <CardHeader
+                    heading={heading}
+                    currentStep={currentStep}
+                    stepSetter={stepSetter}
+                    staticTextColor={staticTextColor}
+                />
             </div>
             <Typography sx={{ marginLeft: "22px", fontSize: "24px", marginRight: "37px", fontWeight: "500", lineHeight: "26px", letterSpacing: "1px" }}>
                 <span style={{ color: `${getColor()}` }}>{name} </span>
@@ -131,7 +131,9 @@ const Card3 = (props: ICard3Props) => {
             </Typography>
 
             <Stack direction="row" style={{ marginLeft: "20px", marginTop: "20px" }}>
-                <Button variant="contained" size="small" sx={{ backgroundColor: `${transparentButton ? "rgba(255, 255, 255, 0.1)" : "#111111"}`, borderRadius: "25px" }}>See all  &gt;</Button>
+                <Button variant="contained" size="small" sx={{ backgroundColor: `${transparentButton ? "rgba(255, 255, 255, 0.1)" : "#111111"}`, borderRadius: "25px" }}>
+                    See all &nbsp;  <ArrowForwardIosIcon sx={{ fontSize: "14px" }} />
+                </Button>
             </Stack>
         </Card >
 

@@ -11,6 +11,7 @@ import { getGraphColor, getPositiveNegativeIcon } from "@/app/helpers/functions"
 import styles from "./index.module.scss";
 import BarChart from "../elements/barGraphCard.element";
 import { Card, Typography } from "@mui/material";
+import CardHeader from "./cardHeader.component";
 
 
 
@@ -25,14 +26,11 @@ const GraphCard = (props: IMarketCapCardProps) => {
     return (
         <Card className={styles.market_cap_wrapper}>
             <div className={styles.header_wrapper}>
-            <div className={styles.heading}>
-                    <Typography sx={{fontSize: "14px", lineHeight: "18px", fontWeight: "600"}}>
-                        {heading}
-                    </Typography>
-                    <div className={styles.stepper}>
-                        <StepIndicator currentStep={currentStep} totalSteps={['1', '2', '3']} setStep={(index: number) => stepSetter(index)} />
-                    </div>
-                </div>
+                <CardHeader
+                    heading={heading}
+                    currentStep={currentStep}
+                    stepSetter={stepSetter}
+                />
                 <div className={styles.value}>{value?.prefix}{value.data}{value?.postfix}</div>
                 <div style={{
                     fontSize: '14px',

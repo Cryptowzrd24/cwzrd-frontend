@@ -7,6 +7,7 @@ import { getPositiveNegativeIcon, getTimeAgoText, getVisitCount, numberWithComma
 
 import styles from "./index.module.scss";
 import { Card, Typography } from "@mui/material";
+import CardHeader from "./cardHeader.component";
 
 
 interface ICard1Props {
@@ -45,14 +46,11 @@ const Card1 = (props: ICard1Props) => {
     return (
         <Card className={styles.market_cap_wrapper}>
             <div className={styles.header_wrapper}>
-            <div className={styles.heading}>
-                    <Typography sx={{fontSize: "14px", lineHeight: "18px", fontWeight: "600"}}>
-                        {heading}
-                    </Typography>
-                    <div className={styles.stepper}>
-                        <StepIndicator currentStep={currentStep} totalSteps={['1', '2', '3']} setStep={(index: number) => stepSetter(index)} />
-                    </div>
-                </div>
+                <CardHeader
+                    heading={heading}
+                    currentStep={currentStep}
+                    stepSetter={stepSetter}
+                />
             </div>
             <div className={styles.recently_added}>
                 <ul>
