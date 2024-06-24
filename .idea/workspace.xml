@@ -5,23 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/icons/Grid-Header/taskTypeArrow.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/airdrop.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/airdropStatusChart.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/airdrops/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/airdrops/table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/airdrop-status/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/airdrop-status/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/eligibility-period/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/eligibility-period/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/project-name/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/project-name/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/task-type/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/task-type/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-airdrops.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/collections/table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/volume-24/index.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/volume-24/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-collections.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/coin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/coin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/first-rank.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/icons/first-rank.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/second-rank.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/icons/second-rank.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/third-rank.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/icons/third-rank.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/collections/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/collections/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/custom-header/data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/custom-header/data.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/data-table/id/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/id/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/name/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/name/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/name/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/name/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/constants/columns.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/constants/columns.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/constants/row.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/constants/row.ts" afterDir="false" />
     </list>
@@ -41,39 +37,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Node.js..eslintrc.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;eslint.code.style.apply.dismiss&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mac/Current Projects/crypto-wzrd/src/app/components/data-table&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettier.import.notification.dismissed&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/mac/Current Projects/crypto-wzrd/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js..eslintrc.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "eslint.code.style.apply.dismiss": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/mac/Current Projects/crypto-wzrd/src/app/hooks/data-grid",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettier.import.notification.dismissed": "true",
+    "ts.external.directory.path": "/Users/mac/Current Projects/crypto-wzrd/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/components/data-table" />
       <recent name="$PROJECT_DIR$/src/app/hooks/data-grid" />
+      <recent name="$PROJECT_DIR$/src/app/components/collections" />
+      <recent name="$PROJECT_DIR$/src/app/components/data-table" />
       <recent name="$PROJECT_DIR$/src/app/components/spotlight" />
       <recent name="$PROJECT_DIR$/src/app/components/gainers-losers" />
-      <recent name="$PROJECT_DIR$/src/app/components/chains" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/icons" />
       <recent name="$PROJECT_DIR$/public/icons/Grid-Header" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/public/airdrop-status-chart" />
       <recent name="$PROJECT_DIR$/src/app/components/new-coin" />
-      <recent name="$PROJECT_DIR$/src/app/assests/fonts" />
     </key>
   </component>
   <component name="RunManager">

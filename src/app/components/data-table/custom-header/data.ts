@@ -9,6 +9,7 @@ const links = [
   { label: 'Exchanges', href: '/market/exchanges' },
   { label: 'Defi', href: '/market/defi' },
   { label: 'Airdrops', href: '/market/airdrops' },
+  { label: 'NFT', href: '/market/collections' },
 ];
 
 export default links;

@@ -23,7 +23,7 @@ export const ID = (props: CustomCellRendererProps) => {
           <Image
             className={styles['rank-image']}
             src={firstRank}
-            width={24}
+            width={22}
             alt=""
             onClick={() => setIsSelected(true)}
           />
@@ -35,7 +35,7 @@ export const ID = (props: CustomCellRendererProps) => {
           <Image
             className={styles['rank-image']}
             src={secondRank}
-            width={24}
+            width={22}
             alt=""
             onClick={() => setIsSelected(true)}
           />
@@ -47,7 +47,7 @@ export const ID = (props: CustomCellRendererProps) => {
           <Image
             className={styles['rank-image']}
             src={thirdRank}
-            width={24}
+            width={22}
             alt=""
             onClick={() => setIsSelected(true)}
           />
