@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';

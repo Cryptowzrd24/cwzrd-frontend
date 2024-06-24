@@ -1,9 +1,11 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import useColumnNewCoinsDefs from '@/app/hooks/data-grid/column-defination-new-coins';
 import { columnsNewCoin } from '@/app/constants/columns';
+import { useFetchNewCoinDataQuery } from '@/app/redux/reducers/data-grid';
 import { useFetchNewCoinDataQuery } from '@/app/redux/reducers/data-grid';
 
 const Table = () => {
