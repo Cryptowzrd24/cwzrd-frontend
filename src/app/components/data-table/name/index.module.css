@@ -4,20 +4,20 @@
     gap: 10px;
     margin-top: 7px;
     height: 70px;
-  }
-  
-  .name-section{
+}
+
+.name-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 3px;
+    gap: -2px;
+    margin-top: -7px;
 }
-
 
 
 .full-name {
     font-size: 16px;
-
+    margin: 0;
     font-weight: 600;
     line-height: 20.8px;
 }
@@ -27,4 +27,5 @@
     font-weight: 400;
     color: rgba(17, 17, 17, 0.6);
     line-height: 15.6px;
+    margin: 0;
 }

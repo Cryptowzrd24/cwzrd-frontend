@@ -6,7 +6,10 @@ import styles from './index.module.css';
 import { LinearProgress } from '@mui/material';
 
 export const CirculatingSupply = (props: CustomCellRendererProps) => {
-  const val = '$' + priceNumberFormatter(props.value)?.slice(0, 10);
+  const val =
+    props.value === 0
+      ? '$0'
+      : '$' + priceNumberFormatter(props.value)?.slice(0, 10);
   const percentage =
     (props.data.circulating_supply / props.data.max_supply) * 100;
   return (

@@ -5,27 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/components/data-table/custom-header/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/airdrops/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/airdrops/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/categories/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/categories/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/chains/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/chains/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/coin/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/coin/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/collections/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/collections/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/custom-header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/custom-header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/pagination/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/pagination/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/defi/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/defi/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/exchange/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/exchange/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/gainers-losers/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/gainers-losers/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/highest-volume/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/highest-volume/table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/circulating-supply/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/circulating-supply/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/name/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/name/index.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/most-visited/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/most-visited/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/new-coin/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/new-coin/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/spotlight/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/spotlight/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/trending/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/trending/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/constants/row.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/constants/row.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-most-visit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-most-visit.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/redux/reducers/data-grid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/redux/reducers/data-grid.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +114,7 @@
       <workItem from="1718025545161" duration="1943000" />
       <workItem from="1718027502648" duration="13215000" />
       <workItem from="1719138654750" duration="1088000" />
-      <workItem from="1719248166722" duration="17321000" />
+      <workItem from="1719248166722" duration="18368000" />
     </task>
     <servers />
   </component>
