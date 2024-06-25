@@ -10,6 +10,7 @@ import { VolumeComponent } from '../../components/data-table/volume';
 import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
+import { CirculatingSupply } from '@/app/components/data-table/circulating-supply';
 
 const useColumnHighestVolDefs = (columns: any) => {
   return useMemo(() => {
@@ -71,7 +72,7 @@ const useColumnHighestVolDefs = (columns: any) => {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
             width: 165,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            cellRenderer: CirculatingSupply,
             tooltipComponent: RowTooltip,
             tooltipValueGetter: (params: any) =>
               params.value == null || params.value === ''
