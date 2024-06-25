@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
@@ -8,11 +8,30 @@ import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
 
 const Table = () => {
-  const columnCoinsDef = useColumnCoinDefs(columnsCoin);
-
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+
+  const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const { data } = useFetchCoinDataQuery({});
+
+  const handleSetSearch = useCallback((value: any) => {
+    setSearch(value);
+  }, []);
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number,
+  ) => {
+    setCurrentPage(value);
+  };
+
+  const paginatedRowData = rowData.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize,
+  );
+
   useEffect(() => {
     if (data && data.data) {
       const res = data.data.map((item: any) => ({
@@ -34,7 +53,7 @@ const Table = () => {
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={setSearch} />
+      <CustomHeader search={search} setSearch={handleSetSearch} />
       <div
         style={{
           display: 'flex',
@@ -43,12 +62,17 @@ const Table = () => {
       >
         <DataTable
           search={search}
-          rowData={rowData}
+          rowData={paginatedRowData}
           columnDefs={columnCoinsDef}
           width="100%"
         />
       </div>
-      <Pagination />
+      <Pagination
+        length={rowData.length}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };
