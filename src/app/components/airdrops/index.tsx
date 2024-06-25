@@ -7,6 +7,7 @@ import MemberShipBanner from '../banners/memberShipBanner';
 import HeroContent from './heroContent';
 import Stats from '@/app/components/stats';
 import Table from '@/app/components/coin/table';
+import Card from './cards';
 
 function AirDrops() {
   return (
@@ -17,6 +18,9 @@ function AirDrops() {
       </Box>
       <Box sx={{ mt: '40px' }}>
         <Table />
+      </Box>
+      <Box sx={{ mt: '40px' }}>
+        <Card />
       </Box>
       <Box sx={{ mt: '80px', mb: '80px' }}>
         <NewsLetterBanner />
