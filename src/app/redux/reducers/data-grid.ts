@@ -4,14 +4,14 @@ import { Key } from './apiKey';
 export const dataGridApi = createApi({
   reducerPath: 'dataGridApi',
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'https://aa48-39-58-109-113.ngrok-free.app/api',
+    baseUrl: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency',
   }),
 
   endpoints: (builder) => ({
     fetchCoinData: builder.query({
       query: () => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest`,
+          url: `/listings/latest`,
           method: 'GET',
           headers: {
             'X-CMC_PRO_API_KEY': Key,
@@ -22,7 +22,7 @@ export const dataGridApi = createApi({
     fetchNewCoinData: builder.query({
       query: () => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/new`,
+          url: `/listings/new`,
           method: 'GET',
           headers: {
             'X-CMC_PRO_API_KEY': Key,
@@ -33,7 +33,18 @@ export const dataGridApi = createApi({
     fetchMostVisitedData: builder.query({
       query: () => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/most-visited`,
+          url: `/trending/most-visited`,
+          method: 'GET',
+          headers: {
+            'X-CMC_PRO_API_KEY': Key,
+          },
+        };
+      },
+    }),
+    fetchTrendingData: builder.query({
+      query: () => {
+        return {
+          url: `/trending/latest`,
           method: 'GET',
           headers: {
             'X-CMC_PRO_API_KEY': Key,
@@ -47,4 +58,5 @@ export const {
   useFetchCoinDataQuery,
   useFetchNewCoinDataQuery,
   useFetchMostVisitedDataQuery,
+  useFetchTrendingDataQuery,
 } = dataGridApi;
