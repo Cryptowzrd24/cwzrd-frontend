@@ -1,0 +1,82 @@
+const styles = {
+  link: (isActive: boolean) => ({
+    fontSize: 14,
+    fontWeight: 700,
+    color: isActive ? '#7248F7' : '#11111199',
+    background: isActive ? '#7248F71A' : 'transparent',
+    textDecoration: 'none',
+    padding: '11px 16px',
+    lineHeight: '18.2px',
+    borderRadius: '40px',
+  }),
+  iconBox: {
+    padding: '10px',
+    borderRadius: '8px',
+    background: '#7248F71A',
+    height: '20px',
+    cursor: 'pointer',
+  },
+  select: {
+    '& .MuiSelect-select': {
+      width: '23px',
+      padding: '9.5px 16px',
+      background: '#F0ECFF',
+      color: '#7248F7',
+      fontSize: '16px',
+      fontWeight: 700,
+      display: 'flex',
+      alignItems: 'center',
+      borderRadius: '8px',
+    },
+    '& .MuiSvgIcon-root': {
+      color: '#7248F7',
+    },
+    '& .MuiOutlinedInput-notchedOutline': {
+      border: 'none',
+    },
+    '& .MuiSelect-icon': {
+      right: '15px',
+    },
+    backgroundColor: '#F0ECFF',
+    borderRadius: '8px',
+  },
+  searchContainer: {
+    paddingTop: '24px',
+    borderTop: '1px solid #1111111A',
+    paddingInline: '20px',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: '8px',
+    marginTop: '24px',
+  },
+  searchInput: {
+    outline: 'none',
+    border: 'none',
+    background: 'transparent',
+    fontSize: '16px',
+    fontWeight: '500',
+    lineHeight: '20.8px',
+    fontFamily: 'Sf Pro Display',
+    color: '#111111',
+    width: '100%',
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginBottom: '24px',
+  },
+  typography: {
+    fontSize: '16px',
+    fontWeight: 600,
+    lineHeight: '20.8px',
+    color: '#11111199',
+  },
+  filterContainer: {
+    marginLeft: 'auto',
+    display: 'flex',
+    gap: '8px',
+    alignItems: 'center',
+  },
+};
+export default styles;
