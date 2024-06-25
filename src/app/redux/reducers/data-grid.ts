@@ -52,6 +52,17 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchGainersLosersData: builder.query({
+      query: () => {
+        return {
+          url: `/trending/gainers-losers`,
+          method: 'GET',
+          headers: {
+            'X-CMC_PRO_API_KEY': Key,
+          },
+        };
+      },
+    }),
   }),
 });
 export const {
@@ -59,4 +70,5 @@ export const {
   useFetchNewCoinDataQuery,
   useFetchMostVisitedDataQuery,
   useFetchTrendingDataQuery,
+  useFetchGainersLosersDataQuery,
 } = dataGridApi;
