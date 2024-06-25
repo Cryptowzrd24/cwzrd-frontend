@@ -7,6 +7,7 @@ import Card3 from "@/app/components/common/card3.component";
 import Card4 from "@/app/components/common/card4.component";
 import Card5 from "@/app/components/common/card5.component";
 import Card6 from "@/app/components/common/card6.component";
+import Card7 from "@/app/components/common/card7.component";
 
 import { colorConfig } from "@/app/helpers/config";
 
@@ -26,6 +27,8 @@ import coinBgImage from "@/app/assets/images/coinImage.png"
 import newsImage from "@/app/assets/images/newsBgImage.png"
 import vectorImage from "@/app/assets/images/vector.png"
 import cardPerson from "@/app/assets/images/cardPersonTiles.png"
+import Card8 from "@/app/components/common/card8.componnet";
+
 
 
 
@@ -504,12 +507,44 @@ const Components = () => {
                 text={"Learn from fellow traders' insights and strategies."}
             />
 
-            <Card6 
-                 heading="❇️ Features"
-                 staticTextColor={colorConfig.white}
-                 image={cardPerson}
-                 mainText={"Private Members Chat"}
-                 subText={"Come chat it up with our analysts Billy & Martin and our worldwide community."}
+            <Card6
+                heading="❇️ Features"
+                staticTextColor={colorConfig.white}
+                image={cardPerson}
+                mainText={"Private Members Chat"}
+                subText={"Come chat it up with our analysts Billy & Martin and our worldwide community."}
+            />
+
+            <Card7
+                heading="❇️ Features"
+                staticTextColor={colorConfig.white}
+                text={"Enjoy all our features!"}
+                bg={'linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)'}
+                options={["Shared Knowledge", "Resource Sharing", "Expert Q&A", "Exclusive Opportunities", "Supportive People", "Member Profiles"]}
+                notinFormatOptions={false}
+            />
+
+            <Card7
+                heading="❇️ Features"
+                staticTextColor={colorConfig.white}
+                text={"Enjoy all our features!"}
+                bg={'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)'}
+                options={["Shared Knowledge", "Resource Sharing", "Exclusive Opportunities", "Member Profiles", "Expert Q&A", "Supportive People"]}
+                notinFormatOptions={true}
+            />
+
+            <Card8
+                heading="👥 Community"
+                text1="Join the Cryptowzrd"
+                text2="Community Today!"
+            />
+
+            <Card8
+                heading="👥 Community"
+                text1="Join the Cryptowzrd"
+                text2="Community Today!"
+                staticTextColor={colorConfig.white}
+                bg={"linear-gradient(to right bottom, #111111, #390a0a)"}
             />
 
 
