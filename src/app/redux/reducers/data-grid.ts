@@ -9,9 +9,9 @@ export const dataGridApi = createApi({
 
   endpoints: (builder) => ({
     fetchCoinData: builder.query({
-      query: () => {
+      query: ({ start, pageSize }: { start: number; pageSize: number }) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest`,
+          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=${start}&limit=${pageSize}`,
           method: 'GET',
           headers: {
             'X-CMC_PRO_API_KEY': Key,
@@ -20,9 +20,9 @@ export const dataGridApi = createApi({
       },
     }),
     fetchNewCoinData: builder.query({
-      query: () => {
+      query: ({ start, pageSize }: { start: number; pageSize: number }) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/new`,
+          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/new?start=${start}&limit=${pageSize}`,
           method: 'GET',
           headers: {
             'X-CMC_PRO_API_KEY': Key,
@@ -31,9 +31,9 @@ export const dataGridApi = createApi({
       },
     }),
     fetchMostVisitedData: builder.query({
-      query: () => {
+      query: ({ start, pageSize }: { start: number; pageSize: number }) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/most-visited`,
+          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/most-visited?start=${start}&limit=${pageSize}`,
           method: 'GET',
           headers: {
             'X-CMC_PRO_API_KEY': Key,
