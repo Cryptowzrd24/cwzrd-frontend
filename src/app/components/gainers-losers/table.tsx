@@ -1,18 +1,22 @@
 'use client';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import useColumnGainersDefs from '@/app/hooks/data-grid/column-defination-gainers';
 import useColumnLosersDefs from '@/app/hooks/data-grid/column-defination-losers';
 import { columnsGainers, columnsLosers } from '@/app/constants/columns';
-import { rowDataGainers, rowDataLosers } from '@/app/constants/row';
 import { Pagination } from '@/app/components/data-table/pagination';
+import { useFetchGainersLosersDataQuery } from '@/app/redux/reducers/data-grid';
 
 const Table = () => {
   const columnGainersDef = useColumnGainersDefs(columnsGainers);
   const columnLosersDef = useColumnLosersDefs(columnsLosers);
+  const { data } = useFetchGainersLosersDataQuery({});
 
   const [search, setSearch] = useState('');
+  // const [rowData, setRowData] = useState([]);
+  const [rowGainersData, setRowGainersData] = useState([]);
+  const [rowLosersData, setRowLosersData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
@@ -27,15 +31,42 @@ const Table = () => {
     setCurrentPage(value);
   };
 
-  const paginatedRowDataGainers = rowDataGainers.slice(
+  const paginatedRowDataGainers = rowGainersData.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
   );
 
-  const paginatedRowDataLosers = rowDataLosers.slice(
+  const paginatedRowDataLosers = rowLosersData.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
   );
+
+  useEffect(() => {
+    if (data && data.data) {
+      const gainers: any = [];
+      const losers: any = [];
+
+      data.data.map((item: any) => {
+        const formattedItem = {
+          id: item.id,
+          name: item.name,
+          price: item.quote.USD.price,
+          volume_24h: item.quote.USD.volume_24h,
+          percent_change_24h: item.quote.USD.percent_change_24h,
+          symbol: item.symbol,
+        };
+        if (formattedItem.percent_change_24h >= 0) {
+          gainers.push(formattedItem);
+        } else {
+          losers.push(formattedItem);
+        }
+
+        return formattedItem;
+      });
+      setRowGainersData(gainers);
+      setRowLosersData(losers);
+    }
+  }, [data]);
 
   return (
     <div className="data-table-wrapper">
@@ -64,7 +95,7 @@ const Table = () => {
         />
       </div>
       <Pagination
-        length={Math.max(rowDataGainers.length, rowDataLosers.length)}
+        length={Math.max(rowGainersData.length, rowLosersData.length)}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}
