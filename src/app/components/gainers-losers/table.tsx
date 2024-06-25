@@ -11,10 +11,10 @@ import { useFetchGainersLosersDataQuery } from '@/app/redux/reducers/data-grid';
 const Table = () => {
   const columnGainersDef = useColumnGainersDefs(columnsGainers);
   const columnLosersDef = useColumnLosersDefs(columnsLosers);
-  const { data } = useFetchGainersLosersDataQuery({});
+  const { data: dataGainers } = useFetchGainersLosersDataQuery('desc');
+  const { data: dataLosers } = useFetchGainersLosersDataQuery('asc');
 
   const [search, setSearch] = useState('');
-  // const [rowData, setRowData] = useState([]);
   const [rowGainersData, setRowGainersData] = useState([]);
   const [rowLosersData, setRowLosersData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,31 +42,30 @@ const Table = () => {
   );
 
   useEffect(() => {
-    if (data && data.data) {
-      const gainers: any = [];
-      const losers: any = [];
-
-      data.data.map((item: any) => {
-        const formattedItem = {
-          id: item.id,
-          name: item.name,
-          price: item.quote.USD.price,
-          volume_24h: item.quote.USD.volume_24h,
-          percent_change_24h: item.quote.USD.percent_change_24h,
-          symbol: item.symbol,
-        };
-        if (formattedItem.percent_change_24h >= 0) {
-          gainers.push(formattedItem);
-        } else {
-          losers.push(formattedItem);
-        }
-
-        return formattedItem;
-      });
-      setRowGainersData(gainers);
-      setRowLosersData(losers);
+    if (dataGainers && dataGainers.data) {
+      const res = dataGainers.data.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        price: item.quote.USD.price,
+        volume_24h: item.quote.USD.volume_24h,
+        percent_change_24h: item.quote.USD.percent_change_24h,
+        symbol: item.symbol,
+      }));
+      setRowGainersData(res);
     }
-  }, [data]);
+
+    if (dataLosers && dataLosers.data) {
+      const res = dataLosers.data.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        price: item.quote.USD.price,
+        volume_24h: item.quote.USD.volume_24h,
+        percent_change_24h: item.quote.USD.percent_change_24h,
+        symbol: item.symbol,
+      }));
+      setRowLosersData(res);
+    }
+  }, [dataGainers, dataLosers]);
 
   return (
     <div className="data-table-wrapper">

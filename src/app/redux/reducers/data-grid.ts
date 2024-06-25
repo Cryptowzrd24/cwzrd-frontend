@@ -53,9 +53,9 @@ export const dataGridApi = createApi({
       },
     }),
     fetchGainersLosersData: builder.query({
-      query: () => {
+      query: (sortOrder: string) => {
         return {
-          url: `/trending/gainers-losers`,
+          url: `/trending/gainers-losers?sort_dir=${sortOrder}`,
           method: 'GET',
           headers: {
             'X-CMC_PRO_API_KEY': Key,
