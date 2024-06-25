@@ -1,6 +1,20 @@
 import { Box, Typography, Pagination as MuiPagination } from '@mui/material';
 
-export const Pagination = () => {
+interface PaginationTypes {
+  length: number;
+  pageSize: number;
+  currentPage: number;
+  onPageChange: (event: React.ChangeEvent<unknown>, value: number) => void;
+}
+
+export const Pagination = ({
+  length,
+  pageSize,
+  currentPage,
+  onPageChange,
+}: PaginationTypes) => {
+  const start = (currentPage - 1) * pageSize + 1;
+  const end = Math.min(currentPage * pageSize, length);
   return (
     <Box
       style={{
@@ -19,14 +33,16 @@ export const Pagination = () => {
           lineHeight: '20.8px',
         }}
       >
-        1-10 of 9,383 assets
+        Showing {start} - {end} out of {length}
       </Typography>
       <MuiPagination
         style={{
           fontFamily: 'Sf Pro Display',
         }}
         color={'secondary'}
-        count={10}
+        count={Math.ceil(length / pageSize)}
+        page={currentPage}
+        onChange={onPageChange}
       />
     </Box>
   );

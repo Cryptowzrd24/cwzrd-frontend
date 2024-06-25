@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import {
@@ -24,14 +24,33 @@ import useColumnCompactLosersDefs from '@/app/hooks/data-grid/column-defination-
 import useColumnCompactRecentlyAddedDefs from '@/app/hooks/data-grid/column-defination-compact-recently-added';
 import useColumnCompactHighestVolumeDefs from '@/app/hooks/data-grid/column-defination-compact-highest-volume';
 import useColumnCompactMostVisitedDefs from '@/app/hooks/data-grid/column-defination-compact-most-visited';
+import { Pagination } from '@/app/components/data-table/pagination';
 
 const Table = () => {
+  const [search, setSearch] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+
+  const handleSetSearch = useCallback((value: any) => {
+    setSearch(value);
+  }, []);
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number,
+  ) => {
+    setCurrentPage(value);
+  };
+
+  const paginateData = (data: any) => {
+    return data.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  };
+
   const columnTrendingDef = useColumnCompactTrendingDefs(
     columnsCompactTrending,
   );
   const columnGainersDef = useColumnCompactGainersDefs(columnsCompactGainers);
   const columnLosersDef = useColumnCompactLosersDefs(columnsCompactLosers);
-
   const columnRecentlyAddedDef = useColumnCompactRecentlyAddedDefs(
     columnsCompactRecentlyAdded,
   );
@@ -42,11 +61,18 @@ const Table = () => {
     columnsCompactMostVisited,
   );
 
-  const [search, setSearch] = useState('');
+  const maxLength = Math.max(
+    rowCompactTrending.length,
+    rowCompactGainers.length,
+    rowCompactLosers.length,
+    rowCompactMostVisited.length,
+    rowCompactRecentlyAdded.length,
+    rowCompactHighestVolume.length,
+  );
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={setSearch} />
+      <CustomHeader search={search} setSearch={handleSetSearch} />
       <div
         style={{
           display: 'flex',
@@ -66,7 +92,7 @@ const Table = () => {
           <DataTable
             search={search}
             title={'Trending'}
-            rowData={rowCompactTrending}
+            rowData={paginateData(rowCompactTrending)}
             columnDefs={columnTrendingDef}
             width="33%"
             height={550}
@@ -74,7 +100,7 @@ const Table = () => {
           <DataTable
             search={search}
             title={'Biggest Gainers'}
-            rowData={rowCompactGainers}
+            rowData={paginateData(rowCompactGainers)}
             columnDefs={columnGainersDef}
             width="33%"
             height={550}
@@ -82,7 +108,7 @@ const Table = () => {
           <DataTable
             search={search}
             title={'Biggest Losers'}
-            rowData={rowCompactLosers}
+            rowData={paginateData(rowCompactLosers)}
             columnDefs={columnLosersDef}
             width="33%"
             height={550}
@@ -98,7 +124,7 @@ const Table = () => {
           <DataTable
             search={search}
             title={'Most Visited'}
-            rowData={rowCompactMostVisited}
+            rowData={paginateData(rowCompactMostVisited)}
             columnDefs={columnMostVisitedDefs}
             width="33%"
             height={550}
@@ -106,7 +132,7 @@ const Table = () => {
           <DataTable
             search={search}
             title={'Recently Added'}
-            rowData={rowCompactRecentlyAdded}
+            rowData={paginateData(rowCompactRecentlyAdded)}
             columnDefs={columnRecentlyAddedDef}
             width="33%"
             height={550}
@@ -114,13 +140,19 @@ const Table = () => {
           <DataTable
             search={search}
             title={'Highest Volume'}
-            rowData={rowCompactHighestVolume}
+            rowData={paginateData(rowCompactHighestVolume)}
             columnDefs={columnHighestVolumeDef}
             width="33%"
             height={550}
           />
         </div>
       </div>
+      <Pagination
+        length={maxLength}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };

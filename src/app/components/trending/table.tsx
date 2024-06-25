@@ -1,19 +1,38 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import { columnsTrending } from '@/app/constants/columns';
 import useColumnTrendingDefs from '@/app/hooks/data-grid/column-defination-trending';
 import { rowDataTrending } from '@/app/constants/row';
+import { Pagination } from '@/app/components/data-table/pagination';
 
 const Table = () => {
+  const [search, setSearch] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+
   const columnTrendingDef = useColumnTrendingDefs(columnsTrending);
 
-  const [search, setSearch] = useState('');
+  const handleSetSearch = useCallback((value: any) => {
+    setSearch(value);
+  }, []);
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number,
+  ) => {
+    setCurrentPage(value);
+  };
+
+  const paginatedRowData = rowDataTrending.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize,
+  );
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={setSearch} />
+      <CustomHeader search={search} setSearch={handleSetSearch} />
       <div
         style={{
           display: 'flex',
@@ -22,11 +41,17 @@ const Table = () => {
       >
         <DataTable
           search={search}
-          rowData={rowDataTrending}
+          rowData={paginatedRowData}
           columnDefs={columnTrendingDef}
           width="100%"
         />
       </div>
+      <Pagination
+        length={rowDataTrending.length}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };
