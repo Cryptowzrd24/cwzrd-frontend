@@ -28,6 +28,7 @@ import newsImage from "@/app/assets/images/newsBgImage.png"
 import vectorImage from "@/app/assets/images/vector.png"
 import cardPerson from "@/app/assets/images/cardPersonTiles.png"
 import Card8 from "@/app/components/common/card8.componnet";
+import Card9 from "@/app/components/common/card9.component";
 
 
 
@@ -541,13 +542,28 @@ const Components = () => {
 
             <Card8
                 heading="👥 Community"
-                text1="Join the Cryptowzrd"
-                text2="Community Today!"
+                text1={`About 10,700+`}
+                text2="people who already joined us"
                 staticTextColor={colorConfig.white}
-                bg={"linear-gradient(to right bottom, #111111, #390a0a)"}
+                bg={"linear-gradient(to right bottom, #111111, #490f0f)"}
+                footerButton={"Join now"}
             />
 
+            <Card8
+                heading="👥 Community"
+                text1={`About 10,700+`}
+                text2="people who already joined us"
+                staticTextColor={colorConfig.white}
+                bgImage={cardBgImage4}
+                footerButton={"Become A Member"}
+            />
 
+            <Card9
+                heading="⭐️ Member’s Profit"
+                staticTextColor={colorConfig.white}
+                text1={"Celebrating Success"}
+                text2="in Our Community"
+            />
 
         </div>
     </>)

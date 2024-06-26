@@ -12,13 +12,13 @@ import PlusIcon from "@/app/assets/images/iconPlusRound.png"
 const Avatars = () => {
     return (
         <AvatarGroup
-            sx={{ '& .MuiAvatar-root': { zIndex: (theme) => theme.zIndex.drawer + 1, order: -1 } }}
+            // sx={{ '& .MuiAvatar-root': { zIndex: (theme) => theme.zIndex.drawer + 1, order: -1 } }}
         >
-            <Avatar alt="Remy Sharp" src={Avatar1.src} />
-            <Avatar alt="Travis Howard" src={Avatar2.src} />
-            <Avatar alt="Agnes Walker" src={Avatar3.src} />
-            <Avatar alt="Trevor Henderson" src={Avatar4.src} />
-            <Avatar alt="plus" src={PlusIcon.src} />
+            <Avatar alt="Remy Sharp" src={Avatar1.src} sx={{ '&.MuiAvatar-root': { border: 'none' } }} />
+            <Avatar alt="Travis Howard" src={Avatar2.src} sx={{ '&.MuiAvatar-root': { border: 'none' } }} />
+            <Avatar alt="Agnes Walker" src={Avatar3.src} sx={{ '&.MuiAvatar-root': { border: 'none' } }} />
+            <Avatar alt="Trevor Henderson" src={Avatar4.src} sx={{ '&.MuiAvatar-root': { border: 'none' } }} />
+            <Avatar alt="plus" src={PlusIcon.src} sx={{ '&.MuiAvatar-root': { border: 'none' } }} />
         </AvatarGroup>
     )
 }
