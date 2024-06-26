@@ -36,13 +36,25 @@ const Modal: React.FC<ModalProps> = ({ onCloseModal, image }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <Stack>
-          <Image
-            src={image}
-            alt="banner"
-            width={530}
-            height={330}
-            style={{ width: 'auto', position: 'relative' }}
-          />{' '}
+          <div
+            style={{
+              width: 'auto',
+              height: '330px',
+              position: 'relative',
+            }}
+          >
+            <Image
+              src={image}
+              alt="background"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+              style={{
+                borderTopLeftRadius: '10px',
+                borderTopRightRadius: '10px',
+              }}
+            />
+          </div>
           <Box
             sx={{
               display: 'flex',
@@ -143,7 +155,7 @@ const Modal: React.FC<ModalProps> = ({ onCloseModal, image }) => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 mb: '4px',
-                mt: '16px',
+                // mt: '16px',
               }}
             >
               <Typography variant="h5" sx={{ fontSize: '20px' }}>
@@ -189,10 +201,8 @@ const Modal: React.FC<ModalProps> = ({ onCloseModal, image }) => {
                 borderRadius: '8px',
                 background: 'rgba(17, 17, 17, 0.05)',
                 display: 'flex',
-                justifyContent: 'space-between',
                 alignItems: 'center',
-
-                gap: '8px',
+                gap: '64px',
                 mb: '16px',
               }}
             >
@@ -209,7 +219,7 @@ const Modal: React.FC<ModalProps> = ({ onCloseModal, image }) => {
                     color: 'rgba(17, 17, 17, 0.6)',
                   }}
                 >
-                  items
+                  Items
                 </Typography>
                 <Typography
                   variant="body1"
@@ -295,7 +305,7 @@ const Modal: React.FC<ModalProps> = ({ onCloseModal, image }) => {
                   display: 'flex',
                   gap: '4px',
                   alignItems: 'center',
-                  mb: '16px',
+                  // mb: '4px',
                   width: '100%',
                   maxWidth: '15%',
                   cursor: 'pointer',
@@ -317,7 +327,7 @@ const Modal: React.FC<ModalProps> = ({ onCloseModal, image }) => {
                   display: 'flex',
                   gap: '4px',
                   alignItems: 'center',
-                  mb: '16px',
+                  // mb: '16px',
                   width: '100%',
                   maxWidth: '12%',
                   cursor: 'pointer',
@@ -339,7 +349,7 @@ const Modal: React.FC<ModalProps> = ({ onCloseModal, image }) => {
                   display: 'flex',
                   gap: '4px',
                   alignItems: 'center',
-                  mb: '16px',
+                  // mb: '16px',
                   width: '100%',
                   maxWidth: '12%',
                   cursor: 'pointer',

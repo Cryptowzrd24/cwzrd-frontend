@@ -7,6 +7,7 @@ import Technicals from '../technicals';
 import MemberShipBanner from '../banners/memberShipBanner';
 import CardContent from './cardContent';
 import NotableCardContent from './notable-collections';
+import CollectionBanner from './banner';
 
 const Collections = () => {
   return (
@@ -17,12 +18,14 @@ const Collections = () => {
         </Box>
         <Box sx={{ mt: '80px' }}>
           <CardContent />
-          {/* <Modal /> */}
         </Box>
-        <Box sx={{ mt: '80px', mb: '80px' }}>
+        <Box sx={{ mt: '96px' }}>
+          <CollectionBanner />
+        </Box>
+        <Box sx={{ mt: '80px' }}>
           <NotableCardContent />
         </Box>
-        <Box sx={{ mt: '80px', mb: '80px' }}>
+        <Box sx={{ mt: '80px' }}>
           <NewsLetterBanner />
         </Box>
         <Box sx={{ mt: '80px' }}>
