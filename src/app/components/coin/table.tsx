@@ -1,15 +1,35 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
 import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
+import { Pagination } from '@/app/components/data-table/pagination';
 
 const Table = () => {
-  const columnCoinsDef = useColumnCoinDefs(columnsCoin);
+  const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
-  const { data } = useFetchCoinDataQuery({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemStart, setItemStart] = useState(1);
+  const pageSize = 10;
+
+  const columnCoinsDef = useColumnCoinDefs(columnsCoin);
+  const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
+
+  const handleSetSearch = useCallback((value: any) => {
+    setSearch(value);
+  }, []);
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number,
+  ) => {
+    const itemsNumber = value * 10 - 9;
+    setItemStart(itemsNumber);
+    setCurrentPage(value);
+  };
+
   useEffect(() => {
     if (data && data.data) {
       const res = data.data.map((item: any) => ({
@@ -27,19 +47,35 @@ const Table = () => {
       }));
       setRowData(res);
     }
-  }, [data]);
+  }, [data, currentPage, itemStart]);
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader />
+      <CustomHeader
+        filter={true}
+        view={true}
+        search={search}
+        setSearch={handleSetSearch}
+      />
       <div
         style={{
           display: 'flex',
           gap: '36px',
         }}
       >
-        <DataTable rowData={rowData} columnDefs={columnCoinsDef} width="100%" />
+        <DataTable
+          search={search}
+          rowData={rowData}
+          columnDefs={columnCoinsDef}
+          width="100%"
+        />
       </div>
+      <Pagination
+        length={1200}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };
