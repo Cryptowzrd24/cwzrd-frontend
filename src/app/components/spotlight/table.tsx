@@ -96,6 +96,7 @@ const Table = () => {
             columnDefs={columnTrendingDef}
             width="33%"
             height={550}
+            seeMore={'/market/trending'}
           />
           <DataTable
             search={search}
@@ -104,6 +105,7 @@ const Table = () => {
             columnDefs={columnGainersDef}
             width="33%"
             height={550}
+            seeMore={'/market/gainers-losers'}
           />
           <DataTable
             search={search}
@@ -112,6 +114,7 @@ const Table = () => {
             columnDefs={columnLosersDef}
             width="33%"
             height={550}
+            seeMore={'/market/gainers-losers'}
           />
         </div>
         <div
@@ -128,6 +131,7 @@ const Table = () => {
             columnDefs={columnMostVisitedDefs}
             width="33%"
             height={550}
+            seeMore={'/market/most-visited'}
           />
           <DataTable
             search={search}
@@ -136,6 +140,7 @@ const Table = () => {
             columnDefs={columnRecentlyAddedDef}
             width="33%"
             height={550}
+            seeMore={'/market/new-coin'}
           />
           <DataTable
             search={search}
@@ -144,6 +149,7 @@ const Table = () => {
             columnDefs={columnHighestVolumeDef}
             width="33%"
             height={550}
+            seeMore={'/market/highest-volume'}
           />
         </div>
       </div>
