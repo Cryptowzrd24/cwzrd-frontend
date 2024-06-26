@@ -11,10 +11,11 @@ const Table = () => {
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [itemStart, setItemStart] = useState(1);
   const pageSize = 10;
 
   const columnDefiDef = useColumnHighestVolDefs(columnsHighestVol);
-  const { data } = useFetchCoinDataQuery({});
+  const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
 
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
@@ -24,13 +25,10 @@ const Table = () => {
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
+    const itemsNumber = value * 10 - 9;
+    setItemStart(itemsNumber);
     setCurrentPage(value);
   };
-
-  const paginatedRowData = rowData.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize,
-  );
 
   useEffect(() => {
     if (data && data.data) {
@@ -56,7 +54,7 @@ const Table = () => {
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={handleSetSearch} />
+      <CustomHeader view={true} search={search} setSearch={handleSetSearch} />
       <div
         style={{
           display: 'flex',
@@ -65,7 +63,7 @@ const Table = () => {
       >
         <DataTable
           search={search}
-          rowData={paginatedRowData}
+          rowData={rowData}
           columnDefs={columnDefiDef}
           width="100%"
         />
