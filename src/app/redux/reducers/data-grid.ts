@@ -1,6 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Key } from './apiKey';
 
+interface QueryParamsType {
+  start: number;
+  pageSize: number;
+}
+
 export const dataGridApi = createApi({
   reducerPath: 'dataGridApi',
   baseQuery: fetchBaseQuery({
@@ -9,7 +14,7 @@ export const dataGridApi = createApi({
 
   endpoints: (builder) => ({
     fetchCoinData: builder.query({
-      query: () => {
+      query: ({}: QueryParamsType) => {
         return {
           url: `/listings/latest`,
           method: 'GET',
@@ -20,7 +25,7 @@ export const dataGridApi = createApi({
       },
     }),
     fetchNewCoinData: builder.query({
-      query: () => {
+      query: ({}: QueryParamsType) => {
         return {
           url: `/listings/new`,
           method: 'GET',
@@ -31,7 +36,7 @@ export const dataGridApi = createApi({
       },
     }),
     fetchMostVisitedData: builder.query({
-      query: () => {
+      query: ({}: QueryParamsType) => {
         return {
           url: `/trending/most-visited`,
           method: 'GET',

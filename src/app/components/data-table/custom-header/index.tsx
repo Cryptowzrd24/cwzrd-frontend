@@ -17,9 +17,16 @@ import styles from '@/app/components/data-table/custom-header/styles';
 interface CustomHeaderProps {
   search: string;
   setSearch: any;
+  filter?: boolean;
+  view?: boolean;
 }
 
-export const CustomHeader = ({ search, setSearch }: CustomHeaderProps) => {
+export const CustomHeader = ({
+  search,
+  setSearch,
+  filter = false,
+  view = false,
+}: CustomHeaderProps) => {
   const pathname = usePathname();
   const [pageSize, setPageSize] = useState(10);
   const options = [10, 50, 100];
@@ -78,15 +85,21 @@ export const CustomHeader = ({ search, setSearch }: CustomHeaderProps) => {
               </MenuItem>
             ))}
           </Select>
-          <Box sx={styles.iconBox}>
-            <FilterIcon />
-          </Box>
-          <Box sx={{ ...styles.iconBox, background: 'transparent' }}>
-            <BoxIcon />
-          </Box>
-          <Box sx={styles.iconBox}>
-            <ListIcon />
-          </Box>
+          {filter && (
+            <Box sx={styles.iconBox}>
+              <FilterIcon />
+            </Box>
+          )}
+          {view && (
+            <>
+              <Box sx={{ ...styles.iconBox, background: 'transparent' }}>
+                <BoxIcon />
+              </Box>
+              <Box sx={styles.iconBox}>
+                <ListIcon />
+              </Box>
+            </>
+          )}
         </Box>
       </Box>
       <AnimatePresence>
