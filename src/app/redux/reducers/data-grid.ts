@@ -4,14 +4,14 @@ import { Key } from './apiKey';
 export const dataGridApi = createApi({
   reducerPath: 'dataGridApi',
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'https://aa48-39-58-109-113.ngrok-free.app/api',
+    baseUrl: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency',
   }),
 
   endpoints: (builder) => ({
     fetchCoinData: builder.query({
       query: ({ start, pageSize }: { start: number; pageSize: number }) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=${start}&limit=${pageSize}`,
+          url: `/listings/latest`,
           method: 'GET',
           headers: {
             'X-CMC_PRO_API_KEY': Key,
@@ -22,7 +22,7 @@ export const dataGridApi = createApi({
     fetchNewCoinData: builder.query({
       query: ({ start, pageSize }: { start: number; pageSize: number }) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/new?start=${start}&limit=${pageSize}`,
+          url: `/listings/new`,
           method: 'GET',
           headers: {
             'X-CMC_PRO_API_KEY': Key,
@@ -33,7 +33,29 @@ export const dataGridApi = createApi({
     fetchMostVisitedData: builder.query({
       query: ({ start, pageSize }: { start: number; pageSize: number }) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/most-visited?start=${start}&limit=${pageSize}`,
+          url: `/trending/most-visited`,
+          method: 'GET',
+          headers: {
+            'X-CMC_PRO_API_KEY': Key,
+          },
+        };
+      },
+    }),
+    fetchTrendingData: builder.query({
+      query: () => {
+        return {
+          url: `/trending/latest`,
+          method: 'GET',
+          headers: {
+            'X-CMC_PRO_API_KEY': Key,
+          },
+        };
+      },
+    }),
+    fetchGainersLosersData: builder.query({
+      query: (sortOrder: string) => {
+        return {
+          url: `/trending/gainers-losers?sort_dir=${sortOrder}`,
           method: 'GET',
           headers: {
             'X-CMC_PRO_API_KEY': Key,
@@ -47,4 +69,6 @@ export const {
   useFetchCoinDataQuery,
   useFetchNewCoinDataQuery,
   useFetchMostVisitedDataQuery,
+  useFetchTrendingDataQuery,
+  useFetchGainersLosersDataQuery,
 } = dataGridApi;

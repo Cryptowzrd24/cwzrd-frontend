@@ -34,7 +34,7 @@ const useColumnTrendingDefs = (columns: any) => {
             width: 120,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
-        case 'percent_change_24h':
+        case 'percent_change_1h':
           return {
             field: col.field,
             headerName: col.headerName,
@@ -46,13 +46,18 @@ const useColumnTrendingDefs = (columns: any) => {
               return profitLossCheck(formattedValue);
             },
           };
-        case 'price_7d':
-        case 'price_30d':
+        case 'percent_change_7d':
+        case 'percent_change_24h':
           return {
             field: col.field,
             headerName: col.headerName,
             width: 155,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            cellStyle: (p: any) => getPercentStyle(p.value),
+            valueFormatter: (p: any) => {
+              const value = p.value;
+              const formattedValue = priceNumberFormatter(value) + ' %';
+              return profitLossCheck(formattedValue);
+            },
           };
         case 'market_cap':
           return {
