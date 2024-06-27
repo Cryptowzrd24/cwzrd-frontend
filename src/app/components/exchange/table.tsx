@@ -1,17 +1,38 @@
 'use client';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import { columnsExchanges } from '@/app/constants/columns';
 import { rowDataExchange } from '@/app/constants/row';
 import useColumnExchangeDefs from '@/app/hooks/data-grid/column-defination-exchange';
+import { Pagination } from '@/app/components/data-table/pagination';
 
 const Table = () => {
+  const [search, setSearch] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+
   const columnExchangesDef = useColumnExchangeDefs(columnsExchanges);
+
+  const handleSetSearch = useCallback((value: any) => {
+    setSearch(value);
+  }, []);
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number,
+  ) => {
+    setCurrentPage(value);
+  };
+
+  const paginatedRowData = rowDataExchange.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize,
+  );
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader />
+      <CustomHeader view={true} search={search} setSearch={handleSetSearch} />
       <div
         style={{
           display: 'flex',
@@ -19,11 +40,18 @@ const Table = () => {
         }}
       >
         <DataTable
-          rowData={rowDataExchange}
+          search={search}
+          rowData={paginatedRowData}
           columnDefs={columnExchangesDef}
           width="100%"
         />
       </div>
+      <Pagination
+        length={rowDataExchange.length}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };

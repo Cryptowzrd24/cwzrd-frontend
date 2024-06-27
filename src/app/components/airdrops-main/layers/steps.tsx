@@ -16,6 +16,7 @@ const Steps = ({ currentStep, setCurrentStep }: stepProps) => {
           padding: '20px 24px 32px 24px',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '16px',
+          cursor: 'pointer',
         }}
         onClick={() => handleStepClick(1)}
       >
@@ -52,7 +53,7 @@ const Steps = ({ currentStep, setCurrentStep }: stepProps) => {
       <Box
         sx={{
           padding: '20px 24px 32px 24px',
-          boxShadow: ' rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+          boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '16px',
           mt: '16px',
           cursor: 'pointer',
@@ -91,7 +92,7 @@ const Steps = ({ currentStep, setCurrentStep }: stepProps) => {
       <Box
         sx={{
           padding: '20px 24px 32px 24px',
-          boxShadow: ' rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+          boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '16px',
           mt: '16px',
           cursor: 'pointer',

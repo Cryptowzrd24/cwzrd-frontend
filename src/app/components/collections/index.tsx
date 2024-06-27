@@ -8,6 +8,7 @@ import MemberShipBanner from '../banners/memberShipBanner';
 import CardContent from './cardContent';
 import NotableCardContent from './notable-collections';
 import CollectionBanner from './banner';
+import Table from '@/app/components/collections/table';
 
 const Collections = () => {
   return (
@@ -15,6 +16,9 @@ const Collections = () => {
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
         <Box sx={{ mt: '80px' }}>
           <HeroContent />
+        </Box>
+        <Box sx={{ mt: '40px' }}>
+          <Table />
         </Box>
         <Box sx={{ mt: '80px' }}>
           <CardContent />

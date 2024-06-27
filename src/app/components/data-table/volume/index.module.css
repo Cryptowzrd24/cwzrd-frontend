@@ -1,5 +1,14 @@
 .volume-comp {
-  margin-top: -15px;
+  margin-top: -10px;
+}
+
+.margin-none{
+  margin-top: 0;
+}
+.margin-none p{
+  margin: 0;
+  padding: 0;
+  height: 22px;
 }
 
 .volume-comp p {

@@ -4,5 +4,6 @@ const colors = {
   colorProfit: 'rgba(69, 202, 148, 1)',
   colorLoss: 'rgba(245, 109, 109, 1)',
   light: 'rgba(17, 17, 17, 0.8)',
+  lightPurple: '#7248F71A',
 };
 export default colors;

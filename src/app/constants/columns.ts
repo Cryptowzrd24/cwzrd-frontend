@@ -2,9 +2,9 @@ export const columnsTrending = [
   { field: 'index' },
   { field: 'name' },
   { field: 'price' },
+  { field: 'percent_change_1h', headerName: '1h' },
   { field: 'percent_change_24h', headerName: '24h%' },
-  { field: 'price_7d', headerName: '7d' },
-  { field: 'price_30d', headerName: '30d' },
+  { field: 'percent_change_7d', headerName: '7d' },
   { field: 'market_cap' },
   { field: 'volume_24h' },
   { field: 'last7Days' },
@@ -71,7 +71,7 @@ export const columnsNewCoin = [
   { field: 'percent_change_24h', headerName: '24h%' },
   { field: 'volume_24h' },
   { field: 'fdv' },
-  { field: 'last7Added' },
+  { field: 'date_added' },
 ];
 
 export const columnsChain = [
@@ -173,4 +173,17 @@ export const columnsExchanges = [
   { field: 'coins', headerName: '#Coins' },
   { field: 'fiat_supported', headerName: 'Fiat Supported' },
   { field: 'last7Days' },
+];
+
+export const columnsCollections = [
+  { field: 'index' },
+  { field: 'name' },
+  { field: 'volume_24' },
+  { field: 'market_cap' },
+  { field: 'floor_price' },
+  { field: 'avg_price' },
+  { field: 'sales' },
+  { field: 'assets' },
+  { field: 'owners' },
+  { field: 'owners_percent' },
 ];

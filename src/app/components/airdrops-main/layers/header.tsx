@@ -1,7 +1,19 @@
+'use client';
 import { Box, Stack, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 
 const Header = () => {
+  const [activeHeading, setActiveHeading] = useState('');
+
+  const handleHeadingClick = (heading: any) => {
+    setActiveHeading(heading);
+  };
+
+  const headings = [
+    { label: 'All', id: 'all' },
+    { label: 'Mainnet', id: 'mainnet' },
+    { label: 'Mini NFT', id: 'mininft' },
+  ];
   return (
     <>
       <Box
@@ -38,39 +50,30 @@ const Header = () => {
           </Typography>
         </Stack>
         <Box sx={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: '14px',
-              fontWeight: '700',
-              color: 'rgba(17, 17, 17, 0.6)',
-              padding: '11px 16px',
-              borderRadius: '40px',
-              background: 'rgba(114, 72, 247, 0.1)',
-            }}
-          >
-            All{' '}
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: '14px',
-              fontWeight: '700',
-              color: 'rgba(17, 17, 17, 0.6)',
-            }}
-          >
-            Mainnet{' '}
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: '14px',
-              fontWeight: '700',
-              color: 'rgba(17, 17, 17, 0.6)',
-            }}
-          >
-            Mini NFT{' '}
-          </Typography>
+          {headings.map((heading) => (
+            <Typography
+              key={heading.id}
+              variant="body1"
+              sx={{
+                fontSize: '14px',
+                fontWeight: '700',
+                color:
+                  activeHeading === heading.id
+                    ? ' rgba(114, 72, 247, 1)'
+                    : 'rgba(17, 17, 17, 0.6)',
+                padding: activeHeading === heading.id ? '11px 16px' : '',
+                borderRadius: '40px',
+                background:
+                  activeHeading === heading.id
+                    ? 'rgba(114, 72, 247, 0.1)'
+                    : 'transaprent',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleHeadingClick(heading.id)}
+            >
+              {heading.label}
+            </Typography>
+          ))}
         </Box>
       </Box>
     </>
