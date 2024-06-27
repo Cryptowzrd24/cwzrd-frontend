@@ -1,36 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import { Box } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import { FilterSearchIcon } from '../../../../public/icons/filterSearch';
+import { Filters } from '@/app/constants/filters';
 import styles from './styles';
+import { useDispatch } from 'react-redux';
+import { selectCategoryFilter } from '@/app/redux/reducers/filters';
 
+type FilterKey = keyof typeof Filters;
 interface FilterDropdownProps {
   open: boolean;
   anchorEl: null | HTMLElement;
   setAnchorEl: React.Dispatch<React.SetStateAction<null | HTMLElement>>;
+  filterKey: FilterKey;
 }
 
-function FilterDropdown({ open, anchorEl, setAnchorEl }: FilterDropdownProps) {
-  const options = [
-    'Atria',
-    'Callisto',
-    'Dione',
-    'Ganymede',
-    'Hangouts Call',
-    'Luna',
-    'Oberon',
-    'Phobos',
-    'Pyxis',
-    'Sedna',
-    'Titania',
-    'Triton',
-    'Umbriel',
-  ];
-
-  const handleClose = () => {
+function FilterDropdown({
+  open,
+  anchorEl,
+  setAnchorEl,
+  filterKey,
+}: FilterDropdownProps) {
+  const dispatch = useDispatch();
+  const [searchString, setSearchString] = useState('');
+  const [filteredMenuItems, setFilteredMenuItems] = useState(
+    Filters[filterKey],
+  );
+  const handleClose = (id: number, label: string) => {
     setAnchorEl(null);
+    dispatch(selectCategoryFilter({ id, label }));
   };
+
+  useEffect(() => {
+    setFilteredMenuItems(
+      Filters[filterKey].filter((item) =>
+        item.label.toLowerCase().includes(searchString.toLowerCase()),
+      ),
+    );
+  }, [searchString, filterKey]);
 
   return (
     <div>
@@ -46,7 +53,6 @@ function FilterDropdown({ open, anchorEl, setAnchorEl }: FilterDropdownProps) {
           style: {
             maxHeight: '520px',
             width: '280px',
-            marginTop: '30px',
             borderRadius: '15px',
             overflowY: 'scroll',
           },
@@ -57,24 +63,28 @@ function FilterDropdown({ open, anchorEl, setAnchorEl }: FilterDropdownProps) {
           <input
             style={styles.searchInput}
             placeholder={'Search...'}
-            // onChange={(e: any) => setSearch(e.target.value)}
+            onChange={(e: any) => setSearchString(e.target.value)}
           />
         </Box>
-        {options.map((option) => (
-          <MenuItem
-            key={option}
-            // selected={option === 'Pyxis'}
-            onClick={handleClose}
-            sx={{
-              fontWeight: 600,
-              fontSize: '14px',
-              fontFamily: 'Sf Pro Display',
-              marginTop: '15px',
-              paddingTop: '10px',
-            }}
+        <Box sx={{ padding: '10px' }}>
+          <Typography
+            sx={styles.dropdownSubheading}
+            id="modal-modal-title"
+            variant="h6"
+            component="h6"
           >
-            {option}
-          </MenuItem>
+            Popular {filterKey}
+          </Typography>
+          <Divider />
+        </Box>
+        {filteredMenuItems.map((option: any) => (
+          <Box
+            sx={styles.menuItem}
+            key={option}
+            onClick={() => handleClose(option.id, filterKey)}
+          >
+            {option.label}
+          </Box>
         ))}
       </Menu>
     </div>

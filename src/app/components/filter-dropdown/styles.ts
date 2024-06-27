@@ -21,5 +21,21 @@ const styles = {
     color: '#111111',
     width: '100%',
   },
+  dropdownSubheading: {
+    fontSize: '12px',
+    fontFamily: 'Sf Pro Display',
+    color: 'grey',
+    fontWeight: 400,
+  },
+  menuItem: {
+    fontWeight: 600,
+    fontSize: '15px',
+    fontFamily: 'Sf Pro Display',
+    padding: '15px 20px',
+    '&:hover': {
+      backgroundColor: 'rgba(0, 0, 0, 0.08)',
+      cursor: 'pointer',
+    },
+  },
 };
 export default styles;

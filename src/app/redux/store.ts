@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 // import { useDispatch, useSelector, useStore } from 'react-redux';
 import { dataGridApi } from './reducers/data-grid';
+import filterReducer from './reducers/filters';
 
 export const store = configureStore({
   reducer: {
     [dataGridApi.reducerPath]: dataGridApi.reducer,
+    filters: filterReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(dataGridApi.middleware),

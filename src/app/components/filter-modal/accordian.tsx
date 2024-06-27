@@ -9,12 +9,21 @@ import styles from './styles';
 interface AccordianProps {
   name: string;
   Component: React.JSX.Element;
+  expanded: boolean;
+  onChange: (event: React.SyntheticEvent, isExpanded: boolean) => void;
 }
 
-export const Accordian = ({ name, Component }: AccordianProps) => {
+export const Accordian = ({
+  name,
+  Component,
+  expanded,
+  onChange,
+}: AccordianProps) => {
   return (
     <div>
       <Accordion
+        expanded={expanded}
+        onChange={onChange}
         sx={{
           border: 'none',
           boxShadow: 'none',

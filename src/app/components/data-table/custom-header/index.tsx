@@ -12,6 +12,9 @@ import { ListIcon } from '../../../../../public/icons/Grid-Header/list';
 import links from './data';
 import { PageArrowDownIcon } from '../../../../../public/icons/Grid-Header/pageArrowDown';
 import { FilterSearchIcon } from '../../../../../public/icons/filterSearch';
+import { Filters } from '@/app/constants/filters';
+import ClearIcon from '@mui/icons-material/Clear';
+
 import styles from '@/app/components/data-table/custom-header/styles';
 
 import Chip from '@mui/material/Chip';
@@ -20,6 +23,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AddIcon from '@mui/icons-material/Add';
 import FilterDropdown from '../../filter-dropdown';
 import FilterModal from '../../filter-modal';
+import { useSelector } from 'react-redux';
 
 interface CustomHeaderProps {
   search: string;
@@ -27,6 +31,8 @@ interface CustomHeaderProps {
   filter?: boolean;
   view?: boolean;
 }
+
+type FilterKey = keyof typeof Filters;
 
 export const CustomHeader = ({
   search,
@@ -38,10 +44,13 @@ export const CustomHeader = ({
   const [pageSize, setPageSize] = useState(10);
   const options = [10, 50, 100];
 
+  const filterItem = useSelector((state: any) => state.filters);
+
   const [searchActive, setSearchActive] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openFilterModal, setOpenFilterModal] = useState(false);
+  const [filterKey, setFilterKey] = useState<FilterKey>('category');
 
   const handleChange = (event: any) => {
     setPageSize(event.target.value);
@@ -56,29 +65,59 @@ export const CustomHeader = ({
   };
 
   const openFilterDropdown = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClick = (event: React.MouseEvent<HTMLElement>, key: string) => {
     setAnchorEl(event.currentTarget);
+    setFilterKey(key as FilterKey);
   };
 
   const handleOpenFilterModal = () => setOpenFilterModal(true);
 
-  const renderFilters = ['Category', 'Algorithm', 'Platform', 'Industry'].map(
-    (elem: string) => {
-      return (
-        <Chip
-          sx={{
-            '& .MuiChip-icon': {
-              marginRight: '-12px',
-            },
-          }}
-          label={elem}
-          icon={<KeyboardArrowDownIcon />}
-          onClick={handleClick}
-          clickable
-        />
-      );
-    },
-  );
+  const getLabel = (key: string): { label: string; isMatching: boolean } => {
+    const filterValue = filterItem.filters[key];
+    if (filterValue) {
+      // Find the matching key in Filters object
+      const filterArray = Filters[key as FilterKey];
+      if (filterArray && Array.isArray(filterArray)) {
+        // Iterate over the array and return the label with the same ID
+        const matchingItem = filterArray.find(
+          (item) => item.id === filterValue,
+        );
+        if (matchingItem) {
+          return { label: matchingItem.label, isMatching: true };
+        }
+      }
+    }
+    // Default to the capitalized key if no matching label is found
+    return {
+      label: key.charAt(0).toUpperCase() + key.slice(1),
+      isMatching: false,
+    };
+  };
+
+  const renderFilters = Object.keys(Filters).map((key: any) => {
+    const { label, isMatching } = getLabel(key);
+    return (
+      <Chip
+        key={key}
+        sx={{
+          '& .MuiChip-icon': {
+            marginRight: '-12px',
+          },
+          color: isMatching ? '#7248F7' : 'default',
+        }}
+        label={label}
+        icon={
+          isMatching ? (
+            <ClearIcon sx={{ fontSize: '14px' }} />
+          ) : (
+            <KeyboardArrowDownIcon />
+          )
+        }
+        onClick={(e) => handleClick(e, key)}
+        clickable
+      />
+    );
+  });
 
   return (
     <Box sx={styles.container}>
@@ -182,7 +221,7 @@ export const CustomHeader = ({
                 label="Add Filter"
                 onClick={handleOpenFilterModal}
                 clickable
-                icon={<AddIcon fontSize="small" />}
+                icon={<AddIcon sx={{ fontSize: '16px' }} />}
               />
             </Stack>
             {openFilterDropdown && (
@@ -190,6 +229,7 @@ export const CustomHeader = ({
                 open={openFilterDropdown}
                 anchorEl={anchorEl}
                 setAnchorEl={setAnchorEl}
+                filterKey={filterKey}
               />
             )}
             {openFilterModal && (

@@ -21,6 +21,8 @@ const styles = {
     fontSize: '18px',
     fontFamily: 'Sf Pro Display',
     fontWeight: 600,
+    flexGrow: 2,
+    marginLeft: '100px',
   },
 
   accordian: {
@@ -85,6 +87,21 @@ const styles = {
     fontWeight: 700,
     letterSpacing: '1px',
     marginLeft: '15px',
+  },
+  switch: {
+    '& .MuiSwitch-switchBase.Mui-checked': {
+      color: '#7248F7',
+    },
+    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+      backgroundColor: '#7248F7',
+    },
+  },
+  applyBtn: {
+    backgroundColor: '#7248F7',
+    color: '#ffff',
+    '&:hover': {
+      backgroundColor: '#613dd9',
+    },
   },
 };
 
