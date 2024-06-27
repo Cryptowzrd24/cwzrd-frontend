@@ -11,9 +11,10 @@ const HeroCard = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '24px 40px',
+          padding: '26px 40px',
           background: 'rgba(255, 255, 255, 1)',
-          boxShadow: 'rgba(0, 0, 0, 0.05) 0px 7px 29px 0px',
+          boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
+          borderRadius: '16px',
         }}
       >
         <Box sx={{ display: 'flex', gap: '24px' }}>
@@ -94,7 +95,7 @@ const HeroCard = () => {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            gap:"32px"
+            gap: '32px',
           }}
         >
           <Box
@@ -104,10 +105,17 @@ const HeroCard = () => {
               gap: '6px',
             }}
           >
-            <LikeIcon />
+            <Box
+              sx={{
+                mt: '4px',
+                cursor: 'pointer',
+              }}
+            >
+              <LikeIcon />
+            </Box>
             <Typography
               variant="body1"
-              sx={{ fontSize: '16px', fontWeight: '600',mt:"6px" }}
+              sx={{ fontSize: '16px', fontWeight: '600', mt: '6px' }}
             >
               880
             </Typography>
@@ -117,12 +125,20 @@ const HeroCard = () => {
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
+              cursor: 'pointer',
             }}
           >
-            <Dislike />
+            <Box
+              sx={{
+                mt: '4px',
+                cursor: 'pointer',
+              }}
+            >
+              <Dislike />
+            </Box>
             <Typography
               variant="body1"
-              sx={{ fontSize: '16px', fontWeight: '600',mb:"4px" }}
+              sx={{ fontSize: '16px', fontWeight: '600', mb: '4px' }}
             >
               3
             </Typography>

@@ -30,7 +30,7 @@ const Steps = ({ currentStep, setCurrentStep }: stepProps) => {
               borderRadius: '8px',
               background: 'rgba(31, 215, 115, 0.1)',
               mb: '16px',
-              maxWidth: '15%',
+              maxWidth: '12%',
               cursor: 'pointer',
             }}
           >
@@ -70,7 +70,7 @@ const Steps = ({ currentStep, setCurrentStep }: stepProps) => {
               borderRadius: '8px',
               background: 'rgba(31, 215, 115, 0.1)',
               mb: '16px',
-              maxWidth: '15%',
+              maxWidth: '12%',
             }}
           >
             Step 2
@@ -109,7 +109,7 @@ const Steps = ({ currentStep, setCurrentStep }: stepProps) => {
               borderRadius: '8px',
               background: 'rgba(31, 215, 115, 0.1)',
               mb: '16px',
-              maxWidth: '15%',
+              maxWidth: '12%',
             }}
           >
             Step 3

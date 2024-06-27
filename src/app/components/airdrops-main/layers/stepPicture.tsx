@@ -7,20 +7,53 @@ interface stepPicture {
   currentStep: any;
 }
 const StepPicture = ({ currentStep }: stepPicture) => {
-  let description = '';
+  let elements;
+
   switch (currentStep) {
     case 1:
-      description = 'Go to the  Website and connect your wallet.';
+      elements = (
+        <>
+          Go to the{' '}
+          <span
+            style={{
+              color: 'rgba(114, 72, 247, 1)',
+              fontSize: '24px',
+              fontWeight: '700',
+            }}
+          >
+            Website
+          </span>{' '}
+          and connect your wallet.
+        </>
+      );
       break;
     case 2:
-      description = 'Click on the "Mint" button and confirm the transaction.';
+      elements = (
+        <>
+          Click on the{' '}
+          <span
+            style={{
+              color: 'rgba(114, 72, 247, 1)',
+              fontSize: '24px',
+              fontWeight: '700',
+            }}
+          >
+            "Mint"
+          </span>{' '}
+          button and confirm the transaction.
+        </>
+      );
       break;
     case 3:
-      description =
-        'If the transaction was successful, you will see a notice about it and get the mint ID. Save it, you may need it in the next step.';
+      elements = (
+        <>
+          If the transaction was successful, you will see a notice about it and
+          get the mint ID. Save it, you may need it in the next step.
+        </>
+      );
       break;
     default:
-      description = '';
+      elements = <></>;
   }
   return (
     <>
@@ -42,7 +75,7 @@ const StepPicture = ({ currentStep }: stepPicture) => {
               borderRadius: '8px',
               background: 'rgba(31, 215, 115, 0.1)',
               mb: '16px',
-              maxWidth: '15%',
+              maxWidth: { lg: '10%', md: '12%',xl:"8%" },
             }}
           >
             Step {currentStep}
@@ -56,7 +89,7 @@ const StepPicture = ({ currentStep }: stepPicture) => {
               mb: '24px',
             }}
           >
-            {description}
+            {elements}
 
             {/* Go to the{' '}
             <span style={{ color: 'rgba(114, 72, 247, 1)', fontWeight: '700' }}>

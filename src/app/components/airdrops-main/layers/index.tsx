@@ -23,7 +23,7 @@ const Layers = () => {
           <Grid
             item
             xs={12}
-            sm={5}
+            md={5}
             sx={{
               paddingRight: '18px',
             }}
@@ -33,7 +33,7 @@ const Layers = () => {
           <Grid
             item
             xs={12}
-            sm={7}
+            md={7}
             sx={{
               paddingLeft: '12px',
               borderLeft: '1px solid rgba(17, 17, 17, 0.1)',

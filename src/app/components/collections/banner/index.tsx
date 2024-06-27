@@ -30,10 +30,10 @@ const CollectionBanner = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentCard.id}
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 30 }}
-          transition={{ duration: 0.8, ease: 'easeInOut' }}
+          exit={{ opacity: 0, x: 100 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30,duration:0.2 }}
           style={{ width: '100%' }}
         >
           <Box
@@ -72,6 +72,36 @@ const CollectionBanner = () => {
                 <ArrowRightBlack />
               </Box>
             </Stack>
+            {/* ------------------- */}
+            {cardDetails.length > 1 && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: '10%',
+                  right: '4px',
+                  transform: 'translateX(-50%)',
+                  display: 'flex',
+                  gap: '12px',
+                }}
+              >
+                {cardDetails.map((card, index) => (
+                  <Box
+                    key={card.id}
+                    sx={{
+                      width: '12px',
+                      height: '12px',
+                      borderRadius: '50%',
+                      backgroundColor:
+                        index === currentCardIndex ? '#fff' : 'transparent',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => setCurrentCardIndex(index)}
+                  />
+                ))}
+              </Box>
+            )}
+            {/* --------------------- */}
             {currentCardIndex < cardDetails.length - 1 && (
               <Box
                 sx={{

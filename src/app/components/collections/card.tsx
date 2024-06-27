@@ -79,11 +79,10 @@ const Card: React.FC<CardProps> = ({
               borderRadius: '8px',
               background: 'rgba(17, 17, 17, 0.05)',
               display: 'flex',
-              justifyContent: 'space-between',
               alignItems: 'center',
               maxWidth: '293px',
               width: '100%',
-              gap: '8px',
+              gap: '48px',
             }}
           >
             <Stack
