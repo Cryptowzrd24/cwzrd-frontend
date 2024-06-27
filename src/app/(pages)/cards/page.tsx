@@ -29,6 +29,8 @@ import vectorImage from "@/app/assets/images/vector.png"
 import cardPerson from "@/app/assets/images/cardPersonTiles.png"
 import Card8 from "@/app/components/common/card8.componnet";
 import Card9 from "@/app/components/common/card9.component";
+import Card10 from "@/app/components/common/card10.component";
+import Card11 from "@/app/components/common/card11.component";
 
 
 
@@ -563,6 +565,21 @@ const Components = () => {
                 staticTextColor={colorConfig.white}
                 text1={"Celebrating Success"}
                 text2="in Our Community"
+            />
+
+            <Card10
+                heading="Technicals"
+                staticTextColor={colorConfig.white}
+                text1="BITCOIN POTENTIAL $4k Target On Potential Major BEARISH FLAT"
+                text2="This sort of pattern would certainly shock the herd. A potential Wave B suckers Rally galore .Then SNAP..."
+                messageCount={24}
+                rocketCount={138}
+            />
+
+            <Card11
+                heading="👤 brokers"
+                text="In order to accurately follow our calls with our preferred assets, correct prices, lot sizes and profits we recommend using our brokers."
+
             />
 
         </div>
