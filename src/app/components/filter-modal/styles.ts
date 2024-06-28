@@ -37,6 +37,9 @@ const styles = {
     fontFamily: 'Sf Pro Display',
     fontWeight: 700,
     letterSpacing: '1px',
+    '& .MuiAccordionSummary-content': {
+      justifyContent: 'space-between !important',
+    },
   },
 
   divider: {
@@ -96,7 +99,18 @@ const styles = {
       backgroundColor: '#7248F7',
     },
   },
+  closeCancelBtn: {
+    height: '48px',
+    borderRadius: '8px',
+    padding: '0 24px',
+    fontSize: '14px',
+    marginRight: '10px',
+  },
   applyBtn: {
+    height: '48px',
+    borderRadius: '8px',
+    padding: '0 24px',
+    fontSize: '14px',
     backgroundColor: '#7248F7',
     color: '#ffff',
     '&:hover': {

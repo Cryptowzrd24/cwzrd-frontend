@@ -8,25 +8,52 @@ import styles from './styles';
 interface RangeProps {
   headerName: string;
   rangeUnit: string;
+  setMinVal: (val: number) => void;
+  setMaxVal: (val: number) => void;
+  range: { min: number; max: null | number };
 }
 
-export const Range = ({ headerName, rangeUnit }: RangeProps) => {
-  const rangeChips = ['$0 - $1', '$0 - $100', '$101 - $1,000', '$1000 +'].map(
-    (elem) => {
-      return (
-        <Chip
-          sx={{
-            '& .MuiChip-icon': {
-              marginRight: '-12px',
-            },
-          }}
-          label={elem}
-          //   onClick={handleOpenFilterModal}
-          clickable
-        />
-      );
-    },
-  );
+export const Range = ({
+  headerName,
+  rangeUnit,
+  setMinVal,
+  setMaxVal,
+  range,
+}: RangeProps) => {
+  const rangeData = [
+    { label: '$0 - $1', min: 0, max: 1 },
+    { label: '$0 - $100', min: 0, max: 100 },
+    { label: '$101 - $1,000', min: 101, max: 1000 },
+    { label: '$1000 +', min: 0, max: 10000000 },
+  ];
+
+  const handleMinValChange = (value: string) => {
+    setMinVal(Number(value));
+  };
+  const handleMaxValChange = (value: string) => {
+    setMaxVal(Number(value));
+  };
+
+  const handleChipRangeClick = (minVal: any, maxVal: any) => {
+    handleMinValChange(minVal);
+    handleMaxValChange(maxVal);
+  };
+
+  const rangeChips = rangeData.map((elem) => {
+    return (
+      <Chip
+        sx={{
+          '& .MuiChip-icon': {
+            marginRight: '-12px',
+          },
+        }}
+        label={elem.label}
+        onClick={() => handleChipRangeClick(elem.min, elem.max)}
+        clickable
+      />
+    );
+  });
+
   return (
     <div>
       <Box
@@ -52,6 +79,9 @@ export const Range = ({ headerName, rangeUnit }: RangeProps) => {
             id="outlined-basic"
             variant="outlined"
             placeholder={`${rangeUnit}0`}
+            onChange={(e) => handleMinValChange(e.target.value)}
+            value={range.min}
+            type="number"
           />
           <Typography
             sx={styles.accordianHeaderText}
@@ -67,6 +97,9 @@ export const Range = ({ headerName, rangeUnit }: RangeProps) => {
             id="outlined-basic"
             variant="outlined"
             placeholder={`${rangeUnit}1000`}
+            onChange={(e) => handleMaxValChange(e.target.value)}
+            value={range.max}
+            type="number"
           />
         </Box>
         <Box sx={styles.mostSearchedBox}>

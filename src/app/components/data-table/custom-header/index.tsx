@@ -23,7 +23,12 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AddIcon from '@mui/icons-material/Add';
 import FilterDropdown from '../../filter-dropdown';
 import FilterModal from '../../filter-modal';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  clearAllFilters,
+  clearSelectedFilter,
+} from '../../../redux/reducers/filters';
 
 interface CustomHeaderProps {
   search: string;
@@ -41,6 +46,7 @@ export const CustomHeader = ({
   view = false,
 }: CustomHeaderProps) => {
   const pathname = usePathname();
+  const dispatch = useDispatch();
   const [pageSize, setPageSize] = useState(10);
   const options = [10, 50, 100];
 
@@ -51,6 +57,7 @@ export const CustomHeader = ({
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openFilterModal, setOpenFilterModal] = useState(false);
   const [filterKey, setFilterKey] = useState<FilterKey>('category');
+  const [isAnyFilterActive, setIsAnyFilterActive] = useState(false);
 
   const handleChange = (event: any) => {
     setPageSize(event.target.value);
@@ -87,7 +94,7 @@ export const CustomHeader = ({
         }
       }
     }
-    // Default to the capitalized key if no matching label is found
+
     return {
       label: key.charAt(0).toUpperCase() + key.slice(1),
       isMatching: false,
@@ -100,24 +107,42 @@ export const CustomHeader = ({
       <Chip
         key={key}
         sx={{
+          border: isMatching ? '1px solid #7248F7' : 'none',
           '& .MuiChip-icon': {
-            marginRight: '-12px',
+            marginRight: isMatching ? '-10px' : '-12px',
           },
           color: isMatching ? '#7248F7' : 'default',
+          fontWeight: isMatching ? 700 : 'default',
         }}
         label={label}
         icon={
           isMatching ? (
-            <ClearIcon sx={{ fontSize: '14px' }} />
+            <ClearIcon
+              onClick={() => handleClearSelectedFilter(key)}
+              sx={{ fontSize: '14px', color: '#7248F7' }}
+            />
           ) : (
             <KeyboardArrowDownIcon />
           )
         }
-        onClick={(e) => handleClick(e, key)}
+        onClick={
+          isMatching
+            ? () => handleClearSelectedFilter(key)
+            : (e) => handleClick(e, key)
+        }
         clickable
       />
     );
   });
+
+  const handleClearFilters = () => {
+    dispatch(clearAllFilters());
+    setIsAnyFilterActive(false);
+  };
+
+  const handleClearSelectedFilter = (label: string) => {
+    dispatch(clearSelectedFilter({ label }));
+  };
 
   return (
     <Box sx={styles.container}>
@@ -209,27 +234,36 @@ export const CustomHeader = ({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Box sx={styles.searchContainer}></Box>
-            <Stack direction="row" spacing={1}>
-              {renderFilters}
-              <Chip
-                sx={{
-                  '& .MuiChip-icon': {
-                    marginRight: '-12px',
-                  },
-                }}
-                label="Add Filter"
-                onClick={handleOpenFilterModal}
-                clickable
-                icon={<AddIcon sx={{ fontSize: '16px' }} />}
-              />
-            </Stack>
+            <Box sx={styles.filterContainerBox}>
+              <Stack direction="row" spacing={1}>
+                {renderFilters}
+                <Chip
+                  sx={{
+                    '& .MuiChip-icon': {
+                      marginRight: '-12px',
+                    },
+                  }}
+                  label="Add Filter"
+                  onClick={handleOpenFilterModal}
+                  clickable
+                  icon={<AddIcon sx={{ fontSize: '16px' }} />}
+                />
+              </Stack>
+              {isAnyFilterActive && (
+                <Chip
+                  label="Clear Filters"
+                  onClick={handleClearFilters}
+                  clickable
+                />
+              )}
+            </Box>
             {openFilterDropdown && (
               <FilterDropdown
                 open={openFilterDropdown}
                 anchorEl={anchorEl}
                 setAnchorEl={setAnchorEl}
                 filterKey={filterKey}
+                setIsAnyFilterActive={setIsAnyFilterActive}
               />
             )}
             {openFilterModal && (

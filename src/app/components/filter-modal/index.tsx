@@ -13,20 +13,71 @@ import { Select } from './select';
 import { Switch } from '@mui/material';
 
 import CloseIcon from '@mui/icons-material/Close';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  clearAllFilters,
+  selectRangeFilter,
+  selectSwitchFilter,
+} from '@/app/redux/reducers/filters';
+import { RangeFilterKeys } from '@/app/models/range-filter-keys';
 
+type RangeKey = (typeof RangeFilterKeys)[number];
+interface Range {
+  min: number;
+  max: number | null;
+}
 interface FilterModalProps {
   open: boolean;
   setOpen: any;
 }
 
 function FilterModal({ open, setOpen }: FilterModalProps) {
+  const dispatch = useDispatch();
+  const filterItem = useSelector((state: any) => state.filters);
   const [expanded, setExpanded] = useState<string | false>(false);
+  const [range, setRange] = useState<Range>({ min: 0, max: null });
+  const [isMineableActive, setIsMineableActive] = useState(filterItem.mineable);
+  const [isAuditedActive, setIsAuditedActive] = useState(filterItem.audited);
   const handleClose = () => setOpen(null);
 
   const handleAccordionChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
+      setRange({ min: 0, max: null });
     };
+
+  const setMinVal = (minVal: number) => {
+    setRange((prevRange) => ({ ...prevRange, min: minVal }));
+  };
+
+  const setMaxVal = (maxVal: number | null) => {
+    setRange((prevRange) => ({ ...prevRange, max: maxVal }));
+  };
+
+  const toggleMineable = () => {
+    setIsMineableActive((prevState: any) => {
+      const newState = !prevState;
+      dispatch(selectSwitchFilter({ label: 'mineable', isActive: newState }));
+      return newState;
+    });
+  };
+
+  const toggleAudited = () => {
+    setIsAuditedActive((prevState: any) => {
+      const newState = !prevState;
+      dispatch(selectSwitchFilter({ label: 'audited', isActive: newState }));
+      return newState;
+    });
+  };
+
+  const handleSubmitFilter = (label: RangeKey) => {
+    dispatch(selectRangeFilter({ label, min: range.min, max: range.max }));
+  };
+
+  const handleCancelFilter = () => {
+    dispatch(clearAllFilters());
+    setExpanded(false);
+  };
 
   return (
     <div>
@@ -62,39 +113,77 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
             <Divider />
             <Accordian
               name={'Market Cap'}
-              Component={<Range headerName="Market Cap Range" rangeUnit="$" />}
-              expanded={expanded === 'panel2'}
-              onChange={handleAccordionChange('panel2')}
+              Component={
+                <Range
+                  headerName="Market Cap Range"
+                  rangeUnit="$"
+                  setMinVal={setMinVal}
+                  setMaxVal={setMaxVal}
+                  range={range}
+                />
+              }
+              expanded={expanded === 'market'}
+              onChange={handleAccordionChange('market')}
             />
             <Divider />
             <Accordian
               name={'Price'}
-              Component={<Range headerName="Price Range" rangeUnit="$" />}
-              expanded={expanded === 'panel3'}
-              onChange={handleAccordionChange('panel3')}
+              Component={
+                <Range
+                  headerName="Price Range"
+                  rangeUnit="$"
+                  setMinVal={setMinVal}
+                  setMaxVal={setMaxVal}
+                  range={range}
+                />
+              }
+              expanded={expanded === 'price'}
+              onChange={handleAccordionChange('price')}
             />
             <Divider />
             <Accordian
               name={'% Change'}
-              Component={<Range headerName="Change Range" rangeUnit="%" />}
-              expanded={expanded === 'panel4'}
-              onChange={handleAccordionChange('panel4')}
+              Component={
+                <Range
+                  headerName="Change Range"
+                  rangeUnit="%"
+                  setMinVal={setMinVal}
+                  setMaxVal={setMaxVal}
+                  range={range}
+                />
+              }
+              expanded={expanded === 'percentChange'}
+              onChange={handleAccordionChange('percentChange')}
             />
             <Divider />
             <Accordian
               name={'Volume'}
-              Component={<Range headerName="Volume Range" rangeUnit="$" />}
-              expanded={expanded === 'panel5'}
-              onChange={handleAccordionChange('panel5')}
+              Component={
+                <Range
+                  headerName="Volume Range"
+                  rangeUnit="$"
+                  setMinVal={setMinVal}
+                  setMaxVal={setMaxVal}
+                  range={range}
+                />
+              }
+              expanded={expanded === 'volume'}
+              onChange={handleAccordionChange('volume')}
             />
             <Divider />
             <Accordian
               name={'Circulating Supply'}
               Component={
-                <Range headerName="Circulating Supply Range" rangeUnit="" />
+                <Range
+                  headerName="Circulating Supply Range"
+                  rangeUnit=""
+                  setMinVal={setMinVal}
+                  setMaxVal={setMaxVal}
+                  range={range}
+                />
               }
-              expanded={expanded === 'panel6'}
-              onChange={handleAccordionChange('panel6')}
+              expanded={expanded === 'circulatingSupply'}
+              onChange={handleAccordionChange('circulatingSupply')}
             />
             <Divider />
             <Box
@@ -115,8 +204,8 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
               </Typography>
               <Switch
                 sx={styles.switch}
-                // checked={state.gilad}
-                // onChange={handleChange}
+                checked={isMineableActive}
+                onChange={toggleMineable}
                 name="mineable"
               />
             </Box>
@@ -140,8 +229,8 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
               <Switch
                 size="medium"
                 sx={styles.switch}
-                // checked={state.gilad}
-                // onChange={handleChange}
+                checked={isAuditedActive}
+                onChange={toggleAudited}
                 name="audited"
               />
             </Box>
@@ -149,12 +238,32 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
           <Box>
             <Divider sx={styles.divider} />
             <Box sx={styles.filterFooterBtns}>
-              <Button size="medium" variant="text" onClick={handleClose}>
-                Close
-              </Button>
+              {!expanded ? (
+                <Button
+                  sx={styles.closeCancelBtn}
+                  size="medium"
+                  variant="text"
+                  onClick={handleClose}
+                >
+                  Close
+                </Button>
+              ) : (
+                <Button
+                  sx={styles.closeCancelBtn}
+                  size="medium"
+                  variant="text"
+                  onClick={handleCancelFilter}
+                >
+                  Cancel
+                </Button>
+              )}
               {expanded && (
-                <Button sx={styles.applyBtn} variant="text">
-                  Apply
+                <Button
+                  sx={styles.applyBtn}
+                  variant="text"
+                  onClick={() => handleSubmitFilter(expanded as RangeKey)}
+                >
+                  Apply Filter
                 </Button>
               )}
             </Box>

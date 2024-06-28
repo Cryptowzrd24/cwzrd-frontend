@@ -35,7 +35,8 @@ export const Accordian = ({
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          {name}
+          <p>{name}</p>
+          <p>Range</p>
         </AccordionSummary>
         <AccordionDetails>{Component}</AccordionDetails>
       </Accordion>

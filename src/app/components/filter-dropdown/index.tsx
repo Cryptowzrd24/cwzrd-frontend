@@ -5,7 +5,7 @@ import { FilterSearchIcon } from '../../../../public/icons/filterSearch';
 import { Filters } from '@/app/constants/filters';
 import styles from './styles';
 import { useDispatch } from 'react-redux';
-import { selectCategoryFilter } from '@/app/redux/reducers/filters';
+import { selectFilter } from '@/app/redux/reducers/filters';
 
 type FilterKey = keyof typeof Filters;
 interface FilterDropdownProps {
@@ -13,6 +13,7 @@ interface FilterDropdownProps {
   anchorEl: null | HTMLElement;
   setAnchorEl: React.Dispatch<React.SetStateAction<null | HTMLElement>>;
   filterKey: FilterKey;
+  setIsAnyFilterActive: (value: boolean) => void;
 }
 
 function FilterDropdown({
@@ -20,6 +21,7 @@ function FilterDropdown({
   anchorEl,
   setAnchorEl,
   filterKey,
+  setIsAnyFilterActive,
 }: FilterDropdownProps) {
   const dispatch = useDispatch();
   const [searchString, setSearchString] = useState('');
@@ -28,7 +30,8 @@ function FilterDropdown({
   );
   const handleClose = (id: number, label: string) => {
     setAnchorEl(null);
-    dispatch(selectCategoryFilter({ id, label }));
+    dispatch(selectFilter({ id, label }));
+    setIsAnyFilterActive(true);
   };
 
   useEffect(() => {
