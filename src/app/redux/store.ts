@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import marketReducer from './market/index';
 
 import { dataGridApi } from './reducers/data-grid';
+import filterReducer from './reducers/filters';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const store = configureStore({
   reducer: {
     market: marketReducer,
     [dataGridApi.reducerPath]: dataGridApi.reducer,
+    filters: filterReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(dataGridApi.middleware),
