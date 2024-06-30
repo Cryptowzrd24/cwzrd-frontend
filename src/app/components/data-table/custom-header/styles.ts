@@ -50,6 +50,17 @@ const styles = {
     gap: '8px',
     marginTop: '24px',
   },
+  filterContainerBox: {
+    paddingTop: '24px',
+    borderTop: '1px solid #1111111A',
+    paddingInline: '20px',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: '8px',
+    marginTop: '24px',
+    justifyContent: 'space-between',
+  },
   searchInput: {
     outline: 'none',
     border: 'none',
