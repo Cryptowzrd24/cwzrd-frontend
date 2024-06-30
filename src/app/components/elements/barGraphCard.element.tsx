@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 
-import HighchartsReact from "highcharts-react-official";
+import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts';
 
 const BarChart = (props: IChartProps) => {
@@ -14,10 +14,10 @@ const BarChart = (props: IChartProps) => {
       plotMarginBottom: 0,
     },
     title: {
-        text: null,
+      text: null,
     },
     xAxis: {
-    //   categories: data.map((d) => d.x), 
+      //   categories: data.map((d) => d.x),
       title: {
         text: null,
       },
@@ -36,7 +36,7 @@ const BarChart = (props: IChartProps) => {
         text: null,
       },
       lineWidth: 0,
-      gridLineWidth: 0.5, 
+      gridLineWidth: 0.5,
     },
     legend: {
       enabled: false,
@@ -47,20 +47,20 @@ const BarChart = (props: IChartProps) => {
     series: [
       {
         name: '',
-        data: data.map((d) => d.y), 
+        data: data.map((d) => d.y),
         lineWidth: 1,
         color: `rgb( ${color})`,
-        fillOpacity: 1, 
+        fillOpacity: 1,
         threshold: null,
       },
     ],
     tooltip: {
-        formatter: function () {
-          const point = this.point;
-          const yValue = point.y; 
-          return `<span style="color: black; font-weight: bold; padding: 2px; border-radius: 50%!important; margin-right: 2px;">${yValue}</span>`;
-        },
+      formatter: function () {
+        const point = this.point;
+        const yValue = point.y;
+        return `<span style="color: black; font-weight: bold; padding: 2px; border-radius: 50%!important; margin-right: 2px;">${yValue}</span>`;
       },
+    },
   };
 
   useEffect(() => {
@@ -73,7 +73,11 @@ const BarChart = (props: IChartProps) => {
 
   return (
     <div style={{ width: '100%' }}>
-      <HighchartsReact ref={chartRef} highcharts={Highcharts} options={chartOptions} />
+      <HighchartsReact
+        ref={chartRef}
+        highcharts={Highcharts}
+        options={chartOptions}
+      />
     </div>
   );
 };

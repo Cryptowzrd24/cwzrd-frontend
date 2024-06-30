@@ -1,97 +1,93 @@
 .market_cap_wrapper {
-    position: relative;
-    max-width: 315px;
-    min-width: 315px;
-    min-height: 225px;
-    border-style: solid;
-    max-height: 225px;
-    border-radius: 0.5rem;
-    border-width: 1px;
-    border-color: rgba(17, 17, 17, 0.1);
-    justify-content: flex-start;
+  position: relative;
+  min-height: 225px;
+  max-height: 225px;
+  border-radius: 0.5rem;
+  justify-content: flex-start;
+  width: 100%;
+  box-shadow: 0 4px 28px 0 #0000000D !important;
 
-    .header_wrapper {
-        padding-top: 22px;
-        padding-left: 22px;
-        padding-right: 22px;
+  .header_wrapper {
+    padding-top: 22px;
+    padding-left: 22px;
+    padding-right: 22px;
 
-        .heading {
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
+    .heading {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
 
-            .stepper {
-                // align-content: center;
-            }
-        }
-
-        .value {
-            font-size: 24px;
-            line-height: 30px;
-            font-weight: 600;
-        }
+      .stepper {
+        // align-content: center;
+      }
     }
+
+    .value {
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 600;
+    }
+  }
 }
 
 
 .recently_added {
 
-    h2 {
-        margin-bottom: 1rem;
-    }
+  h2 {
+    margin-bottom: 1rem;
+  }
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-        li {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 12px;
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 12px;
 
-            .profile {
-                display: flex;
-                align-items: center;
-            }
+      .profile {
+        display: flex;
+        align-items: center;
+      }
 
-            .medal {
-                min-width: 30px;
-            }
+      .medal {
+        min-width: 30px;
+      }
 
-            .profile_block {
-                max-width: 32px;
-                height: 32px;
-                border-radius: 75%;
-                border: 1px solid #b3b3b3;
-                background-color: #fff;
+      .profile_block {
+        max-width: 32px;
+        height: 32px;
+        border-radius: 75%;
+        border: 1px solid #b3b3b3;
+        background-color: #fff;
 
-                .image {
-                    display: block;
-                    height: 100%;
-                    width: 100%;
-                    overflow: hidden;
-                    border-radius: 75%;
-                }
-            }
-
-            .title {
-                display: grid;
-                margin-left: 10px;
-                ;
-
-                span:nth-child(1) {
-                    font-weight: 700;
-                    line-height: 18px;
-                    font-size: 14px;
-                }
-
-                span:nth-child(2) {
-                    color: rgba(17, 17, 17, 0.6);
-                    font-size: 11px;
-                }
-            }
+        .image {
+          display: block;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+          border-radius: 75%;
         }
+      }
+
+      .title {
+        display: grid;
+        margin-left: 10px;;
+
+        span:nth-child(1) {
+          font-weight: 700;
+          line-height: 18px;
+          font-size: 14px;
+        }
+
+        span:nth-child(2) {
+          color: rgba(17, 17, 17, 0.6);
+          font-size: 11px;
+        }
+      }
     }
+  }
 
 }
