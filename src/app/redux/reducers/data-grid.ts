@@ -38,6 +38,22 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchSpotlightData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/spotlight/?start=${start}&limit=${pageSize}`,
+          method: 'GET',
+        };
+      },
+    }),
+    fetchDefiCoinsData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/defi/?start=${start}&limit=${pageSize}`,
+          method: 'GET',
+        };
+      },
+    }),
     fetchMostVisitedData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
@@ -68,6 +84,8 @@ export const {
   useFetchCoinDataQuery,
   useFetchHighestVolumeCoinsDataQuery,
   useFetchNewCoinDataQuery,
+  useFetchSpotlightDataQuery,
+  useFetchDefiCoinsDataQuery,
   useFetchMostVisitedDataQuery,
   useFetchTrendingDataQuery,
   useFetchGainersLosersDataQuery,

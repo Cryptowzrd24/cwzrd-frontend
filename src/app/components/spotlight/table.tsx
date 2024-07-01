@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import {
@@ -25,11 +25,27 @@ import useColumnCompactRecentlyAddedDefs from '@/app/hooks/data-grid/column-defi
 import useColumnCompactHighestVolumeDefs from '@/app/hooks/data-grid/column-defination-compact-highest-volume';
 import useColumnCompactMostVisitedDefs from '@/app/hooks/data-grid/column-defination-compact-most-visited';
 import { Pagination } from '@/app/components/data-table/pagination';
+import { useFetchSpotlightDataQuery } from '@/app/redux/reducers/data-grid';
 
 const Table = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [itemStart, setItemStart] = useState(1);
+  const [spotlightData, setSpotlightData] = useState({
+    trending: [],
+    top_gainers: [],
+    top_losers: [],
+    most_visited: [],
+    recently_added: [],
+    highest_volume: [],
+  });
+
   const pageSize = 10;
+
+  const { data } = useFetchSpotlightDataQuery({
+    start: itemStart,
+    pageSize,
+  });
 
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
@@ -39,13 +55,13 @@ const Table = () => {
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
+    const itemsNumber = value * 10 - 9;
+    console.log(itemsNumber)
+    setItemStart(itemsNumber);
     setCurrentPage(value);
   };
 
-  const paginateData = (data: any) => {
-    return data.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  };
-
+  // Column Definations
   const columnTrendingDef = useColumnCompactTrendingDefs(
     columnsCompactTrending,
   );
@@ -61,14 +77,72 @@ const Table = () => {
     columnsCompactMostVisited,
   );
 
-  const maxLength = Math.max(
-    rowCompactTrending.length,
-    rowCompactGainers.length,
-    rowCompactLosers.length,
-    rowCompactMostVisited.length,
-    rowCompactRecentlyAdded.length,
-    rowCompactHighestVolume.length,
-  );
+  useEffect(() => {
+    if (data?.data) {
+      const trending = data.data.trending.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        coin_id: item.coin_id,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_24h: item.quote.percent_change_24h,
+      }));
+
+      const topGainers = data.data.top_gainers.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        coin_id: item.coin_id,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_24h: item.quote.percent_change_24h,
+      }));
+
+      const topLosers = data.data.top_losers.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        coin_id: item.coin_id,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_24h: item.quote.percent_change_24h,
+      }));
+
+      const mostVisited = data.data.most_visited.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        coin_id: item.coin_id,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_24h: item.quote.percent_change_24h,
+      }));
+
+      const recentlyAdded = data.data.recently_added.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        coin_id: item.coin_id,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_24h: item.quote.percent_change_24h,
+      }));
+
+      const highestVolume = data.data.highest_volume.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        coin_id: item.coin_id,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_24h: item.quote.percent_change_24h,
+      }));
+
+      setSpotlightData({
+        trending,
+        top_gainers: topGainers,
+        top_losers: topLosers,
+        most_visited: mostVisited,
+        recently_added: recentlyAdded,
+        highest_volume: highestVolume,
+      });
+    }
+  }, [data, currentPage, itemStart]);
 
   return (
     <div className="data-table-wrapper">
@@ -92,28 +166,25 @@ const Table = () => {
           <DataTable
             search={search}
             title={'Trending'}
-            rowData={paginateData(rowCompactTrending)}
+            rowData={spotlightData.trending}
             columnDefs={columnTrendingDef}
             width="33%"
-            height={550}
             seeMore={'/market/trending'}
           />
           <DataTable
             search={search}
             title={'Biggest Gainers'}
-            rowData={paginateData(rowCompactGainers)}
+            rowData={spotlightData.top_gainers}
             columnDefs={columnGainersDef}
             width="33%"
-            height={550}
             seeMore={'/market/gainers-losers'}
           />
           <DataTable
             search={search}
             title={'Biggest Losers'}
-            rowData={paginateData(rowCompactLosers)}
+            rowData={spotlightData.top_losers}
             columnDefs={columnLosersDef}
             width="33%"
-            height={550}
             seeMore={'/market/gainers-losers'}
           />
         </div>
@@ -127,34 +198,31 @@ const Table = () => {
           <DataTable
             search={search}
             title={'Most Visited'}
-            rowData={paginateData(rowCompactMostVisited)}
+            rowData={spotlightData.most_visited}
             columnDefs={columnMostVisitedDefs}
             width="33%"
-            height={550}
             seeMore={'/market/most-visited'}
           />
           <DataTable
             search={search}
             title={'Recently Added'}
-            rowData={paginateData(rowCompactRecentlyAdded)}
+            rowData={spotlightData.recently_added}
             columnDefs={columnRecentlyAddedDef}
             width="33%"
-            height={550}
             seeMore={'/market/new-coin'}
           />
           <DataTable
             search={search}
             title={'Highest Volume'}
-            rowData={paginateData(rowCompactHighestVolume)}
+            rowData={spotlightData.highest_volume}
             columnDefs={columnHighestVolumeDef}
             width="33%"
-            height={550}
             seeMore={'/market/highest-volume'}
           />
         </div>
       </div>
       <Pagination
-        length={maxLength}
+        length={data?.count}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}
