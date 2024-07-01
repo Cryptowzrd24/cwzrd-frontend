@@ -4,7 +4,7 @@ import { CustomCellRendererProps } from 'ag-grid-react';
 
 export const CurrencyNameComponent = (props: CustomCellRendererProps) => {
   const [firstWord] = props.value.split(' ');
-  const imgId = `https://s2.coinmarketcap.com/static/img/coins/32x32/${props.data.coin_id}.png`;
+  const imgId = `https://s2.coinmarketcap.com/static/img/coins/32x32/${props.data.coin_id || 1}.png`;
   return (
     <div className={styles['currency-comp']}>
       <img

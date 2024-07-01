@@ -55,9 +55,9 @@ export const dataGridApi = createApi({
       },
     }),
     fetchGainersLosersData: builder.query({
-      query: (sortOrder: string) => {
+      query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `/trending/gainers-losers?sort_dir=${sortOrder}`,
+          url: `/api/gainers-losers/?start=${start}&limit=${pageSize}`,
           method: 'GET',
         };
       },
