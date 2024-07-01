@@ -35,6 +35,7 @@ const Table = () => {
     if (data && data.data) {
       const res = data.data.map((item: any) => ({
         id: item.id,
+        coin_id: item.coin_id,
         name: item.name,
         price: item.quote.price,
         volume_24h: item.quote.volume_24h,
