@@ -25,7 +25,7 @@ const Layers = () => {
             xs={12}
             md={5}
             sx={{
-              paddingRight: '18px',
+              paddingRight: '32px',
             }}
           >
             <Steps currentStep={currentStep} setCurrentStep={setCurrentStep} />
@@ -35,7 +35,7 @@ const Layers = () => {
             xs={12}
             md={7}
             sx={{
-              paddingLeft: '12px',
+              paddingLeft: '32px',
               borderLeft: '1px solid rgba(17, 17, 17, 0.1)',
             }}
           >

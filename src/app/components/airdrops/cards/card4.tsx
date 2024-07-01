@@ -15,7 +15,7 @@ const Card4 = () => {
         background: '#0e0e0e',
         height: 'auto',
         backgroundImage: `url('/images/airdrops/7.png')`,
-        backgroundSize: 'auto',
+        backgroundSize: '125%',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       }}
@@ -66,6 +66,7 @@ const Card4 = () => {
             fontWeight: '400',
             fontSize: '13px',
             lineHeight: '18.85px',
+            maxWidth: '268px',
           }}
         >
           Pat yourself on the back as you click the "Claim" button and get

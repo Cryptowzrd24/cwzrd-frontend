@@ -16,7 +16,7 @@ const Card3 = () => {
         background: '#0e0e0e',
         height: 'auto',
         backgroundImage: `url('/images/airdrops/6.png')`,
-        backgroundSize: 'auto',
+        backgroundSize: '125%',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         position: 'relative',
@@ -29,7 +29,7 @@ const Card3 = () => {
             fontSize: '16px',
             fontWeight: '400',
             color: 'rgba(255, 255, 255, 1)',
-            letterSpacing: '2px',
+            letterSpacing: '1px',
             textTransform: 'uppercase',
           }}
         >

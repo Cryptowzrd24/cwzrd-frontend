@@ -24,7 +24,7 @@ function HeroContent() {
               'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            marginLeft: '8px',
+            marginLeft: '14px',
           }}
         >
           Exchanges{' '}
@@ -36,6 +36,7 @@ function HeroContent() {
           maxWidth: '830px',
           lineHeight: '30px',
           mt: '32px',
+          color: 'rgba(17, 17, 17, 0.8)',
         }}
       >
         CoinMarketCap ranks and scores exchanges based on traffic, liquidity,

@@ -16,7 +16,7 @@ const Card2 = () => {
         cursor: 'pointer',
         height: 'auto',
         backgroundImage: `url('/images/airdrops/5.png')`,
-        backgroundSize: 'auto',
+        backgroundSize: '123%',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       }}
@@ -46,7 +46,11 @@ const Card2 = () => {
           mb: '32px',
         }}
       >
-        <Image src={img2} alt="card1" width={220} height={180} />
+        <Image
+          src={img2}
+          alt="card1"
+          style={{ height: 'auto', width: '260px' }}
+        />
       </Box>
       <Stack sx={{ textAlign: 'center' }}>
         <Typography
@@ -67,10 +71,11 @@ const Card2 = () => {
             fontWeight: '400',
             fontSize: '13px',
             lineHeight: '18.85px',
+            maxWidth: '268',
           }}
         >
-          Position yourself to be Airdropped tokens by performing tasks in our
-          curated guides that are most likely to qualify you for an Airdrop.
+          Once you perform the initial tasks, you simply need to maintain
+          activity within the network with transactions twice a week.
         </Typography>
       </Stack>
     </Box>

@@ -9,7 +9,10 @@ function NewsLetter() {
   return (
     <>
       <Box>
-        <Typography variant="h4" sx={{ mb: '4px', letterSpacing: 3 }}>
+        <Typography
+          variant="h4"
+          sx={{ mb: '4px', letterSpacing: 3, fontSize: '18px' }}
+        >
           NEWSLETTER
         </Typography>
         <Box
@@ -49,7 +52,12 @@ function NewsLetter() {
         <Grid
           container
           columnSpacing={2}
-          sx={{ mt: '72px', display: 'flex', justifyContent: 'space-between' }}
+          sx={{
+            mt: '72px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
         >
           <Grid item xs={12} md={8}>
             <CardContent />
@@ -83,7 +91,7 @@ function NewsLetter() {
             variant="body1"
             sx={{
               background: 'rgba(17, 17, 17, 0.05)',
-              padding: '16px 32px',
+              padding: '16px 24px 16px  32px',
               fontWeight: '600',
               display: 'flex',
               justifyContent: 'center',

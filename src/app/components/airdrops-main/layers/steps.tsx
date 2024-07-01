@@ -17,6 +17,7 @@ const Steps = ({ currentStep, setCurrentStep }: stepProps) => {
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '16px',
           cursor: 'pointer',
+          border: '1px solid rgba(17, 17, 17, 0.05)',
         }}
         onClick={() => handleStepClick(1)}
       >
@@ -57,6 +58,7 @@ const Steps = ({ currentStep, setCurrentStep }: stepProps) => {
           borderRadius: '16px',
           mt: '16px',
           cursor: 'pointer',
+          border: '1px solid rgba(17, 17, 17, 0.05)',
         }}
         onClick={() => handleStepClick(2)}
       >
@@ -96,6 +98,7 @@ const Steps = ({ currentStep, setCurrentStep }: stepProps) => {
           borderRadius: '16px',
           mt: '16px',
           cursor: 'pointer',
+          border: '1px solid rgba(17, 17, 17, 0.05)',
         }}
         onClick={() => handleStepClick(3)}
       >

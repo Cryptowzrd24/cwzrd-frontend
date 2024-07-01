@@ -27,7 +27,7 @@ function HeroContent() {
       <Box
         sx={{
           fontSize: '20px',
-          maxWidth: '600px',
+          maxWidth: '650px',
           lineHeight: '30px',
           mt: '32px',
         }}

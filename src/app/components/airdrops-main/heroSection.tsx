@@ -75,7 +75,7 @@ const HeroSection = () => {
               >
                 Blockchain Infrastructure
               </Typography>
-              <Box sx={{ display: 'flex', gap: '16px' }}>
+              <Box sx={{ display: 'flex', gap: '8px' }}>
                 <Box
                   sx={{
                     padding: '6px 12px 6px 8px',
@@ -264,7 +264,7 @@ const HeroSection = () => {
                   360
                 </Typography>
               </Box>
-              <Box sx={{ display: 'flex', gap: '2px', mb: '16px' }}>
+              <Box sx={{ display: 'flex', gap: '2px', mb: '8px' }}>
                 <Typography
                   variant="body1"
                   sx={{
@@ -282,7 +282,6 @@ const HeroSection = () => {
                     fontSize: '16px',
                     fontWeight: '600',
                     color: 'rgba(17, 17, 17, 1)',
-                    mb: '4px',
                   }}
                 >
                   654.37K
@@ -292,7 +291,6 @@ const HeroSection = () => {
                 sx={{
                   display: 'flex',
                   gap: '4px',
-                  mb: '4px',
                   alignItems: 'center',
                 }}
               >

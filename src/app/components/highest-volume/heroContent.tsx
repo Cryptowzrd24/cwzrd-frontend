@@ -31,6 +31,7 @@ function HeroContent() {
           maxWidth: '830px',
           lineHeight: '30px',
           mt: '32px',
+          color: 'rgba(17, 17, 17, 0.8)',
         }}
       >
         CoinMarketCap ranks and scores exchanges based on traffic, liquidity,

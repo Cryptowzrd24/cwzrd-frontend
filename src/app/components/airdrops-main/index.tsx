@@ -3,19 +3,34 @@ import React from 'react';
 import HeroSection from './heroSection';
 import HeroCard from './heroCard';
 import Layers from './layers';
+import NewsLetterBanner from '../banners/newsLetterBanner';
+import NewsLetter from '../news-letter';
+import Technicals from '../technicals';
+import MemberShipBanner from '../banners/memberShipBanner';
 
 const AirdropsMain = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '72px' }}>
           <HeroSection />
         </Box>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '40px' }}>
           <HeroCard />
         </Box>
-        <Box sx={{ mt: '80px', mb: '80px' }}>
+        <Box sx={{ mt: '40px', mb: '80px' }}>
           <Layers />
+        </Box>
+       
+        <Box sx={{ mt: '150px' }}>
+          <NewsLetter />
+        </Box>
+        <Box sx={{ mt: '108px' }}>
+          <Technicals />
+        </Box>
+
+        <Box sx={{ mt: '160px', mb: '120px' }}>
+          <MemberShipBanner />
         </Box>
       </Container>
     </>

@@ -22,17 +22,17 @@ function AirDrops() {
       <Box sx={{ mt: '40px' }}>
         <Card />
       </Box>
-      <Box sx={{ mt: '80px', mb: '80px' }}>
+      <Box sx={{ mt: '120px' }}>
         <NewsLetterBanner />
       </Box>
-      <Box sx={{ mt: '80px' }}>
+      <Box sx={{ mt: '120px' }}>
         <NewsLetter />
       </Box>
-      <Box sx={{ mt: '80px' }}>
+      <Box sx={{ mt: '90px' }}>
         <Technicals />
       </Box>
 
-      <Box sx={{ mt: '220px', mb: '120px' }}>
+      <Box sx={{ mt: '180px', mb: '120px' }}>
         <MemberShipBanner />
       </Box>
     </Container>
