@@ -18,7 +18,6 @@ const Table = () => {
   const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
 
   const totalCount = data?.count || 0;
-  const totalPages = Math.ceil(totalCount / pageSize);
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
@@ -73,7 +72,7 @@ const Table = () => {
         />
       </div>
       <Pagination
-        length={totalPages}
+        length={totalCount}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}
