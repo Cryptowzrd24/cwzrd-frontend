@@ -5,12 +5,14 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import styles from './styles';
+import { useSelector } from 'react-redux';
 
 interface AccordianProps {
   name: string;
   Component: React.JSX.Element;
   expanded: boolean;
   onChange: (event: React.SyntheticEvent, isExpanded: boolean) => void;
+  accordianName: string;
 }
 
 export const Accordian = ({
@@ -18,7 +20,26 @@ export const Accordian = ({
   Component,
   expanded,
   onChange,
+  accordianName,
 }: AccordianProps) => {
+  const filterItems = useSelector((state: any) => state.filters.filters);
+  const getDisplayValue = (key: any) => {
+    const value = filterItems[key];
+    if (
+      value &&
+      typeof value === 'object' &&
+      'min' in value &&
+      'max' in value
+    ) {
+      return value.min !== null || value.max !== null
+        ? `$${value.min !== null ? value.min : ''} - $${value.max !== null ? value.max : ''}`
+        : null;
+    }
+    return value !== null && value !== false ? value : null;
+  };
+
+  const displayValue = getDisplayValue(accordianName);
+
   return (
     <div>
       <Accordion
@@ -36,7 +57,7 @@ export const Accordian = ({
           id="panel1-header"
         >
           <p>{name}</p>
-          <p>Range</p>
+          {displayValue && <p style={{ color: '#7248F7' }}>{displayValue}</p>}
         </AccordionSummary>
         <AccordionDetails>{Component}</AccordionDetails>
       </Accordion>
