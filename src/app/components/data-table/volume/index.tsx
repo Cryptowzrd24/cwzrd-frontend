@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 export const VolumeComponent = (props: CustomCellRendererProps) => {
   const val = '$' + priceNumberFormatter(props.value);
   const priceDiff = priceNumberFormatter(
-    props.data.volume_24h / props.data.price,
+    String(Number(props.data.volume_24h) / Number(props.data.price)),
   );
   const pathName = usePathname();
   const isPathNewCoin = pathName.includes('/market/new-coin');
