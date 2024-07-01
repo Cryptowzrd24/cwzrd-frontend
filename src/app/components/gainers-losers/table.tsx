@@ -35,8 +35,6 @@ const Table = () => {
     setCurrentPage(value);
   };
 
-
-
   useEffect(() => {
     if (data && data.top_gainers) {
       const res = data.top_gainers.map((item: any) => ({

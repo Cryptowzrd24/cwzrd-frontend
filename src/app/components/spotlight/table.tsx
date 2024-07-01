@@ -2,14 +2,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
-import {
-  rowCompactGainers,
-  rowCompactHighestVolume,
-  rowCompactLosers,
-  rowCompactMostVisited,
-  rowCompactRecentlyAdded,
-  rowCompactTrending,
-} from '@/app/constants/row';
 import useColumnCompactTrendingDefs from '@/app/hooks/data-grid/column-defination-compact-trending';
 import {
   columnsCompactGainers,
@@ -56,7 +48,7 @@ const Table = () => {
     value: number,
   ) => {
     const itemsNumber = value * 10 - 9;
-    console.log(itemsNumber)
+    console.log(itemsNumber);
     setItemStart(itemsNumber);
     setCurrentPage(value);
   };

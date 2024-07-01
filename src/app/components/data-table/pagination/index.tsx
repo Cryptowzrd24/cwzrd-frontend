@@ -22,7 +22,7 @@ export const Pagination = ({
         borderTop: '1px solid #1111111A',
         display: 'flex',
         alignItems: 'center',
-        position: "relative",
+        position: 'relative',
         justifyContent: 'space-between',
       }}
     >
