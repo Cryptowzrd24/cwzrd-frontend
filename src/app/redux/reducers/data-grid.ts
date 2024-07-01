@@ -22,6 +22,14 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchHighestVolumeCoinsData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/highest-volume/?offset=${start}&limit=${pageSize}`,
+          method: 'GET',
+        };
+      },
+    }),
     fetchNewCoinData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
@@ -58,6 +66,7 @@ export const dataGridApi = createApi({
 });
 export const {
   useFetchCoinDataQuery,
+  useFetchHighestVolumeCoinsDataQuery,
   useFetchNewCoinDataQuery,
   useFetchMostVisitedDataQuery,
   useFetchTrendingDataQuery,
