@@ -35,18 +35,6 @@ const Table = () => {
     setCurrentPage(value);
   };
 
-  const paginatedRowDataGainers = rowGainersData.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize,
-  );
-
-  const paginatedRowDataLosers = rowLosersData.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize,
-  );
-
-  console.log(data);
-
   useEffect(() => {
     if (data && data.top_gainers) {
       const res = data.top_gainers.map((item: any) => ({
@@ -73,7 +61,7 @@ const Table = () => {
       }));
       setRowLosersData(res);
     }
-  }, [data]);
+  }, [data, currentPage, itemStart]);
 
   return (
     <div className="data-table-wrapper">
@@ -89,20 +77,20 @@ const Table = () => {
         <DataTable
           search={search}
           title={'Top Gainers'}
-          rowData={paginatedRowDataGainers}
+          rowData={rowGainersData}
           columnDefs={columnGainersDef}
           width="50%"
         />
         <DataTable
           search={search}
           title={'Top Losers'}
-          rowData={paginatedRowDataLosers}
+          rowData={rowLosersData}
           columnDefs={columnLosersDef}
           width="50%"
         />
       </div>
       <Pagination
-        length={Math.max(rowGainersData.length, rowLosersData.length)}
+        length={data?.count}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}
