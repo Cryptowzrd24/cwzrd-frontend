@@ -25,7 +25,7 @@ export const dataGridApi = createApi({
     fetchNewCoinData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/new?start=${start}&limit=${pageSize}`,
+          url: `/api/new-coins/?start=${start}&limit=${pageSize}`,
           method: 'GET',
         };
       },
