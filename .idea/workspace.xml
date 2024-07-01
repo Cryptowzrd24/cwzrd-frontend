@@ -5,38 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/constants/charts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/redux/market/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@types/app/data.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/@types/app/data.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@types/app/general.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/@types/app/general.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@types/app/object.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/@types/app/object.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@types/app/props.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/@types/app/props.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@types/app/state.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/@types/app/state.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(pages)/cards/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(pages)/cards/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/coin/heroContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/coin/heroContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card1.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card1.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card10.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card10.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card11.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card11.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card2.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card2.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card3.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card3.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card4.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card4.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card5.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card5.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card6.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card6.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card7.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card7.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card8.componnet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card8.componnet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/card9.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/card9.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/cardHeader.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/cardHeader.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/graphCard.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/graphCard.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/elements/areaGraphCard.element.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/elements/areaGraphCard.element.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/elements/avatarGroup.element.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/elements/avatarGroup.element.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/elements/barGraphCard.element.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/elements/barGraphCard.element.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/elements/stepIndicator.element.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/elements/stepIndicator.element.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/hero-section/hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/hero-section/hero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/helpers/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/helpers/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/helpers/functions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/helpers/functions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/redux/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/redux/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/highest-volume/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/highest-volume/table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/redux/reducers/data-grid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/redux/reducers/data-grid.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +32,7 @@
     "Node.js..eslintrc.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "eslint.code.style.apply.dismiss": "true",
-    "git-widget-placeholder": "HA/CWZRD-6",
+    "git-widget-placeholder": "HR/CWZRD-32",
     "last_opened_file_path": "/Users/mac/Current Projects/crypto-wzrd/src/app/hooks/data-grid",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -145,5 +115,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/components/coin/table.tsx</url>
+          <line>23</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
