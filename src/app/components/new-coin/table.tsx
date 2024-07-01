@@ -17,7 +17,7 @@ const Table = () => {
 
   const columnNewCoinsDef = useColumnNewCoinsDefs(columnsNewCoin);
   const { data } = useFetchNewCoinDataQuery({ start: itemStart, pageSize });
-
+  const totalCount = data?.count || 0;
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
@@ -35,20 +35,23 @@ const Table = () => {
     if (data && data.data) {
       const res = data.data.map((item: any) => ({
         id: item.id,
+        coin_id: item.coin_id,
         name: item.name,
-        price: item.quote.USD.price,
-        volume_24h: item.quote.USD.volume_24h,
-        percent_change_1h: item.quote.USD.percent_change_1h,
-        percent_change_24h: item.quote.USD.percent_change_24h,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_1h: item.quote.percent_change_1h,
+        percent_change_24h: item.quote.percent_change_24h,
         circulating_supply: item.circulating_supply,
         symbol: item.symbol,
-        fdv: item.quote.USD.fully_diluted_market_cap,
+        fdv: item.quote.fully_diluted_market_cap,
         date_added: item.date_added,
+        // platform_id: JSON.parse(item.platform),
       }));
       setRowData(res);
     }
   }, [data, currentPage, itemStart]);
 
+  console.log(rowData);
   return (
     <div className="data-table-wrapper">
       <CustomHeader search={search} setSearch={handleSetSearch} />
@@ -66,7 +69,7 @@ const Table = () => {
         />
       </div>
       <Pagination
-        length={1200}
+        length={totalCount}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}
