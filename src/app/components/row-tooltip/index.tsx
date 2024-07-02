@@ -5,7 +5,7 @@ import { priceNumberFormatter } from '@/utils/price-number-formater';
 
 export const RowTooltip = (props: CustomCellRendererProps) => {
   const percentage =
-    (props.data.circulating_supply / props.data.max_supply) * 100;
+    (props.data?.circulating_supply / props.data?.max_supply) * 100;
   return (
     <div className={styles['row-tooltip']}>
       <div className={styles['row-tooltip-percent']}>
@@ -30,15 +30,15 @@ export const RowTooltip = (props: CustomCellRendererProps) => {
       <div className={styles['row-tooltip-circulating-supply']}>
         <p>Circulating Supply</p>
         <p className="text-light">
-          {priceNumberFormatter(props.data.circulating_supply)?.slice(0, 10)}{' '}
-          {props.data.symbol}
+          {priceNumberFormatter(props.data?.circulating_supply)?.slice(0, 10)}{' '}
+          {props.data?.symbol}
         </p>
       </div>
       <div className={styles['row-tooltip-max-supply']}>
         <p>Max Supply</p>
         <p className="text-light">
-          {priceNumberFormatter(props.data.circulating_supply)?.slice(0, 10)}{' '}
-          {props.data.symbol}
+          {priceNumberFormatter(props.data?.circulating_supply)?.slice(0, 10)}{' '}
+          {props.data?.symbol}
         </p>
       </div>
     </div>
