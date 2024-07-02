@@ -5,10 +5,9 @@ import DataTable from '@/app/components/data-table';
 import { columnsHighestVol } from '@/app/constants/columns';
 import useColumnHighestVolDefs from '@/app/hooks/data-grid/column-defination-highest-vol';
 import { Pagination } from '@/app/components/data-table/pagination';
-import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
-import CardContent from './cards/cardContent';
+import { useFetchHighestVolumeCoinsDataQuery } from '@/app/redux/reducers/data-grid';
 
-const Table = () => {
+const HighestVolumeCoinsTable = () => {
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,8 +16,12 @@ const Table = () => {
 
   const [showCards, setShowCards] = useState(false);
   const columnDefiDef = useColumnHighestVolDefs(columnsHighestVol);
-  const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
+  const { data } = useFetchHighestVolumeCoinsDataQuery({
+    start: itemStart,
+    pageSize,
+  });
 
+  const totalCount = data?.count || 0;
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
@@ -37,12 +40,12 @@ const Table = () => {
       const res = data.data.map((item: any) => ({
         id: item.id,
         name: item.name,
-        price: item.quote.USD.price,
-        volume_24h: item.quote.USD.volume_24h,
-        percent_change_1h: item.quote.USD.percent_change_1h,
-        percent_change_24h: item.quote.USD.percent_change_24h,
-        percent_change_7d: item.quote.USD.percent_change_7d,
-        market_cap: item.quote.USD.market_cap,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_1h: item.quote.percent_change_1h,
+        percent_change_24h: item.quote.percent_change_24h,
+        percent_change_7d: item.quote.percent_change_7d,
+        market_cap: item.quote.market_cap,
         circulating_supply: item.circulating_supply,
         symbol: item.symbol,
         max_supply: item.max_supply,
@@ -52,11 +55,7 @@ const Table = () => {
       );
       setRowData(sortedRes);
     }
-  }, [data]);
-  const handleToggleCards = () => {
-    console.log('Toggling showCards:', !showCards); 
-    setShowCards((prevShowCards) => !prevShowCards);
-  };
+  }, [data, currentPage, itemStart]);
 
   return (
     <div className="data-table-wrapper">
@@ -85,7 +84,7 @@ const Table = () => {
       </div>
 
       <Pagination
-        length={rowData.length}
+        length={totalCount}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}
@@ -94,4 +93,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default HighestVolumeCoinsTable;

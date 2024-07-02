@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/circulating-supply/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/circulating-supply/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/data-table/name/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/data-table/name/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/most-visited/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/most-visited/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-most-visit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/hooks/data-grid/column-defination-most-visit.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/highest-volume/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/highest-volume/table.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/redux/reducers/data-grid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/redux/reducers/data-grid.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +32,7 @@
     "Node.js..eslintrc.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "eslint.code.style.apply.dismiss": "true",
-    "git-widget-placeholder": "AN/CWZRD-25",
+    "git-widget-placeholder": "HR/CWZRD-32",
     "last_opened_file_path": "/Users/mac/Current Projects/crypto-wzrd/src/app/hooks/data-grid",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -51,18 +47,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="QodanaHighlightedReportService">
-    <option name="localRunNotPublishedPersistedInfo">
-      <LocalReportPersistedInfo>
-        <option name="path" value="/private/var/folders/ww/jrc08l7s52d7g5fs4k381_dr0000gn/T/qodana_output/qodana.sarif.json" />
-        <option name="reportGuid" value="6287c34a-16c3-4041-aa62-7e32546ea2b1" />
-        <option name="reportName" value="crypto-wzrd/qodana/2024-06-24" />
-      </LocalReportPersistedInfo>
-    </option>
-  </component>
-  <component name="QodanaIsSelectedPersistenceService">
-    <option name="selectedOrLoading" value="true" />
-  </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="/private/var/folders/ww/jrc08l7s52d7g5fs4k381_dr0000gn/T/qodana_output/qodana.sarif.json" reportGuid="6287c34a-16c3-4041-aa62-7e32546ea2b1" reportId="crypto-wzrd/qodana/2024-06-24" />
@@ -131,5 +115,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/components/coin/table.tsx</url>
+          <line>23</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

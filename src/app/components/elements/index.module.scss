@@ -1,0 +1,27 @@
+.step_indicator {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .step_itemDefault {
+    position: relative;
+    margin-right: 4px;
+    border-radius: 25px;
+    border: 3px solid #1A111111;
+  }
+  .step_itemWhite{
+    position: relative;
+    margin-right: 4px;
+    border-radius: 25px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .step_itemDefault.activeDefault {
+    border: 3px solid black;
+  }
+
+  .step_itemWhite.activeWhite {
+    border: 3px solid #FFFFFF;
+  }
+}

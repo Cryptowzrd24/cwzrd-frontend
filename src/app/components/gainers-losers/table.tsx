@@ -11,15 +11,17 @@ import { useFetchGainersLosersDataQuery } from '@/app/redux/reducers/data-grid';
 const Table = () => {
   const columnGainersDef = useColumnGainersDefs(columnsGainers);
   const columnLosersDef = useColumnLosersDefs(columnsLosers);
-  const { data: dataGainers } = useFetchGainersLosersDataQuery('desc');
-  const { data: dataLosers } = useFetchGainersLosersDataQuery('asc');
+  const [itemStart, setItemStart] = useState(1);
+  const pageSize = 10;
 
   const [search, setSearch] = useState('');
   const [rowGainersData, setRowGainersData] = useState([]);
   const [rowLosersData, setRowLosersData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
-
+  const { data } = useFetchGainersLosersDataQuery({
+    start: itemStart,
+    pageSize,
+  });
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
@@ -28,44 +30,38 @@ const Table = () => {
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
+    const itemsNumber = value * 10 - 9;
+    setItemStart(itemsNumber);
     setCurrentPage(value);
   };
 
-  const paginatedRowDataGainers = rowGainersData.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize,
-  );
-
-  const paginatedRowDataLosers = rowLosersData.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize,
-  );
-
   useEffect(() => {
-    if (dataGainers && dataGainers.data) {
-      const res = dataGainers.data.map((item: any) => ({
+    if (data && data.top_gainers) {
+      const res = data.top_gainers.map((item: any) => ({
         id: item.id,
         name: item.name,
-        price: item.quote.USD.price,
-        volume_24h: item.quote.USD.volume_24h,
-        percent_change_24h: item.quote.USD.percent_change_24h,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_24h: item.quote.percent_change_24h,
         symbol: item.symbol,
+        coin_id: item.coin_id,
       }));
       setRowGainersData(res);
     }
 
-    if (dataLosers && dataLosers.data) {
-      const res = dataLosers.data.map((item: any) => ({
+    if (data && data.top_losers) {
+      const res = data.top_losers.map((item: any) => ({
         id: item.id,
         name: item.name,
-        price: item.quote.USD.price,
-        volume_24h: item.quote.USD.volume_24h,
-        percent_change_24h: item.quote.USD.percent_change_24h,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_24h: item.quote.percent_change_24h,
         symbol: item.symbol,
+        coin_id: item.coin_id,
       }));
       setRowLosersData(res);
     }
-  }, [dataGainers, dataLosers]);
+  }, [data, currentPage, itemStart]);
 
   return (
     <div className="data-table-wrapper">
@@ -81,20 +77,20 @@ const Table = () => {
         <DataTable
           search={search}
           title={'Top Gainers'}
-          rowData={paginatedRowDataGainers}
+          rowData={rowGainersData}
           columnDefs={columnGainersDef}
           width="50%"
         />
         <DataTable
           search={search}
           title={'Top Losers'}
-          rowData={paginatedRowDataLosers}
+          rowData={rowLosersData}
           columnDefs={columnLosersDef}
           width="50%"
         />
       </div>
       <Pagination
-        length={Math.max(rowGainersData.length, rowLosersData.length)}
+        length={data?.count}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}

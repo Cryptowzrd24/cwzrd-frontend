@@ -1,9 +1,12 @@
 'use client';
 import { Box, Stack, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
+import { useAppDispatch, useAppSelector } from '@/app/redux/store';
+import { hideToggleStats, showToggleStats } from '@/app/redux/market';
 
 const Hero: React.FC = () => {
-  const [activeButton, setActiveButton] = useState<string>('SHOW');
+  const { showStats } = useAppSelector((state) => state.market);
+  const dispatch = useAppDispatch();
 
   return (
     <Stack>
@@ -28,7 +31,7 @@ const Hero: React.FC = () => {
             }}
           >
             <Box
-              onClick={() => setActiveButton('HIDE')}
+              onClick={() => dispatch(hideToggleStats())}
               sx={{
                 padding: '9px 12px',
                 borderRadius: '72px',
@@ -41,7 +44,7 @@ const Hero: React.FC = () => {
               HIDE
             </Box>
             <Box
-              onClick={() => setActiveButton('SHOW')}
+              onClick={() => dispatch(showToggleStats())}
               sx={{
                 padding: '9px 12px',
                 borderRadius: '72px',
