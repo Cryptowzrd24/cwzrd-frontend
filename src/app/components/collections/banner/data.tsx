@@ -1,0 +1,43 @@
+import VerifiedBlack from '../../../../../public/icons/collections/verifiedBlack';
+
+export const cardDetails = [
+  {
+    id: '1',
+    image1: '/images/collections/background.png',
+    image2: '/images/collections/Ellipse 1 (1).png',
+    title: 'The City by Persona',
+    subheading: 'Persona',
+    icon: <VerifiedBlack />,
+    state1: 'Items',
+    value1: '1,024 Items',
+    state2: '24h Volume',
+    value2: '0.11 ETH',
+    backgroundImage: '/images/collections/banner.png',
+  },
+  {
+    id: '2',
+    image1: '/images/collections/background2.png',
+    image2: '/images/collections/Ellipse 1 (1).png',
+    title: 'The City of Light',
+    subheading: 'Karachi',
+    icon: <VerifiedBlack />,
+    state1: 'Items',
+    value1: '1,024 Items',
+    state2: '24h Volume',
+    value2: '0.11 ETH',
+    backgroundImage: '/images/banner/banner2.png',
+  },
+  {
+    id: '3',
+    image1: '/images/collections/background3.png',
+    image2: '/images/collections/Ellipse 1 (1).png',
+    title: 'The City of Light',
+    subheading: 'Karachi',
+    icon: <VerifiedBlack />,
+    state1: 'Items',
+    value1: '1,024 Items',
+    state2: '24h Volume',
+    value2: '0.11 ETH',
+    backgroundImage: '/images/banner/banner1.png',
+  },
+];

@@ -1,7 +1,6 @@
 import { Container, Box } from '@mui/material';
 import React from 'react';
 import HeroContent from './heroContent';
-import Hero from '../hero-section/hero';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
@@ -13,9 +12,13 @@ const Exchange = () => {
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
         <Box sx={{ mt: '80px' }}>
-          <Hero />
           <HeroContent />
         </Box>
+      </Container>
+      {/*<Box sx={{ mt: '40px' }}>*/}
+      {/*  <SkeletonComponent />*/}
+      {/*</Box>*/}
+      <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
         <Box sx={{ mt: '40px' }}>
           <Table />
         </Box>

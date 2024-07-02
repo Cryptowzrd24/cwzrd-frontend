@@ -18,7 +18,7 @@ function HeroContent() {
   };
   return (
     <>
-      <Typography variant="h1">
+      <Typography variant="h1" sx={{ maxWidth: '960px' }}>
         Today{' '}
         <span
           style={{
@@ -30,14 +30,14 @@ function HeroContent() {
         >
           Cryptocurrency prices
         </span>{' '}
-        by <br /> Market Cap
+        by Market Cap
       </Typography>
       <Box
         sx={{
           fontSize: '20px',
           maxWidth: '600px',
           lineHeight: '30px',
-          color: '#111111CC',
+          color: 'rgba(17, 17, 17, 0.8)',
           mt: '32px',
         }}
       >

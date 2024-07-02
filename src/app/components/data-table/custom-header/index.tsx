@@ -35,6 +35,7 @@ interface CustomHeaderProps {
   setSearch: any;
   filter?: boolean;
   view?: boolean;
+  onToggleView?: () => void;
 }
 
 type FilterKey = keyof typeof Filters;
@@ -44,6 +45,7 @@ export const CustomHeader = ({
   setSearch,
   filter = false,
   view = false,
+  onToggleView = () => {},
 }: CustomHeaderProps) => {
   const pathname = usePathname();
   const dispatch = useDispatch();
@@ -216,7 +218,10 @@ export const CustomHeader = ({
           )}
           {view && (
             <>
-              <Box sx={{ ...styles.iconBox, background: 'transparent' }}>
+              <Box
+                sx={{ ...styles.iconBox, background: 'transparent' }}
+                onClick={onToggleView}
+              >
                 <BoxIcon />
               </Box>
               <Box sx={styles.iconBox}>

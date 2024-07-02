@@ -10,7 +10,7 @@ function HeroContent() {
   };
   return (
     <>
-      <Typography variant="h1" sx={{ maxWidth: '830px', width: '100%' }}>
+      <Typography variant="h1" sx={{ maxWidth: '720px', width: '100%' }}>
         Top Crypto{' '}
         <span
           style={{

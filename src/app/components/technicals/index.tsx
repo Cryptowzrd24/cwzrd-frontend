@@ -7,7 +7,10 @@ function Technicals() {
   return (
     <>
       <Box>
-        <Typography variant="h4" sx={{ mb: '4px', letterSpacing: 3 }}>
+        <Typography
+          variant="h4"
+          sx={{ mb: '4px', letterSpacing: 3, fontSize: '18px' }}
+        >
           TECHNICALS{' '}
         </Typography>
         <Box
@@ -44,7 +47,7 @@ function Technicals() {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ marginBlock: '72px' }}>
+      <Box sx={{ marginTop: '72px' }}>
         <TechnicalCardContent />
       </Box>
       <Box
@@ -59,7 +62,7 @@ function Technicals() {
           variant="body1"
           sx={{
             background: 'rgba(17, 17, 17, 0.05)',
-            padding: '16px 32px',
+            padding: '16px 24px 16px 32px',
             fontWeight: '600',
             display: 'flex',
             justifyContent: 'center',

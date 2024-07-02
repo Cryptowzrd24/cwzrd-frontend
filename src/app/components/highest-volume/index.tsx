@@ -19,6 +19,9 @@ const HighestVolume = () => {
         <Box sx={{ mt: '40px' }}>
           <Table />
         </Box>
+        {/* <Box sx={{ mt: '80px' }}>
+          <CardContent />
+        </Box> */}
         <Box sx={{ mt: '80px', mb: '80px' }}>
           <NewsLetterBanner />
         </Box>
