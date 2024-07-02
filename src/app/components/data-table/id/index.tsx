@@ -14,7 +14,17 @@ import secondRank from '../../../../../public/icons/second-rank.png';
 import thirdRank from '../../../../../public/icons/third-rank.png';
 
 export const ID = (props: CustomCellRendererProps) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsSelected(true);
+    }, 600);
+  };
+
   const index = props.rowIndex + 1;
   const displayIndex = () => {
     if (index === 1) {
@@ -59,12 +69,17 @@ export const ID = (props: CustomCellRendererProps) => {
   };
   return (
     <div className={styles['index-comp-main']}>
-      <Image
-        className={styles['star-image']}
-        src={isSelected ? selectedStar : unselectedStar}
-        alt=""
-        onClick={() => setIsSelected(true)}
-      />
+      <div onClick={handleClick}>
+        {isLoading ? (
+          <div className={styles['loader']}></div>
+        ) : (
+          <Image
+            className={styles['star-image']}
+            src={isSelected ? selectedStar : unselectedStar}
+            alt=""
+          />
+        )}
+      </div>
       {displayIndex()}
     </div>
   );

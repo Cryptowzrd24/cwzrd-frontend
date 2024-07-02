@@ -60,7 +60,7 @@ function NewsLetterBanner() {
               placeholder="Enter your email address"
               className={styles.input}
             />
-            <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+            <Box sx={{ display: 'flex' }}>
               <Button
                 variant="contained"
                 endIcon={<ArrowRight />}
@@ -68,8 +68,10 @@ function NewsLetterBanner() {
                   borderRadius: '56px',
                   display: 'flex',
                   alignItems: 'flex-start',
-                  fontWeight: '600',
-                  padding: '8px 20px 0 24px',
+                  fontWeight: '700',
+                  padding: '10px 20px 4px 24px',
+                  justifyContent: 'center',
+                  fontSize: '16px',
                 }}
               >
                 Get Started
