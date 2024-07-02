@@ -3,7 +3,6 @@ import React from 'react';
 import HeroSection from './heroSection';
 import HeroCard from './heroCard';
 import Layers from './layers';
-import NewsLetterBanner from '../banners/newsLetterBanner';
 import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import MemberShipBanner from '../banners/memberShipBanner';
@@ -21,7 +20,7 @@ const AirdropsMain = () => {
         <Box sx={{ mt: '40px', mb: '80px' }}>
           <Layers />
         </Box>
-       
+
         <Box sx={{ mt: '150px' }}>
           <NewsLetter />
         </Box>

@@ -100,7 +100,6 @@ const StepPicture = ({ currentStep }: stepPicture) => {
           />
         </Stack>
       </Box>
-
     </>
   );
 };

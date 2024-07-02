@@ -37,8 +37,8 @@ const Hero: React.FC = () => {
                 borderRadius: '72px',
                 fontSize: '10px',
                 fontWeight: '500',
-                bgcolor: activeButton === 'HIDE' ? '#7248F7' : '',
-                color: activeButton === 'HIDE' ? 'white' : '',
+                bgcolor: !showStats ? '#7248F7' : '',
+                color: !showStats ? 'white' : '',
               }}
             >
               HIDE
@@ -50,8 +50,8 @@ const Hero: React.FC = () => {
                 borderRadius: '72px',
                 fontSize: '10px',
                 fontWeight: '500',
-                bgcolor: activeButton === 'SHOW' ? '#7248F7' : '',
-                color: activeButton === 'SHOW' ? 'white' : '',
+                bgcolor: showStats ? '#7248F7' : '',
+                color: showStats ? 'white' : '',
               }}
             >
               SHOW

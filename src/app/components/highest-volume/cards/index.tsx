@@ -185,7 +185,7 @@ const Card = ({
               {volume}
             </Typography>
           </Stack>
-          <Stack sx={{mt:"8px"}}>
+          <Stack sx={{ mt: '8px' }}>
             <Typography
               variant="body2"
               sx={{
