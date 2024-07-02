@@ -71,59 +71,76 @@ const Table = () => {
 
   useEffect(() => {
     if (data?.data) {
-      const trending = data.data.trending.map((item: any) => ({
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const trending = data.data.trending.map((item: any, index: number) => ({
         id: item.id,
         name: item.name,
         coin_id: item.coin_id,
         price: item.quote.price,
         volume_24h: item.quote.volume_24h,
         percent_change_24h: item.quote.percent_change_24h,
+        index: startIndex + index,
       }));
 
-      const topGainers = data.data.top_gainers.map((item: any) => ({
-        id: item.id,
-        name: item.name,
-        coin_id: item.coin_id,
-        price: item.quote.price,
-        volume_24h: item.quote.volume_24h,
-        percent_change_24h: item.quote.percent_change_24h,
-      }));
+      const topGainers = data.data.top_gainers.map(
+        (item: any, index: number) => ({
+          id: item.id,
+          name: item.name,
+          coin_id: item.coin_id,
+          price: item.quote.price,
+          volume_24h: item.quote.volume_24h,
+          percent_change_24h: item.quote.percent_change_24h,
+          index: startIndex + index,
+        }),
+      );
 
-      const topLosers = data.data.top_losers.map((item: any) => ({
-        id: item.id,
-        name: item.name,
-        coin_id: item.coin_id,
-        price: item.quote.price,
-        volume_24h: item.quote.volume_24h,
-        percent_change_24h: item.quote.percent_change_24h,
-      }));
+      const topLosers = data.data.top_losers.map(
+        (item: any, index: number) => ({
+          id: item.id,
+          name: item.name,
+          coin_id: item.coin_id,
+          price: item.quote.price,
+          volume_24h: item.quote.volume_24h,
+          percent_change_24h: item.quote.percent_change_24h,
+          index: startIndex + index,
+        }),
+      );
 
-      const mostVisited = data.data.most_visited.map((item: any) => ({
-        id: item.id,
-        name: item.name,
-        coin_id: item.coin_id,
-        price: item.quote.price,
-        volume_24h: item.quote.volume_24h,
-        percent_change_24h: item.quote.percent_change_24h,
-      }));
+      const mostVisited = data.data.most_visited.map(
+        (item: any, index: number) => ({
+          id: item.id,
+          name: item.name,
+          coin_id: item.coin_id,
+          price: item.quote.price,
+          volume_24h: item.quote.volume_24h,
+          percent_change_24h: item.quote.percent_change_24h,
+          index: startIndex + index,
+        }),
+      );
 
-      const recentlyAdded = data.data.recently_added.map((item: any) => ({
-        id: item.id,
-        name: item.name,
-        coin_id: item.coin_id,
-        price: item.quote.price,
-        volume_24h: item.quote.volume_24h,
-        percent_change_24h: item.quote.percent_change_24h,
-      }));
+      const recentlyAdded = data.data.recently_added.map(
+        (item: any, index: number) => ({
+          id: item.id,
+          name: item.name,
+          coin_id: item.coin_id,
+          price: item.quote.price,
+          volume_24h: item.quote.volume_24h,
+          percent_change_24h: item.quote.percent_change_24h,
+          index: startIndex + index,
+        }),
+      );
 
-      const highestVolume = data.data.highest_volume.map((item: any) => ({
-        id: item.id,
-        name: item.name,
-        coin_id: item.coin_id,
-        price: item.quote.price,
-        volume_24h: item.quote.volume_24h,
-        percent_change_24h: item.quote.percent_change_24h,
-      }));
+      const highestVolume = data.data.highest_volume.map(
+        (item: any, index: number) => ({
+          id: item.id,
+          name: item.name,
+          coin_id: item.coin_id,
+          price: item.quote.price,
+          volume_24h: item.quote.volume_24h,
+          percent_change_24h: item.quote.percent_change_24h,
+          index: startIndex + index,
+        }),
+      );
 
       setSpotlightData({
         trending,

@@ -33,7 +33,8 @@ const Table = () => {
 
   useEffect(() => {
     if (data && data.data) {
-      const res = data.data.map((item: any) => ({
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.map((item: any, index: number) => ({
         id: item.id,
         coin_id: item.coin_id,
         name: item.name,
@@ -45,13 +46,12 @@ const Table = () => {
         symbol: item.symbol,
         fdv: item.quote.fully_diluted_market_cap,
         date_added: item.date_added,
-        // platform_id: JSON.parse(item.platform),
+        index: startIndex + index,
       }));
       setRowData(res);
     }
   }, [data, currentPage, itemStart]);
 
-  console.log(rowData);
   return (
     <div className="data-table-wrapper">
       <CustomHeader search={search} setSearch={handleSetSearch} />

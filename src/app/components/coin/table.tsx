@@ -6,12 +6,14 @@ import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
 import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
+import { GridApi } from 'ag-grid-community';
 
 const Table = () => {
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemStart, setItemStart] = useState(1);
+  const [gridApi, setGridApi] = useState<GridApi | null>(null);
   const pageSize = 10;
 
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
@@ -29,11 +31,15 @@ const Table = () => {
     const itemsNumber = value * 10 - 9;
     setItemStart(itemsNumber);
     setCurrentPage(value);
+    if (gridApi) {
+      gridApi.showLoadingOverlay();
+    }
   };
 
   useEffect(() => {
     if (data && data.data) {
-      const res = data.data.map((item: any) => ({
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.map((item: any, index: number) => ({
         id: item.id,
         coin_id: item.coin_id,
         name: item.name,
@@ -46,10 +52,19 @@ const Table = () => {
         circulating_supply: item.circulating_supply,
         symbol: item.symbol,
         max_supply: item.max_supply,
+        index: startIndex + index,
       }));
       setRowData(res);
+      if (gridApi) {
+        gridApi.hideOverlay();
+      }
     }
   }, [data, currentPage, itemStart]);
+
+  const onGridReady = (params: any) => {
+    setGridApi(params.api);
+    params.api.showLoadingOverlay();
+  };
 
   return (
     <div className="data-table-wrapper">
@@ -70,6 +85,7 @@ const Table = () => {
           rowData={rowData}
           columnDefs={columnCoinsDef}
           width="100%"
+          onGridReady={onGridReady}
         />
       </div>
       <Pagination

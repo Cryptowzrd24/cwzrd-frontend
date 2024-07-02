@@ -1,5 +1,6 @@
 'use client';
-import React, { memo } from 'react';
+import ReactDOMServer from 'react-dom/server';
+import React, { memo, useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-material.css';
@@ -7,6 +8,7 @@ import './index.css';
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 import { ArrowRight } from '../../../../public/icons/arrowRight';
+import LoadingOverlay from '../loading-overlay';
 
 interface DataTableProps {
   title?: string;
@@ -16,6 +18,7 @@ interface DataTableProps {
   width?: string;
   search?: string;
   seeMore?: string;
+  onGridReady?: any;
 }
 
 const DataTable = memo(
@@ -27,7 +30,21 @@ const DataTable = memo(
     width = '100%',
     search = '',
     seeMore = '',
+    onGridReady,
   }: DataTableProps) => {
+    const modifiedColumnDefs = useMemo(
+      () =>
+        columnDefs.map((colDef) => ({
+          ...colDef,
+          suppressMovable: true,
+          resizable: false,
+        })),
+      [columnDefs],
+    );
+
+    const loadingOverlayTemplate = ReactDOMServer.renderToString(
+      <LoadingOverlay />,
+    );
     return (
       <div className="ag-theme-material" style={{ height, width }}>
         {title && (
@@ -64,13 +81,14 @@ const DataTable = memo(
         <AgGridReact
           suppressHorizontalScroll={true}
           rowData={rowData}
-          columnDefs={columnDefs}
+          columnDefs={modifiedColumnDefs}
           suppressRowClickSelection={true}
           pagination={true}
           suppressPaginationPanel={true}
           tooltipShowDelay={0}
-          paginationPageSize={10}
           quickFilterText={search}
+          onGridReady={onGridReady}
+          overlayLoadingTemplate={loadingOverlayTemplate}
           rowStyle={{
             fontFamily: 'SF Pro Display',
             fontSize: 16,
