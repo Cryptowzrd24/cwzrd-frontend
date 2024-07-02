@@ -6,7 +6,6 @@ import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import MemberShipBanner from '../banners/memberShipBanner';
 import Table from './table';
-import SkeletonComponent from '../skeleton';
 
 const Exchange = () => {
   return (
@@ -16,9 +15,9 @@ const Exchange = () => {
           <HeroContent />
         </Box>
       </Container>
-      <Box sx={{ mt: '40px' }}>
-        <SkeletonComponent />
-      </Box>
+      {/*<Box sx={{ mt: '40px' }}>*/}
+      {/*  <SkeletonComponent />*/}
+      {/*</Box>*/}
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
         <Box sx={{ mt: '40px' }}>
           <Table />

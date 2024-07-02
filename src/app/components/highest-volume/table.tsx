@@ -14,7 +14,6 @@ const HighestVolumeCoinsTable = () => {
   const [itemStart, setItemStart] = useState(1);
   const pageSize = 10;
 
-  const [showCards, setShowCards] = useState(false);
   const columnDefiDef = useColumnHighestVolDefs(columnsHighestVol);
   const { data } = useFetchHighestVolumeCoinsDataQuery({
     start: itemStart,
@@ -59,28 +58,19 @@ const HighestVolumeCoinsTable = () => {
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader
-        view={true}
-        search={search}
-        setSearch={handleSetSearch}
-        onToggleView={handleToggleCards}
-      />
+      <CustomHeader view={true} search={search} setSearch={handleSetSearch} />
       <div
         style={{
           display: 'flex',
           gap: '36px',
         }}
       >
-        {showCards ? (
-          <CardContent />
-        ) : (
-          <DataTable
-            search={search}
-            rowData={rowData}
-            columnDefs={columnDefiDef}
-            width="100%"
-          />
-        )}
+        <DataTable
+          search={search}
+          rowData={rowData}
+          columnDefs={columnDefiDef}
+          width="100%"
+        />
       </div>
 
       <Pagination

@@ -35,7 +35,7 @@ interface CustomHeaderProps {
   setSearch: any;
   filter?: boolean;
   view?: boolean;
-  onToggleView: () => void;
+  onToggleView?: () => void;
 }
 
 type FilterKey = keyof typeof Filters;
@@ -45,7 +45,7 @@ export const CustomHeader = ({
   setSearch,
   filter = false,
   view = false,
-  onToggleView,
+  onToggleView = () => {},
 }: CustomHeaderProps) => {
   const pathname = usePathname();
   const dispatch = useDispatch();

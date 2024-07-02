@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Skeleton from '@mui/material/Skeleton';
-import Stack from '@mui/material/Stack';
 import { Box, Container, Grid } from '@mui/material';
 import NavbarSkeleton from './navbar';
 import HeroSkeleton from './hero';

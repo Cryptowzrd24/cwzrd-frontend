@@ -23,7 +23,6 @@ const Card: React.FC<CardProps> = ({
   statusAction,
   price,
   amount,
-  id,
 }) => {
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);

@@ -41,7 +41,7 @@ function MemberShipBanner() {
               color: 'rgba(255, 255, 255, 1)',
               maxWidth: '1132px',
               width: '100%',
-              letterSpacing:"1px"
+              letterSpacing: '1px',
             }}
           >
             Join the Cryptowzrd Community Today!{' '}

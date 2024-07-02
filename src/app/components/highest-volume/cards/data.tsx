@@ -1,12 +1,5 @@
-import Shift from '../../../../../public/icons/collections/shift';
-
 import img1 from '../../../../../public/images/spotlight-cards/1.png';
 import img2 from '../../../../../public/images/spotlight-cards/2.png';
-import img3 from '../../../../../public/images/spotlight-cards/3.png';
-import img4 from '../../../../../public/images/spotlight-cards/4.png';
-import img5 from '../../../../../public/images/spotlight-cards/5.png';
-import img6 from '../../../../../public/images/spotlight-cards/6.png';
-import img7 from '../../../../../public/images/spotlight-cards/7.png';
 import score from '../../../../../public/images/spotlight-cards/score.png';
 import graph from '../../../../../public/images/spotlight-cards/Frame.png';
 

@@ -18,7 +18,7 @@ function HeroContent() {
   };
   return (
     <>
-      <Typography variant="h1" sx={{maxWidth:"960px"}}>
+      <Typography variant="h1" sx={{ maxWidth: '960px' }}>
         Today{' '}
         <span
           style={{
