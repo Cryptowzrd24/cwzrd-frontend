@@ -46,7 +46,9 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
   const handleAccordionChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
-      setRange({ min: 0, max: null });
+      if (panel !== 'cryptoCurrency') {
+        setRange({ min: 0, max: null });
+      }
     };
 
   const setMinVal = (minVal: number) => {
@@ -100,7 +102,12 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={styles.modalFilterMain}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+            }}
+          >
             <Typography
               sx={styles.filterHeading}
               id="modal-modal-title"
@@ -118,7 +125,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
           <Box sx={styles.accordian}>
             <Accordian
               name={'All Cryptocurrencies'}
-              Component={<Select />}
+              Component={<Select setExpanded={setExpanded} />}
               expanded={expanded === 'cryptoCurrency'}
               onChange={handleAccordionChange('cryptoCurrency')}
               accordianName="cryptoCurrency"
@@ -268,28 +275,32 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                   Close
                 </Button>
               )}
-              {expanded && !filterItem.mineable && !filterItem.audited && (
-                <Box>
-                  <Button
-                    sx={styles.closeCancelBtn}
-                    size="medium"
-                    variant="text"
-                    onClick={handleCancelFilter}
-                  >
-                    Cancel
-                  </Button>
-                  <Button
-                    sx={styles.applyBtn}
-                    variant="text"
-                    onClick={() => handleSubmitFilter(expanded as RangeKey)}
-                  >
-                    Apply Filter
-                  </Button>
-                </Box>
-              )}
+              {expanded &&
+                !filterItem.mineable &&
+                !filterItem.audited &&
+                expanded !== 'cryptoCurrency' && (
+                  <Box>
+                    <Button
+                      sx={styles.closeCancelBtn}
+                      size="medium"
+                      variant="text"
+                      onClick={handleCancelFilter}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      sx={styles.applyBtn}
+                      variant="text"
+                      onClick={() => handleSubmitFilter(expanded as RangeKey)}
+                    >
+                      Apply Filter
+                    </Button>
+                  </Box>
+                )}
               {((showResultsBtn && !expanded) ||
                 filterItem.mineable ||
-                filterItem.audited) && (
+                filterItem.audited ||
+                filterItem.cryptoCurrency) && (
                 <Box>
                   <Button
                     sx={styles.closeCancelBtn}

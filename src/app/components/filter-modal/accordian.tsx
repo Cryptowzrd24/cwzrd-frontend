@@ -11,7 +11,7 @@ interface AccordianProps {
   name: string;
   Component: React.JSX.Element;
   expanded: boolean;
-  onChange: (event: React.SyntheticEvent, isExpanded: boolean) => void;
+  onChange?: (event: React.SyntheticEvent, isExpanded: boolean) => void;
   accordianName: string;
 }
 
@@ -35,7 +35,7 @@ export const Accordian = ({
         ? `$${value.min !== null ? value.min : ''} - $${value.max !== null ? value.max : ''}`
         : null;
     }
-    return value !== null && value !== false ? value : null;
+    return value !== null && value !== false ? value.toString() : null;
   };
 
   const displayValue = getDisplayValue(accordianName);
