@@ -16,7 +16,6 @@ function MemberShipBanner() {
           sx={{
             width: '100%',
             margin: 'auto',
-            gap: '8px',
             textAlign: 'center',
             display: 'flex',
             justifyContent: 'center',
@@ -29,6 +28,7 @@ function MemberShipBanner() {
               fontSize: '16px',
               color: 'rgba(255, 255, 255, 1)',
               letterSpacing: 3,
+              mb: '8px',
             }}
           >
             MEMBERSHIP
@@ -37,8 +37,11 @@ function MemberShipBanner() {
             variant="h2"
             sx={{
               fontWeight: '500',
-              mb: '8px',
+              mb: '16px',
               color: 'rgba(255, 255, 255, 1)',
+              maxWidth: '1132px',
+              width: '100%',
+              letterSpacing:"1px"
             }}
           >
             Join the Cryptowzrd Community Today!{' '}
@@ -59,14 +62,15 @@ function MemberShipBanner() {
           <Box
             sx={{
               display: 'flex',
-              justifyContent: 'space-between',
+              // justifyContent: 'space-between',
+              gap: '12px',
               alignItems: 'center',
               padding: '12px 24px 12px 12px',
               borderRadius: '100px',
               maxWidth: '520px',
               width: '100%',
               background: 'rgba(255, 255, 255, 1)',
-              margin: '48px auto 0 auto',
+              margin: '40px auto 0 auto',
             }}
           >
             <Box
@@ -105,7 +109,7 @@ function MemberShipBanner() {
                   transform: 'translateX(-185%)',
                   zIndex: 3,
                   background: '#fff',
-                  padding: '2px',
+                  padding: '6px 3px',
                   borderRadius: '50px',
                 }}
               />

@@ -136,7 +136,13 @@ const Card: React.FC<CardProps> = ({
               {description}
             </Typography>
           </Box>
-          <Box sx={{ background: '#1111110D', padding: '12px 16px' }}>
+          <Box
+            sx={{
+              background: '#1111110D',
+              padding: '12px 16px',
+              borderRadius: '8px',
+            }}
+          >
             <Typography variant="subtitle1" sx={{ fontWeight: '500' }}>
               {date} | {author}
             </Typography>

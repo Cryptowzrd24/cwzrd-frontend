@@ -44,7 +44,9 @@ function LiveExplorerCard({ title, desc, image }: LiveCardProps) {
           />
         </Box>
         <Stack marginTop={'12px'}>
-          <Typography variant="subtitle2">{title}</Typography>
+          <Typography variant="subtitle2" sx={{ maxWidth: '141px' }}>
+            {title}
+          </Typography>
           <Typography
             variant="caption"
             sx={{

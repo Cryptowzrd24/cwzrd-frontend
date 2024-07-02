@@ -33,21 +33,25 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
         backgroundPosition: 'center',
         display: 'flex',
         borderRadius: '16px',
-        padding: '8px 16px',
-        gap: '8px',
+        padding: '16px',
         maxWidth: '394px',
         width: '100%',
       }}
     >
       <Typography
         variant="subtitle2"
-        sx={{ mt: '32px', mb: '8px', color: 'rgba(55, 97, 251, 1)' }}
+        sx={{ mt: '16px', mb: '12px', color: 'rgba(55, 97, 251, 1)' }}
       >
         {date}
       </Typography>
       <Typography
         variant="h5"
-        sx={{ mb: '8px', fontSize: '20px', fontWeight: '500' }}
+        sx={{
+          mb: '8px',
+          fontSize: '20px',
+          fontWeight: '500',
+          lineHeight: '22px',
+        }}
       >
         {title}
       </Typography>
@@ -66,8 +70,8 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
         sx={{
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
-          mb: '34px',
+          gap: '10px',
+          mb: '38px',
         }}
       >
         <Box

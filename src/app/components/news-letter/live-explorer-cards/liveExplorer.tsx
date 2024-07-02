@@ -25,7 +25,6 @@ function LiveExplorer() {
           mb: '32px',
           justifyContent: 'space-between',
           width: '100%',
-          mt: '12px',
         }}
       >
         <Typography
@@ -68,7 +67,7 @@ function LiveExplorer() {
           borderRadius: '100px',
           gap: '6px',
           display: 'flex',
-          marginBottom: '16px',
+          marginBottom: '12px',
           background: 'white',
           alignItems: 'center',
         }}

@@ -26,7 +26,7 @@ function Coin() {
       <Box sx={{ mt: '80px' }}>
         <NewsLetter />
       </Box>
-      <Box sx={{ mt: '80px' }}>
+      <Box sx={{ mt: '54px' }}>
         <Technicals />
       </Box>
 

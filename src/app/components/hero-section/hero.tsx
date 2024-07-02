@@ -10,11 +10,14 @@ const Hero: React.FC = () => {
 
   return (
     <Stack>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Typography
-          variant="h4"
-          sx={{ mb: '4px', letterSpacing: '1.5px', fontSize: 18 }}
-        >
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <Typography variant="h4" sx={{ letterSpacing: '1.5px', fontSize: 18 }}>
           MARKET CAP
         </Typography>
         <Box sx={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
@@ -33,8 +36,9 @@ const Hero: React.FC = () => {
                 padding: '9px 12px',
                 borderRadius: '72px',
                 fontSize: '10px',
-                bgcolor: !showStats ? '#7248F7' : '',
-                color: !showStats ? 'white' : '',
+                fontWeight: '500',
+                bgcolor: activeButton === 'HIDE' ? '#7248F7' : '',
+                color: activeButton === 'HIDE' ? 'white' : '',
               }}
             >
               HIDE
@@ -45,16 +49,15 @@ const Hero: React.FC = () => {
                 padding: '9px 12px',
                 borderRadius: '72px',
                 fontSize: '10px',
-                bgcolor: showStats ? '#7248F7' : '',
-                color: showStats ? 'white' : '',
+                fontWeight: '500',
+                bgcolor: activeButton === 'SHOW' ? '#7248F7' : '',
+                color: activeButton === 'SHOW' ? 'white' : '',
               }}
             >
               SHOW
             </Box>
           </Box>
-          <Typography fontWeight={500} variant="body1">
-            Show Stats
-          </Typography>
+          <Typography variant="body1">Show Stats</Typography>
         </Box>
       </Box>
     </Stack>

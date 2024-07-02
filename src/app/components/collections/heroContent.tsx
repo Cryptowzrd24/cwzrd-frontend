@@ -10,6 +10,12 @@ function HeroContent() {
   };
   return (
     <>
+      <Typography
+        variant="h4"
+        sx={{ mb: '12px', letterSpacing: '1.5px', fontSize: 18 }}
+      >
+        MARKET CAP
+      </Typography>
       <Typography variant="h1" sx={{ maxWidth: '830px', width: '100%' }}>
         Top NFT
         <span
@@ -32,7 +38,7 @@ function HeroContent() {
           mt: '32px',
         }}
       >
-        Insights into the biggest events shaping the crypto industry.{' '}
+        Listed below are the stats for NFT collections{' '}
         {isExpanded && (
           <span>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
