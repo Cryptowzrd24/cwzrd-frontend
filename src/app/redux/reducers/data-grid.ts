@@ -1,37 +1,56 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Key } from './apiKey';
 
 interface QueryParamsType {
   start: number;
   pageSize: number;
 }
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
 export const dataGridApi = createApi({
   reducerPath: 'dataGridApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency',
+    baseUrl: baseUrl,
   }),
 
   endpoints: (builder) => ({
     fetchCoinData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=${start}&limit=${pageSize}`,
+          url: `/api/coins/?offset=${start}&limit=${pageSize}`,
           method: 'GET',
-          headers: {
-            'X-CMC_PRO_API_KEY': Key,
-          },
+        };
+      },
+    }),
+    fetchHighestVolumeCoinsData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/highest-volume/?offset=${start}&limit=${pageSize}`,
+          method: 'GET',
         };
       },
     }),
     fetchNewCoinData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/new?start=${start}&limit=${pageSize}`,
+          url: `/api/new-coins/?start=${start}&limit=${pageSize}`,
           method: 'GET',
-          headers: {
-            'X-CMC_PRO_API_KEY': Key,
-          },
+        };
+      },
+    }),
+    fetchSpotlightData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/spotlight/?start=${start}&limit=${pageSize}`,
+          method: 'GET',
+        };
+      },
+    }),
+    fetchDefiCoinsData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/defi/?start=${start}&limit=${pageSize}`,
+          method: 'GET',
         };
       },
     }),
@@ -40,9 +59,6 @@ export const dataGridApi = createApi({
         return {
           url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/most-visited?start=${start}&limit=${pageSize}`,
           method: 'GET',
-          headers: {
-            'X-CMC_PRO_API_KEY': Key,
-          },
         };
       },
     }),
@@ -51,20 +67,14 @@ export const dataGridApi = createApi({
         return {
           url: `/trending/latest`,
           method: 'GET',
-          headers: {
-            'X-CMC_PRO_API_KEY': Key,
-          },
         };
       },
     }),
     fetchGainersLosersData: builder.query({
-      query: (sortOrder: string) => {
+      query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `/trending/gainers-losers?sort_dir=${sortOrder}`,
+          url: `/api/gainers-losers/?start=${start}&limit=${pageSize}`,
           method: 'GET',
-          headers: {
-            'X-CMC_PRO_API_KEY': Key,
-          },
         };
       },
     }),
@@ -72,7 +82,10 @@ export const dataGridApi = createApi({
 });
 export const {
   useFetchCoinDataQuery,
+  useFetchHighestVolumeCoinsDataQuery,
   useFetchNewCoinDataQuery,
+  useFetchSpotlightDataQuery,
+  useFetchDefiCoinsDataQuery,
   useFetchMostVisitedDataQuery,
   useFetchTrendingDataQuery,
   useFetchGainersLosersDataQuery,

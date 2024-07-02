@@ -17,6 +17,7 @@ const Table = () => {
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
 
+  const totalCount = data?.count || 0;
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
@@ -34,13 +35,14 @@ const Table = () => {
     if (data && data.data) {
       const res = data.data.map((item: any) => ({
         id: item.id,
+        coin_id: item.coin_id,
         name: item.name,
-        price: item.quote.USD.price,
-        volume_24h: item.quote.USD.volume_24h,
-        percent_change_1h: item.quote.USD.percent_change_1h,
-        percent_change_24h: item.quote.USD.percent_change_24h,
-        percent_change_7d: item.quote.USD.percent_change_7d,
-        market_cap: item.quote.USD.market_cap,
+        price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_1h: item.quote.percent_change_1h,
+        percent_change_24h: item.quote.percent_change_24h,
+        percent_change_7d: item.quote.percent_change_7d,
+        market_cap: item.quote.market_cap,
         circulating_supply: item.circulating_supply,
         symbol: item.symbol,
         max_supply: item.max_supply,
@@ -71,7 +73,7 @@ const Table = () => {
         />
       </div>
       <Pagination
-        length={1200}
+        length={totalCount}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}
