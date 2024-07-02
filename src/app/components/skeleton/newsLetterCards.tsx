@@ -1,7 +1,7 @@
 import React from 'react';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 
 const NewsLetterCardsSkeleton = () => {
   return (
@@ -16,7 +16,7 @@ const NewsLetterCardsSkeleton = () => {
           maxWidth: '100%',
           height: '176px',
           overflow: 'hidden',
-          mb:"12px"
+          mb: '12px',
         }}
       >
         <Skeleton

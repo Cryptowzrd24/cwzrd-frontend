@@ -6,7 +6,7 @@ import Card from '.';
 const CardContent = () => {
   return (
     <Box sx={{ flexGrow: 1, padding: '16px' }}>
-      <Grid container spacing={3} sx={{display:"flex",flexWrap:"wrap"}}>
+      <Grid container spacing={3} sx={{ display: 'flex', flexWrap: 'wrap' }}>
         {spotlightCardData.map((card) => (
           <Grid item xs={12} sm={6} md={4} key={card.id}>
             <Card

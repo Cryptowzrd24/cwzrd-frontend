@@ -2,7 +2,6 @@
 import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import img1 from '../../../../public/images/collections/new.png';
 import Search from '../../../../public/icons/collections/search';
 import img2 from '../../../../public/images/collections/Ellipse 1 (1).png';
 import Link from '../../../../public/icons/collections/link';
@@ -12,7 +11,7 @@ interface ModalProps {
   onCloseModal: () => void;
   image: string;
 }
-const Modal: React.FC<ModalProps> = ({ onCloseModal, image }) => {
+const Modal: React.FC<ModalProps> = ({ image }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggle = () => {

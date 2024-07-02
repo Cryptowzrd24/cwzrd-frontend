@@ -5,7 +5,7 @@ interface stepProps {
   setCurrentStep: any;
 }
 
-const Steps = ({ currentStep, setCurrentStep }: stepProps) => {
+const Steps = ({ setCurrentStep }: stepProps) => {
   const handleStepClick = (step: any) => {
     setCurrentStep(step);
   };

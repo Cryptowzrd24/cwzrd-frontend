@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { Box, Stack, Typography } from '@mui/material';
-import Verified from '../../../../../public/icons/verified';
 import { cardDetails } from './data';
 interface cardProps {
   id: string;
@@ -31,7 +30,7 @@ const CollectionCard = ({ id }: cardProps) => {
           height={180}
           layout="responsive"
         /> */}
-          <div
+        <div
           style={{
             width: '410px',
             height: '180px',

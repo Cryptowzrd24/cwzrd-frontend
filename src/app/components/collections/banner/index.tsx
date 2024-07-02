@@ -5,9 +5,8 @@ import CollectionCard from './card';
 import ArrowRightDark from '../../../../../public/icons/collections/arrowRightDark';
 import ArrowLeftDark from '../../../../../public/icons/collections/arrowLeftDark';
 import { cardDetails } from './data';
-import ArrowRight from '../../../../../public/icons/News-Letter/arrowRight';
 import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
-import { motion, AnimatePresence, easeInOut } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const CollectionBanner = () => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -33,7 +32,12 @@ const CollectionBanner = () => {
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 100 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30,duration:0.2 }}
+          transition={{
+            type: 'spring',
+            stiffness: 300,
+            damping: 30,
+            duration: 0.2,
+          }}
           style={{ width: '100%' }}
         >
           <Box

@@ -7,8 +7,6 @@ import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import MemberShipBanner from '../banners/memberShipBanner';
 import Table from './table';
-import Card from './cards';
-import CardContent from './cards/cardContent';
 
 const HighestVolume = () => {
   return (

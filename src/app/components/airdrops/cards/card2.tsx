@@ -2,7 +2,6 @@ import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import img2 from '../../../../../public/images/airdrops/2.png';
-import { url } from 'inspector';
 
 const Card2 = () => {
   return (
