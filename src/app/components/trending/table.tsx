@@ -11,7 +11,7 @@ const Table = () => {
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const columnTrendingDef = useColumnTrendingDefs(columnsTrending);
   const { data } = useFetchTrendingDataQuery({});
@@ -25,7 +25,9 @@ const Table = () => {
   ) => {
     setCurrentPage(value);
   };
-
+  const handlePagination = (page: number) => {
+    setPageSize(page);
+  };
   const paginatedRowData = rowData.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
@@ -50,11 +52,15 @@ const Table = () => {
       }));
       setRowData(res);
     }
-  }, [data]);
+  }, [data,pageSize]);
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        search={search}
+        setSearch={handleSetSearch}
+        setPagination={handlePagination}
+      />
       <div
         style={{
           display: 'flex',

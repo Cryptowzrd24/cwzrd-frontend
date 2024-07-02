@@ -31,14 +31,16 @@ const Table = () => {
     recently_added: [],
     highest_volume: [],
   });
-
-  const pageSize = 10;
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const { data } = useFetchSpotlightDataQuery({
     start: itemStart,
     pageSize,
   });
 
+  const handlePagination = (page: number) => {
+    setPageSize(page);
+  };
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
@@ -151,11 +153,15 @@ const Table = () => {
         highest_volume: highestVolume,
       });
     }
-  }, [data, currentPage, itemStart]);
+  }, [data, currentPage, itemStart, pageSize]);
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        search={search}
+        setSearch={handleSetSearch}
+        setPagination={handlePagination}
+      />
       <div
         style={{
           display: 'flex',

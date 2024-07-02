@@ -36,6 +36,7 @@ interface CustomHeaderProps {
   filter?: boolean;
   view?: boolean;
   onToggleView?: () => void;
+  setPagination?: (pageNumber: number) => void;
 }
 
 type FilterKey = keyof typeof Filters;
@@ -46,6 +47,7 @@ export const CustomHeader = ({
   filter = false,
   view = false,
   onToggleView = () => {},
+  setPagination = (pageNumber: number) => {},
 }: CustomHeaderProps) => {
   const pathname = usePathname();
   const dispatch = useDispatch();
@@ -185,6 +187,7 @@ export const CustomHeader = ({
                 key={option}
                 value={option}
                 sx={{ fontSize: '16px', fontWeight: 700 }}
+                onClick={() => setPagination(option)}
               >
                 {option}
               </MenuItem>

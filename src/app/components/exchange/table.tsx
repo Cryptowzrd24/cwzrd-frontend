@@ -10,7 +10,7 @@ import { Pagination } from '@/app/components/data-table/pagination';
 const Table = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const columnExchangesDef = useColumnExchangeDefs(columnsExchanges);
 
@@ -24,7 +24,9 @@ const Table = () => {
   ) => {
     setCurrentPage(value);
   };
-
+  const handlePagination = (page: number) => {
+    setPageSize(page);
+  };
   const paginatedRowData = rowDataExchange.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
@@ -32,7 +34,12 @@ const Table = () => {
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader view={true} search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        view={true}
+        search={search}
+        setSearch={handleSetSearch}
+        setPagination={handlePagination}
+      />
       <div
         style={{
           display: 'flex',

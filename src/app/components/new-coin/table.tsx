@@ -13,7 +13,7 @@ const Table = () => {
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemStart, setItemStart] = useState(1);
-  const pageSize = 10;
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const columnNewCoinsDef = useColumnNewCoinsDefs(columnsNewCoin);
   const { data } = useFetchNewCoinDataQuery({ start: itemStart, pageSize });
@@ -21,7 +21,9 @@ const Table = () => {
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
-
+  const handlePagination = (page: number) => {
+    setPageSize(page);
+  };
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number,
@@ -46,15 +48,20 @@ const Table = () => {
         symbol: item.symbol,
         fdv: item.quote.fully_diluted_market_cap,
         date_added: item.date_added,
+        platform_id: item.platform,
         index: startIndex + index,
       }));
       setRowData(res);
     }
-  }, [data, currentPage, itemStart]);
+  }, [data, currentPage, itemStart, pageSize]);
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        search={search}
+        setSearch={handleSetSearch}
+        setPagination={handlePagination}
+      />
       <div
         style={{
           display: 'flex',

@@ -2,25 +2,33 @@ import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 import Image from 'next/image';
 import Shift from '../../../../../public/icons/collections/shift';
+import img1 from '../../../../../public/images/spotlight-cards/1.png';
+import img2 from '../../../../../public/images/spotlight-cards/2.png';
+import score from '../../../../../public/images/spotlight-cards/score.png';
+import graph1 from '../../../../../public/images/spotlight-cards/Frame.png';
+import background1 from '../../../../../public/images/spotlight-cards/background1.png';
+import { CustomCellRendererProps } from 'ag-grid-react';
 
 const Card = ({
-  img,
-  background,
   title,
-  subtitle,
-  score,
   price,
   change,
   marketCap,
   circulationSupply,
   volume,
   totalMaxSupply,
-  graph,
+  symbol,
+  coinId,
 }: any) => {
-  const isPositiveChange = change.startsWith('+');
+  const isPositiveChange = change > 0;
   const changeColor = isPositiveChange
     ? 'rgba(69, 202, 148, 1)'
     : 'rgba(245, 65, 65, 1)';
+  const backgroundImage = isPositiveChange
+    ? '/images/spotlight-cards/background1.png'
+    : '/images/spotlight-cards/background2.png';
+
+  const imgUrl = `https://s2.coinmarketcap.com/static/img/coins/32x32/${coinId}.png`;
   return (
     <Box
       sx={{
@@ -35,7 +43,7 @@ const Card = ({
       <Box
         sx={{
           padding: '16px',
-          backgroundImage: `url(${background})`,
+          backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -51,7 +59,8 @@ const Card = ({
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Image src={img} alt={title} width={40} height={40} />
+            <img src={imgUrl} alt="title" />
+            {/* <Image src={img1} alt={title} width={40} height={40} /> */}
             <Stack>
               <Typography
                 variant="body1"
@@ -71,13 +80,13 @@ const Card = ({
                   color: 'rgba(255, 255, 255, 0.6)',
                 }}
               >
-                {subtitle}
+                {symbol}
               </Typography>
             </Stack>
           </Box>
-          <Image src={score} alt="score" width={40} />
+          {/* <Image src={score} alt="score" width={40} /> */}
         </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Typography
             variant="h5"
             sx={{
@@ -86,7 +95,7 @@ const Card = ({
               color: 'rgba(255, 255, 255, 1)',
             }}
           >
-            {price}
+            ${price}
           </Typography>
           <Box
             sx={{
@@ -136,7 +145,7 @@ const Card = ({
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              {marketCap}
+              ${marketCap}
             </Typography>
           </Stack>
           <Stack sx={{ mt: '8px' }}>
@@ -182,7 +191,7 @@ const Card = ({
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              {volume}
+              ${volume}
             </Typography>
           </Stack>
           <Stack sx={{ mt: '8px' }}>
@@ -210,7 +219,7 @@ const Card = ({
         </Box>
       </Box>
       <Box sx={{ mt: '24px' }}>
-        <Image src={graph} alt="graph" />
+        <Image src={graph1} alt="graph" />
       </Box>
     </Box>
   );

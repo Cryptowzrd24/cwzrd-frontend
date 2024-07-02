@@ -7,6 +7,7 @@ import DarkmodeIcon from '../../../../public/icons/Navbar-Section/darkmode';
 import ProfileIcon from '../../../../public/icons/Navbar-Section/profile';
 import SearchIcon from '../../../../public/icons/Navbar-Section/search';
 import { Box, Container, Typography } from '@mui/material';
+import Link from 'next/link';
 
 function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -21,9 +22,9 @@ function Navbar() {
           alignItems: 'center',
         }}
       >
-        <Box>
+        <Link href="/">
           <Logo />
-        </Box>
+        </Link>
         <Box
           sx={{
             display: 'flex',

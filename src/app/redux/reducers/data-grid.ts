@@ -33,7 +33,7 @@ export const dataGridApi = createApi({
     fetchNewCoinData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `/api/new-coins/?start=${start}&limit=${pageSize}`,
+          url: `/api/new-coins/?offset=${start}&limit=${pageSize}`,
           method: 'GET',
         };
       },
@@ -41,7 +41,7 @@ export const dataGridApi = createApi({
     fetchSpotlightData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `/api/spotlight/?start=${start}&limit=${pageSize}`,
+          url: `/api/spotlight/?offset=${start}&limit=${pageSize}`,
           method: 'GET',
         };
       },
@@ -49,7 +49,7 @@ export const dataGridApi = createApi({
     fetchDefiCoinsData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `/api/defi/?start=${start}&limit=${pageSize}`,
+          url: `/api/defi/?offset=${start}&limit=${pageSize}`,
           method: 'GET',
         };
       },
@@ -73,7 +73,7 @@ export const dataGridApi = createApi({
     fetchGainersLosersData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `/api/gainers-losers/?start=${start}&limit=${pageSize}`,
+          url: `/api/gainers-losers/?offset=${start}&limit=${pageSize}`,
           method: 'GET',
         };
       },

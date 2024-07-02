@@ -6,11 +6,13 @@ import useColumnChainsDefs from '@/app/hooks/data-grid/column-defination-chains'
 import { columnsChain } from '@/app/constants/columns';
 import { rowDataChains } from '@/app/constants/row';
 import { Pagination } from '@/app/components/data-table/pagination';
+import CardContent from '../highest-volume/cards/cardContent';
 
 const Table = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
+  const [showCards, setShowCards] = useState(false);
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const columnChainsDef = useColumnChainsDefs(columnsChain);
 
@@ -24,22 +26,38 @@ const Table = () => {
   ) => {
     setCurrentPage(value);
   };
+  const handlePagination = (page: number) => {
+    setPageSize(page);
+  };
 
   const paginatedRowData = rowDataChains.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
   );
-
+  const handleToggleCards = () => {
+    console.log('Toggling showCards:', !showCards);
+    setShowCards((prevShowCards) => !prevShowCards);
+  };
   return (
     <div className="data-table-wrapper">
-      <CustomHeader view={true} search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        view={true}
+        search={search}
+        setSearch={handleSetSearch}
+        onToggleView={handleToggleCards}
+        setPagination={handlePagination}
+      />
       <div style={tableStyles}>
-        <DataTable
-          search={search}
-          rowData={paginatedRowData}
-          columnDefs={columnChainsDef}
-          width="100%"
-        />
+        {showCards ? (
+          <CardContent />
+        ) : (
+          <DataTable
+            search={search}
+            rowData={paginatedRowData}
+            columnDefs={columnChainsDef}
+            width="100%"
+          />
+        )}
       </div>
       <Pagination
         length={rowDataChains.length}

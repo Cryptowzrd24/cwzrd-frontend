@@ -6,6 +6,7 @@ import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
 import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
+import CardContent from '../highest-volume/cards/cardContent';
 import { GridApi } from 'ag-grid-community';
 
 const Table = () => {
@@ -14,7 +15,8 @@ const Table = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemStart, setItemStart] = useState(1);
   const [gridApi, setGridApi] = useState<GridApi | null>(null);
-  const pageSize = 10;
+  const [showCards, setShowCards] = useState(false);
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
@@ -35,6 +37,15 @@ const Table = () => {
       gridApi.showLoadingOverlay();
     }
   };
+
+  const handlePagination = (page: number) => {
+    setPageSize(page);
+  };
+  const handleToggleCards = () => {
+    console.log('Toggling showCards:', !showCards);
+    setShowCards((prevShowCards) => !prevShowCards);
+  };
+
 
   useEffect(() => {
     if (data && data.data) {
@@ -59,12 +70,13 @@ const Table = () => {
         gridApi.hideOverlay();
       }
     }
-  }, [data, currentPage, itemStart]);
+  }, [data, currentPage, itemStart, pageSize]);
 
   const onGridReady = (params: any) => {
     setGridApi(params.api);
     params.api.showLoadingOverlay();
   };
+
 
   return (
     <div className="data-table-wrapper">
@@ -73,6 +85,8 @@ const Table = () => {
         view={true}
         search={search}
         setSearch={handleSetSearch}
+        onToggleView={handleToggleCards}
+        setPagination={handlePagination}
       />
       <div
         style={{
@@ -80,13 +94,17 @@ const Table = () => {
           gap: '36px',
         }}
       >
-        <DataTable
-          search={search}
-          rowData={rowData}
-          columnDefs={columnCoinsDef}
-          width="100%"
-          onGridReady={onGridReady}
-        />
+        {showCards ? (
+          <CardContent />
+        ) : (
+          <DataTable
+            search={search}
+            rowData={rowData}
+            columnDefs={columnCoinsDef}
+            width="100%"
+            onGridReady={onGridReady}
+          />
+        )}
       </div>
       <Pagination
         length={totalCount}

@@ -12,7 +12,7 @@ const DefiTable = () => {
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemStart, setItemStart] = useState(1);
-  const pageSize = 10;
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const columnDefiDef = useColumnDefiDefs(columnsDefi);
   const { data } = useFetchDefiCoinsDataQuery({ start: itemStart, pageSize });
@@ -32,7 +32,9 @@ const DefiTable = () => {
     setItemStart(itemsNumber);
     setCurrentPage(value);
   };
-
+  const handlePagination = (page: number) => {
+    setPageSize(page);
+  };
   useEffect(() => {
     if (data && data.data) {
       const startIndex = (currentPage - 1) * pageSize + 1;
@@ -53,11 +55,15 @@ const DefiTable = () => {
       }));
       setRowData(res);
     }
-  }, [data, currentPage, itemStart]);
+  }, [data, currentPage, itemStart, pageSize]);
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        search={search}
+        setSearch={handleSetSearch}
+        setPagination={handlePagination}
+      />
       <div
         style={{
           display: 'flex',

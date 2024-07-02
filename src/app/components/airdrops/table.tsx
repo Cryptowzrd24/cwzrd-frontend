@@ -10,7 +10,7 @@ import { Pagination } from '@/app/components/data-table/pagination';
 const Table = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const columnAirDropsDef = useColumnAirdropsDefs(columnsAirdrops);
 
@@ -29,10 +29,17 @@ const Table = () => {
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
   );
-
+  const handlePagination = (page: number) => {
+    setPageSize(page);
+  };
   return (
     <div className="data-table-wrapper">
-      <CustomHeader filter={true} search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        filter={true}
+        search={search}
+        setSearch={handleSetSearch}
+        setPagination={handlePagination}
+      />
       <div
         style={{
           display: 'flex',
