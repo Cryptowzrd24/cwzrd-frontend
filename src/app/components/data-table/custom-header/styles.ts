@@ -37,6 +37,7 @@ const styles = {
     '& .MuiSelect-icon': {
       right: '15px',
     },
+   
     backgroundColor: '#F0ECFF',
     borderRadius: '8px',
   },
