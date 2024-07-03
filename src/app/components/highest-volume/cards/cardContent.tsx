@@ -1,8 +1,7 @@
 'use client';
 import { Box, Grid } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Card from '.';
-import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
 
 type CardData = {
   id: string;
@@ -15,34 +14,14 @@ type CardData = {
   max_supply: string;
   symbol: string;
   coin_id: string;
+  index: number;
 };
 
-const CardContent = () => {
-  const [itemStart] = useState(1);
-  const pageSize = 10;
-  const [cardsData, setCardsData] = useState<CardData[]>([]);
+interface CardContentProps {
+  cardsData: CardData[];
+}
 
-  const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
-  console.log('data----------------------', cardsData);
-
-  useEffect(() => {
-    if (data && data.data) {
-      const res = data.data.map((item: any) => ({
-        id: item.id,
-        name: item.name,
-        price: item.quote.price,
-        volume_24h: item.quote.volume_24h,
-        percent_change_7d: item.quote.percent_change_30d,
-        market_cap: item.quote.market_cap,
-        circulating_supply: item.circulating_supply,
-        max_supply: item.max_supply ?? 0,
-        symbol: item.symbol,
-        coin_id: item.coin_id,
-      }));
-
-      setCardsData(res);
-    }
-  }, [data]);
+const CardContent = ({ cardsData }: CardContentProps) => {
   return (
     <Box sx={{ flexGrow: 1, padding: '16px' }}>
       <Grid container spacing={3} sx={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -58,6 +37,7 @@ const CardContent = () => {
               totalMaxSupply={card.max_supply}
               symbol={card.symbol}
               coinId={card.coin_id}
+              index={card.index}
             />
           </Grid>
         ))}
