@@ -35,21 +35,46 @@ function Navbar() {
           }}
         >
           {NavbarData.map((item) => (
-            <Typography
-              key={item.id}
-              variant="caption"
-              sx={{
-                fontSize: '16px',
-                color: activeId === item.id ? '#7248F7' : 'rgba(17, 17, 17, 1)',
-                fontWeight: activeId === item.id ? '500' : '400',
-                cursor: 'pointer',
-                transition: 'transform 0.1s ease-in-out',
-                transform: activeId === item.id ? 'scale(1.1)' : 'scale(1)',
-              }}
-              onClick={() => setActiveId(item.id)}
-            >
-              {item.name}
-            </Typography>
+            <Box key={item.id}>
+              {item.name === 'Market' ? (
+                <Link href="/market/coin" style={{ textDecoration: 'none' }}>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      fontSize: '16px',
+                      color:
+                        activeId === item.id
+                          ? '#7248F7'
+                          : 'rgba(17, 17, 17, 1)',
+                      fontWeight: activeId === item.id ? '500' : '400',
+                      cursor: 'pointer',
+                      transition: 'transform 0.1s ease-in-out',
+                      transform:
+                        activeId === item.id ? 'scale(1.1)' : 'scale(1)',
+                    }}
+                    onClick={() => setActiveId(item.id)}
+                  >
+                    {item.name}
+                  </Typography>
+                </Link>
+              ) : (
+                <Typography
+                  variant="caption"
+                  sx={{
+                    fontSize: '16px',
+                    color:
+                      activeId === item.id ? '#7248F7' : 'rgba(17, 17, 17, 1)',
+                    fontWeight: activeId === item.id ? '500' : '400',
+                    cursor: 'pointer',
+                    transition: 'transform 0.1s ease-in-out',
+                    transform: activeId === item.id ? 'scale(1.1)' : 'scale(1)',
+                  }}
+                  onClick={() => setActiveId(item.id)}
+                >
+                  {item.name}
+                </Typography>
+              )}
+            </Box>
           ))}
         </Box>
 

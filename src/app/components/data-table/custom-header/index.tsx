@@ -36,17 +36,44 @@ interface CustomHeaderProps {
   filter?: boolean;
   view?: boolean;
   onToggleView?: () => void;
+  activeIcon?: string;
   setPagination?: (pageNumber: number) => void;
 }
 
 type FilterKey = keyof typeof Filters;
-
+const stylesPage = {
+  select: (width: any) => ({
+    '& .MuiSelect-select': {
+      width: width,
+      padding: '9.5px 16px',
+      background: '#F0ECFF',
+      color: '#7248F7',
+      fontSize: '16px',
+      fontWeight: 700,
+      display: 'flex',
+      alignItems: 'center',
+      borderRadius: '8px',
+    },
+    '& .MuiSvgIcon-root': {
+      color: '#7248F7',
+    },
+    '& .MuiOutlinedInput-notchedOutline': {
+      border: 'none',
+    },
+    '& .MuiSelect-icon': {
+      right: '15px',
+    },
+    backgroundColor: '#F0ECFF',
+    borderRadius: '8px',
+  }),
+};
 export const CustomHeader = ({
   search,
   setSearch,
   filter = false,
   view = false,
   onToggleView = () => {},
+  activeIcon = 'BoxIcon',
   setPagination = (pageNumber: number) => {},
 }: CustomHeaderProps) => {
   const pathname = usePathname();
@@ -82,7 +109,9 @@ export const CustomHeader = ({
   };
 
   const handleOpenFilterModal = () => setOpenFilterModal(true);
-
+  const getSelectWidth = (value: number) => {
+    return value === 100 ? '36px' : '27px';
+  };
   const getLabel = (key: string): { label: string; isMatching: boolean } => {
     const filterValue = filterItem.filters[key];
     if (filterValue) {
@@ -148,6 +177,9 @@ export const CustomHeader = ({
     dispatch(clearSelectedFilter({ label }));
   };
 
+  const getSelectClass = (value: any) => {
+    return value === 100 ? 'width-34' : 'width-23';
+  };
   return (
     <Box sx={styles.container}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -166,7 +198,7 @@ export const CustomHeader = ({
           </Box>
           <Typography sx={styles.typography}>Rows:</Typography>
           <Select
-            sx={styles.select}
+            sx={stylesPage.select(getSelectClass(pageSize))}
             labelId="pagination-select-label"
             id="pagination-select"
             value={pageSize}
@@ -201,13 +233,32 @@ export const CustomHeader = ({
           {view && (
             <>
               <Box
-                sx={{ ...styles.iconBox, background: 'transparent' }}
+                sx={{
+                  ...styles.iconBox,
+                  background:
+                    activeIcon === 'BoxIcon'
+                      ? 'rgba(114, 72, 247, 0.1)'
+                      : 'transparent',
+                }}
                 onClick={onToggleView}
               >
-                <BoxIcon />
+                <BoxIcon
+                  color={activeIcon === 'BoxIcon' ? '#7248F7' : '#111111'}
+                />
               </Box>
-              <Box sx={styles.iconBox}>
-                <ListIcon />
+              <Box
+                sx={{
+                  ...styles.iconBox,
+                  background:
+                    activeIcon === 'ListIcon'
+                      ? 'rgba(114, 72, 247, 0.1)'
+                      : 'transparent',
+                }}
+                onClick={onToggleView}
+              >
+                <ListIcon
+                  color={activeIcon === 'ListIcon' ? '#7248F7' : '#111111'}
+                />
               </Box>
             </>
           )}

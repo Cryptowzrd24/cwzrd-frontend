@@ -1,11 +1,16 @@
 'use client';
 import { Box, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { spotlightCardData } from './data';
 import Card from '.';
 import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
-import { CustomCellRendererProps } from 'ag-grid-react';
-
+import { Pagination } from '../../data-table/pagination';
+interface CardProps {
+  setPagination?: (pageNumber: number) => void;
+  currentPage: number;
+  pageSize: number;
+  totalCount: number;
+  onPageChange: (event: React.ChangeEvent<unknown>, value: number) => void;
+}
 type CardData = {
   id: string;
   name: string;
@@ -15,13 +20,19 @@ type CardData = {
   market_cap: string;
   circulating_supply: string;
   max_supply: string;
+  symbol: string;
+  coin_id: string;
 };
 
-const CardContent = () => {
-  const [itemStart, setItemStart] = useState(1);
-  const pageSize = 10;
+const CardContent = ({
+  setPagination = (pageNumber: number) => {},
+  currentPage,
+  pageSize,
+  totalCount,
+  onPageChange,
+}: CardProps) => {
   const [cardsData, setCardsData] = useState<CardData[]>([]);
-
+  const [itemStart, setItemStart] = useState(1);
   const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
   console.log('data----------------------', cardsData);
 
@@ -42,11 +53,15 @@ const CardContent = () => {
 
       setCardsData(res);
     }
-  }, [data]);
+  }, [data, itemStart]);
+
+  useEffect(() => {
+    setItemStart((currentPage - 1) * pageSize + 1);
+  }, [currentPage, pageSize]);
   return (
     <Box sx={{ flexGrow: 1, padding: '16px' }}>
       <Grid container spacing={3} sx={{ display: 'flex', flexWrap: 'wrap' }}>
-        {cardsData.map((card) => (
+        {cardsData.map((card, index) => (
           <Grid item xs={12} sm={6} md={4} key={card.id}>
             <Card
               title={card.name}
@@ -58,10 +73,12 @@ const CardContent = () => {
               totalMaxSupply={card.max_supply}
               symbol={card.symbol}
               coinId={card.coin_id}
+              index={index}
             />
           </Grid>
         ))}
       </Grid>
+    
     </Box>
   );
 };

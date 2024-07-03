@@ -8,6 +8,8 @@ import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
 import CardContent from '../highest-volume/cards/cardContent';
 import { GridApi } from 'ag-grid-community';
+import { Box } from '@mui/material';
+import { scrollToTop } from '@/utils/scroll-to-top';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -17,8 +19,8 @@ const Table = () => {
   const [gridApi, setGridApi] = useState<GridApi | null>(null);
   const [showCards, setShowCards] = useState(false);
   const [pageSize, setPageSize] = useState<number>(10);
-
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
+  const [activeIcon, setActiveIcon] = useState('ListIcon');
   const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
 
   const totalCount = data?.count || 0;
@@ -33,6 +35,7 @@ const Table = () => {
     const itemsNumber = value * 10 - 9;
     setItemStart(itemsNumber);
     setCurrentPage(value);
+    scrollToTop();
     if (gridApi) {
       gridApi.showLoadingOverlay();
     }
@@ -41,11 +44,13 @@ const Table = () => {
   const handlePagination = (page: number) => {
     setPageSize(page);
   };
-  const handleToggleCards = () => {
-    console.log('Toggling showCards:', !showCards);
-    setShowCards((prevShowCards) => !prevShowCards);
-  };
 
+  const handleToggleCards = () => {
+    setShowCards((prevShowCards) => !prevShowCards);
+    setActiveIcon((prevActiveIcon) =>
+      prevActiveIcon === 'ListIcon' ? 'BoxIcon' : 'ListIcon',
+    );
+  };
 
   useEffect(() => {
     if (data && data.data) {
@@ -77,7 +82,6 @@ const Table = () => {
     params.api.showLoadingOverlay();
   };
 
-
   return (
     <div className="data-table-wrapper">
       <CustomHeader
@@ -86,6 +90,7 @@ const Table = () => {
         search={search}
         setSearch={handleSetSearch}
         onToggleView={handleToggleCards}
+        activeIcon={activeIcon}
         setPagination={handlePagination}
       />
       <div
@@ -95,7 +100,15 @@ const Table = () => {
         }}
       >
         {showCards ? (
-          <CardContent />
+          <Box sx={{ height: '960px', overflowY: 'scroll' }}>
+            <CardContent
+              setPagination={handlePagination}
+              currentPage={currentPage}
+              pageSize={pageSize}
+              totalCount={totalCount}
+              onPageChange={handlePageChange}
+            />
+          </Box>
         ) : (
           <DataTable
             search={search}
