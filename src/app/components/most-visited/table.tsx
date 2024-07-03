@@ -32,7 +32,8 @@ const Table = () => {
 
   useEffect(() => {
     if (data && data.data) {
-      const res = data.data.map((item: any) => ({
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.map((item: any, index: number) => ({
         id: item.id,
         name: item.name,
         price: item.quote.USD.price,
@@ -44,6 +45,7 @@ const Table = () => {
         circulating_supply: item.circulating_supply,
         symbol: item.symbol,
         max_supply: item.max_supply,
+        index: startIndex + index,
       }));
       setRowData(res);
     }

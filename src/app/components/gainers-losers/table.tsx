@@ -12,7 +12,7 @@ const Table = () => {
   const columnGainersDef = useColumnGainersDefs(columnsGainers);
   const columnLosersDef = useColumnLosersDefs(columnsLosers);
   const [itemStart, setItemStart] = useState(1);
-  const pageSize = 10;
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const [search, setSearch] = useState('');
   const [rowGainersData, setRowGainersData] = useState([]);
@@ -25,7 +25,9 @@ const Table = () => {
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
-
+  const handlePagination = (page: number) => {
+    setPageSize(page);
+  };
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number,
@@ -37,7 +39,8 @@ const Table = () => {
 
   useEffect(() => {
     if (data && data.top_gainers) {
-      const res = data.top_gainers.map((item: any) => ({
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.top_gainers.map((item: any, index: number) => ({
         id: item.id,
         name: item.name,
         price: item.quote.price,
@@ -45,12 +48,14 @@ const Table = () => {
         percent_change_24h: item.quote.percent_change_24h,
         symbol: item.symbol,
         coin_id: item.coin_id,
+        index: startIndex + index,
       }));
       setRowGainersData(res);
     }
 
     if (data && data.top_losers) {
-      const res = data.top_losers.map((item: any) => ({
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.top_losers.map((item: any, index: number) => ({
         id: item.id,
         name: item.name,
         price: item.quote.price,
@@ -58,6 +63,7 @@ const Table = () => {
         percent_change_24h: item.quote.percent_change_24h,
         symbol: item.symbol,
         coin_id: item.coin_id,
+        index: startIndex + index,
       }));
       setRowLosersData(res);
     }
@@ -65,7 +71,11 @@ const Table = () => {
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        search={search}
+        setSearch={handleSetSearch}
+        setPagination={handlePagination}
+      />
       <div
         style={{
           display: 'flex',

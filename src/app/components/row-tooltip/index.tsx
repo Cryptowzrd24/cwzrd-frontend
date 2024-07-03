@@ -1,17 +1,21 @@
+import { CustomCellRendererProps } from 'ag-grid-react';
 import styles from './index.module.css';
 import { LinearProgress } from '@mui/material';
+import { priceNumberFormatter } from '@/utils/price-number-formater';
 
-export const RowTooltip = () => {
+export const RowTooltip = (props: CustomCellRendererProps) => {
+  const percentage =
+    (props.data?.circulating_supply / props.data?.max_supply) * 100;
   return (
     <div className={styles['row-tooltip']}>
       <div className={styles['row-tooltip-percent']}>
         <p>Percentage</p>
-        <p>53.56%</p>
+        <p>{percentage.toFixed(2)}%</p>
       </div>
       <div className={styles['row-tooltip-progress-bar']}>
         <LinearProgress
           variant="determinate"
-          value={70}
+          value={percentage}
           sx={{
             borderRadius: '5px',
             width: '100%',
@@ -25,11 +29,17 @@ export const RowTooltip = () => {
       </div>
       <div className={styles['row-tooltip-circulating-supply']}>
         <p>Circulating Supply</p>
-        <p className="text-light">19,720,370 BTC</p>
+        <p className="text-light">
+          {priceNumberFormatter(props.data?.circulating_supply)?.slice(0, 10)}{' '}
+          {props.data?.symbol}
+        </p>
       </div>
       <div className={styles['row-tooltip-max-supply']}>
         <p>Max Supply</p>
-        <p className="text-light">21,000,000 BTC</p>
+        <p className="text-light">
+          {priceNumberFormatter(props.data?.circulating_supply)?.slice(0, 10)}{' '}
+          {props.data?.symbol}
+        </p>
       </div>
     </div>
   );

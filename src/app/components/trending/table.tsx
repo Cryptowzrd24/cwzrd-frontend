@@ -11,7 +11,7 @@ const Table = () => {
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const columnTrendingDef = useColumnTrendingDefs(columnsTrending);
   const { data } = useFetchTrendingDataQuery({});
@@ -25,7 +25,9 @@ const Table = () => {
   ) => {
     setCurrentPage(value);
   };
-
+  const handlePagination = (page: number) => {
+    setPageSize(page);
+  };
   const paginatedRowData = rowData.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
@@ -33,7 +35,8 @@ const Table = () => {
 
   useEffect(() => {
     if (data && data.data) {
-      const res = data.data.map((item: any) => ({
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.map((item: any, index: number) => ({
         id: item.id,
         name: item.name,
         price: item.quote.USD.price,
@@ -45,14 +48,19 @@ const Table = () => {
         circulating_supply: item.circulating_supply,
         symbol: item.symbol,
         max_supply: item.max_supply,
+        index: startIndex + index,
       }));
       setRowData(res);
     }
-  }, [data]);
+  }, [data,pageSize]);
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        search={search}
+        setSearch={handleSetSearch}
+        setPagination={handlePagination}
+      />
       <div
         style={{
           display: 'flex',
