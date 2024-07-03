@@ -55,8 +55,6 @@ const useColumnDefiDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 165,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Market Cap',
           };
         case 'volume_24h':
           return {
@@ -64,8 +62,6 @@ const useColumnDefiDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 165,
             cellRenderer: VolumeComponent,
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Volume 24h',
           };
         case 'circulating_supply':
           return {

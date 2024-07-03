@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { HeaderTooltip } from '@/app/components/header-tooltip';
 import { RowTooltip } from '@/app/components/row-tooltip';
 import { HeaderComponent } from '@/app/components/data-table/header';
 import { CurrencyNameComponent } from '@/app/components/data-table/name';
@@ -57,25 +56,20 @@ const useColumnCoinDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 165,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Market Cap',
           };
         case 'volume_24h':
           return {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
             width: 165,
-            tooltipComponent: HeaderTooltip,
             cellRenderer: VolumeComponent,
-            headerTooltip: 'Volume 24h',
           };
         case 'circulating_supply':
           return {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
             width: 165,
-            // headerTooltipComponent: HeaderTooltip,
-            headerTooltip: 'Circulating Supply',
+            // headerTooltip: 'Circulating Supply',
             cellRenderer: CirculatingSupply,
             tooltipComponent: RowTooltip,
             tooltipValueGetter: (params: any) =>
