@@ -2,8 +2,6 @@
 // import ReactDOMServer from 'react-dom/server';
 import React, { memo, useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid-community/styles/ag-grid.css';
-import 'ag-grid-community/styles/ag-theme-material.css';
 import './index.css';
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
