@@ -6,14 +6,18 @@ import { columnsHighestVol } from '@/app/constants/columns';
 import useColumnHighestVolDefs from '@/app/hooks/data-grid/column-defination-highest-vol';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchHighestVolumeCoinsDataQuery } from '@/app/redux/reducers/data-grid';
+import { Box } from '@mui/material';
+import CardContent from './cards/cardContent';
 
 const HighestVolumeCoinsTable = () => {
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemStart, setItemStart] = useState(1);
-  const pageSize = 10;
+  const [showCards, setShowCards] = useState(false);
+  const [pageSize, setPageSize] = useState<number>(10);
 
+  const [activeIcon, setActiveIcon] = useState('ListIcon');
   const columnDefiDef = useColumnHighestVolDefs(columnsHighestVol);
   const { data } = useFetchHighestVolumeCoinsDataQuery({
     start: currentPage,
@@ -33,7 +37,17 @@ const HighestVolumeCoinsTable = () => {
     setItemStart(itemsNumber);
     setCurrentPage(value);
   };
-
+  const handleToggleCards = () => {
+    setShowCards((prevShowCards) => !prevShowCards);
+    setActiveIcon((prevActiveIcon) =>
+      prevActiveIcon === 'ListIcon' ? 'BoxIcon' : 'ListIcon',
+    );
+  };
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1);
+    setItemStart(1);
+  };
   useEffect(() => {
     if (data && data.data) {
       const startIndex = (currentPage - 1) * pageSize + 1;
@@ -61,19 +75,34 @@ const HighestVolumeCoinsTable = () => {
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader view={true} search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        view={true}
+        search={search}
+        setSearch={handleSetSearch}
+        onToggleView={handleToggleCards}
+        activeIcon={activeIcon}
+        setPagination={handlePageSizeChange}
+        filter={true}
+      />
       <div
         style={{
           display: 'flex',
           gap: '36px',
         }}
       >
-        <DataTable
-          search={search}
-          rowData={rowData}
-          columnDefs={columnDefiDef}
-          width="100%"
-        />
+        {showCards ? (
+          <Box sx={{ height: '960px', overflowY: 'scroll' }}>
+            <CardContent cardsData={rowData} />
+          </Box>
+        ) : (
+          <DataTable
+            search={search}
+            rowData={rowData}
+            columnDefs={columnDefiDef}
+            width="100%"
+            // onGridReady={onGridReady}
+          />
+        )}
       </div>
 
       <Pagination

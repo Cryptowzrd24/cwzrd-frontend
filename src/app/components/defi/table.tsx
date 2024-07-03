@@ -35,6 +35,7 @@ const DefiTable = () => {
   const handlePagination = (page: number) => {
     setPageSize(page);
   };
+
   useEffect(() => {
     if (data && data.data) {
       const startIndex = (currentPage - 1) * pageSize + 1;
