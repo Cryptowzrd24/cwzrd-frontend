@@ -74,7 +74,7 @@ const useColumnCoinDefs = (columns: any) => {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
             width: 165,
-            // headerTooltip: HeaderTooltip,
+            // headerTooltipComponent: HeaderTooltip,
             headerTooltip: 'Circulating Supply',
             cellRenderer: CirculatingSupply,
             tooltipComponent: RowTooltip,

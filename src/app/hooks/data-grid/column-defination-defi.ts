@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { HeaderTooltip } from '@/app/components/header-tooltip';
-import { RowTooltip } from '@/app/components/row-tooltip';
 import { HeaderComponent } from '@/app/components/data-table/header';
 import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
@@ -65,6 +64,8 @@ const useColumnDefiDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 165,
             cellRenderer: VolumeComponent,
+            tooltipComponent: HeaderTooltip,
+            headerTooltip: 'Volume 24h',
           };
         case 'circulating_supply':
           return {
@@ -72,7 +73,8 @@ const useColumnDefiDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 165,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-            tooltipComponent: RowTooltip,
+            tooltipComponent: HeaderTooltip,
+            headerTooltip: 'Volume 24h',
             tooltipValueGetter: (params: any) =>
               params.value == null || params.value === ''
                 ? '- Missing -'

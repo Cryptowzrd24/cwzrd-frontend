@@ -7,14 +7,14 @@ import { columnsCoin } from '@/app/constants/columns';
 import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
 import CardContent from '../highest-volume/cards/cardContent';
-import { GridApi } from 'ag-grid-community';
+// import { GridApi } from 'ag-grid-community';
 
 const Table = () => {
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemStart, setItemStart] = useState(1);
-  const [gridApi, setGridApi] = useState<GridApi | null>(null);
+  // const [gridApi, setGridApi] = useState<GridApi | null>(null);
   const [showCards, setShowCards] = useState(false);
   const [pageSize, setPageSize] = useState<number>(10);
 
@@ -33,16 +33,15 @@ const Table = () => {
     const itemsNumber = value * 10 - 9;
     setItemStart(itemsNumber);
     setCurrentPage(value);
-    if (gridApi) {
-      gridApi.showLoadingOverlay();
-    }
+    // if (gridApi) {
+    //   gridApi.showLoadingOverlay();
+    // }
   };
 
   const handlePagination = (page: number) => {
     setPageSize(page);
   };
   const handleToggleCards = () => {
-    console.log('Toggling showCards:', !showCards);
     setShowCards((prevShowCards) => !prevShowCards);
   };
 
@@ -65,16 +64,16 @@ const Table = () => {
         index: startIndex + index,
       }));
       setRowData(res);
-      if (gridApi) {
-        gridApi.hideOverlay();
-      }
+      // if (gridApi) {
+      //   gridApi.hideOverlay();
+      // }
     }
   }, [data, currentPage, itemStart, pageSize]);
 
-  const onGridReady = (params: any) => {
-    setGridApi(params.api);
-    params.api.showLoadingOverlay();
-  };
+  // const onGridReady = (params: any) => {
+  //   setGridApi(params.api);
+  //   params.api.showLoadingOverlay();
+  // };
 
   return (
     <div className="data-table-wrapper">
@@ -100,7 +99,7 @@ const Table = () => {
             rowData={rowData}
             columnDefs={columnCoinsDef}
             width="100%"
-            onGridReady={onGridReady}
+            // onGridReady={onGridReady}
           />
         )}
       </div>

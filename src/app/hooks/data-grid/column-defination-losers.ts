@@ -8,6 +8,7 @@ import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
+import { HeaderTooltip } from '@/app/components/header-tooltip';
 
 const useColumnLosersDefs = (columns: any) => {
   return useMemo(() => {
@@ -40,6 +41,8 @@ const useColumnLosersDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 155,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            tooltipComponent: HeaderTooltip,
+            headerTooltip: 'Volume 24h',
           };
         case 'percent_change_24h':
           return {
