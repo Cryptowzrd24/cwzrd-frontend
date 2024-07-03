@@ -65,13 +65,17 @@ const useColumnCoinDefs = (columns: any) => {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
             width: 165,
+            tooltipComponent: HeaderTooltip,
             cellRenderer: VolumeComponent,
+            headerTooltip: 'Volume 24h',
           };
         case 'circulating_supply':
           return {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
             width: 165,
+            // headerTooltip: HeaderTooltip,
+            headerTooltip: 'Circulating Supply',
             cellRenderer: CirculatingSupply,
             tooltipComponent: RowTooltip,
             tooltipValueGetter: (params: any) =>

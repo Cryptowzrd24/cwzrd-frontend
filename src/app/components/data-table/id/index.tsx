@@ -14,6 +14,7 @@ import secondRank from '../../../../../public/icons/second-rank.png';
 import thirdRank from '../../../../../public/icons/third-rank.png';
 
 export const ID = (props: CustomCellRendererProps) => {
+  const index = props.data.index;
   const [isLoading, setIsLoading] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
 
@@ -25,7 +26,6 @@ export const ID = (props: CustomCellRendererProps) => {
     }, 600);
   };
 
-  const index = props.rowIndex + 1;
   const displayIndex = () => {
     if (index === 1) {
       return (
