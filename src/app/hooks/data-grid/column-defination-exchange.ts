@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { HeaderTooltip } from '@/app/components/header-tooltip';
 import { HeaderComponent } from '@/app/components/data-table/header';
 import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
@@ -34,8 +33,6 @@ const useColumnExchangeDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             cellRenderer: Score,
             width: 90,
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Market Cap',
           };
         case 'trading_volume_24h':
           return {

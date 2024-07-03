@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { HeaderTooltip } from '@/app/components/header-tooltip';
 import { HeaderComponent } from '@/app/components/data-table/header';
 import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
@@ -65,8 +64,6 @@ const useColumnTrendingDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 185,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Market Cap',
           };
         case 'volume_24h':
           return {
@@ -74,8 +71,6 @@ const useColumnTrendingDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 170,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Volume 24h',
           };
         case 'last7Days':
           return {
