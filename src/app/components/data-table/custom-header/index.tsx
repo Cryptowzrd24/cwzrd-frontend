@@ -47,7 +47,7 @@ export const CustomHeader = ({
   filter = false,
   view = false,
   onToggleView = () => {},
-  setPagination = (pageNumber: number) => {},
+  setPagination = () => {},
 }: CustomHeaderProps) => {
   const pathname = usePathname();
   const dispatch = useDispatch();
