@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { HeaderTooltip } from '@/app/components/header-tooltip';
 import { HeaderComponent } from '@/app/components/data-table/header';
 import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
@@ -62,8 +61,6 @@ const useColumnChainsDefs = (columns: any) => {
             field: 'market_cap',
             headerComponent: HeaderComponent,
             width: 165,
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Market Cap',
             cellRenderer: GraphComp,
           };
         case 'tvl':

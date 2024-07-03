@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { HeaderTooltip } from '@/app/components/header-tooltip';
 import { HeaderComponent } from '@/app/components/data-table/header';
 import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
@@ -67,8 +66,6 @@ const useColumnCategoryDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 135,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Market Cap',
           };
         case 'dominance':
           return {
@@ -76,8 +73,6 @@ const useColumnCategoryDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 135,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Dominance',
           };
         case 'volume_24h':
           return {
@@ -85,8 +80,6 @@ const useColumnCategoryDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 135,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Volume 24h',
           };
         case '24h_volume':
           return {
