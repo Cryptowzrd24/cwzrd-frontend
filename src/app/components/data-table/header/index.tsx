@@ -45,7 +45,7 @@ export const HeaderComponent = (props: IHeaderParams) => {
         arrow
         classes={{ tooltip: styles['custom-tooltip'] }}
       >
-        <Image className={styles['info-icon']}  src={infoIcon} alt="" />
+        <Image className={styles['info-icon']} src={infoIcon} alt="" />
       </Tooltip>
     </div>
   );
