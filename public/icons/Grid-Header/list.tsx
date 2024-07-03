@@ -1,4 +1,4 @@
-export const ListIcon = () => {
+export const ListIcon = ({color}) => {
   return (
     <svg
       width="20"
@@ -9,21 +9,21 @@ export const ListIcon = () => {
     >
       <path
         d="M2.5 10H17.5"
-        stroke="#7248F7"
+        stroke={color}
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M2.5 5H17.5"
-        stroke="#7248F7"
+        stroke={color}
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M2.5 15H17.5"
-        stroke="#7248F7"
+        stroke={color}
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
