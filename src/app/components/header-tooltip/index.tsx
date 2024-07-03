@@ -2,7 +2,7 @@ import { CustomCellRendererProps } from 'ag-grid-react';
 import styles from './index.module.css';
 import Link from 'next/link';
 
-const tooltips = {
+const tooltips: any = {
   market_cap: (
     <div className={styles['tooltip']}>
       <p>
@@ -37,9 +37,9 @@ const tooltips = {
 };
 
 export const HeaderTooltip = (props: CustomCellRendererProps) => {
-  console.log(props?.colDef?.field);
-
-  const tooltipContent = tooltips[props?.colDef?.field] || (
+  const tooltipContent = props?.colDef?.field ? (
+    tooltips[props?.colDef?.field]
+  ) : (
     <div className={styles['tooltip']}>
       <p>No specific tooltip available.</p>
     </div>

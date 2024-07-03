@@ -52,7 +52,7 @@ const Table = () => {
       }));
       setRowData(res);
     }
-  }, [data,pageSize]);
+  }, [data, pageSize]);
 
   return (
     <div className="data-table-wrapper">
