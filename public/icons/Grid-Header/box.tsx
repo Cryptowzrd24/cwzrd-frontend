@@ -1,4 +1,4 @@
-export const BoxIcon = ({color}) => {
+export const BoxIcon = ({ color }: { color: string }) => {
   return (
     <svg
       width="20"

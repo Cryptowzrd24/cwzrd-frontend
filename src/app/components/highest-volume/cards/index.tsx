@@ -3,14 +3,10 @@ import React from 'react';
 import Image from 'next/image';
 import Shift from '../../../../../public/icons/collections/shift';
 import graph1 from '../../../../../public/images/spotlight-cards/Frame.png';
-import background1 from '../../../../../public/images/spotlight-cards/background1.png';
-import { CustomCellRendererProps } from 'ag-grid-react';
 import first from '../../../../../public/icons/first-rank.png';
 import second from '../../../../../public/icons/second-rank.png';
 import numeral from 'numeral';
-
 import third from '../../../../../public/icons/third-rank.png';
-import { AnyListenerPredicate } from '@reduxjs/toolkit';
 
 const Card = ({
   title,
@@ -36,19 +32,19 @@ const Card = ({
 
   const getRankContent = (index: number) => {
     switch (index) {
-      case 0:
-        return <Image src={first} alt="first" width={16} height={21} />;
       case 1:
-        return <Image src={second} alt="second" width={16} height={21} />;
+        return <Image src={first} alt="first" width={21} height={21} />;
       case 2:
-        return <Image src={third} alt="third" width={16} height={21} />;
+        return <Image src={second} alt="second" width={21} height={21} />;
+      case 3:
+        return <Image src={third} alt="third" width={21} height={21} />;
       default:
         return (
           <Typography
             variant="body1"
             sx={{ fontSize: '16px', fontWeight: '500' }}
           >
-            #{index + 1}
+            #{index}
           </Typography>
         );
     }
