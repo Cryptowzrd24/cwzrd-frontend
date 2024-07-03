@@ -85,6 +85,8 @@ const useColumnCategoryDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 135,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            tooltipComponent: HeaderTooltip,
+            headerTooltip: 'Volume 24h',
           };
         case '24h_volume':
           return {

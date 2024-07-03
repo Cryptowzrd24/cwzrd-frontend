@@ -74,6 +74,8 @@ const useColumnTrendingDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 170,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            tooltipComponent: HeaderTooltip,
+            headerTooltip: 'Volume 24h',
           };
         case 'last7Days':
           return {
