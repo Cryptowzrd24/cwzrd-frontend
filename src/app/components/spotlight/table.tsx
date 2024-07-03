@@ -34,7 +34,7 @@ const Table = () => {
   const [pageSize, setPageSize] = useState<number>(10);
 
   const { data } = useFetchSpotlightDataQuery({
-    start: itemStart,
+    start: currentPage,
     pageSize,
   });
 

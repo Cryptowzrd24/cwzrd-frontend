@@ -16,7 +16,7 @@ const HighestVolumeCoinsTable = () => {
 
   const columnDefiDef = useColumnHighestVolDefs(columnsHighestVol);
   const { data } = useFetchHighestVolumeCoinsDataQuery({
-    start: itemStart,
+    start: currentPage,
     pageSize,
   });
 

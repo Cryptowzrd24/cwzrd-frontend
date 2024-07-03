@@ -15,7 +15,7 @@ const DefiTable = () => {
   const [pageSize, setPageSize] = useState<number>(10);
 
   const columnDefiDef = useColumnDefiDefs(columnsDefi);
-  const { data } = useFetchDefiCoinsDataQuery({ start: itemStart, pageSize });
+  const { data } = useFetchDefiCoinsDataQuery({ start: currentPage, pageSize });
 
   const totalCount = data?.count || 0;
   const totalPages = Math.ceil(totalCount / pageSize);

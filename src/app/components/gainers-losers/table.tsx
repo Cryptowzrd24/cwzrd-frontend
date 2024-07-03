@@ -19,7 +19,7 @@ const Table = () => {
   const [rowLosersData, setRowLosersData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const { data } = useFetchGainersLosersDataQuery({
-    start: itemStart,
+    start: currentPage,
     pageSize,
   });
   const handleSetSearch = useCallback((value: any) => {
