@@ -1,4 +1,4 @@
-export const ListIcon = ({color}) => {
+export const ListIcon = ({ color }: { color: string }) => {
   return (
     <svg
       width="20"
