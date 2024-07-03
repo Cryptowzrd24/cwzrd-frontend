@@ -16,7 +16,6 @@ const Table = () => {
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemStart, setItemStart] = useState(1);
-  // const [gridApi, setGridApi] = useState<GridApi | null>(null);
   const [showCards, setShowCards] = useState(false);
   const [pageSize, setPageSize] = useState<number>(10);
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
@@ -24,6 +23,7 @@ const Table = () => {
   const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
 
   const totalCount = data?.count || 0;
+
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
@@ -32,17 +32,15 @@ const Table = () => {
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
-    const itemsNumber = value * 10 - 9;
-    setItemStart(itemsNumber);
     setCurrentPage(value);
+    setItemStart((value - 1) * pageSize + 1);
     scrollToTop();
-    // if (gridApi) {
-    //   gridApi.showLoadingOverlay();
-    // }
   };
 
-  const handlePagination = (page: number) => {
-    setPageSize(page);
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1);
+    setItemStart(1);
   };
 
   const handleToggleCards = () => {
@@ -71,16 +69,8 @@ const Table = () => {
         index: startIndex + index,
       }));
       setRowData(res);
-      // if (gridApi) {
-      //   gridApi.hideOverlay();
-      // }
     }
   }, [data, currentPage, itemStart, pageSize]);
-
-  // const onGridReady = (params: any) => {
-  //   setGridApi(params.api);
-  //   params.api.showLoadingOverlay();
-  // };
 
   return (
     <div className="data-table-wrapper">
@@ -91,7 +81,7 @@ const Table = () => {
         setSearch={handleSetSearch}
         onToggleView={handleToggleCards}
         activeIcon={activeIcon}
-        setPagination={handlePagination}
+        setPagination={handlePageSizeChange}
       />
       <div
         style={{
@@ -101,13 +91,7 @@ const Table = () => {
       >
         {showCards ? (
           <Box sx={{ height: '960px', overflowY: 'scroll' }}>
-            <CardContent
-              setPagination={handlePagination}
-              currentPage={currentPage}
-              pageSize={pageSize}
-              totalCount={totalCount}
-              onPageChange={handlePageChange}
-            />
+            <CardContent cardsData={rowData} />
           </Box>
         ) : (
           <DataTable

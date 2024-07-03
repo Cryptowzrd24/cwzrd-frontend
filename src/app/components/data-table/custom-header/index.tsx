@@ -28,7 +28,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   clearAllFilters,
   clearSelectedFilter,
-} from '../../../redux/reducers/filters';
+} from '@/app/redux/reducers/filters';
 
 interface CustomHeaderProps {
   search: string;
@@ -74,7 +74,7 @@ export const CustomHeader = ({
   view = false,
   onToggleView = () => {},
   activeIcon = 'BoxIcon',
-  setPagination = (pageNumber: number) => {},
+  setPagination = () => {},
 }: CustomHeaderProps) => {
   const pathname = usePathname();
   const dispatch = useDispatch();
@@ -109,9 +109,6 @@ export const CustomHeader = ({
   };
 
   const handleOpenFilterModal = () => setOpenFilterModal(true);
-  const getSelectWidth = (value: number) => {
-    return value === 100 ? '36px' : '27px';
-  };
   const getLabel = (key: string): { label: string; isMatching: boolean } => {
     const filterValue = filterItem.filters[key];
     if (filterValue) {
