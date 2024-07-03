@@ -40,6 +40,7 @@ const HighestVolumeCoinsTable = () => {
       const res = data.data.map((item: any, index: number) => ({
         id: item.id,
         name: item.name,
+        coin_id: item.coin_id,
         price: item.quote.price,
         volume_24h: item.quote.volume_24h,
         percent_change_1h: item.quote.percent_change_1h,
