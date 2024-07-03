@@ -11,11 +11,14 @@ const Table = () => {
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemStart, setItemStart] = useState(1);
+  const [, setItemStart] = useState(1);
   const pageSize = 10;
 
   const columnMostVisitedDef = useColumnMostVisitedDefs(columnsMostVisited);
-  const { data } = useFetchMostVisitedDataQuery({ start: itemStart, pageSize });
+  const { data } = useFetchMostVisitedDataQuery({
+    start: currentPage,
+    pageSize,
+  });
 
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);

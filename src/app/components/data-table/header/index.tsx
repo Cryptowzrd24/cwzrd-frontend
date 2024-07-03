@@ -8,6 +8,8 @@ import { IHeaderParams } from 'ag-grid-community';
 import infoIcon from '@/app/assets/icons/infoIcon.svg';
 
 import { formatDisplayName } from '@/utils/format-heder-display-name';
+import { Tooltip } from '@mui/material';
+import { HeaderTooltip } from '../../header-tooltip';
 
 export const HeaderComponent = (props: IHeaderParams) => {
   const displayName = formatDisplayName(props.displayName);
@@ -38,7 +40,13 @@ export const HeaderComponent = (props: IHeaderParams) => {
   return (
     <div className={styles['header-component']} onClick={onHeaderClick}>
       <p className="text-primary text-sm font-semibold">{displayName}</p>
-      <Image src={infoIcon} alt="" />
+      <Tooltip
+        title={<HeaderTooltip headerName={props.displayName} />}
+        arrow
+        classes={{ tooltip: styles['custom-tooltip'] }}
+      >
+        <Image className={styles['info-icon']} src={infoIcon} alt="" />
+      </Tooltip>
     </div>
   );
 };

@@ -6,7 +6,6 @@ import useColumnChainsDefs from '@/app/hooks/data-grid/column-defination-chains'
 import { columnsChain } from '@/app/constants/columns';
 import { rowDataChains } from '@/app/constants/row';
 import { Pagination } from '@/app/components/data-table/pagination';
-import CardContent from '../highest-volume/cards/cardContent';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -49,7 +48,7 @@ const Table = () => {
       />
       <div style={tableStyles}>
         {showCards ? (
-          <CardContent />
+          <div>Card Content</div>
         ) : (
           <DataTable
             search={search}

@@ -11,7 +11,6 @@ import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
 import { DateAdded } from '@/app/components/data-table/date-component';
-import { HeaderTooltip } from '@/app/components/header-tooltip';
 
 const useColumnNewCoinsDefs = (columns: any) => {
   return useMemo(() => {
@@ -57,8 +56,6 @@ const useColumnNewCoinsDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 210,
             cellRenderer: VolumeComponent,
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Volume 24h',
           };
         case 'chain':
           return {
@@ -73,8 +70,6 @@ const useColumnNewCoinsDefs = (columns: any) => {
             width: 140,
             headerComponent: HeaderComponent,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'FDV',
           };
         case 'date_added':
           return {
