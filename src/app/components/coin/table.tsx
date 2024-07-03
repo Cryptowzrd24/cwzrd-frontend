@@ -46,7 +46,6 @@ const Table = () => {
     setShowCards((prevShowCards) => !prevShowCards);
   };
 
-
   useEffect(() => {
     if (data && data.data) {
       const startIndex = (currentPage - 1) * pageSize + 1;
@@ -76,7 +75,6 @@ const Table = () => {
     setGridApi(params.api);
     params.api.showLoadingOverlay();
   };
-
 
   return (
     <div className="data-table-wrapper">

@@ -1,10 +1,8 @@
 'use client';
 import { Box, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { spotlightCardData } from './data';
 import Card from '.';
 import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
-import { CustomCellRendererProps } from 'ag-grid-react';
 
 type CardData = {
   id: string;
@@ -15,10 +13,12 @@ type CardData = {
   market_cap: string;
   circulating_supply: string;
   max_supply: string;
+  symbol: string;
+  coin_id: string;
 };
 
 const CardContent = () => {
-  const [itemStart, setItemStart] = useState(1);
+  const [itemStart] = useState(1);
   const pageSize = 10;
   const [cardsData, setCardsData] = useState<CardData[]>([]);
 

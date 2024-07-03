@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-import Image from 'next/image';
 import styles from './index.module.css';
 
 import chainIconOne from '@/app/assets/icons/chainIcon1.svg';
@@ -10,7 +9,7 @@ import { CustomCellRendererProps } from 'ag-grid-react';
 
 export const ChainComp = (props: CustomCellRendererProps) => {
   console.log(props);
-  const [chainIcon, setChainIcon] = useState(chainIconOne);
+  const [, setChainIcon] = useState(chainIconOne);
 
   const getRandomChainIcon = () => {
     const icons = [chainIconOne, chainIconTwo];
