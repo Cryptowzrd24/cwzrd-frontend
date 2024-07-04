@@ -6,16 +6,23 @@ import { columnsMostVisited } from '@/app/constants/columns';
 import useColumnMostVisitedDefs from '@/app/hooks/data-grid/column-defination-most-visit';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchMostVisitedDataQuery } from '@/app/redux/reducers/data-grid';
+import { Box } from '@mui/material';
+import CardContent from '../highest-volume/cards/cardContent';
 
 const Table = () => {
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState<number>(10);
+  const [activeIcon, setActiveIcon] = useState('ListIcon');
+  const [showCards, setShowCards] = useState(false);
   const [itemStart, setItemStart] = useState(1);
-  const pageSize = 10;
 
   const columnMostVisitedDef = useColumnMostVisitedDefs(columnsMostVisited);
-  const { data } = useFetchMostVisitedDataQuery({ start: itemStart, pageSize });
+  const { data } = useFetchMostVisitedDataQuery({
+    start: currentPage,
+    pageSize,
+  });
 
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
@@ -29,7 +36,18 @@ const Table = () => {
     setItemStart(itemsNumber);
     setCurrentPage(value);
   };
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1);
+    setItemStart(1);
+  };
 
+  const handleToggleCards = () => {
+    setShowCards((prevShowCards) => !prevShowCards);
+    setActiveIcon((prevActiveIcon) =>
+      prevActiveIcon === 'ListIcon' ? 'BoxIcon' : 'ListIcon',
+    );
+  };
   useEffect(() => {
     if (data && data.data) {
       const startIndex = (currentPage - 1) * pageSize + 1;
@@ -49,23 +67,38 @@ const Table = () => {
       }));
       setRowData(res);
     }
-  }, [data]);
+  }, [data, currentPage, itemStart, pageSize]);
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader view={true} search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        view={true}
+        search={search}
+        setSearch={handleSetSearch}
+        onToggleView={handleToggleCards}
+        activeIcon={activeIcon}
+        setPagination={handlePageSizeChange}
+        filter={true}
+      />
       <div
         style={{
           display: 'flex',
           gap: '36px',
         }}
       >
-        <DataTable
-          search={search}
-          rowData={rowData}
-          columnDefs={columnMostVisitedDef}
-          width="100%"
-        />
+        {showCards ? (
+          <Box sx={{ height: '960px', overflowY: 'scroll' }}>
+            <CardContent cardsData={rowData} />
+          </Box>
+        ) : (
+          <DataTable
+            search={search}
+            rowData={rowData}
+            columnDefs={columnMostVisitedDef}
+            width="100%"
+            // onGridReady={onGridReady}
+          />
+        )}
       </div>
       <Pagination
         length={1200}

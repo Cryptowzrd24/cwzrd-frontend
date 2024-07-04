@@ -7,7 +7,6 @@ import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import MemberShipBanner from '../banners/memberShipBanner';
 import Table from './table';
-import CardContent from './cards/cardContent';
 
 const HighestVolume = () => {
   return (
@@ -20,9 +19,7 @@ const HighestVolume = () => {
         <Box sx={{ mt: '40px' }}>
           <Table />
         </Box>
-        <Box sx={{ mt: '80px' }}>
-          <CardContent />
-        </Box>
+
         <Box sx={{ mt: '80px', mb: '80px' }}>
           <NewsLetterBanner />
         </Box>

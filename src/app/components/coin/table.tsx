@@ -20,7 +20,7 @@ const Table = () => {
   const [pageSize, setPageSize] = useState<number>(10);
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const [activeIcon, setActiveIcon] = useState('ListIcon');
-  const { data } = useFetchCoinDataQuery({ start: itemStart, pageSize });
+  const { data } = useFetchCoinDataQuery({ start: currentPage, pageSize });
 
   const totalCount = data?.count || 0;
 

@@ -16,7 +16,7 @@ const Table = () => {
   const [pageSize, setPageSize] = useState<number>(10);
 
   const columnNewCoinsDef = useColumnNewCoinsDefs(columnsNewCoin);
-  const { data } = useFetchNewCoinDataQuery({ start: itemStart, pageSize });
+  const { data } = useFetchNewCoinDataQuery({ start: currentPage, pageSize });
   const totalCount = data?.count || 0;
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
