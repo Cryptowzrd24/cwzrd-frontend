@@ -3,7 +3,10 @@ import { Button, Divider, Stack } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-export const Select = () => {
+interface SelectProps {
+  setExpanded: (expanded: string | false) => void;
+}
+export const Select = ({ setExpanded }: SelectProps) => {
   const dispatch = useDispatch();
   const styles = {
     buttonText: {
@@ -14,6 +17,7 @@ export const Select = () => {
 
   const handleCoinTypeSelect = (type: string) => {
     dispatch(selectCurrencyTypeFilter(type));
+    setExpanded(false);
   };
 
   return (
