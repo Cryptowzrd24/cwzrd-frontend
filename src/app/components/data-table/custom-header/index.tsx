@@ -79,7 +79,7 @@ export const CustomHeader = ({
   const pathname = usePathname();
   const dispatch = useDispatch();
   const [pageSize, setPageSize] = useState(10);
-  const options = [10, 50, 100];
+  const options = [10, 20, 50, 100];
 
   const filterItem = useSelector((state: any) => state.filters);
 
@@ -131,6 +131,12 @@ export const CustomHeader = ({
     };
   };
 
+  const PaginationSelect = ({ pageSize, setPagination, options }) => {
+    const handleChange = (event: any) => {
+      setPagination(event.target.value);
+    };
+  };
+
   const renderFilters = Object.keys(Filters).map((key: any) => {
     const { label, isMatching } = getLabel(key);
     return (
@@ -175,7 +181,7 @@ export const CustomHeader = ({
   };
 
   const getSelectClass = (value: any) => {
-    return value === 100 ? 'width-34' : 'width-23';
+    return value === 100 ? '34px' : '26px';
   };
   return (
     <Box sx={styles.container}>
@@ -215,7 +221,11 @@ export const CustomHeader = ({
               <MenuItem
                 key={option}
                 value={option}
-                sx={{ fontSize: '16px', fontWeight: 700 }}
+                sx={{
+                  display: option === pageSize ? 'none' : 'block',
+                  fontSize: '16px',
+                  fontWeight: 700,
+                }}
                 onClick={() => setPagination(option)}
               >
                 {option}

@@ -31,17 +31,22 @@ const Card: React.FC<CardProps> = ({
     <>
       <div
         style={{
-          padding: '16px 0 16px 16px',
+          padding: '16px 16px 16px 16px',
           borderRadius: '16px',
-          maxWidth: '315px',
-          width: '100%',
+         
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 7px 29px 0px',
           cursor: 'pointer',
         }}
         onClick={() => setOpen(true)}
       >
-        <Stack>
-          <Image src={image} alt="banner" width={300} height={239} />
+        <Stack sx={{ maxWidth: '315px' }}>
+          <Image
+            src={image}
+            alt="banner"
+            width={283}
+            height={239}
+            layout="responsive"
+          />
           <Box
             sx={{
               display: 'flex',
@@ -79,8 +84,8 @@ const Card: React.FC<CardProps> = ({
               background: 'rgba(17, 17, 17, 0.05)',
               display: 'flex',
               alignItems: 'center',
-              maxWidth: '293px',
-              width: '100%',
+              // maxWidth: '293px',
+              // width: '100%',
               gap: '48px',
             }}
           >
