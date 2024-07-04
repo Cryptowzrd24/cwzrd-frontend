@@ -6,10 +6,12 @@ import { columnsExchanges } from '@/app/constants/columns';
 import { rowDataExchange } from '@/app/constants/row';
 import useColumnExchangeDefs from '@/app/hooks/data-grid/column-defination-exchange';
 import { Pagination } from '@/app/components/data-table/pagination';
+import { scrollToTop } from '@/utils/scroll-to-top';
 
 const Table = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [, setItemStart] = useState(1);
   const [pageSize, setPageSize] = useState<number>(10);
 
   const columnExchangesDef = useColumnExchangeDefs(columnsExchanges);
@@ -23,9 +25,14 @@ const Table = () => {
     value: number,
   ) => {
     setCurrentPage(value);
+    setItemStart((value - 1) * pageSize + 1);
+    scrollToTop();
   };
-  const handlePagination = (page: number) => {
-    setPageSize(page);
+
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1);
+    setItemStart(1);
   };
   const paginatedRowData = rowDataExchange.slice(
     (currentPage - 1) * pageSize,
@@ -38,7 +45,7 @@ const Table = () => {
         view={true}
         search={search}
         setSearch={handleSetSearch}
-        setPagination={handlePagination}
+        setPagination={handlePageSizeChange}
       />
       <div
         style={{
