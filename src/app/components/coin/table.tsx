@@ -90,7 +90,7 @@ const Table = () => {
         }}
       >
         {showCards ? (
-          <Box sx={{ height: '960px', overflowY: 'scroll' }}>
+          <Box>
             <CardContent cardsData={rowData} />
           </Box>
         ) : (

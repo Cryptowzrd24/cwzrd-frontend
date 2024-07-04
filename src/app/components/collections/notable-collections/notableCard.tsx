@@ -25,13 +25,19 @@ const NotableCard: React.FC<CardProps> = ({
       <Box
         sx={{
           borderRadius: '16px',
-          maxWidth: '315px',
+          maxWidth: '300px',
           width: '100%',
-          boxShadow: 'rgba(0, 0, 0, 0.05) 0px 7px 29px 0px',
+          boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
         }}
       >
         <Stack>
-          <Image src={image} alt="banner" width={300} height={239} />
+          <Image
+            src={image}
+            alt="banner"
+            width={300}
+            height={248}
+            layout="responsive"
+          />
           <Box sx={{ padding: '0 24px' }}>
             <Typography
               variant="body1"
@@ -39,7 +45,6 @@ const NotableCard: React.FC<CardProps> = ({
                 fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
-                mb: '4px',
                 mt: '16px',
               }}
             >
@@ -49,9 +54,10 @@ const NotableCard: React.FC<CardProps> = ({
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                maxWidth: '293px',
-                width: '100%',
-                gap: '42px',
+
+                gap: '48px',
+                mb: '24px',
+                mt: '16px',
               }}
             >
               <Stack>
@@ -72,11 +78,7 @@ const NotableCard: React.FC<CardProps> = ({
                   {statusAction}
                 </Typography>
               </Stack>
-              <Stack
-                sx={{
-                  padding: '12px 16px',
-                }}
-              >
+              <Stack>
                 <Typography
                   variant="body2"
                   sx={{
