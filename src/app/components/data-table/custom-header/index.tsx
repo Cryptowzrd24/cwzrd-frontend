@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, MenuItem, Select, Typography } from '@mui/material';
+import { Badge, Box, MenuItem, Select, Typography } from '@mui/material';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -82,6 +82,9 @@ export const CustomHeader = ({
   const options = [10, 20, 50, 100];
 
   const filterItem = useSelector((state: any) => state.filters);
+  const filterCount = useSelector(
+    (state: any) => state.filters.selectedFilterCount,
+  );
 
   const [searchActive, setSearchActive] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
@@ -170,6 +173,24 @@ export const CustomHeader = ({
       />
     );
   });
+
+  const chip = (
+    <Chip
+      sx={{
+        '& .MuiChip-icon': {
+          marginRight: '-12px',
+        },
+      }}
+      label="Add Filter"
+      onClick={handleOpenFilterModal}
+      clickable
+      icon={
+        filterCount > 0 && filterCount !== null ? undefined : (
+          <AddIcon sx={{ fontSize: '16px' }} />
+        )
+      }
+    />
+  );
 
   const handleClearFilters = () => {
     dispatch(clearAllFilters());
@@ -303,17 +324,21 @@ export const CustomHeader = ({
             <Box sx={styles.filterContainerBox}>
               <Stack direction="row" spacing={1}>
                 {renderFilters}
-                <Chip
-                  sx={{
-                    '& .MuiChip-icon': {
-                      marginRight: '-12px',
-                    },
-                  }}
-                  label="Add Filter"
-                  onClick={handleOpenFilterModal}
-                  clickable
-                  icon={<AddIcon sx={{ fontSize: '16px' }} />}
-                />
+                {filterCount > 0 && filterCount !== null ? (
+                  <Badge
+                    badgeContent={filterCount}
+                    color="secondary"
+                    sx={{
+                      '& .MuiBadge-badge': {
+                        transform: 'translate(5px , -8px)',
+                      },
+                    }}
+                  >
+                    {chip}
+                  </Badge>
+                ) : (
+                  chip
+                )}
               </Stack>
               {isAnyFilterActive && (
                 <Chip

@@ -1,6 +1,7 @@
 import { Filters } from '@/app/constants/filters';
 import { Filters as FiltersType } from '@/app/models/filters';
 import { RangeFilterKeys } from '@/app/models/range-filter-keys';
+import { countSelectedFilters } from '@/utils/filter-count';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const toggleFilter = ['mineable', 'audited'] as const;
@@ -12,6 +13,7 @@ type RangeKey = (typeof RangeFilterKeys)[number];
 type FilterKey = keyof typeof Filters;
 interface InitialState {
   filters: FiltersType;
+  selectedFilterCount: number | null;
 }
 
 const initialState: InitialState = {
@@ -29,6 +31,7 @@ const initialState: InitialState = {
     mineable: false,
     audited: false,
   },
+  selectedFilterCount: null,
 };
 
 const filterSlice = createSlice({
@@ -41,6 +44,7 @@ const filterSlice = createSlice({
     },
     clearAllFilters: (state) => {
       state.filters = initialState.filters;
+      state.selectedFilterCount = 0;
     },
     clearSelectedFilter: (state, action) => {
       const { label } = action.payload;
@@ -56,6 +60,7 @@ const filterSlice = createSlice({
     ) => {
       const { label, min, max } = action.payload;
       state.filters[label] = { min, max };
+      state.selectedFilterCount = countSelectedFilters(state.filters);
     },
     selectSwitchFilter: (
       state,
@@ -66,9 +71,11 @@ const filterSlice = createSlice({
     ) => {
       const { label, isActive } = action.payload;
       state.filters[label] = isActive;
+      state.selectedFilterCount = countSelectedFilters(state.filters);
     },
     selectCurrencyTypeFilter: (state, action) => {
       state.filters.cryptoCurrency = action.payload;
+      state.selectedFilterCount = countSelectedFilters(state.filters);
     },
   },
 });

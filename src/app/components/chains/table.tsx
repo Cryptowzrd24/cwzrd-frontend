@@ -10,6 +10,7 @@ import { Pagination } from '@/app/components/data-table/pagination';
 const Table = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [, setItemStart] = useState(1);
   const [showCards, setShowCards] = useState(false);
   const [pageSize, setPageSize] = useState<number>(10);
 
@@ -24,9 +25,14 @@ const Table = () => {
     value: number,
   ) => {
     setCurrentPage(value);
+    setItemStart((value - 1) * pageSize + 1);
+    setCurrentPage(value);
   };
-  const handlePagination = (page: number) => {
-    setPageSize(page);
+
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1);
+    setItemStart(1);
   };
 
   const paginatedRowData = rowDataChains.slice(
@@ -44,7 +50,7 @@ const Table = () => {
         search={search}
         setSearch={handleSetSearch}
         onToggleView={handleToggleCards}
-        setPagination={handlePagination}
+        setPagination={handlePageSizeChange}
       />
       <div style={tableStyles}>
         {showCards ? (

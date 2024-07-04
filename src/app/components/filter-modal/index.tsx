@@ -33,17 +33,22 @@ interface FilterModalProps {
 
 function FilterModal({ open, setOpen }: FilterModalProps) {
   const dispatch = useDispatch();
-  const filterItem = useSelector((state: any) => state.filters);
+  const filterItem = useSelector((state: any) => state.filters.filters);
   const [expanded, setExpanded] = useState<string | false>(false);
   const [range, setRange] = useState<Range>({ min: 0, max: null });
-  const [isMineableActive, setIsMineableActive] = useState(filterItem.mineable);
-  const [isAuditedActive, setIsAuditedActive] = useState(filterItem.audited);
+  const [isMineableActive, setIsMineableActive] = useState(false);
+  const [isAuditedActive, setIsAuditedActive] = useState(false);
+  const [showResultsBtn, setShowResultsBtn] = useState(false);
+  const [showCloseBtn, setShowCloseBtn] = useState(true);
+
   const handleClose = () => setOpen(null);
 
   const handleAccordionChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
-      setRange({ min: 0, max: null });
+      if (panel !== 'cryptoCurrency') {
+        setRange({ min: 0, max: null });
+      }
     };
 
   const setMinVal = (minVal: number) => {
@@ -72,11 +77,20 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
 
   const handleSubmitFilter = (label: RangeKey) => {
     dispatch(selectRangeFilter({ label, min: range.min, max: range.max }));
+    setExpanded(false);
+    setShowCloseBtn(false);
+    setShowResultsBtn(true);
   };
 
   const handleCancelFilter = () => {
+    setExpanded(false);
+  };
+
+  const handleClearFilters = () => {
     dispatch(clearAllFilters());
     setExpanded(false);
+    setShowResultsBtn(false);
+    setShowCloseBtn(true);
   };
 
   return (
@@ -88,7 +102,12 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={styles.modalFilterMain}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+            }}
+          >
             <Typography
               sx={styles.filterHeading}
               id="modal-modal-title"
@@ -106,9 +125,10 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
           <Box sx={styles.accordian}>
             <Accordian
               name={'All Cryptocurrencies'}
-              Component={<Select />}
-              expanded={expanded === 'panel1'}
-              onChange={handleAccordionChange('panel1')}
+              Component={<Select setExpanded={setExpanded} />}
+              expanded={expanded === 'cryptoCurrency'}
+              onChange={handleAccordionChange('cryptoCurrency')}
+              accordianName="cryptoCurrency"
             />
             <Divider />
             <Accordian
@@ -124,6 +144,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
               }
               expanded={expanded === 'market'}
               onChange={handleAccordionChange('market')}
+              accordianName="market"
             />
             <Divider />
             <Accordian
@@ -139,6 +160,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
               }
               expanded={expanded === 'price'}
               onChange={handleAccordionChange('price')}
+              accordianName="price"
             />
             <Divider />
             <Accordian
@@ -154,6 +176,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
               }
               expanded={expanded === 'percentChange'}
               onChange={handleAccordionChange('percentChange')}
+              accordianName="percentChange"
             />
             <Divider />
             <Accordian
@@ -169,6 +192,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
               }
               expanded={expanded === 'volume'}
               onChange={handleAccordionChange('volume')}
+              accordianName="volume"
             />
             <Divider />
             <Accordian
@@ -184,6 +208,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
               }
               expanded={expanded === 'circulatingSupply'}
               onChange={handleAccordionChange('circulatingSupply')}
+              accordianName="circulatingSupply"
             />
             <Divider />
             <Box
@@ -204,9 +229,10 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
               </Typography>
               <Switch
                 sx={styles.switch}
-                checked={isMineableActive}
+                checked={filterItem.mineable}
                 onChange={toggleMineable}
                 name="mineable"
+                value={isMineableActive}
               />
             </Box>
             <Divider />
@@ -229,16 +255,17 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
               <Switch
                 size="medium"
                 sx={styles.switch}
-                checked={isAuditedActive}
+                checked={filterItem.audited}
                 onChange={toggleAudited}
                 name="audited"
+                value={isAuditedActive}
               />
             </Box>
           </Box>
           <Box>
             <Divider sx={styles.divider} />
             <Box sx={styles.filterFooterBtns}>
-              {!expanded ? (
+              {!expanded && showCloseBtn && (
                 <Button
                   sx={styles.closeCancelBtn}
                   size="medium"
@@ -247,24 +274,49 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 >
                   Close
                 </Button>
-              ) : (
-                <Button
-                  sx={styles.closeCancelBtn}
-                  size="medium"
-                  variant="text"
-                  onClick={handleCancelFilter}
-                >
-                  Cancel
-                </Button>
               )}
-              {expanded && (
-                <Button
-                  sx={styles.applyBtn}
-                  variant="text"
-                  onClick={() => handleSubmitFilter(expanded as RangeKey)}
-                >
-                  Apply Filter
-                </Button>
+              {expanded &&
+                !filterItem.mineable &&
+                !filterItem.audited &&
+                expanded !== 'cryptoCurrency' && (
+                  <Box>
+                    <Button
+                      sx={styles.closeCancelBtn}
+                      size="medium"
+                      variant="text"
+                      onClick={handleCancelFilter}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      sx={styles.applyBtn}
+                      variant="text"
+                      onClick={() => handleSubmitFilter(expanded as RangeKey)}
+                    >
+                      Apply Filter
+                    </Button>
+                  </Box>
+                )}
+              {((showResultsBtn && !expanded) ||
+                filterItem.mineable ||
+                filterItem.audited ||
+                filterItem.cryptoCurrency) && (
+                <Box>
+                  <Button
+                    sx={styles.closeCancelBtn}
+                    variant="text"
+                    onClick={handleClearFilters}
+                  >
+                    Clear Filters
+                  </Button>
+                  <Button
+                    sx={styles.applyBtn}
+                    variant="text"
+                    onClick={() => handleSubmitFilter(expanded as RangeKey)}
+                  >
+                    Show Results
+                  </Button>
+                </Box>
               )}
             </Box>
           </Box>

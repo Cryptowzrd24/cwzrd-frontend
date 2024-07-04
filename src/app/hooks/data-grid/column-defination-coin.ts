@@ -68,8 +68,7 @@ const useColumnCoinDefs = (columns: any) => {
           return {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
-            width: 165,
-            // headerTooltip: 'Circulating Supply',
+            width: 175,
             cellRenderer: CirculatingSupply,
             tooltipComponent: RowTooltip,
             tooltipValueGetter: (params: any) =>
@@ -80,7 +79,7 @@ const useColumnCoinDefs = (columns: any) => {
         case 'last7Days':
           return {
             field: 'last7Days',
-            width: 165,
+            width: 160,
             headerName: 'Last 7 Days',
             cellRenderer: GraphComp,
           };
