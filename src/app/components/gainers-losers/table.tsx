@@ -7,6 +7,7 @@ import useColumnLosersDefs from '@/app/hooks/data-grid/column-defination-losers'
 import { columnsGainers, columnsLosers } from '@/app/constants/columns';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchGainersLosersDataQuery } from '@/app/redux/reducers/data-grid';
+import { scrollToTop } from '@/utils/scroll-to-top';
 
 const Table = () => {
   const columnGainersDef = useColumnGainersDefs(columnsGainers);
@@ -25,16 +26,19 @@ const Table = () => {
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
-  const handlePagination = (page: number) => {
-    setPageSize(page);
-  };
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
-    const itemsNumber = value * 10 - 9;
-    setItemStart(itemsNumber);
     setCurrentPage(value);
+    setItemStart((value - 1) * pageSize + 1);
+    scrollToTop();
+  };
+
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1);
+    setItemStart(1);
   };
 
   useEffect(() => {
@@ -74,7 +78,7 @@ const Table = () => {
       <CustomHeader
         search={search}
         setSearch={handleSetSearch}
-        setPagination={handlePagination}
+        setPagination={handlePageSizeChange}
       />
       <div
         style={{

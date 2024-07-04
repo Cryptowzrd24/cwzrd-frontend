@@ -6,6 +6,7 @@ import { columnsDefi } from '@/app/constants/columns';
 import useColumnDefiDefs from '@/app/hooks/data-grid/column-defination-defi';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchDefiCoinsDataQuery } from '@/app/redux/reducers/data-grid';
+import { scrollToTop } from '@/utils/scroll-to-top';
 
 const DefiTable = () => {
   const [search, setSearch] = useState('');
@@ -28,12 +29,15 @@ const DefiTable = () => {
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
-    const itemsNumber = value * 10 - 9;
-    setItemStart(itemsNumber);
     setCurrentPage(value);
+    setItemStart((value - 1) * pageSize + 1);
+    scrollToTop();
   };
-  const handlePagination = (page: number) => {
-    setPageSize(page);
+
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1);
+    setItemStart(1);
   };
 
   useEffect(() => {
@@ -63,7 +67,7 @@ const DefiTable = () => {
       <CustomHeader
         search={search}
         setSearch={handleSetSearch}
-        setPagination={handlePagination}
+        setPagination={handlePageSizeChange}
       />
       <div
         style={{

@@ -6,11 +6,13 @@ import { columnsTrending } from '@/app/constants/columns';
 import useColumnTrendingDefs from '@/app/hooks/data-grid/column-defination-trending';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchTrendingDataQuery } from '@/app/redux/reducers/data-grid';
+import { scrollToTop } from '@/utils/scroll-to-top';
 
 const Table = () => {
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [itemStart, setItemStart] = useState(1);
   const [pageSize, setPageSize] = useState<number>(10);
 
   const columnTrendingDef = useColumnTrendingDefs(columnsTrending);
@@ -24,9 +26,14 @@ const Table = () => {
     value: number,
   ) => {
     setCurrentPage(value);
+    setItemStart((value - 1) * pageSize + 1);
+    scrollToTop();
   };
-  const handlePagination = (page: number) => {
-    setPageSize(page);
+
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1);
+    setItemStart(1);
   };
   const paginatedRowData = rowData.slice(
     (currentPage - 1) * pageSize,
@@ -52,14 +59,14 @@ const Table = () => {
       }));
       setRowData(res);
     }
-  }, [data, pageSize]);
+  }, [data, pageSize, itemStart]);
 
   return (
     <div className="data-table-wrapper">
       <CustomHeader
         search={search}
         setSearch={handleSetSearch}
-        setPagination={handlePagination}
+        setPagination={handlePageSizeChange}
       />
       <div
         style={{

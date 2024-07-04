@@ -18,6 +18,7 @@ import useColumnCompactHighestVolumeDefs from '@/app/hooks/data-grid/column-defi
 import useColumnCompactMostVisitedDefs from '@/app/hooks/data-grid/column-defination-compact-most-visited';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchSpotlightDataQuery } from '@/app/redux/reducers/data-grid';
+import { scrollToTop } from '@/utils/scroll-to-top';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -37,23 +38,32 @@ const Table = () => {
     start: currentPage,
     pageSize,
   });
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number,
+  ) => {
+    setCurrentPage(value);
+    setItemStart((value - 1) * pageSize + 1);
+    scrollToTop();
+  };
 
-  const handlePagination = (page: number) => {
-    setPageSize(page);
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1);
+    setItemStart(1);
   };
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
 
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    value: number,
-  ) => {
-    const itemsNumber = value * 10 - 9;
-    console.log(itemsNumber);
-    setItemStart(itemsNumber);
-    setCurrentPage(value);
-  };
+  // const handlePageChange = (
+  //   event: React.ChangeEvent<unknown>,
+  //   value: number,
+  // ) => {
+  //   const itemsNumber = value * 10 - 9;
+  //   setItemStart(itemsNumber);
+  //   setCurrentPage(value);
+  // };
 
   // Column Definations
   const columnTrendingDef = useColumnCompactTrendingDefs(
@@ -160,7 +170,7 @@ const Table = () => {
       <CustomHeader
         search={search}
         setSearch={handleSetSearch}
-        setPagination={handlePagination}
+        setPagination={handlePageSizeChange}
       />
       <div
         style={{
