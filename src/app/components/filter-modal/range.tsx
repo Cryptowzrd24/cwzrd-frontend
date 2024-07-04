@@ -24,7 +24,7 @@ export const Range = ({
     { label: '$0 - $1', min: 0, max: 1 },
     { label: '$0 - $100', min: 0, max: 100 },
     { label: '$101 - $1,000', min: 101, max: 1000 },
-    { label: '$1000 +', min: 0, max: 10000000 },
+    { label: '$1000 +', min: 1000, max: 99999 },
   ];
 
   const handleMinValChange = (value: string) => {
