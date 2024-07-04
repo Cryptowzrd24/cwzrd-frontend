@@ -1,22 +1,18 @@
 'use client';
-// import ReactDOMServer from 'react-dom/server';
 import React, { memo, useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import './index.css';
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 import { ArrowRight } from '../../../../public/icons/arrowRight';
-// import LoadingOverlay from '../loading-overlay';
 
 interface DataTableProps {
   title?: string;
   rowData: any[];
   columnDefs: any[];
-  height?: number;
   width?: string;
   search?: string;
   seeMore?: string;
-  // onGridReady?: any;
 }
 
 const DataTable = memo(
@@ -24,11 +20,9 @@ const DataTable = memo(
     title,
     rowData,
     columnDefs,
-    height = 907,
     width = '100%',
     search = '',
     seeMore = '',
-    // onGridReady,
   }: DataTableProps) => {
     const modifiedColumnDefs = useMemo(
       () =>
@@ -40,11 +34,11 @@ const DataTable = memo(
       [columnDefs],
     );
 
-    // const loadingOverlayTemplate = ReactDOMServer.renderToString(
-    //   <LoadingOverlay />,
-    // );
     return (
-      <div className="ag-theme-material" style={{ height, width }}>
+      <div
+        className="ag-theme-material"
+        style={{ width, height: 'auto', overflow: 'visible' }}
+      >
         {title && (
           <Box
             style={{
@@ -86,13 +80,12 @@ const DataTable = memo(
           tooltipShowDelay={0}
           quickFilterText={search}
           tooltipInteraction={true}
-          // onGridReady={onGridReady}
-          // overlayLoadingTemplate={loadingOverlayTemplate}
           rowStyle={{
             fontFamily: 'SF Pro Display',
             fontSize: 16,
             fontWeight: 400,
           }}
+          domLayout="autoHeight"
         />
       </div>
     );
