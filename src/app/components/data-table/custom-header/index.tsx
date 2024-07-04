@@ -131,7 +131,7 @@ export const CustomHeader = ({
     };
   };
 
-  const PaginationSelect = ({ pageSize, setPagination, options }) => {
+  const PaginationSelect = ({ pageSize, setPagination, options }:any) => {
     const handleChange = (event: any) => {
       setPagination(event.target.value);
     };
