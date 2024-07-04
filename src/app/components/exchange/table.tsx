@@ -11,7 +11,7 @@ import { scrollToTop } from '@/utils/scroll-to-top';
 const Table = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemStart, setItemStart] = useState(1);
+  const [, setItemStart] = useState(1);
   const [pageSize, setPageSize] = useState<number>(10);
 
   const columnExchangesDef = useColumnExchangeDefs(columnsExchanges);

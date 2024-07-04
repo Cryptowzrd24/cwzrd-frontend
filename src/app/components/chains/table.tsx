@@ -10,7 +10,7 @@ import { Pagination } from '@/app/components/data-table/pagination';
 const Table = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemStart, setItemStart] = useState(1);
+  const [, setItemStart] = useState(1);
   const [showCards, setShowCards] = useState(false);
   const [pageSize, setPageSize] = useState<number>(10);
 
