@@ -91,7 +91,7 @@ const HighestVolumeCoinsTable = () => {
         }}
       >
         {showCards ? (
-          <Box >
+          <Box>
             <CardContent cardsData={rowData} />
           </Box>
         ) : (

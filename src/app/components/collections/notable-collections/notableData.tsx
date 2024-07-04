@@ -52,7 +52,8 @@ export const NotableData: cardProps[] = [
     statusAction: '< 0.01ETH',
     price: '24th Volume',
     amount: '0.11 ETH',
-  },{
+  },
+  {
     id: '6',
     image: '/images/collections/notable-collections/4.png',
     title: 'Dragon Street #47',

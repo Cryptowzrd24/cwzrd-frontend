@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = ({
         style={{
           padding: '16px 16px 16px 16px',
           borderRadius: '16px',
-         
+
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 7px 29px 0px',
           cursor: 'pointer',
         }}

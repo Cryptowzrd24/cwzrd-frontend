@@ -134,12 +134,6 @@ export const CustomHeader = ({
     };
   };
 
-  const PaginationSelect = ({ pageSize, setPagination, options }:any) => {
-    const handleChange = (event: any) => {
-      setPagination(event.target.value);
-    };
-  };
-
   const renderFilters = Object.keys(Filters).map((key: any) => {
     const { label, isMatching } = getLabel(key);
     return (

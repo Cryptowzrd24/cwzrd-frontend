@@ -1,5 +1,5 @@
 'use client';
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import React from 'react';
 import { cardData } from './data';
 import Card from './card';

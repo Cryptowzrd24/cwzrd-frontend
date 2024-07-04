@@ -91,7 +91,6 @@ const Table = () => {
             <CardContent cardsData={rowData} />
           </Box>
         ) : (
-          
           <DataTable
             search={search}
             rowData={rowData}
