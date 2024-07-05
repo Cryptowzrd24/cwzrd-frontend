@@ -28,7 +28,11 @@ function FilterDropdown({
   const [filteredMenuItems, setFilteredMenuItems] = useState(
     Filters[filterKey],
   );
-  const handleClose = (id: number, label: string) => {
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleSelectFilter = (id: number, label: string) => {
     setAnchorEl(null);
     dispatch(selectFilter({ id, label }));
     setIsAnyFilterActive(true);
@@ -84,7 +88,7 @@ function FilterDropdown({
           <Box
             sx={styles.menuItem}
             key={option}
-            onClick={() => handleClose(option.id, filterKey)}
+            onClick={() => handleSelectFilter(option.id, filterKey)}
           >
             {option.label}
           </Box>
