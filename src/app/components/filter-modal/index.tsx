@@ -34,6 +34,10 @@ interface FilterModalProps {
 function FilterModal({ open, setOpen }: FilterModalProps) {
   const dispatch = useDispatch();
   const filterItem = useSelector((state: any) => state.filters.filters);
+  const filterCount = useSelector(
+    (state: any) => state.filters.selectedFilterCount,
+  );
+
   const [expanded, setExpanded] = useState<string | false>(false);
   const [range, setRange] = useState<Range>({ min: 0, max: null });
   const [isMineableActive, setIsMineableActive] = useState(false);
@@ -48,6 +52,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
       setExpanded(isExpanded ? panel : false);
       if (panel !== 'cryptoCurrency') {
         setRange({ min: 0, max: null });
+        setShowResultsBtn(false);
       }
     };
 
@@ -86,6 +91,10 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
     setExpanded(false);
   };
 
+  const handleShowResults = () => {
+    setOpen(null);
+  };
+
   const handleClearFilters = () => {
     dispatch(clearAllFilters());
     setExpanded(false);
@@ -101,23 +110,29 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={styles.modalFilterMain}>
+        <Box
+          sx={styles.modalFilterMain}
+          style={{ height: '700px', overflowY: 'scroll' }}
+        >
           <Box
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
+              alignItems: 'center',
             }}
           >
-            <Typography
-              sx={styles.filterHeading}
-              id="modal-modal-title"
-              variant="h6"
-              component="h2"
-            >
-              More Filters
-            </Typography>
+            <Box sx={{ flexGrow: 1, textAlign: 'center' }}>
+              <Typography
+                sx={styles.filterHeading}
+                id="modal-modal-title"
+                variant="h6"
+                component="h2"
+              >
+                More Filters
+              </Typography>
+            </Box>
             <CloseIcon
-              sx={{ flexGrow: 1, cursor: 'pointer' }}
+              sx={{ cursor: 'pointer', ml: 'auto' }}
               onClick={handleClose}
             />
           </Box>
@@ -125,7 +140,12 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
           <Box sx={styles.accordian}>
             <Accordian
               name={'All Cryptocurrencies'}
-              Component={<Select setExpanded={setExpanded} />}
+              Component={
+                <Select
+                  setExpanded={setExpanded}
+                  setShowResultsBtn={setShowResultsBtn}
+                />
+              }
               expanded={expanded === 'cryptoCurrency'}
               onChange={handleAccordionChange('cryptoCurrency')}
               accordianName="cryptoCurrency"
@@ -265,42 +285,41 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
           <Box>
             <Divider sx={styles.divider} />
             <Box sx={styles.filterFooterBtns}>
-              {!expanded && showCloseBtn && (
-                <Button
-                  sx={styles.closeCancelBtn}
-                  size="medium"
-                  variant="text"
-                  onClick={handleClose}
-                >
-                  Close
-                </Button>
-              )}
-              {expanded &&
-                !filterItem.mineable &&
-                !filterItem.audited &&
-                expanded !== 'cryptoCurrency' && (
-                  <Box>
-                    <Button
-                      sx={styles.closeCancelBtn}
-                      size="medium"
-                      variant="text"
-                      onClick={handleCancelFilter}
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      sx={styles.applyBtn}
-                      variant="text"
-                      onClick={() => handleSubmitFilter(expanded as RangeKey)}
-                    >
-                      Apply Filter
-                    </Button>
-                  </Box>
+              {!expanded &&
+                showCloseBtn &&
+                (filterCount === null || filterCount === 0) && (
+                  <Button
+                    sx={styles.closeCancelBtn}
+                    size="medium"
+                    variant="text"
+                    onClick={handleClose}
+                  >
+                    Close
+                  </Button>
                 )}
-              {((showResultsBtn && !expanded) ||
-                filterItem.mineable ||
-                filterItem.audited ||
-                filterItem.cryptoCurrency) && (
+              {expanded && expanded !== 'cryptoCurrency' && (
+                <Box>
+                  <Button
+                    sx={styles.closeCancelBtn}
+                    size="medium"
+                    variant="text"
+                    onClick={handleCancelFilter}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    sx={styles.applyBtn}
+                    variant="text"
+                    onClick={() => handleSubmitFilter(expanded as RangeKey)}
+                  >
+                    Apply Filter
+                  </Button>
+                </Box>
+              )}
+              {((!expanded && !showCloseBtn) ||
+                (filterItem.mineable && !expanded) ||
+                (filterItem.audited && !expanded) ||
+                (filterItem.cryptoCurrency && showResultsBtn)) && (
                 <Box>
                   <Button
                     sx={styles.closeCancelBtn}
@@ -312,7 +331,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                   <Button
                     sx={styles.applyBtn}
                     variant="text"
-                    onClick={() => handleSubmitFilter(expanded as RangeKey)}
+                    onClick={handleShowResults}
                   >
                     Show Results
                   </Button>

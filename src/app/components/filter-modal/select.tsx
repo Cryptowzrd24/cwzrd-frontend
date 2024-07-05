@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux';
 
 interface SelectProps {
   setExpanded: (expanded: string | false) => void;
+  setShowResultsBtn: (val: boolean) => void;
 }
-export const Select = ({ setExpanded }: SelectProps) => {
+export const Select = ({ setExpanded, setShowResultsBtn }: SelectProps) => {
   const dispatch = useDispatch();
   const styles = {
     buttonText: {
@@ -18,6 +19,7 @@ export const Select = ({ setExpanded }: SelectProps) => {
   const handleCoinTypeSelect = (type: string) => {
     dispatch(selectCurrencyTypeFilter(type));
     setExpanded(false);
+    setShowResultsBtn(true);
   };
 
   return (

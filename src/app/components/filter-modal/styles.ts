@@ -5,7 +5,7 @@ const styles = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '496px',
-    height: 'auto',
+    height: '700px',
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
@@ -14,6 +14,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'space-between',
     justifyContent: 'space-between',
+    overflowY: 'scroll',
   },
 
   filterHeading: {
@@ -22,7 +23,7 @@ const styles = {
     fontFamily: 'Sf Pro Display',
     fontWeight: 600,
     flexGrow: 2,
-    marginLeft: '100px',
+    marginLeft: '40px',
   },
 
   accordian: {

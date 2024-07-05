@@ -3,7 +3,7 @@
 import { Badge, Box, MenuItem, Select, Typography } from '@mui/material';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SearchIcon } from '../../../../../public/icons/Grid-Header/search';
 import { FilterIcon } from '../../../../../public/icons/Grid-Header/filter';
@@ -92,6 +92,7 @@ export const CustomHeader = ({
   const [openFilterModal, setOpenFilterModal] = useState(false);
   const [filterKey, setFilterKey] = useState<FilterKey>('category');
   const [isAnyFilterActive, setIsAnyFilterActive] = useState(false);
+  const [hasNonNullFilter, setHasNonNullFilter] = useState(false);
 
   const handleChange = (event: any) => {
     setPageSize(event.target.value);
@@ -115,10 +116,8 @@ export const CustomHeader = ({
   const getLabel = (key: string): { label: string; isMatching: boolean } => {
     const filterValue = filterItem.filters[key];
     if (filterValue) {
-      // Find the matching key in Filters object
       const filterArray = Filters[key as FilterKey];
       if (filterArray && Array.isArray(filterArray)) {
-        // Iterate over the array and return the label with the same ID
         const matchingItem = filterArray.find(
           (item) => item.id === filterValue,
         );
@@ -141,11 +140,22 @@ export const CustomHeader = ({
         key={key}
         sx={{
           border: isMatching ? '1px solid #7248F7' : 'none',
+          borderRadius: '5px',
+          padding: '18px 10px 18px 10px',
+          backgroundColor: 'rgba(114, 72, 247, 0.1)',
+          color: 'rgba(114, 72, 247, 1)',
           '& .MuiChip-icon': {
-            marginRight: isMatching ? '-10px' : '-12px',
+            color: 'rgba(114, 72, 247, 1)',
+            margin: '0',
+            fontSize: '18px',
+            marginRight: '-10px',
           },
-          color: isMatching ? '#7248F7' : 'default',
-          fontWeight: isMatching ? 700 : 'default',
+          '&:hover': {
+            backgroundColor: 'rgba(114, 72, 247, 0.2)',
+            color: 'rgba(114, 72, 247, 1)',
+          },
+          fontWeight: 700,
+          fontSize: '16px',
         }}
         label={label}
         icon={
@@ -155,7 +165,9 @@ export const CustomHeader = ({
               sx={{ fontSize: '14px', color: '#7248F7' }}
             />
           ) : (
-            <KeyboardArrowDownIcon />
+            <KeyboardArrowDownIcon
+              sx={{ fontSize: '16px', color: '#7248F7' }}
+            />
           )
         }
         onClick={
@@ -171,18 +183,27 @@ export const CustomHeader = ({
   const chip = (
     <Chip
       sx={{
+        borderRadius: '5px',
+        padding: '18px 10px 18px 10px',
+        backgroundColor: 'rgba(114, 72, 247, 0.1)',
+        color: 'rgba(114, 72, 247, 1)',
         '& .MuiChip-icon': {
-          marginRight: '-12px',
+          color: 'rgba(114, 72, 247, 1)',
+          margin: '0',
+          fontSize: '16px',
+          marginRight: '-10px',
         },
+        '&:hover': {
+          backgroundColor: 'rgba(114, 72, 247, 0.2)',
+          color: 'rgba(114, 72, 247, 1)',
+        },
+        fontWeight: 700,
+        fontSize: '16px',
       }}
       label="Add Filter"
       onClick={handleOpenFilterModal}
       clickable
-      icon={
-        filterCount > 0 && filterCount !== null ? undefined : (
-          <AddIcon sx={{ fontSize: '16px' }} />
-        )
-      }
+      icon={filterCount > 0 && filterCount !== null ? undefined : <AddIcon />}
     />
   );
 
@@ -198,6 +219,21 @@ export const CustomHeader = ({
   const getSelectClass = (value: any) => {
     return value === 100 ? '34px' : '26px';
   };
+
+  useEffect(() => {
+    const checkNonNullFilters = () => {
+      const { category, algorithm, platform, industry } = filterItem.filters;
+      return (
+        category !== null ||
+        algorithm !== null ||
+        platform !== null ||
+        industry !== null
+      );
+    };
+
+    setHasNonNullFilter(checkNonNullFilters());
+  }, [filterItem]);
+
   return (
     <Box sx={styles.container}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -334,7 +370,7 @@ export const CustomHeader = ({
                   chip
                 )}
               </Stack>
-              {isAnyFilterActive && (
+              {isAnyFilterActive && hasNonNullFilter && (
                 <Chip
                   label="Clear Filters"
                   onClick={handleClearFilters}
