@@ -5,7 +5,6 @@ import { Box, Typography } from '@mui/material';
 import React, { useCallback, useState } from 'react';
 import DataTable from '../../data-table';
 import { rowDataSales } from '@/app/constants/row';
-import ArrowRightDark from '../../../../../public/icons/collections/arrowRightDark';
 import { Pagination } from '../../data-table/pagination';
 
 const Activity = () => {
@@ -14,7 +13,6 @@ const Activity = () => {
   const [search, setSearch] = useState('');
 
   const [pageSize, setPageSize] = useState<number>(10);
-  // const totalCount = data?.count || 0;
   const totalCount = 50;
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);

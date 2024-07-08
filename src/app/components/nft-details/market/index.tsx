@@ -1,8 +1,7 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useCallback, useState } from 'react';
-import ArrowRightDark from '../../../../../public/icons/collections/arrowRightDark';
-import { columnsCollections, columnsMarket } from '@/app/constants/columns';
+import {  columnsMarket } from '@/app/constants/columns';
 import useColumnMarketDefs from '@/app/hooks/market-data-grid/market';
 import { rowDataMarket } from '@/app/constants/row';
 import DataTable from '../../data-table';
@@ -161,11 +160,11 @@ const Market = () => {
       <Box sx={{ mt: '48px' }}>
         <DataTable rowData={rowDataMarket} columnDefs={colDef} />
         <Pagination
-        length={totalCount}
-        pageSize={pageSize}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
+          length={totalCount}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
       </Box>
     </>
   );

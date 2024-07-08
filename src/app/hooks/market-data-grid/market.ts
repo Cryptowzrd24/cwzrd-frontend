@@ -12,7 +12,7 @@ const useColumnMarketDefs = (columns: any) => {
           return {
             field: 'index',
             headerName: '#',
-            cellRenderer: Hash, 
+            cellRenderer: Hash,
             width: 70,
           };
 
@@ -42,7 +42,6 @@ const useColumnMarketDefs = (columns: any) => {
             field: 'service_fee',
             width: 125,
             headerName: 'Service Fee',
-
           };
         case 'floor_price':
           return {

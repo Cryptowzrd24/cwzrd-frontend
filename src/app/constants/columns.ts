@@ -204,4 +204,3 @@ export const columnsMarket = [
   { field: 'service_fee', headerName: 'Service Fee' },
   { field: 'floor_price', headerName: 'Floor Price' },
 ];
-

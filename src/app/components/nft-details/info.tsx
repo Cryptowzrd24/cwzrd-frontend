@@ -185,7 +185,14 @@ const Info = () => {
               NFT.
             </Typography>
           </Box>
-          <Box sx={{display:"flex",alignItems:"center",gap:"4px",cursor:'pointer'}}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+              cursor: 'pointer',
+            }}
+          >
             <Typography
               variant="body1"
               sx={{
@@ -202,9 +209,8 @@ const Info = () => {
             >
               Read More
             </Typography>
-            <Box sx={{mt:"5px"}}>
-
-            <RightArrowLinearGraident />
+            <Box sx={{ mt: '5px' }}>
+              <RightArrowLinearGraident />
             </Box>
           </Box>
         </Stack>

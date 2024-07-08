@@ -1,11 +1,11 @@
-"use client"
+'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
 const NftNavbar = () => {
   const [activeHeading, setActiveHeading] = useState('Overview');
 
-  const handleHeadingClick = (heading:any) => {
+  const handleHeadingClick = (heading: any) => {
     setActiveHeading(heading);
   };
 

@@ -83,7 +83,7 @@ const Sales = () => {
             justifyContent: 'center',
             alignItems: 'center',
             background: 'rgba(17, 17, 17, 0.05)',
-            cursor:"pointer",
+            cursor: 'pointer',
             '&:hover': {
               background: 'rgba(17, 17, 17, 0.15)',
             },
@@ -95,9 +95,7 @@ const Sales = () => {
               fontSize: '18px',
               fontWeight: '600',
               color: 'rgba(0, 0, 0, 1)',
-             
             }}
-
           >
             View More{' '}
           </Typography>

@@ -940,7 +940,7 @@ export const rowDataSales = [
     Rarity: '5205/8875',
     addresses: {
       from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
-      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...'
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
     },
     Price: '0 ETH',
     Gas: '0.0006037 ETH',
@@ -952,8 +952,9 @@ export const rowDataSales = [
     Rarity: '5205/8875',
     addresses: {
       from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
-      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...'
-    },    Price: '0 ETH',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0 ETH',
     Gas: '0.0006037 ETH',
     ago_1h: '1h Ago',
   },
@@ -963,8 +964,9 @@ export const rowDataSales = [
     Rarity: '5205/8875',
     addresses: {
       from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
-      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...'
-    },    Price: '0 ETH',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0 ETH',
     Gas: '0.0006037 ETH',
     ago_1h: '1h Ago',
   },
@@ -974,8 +976,9 @@ export const rowDataSales = [
     Rarity: '5205/8875',
     addresses: {
       from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
-      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...'
-    },    Price: '0 ETH',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0 ETH',
     Gas: '0.0006037 ETH',
     ago_1h: '1h Ago',
   },

@@ -4,7 +4,9 @@ import React from 'react';
 import blur from '../../../../../../public/images/nft/blur.png';
 const MarketPlace = () => {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px',mt:"14px" }}>
+    <Box
+      sx={{ display: 'flex', alignItems: 'center', gap: '10px', mt: '14px' }}
+    >
       <Image src={blur} alt="elipse" width={32} height={32} />
       <Typography
         variant="body1"

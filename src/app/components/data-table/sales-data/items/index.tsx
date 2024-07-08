@@ -2,13 +2,14 @@ import { Box, Typography } from '@mui/material';
 import { CustomCellRendererProps } from 'ag-grid-react';
 import React from 'react';
 import img1 from '../../../../../../public/images/nft/item1.png';
-import img2 from '../../../../../../public/images/nft/item2.png';
 import Image from 'next/image';
 
 export const SalesItems = (props: CustomCellRendererProps) => {
   return (
     <>
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px',mt:"14px" }}>
+      <Box
+        sx={{ display: 'flex', alignItems: 'center', gap: '10px', mt: '14px' }}
+      >
         <Image src={img1} alt="elipse" width={32} height={32} />
         <Typography
           variant="body1"
