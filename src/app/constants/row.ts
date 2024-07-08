@@ -931,3 +931,88 @@ export const rowDataCollections = [
     owners_percent: '34.72',
   },
 ];
+// ------------
+
+export const rowDataSales = [
+  {
+    index: 1,
+    item: '#2701',
+    Rarity: '5205/8875',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...'
+    },
+    Price: '0 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+  {
+    index: 2,
+    item: '#2701',
+    Rarity: '5205/8875',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...'
+    },    Price: '0 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+  {
+    index: 3,
+    item: '#2701',
+    Rarity: '5205/8875',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...'
+    },    Price: '0 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+  {
+    index: 4,
+    item: '#2701',
+    Rarity: '5205/8875',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...'
+    },    Price: '0 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+];
+export const rowDataMarket = [
+  {
+    index: 1,
+    market_place: 'Blur',
+    distribution_7d: '98.79%',
+    royalty: '0.50%',
+    service_fee: '0.00%',
+    floor_price: '0.27 ETH',
+  },
+  {
+    index: 2,
+    market_place: 'Blur',
+    distribution_7d: '98.79%',
+    royalty: '0.50%',
+    service_fee: '0.00%',
+    floor_price: '0.27 ETH',
+  },
+  {
+    index: 3,
+    hash: '#',
+    market_place: 'Blur',
+    distribution_7d: '98.79%',
+    royalty: '0.50%',
+    service_fee: '0.00%',
+    floor_price: '0.27 ETH',
+  },
+  {
+    index: 4,
+    hash: '#',
+    market_place: 'Blur',
+    distribution_7d: '98.79%',
+    royalty: '0.50%',
+    service_fee: '0.00%',
+    floor_price: '0.27 ETH',
+  },
+];

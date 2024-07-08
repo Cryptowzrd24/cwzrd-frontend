@@ -187,3 +187,21 @@ export const columnsCollections = [
   { field: 'owners' },
   { field: 'owners_percent' },
 ];
+export const columnsSales = [
+  { field: 'item' },
+  { field: 'Rarity' },
+  { field: 'addresses' },
+  { field: 'Price' },
+  { field: 'Gas' },
+  { field: 'ago_1h', headerName: '1h Ago' },
+];
+
+export const columnsMarket = [
+  { field: 'index', headerName: '#' },
+  { field: 'market_place', headerName: 'Market Place' },
+  { field: 'distribution_7d', headerName: '7D Distribution' },
+  { field: 'royalty' },
+  { field: 'service_fee', headerName: 'Service Fee' },
+  { field: 'floor_price', headerName: 'Floor Price' },
+];
+
