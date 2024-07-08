@@ -3,9 +3,9 @@
   min-height: 225px;
   max-height: 225px;
   border-radius: 0.5rem;
-  justify-content: flex-start;
-  width: 100%;
+  // width: 100%;
   box-shadow: 0 4px 28px 0 #0000000D !important;
+  margin-bottom: 20px;
 
   .header_wrapper {
     padding-top: 22px;
@@ -30,6 +30,126 @@
   }
 }
 
+.coin_detail_card_wrapper {
+  position: relative;
+  min-height: 225px;
+  max-height: 225px;
+  border-radius: 0.5rem;
+  width: 315px;
+  box-shadow: 0 4px 28px 0 #0000000D !important;
+  margin-bottom: 20px;
+
+  .header_wrapper {
+    padding-top: 22px;
+    padding-left: 22px;
+    padding-right: 22px;
+
+    .heading {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      .stepper {
+        // align-content: center;
+      }
+    }
+
+    .value {
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 600;
+    }
+  }
+}
+
+.coin_content_card_wrapper {
+  position: relative;
+  min-height: 225px;
+  max-height: 225px;
+  border-radius: 0.5rem;
+  width: 315px;
+  box-shadow: 0 4px 28px 0 #0000000D !important;
+  margin-bottom: 20px;
+
+  .background_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 2;
+  }
+  .content {
+    position: relative;
+    z-index: 3;
+  }
+  .header_wrapper {
+    padding-top: 22px;
+    padding-left: 22px;
+    padding-right: 22px;
+
+    .heading {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      .stepper {
+        // align-content: center;
+      }
+    }
+
+    .value {
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 600;
+    }
+  }
+}
+
+.guage_card_wrapper {
+  position: relative;
+  width: 315px;
+  min-height: 225px;
+  max-height: 225px;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 28px 0 #0000000D !important;
+  margin-bottom: 20px;
+
+  .header_wrapper {
+    padding-top: 22px;
+    padding-left: 22px;
+    padding-right: 22px;
+
+    .heading {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      .stepper {
+        // align-content: center;
+      }
+    }
+
+    .value {
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 600;
+    }
+  }
+}
 
 .recently_added {
 

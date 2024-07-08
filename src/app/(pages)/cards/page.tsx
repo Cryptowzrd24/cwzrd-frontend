@@ -31,6 +31,7 @@ import Card8 from '@/app/components/common/card8.componnet';
 import Card9 from '@/app/components/common/card9.component';
 import Card10 from '@/app/components/common/card10.component';
 import Card11 from '@/app/components/common/card11.component';
+import GaugeChart from '@/app/components/common/guage-chart';
 
 const Components = () => {
   const areachartData = [
@@ -55,7 +56,16 @@ const Components = () => {
 
   return (
     <>
-      <div style={{ margin: '20px', display: 'flex', flexWrap: 'wrap' }}>
+      <div
+        style={{
+          margin: '20px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <GaugeChart value={0} />
         <GraphCard
           heading="🔥 Market CAP"
           value={{ data: '36,606,531,750.36', prefix: '$' }}
@@ -122,6 +132,62 @@ const Components = () => {
               text1: 'Bitcoin',
               text2: 'BTC',
               percent: 29.32,
+            },
+            {
+              medal: '🥇',
+              image: btc,
+              text1: 'Bitcoin',
+              text2: 'BTC',
+              percent: -0.12,
+            },
+          ]}
+        />
+
+        <Card1
+          type="percent"
+          heading="🚀 Top Gain"
+          items={[
+            {
+              medal: '🥇',
+              image: btc,
+              text1: 'Bitcoin',
+              text2: 'BTC',
+              percent: 29.32,
+            },
+            {
+              medal: '🥇',
+              image: btc,
+              text1: 'Bitcoin',
+              text2: 'BTC',
+              percent: 29.32,
+            },
+            {
+              medal: '🥇',
+              image: btc,
+              text1: 'Bitcoin',
+              text2: 'BTC',
+              percent: 0.12,
+            },
+          ]}
+        />
+
+        <Card1
+          type="percent"
+          heading="🚨 Top Losers"
+          items={[
+            {
+              medal: '🥇',
+              image: btc,
+              text1: 'Bitcoin',
+              text2: 'BTC',
+              percent: -29.32,
+            },
+            {
+              medal: '🥇',
+              image: btc,
+              text1: 'Bitcoin',
+              text2: 'BTC',
+              percent: -29.32,
             },
             {
               medal: '🥇',
