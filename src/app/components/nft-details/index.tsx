@@ -7,7 +7,6 @@ import Market from './market';
 import NftNavbar from './nftNavbar';
 import NewsLetter from '../news-letter';
 import MemberShipBanner from '../banners/memberShipBanner';
-import { SalesAddresses } from '../data-table/sales-data/addresses';
 import Activity from './activity';
 
 const NftDetails = () => {

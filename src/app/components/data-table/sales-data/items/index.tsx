@@ -1,10 +1,9 @@
 import { Box, Typography } from '@mui/material';
-import { CustomCellRendererProps } from 'ag-grid-react';
 import React from 'react';
 import img1 from '../../../../../../public/images/nft/item1.png';
 import Image from 'next/image';
 
-export const SalesItems = (props: CustomCellRendererProps) => {
+export const SalesItems = () => {
   return (
     <>
       <Box

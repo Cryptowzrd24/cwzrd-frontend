@@ -1,7 +1,7 @@
 'use client';
 import { Box, Typography } from '@mui/material';
-import React, { useCallback, useState } from 'react';
-import {  columnsMarket } from '@/app/constants/columns';
+import React, { useState } from 'react';
+import { columnsMarket } from '@/app/constants/columns';
 import useColumnMarketDefs from '@/app/hooks/market-data-grid/market';
 import { rowDataMarket } from '@/app/constants/row';
 import DataTable from '../../data-table';
@@ -9,23 +9,15 @@ import { Pagination } from '../../data-table/pagination';
 
 const Market = () => {
   const colDef = useColumnMarketDefs(columnsMarket);
-  const [itemStart, setItemStart] = useState(1);
-  const [search, setSearch] = useState('');
-
-  const [pageSize, setPageSize] = useState<number>(10);
-  // const totalCount = data?.count || 0;
+  const pageSize = 10;
   const totalCount = 50;
-  const handleSetSearch = useCallback((value: any) => {
-    setSearch(value);
-  }, []);
+
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
-    const itemsNumber = value * 10 - 9;
-    setItemStart(itemsNumber);
     setCurrentPage(value);
   };
   const [active, setActive] = useState(null);

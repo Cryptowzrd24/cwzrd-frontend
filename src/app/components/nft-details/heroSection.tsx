@@ -14,7 +14,7 @@ const HeroSection = () => {
     setProgress(newValue);
   };
 
-  const CustomLinearProgress = styled(LinearProgress)(({ theme }) => ({
+  const CustomLinearProgress = styled(LinearProgress)(({}) => ({
     height: '12px !important',
     borderRadius: 16,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',

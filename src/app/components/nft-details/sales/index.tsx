@@ -2,7 +2,7 @@
 import { columnsSales } from '@/app/constants/columns';
 import useColumnSalesDefs from '@/app/hooks/sales-data-grid/sales';
 import { Box, Typography } from '@mui/material';
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import DataTable from '../../data-table';
 import { rowDataSales } from '@/app/constants/row';
 import ArrowRightDark from '../../../../../public/icons/collections/arrowRightDark';
@@ -10,23 +10,15 @@ import { Pagination } from '../../data-table/pagination';
 
 const Sales = () => {
   const colDef = useColumnSalesDefs(columnsSales);
-  const [itemStart, setItemStart] = useState(1);
-  const [search, setSearch] = useState('');
-
-  const [pageSize, setPageSize] = useState<number>(10);
-  // const totalCount = data?.count || 0;
+  const pageSize = 10;
   const totalCount = 50;
-  const handleSetSearch = useCallback((value: any) => {
-    setSearch(value);
-  }, []);
+
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
-    const itemsNumber = value * 10 - 9;
-    setItemStart(itemsNumber);
     setCurrentPage(value);
   };
   return (

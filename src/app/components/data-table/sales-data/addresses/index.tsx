@@ -1,9 +1,8 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 import CopyIcon from '../../../../../../public/icons/nft/copy';
-import { CustomCellRendererProps } from 'ag-grid-react';
 
-export const SalesAddresses = (props: CustomCellRendererProps) => {
+export const SalesAddresses = () => {
   return (
     <>
       <Stack>
