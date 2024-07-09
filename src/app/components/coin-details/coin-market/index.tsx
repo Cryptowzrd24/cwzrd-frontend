@@ -1,14 +1,15 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { columnsMarket } from '@/app/constants/columns';
-import useColumnMarketDefs from '@/app/hooks/market-data-grid/market';
-import { rowDataMarket } from '@/app/constants/row';
+
+import { rowDataCoinMarket } from '@/app/constants/row';
 import DataTable from '../../data-table';
 import { Pagination } from '../../data-table/pagination';
+import useColumnCoinDetailDefs from '@/app/hooks/coin-detail-grid';
+import { columnsCoinMarket } from '@/app/constants/columns';
 
-const Market = () => {
-  const colDef = useColumnMarketDefs(columnsMarket);
+const CoinMarket = () => {
+  const colDef = useColumnCoinDetailDefs(columnsCoinMarket);
   const pageSize = 10;
   const totalCount = 50;
 
@@ -20,7 +21,7 @@ const Market = () => {
   ) => {
     setCurrentPage(value);
   };
-  const [active, setActive] = useState('24H');
+  const [active, setActive] = useState('Spot');
   const handleClick = (button: any) => {
     setActive(button);
   };
@@ -57,7 +58,7 @@ const Market = () => {
               letterSpacing: '-2px',
             }}
           >
-            Persona{' '}
+            Bitcoin{' '}
             <span
               style={{
                 backgroundImage:
@@ -67,13 +68,13 @@ const Market = () => {
                 letterSpacing: '-2px',
               }}
             >
-              Market
+              Markets
             </span>{' '}
           </Typography>
         </Box>
         <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <Box
-            onClick={() => handleClick('24H')}
+            onClick={() => handleClick('Spot')}
             sx={{
               padding: '10px 16px',
               borderRadius: '8px',
@@ -83,7 +84,7 @@ const Market = () => {
               background: 'rgba(17, 17, 17, 0.05)',
               cursor: 'pointer',
               border:
-                active === '24H' ? '1px solid rgba(114, 72, 247, 1)' : 'none',
+                active === 'Spot' ? '1px solid rgba(114, 72, 247, 1)' : 'none',
             }}
           >
             <Typography
@@ -94,11 +95,11 @@ const Market = () => {
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
-              24H
+              Spot
             </Typography>
           </Box>
           <Box
-            onClick={() => handleClick('7D')}
+            onClick={() => handleClick('Perpetuals')}
             sx={{
               padding: '10px 16px',
               borderRadius: '8px',
@@ -108,7 +109,9 @@ const Market = () => {
               background: 'rgba(17, 17, 17, 0.05)',
               cursor: 'pointer',
               border:
-                active === '7D' ? '1px solid rgba(114, 72, 247, 1)' : 'none',
+                active === 'Perpetuals'
+                  ? '1px solid rgba(114, 72, 247, 1)'
+                  : 'none',
             }}
           >
             <Typography
@@ -119,11 +122,11 @@ const Market = () => {
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
-              7D
+              Perpetuals
             </Typography>
           </Box>
           <Box
-            onClick={() => handleClick('30D')}
+            onClick={() => handleClick('Futures')}
             sx={{
               padding: '10px 16px',
               borderRadius: '8px',
@@ -133,7 +136,9 @@ const Market = () => {
               background: 'rgba(17, 17, 17, 0.05)',
               cursor: 'pointer',
               border:
-                active === '30D' ? '1px solid rgba(114, 72, 247, 1)' : 'none',
+                active === 'Futures'
+                  ? '1px solid rgba(114, 72, 247, 1)'
+                  : 'none',
             }}
           >
             <Typography
@@ -144,13 +149,13 @@ const Market = () => {
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
-              30D
+              Futures
             </Typography>
           </Box>
         </Box>
       </Box>
       <Box sx={{ mt: '48px' }}>
-        <DataTable rowData={rowDataMarket} columnDefs={colDef} />
+        <DataTable rowData={rowDataCoinMarket} columnDefs={colDef} />
         <Pagination
           length={totalCount}
           pageSize={pageSize}
@@ -162,4 +167,4 @@ const Market = () => {
   );
 };
 
-export default Market;
+export default CoinMarket;
