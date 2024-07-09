@@ -52,7 +52,7 @@ const useColumnChainsDefs = (columns: any) => {
           return {
             field: 'market_cap_tvl',
             width: 165,
-            headerComponent: HeaderComponent,
+            // headerComponent: HeaderComponent,
             headerName: 'Market Cap/TVL',
             cellRenderer: GraphComp,
           };
@@ -67,7 +67,8 @@ const useColumnChainsDefs = (columns: any) => {
           return {
             field: 'tvl',
             width: 130,
-            headerComponent: HeaderComponent,
+            headerName: 'TVL',
+            // headerComponent: HeaderComponent,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         default:
