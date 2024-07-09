@@ -8,7 +8,13 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
     <>
       <div className={styles['fiat-supported']}>
         <h6>{props.value}</h6>
-        <div style={{display:"flex",justifyContent:"center",alignItems:"center" }} >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <p>
             and +8 more
             <span style={{ marginTop: '8px', marginLeft: '4px' }}>

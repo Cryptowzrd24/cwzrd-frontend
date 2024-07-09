@@ -293,9 +293,9 @@ export const CustomHeader = ({
               display: 'flex',
               justifyContent: 'space-between',
               background: '#1111110D',
-              borderRadius:"8px",
-              padding:"3px",
-              gap:"4px"
+              borderRadius: '8px',
+              padding: '3px',
+              gap: '4px',
             }}
           >
             {view && (
