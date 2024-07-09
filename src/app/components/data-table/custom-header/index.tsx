@@ -288,38 +288,53 @@ export const CustomHeader = ({
               <FilterIcon />
             </Box>
           )}
-          {view && (
-            <>
-              <Box
-                sx={{
-                  ...styles.iconBox,
-                  background:
-                    activeIcon === 'BoxIcon'
-                      ? 'rgba(114, 72, 247, 0.1)'
-                      : 'transparent',
-                }}
-                onClick={onToggleView}
-              >
-                <BoxIcon
-                  color={activeIcon === 'BoxIcon' ? '#7248F7' : '#111111'}
-                />
-              </Box>
-              <Box
-                sx={{
-                  ...styles.iconBox,
-                  background:
-                    activeIcon === 'ListIcon'
-                      ? 'rgba(114, 72, 247, 0.1)'
-                      : 'transparent',
-                }}
-                onClick={onToggleView}
-              >
-                <ListIcon
-                  color={activeIcon === 'ListIcon' ? '#7248F7' : '#111111'}
-                />
-              </Box>
-            </>
-          )}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              background: '#1111110D',
+              borderRadius:"8px",
+              padding:"3px",
+              gap:"4px"
+            }}
+          >
+            {view && (
+              <>
+                <Box>
+                  <Box
+                    sx={{
+                      ...styles.iconBox,
+                      background:
+                        activeIcon === 'BoxIcon'
+                          ? 'rgba(114, 72, 247, 0.1)'
+                          : 'white',
+                    }}
+                    onClick={onToggleView}
+                  >
+                    <BoxIcon
+                      color={activeIcon === 'BoxIcon' ? '#7248F7' : '#111111'}
+                    />
+                  </Box>
+                </Box>
+                <Box>
+                  <Box
+                    sx={{
+                      ...styles.iconBox,
+                      background:
+                        activeIcon === 'ListIcon'
+                          ? 'rgba(114, 72, 247, 0.1)'
+                          : 'white',
+                    }}
+                    onClick={onToggleView}
+                  >
+                    <ListIcon
+                      color={activeIcon === 'ListIcon' ? '#7248F7' : '#111111'}
+                    />
+                  </Box>
+                </Box>
+              </>
+            )}
+          </Box>
         </Box>
       </Box>
       <AnimatePresence>

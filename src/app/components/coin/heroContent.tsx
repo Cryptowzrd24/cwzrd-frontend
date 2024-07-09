@@ -84,6 +84,7 @@ function HeroContent() {
                 flexDirection: 'row',
                 gap: '10px',
                 alignItems: 'center',
+                
               }}
             >
               <GraphCard
