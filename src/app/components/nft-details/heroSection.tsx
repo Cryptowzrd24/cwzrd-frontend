@@ -15,7 +15,7 @@ const HeroSection = () => {
   };
 
   const CustomLinearProgress = styled(LinearProgress)(({}) => ({
-    height: '12px !important',
+    height: '10px !important',
     borderRadius: 16,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     '& .MuiLinearProgress-bar': {
@@ -80,7 +80,7 @@ const HeroSection = () => {
             <Box
               sx={{
                 borderRadius: '8px',
-                padding: '8px 10px',
+                padding: '10px 12px',
                 background: 'rgba(255, 255, 255, 0.1)',
                 display: 'flex',
                 alignItems: 'center',
@@ -93,7 +93,7 @@ const HeroSection = () => {
             <Box
               sx={{
                 borderRadius: '8px',
-                padding: '8px 10px',
+                padding: '10px 12px',
                 background: 'rgba(255, 255, 255, 0.1)',
                 display: 'flex',
                 alignItems: 'center',

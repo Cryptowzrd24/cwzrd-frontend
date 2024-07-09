@@ -204,3 +204,25 @@ export const columnsMarket = [
   { field: 'service_fee', headerName: 'Service Fee' },
   { field: 'floor_price', headerName: 'Floor Price' },
 ];
+export const columnsCoinMarket = [
+  { field: 'index', headerName: '#' },
+  { field: 'exchange', headerName: 'Exchange' },
+  { field: 'pair', headerName: 'Pair' },
+  { field: 'price' },
+  { field: 'depth_positive2', headerName: '+2% Depth' },
+  { field: 'depth_negative2', headerName: '-2% Depth' },
+  { field: 'volume_24h', headerName: 'Volume(24h)' },
+  { field: 'volume', headerName: 'Volume%' },
+  { field: 'confidence' },
+  { field: 'liquidity_store', headerName: 'Liquidity Store' },
+  { field: 'updated' },
+];
+export const columnsCoinAnalytics = [
+  { field: 'date' },
+  { field: 'open' },
+  { field: 'high' },
+  { field: 'low' },
+  { field: 'close' },
+  { field: 'volume' },
+  { field: 'market_cap' },
+];
