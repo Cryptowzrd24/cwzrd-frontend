@@ -70,7 +70,8 @@ const useColumnCategoryDefs = (columns: any) => {
         case 'dominance':
           return {
             field: 'dominance',
-            headerComponent: HeaderComponent,
+            headerName: 'Dominance',
+            // headerComponent: HeaderComponent,
             width: 135,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
@@ -85,6 +86,7 @@ const useColumnCategoryDefs = (columns: any) => {
           return {
             field: '24h_volume',
             width: 125,
+            headerName: '24h Volume',
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'last7Days':

@@ -8,7 +8,12 @@ export const CurrencyNameComponent = (props: CustomCellRendererProps) => {
   return (
     <div className={styles['currency-comp']}>
       <img
-        style={{ width: '32px', height: '32px', borderRadius: '25px' }}
+        style={{
+          width: '32px',
+          height: '32px',
+          borderRadius: '25px',
+          marginBottom: '14px',
+        }}
         src={imgId}
         alt=""
       />

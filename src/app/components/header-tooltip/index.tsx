@@ -39,8 +39,15 @@ const tooltips: any = {
   ),
   Fdv: (
     <div className={styles['tooltip']}>
-      <p>Content for it to be displayed here. No content for it yet.</p>
-      <p>Will be applied once available.</p>
+      <p>
+        The total market value of a cryptocurrency's circulating supply. It is
+        analogous to the free-float capitalization in the stock market.
+        <br />
+        <br /> Market Cap = Current Price x Circulating Supply.
+      </p>
+      <Link className={styles['link']} href={'/'}>
+        Read More
+      </Link>
     </div>
   ),
   Score: (
