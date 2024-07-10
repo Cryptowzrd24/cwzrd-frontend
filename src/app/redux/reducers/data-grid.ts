@@ -57,15 +57,15 @@ export const dataGridApi = createApi({
     fetchMostVisitedData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/most-visited?start=${start}&limit=${pageSize}`,
+          url: `/api/most-visited/?offset=${start}&limit=${pageSize}`,
           method: 'GET',
         };
       },
     }),
     fetchTrendingData: builder.query({
-      query: () => {
+      query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `/trending/latest`,
+          url: `/api/trending/?offset=${start}&limit=${pageSize}`,
           method: 'GET',
         };
       },

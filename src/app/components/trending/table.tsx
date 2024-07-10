@@ -16,11 +16,11 @@ const Table = () => {
   const [pageSize, setPageSize] = useState<number>(10);
 
   const columnTrendingDef = useColumnTrendingDefs(columnsTrending);
-  const { data } = useFetchTrendingDataQuery({});
+  const { data } = useFetchTrendingDataQuery({ start: currentPage, pageSize });
+  const totalCount = data?.count || 0;
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
-
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number,
@@ -59,7 +59,7 @@ const Table = () => {
       }));
       setRowData(res);
     }
-  }, [data, pageSize, itemStart]);
+  }, [data, currentPage, itemStart, pageSize]);
 
   return (
     <div className="data-table-wrapper">
@@ -82,7 +82,7 @@ const Table = () => {
         />
       </div>
       <Pagination
-        length={rowData.length}
+        length={totalCount}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}
