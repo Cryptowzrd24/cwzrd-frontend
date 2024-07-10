@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -23,9 +23,12 @@ import { RangeFilterKeys } from '@/app/models/range-filter-keys';
 
 type RangeKey = (typeof RangeFilterKeys)[number];
 interface Range {
-  min: number;
+  min: number | null;
   max: number | null;
 }
+type Ranges = {
+  [key: string]: Range;
+};
 interface FilterModalProps {
   open: boolean;
   setOpen: any;
@@ -39,11 +42,18 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
   );
 
   const [expanded, setExpanded] = useState<string | false>(false);
-  const [range, setRange] = useState<Range>({ min: 0, max: null });
   const [isMineableActive, setIsMineableActive] = useState(false);
   const [isAuditedActive, setIsAuditedActive] = useState(false);
   const [showResultsBtn, setShowResultsBtn] = useState(false);
   const [showCloseBtn, setShowCloseBtn] = useState(true);
+  const [hasNonNullFilter, setHasNonNullFilter] = useState(false);
+  const [ranges, setRanges] = useState<Ranges>({
+    market: { min: null, max: null },
+    price: { min: null, max: null },
+    percentChange: { min: null, max: null },
+    volume: { min: null, max: null },
+    circulatingSupply: { min: null, max: null },
+  });
 
   const handleClose = () => setOpen(null);
 
@@ -51,17 +61,22 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
       if (panel !== 'cryptoCurrency') {
-        setRange({ min: 0, max: null });
         setShowResultsBtn(false);
       }
     };
 
-  const setMinVal = (minVal: number) => {
-    setRange((prevRange) => ({ ...prevRange, min: minVal }));
+  const setMinVal = (key: string) => (minVal: number) => {
+    setRanges((prevRanges) => ({
+      ...prevRanges,
+      [key]: { ...prevRanges[key], min: minVal },
+    }));
   };
 
-  const setMaxVal = (maxVal: number | null) => {
-    setRange((prevRange) => ({ ...prevRange, max: maxVal }));
+  const setMaxVal = (key: string) => (maxVal: number | null) => {
+    setRanges((prevRanges) => ({
+      ...prevRanges,
+      [key]: { ...prevRanges[key], max: maxVal },
+    }));
   };
 
   const toggleMineable = () => {
@@ -81,7 +96,13 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
   };
 
   const handleSubmitFilter = (label: RangeKey) => {
-    dispatch(selectRangeFilter({ label, min: range.min, max: range.max }));
+    dispatch(
+      selectRangeFilter({
+        label,
+        min: ranges[label].min,
+        max: ranges[label].max,
+      }),
+    );
     setExpanded(false);
     setShowCloseBtn(false);
     setShowResultsBtn(true);
@@ -101,6 +122,36 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
     setShowResultsBtn(false);
     setShowCloseBtn(true);
   };
+
+  useEffect(() => {
+    const checkNonNullFilters = () => {
+      const {
+        circulatingSupply,
+        volume,
+        market,
+        price,
+        percentChange,
+        mineable,
+        audited,
+      } = filterItem;
+
+      const isRangeFilterSelected = (filter: any) => {
+        return filter.min !== null || filter.max !== null;
+      };
+
+      return (
+        isRangeFilterSelected(circulatingSupply) ||
+        isRangeFilterSelected(volume) ||
+        isRangeFilterSelected(market) ||
+        isRangeFilterSelected(price) ||
+        isRangeFilterSelected(percentChange) ||
+        mineable !== false ||
+        audited !== false
+      );
+    };
+
+    setHasNonNullFilter(checkNonNullFilters());
+  }, [filterItem]);
 
   return (
     <div>
@@ -157,9 +208,9 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 <Range
                   headerName="Market Cap Range"
                   rangeUnit="$"
-                  setMinVal={setMinVal}
-                  setMaxVal={setMaxVal}
-                  range={range}
+                  setMinVal={setMinVal('market')}
+                  setMaxVal={setMaxVal('market')}
+                  range={ranges.market}
                 />
               }
               expanded={expanded === 'market'}
@@ -173,9 +224,9 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 <Range
                   headerName="Price Range"
                   rangeUnit="$"
-                  setMinVal={setMinVal}
-                  setMaxVal={setMaxVal}
-                  range={range}
+                  setMinVal={setMinVal('price')}
+                  setMaxVal={setMaxVal('price')}
+                  range={ranges.price}
                 />
               }
               expanded={expanded === 'price'}
@@ -189,9 +240,9 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 <Range
                   headerName="Change Range"
                   rangeUnit="%"
-                  setMinVal={setMinVal}
-                  setMaxVal={setMaxVal}
-                  range={range}
+                  setMinVal={setMinVal('percentChange')}
+                  setMaxVal={setMaxVal('percentChange')}
+                  range={ranges.percentChange}
                 />
               }
               expanded={expanded === 'percentChange'}
@@ -205,9 +256,9 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 <Range
                   headerName="Volume Range"
                   rangeUnit="$"
-                  setMinVal={setMinVal}
-                  setMaxVal={setMaxVal}
-                  range={range}
+                  setMinVal={setMinVal('volume')}
+                  setMaxVal={setMaxVal('volume')}
+                  range={ranges.volume}
                 />
               }
               expanded={expanded === 'volume'}
@@ -221,9 +272,9 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 <Range
                   headerName="Circulating Supply Range"
                   rangeUnit=""
-                  setMinVal={setMinVal}
-                  setMaxVal={setMaxVal}
-                  range={range}
+                  setMinVal={setMinVal('circulatingSupply')}
+                  setMaxVal={setMaxVal('circulatingSupply')}
+                  range={ranges.circulatingSupply}
                 />
               }
               expanded={expanded === 'circulatingSupply'}
@@ -317,8 +368,8 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 </Box>
               )}
               {((!expanded && !showCloseBtn) ||
-                (filterItem.mineable && !expanded) ||
-                (filterItem.audited && !expanded) ||
+                ((filterItem.mineable || !expanded) && hasNonNullFilter) ||
+                ((filterItem.audited || !expanded) && hasNonNullFilter) ||
                 (filterItem.cryptoCurrency && showResultsBtn)) && (
                 <Box>
                   <Button

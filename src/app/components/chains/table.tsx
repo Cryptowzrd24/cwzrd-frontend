@@ -40,7 +40,6 @@ const Table = () => {
     currentPage * pageSize,
   );
   const handleToggleCards = () => {
-    console.log('Toggling showCards:', !showCards);
     setShowCards((prevShowCards) => !prevShowCards);
   };
   return (
