@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 interface QueryParamsType {
   start: number;
   pageSize: number;
+  filters?: { [key: string]: string };
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -15,9 +16,14 @@ export const dataGridApi = createApi({
 
   endpoints: (builder) => ({
     fetchCoinData: builder.query({
-      query: ({ start, pageSize }: QueryParamsType) => {
+      query: ({ start, pageSize, filters }: QueryParamsType) => {
+        const queryString = new URLSearchParams({
+          offset: start.toString(),
+          limit: pageSize.toString(),
+          ...filters,
+        }).toString();
         return {
-          url: `/api/coins/?offset=${start}&limit=${pageSize}`,
+          url: `/api/coins/?${queryString}`,
           method: 'GET',
         };
       },

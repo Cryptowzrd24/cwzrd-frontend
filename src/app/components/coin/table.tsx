@@ -10,6 +10,9 @@ import CardContent from '../highest-volume/cards/cardContent';
 
 import { Box } from '@mui/material';
 import { scrollToTop } from '@/utils/scroll-to-top';
+import { constructQueryParams } from '@/utils/construct-filter-query-param';
+import { useSelector } from 'react-redux';
+import { Filters } from '@/app/models/filters';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -20,7 +23,14 @@ const Table = () => {
   const [pageSize, setPageSize] = useState<number>(10);
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const [activeIcon, setActiveIcon] = useState('ListIcon');
-  const { data } = useFetchCoinDataQuery({ start: currentPage, pageSize });
+  const filters = useSelector((state: any) => state.filters.filters);
+
+  const queryParams = constructQueryParams(filters as Filters);
+  const { data } = useFetchCoinDataQuery({
+    start: currentPage,
+    pageSize,
+    filters: queryParams,
+  });
 
   const totalCount = data?.count || 0;
 
@@ -70,7 +80,7 @@ const Table = () => {
       }));
       setRowData(res);
     }
-  }, [data, currentPage, itemStart, pageSize]);
+  }, [data, currentPage, itemStart, pageSize, filters]);
 
   return (
     <div className="data-table-wrapper">
