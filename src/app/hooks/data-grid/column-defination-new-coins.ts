@@ -28,13 +28,13 @@ const useColumnNewCoinsDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 270,
+            width: 220,
           };
         case 'price':
           return {
             field: 'price',
             headerName: 'Price',
-            width: 145,
+            width: 125,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'percent_change_1h':
@@ -54,7 +54,7 @@ const useColumnNewCoinsDefs = (columns: any) => {
           return {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
-            width: 210,
+            width: 190,
             cellRenderer: VolumeComponent,
           };
         case 'chain':
@@ -67,7 +67,7 @@ const useColumnNewCoinsDefs = (columns: any) => {
         case 'fdv':
           return {
             field: 'fdv',
-            width: 140,
+            width: 230,
             headerComponent: HeaderComponent,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };

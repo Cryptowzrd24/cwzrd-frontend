@@ -42,7 +42,7 @@ export const HeaderComponent = (props: IHeaderParams) => {
       <p className="text-primary text-sm font-semibold">{displayName}</p>
       <Tooltip
         title={<HeaderTooltip headerName={props.displayName} />}
-        arrow
+        arrow={false}
         classes={{ tooltip: styles['custom-tooltip'] }}
       >
         <Image className={styles['info-icon']} src={infoIcon} alt="" />
