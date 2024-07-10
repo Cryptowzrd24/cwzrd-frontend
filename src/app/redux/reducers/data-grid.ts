@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 interface QueryParamsType {
   start: number;
   pageSize: number;
+  time_period?: string; // Add this line to include volume in the type
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -63,9 +64,9 @@ export const dataGridApi = createApi({
       },
     }),
     fetchTrendingData: builder.query({
-      query: ({ start, pageSize }: QueryParamsType) => {
+      query: ({ start, pageSize, time_period }: QueryParamsType) => {
         return {
-          url: `/api/trending/?offset=${start}&limit=${pageSize}`,
+          url: `/api/trending/?offset=${start}&limit=${pageSize}&time_period=${time_period}`,
           method: 'GET',
         };
       },

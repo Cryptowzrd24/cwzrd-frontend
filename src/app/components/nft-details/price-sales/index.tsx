@@ -6,7 +6,7 @@ const PriceSales = () => {
   return (
     <>
       <Box sx={{ mt: '80px', mb: '80px' }}>
-        <PriceCards/>
+        <PriceCards />
       </Box>
     </>
   );

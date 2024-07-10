@@ -16,38 +16,126 @@ const InfoCard = () => {
           boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         }}
       >
-        
-          <Stack>
+        <Stack>
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: '14px',
+              fontWeight: '700',
+              color: 'rgba(17, 17, 17, 1)',
+              mb: '16px',
+              letterSpacing: '1px',
+            }}
+          >
+            🔥 INFO
+          </Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: '10px',
+            }}
+          >
             <Typography
               variant="body1"
               sx={{
-                fontSize: '14px',
-                fontWeight: '700',
+                fontSize: '12px',
+                fontWeight: '400',
                 color: 'rgba(17, 17, 17, 1)',
-                mb: '16px',
-                letterSpacing: '1px',
               }}
             >
-              🔥 INFO
+              items
             </Typography>
-            <Box
+            <Typography
+              variant="body1"
               sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                mb: '10px',
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                items
-              </Typography>
+              10,000
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: '10px',
+            }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(17, 17, 17, 1)',
+              }}
+            >
+              Total Owners
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(17, 17, 17, 1)',
+              }}
+            >
+              5,353
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: '10px',
+            }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(17, 17, 17, 1)',
+              }}
+            >
+              Total Volume
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(17, 17, 17, 1)',
+              }}
+            >
+              1,886,173.ETH
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: '10px',
+            }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(17, 17, 17, 1)',
+              }}
+            >
+              Royalty
+            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <Image src={blur} alt="blur" width={24} height={24} />
               <Typography
                 variant="body1"
                 sx={{
@@ -56,188 +144,98 @@ const InfoCard = () => {
                   color: 'rgba(17, 17, 17, 1)',
                 }}
               >
-                10,000
+                0.5%
               </Typography>
             </Box>
-            <Box
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: '10px',
+            }}
+          >
+            <Typography
+              variant="body1"
               sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                mb: '10px',
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                Total Owners
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '16px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                5,353
-              </Typography>
-            </Box>
-            <Box
+              Floor Price (latest)
+            </Typography>
+            <Typography
+              variant="body1"
               sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                mb: '10px',
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                Total Volume
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '16px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                1,886,173.ETH
-              </Typography>
-            </Box>
-            <Box
+              11.97.ETH
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: '10px',
+            }}
+          >
+            <Typography
+              variant="body1"
               sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                mb: '10px',
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                Royalty
-              </Typography>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <Image src={blur} alt="blur" width={24} height={24} />
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: '16px',
-                    fontWeight: '500',
-                    color: 'rgba(17, 17, 17, 1)',
-                  }}
-                >
-                  0.5%
-                </Typography>
-              </Box>
-            </Box>
-            <Box
+              24h Average Price
+            </Typography>
+            <Typography
+              variant="body1"
               sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                mb: '10px',
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                Floor Price (latest)
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '16px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                11.97.ETH
-              </Typography>
-            </Box>
-            <Box
+              11.75 ETH
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: '10px',
+            }}
+          >
+            <Typography
+              variant="body1"
               sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                mb: '10px',
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                24h Average Price
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '16px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                11.75 ETH
-              </Typography>
-            </Box>
-            <Box
+              24h Sales
+            </Typography>
+            <Typography
+              variant="body1"
               sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                mb: '10px',
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                24h Sales
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '16px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                30
-              </Typography>
-            </Box>
-          </Stack>
-       
+              30
+            </Typography>
+          </Box>
+        </Stack>
       </Box>
     </>
   );
