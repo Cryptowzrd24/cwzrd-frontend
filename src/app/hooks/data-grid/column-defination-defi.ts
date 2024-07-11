@@ -80,7 +80,7 @@ const useColumnDefiDefs = (columns: any) => {
           return {
             field: 'last7Days',
             width: 165,
-            headerName: 'Last 7 Days',
+            headerName: 'Volume (7d)',
             cellRenderer: GraphComp,
           };
         default:

@@ -20,7 +20,7 @@ const Market = () => {
   ) => {
     setCurrentPage(value);
   };
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState('24H');
   const handleClick = (button: any) => {
     setActive(button);
   };

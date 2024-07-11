@@ -14,6 +14,7 @@ type FilterKey = keyof typeof Filters;
 interface InitialState {
   filters: FiltersType;
   selectedFilterCount: number | null;
+  queryParams: { [key: string]: string };
 }
 
 const initialState: InitialState = {
@@ -32,6 +33,7 @@ const initialState: InitialState = {
     audited: false,
   },
   selectedFilterCount: null,
+  queryParams: {},
 };
 
 const filterSlice = createSlice({

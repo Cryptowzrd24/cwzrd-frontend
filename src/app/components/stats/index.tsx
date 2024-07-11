@@ -178,7 +178,7 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
             fontSize: 11,
             fontWeight: 500,
             lineHeight: '14.3px',
-            padding: '2px 4px 0px',
+            padding: '2px 5px',
             marginLeft: '4px',
             borderRadius: '11px',
             color: change.includes('+') ? '#1FD773' : '#F74848',

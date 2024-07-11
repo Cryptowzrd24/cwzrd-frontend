@@ -139,20 +139,28 @@ export const CustomHeader = ({
       <Chip
         key={key}
         sx={{
+          width: '120px',
+          height: '40px',
           border: isMatching ? '1px solid #7248F7' : 'none',
-          borderRadius: '5px',
-          padding: '18px 10px 18px 10px',
+          borderRadius: '8px',
+          padding: '16px 12px 16px 16px',
           backgroundColor: 'rgba(114, 72, 247, 0.1)',
           color: 'rgba(114, 72, 247, 1)',
           '& .MuiChip-icon': {
+            order: 2,
             color: 'rgba(114, 72, 247, 1)',
             margin: '0',
-            fontSize: '18px',
-            marginRight: '-10px',
+            fontSize: '22px',
           },
           '&:hover': {
             backgroundColor: 'rgba(114, 72, 247, 0.2)',
             color: 'rgba(114, 72, 247, 1)',
+          },
+          '& .MuiChip-label': {
+            order: 1,
+            overflow: 'visible !important',
+            paddingLeft: '2px',
+            paddingRight: '2px',
           },
           fontWeight: 700,
           fontSize: '16px',
@@ -183,19 +191,27 @@ export const CustomHeader = ({
   const chip = (
     <Chip
       sx={{
-        borderRadius: '5px',
-        padding: '18px 10px 18px 10px',
+        width: '115px',
+        height: '40px',
+        borderRadius: '8px',
+        padding: '10px 12px 10px 16px',
         backgroundColor: 'rgba(114, 72, 247, 0.1)',
         color: 'rgba(114, 72, 247, 1)',
         '& .MuiChip-icon': {
+          order: 1,
           color: 'rgba(114, 72, 247, 1)',
           margin: '0',
-          fontSize: '16px',
-          marginRight: '-10px',
+          fontSize: '18px',
         },
         '&:hover': {
           backgroundColor: 'rgba(114, 72, 247, 0.2)',
           color: 'rgba(114, 72, 247, 1)',
+        },
+        '& .MuiChip-label': {
+          order: 2,
+          overflow: 'visible !important',
+          paddingLeft: '4px',
+          paddingRight: '15px',
         },
         fontWeight: 700,
         fontSize: '16px',
@@ -288,38 +304,53 @@ export const CustomHeader = ({
               <FilterIcon />
             </Box>
           )}
-          {view && (
-            <>
-              <Box
-                sx={{
-                  ...styles.iconBox,
-                  background:
-                    activeIcon === 'BoxIcon'
-                      ? 'rgba(114, 72, 247, 0.1)'
-                      : 'transparent',
-                }}
-                onClick={onToggleView}
-              >
-                <BoxIcon
-                  color={activeIcon === 'BoxIcon' ? '#7248F7' : '#111111'}
-                />
-              </Box>
-              <Box
-                sx={{
-                  ...styles.iconBox,
-                  background:
-                    activeIcon === 'ListIcon'
-                      ? 'rgba(114, 72, 247, 0.1)'
-                      : 'transparent',
-                }}
-                onClick={onToggleView}
-              >
-                <ListIcon
-                  color={activeIcon === 'ListIcon' ? '#7248F7' : '#111111'}
-                />
-              </Box>
-            </>
-          )}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              background: '#1111110D',
+              borderRadius: '8px',
+              padding: '3px',
+              gap: '4px',
+            }}
+          >
+            {view && (
+              <>
+                <Box>
+                  <Box
+                    sx={{
+                      ...styles.iconBox,
+                      background:
+                        activeIcon === 'BoxIcon'
+                          ? 'rgba(114, 72, 247, 0.1)'
+                          : 'white',
+                    }}
+                    onClick={onToggleView}
+                  >
+                    <BoxIcon
+                      color={activeIcon === 'BoxIcon' ? '#7248F7' : '#111111'}
+                    />
+                  </Box>
+                </Box>
+                <Box>
+                  <Box
+                    sx={{
+                      ...styles.iconBox,
+                      background:
+                        activeIcon === 'ListIcon'
+                          ? 'rgba(114, 72, 247, 0.1)'
+                          : 'white',
+                    }}
+                    onClick={onToggleView}
+                  >
+                    <ListIcon
+                      color={activeIcon === 'ListIcon' ? '#7248F7' : '#111111'}
+                    />
+                  </Box>
+                </Box>
+              </>
+            )}
+          </Box>
         </Box>
       </Box>
       <AnimatePresence>

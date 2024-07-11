@@ -36,7 +36,7 @@ const Card: React.FC<CardProps> = ({
           borderRadius: '12px',
           width: '100%',
           backgroundColor: '#fff',
-          boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+          boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
           backgroundImage: `url('/images/news-letter/corner.png')`,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'top right',
