@@ -10,7 +10,7 @@ interface RangeProps {
   rangeUnit: string;
   setMinVal: (val: number) => void;
   setMaxVal: (val: number) => void;
-  range: { min: number; max: null | number };
+  range: { min: number | null; max: null | number };
 }
 
 export const Range = ({

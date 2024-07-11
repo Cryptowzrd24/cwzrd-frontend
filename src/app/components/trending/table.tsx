@@ -54,6 +54,7 @@ const Table = () => {
         symbol: item.symbol,
         max_supply: item.max_supply,
         index: startIndex + index,
+        coin_id:item.coin_id
       }));
       setRowData(res);
     }

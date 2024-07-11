@@ -31,9 +31,15 @@ export const Accordian = ({
       'min' in value &&
       'max' in value
     ) {
-      return value.min !== null || value.max !== null
-        ? `$${value.min !== null ? value.min : ''} - $${value.max !== null ? value.max : ''}`
-        : null;
+      if (value.min === null && value.max !== null) {
+        return `min - $${value.max}`;
+      } else if (value.min !== null && value.max === null) {
+        return `$${value.min} - max`;
+      } else if (value.min !== null || value.max !== null) {
+        return `$${value.min !== null ? value.min : ''} - $${value.max !== null ? value.max : ''}`;
+      } else {
+        return null;
+      }
     }
     return value !== null && value !== false ? value.toString() : null;
   };
