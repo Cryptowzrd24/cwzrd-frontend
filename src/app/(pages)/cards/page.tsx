@@ -32,6 +32,7 @@ import Card9 from '@/app/components/common/card9.component';
 import Card10 from '@/app/components/common/card10.component';
 import Card11 from '@/app/components/common/card11.component';
 import GaugeChart from '@/app/components/common/guage-chart';
+import TvlChainCard from '@/app/components/common/tvl-chains-card';
 
 const Components = () => {
   const areachartData = [
@@ -65,6 +66,9 @@ const Components = () => {
           alignItems: 'center',
         }}
       >
+        <TvlChainCard isDarkTheme={true} />
+        <TvlChainCard isDarkTheme={false} />
+
         <GaugeChart value={0} />
         <GraphCard
           heading="🔥 Market CAP"
@@ -86,7 +90,12 @@ const Components = () => {
           percent={-0.32}
           graphAttr={{ type: 'bar', data: areachartData }}
         />
-
+        <GraphCard
+          heading="👀 Popularity"
+          value={{ data: '51.88', prefix: '$' }}
+          percent={0.32}
+          graphAttr={{ type: 'bar', data: areachartData }}
+        />
         <Card1
           type="time"
           heading="✨ Recently Added"
