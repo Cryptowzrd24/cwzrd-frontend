@@ -63,6 +63,38 @@
   }
 }
 
+.tvl_chain_card_wrapper {
+  position: relative;
+  min-height: 225px;
+  max-height: 225px;
+  border-radius: 0.5rem;
+  width: 315px;
+  box-shadow: 0 4px 28px 0 #0000000D !important;
+  margin-bottom: 20px;
+
+  .header_wrapper {
+    padding-top: 22px;
+    padding-left: 22px;
+    padding-right: 22px;
+
+    .heading {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      .stepper {
+        // align-content: center;
+      }
+    }
+
+    .value {
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 600;
+    }
+  }
+}
+
 .coin_content_card_wrapper {
   position: relative;
   min-height: 225px;

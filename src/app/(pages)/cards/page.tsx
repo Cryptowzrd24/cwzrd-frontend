@@ -33,7 +33,7 @@ import Card10 from '@/app/components/common/card10.component';
 import Card11 from '@/app/components/common/card11.component';
 import GaugeChart from '@/app/components/common/guage-chart';
 import TvlChainCard from '@/app/components/common/tvl-chains-card';
-
+import KpiGuageChart from '@/app/components/common/kpi-guage-chart';
 const Components = () => {
   const areachartData = [
     { x: 1, y: 5 },
@@ -68,7 +68,7 @@ const Components = () => {
       >
         <TvlChainCard isDarkTheme={true} />
         <TvlChainCard isDarkTheme={false} />
-
+        <KpiGuageChart isDarkTheme={false} />
         <GaugeChart value={0} />
         <GraphCard
           heading="🔥 Market CAP"
