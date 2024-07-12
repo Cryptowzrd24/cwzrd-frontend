@@ -34,6 +34,7 @@ import Card11 from '@/app/components/common/card11.component';
 import GaugeChart from '@/app/components/common/guage-chart';
 import TvlChainCard from '@/app/components/common/tvl-chains-card';
 import KpiGuageChart from '@/app/components/common/kpi-guage-chart';
+import GraphCardTop from '@/app/components/common/graph-card-top';
 const Components = () => {
   const areachartData = [
     { x: 1, y: 5 },
@@ -95,6 +96,16 @@ const Components = () => {
           value={{ data: '51.88', prefix: '$' }}
           percent={0.32}
           graphAttr={{ type: 'bar', data: areachartData }}
+        />
+        <GraphCardTop
+          heading="🚀 Top Gain"
+          percent={0.32}
+          graphAttr={{ type: 'area', data: areachartData }}
+        />
+        <GraphCardTop
+          heading="🚨 Top Losers"
+          percent={-0.32}
+          graphAttr={{ type: 'area', data: areachartData }}
         />
         <Card1
           type="time"
