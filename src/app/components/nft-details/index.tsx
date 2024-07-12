@@ -8,6 +8,7 @@ import NftNavbar from './nftNavbar';
 import NewsLetter from '../news-letter';
 import MemberShipBanner from '../banners/memberShipBanner';
 import Activity from './activity';
+import PriceSales from './price-sales';
 
 const NftDetails = () => {
   return (
@@ -18,6 +19,9 @@ const NftDetails = () => {
         </Box>
         <Box sx={{ mt: '44px', mb: '80px' }}>
           <NftNavbar />
+        </Box>
+        <Box sx={{ mb: '120px' }}>
+          <PriceSales />
         </Box>
         <Box sx={{ mb: '120px' }}>
           <Info />
