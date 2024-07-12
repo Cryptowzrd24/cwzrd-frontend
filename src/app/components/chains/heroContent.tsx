@@ -1,6 +1,12 @@
 'use client';
 import { Box, Typography } from '@mui/material';
+import { AnimatePresence, motion } from 'framer-motion';
+import { areaChartData } from '@/app/constants/charts';
+
 import React, { useState } from 'react';
+import KpiGuageChart from '../common/kpi-guage-chart';
+import GraphCard from '../common/graphCard.component';
+import GaugeChart from '../common/guage-chart';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -52,6 +58,39 @@ function HeroContent() {
           {isExpanded ? ' Read Less' : ' Read More'}
         </span>
       </Box>
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, height: 0, marginTop: 0 }}
+          animate={{ opacity: 1, height: 'auto', marginTop: '48px' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.2, marginTop: 0 }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              gap: '10px',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}
+          >
+            <KpiGuageChart isDarkTheme={false} />
+            <GraphCard
+              heading="🔥 24 hour volume"
+              value={{ data: '51.88', prefix: '$' }}
+              percent={-0.32}
+              graphAttr={{ type: 'bar', data: areaChartData }}
+            />
+            <GraphCard
+              heading="🔥 Bitcoin Dominance"
+              value={{ data: '51.88', postfix: '%' }}
+              percent={-0.32}
+              graphAttr={{ type: 'area', data: areaChartData }}
+            />
+            <GaugeChart value={0} />
+          </Box>
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }
