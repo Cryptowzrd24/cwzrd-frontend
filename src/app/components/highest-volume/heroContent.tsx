@@ -1,6 +1,10 @@
 'use client';
 import { Box, Typography } from '@mui/material';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
+import GaugeChart from '../common/guage-chart';
+import GraphCard from '../common/graphCard.component';
+import { areaChartData } from '@/app/constants/charts';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -57,6 +61,38 @@ function HeroContent() {
           {isExpanded ? ' Read Less' : ' Read More'}
         </span>
       </Box>
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, height: 0, marginTop: 0 }}
+          animate={{ opacity: 1, height: 'auto', marginTop: '48px' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.2, marginTop: 0 }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              gap: '10px',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}
+          >
+            <GraphCard
+              heading="🔥 24 hour volume"
+              value={{ data: '$41,606,531,750.36', prefix: '$' }}
+              percent={0.32}
+              graphAttr={{ type: 'bar', data: areaChartData }}
+            />
+            <GraphCard
+              heading="🔥 Market CAP"
+              value={{ data: '36,606,531,750.36', prefix: '$' }}
+              percent={6.32}
+              graphAttr={{ type: 'area', data: areaChartData }}
+            />
+            <GaugeChart value={0} />
+          </Box>
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }
