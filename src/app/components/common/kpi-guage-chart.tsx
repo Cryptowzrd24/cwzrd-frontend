@@ -20,15 +20,13 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
   //   new Highcharts.Color(color).setOpacity(0.3).get(),
   // );
   useEffect(() => {
-    Highcharts.chart('container', {
+    const chartOptions: Highcharts.Options = {
       chart: {
         type: 'solidgauge',
         height: '100%',
-        label: 'null',
       },
-
       title: {
-        text: null,
+        text: undefined,
       },
       tooltip: {
         enabled: false,
@@ -38,28 +36,24 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
         endAngle: 360,
         background: [
           {
-            // Track for Conversion
             outerRadius: '112%',
             innerRadius: '87%',
             backgroundColor: '#F4F3F7',
             borderWidth: 0,
           },
           {
-            // Track for Engagement
             outerRadius: '87%',
             innerRadius: '62%',
             backgroundColor: '#F6FAFF',
             borderWidth: 0,
           },
           {
-            // Track for Feedback
             outerRadius: '62%',
             innerRadius: '38%',
             backgroundColor: '#fff',
             borderWidth: 0,
           },
           {
-            // Track for Conversion
             outerRadius: '38%',
             innerRadius: '22%',
             backgroundColor: '#FDF6F6',
@@ -67,20 +61,18 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
           },
         ],
       },
-
       yAxis: {
         min: 0,
         max: 100,
         lineWidth: 0,
         tickPositions: [],
       },
-
       plotOptions: {
         solidgauge: {
           dataLabels: {
             enabled: false,
           },
-          linecap: 'rounded',
+          linecap: 'round',
           stickyTracking: false,
           rounded: false,
         },
@@ -90,6 +82,7 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
       },
       series: [
         {
+          type: 'solidgauge',
           name: 'Conversion',
           data: [
             {
@@ -109,6 +102,7 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
           ],
         },
         {
+          type: 'solidgauge',
           name: 'Engagement',
           data: [
             {
@@ -120,6 +114,7 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
           ],
         },
         {
+          type: 'solidgauge',
           name: 'Feedback',
           data: [
             {
@@ -131,6 +126,7 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
           ],
         },
         {
+          type: 'solidgauge',
           name: 'Social',
           data: [
             {
@@ -142,7 +138,8 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
           ],
         },
       ],
-    });
+    };
+    Highcharts.chart('container', chartOptions);
   }, []);
 
   const listItems = [

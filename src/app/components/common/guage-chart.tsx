@@ -11,15 +11,19 @@ if (typeof Highcharts === 'object') {
   SolidGauge(Highcharts);
 }
 
-const GaugeChart = ({ value }: any) => {
+interface GaugeChartProps {
+  value: number;
+}
+
+const GaugeChart = ({ value }: GaugeChartProps) => {
   useEffect(() => {
-    Highcharts.chart('gauge-container', {
+    const chartOptions: Highcharts.Options = {
       chart: {
         type: 'solidgauge',
         backgroundColor: 'transparent',
       },
       title: {
-        text: null,
+        text: undefined,
       },
       pane: {
         center: ['50%', '40%'],
@@ -92,7 +96,7 @@ const GaugeChart = ({ value }: any) => {
           tickPositions: [value],
           lineWidth: 0,
           tickWidth: 0,
-          minorTickInterval: null,
+          minorTickInterval: undefined,
           tickAmount: 2,
           title: {
             y: -70,
@@ -112,18 +116,21 @@ const GaugeChart = ({ value }: any) => {
             useHTML: true,
             format: `<div style="text-align:center;">
                       <span style="font-size:40px;">{y}</span><br/>
-                      <span style="font-size:14px letter-spacing:10%;">GREED</span>
+                      <span style="font-size:14px; letter-spacing:10%;">GREED</span>
                      </div>`,
           },
         },
       },
       series: [
         {
+          type: 'solidgauge',
           name: 'Value',
           data: [value],
         },
       ],
-    });
+    };
+
+    Highcharts.chart('gauge-container', chartOptions);
   }, [value]);
 
   return (
