@@ -4,6 +4,7 @@ interface QueryParamsType {
   start: number;
   pageSize: number;
   filters?: { [key: string]: string };
+  time_period?: string; // Add this line to include volume in the type
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -63,15 +64,23 @@ export const dataGridApi = createApi({
     fetchMostVisitedData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
-          url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/most-visited?start=${start}&limit=${pageSize}`,
+          url: `/api/most-visited/?offset=${start}&limit=${pageSize}`,
           method: 'GET',
         };
       },
     }),
     fetchTrendingData: builder.query({
-      query: () => {
+      query: ({ start, pageSize, time_period }: QueryParamsType) => {
         return {
-          url: `/trending/latest`,
+          url: `/api/trending/?offset=${start}&limit=${pageSize}&time_period=${time_period}`,
+          method: 'GET',
+        };
+      },
+    }),
+    fetchChainData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/chains/?offset=${start}&limit=${pageSize}`,
           method: 'GET',
         };
       },
@@ -84,6 +93,18 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchStatsData: builder.query({
+      query: () => ({
+        url: '/api/stats/',
+        method: 'GET',
+      }),
+    }),
+    fetchTickerData: builder.query({
+      query: () => ({
+        url: '/api/tickers/',
+        method: 'GET',
+      }),
+    }),
   }),
 });
 export const {
@@ -95,4 +116,7 @@ export const {
   useFetchMostVisitedDataQuery,
   useFetchTrendingDataQuery,
   useFetchGainersLosersDataQuery,
+  useFetchChainDataQuery,
+  useFetchStatsDataQuery,
+  useFetchTickerDataQuery,
 } = dataGridApi;

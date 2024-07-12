@@ -1,37 +1,34 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import { Box, Typography, Tooltip } from '@mui/material';
 import { ArrowDown } from '../../../../public/icons/arrowDown';
-
-const stats = [
-  { label: 'Cryptos:', value: '2.4M+' },
-  { label: 'Exchanges:', value: '742' },
-  { label: 'Market Cap:', value: '$2.62T', change: '-7.37%' },
-  { label: '24h Vol:', value: '$83.4B', change: '+7.37%' },
-  { label: 'Dominance:', value: 'BTC: 53.0% ETH: 16.1%' },
-  {
-    label: 'ETH Gas:',
-    value: '20 Gwei',
-    data: {
-      slow: {
-        value: 20,
-        second: 145,
-      },
-      standard: {
-        value: 20,
-        second: 145,
-      },
-      fast: {
-        value: 23,
-        second: 145,
-      },
-    },
-  },
-  { label: 'Fear & Greed:', value: '76/100' },
-];
+import { useFetchStatsDataQuery } from '@/app/redux/reducers/data-grid';
 
 interface GasData {
   value: number;
   second: number;
+}
+
+interface ApiData {
+  id: string;
+  active_exchanges: number;
+  btc_dominance: number;
+  eth_dominance: number;
+
+  quote: {
+    USD: {
+      total_market_cap: number;
+      total_market_cap_yesterday_percentage_change: number;
+      total_volume_24h?: number;
+      total_volume_24h_yesterday_percentage_change?: number;
+    };
+  };
+}
+
+interface RowData {
+  label: string;
+  value: string;
+  change?: string;
 }
 
 interface StatItemProps {
@@ -193,28 +190,61 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
   </Tooltip>
 );
 
-const Stats = () => (
-  <Box
-    sx={{
-      display: 'flex',
-      justifyContent: 'space-around',
-      padding: '24px',
-      backgroundColor: 'white',
-      borderRadius: '24px',
-      boxShadow: '0px 4px 28px 0px #0000000D',
-      marginTop: '40px',
-    }}
-  >
-    {stats.map((stat, index) => (
-      <StatItem
-        key={index}
-        label={stat.label}
-        value={stat.value}
-        change={stat.change}
-        data={stat.data}
-      />
-    ))}
-  </Box>
-);
+const Stats = () => {
+  const { data } = useFetchStatsDataQuery({});
+  console.log('data stats---------------------', data);
+  const [rowData, setRowData] = useState<RowData[]>([]);
+  useEffect(() => {
+    if (data && data.results) {
+      const formattedData: RowData[] = data.results.map((item: ApiData) => [
+        {
+          label: 'Exchanges:',
+          value: item.active_exchanges.toString(),
+        },
+        {
+          label: 'Market Cap:',
+          value: `$${(item.quote.USD.total_market_cap / 1e12).toFixed(2)}T`,
+          change: item.quote.USD.total_market_cap_yesterday_percentage_change
+            ? `${item.quote.USD.total_market_cap_yesterday_percentage_change.toFixed(2)}%`
+            : '0.00%',
+        },
+        {
+          label: '24h Vol:',
+          value: `$${(item.quote?.USD?.total_volume_24h ?? 0 / 1e9)?.toFixed(2) || '0.00'}B`,
+          change: item.quote.USD.total_volume_24h_yesterday_percentage_change
+            ? `${item.quote.USD.total_volume_24h_yesterday_percentage_change?.toFixed(2) || '0.00'}%`
+            : '0.00%',
+        },
+        {
+          label: 'Dominance:',
+          value: `BTC: ${parseFloat(item.btc_dominance?.toString() ?? '0').toFixed(2)}% ETH: ${parseFloat(item.eth_dominance?.toString() ?? '0').toFixed(2)}%`,
+        },
+      ]);
+      setRowData(formattedData.flat());
+    }
+  }, [data]);
 
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-around',
+        padding: '24px',
+        backgroundColor: 'white',
+        borderRadius: '24px',
+        boxShadow: '0px 4px 28px 0px #0000000D',
+        marginTop: '40px',
+      }}
+    >
+      {rowData.map((stat, index) => (
+        <StatItem
+          key={index}
+          label={stat.label}
+          value={stat.value}
+          change={stat.change}
+        />
+      ))}
+    </Box>
+  );
+};
 export default Stats;

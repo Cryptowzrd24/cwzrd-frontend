@@ -1,14 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/system';
-import BitcoinIcon from '../../../../public/icons/Ticker-Section/bitcoin';
-import LtcIcon from '../../../../public/icons/Ticker-Section/ltc';
-import EthereumIcon from '../../../../public/icons/Ticker-Section/ethereum';
-import SolanaIcon from '../../../../public/icons/Ticker-Section/solana';
-import NgnIcon from '../../../../public/icons/Ticker-Section/ngn';
-import BnbIcon from '../../../../public/icons/Ticker-Section/bnb';
+
+import { useFetchTickerDataQuery } from '@/app/redux/reducers/data-grid';
 
 const TickerContainer = styled(Box)({
   display: 'flex',
@@ -45,29 +41,58 @@ const PriceChange = styled(Typography)(() => ({
   borderRadius: 11,
 }));
 
+interface TickerData {
+  id: string;
+  symbol: string;
+  price: string;
+  percent_change_1h: any;
+  icon: JSX.Element | any;
+}
 const Ticker = () => {
-  const data = [
-    { icon: <BitcoinIcon />, name: 'BTC', price: '2984.08', change: 7.37 },
-    { icon: <LtcIcon />, name: 'LTC', price: '2984.08', change: -7.37 },
-    { icon: <EthereumIcon />, name: 'ETH', price: '2984.08', change: -7.37 },
-    { icon: <SolanaIcon />, name: 'SOL', price: '2984.08', change: -7.37 },
-    { icon: <NgnIcon />, name: 'NGN', price: '2984.08', change: -7.37 },
-    { icon: <BnbIcon />, name: 'BNB', price: '2984.08', change: 7.37 },
-  ];
+  const [rowData, setRowData] = useState<TickerData[]>([]);
+
+  const { data: tickerData } = useFetchTickerDataQuery({});
+  console.log('ticker data----', tickerData);
+
+  useEffect(() => {
+    if (tickerData && tickerData.data) {
+      const res = tickerData.data.map((item: any) => ({
+        id: item.id,
+        coin_id: item.coin_id,
+        symbol: item.symbol,
+        price: item.quote?.price,
+        percent_change_1h: item.quote?.percent_change_1h,
+        icon: `https://s2.coinmarketcap.com/static/img/coins/32x32/${item.coin_id}.png`,
+      }));
+      setRowData(res);
+    }
+  }, [tickerData]);
 
   return (
     <TickerContainer>
       <Marquee autoFill={true} gradient={false}>
-        {data.map((item, index) => (
+        {rowData.map((item, index) => (
           <TickerItem key={index}>
-            {item.icon}
+            <img
+              src={item.icon}
+              alt={item.symbol}
+              width={24}
+              height={24}
+              style={{ borderRadius: '50px' }}
+            />
+
             <TickerInfo>
-              {item.name} ${item.price}
+              {item.symbol} ${item.price}
             </TickerInfo>
             <PriceChange
-              sx={{ backgroundColor: item.change > 0 ? '#1FD773' : '#F74848' }}
+              sx={{
+                backgroundColor:
+                  item.percent_change_1h > 0 ? '#1FD773' : '#F74848',
+              }}
             >
-              {item.change > 0 ? `+${item.change}%` : `${item.change}%`}
+              {item.percent_change_1h > 0
+                ? `+${item.percent_change_1h}%`
+                : `${item.percent_change_1h}%`}
             </PriceChange>
           </TickerItem>
         ))}

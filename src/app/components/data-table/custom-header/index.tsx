@@ -35,6 +35,8 @@ interface CustomHeaderProps {
   setSearch: any;
   filter?: boolean;
   view?: boolean;
+  volume?: any;
+  setVolume?: (volume: any) => void;
   onToggleView?: () => void;
   activeIcon?: string;
   setPagination?: (pageNumber: number) => void;
@@ -72,15 +74,19 @@ export const CustomHeader = ({
   setSearch,
   filter = false,
   view = false,
+  volume,
+  setVolume = () => {},
   onToggleView = () => {},
   activeIcon = 'BoxIcon',
   setPagination = () => {},
 }: CustomHeaderProps) => {
+  const [volumeValue, setVolumeValue] = useState('24h');
+
   const pathname = usePathname();
   const dispatch = useDispatch();
   const [pageSize, setPageSize] = useState(10);
   const options = [10, 20, 50, 100];
-
+  const volumes = ['24h', '1d', '7d'];
   const filterItem = useSelector((state: any) => state.filters);
   const filterCount = useSelector(
     (state: any) => state.filters.selectedFilterCount,
@@ -110,6 +116,10 @@ export const CustomHeader = ({
   const handleClick = (event: React.MouseEvent<HTMLElement>, key: string) => {
     setAnchorEl(event.currentTarget);
     setFilterKey(key as FilterKey);
+  };
+
+  const handleChangeVolume = (event: any) => {
+    setVolumeValue(event.target.value);
   };
 
   const handleOpenFilterModal = () => setOpenFilterModal(true);
@@ -233,7 +243,7 @@ export const CustomHeader = ({
   };
 
   const getSelectClass = (value: any) => {
-    return value === 100 ? '34px' : '26px';
+    return value === 100 || value == '24h' ? '34px' : '26px';
   };
 
   useEffect(() => {
@@ -299,6 +309,35 @@ export const CustomHeader = ({
               </MenuItem>
             ))}
           </Select>
+          {volume && (
+            <Select
+              value={volumeValue}
+              onChange={handleChangeVolume}
+              displayEmpty
+              inputProps={{ 'aria-label': 'Without label' }}
+              sx={stylesPage.select(getSelectClass(volumeValue))}
+              IconComponent={(props) => (
+                <Box
+                  component="svg"
+                  sx={{ width: '1em', height: '1em', color: '#7248F7' }}
+                  {...props}
+                >
+                  <PageArrowDownIcon />
+                </Box>
+              )}
+            >
+              {volumes.map((volume: any) => (
+                <MenuItem
+                  key={volume}
+                  value={volume}
+                  onClick={() => setVolume(volume)}
+                >
+                  {volume}
+                </MenuItem>
+              ))}
+            </Select>
+          )}
+
           {filter && (
             <Box onClick={handleFilterActiveToggle} sx={styles.iconBox}>
               <FilterIcon />

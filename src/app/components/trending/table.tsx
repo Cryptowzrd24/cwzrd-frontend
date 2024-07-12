@@ -4,9 +4,7 @@ import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import { columnsTrending } from '@/app/constants/columns';
 import useColumnTrendingDefs from '@/app/hooks/data-grid/column-defination-trending';
-import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchTrendingDataQuery } from '@/app/redux/reducers/data-grid';
-import { scrollToTop } from '@/utils/scroll-to-top';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -14,27 +12,27 @@ const Table = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemStart, setItemStart] = useState(1);
   const [pageSize, setPageSize] = useState<number>(10);
+  const [time_period, setTimePeriod] = useState<any>('24h');
 
   const columnTrendingDef = useColumnTrendingDefs(columnsTrending);
-  const { data } = useFetchTrendingDataQuery({});
+  const { data } = useFetchTrendingDataQuery({
+    start: currentPage,
+    pageSize,
+    time_period,
+  });
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
   }, []);
-
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    value: number,
-  ) => {
-    setCurrentPage(value);
-    setItemStart((value - 1) * pageSize + 1);
-    scrollToTop();
-  };
 
   const handlePageSizeChange = (newPageSize: number) => {
     setPageSize(newPageSize);
     setCurrentPage(1);
     setItemStart(1);
   };
+  const handleVolumeSizeChange = (newVolumeSize: any) => {
+    setTimePeriod(newVolumeSize);
+  };
+  console.log('volume value', time_period);
   const paginatedRowData = rowData.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
@@ -56,10 +54,11 @@ const Table = () => {
         symbol: item.symbol,
         max_supply: item.max_supply,
         index: startIndex + index,
+        coin_id: item.coin_id,
       }));
       setRowData(res);
     }
-  }, [data, pageSize, itemStart]);
+  }, [data, currentPage, itemStart, pageSize, time_period]);
 
   return (
     <div className="data-table-wrapper">
@@ -67,6 +66,8 @@ const Table = () => {
         search={search}
         setSearch={handleSetSearch}
         setPagination={handlePageSizeChange}
+        setVolume={handleVolumeSizeChange}
+        volume={true}
       />
       <div
         style={{
@@ -81,12 +82,6 @@ const Table = () => {
           width="100%"
         />
       </div>
-      <Pagination
-        length={rowData.length}
-        pageSize={pageSize}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
     </div>
   );
 };
