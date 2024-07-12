@@ -68,7 +68,10 @@ const Card3 = (props: ICard3Props) => {
     return {};
   };
   return (
-    <Card className={styles.coin_content_card_wrapper} style={getBackground()}>
+    <Card
+      className={styles.coin_content_card_wrapper}
+      style={{ ...getBackground(), position: 'relative' }}
+    >
       {blendImage ? (
         <Image
           style={{
@@ -92,7 +95,6 @@ const Card3 = (props: ICard3Props) => {
         <>
           <div
             style={{
-              // borderImage: "linear-gradient(#FD793F, #FD554B, #EC90FC) 100",
               borderColor: '#ab47bc',
               borderWidth: '50px',
               borderStyle: 'solid',
@@ -102,11 +104,11 @@ const Card3 = (props: ICard3Props) => {
               width: '500px',
               top: '-217px',
               right: '-128px',
+              zIndex: 2,
             }}
           />
           <div
             style={{
-              // borderImage: "linear-gradient(#FD793F, #FD554B, #EC90FC) 100",
               borderColor: 'pink',
               borderWidth: '50px',
               borderStyle: 'solid',
@@ -116,12 +118,29 @@ const Card3 = (props: ICard3Props) => {
               width: '500px',
               top: '-214px',
               right: '-58px',
+              zIndex: 2,
             }}
           />
         </>
       ) : null}
-
-      <div className={styles.header_wrapper}>
+      {/* Overlay */}
+      {bgImage && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            zIndex: 1,
+          }}
+        ></div>
+      )}
+      <div
+        className={styles.header_wrapper}
+        style={{ position: 'relative', zIndex: 2 }}
+      >
         <CardHeader
           heading={heading}
           currentStep={currentStep}
@@ -137,6 +156,8 @@ const Card3 = (props: ICard3Props) => {
           fontWeight: '500',
           lineHeight: '26px',
           letterSpacing: '1px',
+          zIndex: 2,
+          position: 'relative',
         }}
       >
         <span style={{ color: `${getColor()}` }}>{name} </span>
@@ -149,13 +170,23 @@ const Card3 = (props: ICard3Props) => {
         </span>
       </Typography>
 
-      <Stack direction="row" style={{ marginLeft: '20px', marginTop: '20px' }}>
+      <Stack
+        direction="row"
+        style={{
+          marginLeft: '20px',
+          marginTop: '20px',
+          zIndex: 2,
+          position: 'relative',
+        }}
+      >
         <Button
           variant="contained"
           size="small"
           sx={{
             backgroundColor: `${transparentButton ? 'rgba(255, 255, 255, 0.1)' : '#111111'}`,
             borderRadius: '25px',
+            zIndex: 2,
+            position: 'relative',
           }}
         >
           See all &nbsp; <ArrowForwardIosIcon sx={{ fontSize: '14px' }} />
