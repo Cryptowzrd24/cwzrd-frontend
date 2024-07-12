@@ -44,7 +44,14 @@ const GraphCard = (props: IMarketCapCardProps) => {
           {Math.abs(percent)}%
         </div>
       </div>
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: '15px',
+        }}
+      >
         {graphAttr.type === 'area' ? (
           <AreaChart data={graphAttr.data} color={getGraphColor(percent)} />
         ) : null}
