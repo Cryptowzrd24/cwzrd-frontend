@@ -14,7 +14,7 @@ const NftDetails = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <HeroSection />
         </Box>
         <Box sx={{ mt: '44px', mb: '80px' }}>

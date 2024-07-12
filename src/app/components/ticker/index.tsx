@@ -11,7 +11,7 @@ const TickerContainer = styled(Box)({
   alignItems: 'center',
   backgroundColor: '#7248F7',
   overflow: 'hidden',
-  height: 56,
+  height: 40,
   justifyContent: 'center',
   marginBottom: 32,
 });
@@ -26,7 +26,7 @@ const TickerItem = styled(Box)({
 const TickerInfo = styled(Typography)(() => ({
   color: 'white',
   fontWeight: 500,
-  fontSize: 16,
+  fontSize: 14,
   lineHeight: '20.8px',
   marginLeft: 8,
 }));

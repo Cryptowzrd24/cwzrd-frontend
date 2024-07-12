@@ -25,14 +25,13 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Sf Pro Display',
     h1: {
-      fontSize: '64px',
+      fontSize: '32px',
       fontWeight: 700,
-      lineHeight: '64px',
       color: colors.primary,
       '@media (max-width:660px)': {
         fontSize: '36px',
-        fontWeight: 600,
-        lineHeight: '38px',
+        fontWeight: 500,
+        lineHeight: '24px',
       },
     },
     h2: {

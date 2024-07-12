@@ -151,7 +151,7 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
     >
       <Typography
         sx={{
-          fontSize: '14px',
+          fontSize: '13px',
           fontWeight: 500,
           lineHeight: '18px',
           color: '#11111199',
@@ -161,7 +161,7 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
       </Typography>
       <Typography
         sx={{
-          fontSize: '14px',
+          fontSize: '13px',
           fontWeight: 500,
           lineHeight: '18px',
           color: '#7248F7',
@@ -233,7 +233,7 @@ const Stats = () => {
         backgroundColor: 'white',
         borderRadius: '24px',
         boxShadow: '0px 4px 28px 0px #0000000D',
-        marginTop: '40px',
+        marginTop: '22px',
       }}
     >
       {rowData.map((stat, index) => (

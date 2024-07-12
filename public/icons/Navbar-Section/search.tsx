@@ -3,8 +3,8 @@ import React from 'react';
 function SearchIcon() {
   return (
     <svg
-      width={32}
-      height={32}
+      width={27}
+      height={27}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

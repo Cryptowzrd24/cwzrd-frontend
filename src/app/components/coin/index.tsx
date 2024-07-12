@@ -12,12 +12,12 @@ import Table from '@/app/components/coin/table';
 function Coin() {
   return (
     <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-      <Box sx={{ mt: '80px' }}>
+      <Box sx={{ mt: '48px' }}>
         <Hero />
         <HeroContent />
         <Stats />
       </Box>
-      <Box sx={{ mt: '40px' }}>
+      <Box sx={{ mt: '16px' }}>
         <Table />
       </Box>
       <Box sx={{ mt: '80px', mb: '80px' }}>

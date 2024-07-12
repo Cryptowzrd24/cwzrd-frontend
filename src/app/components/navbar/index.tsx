@@ -83,15 +83,15 @@ function Navbar() {
             sx={{
               border: '1px solid rgba(17, 17, 17, 0.1)',
               borderRadius: '100px',
-              padding: { xs: '2px', sm: '4px' },
+              padding: { xs: '1px', sm: '2px' },
               display: 'flex',
               cursor: 'pointer',
             }}
           >
-            <Box height={40} onClick={() => setIsActive('light')}>
+            <Box height={27} onClick={() => setIsActive('light')}>
               <LightmodeIcon isActive={isActive === 'light'} />{' '}
             </Box>
-            <Box height={40} onClick={() => setIsActive('dark')}>
+            <Box height={27} onClick={() => setIsActive('dark')}>
               <DarkmodeIcon isActive={isActive === 'dark'} />{' '}
             </Box>
           </Box>

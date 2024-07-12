@@ -11,7 +11,7 @@ const AirdropsMain = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '72px' }}>
+        <Box sx={{ mt: '48px' }}>
           <HeroSection />
         </Box>
         <Box sx={{ mt: '40px' }}>

@@ -34,19 +34,19 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '20px',
-          maxWidth: '600px',
+          fontSize: '12px',
+          maxWidth: '660px',
           lineHeight: '30px',
           color: 'rgba(17, 17, 17, 0.8)',
-          mt: '32px',
+          mt: '8px',
         }}
       >
         The overall market capitalization of the crypto market is
-        <span style={{ color: '#7248F7', fontWeight: '600', fontSize: '20px' }}>
+        <span style={{ color: '#7248F7', fontWeight: '700', fontSize: '12px',marginLeft:"4px" }}>
           €2.26T.
         </span>{' '}
         an increase of{' '}
-        <span style={{ color: '#1FD773', fontWeight: '600', fontSize: '20px' }}>
+        <span style={{ color: '#1FD773', fontWeight: '700', fontSize: '12px' }}>
           +3.75%
         </span>{' '}
         in the last 24 hours.{' '}
@@ -62,7 +62,7 @@ function HeroContent() {
           style={{
             color: '#7248F7',
             cursor: 'pointer',
-            fontSize: '18px',
+            fontSize: '12px',
             fontWeight: '500',
           }}
           onClick={handleToggle}
@@ -74,7 +74,7 @@ function HeroContent() {
         {showStats && (
           <motion.div
             initial={{ opacity: 0, height: 0, marginTop: 0 }}
-            animate={{ opacity: 1, height: 'auto', marginTop: '48px' }}
+            animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2, marginTop: 0 }}
           >

@@ -26,10 +26,11 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '20px',
-          maxWidth: '600px',
+          fontSize: '12px',
+          maxWidth: '660px',
           lineHeight: '30px',
-          mt: '32px',
+          color: 'rgba(17, 17, 17, 0.8)',
+          mt: '8px',
         }}
       >
         Insights into the biggest events shaping the crypto industry.{' '}
@@ -45,7 +46,7 @@ function HeroContent() {
           style={{
             color: '#7248F7',
             cursor: 'pointer',
-            fontSize: '18px',
+            fontSize: '12px',
             fontWeight: '500',
           }}
           onClick={handleToggle}

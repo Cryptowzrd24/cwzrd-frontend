@@ -1,8 +1,8 @@
 const styles = {
   link: (isActive: boolean) => ({
-    fontSize: 14,
-    fontWeight: 700,
-    color: isActive ? '#7248F7' : '#11111199',
+    fontSize: 12,
+    fontWeight: 600,
+    color: isActive ? '#7248F7' : 'rgba(17, 17, 17, 1)',
     background: isActive ? '#7248F71A' : 'transparent',
     textDecoration: 'none',
     padding: '11px 16px',
@@ -10,11 +10,14 @@ const styles = {
     borderRadius: '40px',
   }),
   iconBox: {
-    padding: '10px',
+    padding: '6px',
     borderRadius: '8px',
     background: '#7248F71A',
     height: '20px',
     cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   select: {
     '& .MuiSelect-select': {
@@ -37,6 +40,18 @@ const styles = {
     '& .MuiSelect-icon': {
       right: '15px',
     },
+    '&.css-a4h3hp-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root .MuiSelect-select':
+      {
+        width: '22px',
+        padding: '3.5px 16px',
+        background: '#F0ECFF',
+        color: '#7248F7',
+        fontSize: '16px',
+        fontWeight: '700',
+        display: 'flex',
+        alignItems: 'center',
+        borderRadius: '8px',
+      },
 
     backgroundColor: '#F0ECFF',
     borderRadius: '8px',
@@ -79,7 +94,7 @@ const styles = {
     marginBottom: '24px',
   },
   typography: {
-    fontSize: '16px',
+    fontSize: '12px',
     fontWeight: 600,
     lineHeight: '20.8px',
     color: '#11111199',

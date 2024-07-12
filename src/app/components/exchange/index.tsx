@@ -11,7 +11,7 @@ const Exchange = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <HeroContent />
         </Box>
       </Container>
@@ -19,7 +19,7 @@ const Exchange = () => {
       {/*  <SkeletonComponent />*/}
       {/*</Box>*/}
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '40px' }}>
+        <Box sx={{ mt: '16px' }}>
           <Table />
         </Box>
         <Box sx={{ mt: '80px', mb: '80px' }}>

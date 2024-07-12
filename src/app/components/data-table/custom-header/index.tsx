@@ -47,10 +47,10 @@ const stylesPage = {
   select: (width: any) => ({
     '& .MuiSelect-select': {
       width: width,
-      padding: '9.5px 16px',
+      padding: '5px 12px',
       background: '#F0ECFF',
       color: '#7248F7',
-      fontSize: '16px',
+      fontSize: '14px',
       fontWeight: 700,
       display: 'flex',
       alignItems: 'center',
@@ -243,7 +243,7 @@ export const CustomHeader = ({
   };
 
   const getSelectClass = (value: any) => {
-    return value === 100 || value == '24h' ? '34px' : '26px';
+    return value === 100 || value == '24h' ? '30px' : '22px';
   };
 
   useEffect(() => {
@@ -300,7 +300,7 @@ export const CustomHeader = ({
                 value={option}
                 sx={{
                   display: option === pageSize ? 'none' : 'block',
-                  fontSize: '16px',
+                  fontSize: '10px',
                   fontWeight: 700,
                 }}
                 onClick={() => setPagination(option)}
