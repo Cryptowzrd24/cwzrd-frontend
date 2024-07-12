@@ -7,13 +7,14 @@ const InfoCard = () => {
     <>
       <Box
         sx={{
-          padding: '48px',
+          padding: '24px',
           backgroundImage: "url('/images/nft/trending.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
-          maxWidth: '330px',
+          maxWidth: '286px',
           width: '100%',
           boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
+          borderRadius: '24px',
         }}
       >
         <Stack>
@@ -24,7 +25,7 @@ const InfoCard = () => {
               fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
               mb: '16px',
-              letterSpacing: '1px',
+              letterSpacing: '1.5px',
             }}
           >
             🔥 INFO
@@ -182,7 +183,6 @@ const InfoCard = () => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              mb: '10px',
             }}
           >
             <Typography

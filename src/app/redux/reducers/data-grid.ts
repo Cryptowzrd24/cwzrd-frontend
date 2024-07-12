@@ -77,6 +77,14 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchChainData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/chains/?offset=${start}&limit=${pageSize}`,
+          method: 'GET',
+        };
+      },
+    }),
     fetchGainersLosersData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
@@ -84,6 +92,18 @@ export const dataGridApi = createApi({
           method: 'GET',
         };
       },
+    }),
+    fetchStatsData: builder.query({
+      query: () => ({
+        url: '/api/stats/',
+        method: 'GET',
+      }),
+    }),
+    fetchTickerData: builder.query({
+      query: () => ({
+        url: '/api/tickers/',
+        method: 'GET',
+      }),
     }),
   }),
 });
@@ -96,4 +116,7 @@ export const {
   useFetchMostVisitedDataQuery,
   useFetchTrendingDataQuery,
   useFetchGainersLosersDataQuery,
+  useFetchChainDataQuery,
+  useFetchStatsDataQuery,
+  useFetchTickerDataQuery,
 } = dataGridApi;
