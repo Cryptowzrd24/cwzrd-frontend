@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
@@ -7,9 +7,9 @@ import { columnsCoin } from '@/app/constants/columns';
 import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
 import CardContent from '../highest-volume/cards/cardContent';
-
 import { Box } from '@mui/material';
 import { scrollToTop } from '@/utils/scroll-to-top';
+import useWebSocket from '@/app/hooks/coin-websocket/useWebSocket';
 import { constructQueryParams } from '@/utils/construct-filter-query-param';
 import { useSelector } from 'react-redux';
 import { Filters } from '@/app/models/filters';
@@ -31,6 +31,7 @@ const Table = () => {
     pageSize,
     filters: queryParams,
   });
+  const gridApiRef = useRef<any>(null);
 
   const totalCount = data?.count || 0;
 
@@ -82,6 +83,18 @@ const Table = () => {
     }
   }, [data, currentPage, itemStart, pageSize, filters]);
 
+  const updateRowData = (updatedRow: any) => {
+    if (gridApiRef.current) {
+      gridApiRef.current.applyTransactionAsync({ update: [updatedRow] });
+    }
+  };
+
+  useWebSocket(
+    'ws://318b-39-58-110-170.ngrok-free.app/ws/data/',
+    updateRowData,
+    rowData,
+  );
+
   return (
     <div className="data-table-wrapper">
       <CustomHeader
@@ -109,7 +122,8 @@ const Table = () => {
             rowData={rowData}
             columnDefs={columnCoinsDef}
             width="100%"
-            // onGridReady={onGridReady}
+            gridApiRef={gridApiRef}
+            getRowId={(params) => params.data.coin_id}
           />
         )}
       </div>

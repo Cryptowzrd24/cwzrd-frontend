@@ -52,7 +52,6 @@ const Ticker = () => {
   const [rowData, setRowData] = useState<TickerData[]>([]);
 
   const { data: tickerData } = useFetchTickerDataQuery({});
-  console.log('ticker data----', tickerData);
 
   useEffect(() => {
     if (tickerData && tickerData.data) {

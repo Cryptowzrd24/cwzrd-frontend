@@ -13,6 +13,8 @@ interface DataTableProps {
   width?: string;
   search?: string;
   seeMore?: string;
+  gridApiRef?: React.MutableRefObject<any>;
+  getRowId: (params: any) => string;
 }
 
 const DataTable = memo(
@@ -23,6 +25,8 @@ const DataTable = memo(
     width = '100%',
     search = '',
     seeMore = '',
+    gridApiRef,
+    getRowId,
   }: DataTableProps) => {
     const modifiedColumnDefs = useMemo(
       () =>
@@ -80,12 +84,17 @@ const DataTable = memo(
           tooltipShowDelay={0}
           quickFilterText={search}
           tooltipInteraction={true}
+          immutableData={true}
+          getRowId={getRowId}
           rowStyle={{
             fontFamily: 'SF Pro Display',
             fontSize: 16,
             fontWeight: 400,
           }}
           domLayout="autoHeight"
+          onGridReady={(params) => {
+            if (gridApiRef) gridApiRef.current = params.api;
+          }}
         />
       </div>
     );
