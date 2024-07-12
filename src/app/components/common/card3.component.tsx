@@ -68,7 +68,7 @@ const Card3 = (props: ICard3Props) => {
     return {};
   };
   return (
-    <Card className={styles.market_cap_wrapper} style={getBackground()}>
+    <Card className={styles.coin_content_card_wrapper} style={getBackground()}>
       {blendImage ? (
         <Image
           style={{

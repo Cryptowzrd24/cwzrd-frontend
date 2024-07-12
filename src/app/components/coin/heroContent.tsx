@@ -3,10 +3,9 @@ import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import GraphCard from '@/app/components/common/graphCard.component';
 import { areaChartData } from '@/app/constants/charts';
-import frogImage from '@/app/assets/images/frogImage.png';
-import Card1 from '@/app/components/common/card1.component';
 import { useAppSelector } from '@/app/redux/store';
 import { AnimatePresence, motion } from 'framer-motion';
+import GaugeChart from '../common/guage-chart';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -84,6 +83,7 @@ function HeroContent() {
                 flexDirection: 'row',
                 gap: '10px',
                 alignItems: 'center',
+                justifyContent: 'space-between',
               }}
             >
               <GraphCard
@@ -104,33 +104,7 @@ function HeroContent() {
                 percent={-0.32}
                 graphAttr={{ type: 'area', data: areaChartData }}
               />
-              <Card1
-                type="time"
-                heading="✨ Recently Added"
-                items={[
-                  {
-                    medal: '🥇',
-                    image: frogImage,
-                    text1: 'PEPI',
-                    text2: 'PEPI',
-                    time: 4,
-                  },
-                  {
-                    medal: '🥈',
-                    image: frogImage,
-                    text1: 'RING AI',
-                    text2: 'RING',
-                    time: 31,
-                  },
-                  {
-                    medal: '🥉',
-                    image: frogImage,
-                    text1: 'HE-MAN',
-                    text2: 'HE-MAN',
-                    time: 45,
-                  },
-                ]}
-              />
+              <GaugeChart value={0} />
             </Box>
           </motion.div>
         )}

@@ -41,6 +41,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/highcharts": "^7.0.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/numeral": "^2.0.5",
