@@ -25,7 +25,7 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-        fontSize: '12px',
+          fontSize: '12px',
           maxWidth: '660px',
           lineHeight: '30px',
           color: 'rgba(17, 17, 17, 0.8)',

@@ -57,7 +57,6 @@ const useColumnCoinDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 165,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
-          
           };
         case 'volume_24h':
           return {
@@ -65,7 +64,6 @@ const useColumnCoinDefs = (columns: any) => {
             headerComponent: HeaderComponent,
             width: 165,
             cellRenderer: VolumeComponent,
-          
           };
         case 'circulating_supply':
           return {
