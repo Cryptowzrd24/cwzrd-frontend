@@ -35,6 +35,7 @@ import GaugeChart from '@/app/components/common/guage-chart';
 import TvlChainCard from '@/app/components/common/tvl-chains-card';
 import KpiGuageChart from '@/app/components/common/kpi-guage-chart';
 import GraphCardTop from '@/app/components/common/graph-card-top';
+import TopNftCollection from '@/app/components/common/top-nft-collections-card';
 const Components = () => {
   const areachartData = [
     { x: 1, y: 5 },
@@ -104,6 +105,11 @@ const Components = () => {
         />
         <GraphCardTop
           heading="🚨 Top Losers"
+          percent={-0.32}
+          graphAttr={{ type: 'area', data: areachartData }}
+        />
+        <TopNftCollection
+          heading="🎖 Top NFT Colllections"
           percent={-0.32}
           graphAttr={{ type: 'area', data: areachartData }}
         />

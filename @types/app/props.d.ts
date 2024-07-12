@@ -18,6 +18,7 @@ declare global {
   interface IChartProps {
     data: { x: string | number; y: string | number }[];
     color: string;
+    isMarker?: boolean;
   }
 
   interface IStepProps {
