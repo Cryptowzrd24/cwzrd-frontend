@@ -4,7 +4,7 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts';
 
 const AreaChart = (props: IChartProps) => {
-  const { data, color } = props;
+  const { data, color, isMarker } = props;
   const chartRef: any = useRef(null);
 
   const chartOptions: HighchartsChartOptions = {
@@ -59,7 +59,9 @@ const AreaChart = (props: IChartProps) => {
           ],
         },
         marker: {
-          enabled: false,
+          enabled: isMarker ? true : false,
+          fillColor: 'rgba(114, 72, 247, 1)',
+          radius: 3,
         },
       },
     ],
