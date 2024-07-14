@@ -76,6 +76,62 @@ export const CardData: CardProps[] = [
     date: '06/06/2023 at 00:06 AM',
     author: 'John Smith',
   },
+  {
+    id: '5',
+    img1: '/images/news-letter/background.png',
+    img2: '/images/news-letter/main.png',
+    title1: 'TRADE',
+    title2: 'BITCOIN',
+    title3: 'CRYPTO',
+    heading:
+      'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of",
+    date: '06/06/2023 at 00:06 AM',
+    author: 'John Smith',
+  },
+  {
+    id: '6',
+    img1: '/images/news-letter/background.png',
+    img2: '/images/news-letter/main.png',
+    title1: 'TRADE',
+    title2: 'BITCOIN',
+    title3: 'CRYPTO',
+    heading:
+      'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of",
+    date: '06/06/2023 at 00:06 AM',
+    author: 'John Smith',
+  },
+  {
+    id: '7',
+    img1: '/images/news-letter/background.png',
+    img2: '/images/news-letter/main.png',
+    title1: 'TRADE',
+    title2: 'BITCOIN',
+    title3: 'CRYPTO',
+    heading:
+      'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of",
+    date: '06/06/2023 at 00:06 AM',
+    author: 'John Smith',
+  },
+  {
+    id: '8',
+    img1: '/images/news-letter/background.png',
+    img2: '/images/news-letter/main.png',
+    title1: 'TRADE',
+    title2: 'BITCOIN',
+    title3: 'CRYPTO',
+    heading:
+      'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of",
+    date: '06/06/2023 at 00:06 AM',
+    author: 'John Smith',
+  },
 ];
 
 export const LiveCardData: LiveCardProps[] = [
@@ -83,28 +139,35 @@ export const LiveCardData: LiveCardProps[] = [
     id: '1',
     title:
       'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
-    desc: "NASA's Drew Feusted and Ricky Arnold are to spend...",
+    desc: "NASA's Drew Feusted and Ricky Arnold are to spend more than 6 h...",
     image: '/images/news-letter/img1.png',
   },
   {
     id: '2',
     title:
       'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
-    desc: "NASA's Drew Feusted and Ricky Arnold are to spend...",
+    desc: "NASA's Drew Feusted and Ricky Arnold are to spend more than 6 h...",
     image: '/images/news-letter/img2.png',
   },
   {
     id: '3',
     title:
       'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
-    desc: "NASA's Drew Feusted and Ricky Arnold are to spend...",
+    desc: "NASA's Drew Feusted and Ricky Arnold are to spend more than 6 h...",
     image: '/images/news-letter/img3.png',
   },
   {
     id: '4',
     title:
       'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
-    desc: "NASA's Drew Feusted and Ricky Arnold are to spend...",
+    desc: "NASA's Drew Feusted and Ricky Arnold are to spend more than 6 h...",
+    image: '/images/news-letter/img4.png',
+  },
+  {
+    id: '5',
+    title:
+      'Elon Musk cites whistleblower claims in latest effort to scrap Twitter',
+    desc: "NASA's Drew Feusted and Ricky Arnold are to spend more than 6 h...",
     image: '/images/news-letter/img4.png',
   },
 ];

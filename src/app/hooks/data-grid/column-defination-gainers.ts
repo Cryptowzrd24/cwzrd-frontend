@@ -25,7 +25,7 @@ const useColumnGainersDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 200,
+            width: 170,
           };
         case 'price':
           return {
@@ -45,7 +45,7 @@ const useColumnGainersDefs = (columns: any) => {
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 100,
+            width: 130,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;

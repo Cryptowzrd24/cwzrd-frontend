@@ -6,6 +6,7 @@ import styles from './index.module.css';
 import chainIconOne from '@/app/assets/icons/chainIcon1.svg';
 import chainIconTwo from '@/app/assets/icons/chainIcon2.svg';
 import { CustomCellRendererProps } from 'ag-grid-react';
+import Image from 'next/image';
 
 export const ChainComp = (props: CustomCellRendererProps) => {
   console.log(props);
@@ -20,12 +21,16 @@ export const ChainComp = (props: CustomCellRendererProps) => {
   useEffect(() => {
     getRandomChainIcon();
   }, []);
-  const imgId = `https://s2.coinmarketcap.com/static/img/coins/32x32/${props.data.platform_id || 1}.png`;
+  const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${props.data.platform_id || 1}.png`;
   return (
     <div className={styles['chain-component']}>
-      {/* <Image src={chainIcon} alt="" /> */}
-      <img
-        style={{ width: '32px', height: '32px', borderRadius: '25px' }}
+      <Image
+        loader={() => imgId}
+        width={32}
+        height={32}
+        style={{
+          borderRadius: '50%',
+        }}
         src={imgId}
         alt=""
       />

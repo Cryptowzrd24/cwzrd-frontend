@@ -8,9 +8,10 @@ const CardContent: React.FC = () => {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 12,
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        rowGap: '12px',
+        columnGap: '16px',
       }}
     >
       {CardData.map((card) => (

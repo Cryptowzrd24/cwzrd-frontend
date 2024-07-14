@@ -9,10 +9,10 @@ import { Pagination } from '@/app/components/data-table/pagination';
 import CardContent from '../highest-volume/cards/cardContent';
 import { Box } from '@mui/material';
 import { scrollToTop } from '@/utils/scroll-to-top';
-import useWebSocket from '@/app/hooks/coin-websocket/useWebSocket';
 import { constructQueryParams } from '@/utils/construct-filter-query-param';
 import { useSelector } from 'react-redux';
 import { Filters } from '@/app/models/filters';
+import useWebSocket from '@/app/hooks/coin-websocket/useWebSocket';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -32,6 +32,8 @@ const Table = () => {
     filters: queryParams,
   });
   const gridApiRef = useRef<any>(null);
+  const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const previousPrices = useRef<{ [key: string]: number }>({});
 
   const totalCount = data?.count || 0;
 
@@ -84,15 +86,48 @@ const Table = () => {
   }, [data, currentPage, itemStart, pageSize, filters]);
 
   const updateRowData = (updatedRow: any) => {
+    const previousPrice = previousPrices.current[updatedRow.coin_id];
+    const currentPrice = updatedRow.price;
+
+    if (previousPrice !== undefined && previousPrice !== currentPrice) {
+      const priceCell = priceRefs.current[updatedRow.coin_id];
+      if (priceCell) {
+        if (currentPrice > previousPrice) {
+          priceCell.classList.add('price-increase');
+          priceCell.classList.remove('price-decrease');
+        } else {
+          priceCell.classList.add('price-decrease');
+          priceCell.classList.remove('price-increase');
+        }
+        setTimeout(() => {
+          priceCell.classList.remove('price-increase', 'price-decrease');
+        }, 3000);
+      }
+    }
+    previousPrices.current[updatedRow.coin_id] = currentPrice;
+
     if (gridApiRef.current) {
       gridApiRef.current.applyTransactionAsync({ update: [updatedRow] });
     }
   };
 
+  const mapCoinData = (message: any, existingRow: any) => ({
+    ...existingRow,
+    percent_change_1h:
+      message.p1h !== null ? message.p1h : existingRow.percent_change_1h,
+    percent_change_24h:
+      message.p24h !== null ? message.p24h : existingRow.percent_change_24h,
+    percent_change_7d:
+      message.p7d !== null ? message.p7d : existingRow.percent_change_7d,
+    market_cap: message.mc !== null ? message.mc : existingRow.market_cap,
+    price: message.p !== null ? message.p : existingRow.price,
+  });
+
   useWebSocket(
-    'ws://318b-39-58-110-170.ngrok-free.app/ws/data/',
-    updateRowData,
+    'wss://backend.cwzrd.co.uk/ws/data/',
     rowData,
+    updateRowData,
+    mapCoinData,
   );
 
   return (
@@ -124,6 +159,7 @@ const Table = () => {
             width="100%"
             gridApiRef={gridApiRef}
             getRowId={(params) => params.data.coin_id}
+            priceRefs={priceRefs}
           />
         )}
       </div>

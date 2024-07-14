@@ -7,12 +7,6 @@ function Technicals() {
   return (
     <>
       <Box>
-        <Typography
-          variant="h4"
-          sx={{ mb: '4px', letterSpacing: 3, fontSize: '18px' }}
-        >
-          TECHNICALS{' '}
-        </Typography>
         <Box
           sx={{
             display: 'flex',
@@ -20,20 +14,28 @@ function Technicals() {
             alignItems: 'center',
           }}
         >
-          <Typography variant="h2" sx={{ maxWidth: '630px' }}>
-            Crypto
-            <span
-              style={{
-                background:
-                  'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
-                backgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                paddingLeft: '6px',
-              }}
+          <div>
+            <Typography
+              variant="h4"
+              sx={{ mb: '4px', letterSpacing: 3, fontSize: '16px' }}
             >
-              Technicals
-            </span>{' '}
-          </Typography>
+              TECHNICALS{' '}
+            </Typography>
+            <Typography variant="h2" sx={{ maxWidth: '630px' }}>
+              Bitcoin
+              <span
+                style={{
+                  background:
+                    'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  paddingLeft: '6px',
+                }}
+              >
+                Technicals
+              </span>{' '}
+            </Typography>
+          </div>
           <Typography
             variant="h3"
             sx={{
@@ -47,12 +49,12 @@ function Technicals() {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ marginTop: '72px' }}>
+      <Box sx={{ marginTop: '16px' }}>
         <TechnicalCardContent />
       </Box>
       <Box
         sx={{
-          mt: '48px',
+          mt: '24px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -62,10 +64,11 @@ function Technicals() {
           variant="body1"
           sx={{
             background: 'rgba(17, 17, 17, 0.05)',
-            padding: '16px 24px 16px 32px',
+            padding: '11px 16px 11px  16px',
             fontWeight: '600',
             display: 'flex',
             justifyContent: 'center',
+            fontSize: '14px',
             alignItems: 'center',
             gap: '4px',
             borderRadius: '56px',

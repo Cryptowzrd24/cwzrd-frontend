@@ -15,131 +15,82 @@ interface CardProps {
   author: string;
 }
 
-const Card: React.FC<CardProps> = ({
-  img2,
-  title1,
-  title2,
-  title3,
-  heading,
-  description,
-  date,
-  author,
-}) => {
+const Card: React.FC<CardProps> = ({ img2, heading, date, author }) => {
   return (
     <>
       <Box
         sx={{
           position: 'relative',
           display: 'flex',
-          gap: '24px',
+          gap: '12px',
           padding: '8px 24px 8px 8px',
-          borderRadius: '12px',
-          width: '100%',
+          borderRadius: '16px',
           backgroundColor: '#fff',
           boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
-          backgroundImage: `url('/images/news-letter/corner.png')`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'top right',
-          backgroundSize: '35%',
         }}
       >
-        <Box height={160}>
+        <Box height={106}>
           <Image
             src={img2}
             alt="main picture"
-            width={300}
-            height={160}
+            width={150}
+            height={106}
             className="rounded-lg"
           />
         </Box>
-        <Stack sx={{ position: 'relative', zIndex: '1000', width: '61%' }}>
+        <Stack sx={{ position: 'relative', zIndex: '1000', width: '100%' }}>
           <Box
             sx={{
               display: 'flex',
               gap: '4px',
               alignItems: 'center',
-              mb: '10px',
+              marginBlock: '8px 6px',
             }}
           >
-            <Box
-              sx={{
-                padding: '5px 12px',
-                background: '#1111110D',
-                borderRadius: '100px',
-                display: 'inline-block',
-              }}
-            >
-              <Typography
-                variant="caption"
+            {['TRADE', 'BITCOIN', 'CRYPTO'].map((title) => (
+              <Box
                 sx={{
+                  minWidth: 52,
+                  height: 17,
                   background:
-                    'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  fontSize: '10px',
-                  fontWeight: '500',
+                    'linear-gradient(180deg, rgba(114, 72, 247, 0.1) 0%, rgba(191, 72, 247, 0.1) 100%)',
+                  borderRadius: '100px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
-                {title1}
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                padding: '5px 12px',
-                background: '#1111110D',
-                borderRadius: '100px',
-                display: 'inline-block',
-              }}
-            >
-              <Typography
-                variant="caption"
-                sx={{
-                  background:
-                    'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  fontSize: '10px',
-                  fontWeight: '500',
-                }}
-              >
-                {title2}
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                padding: '5px 12px',
-                background: '#1111110D',
-                borderRadius: '100px',
-                display: 'inline-block',
-              }}
-            >
-              <Typography
-                variant="caption"
-                sx={{
-                  background:
-                    'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  fontSize: '10px',
-                  fontWeight: '500',
-                }}
-              >
-                {title3}
-              </Typography>
-            </Box>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    background:
+                      'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    fontWeight: '500',
+                    lineHeight: '13px',
+                    letterSpacing: '1px',
+                    paddingInline: '8px',
+                  }}
+                >
+                  {title}
+                </Typography>
+              </Box>
+            ))}
           </Box>
           <Box>
-            <Typography variant="h5" sx={{ mb: '4px', width: '100%' }}>
+            <Typography
+              variant="h5"
+              sx={{ mb: '6px', marginLeft: '6px', width: '90%' }}
+            >
               {heading}
-            </Typography>
-            <Typography variant="body2" sx={{ mb: '10px' }}>
-              {description}
             </Typography>
           </Box>
           <Box
             sx={{
               background: '#1111110D',
-              padding: '12px 16px',
+              padding: '6px 12px',
               borderRadius: '8px',
             }}
           >

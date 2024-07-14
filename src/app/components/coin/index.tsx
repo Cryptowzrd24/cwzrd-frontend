@@ -12,25 +12,25 @@ import Table from '@/app/components/coin/table';
 function Coin() {
   return (
     <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-      <Box sx={{ mt: '80px' }}>
+      <Box sx={{ mt: '48px' }}>
         <Hero />
         <HeroContent />
         <Stats />
       </Box>
-      <Box sx={{ mt: '40px' }}>
+      <Box sx={{ mt: '16px' }}>
         <Table />
       </Box>
-      <Box sx={{ mt: '80px', mb: '80px' }}>
+      <Box sx={{ mt: '48px' }}>
         <NewsLetterBanner />
       </Box>
-      <Box sx={{ mt: '80px' }}>
+      <Box sx={{ mt: '48px' }}>
         <NewsLetter />
       </Box>
-      <Box sx={{ mt: '54px' }}>
+      <Box sx={{ mt: '48px' }}>
         <Technicals />
       </Box>
 
-      <Box sx={{ mt: '220px', mb: '120px' }}>
+      <Box sx={{ mt: '48px', mb: '48px' }}>
         <MemberShipBanner />
       </Box>
     </Container>

@@ -1,11 +1,11 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import GraphCard from '@/app/components/common/graphCard.component';
-import { areaChartData } from '@/app/constants/charts';
+// import GraphCard from '@/app/components/common/graphCard.component';
+// import { areaChartData } from '@/app/constants/charts';
 import { useAppSelector } from '@/app/redux/store';
 import { AnimatePresence, motion } from 'framer-motion';
-import GaugeChart from '../common/guage-chart';
+// import GaugeChart from '../common/guage-chart';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -17,7 +17,7 @@ function HeroContent() {
   };
   return (
     <>
-      <Typography variant="h1" sx={{ maxWidth: '960px' }}>
+      <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
         Today{' '}
         <span
           style={{
@@ -33,19 +33,19 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '20px',
-          maxWidth: '600px',
-          lineHeight: '30px',
+          fontSize: '16px',
+          lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
-          mt: '32px',
+          mt: '8px',
         }}
       >
         The overall market capitalization of the crypto market is
-        <span style={{ color: '#7248F7', fontWeight: '600', fontSize: '20px' }}>
+        <span style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}>
+          {' '}
           €2.26T.
         </span>{' '}
         an increase of{' '}
-        <span style={{ color: '#1FD773', fontWeight: '600', fontSize: '20px' }}>
+        <span style={{ color: '#1FD773', fontWeight: '600', fontSize: '16px' }}>
           +3.75%
         </span>{' '}
         in the last 24 hours.{' '}
@@ -61,8 +61,8 @@ function HeroContent() {
           style={{
             color: '#7248F7',
             cursor: 'pointer',
-            fontSize: '18px',
-            fontWeight: '500',
+            fontSize: '16px',
+            fontWeight: '700',
           }}
           onClick={handleToggle}
         >
@@ -73,11 +73,11 @@ function HeroContent() {
         {showStats && (
           <motion.div
             initial={{ opacity: 0, height: 0, marginTop: 0 }}
-            animate={{ opacity: 1, height: 'auto', marginTop: '48px' }}
+            animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2, marginTop: 0 }}
           >
-            <Box
+            {/* <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -105,7 +105,7 @@ function HeroContent() {
                 graphAttr={{ type: 'area', data: areaChartData }}
               />
               <GaugeChart value={0} />
-            </Box>
+            </Box> */}
           </motion.div>
         )}
       </AnimatePresence>

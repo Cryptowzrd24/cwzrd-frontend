@@ -2,8 +2,9 @@ import { useEffect, useRef } from 'react';
 
 const useWebSocket = (
   url: string,
-  updateRowData: (updatedRow: any) => void,
   rowData: any[],
+  updateRowData: (updatedRow: any) => void,
+  mapData: (message: any, existingRow: any) => any,
 ) => {
   const wsRef = useRef<WebSocket | null>(null);
 
@@ -24,19 +25,7 @@ const useWebSocket = (
       );
 
       if (existingRow) {
-        const updatedRow = {
-          ...existingRow,
-          percent_change_1h:
-            message.p1h !== null ? message.p1h : existingRow.percent_change_1h,
-          percent_change_24h:
-            message.p24h !== null
-              ? message.p24h
-              : existingRow.percent_change_24h,
-          percent_change_7d:
-            message.p7d !== null ? message.p7d : existingRow.percent_change_7d,
-          market_cap: message.mc !== null ? message.mc : existingRow.market_cap,
-        };
-
+        const updatedRow = mapData(message, existingRow);
         updateRowData(updatedRow);
       }
     };
@@ -54,7 +43,7 @@ const useWebSocket = (
         wsRef.current.close();
       }
     };
-  }, [url, rowData, updateRowData]);
+  }, [url, rowData, updateRowData, mapData]);
 
   return wsRef.current;
 };

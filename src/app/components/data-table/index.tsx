@@ -5,6 +5,7 @@ import './index.css';
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 import { ArrowRight } from '../../../../public/icons/arrowRight';
+import { priceNumberFormatter } from '@/utils/price-number-formater';
 
 interface DataTableProps {
   title?: string;
@@ -15,6 +16,7 @@ interface DataTableProps {
   seeMore?: string;
   gridApiRef?: React.MutableRefObject<any>;
   getRowId: (params: any) => string;
+  priceRefs?: React.MutableRefObject<{ [key: string]: HTMLDivElement | null }>;
 }
 
 const DataTable = memo(
@@ -27,15 +29,34 @@ const DataTable = memo(
     seeMore = '',
     gridApiRef,
     getRowId,
+    priceRefs,
   }: DataTableProps) => {
     const modifiedColumnDefs = useMemo(
       () =>
-        columnDefs.map((colDef) => ({
-          ...colDef,
-          suppressMovable: true,
-          resizable: false,
-        })),
-      [columnDefs],
+        columnDefs.map((colDef) => {
+          if (colDef.field === 'price') {
+            return {
+              ...colDef,
+              cellRenderer: (params: any) => {
+                const ref = (el: any) => {
+                  if (priceRefs) {
+                    priceRefs.current[params.data.coin_id] = el;
+                  }
+                  if (el) {
+                    el.innerText = `$${priceNumberFormatter(params.value)}`;
+                  }
+                };
+                return <div ref={ref} />;
+              },
+            };
+          }
+          return {
+            ...colDef,
+            suppressMovable: true,
+            resizable: false,
+          };
+        }),
+      [columnDefs, priceRefs],
     );
 
     return (
@@ -49,7 +70,7 @@ const DataTable = memo(
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              marginBottom: '24px',
+              marginBottom: '16px',
             }}
           >
             <Typography variant={'h6'}>{title}</Typography>
@@ -58,13 +79,13 @@ const DataTable = memo(
                 style={{
                   color: '#7248F7',
                   fontWeight: '700',
-                  fontSize: '16px',
-                  lineHeight: '26.4px',
+                  fontSize: '14px',
+                  lineHeight: 1,
                   textDecoration: 'none',
                   marginTop: '2px',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '4px',
+                  gap: '2px',
                 }}
                 href={seeMore}
               >
@@ -88,7 +109,7 @@ const DataTable = memo(
           getRowId={getRowId}
           rowStyle={{
             fontFamily: 'SF Pro Display',
-            fontSize: 16,
+            fontSize: 13,
             fontWeight: 400,
           }}
           domLayout="autoHeight"

@@ -1,10 +1,11 @@
 .market_cap_wrapper {
   position: relative;
-  min-height: 225px;
-  max-height: 225px;
+  min-height: 185px;
+  max-height: 185px;
   border-radius: 0.5rem;
   // width: 100%;
   width: 315px;
+  // min-width: 315px;
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
 
@@ -155,8 +156,8 @@
 .guage_card_wrapper {
   position: relative;
   width: 315px;
-  min-height: 225px;
-  max-height: 225px;
+  min-height: 185px;
+  max-height: 185px;
   border-radius: 0.5rem;
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;

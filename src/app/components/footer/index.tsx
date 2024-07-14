@@ -25,7 +25,13 @@ function Footer() {
         >
           <Typography
             variant="h1"
-            sx={{ fontWeight: '500', color: '#fff', maxWidth: '646px' }}
+            sx={{
+              fontWeight: '500',
+              color: '#fff',
+              maxWidth: '646px',
+              lineHeight: '70.4px',
+              fontSize: '64px',
+            }}
           >
             Join the Cryptowzrd Community Today!
           </Typography>

@@ -47,14 +47,15 @@ const stylesPage = {
   select: (width: any) => ({
     '& .MuiSelect-select': {
       width: width,
-      padding: '9.5px 16px',
+      padding: '5px 16px',
       background: '#F0ECFF',
       color: '#7248F7',
-      fontSize: '16px',
+      fontSize: '14px',
       fontWeight: 700,
       display: 'flex',
       alignItems: 'center',
       borderRadius: '8px',
+      paddingRight: '24px !important',
     },
     '& .MuiSvgIcon-root': {
       color: '#7248F7',
@@ -149,8 +150,8 @@ export const CustomHeader = ({
       <Chip
         key={key}
         sx={{
-          width: '120px',
-          height: '40px',
+          width: '100px',
+          height: '33px',
           border: isMatching ? '1px solid #7248F7' : 'none',
           borderRadius: '8px',
           padding: '16px 12px 16px 16px',
@@ -160,7 +161,7 @@ export const CustomHeader = ({
             order: 2,
             color: 'rgba(114, 72, 247, 1)',
             margin: '0',
-            fontSize: '22px',
+            fontSize: '16px',
           },
           '&:hover': {
             backgroundColor: 'rgba(114, 72, 247, 0.2)',
@@ -173,7 +174,7 @@ export const CustomHeader = ({
             paddingRight: '2px',
           },
           fontWeight: 700,
-          fontSize: '16px',
+          fontSize: '14px',
         }}
         label={label}
         icon={
@@ -201,8 +202,8 @@ export const CustomHeader = ({
   const chip = (
     <Chip
       sx={{
-        width: '115px',
-        height: '40px',
+        width: '100px',
+        height: '33px',
         borderRadius: '8px',
         padding: '10px 12px 10px 16px',
         backgroundColor: 'rgba(114, 72, 247, 0.1)',
@@ -211,7 +212,7 @@ export const CustomHeader = ({
           order: 1,
           color: 'rgba(114, 72, 247, 1)',
           margin: '0',
-          fontSize: '18px',
+          fontSize: '16px',
         },
         '&:hover': {
           backgroundColor: 'rgba(114, 72, 247, 0.2)',
@@ -224,7 +225,7 @@ export const CustomHeader = ({
           paddingRight: '15px',
         },
         fontWeight: 700,
-        fontSize: '16px',
+        fontSize: '14px',
       }}
       label="Add Filter"
       onClick={handleOpenFilterModal}

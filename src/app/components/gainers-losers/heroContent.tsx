@@ -2,12 +2,12 @@
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
-import GaugeChart from '../common/guage-chart';
-import GraphCardTop from '../common/graph-card-top';
-import { areaChartData } from '@/app/constants/charts';
-import Card3 from '../common/card3.component';
-import { colorConfig } from '@/app/helpers/config';
-import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
+// import GaugeChart from '../common/guage-chart';
+// import GraphCardTop from '../common/graph-card-top';
+// import { areaChartData } from '@/app/constants/charts';
+// import Card3 from '../common/card3.component';
+// import { colorConfig } from '@/app/helpers/config';
+// import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -17,7 +17,7 @@ function HeroContent() {
   };
   return (
     <>
-      <Typography variant="h1">
+      <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
         <span
           style={{
             backgroundImage:
@@ -32,10 +32,10 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '20px',
-          maxWidth: '600px',
-          lineHeight: '30px',
-          mt: '32px',
+          fontSize: '16px',
+          lineHeight: '24px',
+          color: 'rgba(17, 17, 17, 0.8)',
+          mt: '8px',
         }}
       >
         Insights into the biggest events shaping the crypto industry.{' '}
@@ -51,8 +51,8 @@ function HeroContent() {
           style={{
             color: '#7248F7',
             cursor: 'pointer',
-            fontSize: '18px',
-            fontWeight: '500',
+            fontSize: '16px',
+            fontWeight: '700',
           }}
           onClick={handleToggle}
         >
@@ -62,11 +62,11 @@ function HeroContent() {
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0, height: 0, marginTop: 0 }}
-          animate={{ opacity: 1, height: 'auto', marginTop: '48px' }}
+          animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2, marginTop: 0 }}
         >
-          <Box
+          {/* <Box
             sx={{
               display: 'flex',
               flexDirection: 'row',
@@ -97,7 +97,7 @@ function HeroContent() {
               end="in 7 days."
             />
             <GaugeChart value={0} />
-          </Box>
+          </Box> */}
         </motion.div>
       </AnimatePresence>
     </>

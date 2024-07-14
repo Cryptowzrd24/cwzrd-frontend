@@ -1,18 +1,20 @@
+import Image from 'next/image';
 import styles from './index.module.css';
 
 import { CustomCellRendererProps } from 'ag-grid-react';
 
 export const CurrencyNameComponent = (props: CustomCellRendererProps) => {
   const [firstWord] = props.value.split(' ');
-  const imgId = `https://s2.coinmarketcap.com/static/img/coins/32x32/${props.data.coin_id || 1}.png`;
+  const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${props.data.coin_id || 1}.png`;
   return (
     <div className={styles['currency-comp']}>
-      <img
+      <Image
+        loader={() => imgId}
+        width={32}
+        height={32}
         style={{
-          width: '32px',
-          height: '32px',
-          borderRadius: '25px',
-          marginBottom: '14px',
+          marginBottom: '18px',
+          borderRadius: '50%',
         }}
         src={imgId}
         alt=""
