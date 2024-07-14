@@ -12,19 +12,19 @@ function LiveExplorer() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'start',
-        paddingTop: '24px',
         borderRadius: '16px',
         overflow: 'hidden',
-        padding: '24px 18px',
-        paddingLeft: '0',
+        padding: '16px',
       }}
     >
       <Box
         sx={{
           display: 'flex',
-          mb: '32px',
+          mb: '12px',
           justifyContent: 'space-between',
           width: '100%',
+          paddingBottom: '12px',
+          borderBottom: '1px solid #FFFFFF1A',
         }}
       >
         <Typography
@@ -52,6 +52,7 @@ function LiveExplorer() {
               display: 'inline',
               fontWeight: '600',
               mb: '3px',
+              letterSpacing: 'normal',
             }}
           >
             See All
@@ -63,19 +64,23 @@ function LiveExplorer() {
       </Box>
       <Box
         sx={{
-          padding: '6px 10px',
+          padding: '4px 8px',
           borderRadius: '100px',
           gap: '6px',
           display: 'flex',
-          marginBottom: '12px',
+          marginBottom: '8px',
           background: 'white',
           alignItems: 'center',
         }}
       >
         <Clock />
         <Typography
-          variant="caption"
-          sx={{ color: '#111111', letterSpacing: '1px', mb: '1px' }}
+          sx={{
+            color: '#111111',
+            letterSpacing: '1px',
+            fontSize: '9px',
+            fontWeight: '500',
+          }}
         >
           2 MINUTES AGO
         </Typography>

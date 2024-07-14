@@ -1,47 +1,45 @@
 @font-face {
-    font-family: 'Sf Pro Display';
-    src: url('../assests/fonts/SFPRODISPLAYLIGHT.otf');
+    font-family: "Sf Pro Display";
+    src: url("../assests/fonts/SFPRODISPLAYLIGHT.otf");
     font-weight: 400;
     font-variant: normal;
     font-display: block;
 }
 
 @font-face {
-    font-family: 'Sf Pro Display';
-    src: url('../assests/fonts/SFPRODISPLAYREGULAR.OTF');
+    font-family: "Sf Pro Display";
+    src: url("../assests/fonts/SFPRODISPLAYREGULAR.OTF");
     font-weight: 500;
     font-variant: normal;
     font-display: block;
 }
 
 @font-face {
-    font-family: 'Sf Pro Display';
-    src: url('../assests/fonts/SFPRODISPLAYSEMIBOLD.otf');
+    font-family: "Sf Pro Display";
+    src: url("../assests/fonts/SFPRODISPLAYSEMIBOLD.otf");
     font-weight: 600;
     font-variant: normal;
     font-display: block;
 }
 
-
 @font-face {
-    font-family: 'Sf Pro Display';
-    src: url('../assests/fonts/SFPRODISPLAYBOLD.OTF');
+    font-family: "Sf Pro Display";
+    src: url("../assests/fonts/SFPRODISPLAYBOLD.OTF");
     font-weight: 700;
     font-variant: normal;
     font-display: block;
 }
 
 @font-face {
-    font-family: 'Sf Pro Text';
-    src: url('../assests/fonts/SFPROTEXTLIGHT.otf');
+    font-family: "Sf Pro Text";
+    src: url("../assests/fonts/SFPROTEXTLIGHT.otf");
     font-weight: 500;
     font-variant: normal;
     font-display: block;
 }
 
-
 body {
-    font-family: 'Sf Pro Display';
+    font-family: "Sf Pro Display";
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -67,13 +65,33 @@ body {
 .MuiPaginationItem-root {
     color: #11111199;
     font-weight: 700;
-    font-size: 16px;
-
-
+    font-size: 14px;
 }
 
 .MuiPaginationItem-root.Mui-selected {
-    color: #7248F7 !important;
-    background: #7248F71A !important;
+    color: #7248f7 !important;
+    background: #7248f71a !important;
+}
 
+.MuiPaper-root .MuiList-root {
+    padding-bottom: 2px !important;
+}
+.MuiPaper-root .MuiButtonBase-root.MuiMenuItem-root {
+    font-size: 14px !important;
+    line-height: 18.2px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    color: #111111cc !important;
+    padding: 0 !important;
+    margin-bottom: 6px !important;
+}
+
+.price-increase {
+    color: #01c877 !important;
+    transition: color 0.5s ease;
+}
+
+.price-decrease {
+    color: #f56d6d !important;
+    transition: color 0.5s ease;
 }

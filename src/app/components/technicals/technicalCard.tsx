@@ -33,77 +33,100 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
         backgroundPosition: 'center',
         display: 'flex',
         borderRadius: '16px',
-        padding: '16px',
+        padding: '8px',
         maxWidth: '394px',
         width: '100%',
         boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
       }}
     >
-      <Typography
-        variant="subtitle2"
-        sx={{ mt: '16px', mb: '12px', color: 'rgba(55, 97, 251, 1)' }}
-      >
-        {date}
-      </Typography>
-      <Typography
-        variant="h5"
-        sx={{
-          mb: '8px',
-          fontSize: '20px',
-          fontWeight: '500',
-          lineHeight: '22px',
+      <div
+        style={{
+          padding: '8px',
         }}
       >
-        {title}
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        sx={{
-          mb: '24px',
-          color: 'rgba(17, 17, 17, 0.8)',
-          fontWeight: '400',
-          fontSize: '14px',
-        }}
-      >
-        {desc}{' '}
-      </Typography>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px',
-          mb: '38px',
-        }}
-      >
-        <Box
+        <Typography
+          variant="subtitle2"
           sx={{
-            padding: '8px 12px',
-            border: '1px solid rgba(17, 17, 17, 0.1)',
-            borderRadius: '100px',
-            display: 'flex',
-            cursor: 'pointer',
-            gap: '8px',
-            alignItems: 'center',
+            mb: '8px',
+            color: 'rgba(55, 97, 251, 1)',
+            fontWeight: 700,
+            fontSize: '11px',
+            letterSpacing: '0.8px',
           }}
         >
-          {icon1}
-          <span>{value1}</span>
-        </Box>
-        <Box
+          {date}
+        </Typography>
+        <Typography
+          variant="h5"
           sx={{
-            padding: '8px 12px',
-            border: '1px solid rgba(17, 17, 17, 0.1)',
-            borderRadius: '100px',
-            display: 'flex',
-            cursor: 'pointer',
-            gap: '8px',
-            alignItems: 'center',
+            mb: '6px',
+            fontSize: '14px',
+            fontWeight: '500',
+            lineHeight: '15.4px',
+            letterSpacing: '0.8px',
           }}
         >
-          {icon2}
-          <span>{value2}</span>
+          {title}
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            mb: '8px',
+            color: 'rgba(17, 17, 17, 0.8)',
+            fontWeight: '400',
+            fontSize: '11px',
+            lineHeight: '16.5px',
+          }}
+        >
+          {desc}{' '}
+        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            mb: '8px',
+          }}
+        >
+          <Box
+            sx={{
+              padding: '8px 12px',
+              border: '1px solid rgba(17, 17, 17, 0.1)',
+              borderRadius: '100px',
+              display: 'flex',
+              cursor: 'pointer',
+              gap: '8px',
+              alignItems: 'center',
+              color: '#11111199',
+            }}
+          >
+            {icon1}
+            <span style={{ fontSize: '12px', fontWeight: '700' }}>
+              {value1}
+            </span>
+          </Box>
+          <Box
+            sx={{
+              padding: '8px 12px',
+              // border: '1px solid rgba(17, 17, 17, 0.1)',
+              borderRadius: '100px',
+              display: 'flex',
+              cursor: 'pointer',
+              gap: '8px',
+              alignItems: 'center',
+              background:
+                'linear-gradient(116.74deg, rgba(34, 200, 51, 0.1) -4.07%, rgba(34, 200, 51, 0.1) 100.68%)',
+            }}
+          >
+            {icon2}
+            <span
+              style={{ fontSize: '12px', fontWeight: '700', color: '#11D269' }}
+            >
+              {value2}
+            </span>
+          </Box>
         </Box>
-      </Box>
+      </div>
       <Image
         src={image}
         alt="grah"

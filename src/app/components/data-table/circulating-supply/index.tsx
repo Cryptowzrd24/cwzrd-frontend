@@ -12,7 +12,9 @@ export const CirculatingSupply = (props: CustomCellRendererProps) => {
     (props.data.circulating_supply / props.data.max_supply) * 100;
   return (
     <div className={styles['circulating-comp']}>
-      <p className={styles['price-main']}>{`${val} ${props.data.symbol}`}</p>
+      <div
+        className={styles['price-main']}
+      >{`${val} ${props.data.symbol}`}</div>
       {props.data.max_supply !== null && (
         <div className={styles['row-tooltip-progress-bar']}>
           <LinearProgress

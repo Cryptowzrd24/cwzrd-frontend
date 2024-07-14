@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import numeral from 'numeral';
 import { Box, Typography, Tooltip } from '@mui/material';
 import { ArrowDown } from '../../../../public/icons/arrowDown';
 import { useFetchStatsDataQuery } from '@/app/redux/reducers/data-grid';
@@ -29,6 +30,7 @@ interface RowData {
   label: string;
   value: string;
   change?: string;
+  data?: any;
 }
 
 interface StatItemProps {
@@ -151,9 +153,9 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
     >
       <Typography
         sx={{
-          fontSize: '14px',
+          fontSize: '13px',
           fontWeight: 500,
-          lineHeight: '18px',
+          lineHeight: '16.9px',
           color: '#11111199',
         }}
       >
@@ -161,9 +163,9 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
       </Typography>
       <Typography
         sx={{
-          fontSize: '14px',
+          fontSize: '13px',
           fontWeight: 500,
-          lineHeight: '18px',
+          lineHeight: '16.9px',
           color: '#7248F7',
         }}
       >
@@ -192,25 +194,30 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
 
 const Stats = () => {
   const { data } = useFetchStatsDataQuery({});
-  console.log('data stats---------------------', data);
   const [rowData, setRowData] = useState<RowData[]>([]);
   useEffect(() => {
     if (data && data.results) {
       const formattedData: RowData[] = data.results.map((item: ApiData) => [
+        {
+          label: 'Cryptos',
+          value: '2.4M',
+        },
         {
           label: 'Exchanges:',
           value: item.active_exchanges.toString(),
         },
         {
           label: 'Market Cap:',
-          value: `$${(item.quote.USD.total_market_cap / 1e12).toFixed(2)}T`,
+          value: `$${numeral(item.quote.USD.total_market_cap).format('0.00a').toUpperCase()}`,
           change: item.quote.USD.total_market_cap_yesterday_percentage_change
             ? `${item.quote.USD.total_market_cap_yesterday_percentage_change.toFixed(2)}%`
             : '0.00%',
         },
         {
           label: '24h Vol:',
-          value: `$${(item.quote?.USD?.total_volume_24h ?? 0 / 1e9)?.toFixed(2) || '0.00'}B`,
+          value: `$${numeral(item.quote?.USD?.total_volume_24h ?? 0)
+            .format('0.00a')
+            .toUpperCase()}`,
           change: item.quote.USD.total_volume_24h_yesterday_percentage_change
             ? `${item.quote.USD.total_volume_24h_yesterday_percentage_change?.toFixed(2) || '0.00'}%`
             : '0.00%',
@@ -219,6 +226,25 @@ const Stats = () => {
           label: 'Dominance:',
           value: `BTC: ${parseFloat(item.btc_dominance?.toString() ?? '0').toFixed(2)}% ETH: ${parseFloat(item.eth_dominance?.toString() ?? '0').toFixed(2)}%`,
         },
+        {
+          label: 'ETH Gas:',
+          value: '20 Gwei',
+          data: {
+            slow: {
+              value: 20,
+              second: 145,
+            },
+            standard: {
+              value: 20,
+              second: 145,
+            },
+            fast: {
+              value: 23,
+              second: 145,
+            },
+          },
+        },
+        { label: 'Fear & Greed:', value: '76/100' },
       ]);
       setRowData(formattedData.flat());
     }
@@ -229,11 +255,11 @@ const Stats = () => {
       sx={{
         display: 'flex',
         justifyContent: 'space-around',
-        padding: '24px',
+        padding: '15px 24px',
         backgroundColor: 'white',
         borderRadius: '24px',
         boxShadow: '0px 4px 28px 0px #0000000D',
-        marginTop: '40px',
+        marginTop: '16px',
       }}
     >
       {rowData.map((stat, index) => (
@@ -242,6 +268,7 @@ const Stats = () => {
           label={stat.label}
           value={stat.value}
           change={stat.change}
+          data={stat?.data}
         />
       ))}
     </Box>

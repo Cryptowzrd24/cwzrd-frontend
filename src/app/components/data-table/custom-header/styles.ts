@@ -1,19 +1,19 @@
 const styles = {
   link: (isActive: boolean) => ({
-    fontSize: 14,
-    fontWeight: 700,
-    color: isActive ? '#7248F7' : '#11111199',
+    fontSize: 12,
+    fontWeight: 600,
+    color: isActive ? '#7248F7' : '#111111',
     background: isActive ? '#7248F71A' : 'transparent',
     textDecoration: 'none',
     padding: '11px 16px',
-    lineHeight: '18.2px',
+    lineHeight: '15.6px',
     borderRadius: '40px',
   }),
   iconBox: {
-    padding: '10px',
+    padding: '8px',
     borderRadius: '8px',
     background: '#7248F71A',
-    height: '20px',
+    height: '16px',
     cursor: 'pointer',
   },
   select: {
@@ -42,17 +42,17 @@ const styles = {
     borderRadius: '8px',
   },
   searchContainer: {
-    paddingTop: '24px',
+    paddingTop: '12px',
     borderTop: '1px solid #1111111A',
     paddingInline: '20px',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     gap: '8px',
-    marginTop: '24px',
+    marginTop: '12px',
   },
   filterContainerBox: {
-    paddingTop: '24px',
+    paddingTop: '12px',
     borderTop: '1px solid #1111111A',
     paddingInline: '20px',
     display: 'flex',
@@ -76,12 +76,12 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: '24px',
+    marginBottom: '12px',
   },
   typography: {
-    fontSize: '16px',
+    fontSize: '12px',
     fontWeight: 600,
-    lineHeight: '20.8px',
+    lineHeight: '15.6px',
     color: '#11111199',
   },
   filterContainer: {

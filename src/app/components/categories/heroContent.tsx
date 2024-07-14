@@ -2,16 +2,16 @@
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
-import GaugeChart from '../common/guage-chart';
-import btc from '@/app/assets/images/btc.png';
-import nft from '@/app/assets/images/nft.png';
-import frogImage from '@/app/assets/images/frogImage.png';
-import Card2 from '../common/card2.component';
-import Card4 from '../common/card4.component';
-import { colorConfig } from '@/app/helpers/config';
-import newsImage from '@/app/assets/images/newsBgImage.png';
-import TopNftCollection from '../common/top-nft-collections-card';
-import { areaChartData } from '@/app/constants/charts';
+// import GaugeChart from '../common/guage-chart';
+// import btc from '@/app/assets/images/btc.png';
+// import nft from '@/app/assets/images/nft.png';
+// import frogImage from '@/app/assets/images/frogImage.png';
+// import Card2 from '../common/card2.component';
+// import Card4 from '../common/card4.component';
+// import { colorConfig } from '@/app/helpers/config';
+// import newsImage from '@/app/assets/images/newsBgImage.png';
+// import TopNftCollection from '../common/top-nft-collections-card';
+// import { areaChartData } from '@/app/constants/charts';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -21,7 +21,7 @@ function HeroContent() {
   };
   return (
     <>
-      <Typography variant="h1" sx={{ maxWidth: '720px', width: '100%' }}>
+      <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
         Top Crypto{' '}
         <span
           style={{
@@ -37,10 +37,10 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '20px',
-          maxWidth: '600px',
-          lineHeight: '30px',
-          mt: '32px',
+          fontSize: '16px',
+          lineHeight: '24px',
+          color: 'rgba(17, 17, 17, 0.8)',
+          mt: '8px',
         }}
       >
         Insights into the biggest events shaping the crypto industry.{' '}
@@ -56,8 +56,8 @@ function HeroContent() {
           style={{
             color: '#7248F7',
             cursor: 'pointer',
-            fontSize: '18px',
-            fontWeight: '500',
+            fontSize: '16px',
+            fontWeight: '700',
           }}
           onClick={handleToggle}
         >
@@ -67,11 +67,11 @@ function HeroContent() {
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0, height: 0, marginTop: 0 }}
-          animate={{ opacity: 1, height: 'auto', marginTop: '48px' }}
+          animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2, marginTop: 0 }}
         >
-          <Box
+          {/* <Box
             sx={{
               display: 'flex',
               flexDirection: 'row',
@@ -114,7 +114,7 @@ function HeroContent() {
               name={'John Smith'}
             />
             <GaugeChart value={0} />
-          </Box>
+          </Box> */}
         </motion.div>
       </AnimatePresence>
     </>

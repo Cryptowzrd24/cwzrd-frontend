@@ -13,9 +13,7 @@ export const VolumeComponent = (props: CustomCellRendererProps) => {
   const isPathNewCoin = pathName.includes('/market/new-coin');
 
   return (
-    <div
-      className={`${!isPathNewCoin ? styles['volume-comp'] : styles['margin-none']} `}
-    >
+    <div className={styles['volume-comp']}>
       <p className={styles['price-main']}>{val}</p>
       {!isPathNewCoin && (
         <p

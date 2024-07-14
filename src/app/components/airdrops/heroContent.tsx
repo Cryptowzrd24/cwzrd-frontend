@@ -12,11 +12,11 @@ function HeroContent() {
     <>
       <Typography
         variant="h4"
-        sx={{ mb: '12px', letterSpacing: '1.5px', fontSize: 18 }}
+        sx={{ letterSpacing: '1px', fontSize: 14, marginBottom: '8px' }}
       >
         MARKET CAP
       </Typography>
-      <Typography variant="h1" sx={{ maxWidth: '830px', width: '100%' }}>
+      <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
         Potential{' '}
         <span
           style={{
@@ -32,10 +32,10 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '20px',
-          maxWidth: '830px',
-          lineHeight: '30px',
-          mt: '32px',
+          fontSize: '16px',
+          lineHeight: '24px',
+          color: 'rgba(17, 17, 17, 0.8)',
+          mt: '8px',
         }}
       >
         CoinMarketCap ranks and scores exchanges based on traffic, liquidity,
@@ -53,8 +53,8 @@ function HeroContent() {
           style={{
             color: '#7248F7',
             cursor: 'pointer',
-            fontSize: '18px',
-            fontWeight: '500',
+            fontSize: '16px',
+            fontWeight: '700',
           }}
           onClick={handleToggle}
         >

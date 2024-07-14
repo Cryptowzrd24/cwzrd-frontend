@@ -18,7 +18,7 @@ export const Pagination = ({
   return (
     <Box
       style={{
-        paddingTop: '24px',
+        paddingTop: '12px',
         borderTop: '1px solid #1111111A',
         display: 'flex',
         alignItems: 'center',
@@ -29,9 +29,9 @@ export const Pagination = ({
       <Typography
         style={{
           color: '#11111166',
-          fontSize: '16px',
+          fontSize: '14px',
           fontWeight: 500,
-          lineHeight: '20.8px',
+          lineHeight: '18.2px',
         }}
       >
         Showing {start} - {end} out of {length}

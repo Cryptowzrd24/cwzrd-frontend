@@ -17,14 +17,14 @@ const Hero: React.FC = () => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h4" sx={{ letterSpacing: '1.5px', fontSize: 18 }}>
+        <Typography variant="h4" sx={{ letterSpacing: '1px', fontSize: 14 }}>
           MARKET CAP
         </Typography>
         <Box sx={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
           <Box
             sx={{
               border: '1px solid rgba(17, 17, 17, 0.1)',
-              borderRadius: '72px',
+              borderRadius: '100px',
               padding: { xs: '2px', sm: '4px' },
               display: 'flex',
               cursor: 'pointer',

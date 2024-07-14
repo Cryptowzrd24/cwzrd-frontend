@@ -85,7 +85,7 @@ const Table = () => {
           display: 'flex',
           gap: '36px',
           borderTop: '1px solid #1111111A',
-          paddingTop: '24px',
+          paddingTop: '16px',
         }}
       >
         <DataTable
