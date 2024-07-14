@@ -158,7 +158,7 @@ const Table = () => {
             columnDefs={columnCoinsDef}
             width="100%"
             gridApiRef={gridApiRef}
-            getRowId={(params) => params.data.coin_id}
+            getRowId={(params: any) => params.data.coin_id}
             priceRefs={priceRefs}
           />
         )}
