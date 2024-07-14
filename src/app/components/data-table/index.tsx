@@ -15,7 +15,7 @@ interface DataTableProps {
   search?: string;
   seeMore?: string;
   gridApiRef?: React.MutableRefObject<any>;
-  getRowId: (params: any) => string;
+  getRowId?: any;
   priceRefs?: React.MutableRefObject<{ [key: string]: HTMLDivElement | null }>;
 }
 
@@ -28,7 +28,7 @@ const DataTable = memo(
     search = '',
     seeMore = '',
     gridApiRef,
-    getRowId,
+    getRowId = () => {},
     priceRefs,
   }: DataTableProps) => {
     const modifiedColumnDefs = useMemo(
@@ -105,7 +105,6 @@ const DataTable = memo(
           tooltipShowDelay={0}
           quickFilterText={search}
           tooltipInteraction={true}
-          immutableData={true}
           getRowId={getRowId}
           rowStyle={{
             fontFamily: 'SF Pro Display',
