@@ -1,5 +1,11 @@
 .volume-comp {
-  margin-top: -10px;
+  /* margin-top: -10px; */
+  height: inherit;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .margin-none{
@@ -8,17 +14,16 @@
 .margin-none p{
   margin: 0;
   padding: 0;
-  height: 22px;
 }
 
 .volume-comp p {
   margin: 0;
   padding: 0;
-  height: 22px;
 }
 
 .price-main {
-  font-size: 16px;
+  font-size: 13px;
+  line-height: 16.9px;
   font-family: 'Sf Pro Display';
   font-weight: 400;
 }
@@ -26,6 +31,7 @@
 .sub-price {
   font-size: 12px;
   font-weight: 400;
+  line-height: 15.6px;
   color: rgba(17, 17, 17, 0.6);
   font-family: 'Sf Pro Display';
 }

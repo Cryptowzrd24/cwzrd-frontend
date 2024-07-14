@@ -25,9 +25,9 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Sf Pro Display',
     h1: {
-      fontSize: '64px',
+      fontSize: '32px',
       fontWeight: 700,
-      lineHeight: '64px',
+      lineHeight: '38.4px',
       color: colors.primary,
       '@media (max-width:660px)': {
         fontSize: '36px',
@@ -36,10 +36,10 @@ const theme = createTheme({
       },
     },
     h2: {
-      fontSize: '56px',
-      fontWeight: 600,
       color: colors.primary,
-      lineHeight: '61px',
+      fontSize: '32px',
+      fontWeight: 700,
+      lineHeight: '38.4px',
       '@media (max-width:660px)': {
         fontSize: '28px',
         fontWeight: 500,
@@ -47,8 +47,9 @@ const theme = createTheme({
       },
     },
     h3: {
-      fontSize: '20px',
+      fontSize: '14px',
       fontWeight: 400,
+      lineHeight: '21px',
       color: colors.primary,
       '@media (max-width:660px)': {
         fontSize: '16px',
@@ -63,22 +64,23 @@ const theme = createTheme({
       },
     },
     h5: {
-      fontSize: '18px',
+      fontSize: '14px',
       fontWeight: 700,
+      lineHeight: '18.2px',
       color: colors.primary,
       '@media (max-width:660px)': {
         fontSize: '16px',
       },
     },
     h6: {
-      fontSize: '24px',
-      lineHeight: '26.4px',
+      fontSize: '18px',
+      lineHeight: 1,
       color: '#111111',
       fontFamily: 'Sf Pro Text',
       fontWeight: 'bold',
     },
     body1: {
-      fontSize: '18px',
+      fontSize: '16px',
       fontWeight: 400,
       color: colors.primary,
       '@media (max-width:660px)': {
@@ -97,9 +99,10 @@ const theme = createTheme({
       },
     },
     subtitle2: {
-      fontSize: '14px',
+      fontSize: '12px',
       fontWeight: 700,
-      lineHeight: '18px',
+      lineHeight: '15.6px',
+      letterSpacing: '2px',
       color: colors.primary,
       '@media (max-width:660px)': {
         fontSize: '13px',
@@ -117,9 +120,9 @@ const theme = createTheme({
       },
     },
     subtitle1: {
-      fontSize: '11px',
-      fontWeight: 400,
-      lineHeight: '14.3px',
+      fontSize: '10px',
+      fontWeight: 500,
+      lineHeight: '13px',
     },
   },
   components: {

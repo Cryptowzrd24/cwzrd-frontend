@@ -5,7 +5,7 @@ import { Box } from '@mui/material';
 
 function LiveExplorerCardList() {
   return (
-    <Box>
+    <Box sx={{ overflowY: 'scroll', height: '417px' }}>
       {LiveCardData.map((card) => (
         <LiveExplorerCard
           key={card.id}

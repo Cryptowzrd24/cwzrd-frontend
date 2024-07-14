@@ -1,10 +1,17 @@
 .circulating-comp {
-  margin-top: -25px;
-  font-size: 16px;
-  font-family: 'Sf Pro Display';
-  font-weight: 400;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
 }
 
-.row-tooltip-progress-bar{
-    margin-top: -35px;
+.price-main {
+  font-size: 13px;
+  font-family: "Sf Pro Display";
+  font-weight: 400;
+  line-height: 16.9px;
+}
+.row-tooltip-progress-bar {
+  /* margin-top: -25px; */
 }

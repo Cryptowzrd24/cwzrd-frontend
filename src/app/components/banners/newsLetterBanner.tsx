@@ -12,18 +12,15 @@ function NewsLetterBanner() {
             width: '100%',
             margin: 'auto',
             gap: '8px',
-            textAlign: 'center',
             display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
           }}
         >
           <Typography
-            variant="body1"
             sx={{
-              fontSize: '16px',
+              fontSize: '12px',
               color: 'rgba(255, 255, 255, 1)',
-              letterSpacing: 3,
+              letterSpacing: '1px',
+              lineHeight: '15.6px',
             }}
           >
             NEWSLETTER
@@ -31,28 +28,29 @@ function NewsLetterBanner() {
           <Typography
             variant="h2"
             sx={{
-              fontWeight: '500',
+              fontWeight: '700',
+              maxWidth: '606px',
               mb: '8px',
               color: 'rgba(255, 255, 255, 1)',
+              lineHeight: '44px',
+              letterSpacing: '2px',
+              marginBottom: '0px',
+              fontSize: '40px',
             }}
           >
             Subscribe To Our Weekly Newsletter!
-          </Typography>
-          <Typography variant="body1" sx={{ color: '#FFFFFFCC' }}>
-            Join our newsletter to receive the latest updates, insights, and
-            analysis from our team of experts. Don't miss out on opportunities{' '}
           </Typography>
           <Box
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              padding: '6px 6px 6px 24px',
               borderRadius: '100px',
-              maxWidth: '630px',
+              maxWidth: '470px',
               width: '100%',
+              marginTop: '24px',
               background: 'rgba(255, 255, 255, 1)',
-              margin: '48px auto 0 auto',
+              padding: '4px 4px 4px 24px',
             }}
           >
             <input
@@ -65,13 +63,18 @@ function NewsLetterBanner() {
                 variant="contained"
                 endIcon={<ArrowRight />}
                 sx={{
+                  background:
+                    'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)',
                   borderRadius: '56px',
                   display: 'flex',
-                  alignItems: 'flex-start',
-                  fontWeight: '700',
-                  padding: '10px 20px 4px 24px',
+                  alignItems: 'center',
+                  fontWeight: '600',
                   justifyContent: 'center',
-                  fontSize: '16px',
+                  fontSize: '14px',
+                  lineHeight: '18.2px',
+                  height: '40px',
+                  width: '128px',
+                  padding: 0,
                 }}
               >
                 Get Started

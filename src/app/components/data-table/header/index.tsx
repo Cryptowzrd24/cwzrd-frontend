@@ -39,7 +39,15 @@ export const HeaderComponent = (props: IHeaderParams) => {
 
   return (
     <div className={styles['header-component']} onClick={onHeaderClick}>
-      <p className="text-primary text-sm font-semibold">{displayName}</p>
+      <div
+        style={{
+          fontSize: '13px',
+          color: '#111111',
+        }}
+        className="text-primary font-semibold"
+      >
+        {displayName}
+      </div>
       <Tooltip
         title={<HeaderTooltip headerName={props.displayName} />}
         arrow={false}

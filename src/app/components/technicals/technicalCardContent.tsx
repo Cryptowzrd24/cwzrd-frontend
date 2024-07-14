@@ -54,12 +54,12 @@ const TechnicalCardContent: React.FC = () => {
       <Box
         style={{
           position: 'absolute',
-          bottom: '-100px',
+          bottom: '-70px',
           right: '3%',
           transform: 'translateX(-50%)',
           display: 'flex',
           justifyContent: 'space-between',
-          width: '64px',
+          width: '48px',
           gap: '8px',
         }}
       >
@@ -103,7 +103,7 @@ const TechnicalCardContent: React.FC = () => {
         sx={{
           position: 'absolute',
           left: '2%',
-          bottom: '-83px',
+          bottom: '-55px',
           color: 'rgba(17, 17, 17, 0.4)',
           fontSize: '16px',
           fontWeight: '500',

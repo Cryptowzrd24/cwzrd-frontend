@@ -12,27 +12,26 @@ import Card from './cards';
 function AirDrops() {
   return (
     <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-      <Box sx={{ mt: '80px' }}>
+      <Box sx={{ mt: '48px' }}>
         <HeroContent />
         <Stats />
       </Box>
-      <Box sx={{ mt: '40px' }}>
+      <Box sx={{ mt: '48px' }}>
         <Table />
       </Box>
-      <Box sx={{ mt: '40px' }}>
+      <Box sx={{ mt: '32px' }}>
         <Card />
       </Box>
-      <Box sx={{ mt: '120px' }}>
+      <Box sx={{ mt: '48px' }}>
         <NewsLetterBanner />
       </Box>
-      <Box sx={{ mt: '120px' }}>
+      <Box sx={{ mt: '48px' }}>
         <NewsLetter />
       </Box>
-      <Box sx={{ mt: '90px' }}>
+      <Box sx={{ mt: '48px' }}>
         <Technicals />
       </Box>
-
-      <Box sx={{ mt: '180px', mb: '120px' }}>
+      <Box sx={{ mt: '48px', mb: '48px' }}>
         <MemberShipBanner />
       </Box>
     </Container>

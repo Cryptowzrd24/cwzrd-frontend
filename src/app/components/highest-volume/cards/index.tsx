@@ -28,7 +28,7 @@ const Card = ({
     ? '/images/spotlight-cards/background1.png'
     : '/images/spotlight-cards/background2.png';
 
-  const imgUrl = `https://s2.coinmarketcap.com/static/img/coins/32x32/${coinId}.png`;
+  const imgUrl = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinId}.png`;
 
   const getRankContent = (index: number) => {
     switch (index) {
@@ -87,10 +87,15 @@ const Card = ({
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <img
+            <Image
               src={imgUrl}
+              loader={() => imgUrl}
+              width={40}
+              height={40}
+              style={{
+                borderRadius: '50%',
+              }}
               alt="title"
-              style={{ width: '40px', height: '40px' }}
             />
             <Stack>
               <Typography

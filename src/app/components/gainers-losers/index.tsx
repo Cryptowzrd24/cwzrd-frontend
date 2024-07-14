@@ -7,29 +7,31 @@ import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import MemberShipBanner from '../banners/memberShipBanner';
 import Table from '@/app/components/gainers-losers/table';
+import Stats from '../stats';
 
 const GainersLosers = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <Hero />
           <HeroContent />
+          <Stats />
         </Box>
-        <Box sx={{ mt: '40px' }}>
+        <Box sx={{ mt: '16px' }}>
           <Table />
         </Box>
-        <Box sx={{ mt: '80px', mb: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <NewsLetterBanner />
         </Box>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <NewsLetter />
         </Box>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <Technicals />
         </Box>
 
-        <Box sx={{ mt: '220px', mb: '120px' }}>
+        <Box sx={{ mt: '48px', mb: '48px' }}>
           <MemberShipBanner />
         </Box>
       </Container>

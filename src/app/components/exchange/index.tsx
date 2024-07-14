@@ -11,28 +11,26 @@ const Exchange = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <HeroContent />
         </Box>
       </Container>
-      {/*<Box sx={{ mt: '40px' }}>*/}
-      {/*  <SkeletonComponent />*/}
-      {/*</Box>*/}
+
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '40px' }}>
+        <Box sx={{ mt: '16px' }}>
           <Table />
         </Box>
-        <Box sx={{ mt: '80px', mb: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <NewsLetterBanner />
         </Box>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <NewsLetter />
         </Box>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <Technicals />
         </Box>
 
-        <Box sx={{ mt: '220px', mb: '120px' }}>
+        <Box sx={{ mt: '48px', mb: '48px' }}>
           <MemberShipBanner />
         </Box>
       </Container>
