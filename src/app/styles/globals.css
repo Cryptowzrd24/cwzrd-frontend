@@ -76,7 +76,8 @@ body {
 .MuiPaper-root .MuiList-root {
     padding-bottom: 2px !important;
 }
-.MuiPaper-root .MuiButtonBase-root.MuiMenuItem-root {
+
+.MuiButtonBase-root.MuiMenuItem-root {
     font-size: 14px !important;
     line-height: 18.2px !important;
     font-weight: 600 !important;
@@ -84,6 +85,8 @@ body {
     color: #111111cc !important;
     padding: 0 !important;
     margin-bottom: 6px !important;
+    align-items: center;
+    justify-content: center;
 }
 
 .price-increase {

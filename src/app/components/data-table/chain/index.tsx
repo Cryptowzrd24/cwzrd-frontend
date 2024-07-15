@@ -9,7 +9,6 @@ import { CustomCellRendererProps } from 'ag-grid-react';
 import Image from 'next/image';
 
 export const ChainComp = (props: CustomCellRendererProps) => {
-  console.log(props);
   const [, setChainIcon] = useState(chainIconOne);
 
   const getRandomChainIcon = () => {
