@@ -17,12 +17,17 @@ function Technicals() {
           <div>
             <Typography
               variant="h4"
-              sx={{ mb: '4px', letterSpacing: 3, fontSize: '16px' }}
+              sx={{
+                mb: '4px',
+                letterSpacing: 3,
+                fontSize: '16px',
+                fontWeight: '400',
+              }}
             >
               TECHNICALS{' '}
             </Typography>
             <Typography variant="h2" sx={{ maxWidth: '630px' }}>
-              Bitcoin
+              Crypto
               <span
                 style={{
                   background:

@@ -19,7 +19,12 @@ function NewsLetter() {
           <div>
             <Typography
               variant="h4"
-              sx={{ mb: '4px', letterSpacing: 3, fontSize: '16px' }}
+              sx={{
+                mb: '4px',
+                letterSpacing: 3,
+                fontSize: '16px',
+                fontWeight: '400',
+              }}
             >
               NEWSLETTER
             </Typography>

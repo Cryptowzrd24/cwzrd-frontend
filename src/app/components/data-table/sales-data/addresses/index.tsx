@@ -5,13 +5,13 @@ import CopyIcon from '../../../../../../public/icons/nft/copy';
 export const SalesAddresses = () => {
   return (
     <>
-      <Stack>
+      <Stack sx={{ mt: '8px' }}>
         <Box>
           <Typography
             variant="body1"
             sx={{
               color: 'rgba(17, 17, 17, 0.8)',
-              fontSize: '16px',
+              fontSize: '13px',
               fontWeight: '400',
             }}
           >
@@ -19,8 +19,8 @@ export const SalesAddresses = () => {
             <span
               style={{
                 color: 'rgba(17, 17, 17, 1)',
-                fontSize: '16px',
-                fontWeight: '500',
+                fontSize: '13px',
+                fontWeight: '600',
               }}
             >
               0xef0b31nbIOJ948Ko20A1ks89sSK...
@@ -35,7 +35,7 @@ export const SalesAddresses = () => {
             variant="body1"
             sx={{
               color: 'rgba(17, 17, 17, 0.8)',
-              fontSize: '16px',
+              fontSize: '13px',
               fontWeight: '400',
             }}
           >
@@ -43,8 +43,8 @@ export const SalesAddresses = () => {
             <span
               style={{
                 color: 'rgba(17, 17, 17, 1)',
-                fontSize: '16px',
-                fontWeight: '500',
+                fontSize: '13px',
+                fontWeight: '600',
               }}
             >
               0xef0b31nbIOJ948Ko20A1ks89suysSK...

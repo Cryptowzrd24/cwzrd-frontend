@@ -11,7 +11,7 @@ const MarketPlace = () => {
       <Typography
         variant="body1"
         sx={{
-          fontSize: '16px',
+          fontSize: '13px',
           fontWeight: '600',
           color: 'rgba(17, 17, 17, 1)',
         }}

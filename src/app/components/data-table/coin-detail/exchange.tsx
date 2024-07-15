@@ -34,7 +34,7 @@ export const Exchange = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
               }}

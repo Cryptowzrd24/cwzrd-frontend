@@ -8,7 +8,7 @@ const CoinInfo = () => {
       <Box
         sx={{
           boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
-          padding: '24px',
+          padding: '32px',
           borderRadius: '16px',
           background: 'rgba(255, 255, 255, 1)',
           marginBottom: '24px',
@@ -18,11 +18,12 @@ const CoinInfo = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '18px',
-              fontWeight: '500',
+              fontSize: '16px',
+              fontWeight: '400',
               color: 'rgba(17, 17, 17, 1)',
               letterSpacing: '2px',
-              ml: '8px',
+              ml: '4px',
+              mb: '4px',
             }}
           >
             INFO
@@ -30,11 +31,10 @@ const CoinInfo = () => {
           <Typography
             variant="h2"
             sx={{
-              fontSize: '56px',
-              fontWeight: '600',
+              fontSize: '40px',
+              fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
-              letterSpacing: '-2px',
-              mb: '32px',
+              mb: '24px',
             }}
           >
             About{' '}
@@ -44,7 +44,6 @@ const CoinInfo = () => {
                   'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                letterSpacing: '-2px',
               }}
             >
               Bitcoin
@@ -54,7 +53,7 @@ const CoinInfo = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -65,7 +64,7 @@ const CoinInfo = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
@@ -80,11 +79,11 @@ const CoinInfo = () => {
           </Box>
 
           {/* --------------------- */}
-          <Box sx={{ mb: '24px' }}>
+          <Box sx={{ mb: '16px' }}>
             <Typography
               variant="body1"
               sx={{
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -95,7 +94,7 @@ const CoinInfo = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
@@ -113,11 +112,11 @@ const CoinInfo = () => {
             </Typography>
           </Box>
           {/* ---------------------------------- */}
-          <Box sx={{ mb: '24px' }}>
+          <Box sx={{ mb: '16px' }}>
             <Typography
               variant="body1"
               sx={{
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -128,7 +127,7 @@ const CoinInfo = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
@@ -141,11 +140,11 @@ const CoinInfo = () => {
             </Typography>
           </Box>
           {/* ------------------------------ */}
-          <Box sx={{ mb: '24px' }}>
+          <Box sx={{ mb: '16px' }}>
             <Typography
               variant="body1"
               sx={{
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -156,7 +155,7 @@ const CoinInfo = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
@@ -193,7 +192,7 @@ const CoinInfo = () => {
             >
               Read More
             </Typography>
-            <Box sx={{ mt: '5px' }}>
+            <Box sx={{ mt: '8px' }}>
               <RightArrowLinearGraident />
             </Box>
           </Box>
