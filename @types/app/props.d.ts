@@ -9,7 +9,7 @@ declare global {
       prefix?: string;
     };
     percent: number;
-    graphAttr: {
+    graphAttr?: {
       type: 'area' | 'line' | 'bar';
       data: { x: string | number; y: string | number }[];
     };

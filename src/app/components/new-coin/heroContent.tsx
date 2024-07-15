@@ -2,12 +2,14 @@
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
-// import GaugeChart from '../common/guage-chart';
-// import Card3 from '../common/card3.component';
-// import { colorConfig } from '@/app/helpers/config';
-// import cardBgImage from '@/app/assets/images/cardImagebg.png';
-// import Card1 from '../common/card1.component';
-// import frogImage from '@/app/assets/images/frogImage.png';
+import GaugeChart from '../common/guage-chart';
+import Card3 from '../common/card3.component';
+import { colorConfig } from '@/app/helpers/config';
+import cardBgImage from '@/app/assets/images/cardImagebg.png';
+import Card1 from '../common/card1.component';
+import frogImage from '@/app/assets/images/frogImage.png';
+import GraphCardTop from '../common/graph-card-top';
+import { areaChartData } from '@/app/constants/charts';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -66,13 +68,12 @@ function HeroContent() {
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2, marginTop: 0 }}
         >
-          {/* <Box
+          <Box
             sx={{
               display: 'flex',
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
-              justifyContent: 'space-between',
             }}
           >
             <Card1
@@ -102,6 +103,11 @@ function HeroContent() {
                 },
               ]}
             />
+            <GraphCardTop
+              heading="🚨 Top Losers"
+              percent={-0.32}
+              graphAttr={{ type: 'area', data: areaChartData }}
+            />
             <Card3
               transparentButton={true}
               bgImage={cardBgImage}
@@ -114,7 +120,7 @@ function HeroContent() {
               end="in 7 days."
             />
             <GaugeChart value={0} />
-          </Box> */}
+          </Box>
         </motion.div>
       </AnimatePresence>
     </>

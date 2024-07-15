@@ -26,8 +26,8 @@ const GaugeChart = ({ value }: GaugeChartProps) => {
         text: undefined,
       },
       pane: {
-        center: ['50%', '40%'],
-        size: '100%',
+        center: ['50%', '35%'],
+        size: '95%',
         startAngle: -90,
         endAngle: 90,
         background: [
@@ -115,7 +115,7 @@ const GaugeChart = ({ value }: GaugeChartProps) => {
             borderWidth: 0,
             useHTML: true,
             format: `<div style="text-align:center;">
-                      <span style="font-size:40px;">{y}</span><br/>
+                      <span style="font-size:38px;">{y}</span><br/>
                       <span style="font-size:14px; letter-spacing:10%;">GREED</span>
                      </div>`,
           },
@@ -141,7 +141,7 @@ const GaugeChart = ({ value }: GaugeChartProps) => {
           paddingTop: '15px',
           fontWeight: 600,
           fontFamily: 'Sf Pro Display',
-          fontSize: '20px',
+          fontSize: '16px',
         }}
       >
         Index Fear & Greed
