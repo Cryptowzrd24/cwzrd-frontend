@@ -6,7 +6,6 @@ import Card1 from '../common/card1.component';
 import GaugeChart from '../common/guage-chart';
 import btc from '@/app/assets/images/btc.png';
 
-
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
 

@@ -8,6 +8,7 @@ import btc from '@/app/assets/images/btc.png';
 import Card3 from '../common/card3.component';
 import { colorConfig } from '@/app/helpers/config';
 import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
+import CandlestickCard from '../common/candlestickCard';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -103,32 +104,10 @@ function HeroContent() {
                 },
               ]}
             />
-            <Card1
-              type="percent"
-              heading="⭐️ Trending"
-              items={[
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: 29.32,
-                },
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: 29.32,
-                },
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: -0.12,
-                },
-              ]}
+            <CandlestickCard
+              heading="🪙 Bitcoin"
+              value={{ data: '36,606,531,750.36', prefix: '$' }}
+              percent={6.32}
             />
             <Card3
               transparentButton={true}

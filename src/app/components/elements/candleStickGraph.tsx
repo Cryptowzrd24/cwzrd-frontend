@@ -1,12 +1,23 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Highcharts from 'highcharts/highstock';
-import HighchartsReact from 'highcharts-react-official';
+import HighchartsReact, {
+  HighchartsReactRefObject,
+} from 'highcharts-react-official';
 
-const CandlestickChart = () => {
+const CandlestickChart: React.FC = () => {
+  const chartRef = useRef<HighchartsReactRefObject>(null);
+
   useEffect(() => {
-    // Additional effect logic if needed
+    if (chartRef.current) {
+      const chartContainer = chartRef.current.container.current;
+
+      if (chartContainer) {
+        chartContainer.style.height = '135px';
+        chartContainer.style.marginTop = '-12px';
+      }
+    }
   }, []);
 
   const options = {
@@ -31,23 +42,24 @@ const CandlestickChart = () => {
         name: 'Bitcoin',
         data: [
           // Replace with your actual data points
-          [Date.UTC(2024, 6, 1), 29.9, 71.5, 29.9, 71.5],
-          [Date.UTC(2024, 6, 2), 71.5, 106.4, 71.5, 106.4],
-          [Date.UTC(2024, 6, 3), 106.4, 129.2, 106.4, 129.2],
-          [Date.UTC(2024, 6, 4), 129.2, 144.0, 129.2, 144.0],
-          [Date.UTC(2024, 6, 5), 144.0, 176.0, 144.0, 16.0],
-          [Date.UTC(2024, 6, 6), 144.0, 176.0, 144.0, 76.0],
-          [Date.UTC(2024, 6, 7), 144.0, 176.0, 114.0, 17.0],
-          [Date.UTC(2024, 6, 8), 144.0, 176.0, 154.0, 132.0],
-          [Date.UTC(2024, 6, 9), 14.0, 126.0, 144.0, 176.0],
-          [Date.UTC(2024, 6, 10), 1444.0, 16.0, 154.0, 76.0],
-          [Date.UTC(2024, 6, 11), 141.0, 136.0, 1.0, 10.0],
-          [Date.UTC(2024, 6, 12), 143.0, 746.0, 44.0, 76.0],
+          [Date.UTC(2024, 6, 1), 100, 130, 90, 110],
+          [Date.UTC(2024, 6, 2), 110, 140, 100, 120],
+          [Date.UTC(2024, 6, 3), 120, 150, 110, 130],
+          [Date.UTC(2024, 6, 4), 130, 160, 120, 140],
+          [Date.UTC(2024, 6, 5), 140, 170, 130, 150],
+          [Date.UTC(2024, 6, 6), 150, 180, 140, 160],
+          [Date.UTC(2024, 6, 7), 122, 190, 100, 170],
+          [Date.UTC(2024, 6, 8), 170, 200, 160, 180],
+          [Date.UTC(2024, 6, 9), 180, 210, 170, 190],
+          [Date.UTC(2024, 6, 10), 190, 220, 180, 200],
+          [Date.UTC(2024, 6, 10), 191, 220, 180, 100],
+          [Date.UTC(2024, 6, 11), 200, 230, 190, 210],
+          [Date.UTC(2024, 6, 12), 270, 140, 190, 190],
         ],
-        color: '#FF0000', // Custom color for the bearish candles
-        upColor: '#00FF00', // Custom color for the bullish candles
-        lineColor: '#000000', // Line color for the wicks
-        upLineColor: '#000000', // Line color for the wicks when the candle is bullish
+        color: 'rgba(152, 0, 255, 1)', // Custom color for the bearish candles
+        upColor: 'rgba(17, 210, 105, 1)', // Custom color for the bullish candles
+        lineColor: 'rgba(152, 0, 255, 1)', // Line color for the wicks
+        upLineColor: 'rgba(17, 210, 105, 1)', // Line color for the wicks when the candle is bullish
         dataGrouping: {
           units: [
             [
@@ -73,6 +85,7 @@ const CandlestickChart = () => {
       labels: {
         enabled: false,
       },
+      lineWidth: 0,
     },
     yAxis: {
       labels: {
@@ -82,8 +95,9 @@ const CandlestickChart = () => {
   };
 
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <HighchartsReact
+        ref={chartRef}
         highcharts={Highcharts}
         constructorType={'stockChart'}
         options={options}

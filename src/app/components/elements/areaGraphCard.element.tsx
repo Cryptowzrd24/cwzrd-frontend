@@ -83,12 +83,12 @@ const AreaChart = (props: IChartProps) => {
 
   useEffect(() => {
     if (chartRef.current) {
-      chartRef.current?.chart.setSize(undefined, 124);
+      chartRef.current?.chart.setSize(undefined, 100);
       const innerDiv = chartRef.current.container.current.querySelector('div');
       if (innerDiv) {
         innerDiv.style.height = 'auto';
         innerDiv.style.width = '100% !important';
-        innerDiv.style.marginTop = '-35px';
+        // innerDiv.style.marginTop = '-35px';
       }
       const xAxisElement = chartRef.current.chart.xAxis[0].axisGroup;
       xAxisElement?.destroy();

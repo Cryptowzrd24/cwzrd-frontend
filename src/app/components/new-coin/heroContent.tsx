@@ -8,6 +8,8 @@ import { colorConfig } from '@/app/helpers/config';
 import cardBgImage from '@/app/assets/images/cardImagebg.png';
 import Card1 from '../common/card1.component';
 import frogImage from '@/app/assets/images/frogImage.png';
+import GraphCardTop from '../common/graph-card-top';
+import { areaChartData } from '@/app/constants/charts';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -101,32 +103,10 @@ function HeroContent() {
                 },
               ]}
             />
-            <Card1
-              type="time"
-              heading="✨ Recently Added"
-              items={[
-                {
-                  medal: '🥇',
-                  image: frogImage,
-                  text1: 'PEPI',
-                  text2: 'PEPI',
-                  time: 4,
-                },
-                {
-                  medal: '🥇',
-                  image: frogImage,
-                  text1: 'PEPI',
-                  text2: 'PEPI',
-                  time: 4,
-                },
-                {
-                  medal: '🥇',
-                  image: frogImage,
-                  text1: 'PEPI',
-                  text2: 'PEPI',
-                  time: 4,
-                },
-              ]}
+            <GraphCardTop
+              heading="🚨 Top Losers"
+              percent={-0.32}
+              graphAttr={{ type: 'area', data: areaChartData }}
             />
             <Card3
               transparentButton={true}

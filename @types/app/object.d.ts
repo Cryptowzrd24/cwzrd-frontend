@@ -19,6 +19,7 @@ declare global {
       lineColor: string;
     };
     yAxis: {
+      tickInterval?: number;
       labels: {
         enabled: boolean;
       };
