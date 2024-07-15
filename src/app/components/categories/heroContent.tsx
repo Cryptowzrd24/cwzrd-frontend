@@ -2,16 +2,16 @@
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
-// import GaugeChart from '../common/guage-chart';
-// import btc from '@/app/assets/images/btc.png';
-// import nft from '@/app/assets/images/nft.png';
-// import frogImage from '@/app/assets/images/frogImage.png';
-// import Card2 from '../common/card2.component';
-// import Card4 from '../common/card4.component';
-// import { colorConfig } from '@/app/helpers/config';
-// import newsImage from '@/app/assets/images/newsBgImage.png';
-// import TopNftCollection from '../common/top-nft-collections-card';
-// import { areaChartData } from '@/app/constants/charts';
+import GaugeChart from '../common/guage-chart';
+import btc from '@/app/assets/images/btc.png';
+import nft from '@/app/assets/images/nft.png';
+import frogImage from '@/app/assets/images/frogImage.png';
+import Card2 from '../common/card2.component';
+import Card4 from '../common/card4.component';
+import { colorConfig } from '@/app/helpers/config';
+import newsImage from '@/app/assets/images/newsBgImage.png';
+import TopNftCollection from '../common/top-nft-collections-card';
+import { areaChartData } from '@/app/constants/charts';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -71,13 +71,12 @@ function HeroContent() {
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2, marginTop: 0 }}
         >
-          {/* <Box
+          <Box
             sx={{
               display: 'flex',
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
-              justifyContent: 'space-between',
             }}
           >
             <Card2
@@ -114,7 +113,7 @@ function HeroContent() {
               name={'John Smith'}
             />
             <GaugeChart value={0} />
-          </Box> */}
+          </Box>
         </motion.div>
       </AnimatePresence>
     </>

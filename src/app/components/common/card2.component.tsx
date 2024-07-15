@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import styles from './index.module.scss';
-import { Button, Card, Stack, styled } from '@mui/material';
+import { Card } from '@mui/material';
 import CardHeader from './cardHeader.component';
 
 interface ICard2Props {
@@ -13,17 +13,17 @@ interface ICard2Props {
   items: any;
 }
 
-const BootstrapButton = styled(Button)({
-  boxShadow: 'none',
-  textTransform: 'none',
-  fontSize: 16,
-  fontWeight: 700,
-  padding: '0px 0px 0px 0px',
-  margin: '5px 11px 0px 0px',
-  lineHeight: 1.5,
-  borderColor: '#0063cc',
-  fontFamily: ['SF Pro Display'].join(','),
-});
+// const BootstrapButton = styled(Button)({
+//   boxShadow: 'none',
+//   textTransform: 'none',
+//   fontSize: 16,
+//   fontWeight: 700,
+//   padding: '0px 0px 0px 0px',
+//   margin: '5px 11px 0px 0px',
+//   lineHeight: 1.5,
+//   borderColor: '#0063cc',
+//   fontFamily: ['SF Pro Display'].join(','),
+// });
 
 const Card2 = (props: ICard2Props) => {
   const { heading, items } = props;
@@ -63,19 +63,30 @@ const Card2 = (props: ICard2Props) => {
             </li>
           ))}
         </ul>
-        {/* <div style={{ fontWeight: 700, color: '#7248F7', fontSize: "16px", padding: "0px 15px", position: "absolute", right: "0px", bottom: "12px" }}>
-                    More &nbsp; <ArrowForwardIosIcon sx={{ fontSize: "14px" }} />
-                </div> */}
 
-        <Stack direction="row" style={{ justifyContent: 'flex-end' }}>
+        <div
+          style={{
+            fontWeight: 700,
+            color: '#7248F7',
+            fontSize: '14px',
+            padding: '0px 15px',
+            position: 'absolute',
+            right: '0px',
+            bottom: '10px',
+          }}
+        >
+          More &gt;
+        </div>
+
+        {/* <Stack direction="row" style={{ justifyContent: 'flex-end' }}>
           <BootstrapButton
             variant="text"
             size="medium"
             sx={{ color: '#7248F7' }}
           >
-            More &nbsp; <ArrowForwardIosIcon sx={{ fontSize: '14px' }} />
+            More &nbsp; <ArrowForwardIosIcon sx={{ fontSize: '12px' }} />
           </BootstrapButton>
-        </Stack>
+        </Stack> */}
       </div>
     </Card>
   );

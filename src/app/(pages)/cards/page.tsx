@@ -36,6 +36,8 @@ import TvlChainCard from '@/app/components/common/tvl-chains-card';
 import KpiGuageChart from '@/app/components/common/kpi-guage-chart';
 import GraphCardTop from '@/app/components/common/graph-card-top';
 import TopNftCollection from '@/app/components/common/top-nft-collections-card';
+import CandlestickChart from '@/app/components/elements/candleStickGraph';
+import CandlestickCard from '@/app/components/common/candlestickCard';
 const Components = () => {
   const areachartData = [
     { x: 1, y: 5 },
@@ -72,6 +74,11 @@ const Components = () => {
         <TvlChainCard isDarkTheme={false} />
         <KpiGuageChart isDarkTheme={false} />
         <GaugeChart value={0} />
+        <CandlestickCard
+          heading="🪙 Bitcoin"
+          value={{ data: '36,606,531,750.36', prefix: '$' }}
+          percent={6.32}
+        />
         <GraphCard
           heading="🔥 Market CAP"
           value={{ data: '36,606,531,750.36', prefix: '$' }}
@@ -113,6 +120,7 @@ const Components = () => {
           percent={-0.32}
           graphAttr={{ type: 'area', data: areachartData }}
         />
+        <CandlestickChart />
         <Card1
           type="time"
           heading="✨ Recently Added"

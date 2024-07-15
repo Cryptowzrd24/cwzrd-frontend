@@ -175,8 +175,8 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
       <div
         style={{
           position: 'absolute',
-          top: '138px',
-          left: '74px',
+          top: '120px',
+          left: '84px',
           width: '76px',
           height: '50px',
           backgroundColor: 'rgba(255, 255, 255, 1)',
@@ -227,7 +227,7 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
       <div style={{ padding: '15px 0 0 25px' }}>
         <Typography
           style={{
-            fontSize: '14px',
+            fontSize: '12px',
             fontWeight: 700,
             letterSpacing: '1px',
             fontFamily: 'Sf Pro Display',
@@ -251,8 +251,8 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
           {renderMiniCard()}
           <div
             style={{
-              width: '125%',
-              marginTop: '5px',
+              width: '90%',
+              marginLeft: '10px',
             }}
             id="container"
           ></div>
@@ -262,7 +262,8 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
               flexWrap: 'wrap',
               gap: '5px',
               paddingLeft: '5px',
-              paddingTop: '25px',
+              paddingTop: '10px',
+              height: '30px',
             }}
           >
             {listItems.map((elem) => {
