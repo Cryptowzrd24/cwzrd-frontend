@@ -51,7 +51,7 @@ const Card4 = (props: ICard4Props) => {
           />
         </div>
 
-        <div style={{ padding: '0px 8px 0px 8px', marginTop: '58px' }}>
+        <div style={{ padding: '0px 8px 0px 8px', marginTop: '20px' }}>
           <div style={{ padding: '0px 8px 0px 8px' }}>
             <Typography
               sx={{
@@ -69,7 +69,7 @@ const Card4 = (props: ICard4Props) => {
           <div style={{ padding: '0px 8px 0px 8px', marginTop: '7px' }}>
             <Typography
               sx={{
-                fontSize: '12px',
+                fontSize: '10px',
                 lineHeight: '15.6px',
                 fontWeight: '400',
                 color: `${staticTextColor}`,
@@ -83,10 +83,10 @@ const Card4 = (props: ICard4Props) => {
         <Stack direction="row" style={{ marginLeft: '-6px' }}>
           <BootstrapButton
             variant="text"
-            sx={{ color: `${staticTextColor}`, fontSize: '16px' }}
+            sx={{ color: `${staticTextColor}`, fontSize: '14px' }}
           >
             See all &nbsp;
-            <ArrowForwardIosIcon sx={{ fontSize: '14px' }} />
+            <ArrowForwardIosIcon sx={{ fontSize: '12px' }} />
           </BootstrapButton>
         </Stack>
       </div>

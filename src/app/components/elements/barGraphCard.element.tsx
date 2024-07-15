@@ -65,7 +65,12 @@ const BarChart = (props: IChartProps) => {
 
   useEffect(() => {
     if (chartRef.current) {
-      chartRef.current?.chart.setSize(320, 124);
+      chartRef.current?.chart.setSize(undefined, 124);
+      const innerDiv = chartRef.current.container.current.querySelector('div');
+      if (innerDiv) {
+        innerDiv.style.height = '';
+        innerDiv.style.marginTop = '-35px';
+      }
       const xAxisElement = chartRef.current.chart.xAxis[0].axisGroup;
       xAxisElement?.destroy();
     }

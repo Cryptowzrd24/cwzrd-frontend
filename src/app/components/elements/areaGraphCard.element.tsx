@@ -60,7 +60,7 @@ const AreaChart = (props: IChartProps) => {
         },
         marker: {
           enabled: isMarker ? true : false,
-          fillColor: 'rgba(114, 72, 247, 1)',
+          fillColor: isMarker ? 'rgba(114, 72, 247, 1)' : '',
           radius: 3,
         },
       },
@@ -83,7 +83,13 @@ const AreaChart = (props: IChartProps) => {
 
   useEffect(() => {
     if (chartRef.current) {
-      chartRef.current?.chart.setSize(320, 124);
+      chartRef.current?.chart.setSize(undefined, 100);
+      const innerDiv = chartRef.current.container.current.querySelector('div');
+      if (innerDiv) {
+        innerDiv.style.height = 'auto';
+        innerDiv.style.width = '100% !important';
+        // innerDiv.style.marginTop = '-35px';
+      }
       const xAxisElement = chartRef.current.chart.xAxis[0].axisGroup;
       xAxisElement?.destroy();
     }

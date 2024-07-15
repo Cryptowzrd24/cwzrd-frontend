@@ -151,10 +151,10 @@ const Card3 = (props: ICard3Props) => {
       <Typography
         sx={{
           marginLeft: '22px',
-          fontSize: '24px',
+          fontSize: '17px',
           marginRight: '37px',
           fontWeight: '500',
-          lineHeight: '26px',
+          lineHeight: '24px',
           letterSpacing: '1px',
           zIndex: 2,
           position: 'relative',
@@ -174,7 +174,7 @@ const Card3 = (props: ICard3Props) => {
         direction="row"
         style={{
           marginLeft: '20px',
-          marginTop: '20px',
+          marginTop: '10px',
           zIndex: 2,
           position: 'relative',
         }}
@@ -189,7 +189,7 @@ const Card3 = (props: ICard3Props) => {
             position: 'relative',
           }}
         >
-          See all &nbsp; <ArrowForwardIosIcon sx={{ fontSize: '14px' }} />
+          See all &nbsp; <ArrowForwardIosIcon sx={{ fontSize: '12px' }} />
         </Button>
       </Stack>
     </Card>
