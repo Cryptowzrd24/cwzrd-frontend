@@ -36,6 +36,8 @@ const GraphCard = (props: IMarketCapCardProps) => {
         <div
           style={{
             fontSize: '14px',
+            fontFamily: 'Sf Pro Display',
+            marginTop: '5px',
             color:
               getPositiveNegativeIcon(percent) === '-' ? '#F56D6D' : '#45CA94',
           }}

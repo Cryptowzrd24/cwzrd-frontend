@@ -80,7 +80,7 @@ const Card1 = (props: ICard1Props) => {
                 </div>
               </div>
               <div style={{ alignContent: 'center' }}>
-                <span style={{ fontSize: '14px' }}>{getType(item)}</span>
+                <span style={{ fontSize: '12px' }}>{getType(item)}</span>
               </div>
             </li>
           ))}
@@ -89,11 +89,11 @@ const Card1 = (props: ICard1Props) => {
           style={{
             fontWeight: 700,
             color: '#7248F7',
-            fontSize: '16px',
+            fontSize: '14px',
             padding: '0px 15px',
             position: 'absolute',
             right: '0px',
-            bottom: '12px',
+            bottom: '7px',
           }}
         >
           More &gt;
