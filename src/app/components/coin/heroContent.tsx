@@ -42,9 +42,9 @@ function HeroContent() {
         The overall market capitalization of the crypto market is
         <span style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}>
           {' '}
-          €2.26T.
-        </span>{' '}
-        an increase of{' '}
+          €2.26T
+        </span>
+        . an increase of{' '}
         <span style={{ color: '#1FD773', fontWeight: '600', fontSize: '16px' }}>
           +3.75%
         </span>{' '}

@@ -76,6 +76,7 @@ const Table = () => {
           search={search}
           rowData={rowData}
           columnDefs={columnNewCoinsDef}
+          getRowId={(params: any) => params.data.coin_id}
           width="100%"
         />
       </div>
