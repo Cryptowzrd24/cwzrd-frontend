@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7598173d-a920-4289-a3c8-3634cc17f358" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/coin/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/coin/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/ticker/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/ticker/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/hooks/coin-websocket/useWebSocket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/hooks/coin-websocket/useWebSocket.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,26 +26,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Node.js..eslintrc.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;eslint.code.style.apply.dismiss&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mac/Current Projects/crypto-wzrd/src/app/hooks/data-grid&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettier.import.notification.dismissed&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.qodana&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/mac/Current Projects/crypto-wzrd/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js..eslintrc.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "eslint.code.style.apply.dismiss": "true",
+    "git-widget-placeholder": "AN/CWZRD-88",
+    "last_opened_file_path": "/Users/mac/Current Projects/crypto-wzrd/src/app/hooks/data-grid",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettier.import.notification.dismissed": "true",
+    "settings.editor.selected.configurable": "settings.qodana",
+    "ts.external.directory.path": "/Users/mac/Current Projects/crypto-wzrd/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="/private/var/folders/ww/jrc08l7s52d7g5fs4k381_dr0000gn/T/qodana_output/qodana.sarif.json" reportGuid="6287c34a-16c3-4041-aa62-7e32546ea2b1" reportId="crypto-wzrd/qodana/2024-06-24" />
@@ -103,6 +100,7 @@
       <workItem from="1719248166722" duration="18368000" />
       <workItem from="1720800778264" duration="6669000" />
       <workItem from="1720882754539" duration="2075000" />
+      <workItem from="1721055953510" duration="4614000" />
     </task>
     <servers />
   </component>

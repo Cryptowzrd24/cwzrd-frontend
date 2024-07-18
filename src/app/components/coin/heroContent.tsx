@@ -1,11 +1,11 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
-// import GraphCard from '@/app/components/common/graphCard.component';
-// import { areaChartData } from '@/app/constants/charts';
+import GraphCard from '@/app/components/common/graphCard.component';
+import { areaChartData } from '@/app/constants/charts';
 import { useAppSelector } from '@/app/redux/store';
 import { AnimatePresence, motion } from 'framer-motion';
-// import GaugeChart from '../common/guage-chart';
+import GaugeChart from '../common/guage-chart';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -42,9 +42,9 @@ function HeroContent() {
         The overall market capitalization of the crypto market is
         <span style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}>
           {' '}
-          €2.26T.
-        </span>{' '}
-        an increase of{' '}
+          €2.26T
+        </span>
+        . an increase of{' '}
         <span style={{ color: '#1FD773', fontWeight: '600', fontSize: '16px' }}>
           +3.75%
         </span>{' '}
@@ -77,13 +77,13 @@ function HeroContent() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2, marginTop: 0 }}
           >
-            {/* <Box
+            <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'row',
                 gap: '10px',
                 alignItems: 'center',
-                justifyContent: 'space-between',
+                // justifyContent: 'center',
               }}
             >
               <GraphCard
@@ -105,7 +105,7 @@ function HeroContent() {
                 graphAttr={{ type: 'area', data: areaChartData }}
               />
               <GaugeChart value={0} />
-            </Box> */}
+            </Box>
           </motion.div>
         )}
       </AnimatePresence>

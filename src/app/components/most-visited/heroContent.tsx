@@ -2,12 +2,12 @@
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
-// import GaugeChart from '../common/guage-chart';
-// import btc from '@/app/assets/images/btc.png';
-// import Card1 from '../common/card1.component';
-// import Card3 from '../common/card3.component';
-// import { colorConfig } from '@/app/helpers/config';
-// import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
+import GaugeChart from '../common/guage-chart';
+import btc from '@/app/assets/images/btc.png';
+import Card1 from '../common/card1.component';
+import Card3 from '../common/card3.component';
+import { colorConfig } from '@/app/helpers/config';
+import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -70,13 +70,12 @@ function HeroContent() {
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2, marginTop: 0 }}
         >
-          {/* <Box
+          <Box
             sx={{
               display: 'flex',
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
-              justifyContent: 'space-between',
             }}
           >
             <Card1
@@ -146,7 +145,7 @@ function HeroContent() {
               end="in 7 days."
             />
             <GaugeChart value={0} />
-          </Box> */}
+          </Box>
         </motion.div>
       </AnimatePresence>
     </>

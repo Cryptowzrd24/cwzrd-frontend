@@ -1,12 +1,12 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
-// import { areaChartData } from '@/app/constants/charts';
+import { areaChartData } from '@/app/constants/charts';
 
 import React, { useState } from 'react';
-// import KpiGuageChart from '../common/kpi-guage-chart';
-// import GraphCard from '../common/graphCard.component';
-// import GaugeChart from '../common/guage-chart';
+import KpiGuageChart from '../common/kpi-guage-chart';
+import GraphCard from '../common/graphCard.component';
+import GaugeChart from '../common/guage-chart';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -65,7 +65,7 @@ function HeroContent() {
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2, marginTop: 0 }}
         >
-          {/* <Box
+          <Box
             sx={{
               display: 'flex',
               flexDirection: 'row',
@@ -88,7 +88,7 @@ function HeroContent() {
               graphAttr={{ type: 'area', data: areaChartData }}
             />
             <GaugeChart value={0} />
-          </Box> */}
+          </Box>
         </motion.div>
       </AnimatePresence>
     </>

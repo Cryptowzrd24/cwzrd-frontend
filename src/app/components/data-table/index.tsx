@@ -28,7 +28,7 @@ const DataTable = memo(
     search = '',
     seeMore = '',
     gridApiRef,
-    getRowId = () => {},
+    getRowId = undefined,
     priceRefs,
   }: DataTableProps) => {
     const modifiedColumnDefs = useMemo(
@@ -105,7 +105,6 @@ const DataTable = memo(
           tooltipShowDelay={0}
           quickFilterText={search}
           tooltipInteraction={true}
-          getRowId={getRowId}
           rowStyle={{
             fontFamily: 'SF Pro Display',
             fontSize: 13,
@@ -115,6 +114,7 @@ const DataTable = memo(
           onGridReady={(params) => {
             if (gridApiRef) gridApiRef.current = params.api;
           }}
+          {...(typeof getRowId !== 'undefined' ? { getRowId } : {})}
         />
       </div>
     );

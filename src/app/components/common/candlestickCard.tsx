@@ -2,20 +2,15 @@
 
 import React, { useState } from 'react';
 
-import AreaChart from '../elements/areaGraphCard.element';
-
-import {
-  getGraphColor,
-  getPositiveNegativeIcon,
-} from '@/app/helpers/functions';
+import { getPositiveNegativeIcon } from '@/app/helpers/functions';
 
 import styles from './index.module.scss';
-import BarChart from '../elements/barGraphCard.element';
 import { Card } from '@mui/material';
 import CardHeader from './cardHeader.component';
+import CandlestickChart from '../elements/candleStickGraph';
 
-const GraphCard = (props: IMarketCapCardProps) => {
-  const { heading, value, percent, graphAttr } = props;
+const CandlestickCard = (props: IMarketCapCardProps) => {
+  const { heading, value, percent } = props;
   const [currentStep] = useState(0);
 
   const stepSetter = () => {};
@@ -54,15 +49,10 @@ const GraphCard = (props: IMarketCapCardProps) => {
           marginTop: '15px',
         }}
       >
-        {graphAttr?.type === 'area' ? (
-          <AreaChart data={graphAttr.data} color={getGraphColor(percent)} />
-        ) : null}
-        {graphAttr?.type === 'bar' ? (
-          <BarChart data={graphAttr.data} color={getGraphColor(percent)} />
-        ) : null}
+        <CandlestickChart />
       </div>
     </Card>
   );
 };
 
-export default GraphCard;
+export default CandlestickCard;

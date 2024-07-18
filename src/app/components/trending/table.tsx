@@ -5,6 +5,8 @@ import DataTable from '@/app/components/data-table';
 import { columnsTrending } from '@/app/constants/columns';
 import useColumnTrendingDefs from '@/app/hooks/data-grid/column-defination-trending';
 import { useFetchTrendingDataQuery } from '@/app/redux/reducers/data-grid';
+import { Pagination } from '@/app/components/data-table/pagination';
+import { scrollToTop } from '@/utils/scroll-to-top';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -32,11 +34,12 @@ const Table = () => {
   const handleVolumeSizeChange = (newVolumeSize: any) => {
     setTimePeriod(newVolumeSize);
   };
-  console.log('volume value', time_period);
   const paginatedRowData = rowData.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
   );
+
+  const totalCount = data?.count || 0;
 
   useEffect(() => {
     if (data && data.data) {
@@ -60,6 +63,15 @@ const Table = () => {
     }
   }, [data, currentPage, itemStart, pageSize, time_period]);
 
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number,
+  ) => {
+    setCurrentPage(value);
+    setItemStart((value - 1) * pageSize + 1);
+    scrollToTop();
+  };
+
   return (
     <div className="data-table-wrapper">
       <CustomHeader
@@ -67,7 +79,7 @@ const Table = () => {
         setSearch={handleSetSearch}
         setPagination={handlePageSizeChange}
         setVolume={handleVolumeSizeChange}
-        volume={true}
+        volume={time_period}
       />
       <div
         style={{
@@ -82,6 +94,12 @@ const Table = () => {
           width="100%"
         />
       </div>
+      <Pagination
+        length={totalCount}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };

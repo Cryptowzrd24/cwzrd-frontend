@@ -2,12 +2,10 @@
   position: relative;
   min-height: 185px;
   max-height: 185px;
-  border-radius: 0.5rem;
-  // width: 100%;
-  width: 315px;
-  // min-width: 315px;
+  border-radius: 15px;
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
+  width: 100%;
 
   .header_wrapper {
     padding-top: 22px;
@@ -25,8 +23,9 @@
     }
 
     .value {
-      font-size: 24px;
-      line-height: 30px;
+      margin-top: -5px;
+      font-size: 20px;
+      line-height: 24px;
       font-weight: 600;
     }
   }
@@ -34,20 +33,20 @@
 
 .coin_detail_card_wrapper {
   position: relative;
-  min-height: 225px;
-  max-height: 225px;
-  border-radius: 0.5rem;
-  width: 315px;
+  min-height: 185px;
+  max-height: 185px;
+  border-radius: 15px;
+  width: 100%;
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
 
   .header_wrapper {
-    padding-top: 22px;
+    padding-top: 12px;
     padding-left: 22px;
     padding-right: 22px;
 
     .heading {
-      margin-bottom: 10px;
+      margin-bottom: 1px;
       display: flex;
       justify-content: space-between;
 
@@ -66,10 +65,10 @@
 
 .tvl_chain_card_wrapper {
   position: relative;
-  min-height: 225px;
-  max-height: 225px;
-  border-radius: 0.5rem;
-  width: 315px;
+  min-height: 185px;
+  max-height: 185px;
+  border-radius: 15px;
+  width: 100%;
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
 
@@ -98,10 +97,10 @@
 
 .coin_content_card_wrapper {
   position: relative;
-  min-height: 225px;
-  max-height: 225px;
-  border-radius: 0.5rem;
-  width: 315px;
+  min-height: 185px;
+  max-height: 185px;
+  border-radius: 15px !important;
+  width: 100%;
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
 
@@ -155,10 +154,10 @@
 
 .guage_card_wrapper {
   position: relative;
-  width: 315px;
+  width: 100%;
   min-height: 185px;
   max-height: 185px;
-  border-radius: 0.5rem;
+  border-radius: 15px;
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
 
@@ -211,8 +210,8 @@
       }
 
       .profile_block {
-        max-width: 32px;
-        height: 32px;
+        max-width: 28px;
+        height: 28px;
         border-radius: 75%;
         border: 1px solid #b3b3b3;
         background-color: #fff;
@@ -233,12 +232,12 @@
         span:nth-child(1) {
           font-weight: 700;
           line-height: 18px;
-          font-size: 14px;
+          font-size: 12px;
         }
 
         span:nth-child(2) {
           color: rgba(17, 17, 17, 0.6);
-          font-size: 11px;
+          font-size: 9px;
         }
       }
     }

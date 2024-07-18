@@ -259,7 +259,6 @@ const Stats = () => {
         backgroundColor: 'white',
         borderRadius: '24px',
         boxShadow: '0px 4px 28px 0px #0000000D',
-        marginTop: '16px',
       }}
     >
       {rowData.map((stat, index) => (

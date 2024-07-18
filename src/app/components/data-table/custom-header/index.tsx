@@ -87,7 +87,7 @@ export const CustomHeader = ({
   const dispatch = useDispatch();
   const [pageSize, setPageSize] = useState(10);
   const options = [10, 20, 50, 100];
-  const volumes = ['24h', '1d', '7d'];
+  const volumes = ['24h', '7d', '30d'];
   const filterItem = useSelector((state: any) => state.filters);
   const filterCount = useSelector(
     (state: any) => state.filters.selectedFilterCount,
@@ -314,8 +314,8 @@ export const CustomHeader = ({
             <Select
               value={volumeValue}
               onChange={handleChangeVolume}
-              displayEmpty
-              inputProps={{ 'aria-label': 'Without label' }}
+              disableUnderline
+              // inputProps={{ 'aria-label': 'Without label' }}
               sx={stylesPage.select(getSelectClass(volumeValue))}
               IconComponent={(props) => (
                 <Box
@@ -327,13 +327,18 @@ export const CustomHeader = ({
                 </Box>
               )}
             >
-              {volumes.map((volume: any) => (
+              {volumes.map((v: any) => (
                 <MenuItem
-                  key={volume}
-                  value={volume}
-                  onClick={() => setVolume(volume)}
+                  key={v}
+                  value={v}
+                  onClick={() => setVolume(v)}
+                  sx={{
+                    display: v === volume ? 'none' : 'block',
+                    fontSize: '16px',
+                    fontWeight: 700,
+                  }}
                 >
-                  {volume}
+                  {v}
                 </MenuItem>
               ))}
             </Select>
