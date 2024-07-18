@@ -11,7 +11,7 @@ const InfoCard = () => {
           backgroundImage: "url('/images/nft/trending.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
-          maxWidth: '286px',
+          maxWidth: '282px',
           width: '100%',
           boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
           borderRadius: '24px',
@@ -51,7 +51,7 @@ const InfoCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
               }}
@@ -80,7 +80,7 @@ const InfoCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
               }}
@@ -109,7 +109,7 @@ const InfoCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
               }}
@@ -135,12 +135,12 @@ const InfoCard = () => {
             >
               Royalty
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <Image src={blur} alt="blur" width={24} height={24} />
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Image src={blur} alt="blur" width={20} height={20} />
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '16px',
+                  fontSize: '14px',
                   fontWeight: '500',
                   color: 'rgba(17, 17, 17, 1)',
                 }}
@@ -170,7 +170,7 @@ const InfoCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
               }}
@@ -198,7 +198,7 @@ const InfoCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
               }}
@@ -227,7 +227,7 @@ const InfoCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
               }}

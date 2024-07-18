@@ -3,9 +3,9 @@
   line-height: 16.9px;
   font-family: "Sf Pro Display";
   font-weight: 400;
-  text-align: right;
+  text-align: right !important;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end !important;
   height: inherit;
 }

@@ -2,11 +2,11 @@ import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 import Image from 'next/image';
 import Shift from '../../../../../public/icons/collections/shift';
-import graph1 from '../../../../../public/images/spotlight-cards/Frame.png';
 import first from '../../../../../public/icons/first-rank.png';
 import second from '../../../../../public/icons/second-rank.png';
 import numeral from 'numeral';
 import third from '../../../../../public/icons/third-rank.png';
+import { priceNumberFormatter } from '@/utils/price-number-formater';
 
 const Card = ({
   title,
@@ -142,7 +142,7 @@ const Card = ({
               color: 'rgba(255, 255, 255, 1)',
             }}
           >
-            ${price}
+            ${priceNumberFormatter(price)}
           </Typography>
           <Box
             sx={{
@@ -266,7 +266,95 @@ const Card = ({
         </Box>
       </Box>
       <Box sx={{ mt: '24px' }}>
-        <Image src={graph1} alt="graph" />
+        {/* <Image src={graph1} alt="graph" /> */}
+        <Box
+          sx={{
+            border: '1px solid rgba(17, 17, 17, 0.05)',
+            borderRadius: '12px',
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '8px',
+            }}
+          >
+            <Box
+              sx={{
+                padding: '4px 8px',
+                borderRadius: '24px',
+                border: '1px solid rgba(17, 17, 17, 0.05)',
+              }}
+            >
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                1D
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                padding: '4px 8px',
+                borderRadius: '24px',
+                border: '1px solid rgba(17, 17, 17, 0.05)',
+              }}
+            >
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                7D
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                padding: '4px 8px',
+                borderRadius: '24px',
+                border: '1px solid rgba(17, 17, 17, 0.05)',
+              }}
+            >
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                1M
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                padding: '4px 8px',
+                borderRadius: '24px',
+                border: '1px solid rgba(17, 17, 17, 0.05)',
+              }}
+            >
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                3M
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
