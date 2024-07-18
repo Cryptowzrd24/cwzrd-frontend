@@ -73,6 +73,11 @@ const CandlestickChart: React.FC = () => {
     ],
     tooltip: {
       enabled: true,
+      style: {
+        outerHeight: '20px',
+        lineHeight: '10px', // Adjust line height
+        padding: '5px', // Adjust padding
+      },
     },
     credits: {
       enabled: false,

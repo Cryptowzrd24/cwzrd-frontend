@@ -93,7 +93,7 @@ const Card1 = (props: ICard1Props) => {
             padding: '0px 15px',
             position: 'absolute',
             right: '0px',
-            bottom: '7px',
+            bottom: '12px',
           }}
         >
           More &gt;

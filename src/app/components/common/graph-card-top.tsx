@@ -4,7 +4,10 @@ import React, { useState } from 'react';
 
 import AreaChart from '../elements/areaGraphCard.element';
 
-import { getGraphColor } from '@/app/helpers/functions';
+import {
+  getGraphColor,
+  getPositiveNegativeIcon,
+} from '@/app/helpers/functions';
 
 import styles from './index.module.scss';
 import BarChart from '../elements/barGraphCard.element';
@@ -42,7 +45,7 @@ const GraphCardTop = (props: any) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '5px 25px 10px 25px',
+          padding: '2px 21px 10px 18px',
         }}
       >
         <div style={{ display: 'flex' }}>
@@ -70,7 +73,8 @@ const GraphCardTop = (props: any) => {
         </div>
         <div>
           <span style={{ color: `${getColor(percent)}`, fontSize: '14px' }}>
-            {percent}%
+            {getPositiveNegativeIcon(percent)}
+            {Math.abs(percent)}%
           </span>
         </div>
       </div>
@@ -79,7 +83,8 @@ const GraphCardTop = (props: any) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: '15px',
+          marginTop: '-5px',
+          height: '140px',
         }}
       >
         {graphAttr.type === 'area' ? (

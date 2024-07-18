@@ -72,7 +72,7 @@ const Card2 = (props: ICard2Props) => {
             padding: '0px 15px',
             position: 'absolute',
             right: '0px',
-            bottom: '10px',
+            bottom: '8px',
           }}
         >
           More &gt;

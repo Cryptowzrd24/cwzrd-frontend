@@ -51,7 +51,8 @@ const GraphCard = (props: IMarketCapCardProps) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: '15px',
+          marginTop: '-5px',
+          height: '140px',
         }}
       >
         {graphAttr?.type === 'area' ? (

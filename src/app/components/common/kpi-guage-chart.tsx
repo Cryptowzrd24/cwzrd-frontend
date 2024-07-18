@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import SolidGauge from 'highcharts/modules/solid-gauge';
@@ -16,14 +16,29 @@ if (typeof Highcharts === 'object') {
 }
 
 const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
   // const trackColors = Highcharts?.getOptions()?.colors?.map((color) =>
   //   new Highcharts.Color(color).setOpacity(0.3).get(),
   // );
+
   useEffect(() => {
     const chartOptions: Highcharts.Options = {
       chart: {
         type: 'solidgauge',
         height: '100%',
+        events: {
+          load: function () {
+            const chart = this;
+            Highcharts.addEvent(chart.container, 'mousemove', function () {
+              // Your logic for mouse move event
+              setIsHovered(true);
+            });
+            Highcharts.addEvent(chart.container, 'mouseleave', function () {
+              // Your logic for mouse leave event
+              setIsHovered(false);
+            });
+          },
+        },
       },
       title: {
         text: undefined,
@@ -248,7 +263,7 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
         }}
       >
         <div style={{ display: 'flex' }}>
-          {renderMiniCard()}
+          {isHovered ? renderMiniCard() : null}
           <div
             style={{
               width: '90%',

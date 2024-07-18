@@ -28,6 +28,7 @@ declare global {
       };
       lineWidth: number;
       gridLineWidth: number;
+      tickAmount?: number;
     };
     legend: {
       enabled: boolean;

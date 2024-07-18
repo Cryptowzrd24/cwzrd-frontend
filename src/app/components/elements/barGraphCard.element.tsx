@@ -37,6 +37,7 @@ const BarChart = (props: IChartProps) => {
       },
       lineWidth: 0,
       gridLineWidth: 0.5,
+      tickAmount: 3,
     },
     legend: {
       enabled: false,
@@ -55,21 +56,40 @@ const BarChart = (props: IChartProps) => {
       },
     ],
     tooltip: {
+      useHTML: true,
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
+      borderRadius: 10,
+      borderWidth: 0,
+      shadow: false,
+      style: {},
       formatter: function () {
         const point = this.point;
         const yValue = point.y;
-        return `<span style="color: black; font-weight: bold; padding: 2px; border-radius: 50%!important; margin-right: 2px;">${yValue}</span>`;
+        return `
+          <div
+           style="display: flex; align-items: center; justify-content: center; 
+           width:71px;
+           height:25px;
+           background: white; 
+           border-radius: 40px; 
+           padding: 4px, 8px, 4px, 8px; 
+           font-size: 13px; 
+           font-weight: 400;
+            color: #111111;">
+            $${yValue}m
+          </div>`;
       },
     },
   };
 
   useEffect(() => {
     if (chartRef.current) {
-      chartRef.current?.chart.setSize(undefined, 124);
+      chartRef.current?.chart.setSize(undefined, 100);
       const innerDiv = chartRef.current.container.current.querySelector('div');
       if (innerDiv) {
-        innerDiv.style.height = '';
-        innerDiv.style.marginTop = '-35px';
+        innerDiv.style.height = 'auto';
+        innerDiv.style.width = '100% !important';
       }
       const xAxisElement = chartRef.current.chart.xAxis[0].axisGroup;
       xAxisElement?.destroy();

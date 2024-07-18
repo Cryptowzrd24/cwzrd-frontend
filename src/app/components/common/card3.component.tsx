@@ -174,7 +174,7 @@ const Card3 = (props: ICard3Props) => {
         direction="row"
         style={{
           marginLeft: '20px',
-          marginTop: '10px',
+          marginTop: '25px',
           zIndex: 2,
           position: 'relative',
         }}
