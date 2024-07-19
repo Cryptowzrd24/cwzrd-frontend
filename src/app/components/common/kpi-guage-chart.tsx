@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import SolidGauge from 'highcharts/modules/solid-gauge';
@@ -27,13 +27,12 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
         type: 'solidgauge',
         height: '100%',
         events: {
-          load: function () {
-            const chart = this;
-            Highcharts.addEvent(chart.container, 'mousemove', function () {
+          load: function (this: Highcharts.Chart) {
+            Highcharts.addEvent(this.container, 'mousemove', function () {
               // Your logic for mouse move event
               setIsHovered(true);
             });
-            Highcharts.addEvent(chart.container, 'mouseleave', function () {
+            Highcharts.addEvent(this.container, 'mouseleave', function () {
               // Your logic for mouse leave event
               setIsHovered(false);
             });
