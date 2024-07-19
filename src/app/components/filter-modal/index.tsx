@@ -163,7 +163,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
       >
         <Box
           sx={styles.modalFilterMain}
-          style={{ height: '700px', overflowY: 'scroll' }}
+          style={{ height: '585px', overflowY: 'scroll', width: '436px' }}
         >
           <Box
             sx={{
@@ -287,7 +287,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '5px 0',
+                padding: '12px 0',
               }}
             >
               <Typography
@@ -312,7 +312,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '5px 0',
+                padding: '12px 0',
               }}
             >
               <Typography

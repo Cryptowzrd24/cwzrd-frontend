@@ -150,7 +150,7 @@ export const CustomHeader = ({
       <Chip
         key={key}
         sx={{
-          width: '100px',
+          width: 'auto',
           height: '33px',
           border: isMatching ? '1px solid #7248F7' : 'none',
           borderRadius: '8px',

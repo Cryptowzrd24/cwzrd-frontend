@@ -47,54 +47,55 @@ function FilterDropdown({
   }, [searchString, filterKey]);
 
   return (
-    <div>
-      <Menu
-        id="long-menu"
-        MenuListProps={{
-          'aria-labelledby': 'long-button',
-        }}
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        PaperProps={{
-          style: {
-            maxHeight: '520px',
-            width: '280px',
-            borderRadius: '15px',
-            overflowY: 'scroll',
-          },
-        }}
-      >
-        <Box sx={styles.searchContainer}>
-          <FilterSearchIcon strokeOpacity={'1'} />
-          <input
-            style={styles.searchInput}
-            placeholder={'Search...'}
-            onChange={(e: any) => setSearchString(e.target.value)}
-          />
+    // <div>
+    <Menu
+      id="long-menu"
+      MenuListProps={{
+        'aria-labelledby': 'long-button',
+      }}
+      anchorEl={anchorEl}
+      open={open}
+      onClose={handleClose}
+      PaperProps={{
+        style: {
+          maxHeight: '472px',
+          width: '295px',
+          borderRadius: '16px',
+          overflowY: 'scroll',
+          padding: '14px',
+        },
+      }}
+    >
+      <Box sx={styles.searchContainer}>
+        <FilterSearchIcon strokeOpacity={'0.5'} />
+        <input
+          style={styles.searchInput}
+          placeholder={'Search...'}
+          onChange={(e: any) => setSearchString(e.target.value)}
+        />
+      </Box>
+      <Box sx={{ padding: '20px 10px' }}>
+        <Typography
+          sx={styles.dropdownSubheading}
+          id="modal-modal-title"
+          variant="h6"
+          component="h6"
+        >
+          Popular {filterKey}
+        </Typography>
+        <Divider />
+      </Box>
+      {filteredMenuItems.map((option: any) => (
+        <Box
+          sx={styles.menuItem}
+          key={option}
+          onClick={() => handleSelectFilter(option.id, filterKey)}
+        >
+          {option.label}
         </Box>
-        <Box sx={{ padding: '10px' }}>
-          <Typography
-            sx={styles.dropdownSubheading}
-            id="modal-modal-title"
-            variant="h6"
-            component="h6"
-          >
-            Popular {filterKey}
-          </Typography>
-          <Divider />
-        </Box>
-        {filteredMenuItems.map((option: any) => (
-          <Box
-            sx={styles.menuItem}
-            key={option}
-            onClick={() => handleSelectFilter(option.id, filterKey)}
-          >
-            {option.label}
-          </Box>
-        ))}
-      </Menu>
-    </div>
+      ))}
+    </Menu>
+    // </div>
   );
 }
 
