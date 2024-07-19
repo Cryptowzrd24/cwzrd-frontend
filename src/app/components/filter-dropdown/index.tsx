@@ -4,8 +4,8 @@ import { Box, Divider, Typography } from '@mui/material';
 import { FilterSearchIcon } from '../../../../public/icons/filterSearch';
 import { Filters } from '@/app/constants/filters';
 import styles from './styles';
-import { useDispatch } from 'react-redux';
-import { selectFilter } from '@/app/redux/reducers/filters';
+// import { useDispatch } from 'react-redux';
+// import { selectFilter } from '@/app/redux/reducers/filters';
 
 type FilterKey = keyof typeof Filters;
 interface FilterDropdownProps {
@@ -21,30 +21,54 @@ function FilterDropdown({
   anchorEl,
   setAnchorEl,
   filterKey,
-  setIsAnyFilterActive,
+  // setIsAnyFilterActive,
 }: FilterDropdownProps) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [searchString, setSearchString] = useState('');
-  const [filteredMenuItems, setFilteredMenuItems] = useState(
-    Filters[filterKey],
-  );
+  const [filteredMenuItems, setFilteredMenuItems] = useState([]);
+  const [menuItems, setMenuItems] = useState([]);
   const handleClose = () => {
     setAnchorEl(null);
   };
 
-  const handleSelectFilter = (id: number, label: string) => {
-    setAnchorEl(null);
-    dispatch(selectFilter({ id, label }));
-    setIsAnyFilterActive(true);
-  };
+  // const handleSelectFilter = (id: number, label: string) => {
+  //   setAnchorEl(null);
+  //   dispatch(selectFilter({ id, label }));
+  //   setIsAnyFilterActive(true);
+  // };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          'https://backend.cwzrd.co.uk/api/platforms/',
+        );
+        const data = await response.json();
+        setFilteredMenuItems(data['platforms']);
+        setMenuItems(data['platforms']);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     setFilteredMenuItems(
-      Filters[filterKey].filter((item) =>
-        item.label.toLowerCase().includes(searchString.toLowerCase()),
+      menuItems.filter((item: any) =>
+        item.toLowerCase().includes(searchString.toLowerCase()),
       ),
     );
-  }, [searchString, filterKey]);
+  }, [searchString, menuItems]);
+
+  // useEffect(() => {
+  //   setFilteredMenuItems(
+  //     Filters[filterKey].filter((item) =>
+  //       item.label.toLowerCase().includes(searchString.toLowerCase()),
+  //     ),
+  //   );
+  // }, [searchString, filterKey]);
 
   return (
     // <div>
@@ -63,6 +87,7 @@ function FilterDropdown({
           borderRadius: '16px',
           overflowY: 'scroll',
           padding: '14px',
+          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         },
       }}
     >
@@ -89,9 +114,9 @@ function FilterDropdown({
         <Box
           sx={styles.menuItem}
           key={option}
-          onClick={() => handleSelectFilter(option.id, filterKey)}
+          // onClick={() => handleSelectFilter(option.id, filterKey)}
         >
-          {option.label}
+          {option}
         </Box>
       ))}
     </Menu>

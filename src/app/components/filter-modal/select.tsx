@@ -8,9 +8,8 @@ import Image from 'next/image';
 
 interface SelectProps {
   setExpanded: (expanded: string | false) => void;
-  setShowResultsBtn: (val: boolean) => void;
 }
-export const Select = ({ setExpanded, setShowResultsBtn }: SelectProps) => {
+export const Select = ({ setExpanded }: SelectProps) => {
   const dispatch = useDispatch();
 
   const filterItem = useSelector((state: any) => state.filters.filters);
@@ -25,7 +24,6 @@ export const Select = ({ setExpanded, setShowResultsBtn }: SelectProps) => {
   const handleCoinTypeSelect = (type: string) => {
     dispatch(selectCurrencyTypeFilter(type));
     setExpanded(false);
-    setShowResultsBtn(true);
   };
 
   return (
