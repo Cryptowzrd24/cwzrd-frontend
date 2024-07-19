@@ -14,31 +14,31 @@ const NftDetails = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <HeroSection />
         </Box>
-        <Box sx={{ mt: '44px', mb: '80px' }}>
+        <Box sx={{ mt: '16px', mb: '16px' }}>
           <NftNavbar />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '48px' }}>
           <PriceSales />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '48px' }}>
           <Info />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '48px' }}>
           <NewsLetter />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '48px' }}>
           <Sales />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '48px' }}>
           <Market />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '48px' }}>
           <Activity />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '48px' }}>
           <MemberShipBanner />
         </Box>
       </Container>

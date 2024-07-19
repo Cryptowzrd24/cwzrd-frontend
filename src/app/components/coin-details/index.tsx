@@ -16,37 +16,37 @@ const CoinDetails = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '80px', mb: '48px' }}>
+        <Box sx={{ mt: '48px', mb: '16px' }}>
           <CoinHeroSection />
         </Box>
-        <Box sx={{ mb: '80px' }}>
+        <Box sx={{ mb: '16px' }}>
           <CoinNavbar />
         </Box>
-        <Box sx={{ mb: '90px' }}>
+        <Box sx={{ mb: '48px' }}>
           <CoinInfo />
         </Box>
-        <Box sx={{ mb: '54px' }}>
+        <Box sx={{ mb: '48px' }}>
           <NewsLetter />
         </Box>
-        <Box sx={{ mb: '80px' }}>
+        <Box sx={{ mb: '48px' }}>
           <CoinMarket />
         </Box>
-        <Box sx={{ mb: '140px' }}>
+        <Box sx={{ mb: '48px' }}>
           <Technicals />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '48px' }}>
           <Converter />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '48px' }}>
           <NewsLetterBanner />
         </Box>
-        <Box sx={{ mb: '120px' }}>
-          <CoinAnalytics />
-        </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '48px' }}>
           <BitcoinAnalytics />
         </Box>
-        <Box sx={{ mb: '180px' }}>
+        <Box sx={{ mb: '48px' }}>
+          <CoinAnalytics />
+        </Box>
+        <Box sx={{ mb: '48px' }}>
           <MemberShipBanner />
         </Box>
       </Container>

@@ -180,7 +180,7 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
             padding: '2px 5px',
             marginLeft: '4px',
             borderRadius: '11px',
-            color: change.includes('+') ? '#1FD773' : '#F74848',
+            color: change.includes('-') ? '#F74848' : '#1FD773',
             backgroundColor: change.includes('+') ? '#1FD7731A' : '#F748481A',
           }}
         >

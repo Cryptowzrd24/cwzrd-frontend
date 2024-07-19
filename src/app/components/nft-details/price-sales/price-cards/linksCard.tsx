@@ -9,7 +9,7 @@ const LinksCard = () => {
         backgroundImage: "url('/images/nft/trending.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
-        maxWidth: '286px',
+        maxWidth: '282px',
         width: '100%',
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
       }}
@@ -21,7 +21,7 @@ const LinksCard = () => {
             fontSize: '14px',
             fontWeight: '700',
             color: 'rgba(17, 17, 17, 1)',
-            mb: '16px',
+            mb: '20px',
             letterSpacing: '1.5px',
           }}
         >
@@ -32,7 +32,7 @@ const LinksCard = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            mb: '10px',
+            mb: '4px',
           }}
         >
           <Typography
@@ -72,7 +72,7 @@ const LinksCard = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            mb: '10px',
+            mb: '4px',
           }}
         >
           <Typography
@@ -136,7 +136,7 @@ const LinksCard = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            mb: '10px',
+            mb: '4px',
           }}
         >
           <Box></Box>

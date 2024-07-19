@@ -35,12 +35,12 @@ const useColumnMarketDefs = (columns: any) => {
             field: 'royalty',
             headerName: 'Royalty',
 
-            width: 185,
+            width: 195,
           };
         case 'service_fee':
           return {
             field: 'service_fee',
-            width: 125,
+            width: 195,
             headerName: 'Service Fee',
           };
         case 'floor_price':

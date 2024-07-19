@@ -47,10 +47,9 @@ const Activity = () => {
           <Typography
             variant="h2"
             sx={{
-              fontSize: '56px',
-              fontWeight: '600',
+              fontSize: '32px',
+              fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
-              letterSpacing: '-2px',
             }}
           >
             Persona{' '}
@@ -60,7 +59,6 @@ const Activity = () => {
                   'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                letterSpacing: '-2px',
               }}
             >
               Activity
@@ -68,7 +66,7 @@ const Activity = () => {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ mt: '48px' }}>
+      <Box sx={{ mt: '36px' }}>
         <DataTable rowData={rowDataSales} columnDefs={colDef} />
         <Pagination
           length={totalCount}

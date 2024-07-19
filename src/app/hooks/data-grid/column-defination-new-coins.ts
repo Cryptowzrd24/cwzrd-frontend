@@ -60,7 +60,7 @@ const useColumnNewCoinsDefs = (columns: any) => {
         case 'chain':
           return {
             field: 'chain',
-            width: 95,
+            width: 105,
             headerName: 'Chain',
             cellRenderer: ChainComp,
           };
@@ -74,7 +74,7 @@ const useColumnNewCoinsDefs = (columns: any) => {
         case 'date_added':
           return {
             field: 'date_added',
-            width: 140,
+            width: 120,
             headerName: 'Date Added',
             cellRenderer: DateAdded,
           };

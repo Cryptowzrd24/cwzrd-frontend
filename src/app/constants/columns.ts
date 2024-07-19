@@ -193,7 +193,7 @@ export const columnsSales = [
   { field: 'addresses' },
   { field: 'Price' },
   { field: 'Gas' },
-  { field: 'ago_1h', headerName: '1h Ago' },
+  { field: 'ago_1h', headerName: '1hAgo' },
 ];
 
 export const columnsMarket = [

@@ -8,7 +8,7 @@ const Info = () => {
       <Box
         sx={{
           boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
-          padding: '24px',
+          padding: '32px',
           borderRadius: '16px',
           background: 'rgba(255, 255, 255, 1)',
           marginBottom: '24px',
@@ -18,11 +18,12 @@ const Info = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '18px',
-              fontWeight: '500',
+              fontSize: '16px',
+              fontWeight: '400',
               color: 'rgba(17, 17, 17, 1)',
               letterSpacing: '2px',
               ml: '8px',
+              lineHeight: '20.8px',
             }}
           >
             INFO
@@ -30,11 +31,10 @@ const Info = () => {
           <Typography
             variant="h2"
             sx={{
-              fontSize: '56px',
-              fontWeight: '600',
+              fontSize: '40px',
+              fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
-              letterSpacing: '-2px',
-              mb: '32px',
+              mb: '24px',
             }}
           >
             About{' '}
@@ -54,7 +54,7 @@ const Info = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -65,7 +65,7 @@ const Info = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
@@ -82,11 +82,11 @@ const Info = () => {
           </Box>
 
           {/* --------------------- */}
-          <Box sx={{ mb: '24px' }}>
+          <Box sx={{ mb: '16px' }}>
             <Typography
               variant="body1"
               sx={{
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -97,7 +97,7 @@ const Info = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
@@ -112,11 +112,11 @@ const Info = () => {
             </Typography>
           </Box>
           {/* ---------------------------------- */}
-          <Box sx={{ mb: '24px' }}>
+          <Box sx={{ mb: '16px' }}>
             <Typography
               variant="body1"
               sx={{
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -127,7 +127,7 @@ const Info = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
@@ -137,11 +137,11 @@ const Info = () => {
             </Typography>
           </Box>
           {/* ------------------------------ */}
-          <Box sx={{ mb: '24px' }}>
+          <Box sx={{ mb: '16px' }}>
             <Typography
               variant="body1"
               sx={{
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -152,7 +152,7 @@ const Info = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
@@ -161,11 +161,11 @@ const Info = () => {
             </Typography>
           </Box>
           {/* ------------------------------- */}
-          <Box sx={{ mb: '32px' }}>
+          <Box sx={{ mb: '24px' }}>
             <Typography
               variant="body1"
               sx={{
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -176,7 +176,7 @@ const Info = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
