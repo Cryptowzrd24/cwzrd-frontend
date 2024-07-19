@@ -7,6 +7,7 @@ import { GraphComp } from '../../components/data-table/graph';
 import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
+import { priceNumberFormatDigits } from '@/utils/price-number-formatter-4digits';
 
 const useColumnChainsDefs = (columns: any) => {
   return useMemo(() => {
@@ -44,7 +45,7 @@ const useColumnChainsDefs = (columns: any) => {
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + ' %';
+              const formattedValue = priceNumberFormatDigits(value) + ' %';
               return profitLossCheck(formattedValue);
             },
           };
@@ -66,7 +67,7 @@ const useColumnChainsDefs = (columns: any) => {
         case 'tvl':
           return {
             field: 'tvl',
-            width: 130,
+            width: 190,
             headerName: 'TVL',
             // headerComponent: HeaderComponent,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),

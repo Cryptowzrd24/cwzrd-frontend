@@ -8,6 +8,7 @@ import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
+import { priceNumberFormatDigits } from '@/utils/price-number-formatter-4digits';
 
 const useColumnGainersDefs = (columns: any) => {
   return useMemo(() => {
@@ -31,25 +32,26 @@ const useColumnGainersDefs = (columns: any) => {
           return {
             field: 'price',
             headerName: 'Price',
-            width: 115,
+            width: 155,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'volume_24h':
           return {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
-            width: 155,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            width: 125,
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
           };
         case 'percent_change_24h':
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 130,
+            width: 110,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + ' %';
+              const formattedValue = priceNumberFormatDigits(value) + ' %';
               return profitLossCheck(formattedValue);
             },
           };

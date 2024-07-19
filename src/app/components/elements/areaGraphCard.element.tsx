@@ -65,6 +65,7 @@ const AreaChart = (props: IChartProps) => {
         },
       },
     ],
+
     tooltip: {
       backgroundColor: '#fff',
       borderColor: 'transparent',

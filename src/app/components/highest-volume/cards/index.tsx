@@ -1,12 +1,14 @@
+'use client';
 import { Box, Stack, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Shift from '../../../../../public/icons/collections/shift';
 import first from '../../../../../public/icons/first-rank.png';
 import second from '../../../../../public/icons/second-rank.png';
 import numeral from 'numeral';
 import third from '../../../../../public/icons/third-rank.png';
-import { priceNumberFormatter } from '@/utils/price-number-formater';
+import { priceNumberFormatDigits } from '@/utils/price-number-formatter-4digits';
+import Graph from './graphCard';
 
 const Card = ({
   title,
@@ -20,6 +22,8 @@ const Card = ({
   coinId,
   index,
 }: any) => {
+  const [activeButton, setActiveButton] = useState<string>('');
+
   const isPositiveChange = change > 0;
   const changeColor = isPositiveChange
     ? 'rgba(69, 202, 148, 1)'
@@ -29,6 +33,26 @@ const Card = ({
     : '/images/spotlight-cards/background2.png';
 
   const imgUrl = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinId}.png`;
+
+  const areachartData = [
+    { x: 1, y: 5 },
+    { x: 2, y: 10 },
+    { x: 3, y: 15 },
+    { x: 4, y: 8 },
+    { x: 5, y: 1 },
+    { x: 6, y: 6 },
+    { x: 7, y: 2 },
+    { x: 8, y: 3 },
+    { x: 9, y: 9 },
+    { x: 10, y: 7 },
+    { x: 11, y: 1 },
+    { x: 12, y: 12 },
+    { x: 13, y: 2 },
+    { x: 14, y: 5 },
+    { x: 15, y: 1 },
+    { x: 16, y: 15 },
+    { x: 17, y: 7 },
+  ];
 
   const getRankContent = (index: number) => {
     switch (index) {
@@ -57,6 +81,28 @@ const Card = ({
   const formattedTotalMaxSupply = numeral(totalMaxSupply)
     .format('0.0a')
     .toUpperCase();
+
+  const handleButtonClick = (button: string) => {
+    setActiveButton(button);
+  };
+
+  const getButtonStyles = (button: string) => {
+    const isActive = activeButton === button;
+    return {
+      background: isActive
+        ? isPositiveChange
+          ? 'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)'
+          : 'linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)'
+        : 'transparent',
+      color: isActive ? 'rgba(255, 255, 255, 1)' : 'rgba(17, 17, 17, 1)',
+    };
+  };
+  const numericChange = Number(change);
+
+  // Format the change value
+  const formattedChange = isPositiveChange
+    ? `+${numericChange.toFixed(2)}`
+    : numericChange.toFixed(2);
   return (
     <Box
       sx={{
@@ -133,7 +179,7 @@ const Card = ({
             {getRankContent(index)}
           </Box>
         </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <Typography
             variant="h5"
             sx={{
@@ -142,7 +188,7 @@ const Card = ({
               color: 'rgba(255, 255, 255, 1)',
             }}
           >
-            ${priceNumberFormatter(price)}
+            ${priceNumberFormatDigits(price)}
           </Typography>
           <Box
             sx={{
@@ -159,7 +205,7 @@ const Card = ({
                 color: 'rgba(255, 255, 255, 1)',
               }}
             >
-              {isPositiveChange ? `+${change}` : `${change}`} %
+              {formattedChange} %
             </Typography>
           </Box>
         </Box>
@@ -170,6 +216,7 @@ const Card = ({
           alignItems: 'center',
           mt: '24px',
           gap: '48px',
+          mb: '-4px',
         }}
       >
         <Box>
@@ -266,7 +313,6 @@ const Card = ({
         </Box>
       </Box>
       <Box sx={{ mt: '24px' }}>
-        {/* <Image src={graph1} alt="graph" /> */}
         <Box
           sx={{
             border: '1px solid rgba(17, 17, 17, 0.05)',
@@ -281,78 +327,36 @@ const Card = ({
               padding: '8px',
             }}
           >
-            <Box
-              sx={{
-                padding: '4px 8px',
-                borderRadius: '24px',
-                border: '1px solid rgba(17, 17, 17, 0.05)',
-              }}
-            >
-              <Typography
-                variant="body1"
+            {['1D', '7D', '1M', '3M'].map((button) => (
+              <Box
+                key={button}
                 sx={{
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  color: 'rgba(17, 17, 17, 1)',
+                  padding: '4px 8px',
+                  borderRadius: '24px',
+                  border: '1px solid rgba(17, 17, 17, 0.05)',
+                  cursor: 'pointer',
+                  background: getButtonStyles(button).background,
                 }}
+                onClick={() => handleButtonClick(button)}
               >
-                1D
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                padding: '4px 8px',
-                borderRadius: '24px',
-                border: '1px solid rgba(17, 17, 17, 0.05)',
-              }}
-            >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                7D
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                padding: '4px 8px',
-                borderRadius: '24px',
-                border: '1px solid rgba(17, 17, 17, 0.05)',
-              }}
-            >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                1M
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                padding: '4px 8px',
-                borderRadius: '24px',
-                border: '1px solid rgba(17, 17, 17, 0.05)',
-              }}
-            >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                3M
-              </Typography>
-            </Box>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: getButtonStyles(button).color,
+                  }}
+                >
+                  {button}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+          <Box>
+            <Graph
+              graphAttr={{ type: 'area', data: areachartData }}
+              change={change}
+            />
           </Box>
         </Box>
       </Box>

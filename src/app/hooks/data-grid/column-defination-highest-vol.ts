@@ -56,7 +56,8 @@ const useColumnHighestVolDefs = (columns: any) => {
             field: 'market_cap',
             headerComponent: HeaderComponent,
             width: 165,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
             tooltipComponent: HeaderTooltip,
             headerTooltip: 'Market Cap',
           };

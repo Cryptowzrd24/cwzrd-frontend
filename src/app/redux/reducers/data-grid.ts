@@ -93,6 +93,15 @@ export const dataGridApi = createApi({
         };
       },
     }),
+
+    fetchExchangesData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/exchanges/?offset=${start}&limit=${pageSize}`,
+          method: 'GET',
+        };
+      },
+    }),
     fetchStatsData: builder.query({
       query: () => ({
         url: '/api/stats/',
@@ -117,6 +126,7 @@ export const {
   useFetchTrendingDataQuery,
   useFetchGainersLosersDataQuery,
   useFetchChainDataQuery,
+  useFetchExchangesDataQuery,
   useFetchStatsDataQuery,
   useFetchTickerDataQuery,
 } = dataGridApi;

@@ -7,6 +7,7 @@ import { GraphComp } from '../../components/data-table/graph';
 import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
+import { priceNumberFormatDigits } from '@/utils/price-number-formatter-4digits';
 
 const useColumnTrendingDefs = (columns: any) => {
   return useMemo(() => {
@@ -24,13 +25,13 @@ const useColumnTrendingDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 230,
+            width: 200,
           };
         case 'price':
           return {
             field: 'price',
             headerName: 'Price',
-            width: 120,
+            width: 160,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'percent_change_1h':
@@ -54,7 +55,7 @@ const useColumnTrendingDefs = (columns: any) => {
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + ' %';
+              const formattedValue = priceNumberFormatDigits(value) + ' %';
               return profitLossCheck(formattedValue);
             },
           };
@@ -63,14 +64,16 @@ const useColumnTrendingDefs = (columns: any) => {
             field: 'market_cap',
             headerComponent: HeaderComponent,
             width: 185,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
           };
         case 'volume_24h':
           return {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
             width: 170,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
           };
         case 'last7Days':
           return {

@@ -24,7 +24,7 @@ const useColumnExchangeDefs = (columns: any) => {
             field: 'exchange',
             headerName: 'Exchanges',
             cellRenderer: ExchangeNameComponent,
-            width: 190,
+            width: 240,
           };
         case 'score':
           return {
@@ -39,7 +39,8 @@ const useColumnExchangeDefs = (columns: any) => {
             field: 'trading_volume_24h',
             headerName: 'Trading Volume(24h)',
             width: 200,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
           };
         case 'average_liquidity':
           return {
@@ -66,7 +67,7 @@ const useColumnExchangeDefs = (columns: any) => {
           return {
             field: 'coins',
             headerName: '#Coins',
-            width: 100,
+            width: 120,
             valueFormatter: (p: any) => priceNumberFormatter(p.value),
           };
         case 'fiat_supported':
@@ -79,7 +80,7 @@ const useColumnExchangeDefs = (columns: any) => {
         case 'last7Days':
           return {
             field: 'last7Days',
-            width: 165,
+            width: 105,
             headerName: 'Last 7 Days',
             cellRenderer: GraphComp,
           };

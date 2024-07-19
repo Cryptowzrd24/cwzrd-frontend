@@ -11,6 +11,7 @@ import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
 import { DateAdded } from '@/app/components/data-table/date-component';
+import { priceNumberFormatDigits } from '@/utils/price-number-formatter-4digits';
 
 const useColumnNewCoinsDefs = (columns: any) => {
   return useMemo(() => {
@@ -34,7 +35,7 @@ const useColumnNewCoinsDefs = (columns: any) => {
           return {
             field: 'price',
             headerName: 'Price',
-            width: 125,
+            width: 135,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'percent_change_1h':
@@ -46,7 +47,7 @@ const useColumnNewCoinsDefs = (columns: any) => {
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + ' %';
+              const formattedValue = priceNumberFormatDigits(value) + ' %';
               return profitLossCheck(formattedValue);
             },
           };
@@ -69,7 +70,8 @@ const useColumnNewCoinsDefs = (columns: any) => {
             field: 'fdv',
             width: 230,
             headerComponent: HeaderComponent,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
           };
         case 'date_added':
           return {

@@ -34,10 +34,6 @@ const Table = () => {
   const handleVolumeSizeChange = (newVolumeSize: any) => {
     setTimePeriod(newVolumeSize);
   };
-  const paginatedRowData = rowData.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize,
-  );
 
   const totalCount = data?.count || 0;
 
@@ -89,7 +85,7 @@ const Table = () => {
       >
         <DataTable
           search={search}
-          rowData={paginatedRowData}
+          rowData={rowData}
           columnDefs={columnTrendingDef}
           width="100%"
         />
