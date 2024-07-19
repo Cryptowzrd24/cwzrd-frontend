@@ -52,8 +52,11 @@ export const constructQueryParams = (filters: Filters) => {
     queryParams.tags = tags.join(',');
   }
 
-  if (filters.cryptoCurrency !== null) {
-    queryParams.crypto_currency = filters.cryptoCurrency;
+  if (
+    filters.cryptoCurrency !== null &&
+    filters.cryptoCurrency !== 'allCryptoCurrencies'
+  ) {
+    queryParams[filters.cryptoCurrency] = 'true';
   }
 
   return queryParams;
