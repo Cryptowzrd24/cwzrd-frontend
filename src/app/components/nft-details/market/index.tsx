@@ -31,8 +31,8 @@ const Market = () => {
         variant="body1"
         sx={{
           color: 'rgba(17, 17, 17, 1)',
-          fontSize: '18px',
-          fontWeight: '500',
+          fontSize: '16px',
+          fontWeight: '400',
           lineHeight: 1,
           letterSpacing: '2px',
           mb: '4px',
@@ -51,10 +51,9 @@ const Market = () => {
           <Typography
             variant="h2"
             sx={{
-              fontSize: '56px',
-              fontWeight: '600',
+              fontSize: '32px',
+              fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
-              letterSpacing: '-2px',
             }}
           >
             Persona{' '}
@@ -64,7 +63,6 @@ const Market = () => {
                   'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                letterSpacing: '-2px',
               }}
             >
               Market
@@ -89,7 +87,7 @@ const Market = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '13px',
                 fontWeight: '700',
                 color: 'rgba(114, 72, 247, 1)',
               }}
@@ -114,7 +112,7 @@ const Market = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '13px',
                 fontWeight: '700',
                 color: 'rgba(114, 72, 247, 1)',
               }}
@@ -139,7 +137,7 @@ const Market = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '13px',
                 fontWeight: '700',
                 color: 'rgba(114, 72, 247, 1)',
               }}
@@ -149,7 +147,7 @@ const Market = () => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ mt: '48px' }}>
+      <Box sx={{ mt: '36px' }}>
         <DataTable rowData={rowDataMarket} columnDefs={colDef} />
         <Pagination
           length={totalCount}

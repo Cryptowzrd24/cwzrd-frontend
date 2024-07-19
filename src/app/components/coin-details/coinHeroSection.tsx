@@ -37,7 +37,7 @@ const CoinHeroSection = () => {
           backgroundImage: 'url("/images/coin-details/background.png")',
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
-          padding: '32px 40px',
+          padding: '24px 32px',
           borderRadius: '24px',
         }}
       >
@@ -46,7 +46,7 @@ const CoinHeroSection = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            mb: '24px',
+            mb: '16px',
           }}
         >
           <Box
@@ -63,7 +63,7 @@ const CoinHeroSection = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '24px',
+                  fontSize: '20px',
                   fontWeight: '500',
                   color: 'rgba(255, 255, 255, 1)',
                   lineHeight: 1,
@@ -74,8 +74,8 @@ const CoinHeroSection = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '16px',
-                  fontWeight: '500',
+                  fontSize: '14px',
+                  fontWeight: '400',
                   color: 'rgba(255, 255, 255, 1)',
                 }}
               >
@@ -108,7 +108,7 @@ const CoinHeroSection = () => {
             <Box
               sx={{
                 borderRadius: '8px',
-                padding: '10px 12px',
+                padding: '8px',
                 background: 'rgba(255, 255, 255, 0.1)',
                 display: 'flex',
                 alignItems: 'center',
@@ -121,7 +121,7 @@ const CoinHeroSection = () => {
             <Box
               sx={{
                 borderRadius: '8px',
-                padding: '10px 12px',
+                padding: '8px',
                 background: 'rgba(255, 255, 255, 0.1)',
                 display: 'flex',
                 alignItems: 'center',
@@ -147,7 +147,7 @@ const CoinHeroSection = () => {
           <Stack sx={{ maxWidth: '356px', width: '100%' }}>
             <Box
               sx={{
-                mb: '24px',
+                mb: '12px',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '12px',
@@ -156,18 +156,18 @@ const CoinHeroSection = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '32px',
+                  fontSize: '24px',
                   fontWeight: '700',
                   color: 'rgba(255, 255, 255, 1)',
                   lineHeight: 1,
                 }}
               >
-                3.89 ETH
+                $49,627.43
               </Typography>
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '20px',
+                  fontSize: '16px',
                   fontWeight: '500',
                   color: 'rgba(76, 254, 182, 1)',
                   lineHeight: 1,
@@ -190,7 +190,7 @@ const CoinHeroSection = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    fontSize: '14px',
+                    fontSize: '12px',
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 1)',
                   }}
@@ -200,7 +200,7 @@ const CoinHeroSection = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    fontSize: '14px',
+                    fontSize: '12px',
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 1)',
                   }}
@@ -212,7 +212,7 @@ const CoinHeroSection = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    fontSize: '14px',
+                    fontSize: '12px',
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 1)',
                   }}
@@ -222,7 +222,7 @@ const CoinHeroSection = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    fontSize: '14px',
+                    fontSize: '12px',
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 1)',
                   }}
@@ -255,7 +255,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '14px',
+                      fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -265,7 +265,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '20px',
+                      fontSize: '16px',
                       fontWeight: '700',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -277,7 +277,7 @@ const CoinHeroSection = () => {
                   variant="body1"
                   sx={{
                     color: 'rgba(76, 254, 182, 1)',
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: '600',
                   }}
                 >
@@ -286,7 +286,7 @@ const CoinHeroSection = () => {
               </Box>
               <Box
                 sx={{
-                  mb: '16px',
+                  // mb: '16px',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -297,7 +297,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '14px',
+                      fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -307,7 +307,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '20px',
+                      fontSize: '26px',
                       fontWeight: '700',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -319,7 +319,7 @@ const CoinHeroSection = () => {
                   variant="body1"
                   sx={{
                     color: 'rgba(76, 254, 182, 1)',
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: '600',
                   }}
                 >
@@ -351,7 +351,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '14px',
+                      fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -361,7 +361,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '20px',
+                      fontSize: '16px',
                       fontWeight: '700',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -373,7 +373,7 @@ const CoinHeroSection = () => {
                   variant="body1"
                   sx={{
                     color: 'rgba(76, 254, 182, 1)',
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: '600',
                   }}
                 >
@@ -382,7 +382,7 @@ const CoinHeroSection = () => {
               </Box>
               <Box
                 sx={{
-                  mb: '16px',
+                  // mb: '16px',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -393,7 +393,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '14px',
+                      fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -403,7 +403,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '20px',
+                      fontSize: '16px',
                       fontWeight: '700',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -437,7 +437,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '14px',
+                      fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -447,7 +447,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '20px',
+                      fontSize: '16px',
                       fontWeight: '700',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -458,7 +458,7 @@ const CoinHeroSection = () => {
               </Box>
               <Box
                 sx={{
-                  mb: '16px',
+                  // mb: '16px',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -469,7 +469,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '14px',
+                      fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -479,7 +479,7 @@ const CoinHeroSection = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '20px',
+                      fontSize: '16px',
                       fontWeight: '700',
                       color: 'rgba(255, 255, 255, 1)',
                     }}

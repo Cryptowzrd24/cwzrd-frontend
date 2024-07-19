@@ -32,8 +32,8 @@ const CoinMarket = () => {
         variant="body1"
         sx={{
           color: 'rgba(17, 17, 17, 1)',
-          fontSize: '18px',
-          fontWeight: '500',
+          fontSize: '16px',
+          fontWeight: '400',
           lineHeight: 1,
           letterSpacing: '2px',
           mb: '4px',
@@ -52,10 +52,9 @@ const CoinMarket = () => {
           <Typography
             variant="h2"
             sx={{
-              fontSize: '56px',
-              fontWeight: '600',
+              fontSize: '32px',
+              fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
-              letterSpacing: '-2px',
             }}
           >
             Bitcoin{' '}
@@ -65,7 +64,6 @@ const CoinMarket = () => {
                   'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                letterSpacing: '-2px',
               }}
             >
               Markets
@@ -76,7 +74,7 @@ const CoinMarket = () => {
           <Box
             onClick={() => handleClick('Spot')}
             sx={{
-              padding: '10px 16px',
+              padding: '7px 16px',
               borderRadius: '8px',
               display: 'flex',
               justifyContent: 'center',
@@ -90,8 +88,8 @@ const CoinMarket = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
-                fontWeight: '700',
+                fontSize: '14px',
+                fontWeight: '600',
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
@@ -101,7 +99,7 @@ const CoinMarket = () => {
           <Box
             onClick={() => handleClick('Perpetuals')}
             sx={{
-              padding: '10px 16px',
+              padding: '7px 16px',
               borderRadius: '8px',
               display: 'flex',
               justifyContent: 'center',
@@ -117,8 +115,8 @@ const CoinMarket = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
-                fontWeight: '700',
+                fontSize: '14px',
+                fontWeight: '600',
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
@@ -128,7 +126,7 @@ const CoinMarket = () => {
           <Box
             onClick={() => handleClick('Futures')}
             sx={{
-              padding: '10px 16px',
+              padding: '7px 16px',
               borderRadius: '8px',
               display: 'flex',
               justifyContent: 'center',
@@ -144,8 +142,8 @@ const CoinMarket = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
-                fontWeight: '700',
+                fontSize: '14px',
+                fontWeight: '600',
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
@@ -154,7 +152,7 @@ const CoinMarket = () => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ mt: '48px' }}>
+      <Box sx={{ mt: '16px' }}>
         <DataTable rowData={rowDataCoinMarket} columnDefs={colDef} />
         <Pagination
           length={totalCount}

@@ -37,17 +37,19 @@ const useColumnSalesDefs = (columns: any) => {
         case 'price':
           return {
             field: 'price',
-            width: 125,
+            width: 65,
           };
         case 'gas':
           return {
             field: 'gas',
-            width: 175,
+            width: 115,
           };
         case 'ago_1h':
           return {
             field: 'ago_1h',
-            width: 160,
+            headerName: '1hAgo',
+
+            width: 115,
           };
         default:
           return col;

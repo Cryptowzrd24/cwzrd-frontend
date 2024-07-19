@@ -5,8 +5,8 @@ import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import DataTable from '../../data-table';
 import { rowDataSales } from '@/app/constants/row';
-import ArrowRightDark from '../../../../../public/icons/collections/arrowRightDark';
 import { Pagination } from '../../data-table/pagination';
+import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
 
 const Sales = () => {
   const colDef = useColumnSalesDefs(columnsSales);
@@ -27,8 +27,8 @@ const Sales = () => {
         variant="body1"
         sx={{
           color: 'rgba(17, 17, 17, 1)',
-          fontSize: '18px',
-          fontWeight: '500',
+          fontSize: '16px',
+          fontWeight: '400',
           lineHeight: 1,
           letterSpacing: '2px',
           mb: '4px',
@@ -47,10 +47,9 @@ const Sales = () => {
           <Typography
             variant="h2"
             sx={{
-              fontSize: '56px',
-              fontWeight: '600',
+              fontSize: '32px',
+              fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
-              letterSpacing: '-2px',
             }}
           >
             Persona{' '}
@@ -60,43 +59,39 @@ const Sales = () => {
                   'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                letterSpacing: '-2px',
               }}
             >
               Sales
             </span>{' '}
           </Typography>
         </Box>
-        <Box
+
+        <Typography
+          variant="body1"
           sx={{
-            padding: '16px 24px 16px 32px',
-            borderRadius: '56px',
+            background: 'rgba(17, 17, 17, 0.05)',
+            // padding: '11px 16px 11px  16px',
+            padding: '10px 12px',
+            fontWeight: '600',
             display: 'flex',
             justifyContent: 'center',
+            fontSize: '14px',
             alignItems: 'center',
-            background: 'rgba(17, 17, 17, 0.05)',
+            gap: '4px',
+            borderRadius: '56px',
             cursor: 'pointer',
-            '&:hover': {
-              background: 'rgba(17, 17, 17, 0.15)',
+            transition: 'background 0.3s ease',
+            lineHeight: 1,
+            ':hover': {
+              background: 'rgba(17, 17, 17, 0.2)',
             },
           }}
         >
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: '18px',
-              fontWeight: '600',
-              color: 'rgba(0, 0, 0, 1)',
-            }}
-          >
-            View More{' '}
-          </Typography>
-          <span style={{ marginTop: '4px' }}>
-            <ArrowRightDark />
-          </span>
-        </Box>
+          View More
+          <ArrowRightBlack />
+        </Typography>
       </Box>
-      <Box sx={{ mt: '48px' }}>
+      <Box sx={{ mt: '36px' }}>
         <DataTable rowData={rowDataSales} columnDefs={colDef} />
         <Pagination
           length={totalCount}

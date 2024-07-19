@@ -6,10 +6,10 @@ import BitcoinCard from './cards';
 const BitcoinAnalytics = () => {
   return (
     <>
-      <Box sx={{ mt: '80px', mb: '40px' }}>
+      <Box sx={{ mt: '48px', mb: '16px' }}>
         <Title />
       </Box>
-      <Box sx={{ mt: '80px', mb: '40px', display: 'flex', gap: '30px' }}>
+      <Box sx={{ display: 'flex', gap: '30px' }}>
         <BitcoinCard />
       </Box>
     </>

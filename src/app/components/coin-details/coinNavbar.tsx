@@ -51,8 +51,8 @@ const CoinNavbar = () => {
             key={heading}
             variant="body1"
             sx={{
-              fontSize: '14px',
-              fontWeight: '700',
+              fontSize: '12px',
+              fontWeight: activeHeading === heading ? '700' : '600',
               color:
                 activeHeading === heading
                   ? 'rgba(114, 72, 247, 1)'

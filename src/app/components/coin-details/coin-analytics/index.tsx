@@ -32,8 +32,8 @@ const CoinAnalytics = () => {
         variant="body1"
         sx={{
           color: 'rgba(17, 17, 17, 1)',
-          fontSize: '18px',
-          fontWeight: '500',
+          fontSize: '16px',
+          fontWeight: '400',
           lineHeight: 1,
           letterSpacing: '2px',
           mb: '4px',
@@ -53,10 +53,9 @@ const CoinAnalytics = () => {
           <Typography
             variant="h2"
             sx={{
-              fontSize: '56px',
-              fontWeight: '600',
+              fontSize: '32px',
+              fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
-              letterSpacing: '-2px',
             }}
           >
             Bitcoin{' '}
@@ -66,7 +65,6 @@ const CoinAnalytics = () => {
                   'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                letterSpacing: '-2px',
               }}
             >
               Historical Data
@@ -77,7 +75,7 @@ const CoinAnalytics = () => {
           <Box
             onClick={() => handleClick('1 Month')}
             sx={{
-              padding: '10px 16px',
+              padding: '8px 16px',
               borderRadius: '8px',
               display: 'flex',
               justifyContent: 'center',
@@ -93,8 +91,8 @@ const CoinAnalytics = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
-                fontWeight: '700',
+                fontSize: '14px',
+                fontWeight: '600',
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
@@ -104,7 +102,7 @@ const CoinAnalytics = () => {
           <Box
             onClick={() => handleClick('1 Year')}
             sx={{
-              padding: '10px 16px',
+              padding: '8px 16px',
               borderRadius: '8px',
               display: 'flex',
               justifyContent: 'center',
@@ -120,8 +118,8 @@ const CoinAnalytics = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
-                fontWeight: '700',
+                fontSize: '14px',
+                fontWeight: '600',
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
@@ -131,7 +129,7 @@ const CoinAnalytics = () => {
           <Box
             onClick={() => handleClick('All')}
             sx={{
-              padding: '10px 16px',
+              padding: '8px 16px',
               borderRadius: '8px',
               display: 'flex',
               justifyContent: 'center',
@@ -145,8 +143,8 @@ const CoinAnalytics = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
-                fontWeight: '700',
+                fontSize: '14px',
+                fontWeight: '600',
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
@@ -155,7 +153,7 @@ const CoinAnalytics = () => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ mt: '48px' }}>
+      <Box sx={{ mt: '16px' }}>
         <DataTable rowData={rowDataCoinAnalytics} columnDefs={colDef} />
         <Pagination
           length={totalCount}
