@@ -46,6 +46,17 @@ export const Accordian = ({
 
   const displayValue = getDisplayValue(accordianName);
 
+  const renderCorrectDisplayName = (name: any) => {
+    if (name === 'coins') {
+      return 'Coins Only';
+    } else if (name === 'allCryptoCurrencies') {
+      return 'All Crypto Currencies';
+    } else if (name === 'tokens') {
+      return 'Tokens Only';
+    } else {
+      return name;
+    }
+  };
   return (
     <div>
       <Accordion
@@ -63,9 +74,15 @@ export const Accordian = ({
           id="panel1-header"
         >
           <p>{name}</p>
-          {displayValue && <p style={{ color: '#7248F7' }}>{displayValue}</p>}
+          {displayValue && (
+            <p style={{ color: '#7248F7' }}>
+              {renderCorrectDisplayName(displayValue)}
+            </p>
+          )}
         </AccordionSummary>
-        <AccordionDetails>{Component}</AccordionDetails>
+        <AccordionDetails sx={{ padding: '8px 0 16px' }}>
+          {Component}
+        </AccordionDetails>
       </Accordion>
     </div>
   );

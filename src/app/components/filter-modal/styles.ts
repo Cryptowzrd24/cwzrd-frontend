@@ -5,7 +5,7 @@ const styles = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '496px',
-    height: '700px',
+    height: '550px !important',
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
@@ -37,7 +37,10 @@ const styles = {
     fontSize: '14px',
     fontFamily: 'Sf Pro Display',
     fontWeight: 700,
+    minHeight: '46px !important',
+    maxHeight: '46px !important',
     letterSpacing: '1px',
+    padding: '0 4px !important',
     '& .MuiAccordionSummary-content': {
       justifyContent: 'space-between !important',
     },
@@ -58,6 +61,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '10px',
+    marginTop: '10px !important',
   },
   accordianHeaderText: {
     fontSize: '14px',
@@ -67,6 +71,7 @@ const styles = {
   textField: {
     width: '450px',
     '& .MuiInputBase-input': {
+      borderRadius: '8px',
       fontSize: '14px',
     },
     '& .MuiInputLabel-root': {
@@ -84,17 +89,25 @@ const styles = {
     marginTop: '25px',
     fontSize: '12px',
     color: 'grey',
+    paddingBottom: '15px',
   },
   minableAuditedText: {
     fontSize: '14px',
     fontFamily: 'Sf Pro Display',
     fontWeight: 700,
     letterSpacing: '1px',
-    marginLeft: '15px',
   },
   switch: {
+    width: '44px !important',
+    height: '24px !important',
+    padding: '0 !important',
+    borderRadius: '25px',
+    '& .MuiSwitch-switchBase': {
+      top: '-7px !important',
+      left: '-7px !important',
+    },
     '& .MuiSwitch-switchBase.Mui-checked': {
-      color: '#7248F7',
+      color: '#fff',
     },
     '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
       backgroundColor: '#7248F7',
