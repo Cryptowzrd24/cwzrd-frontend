@@ -5,13 +5,12 @@ import { ID } from '@/app/components/data-table/id';
 import { ChainComp } from '../../components/data-table/chain';
 import { VolumeComponent } from '../../components/data-table/volume';
 
-import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
 import { DateAdded } from '@/app/components/data-table/date-component';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-4digits';
+import { priceNumberFormatter } from '@/utils/price-number-formater';
 
 const useColumnNewCoinsDefs = (columns: any) => {
   return useMemo(() => {
@@ -47,7 +46,7 @@ const useColumnNewCoinsDefs = (columns: any) => {
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatDigits(value) + ' %';
+              const formattedValue = priceNumberFormatter(value) + ' %';
               return profitLossCheck(formattedValue);
             },
           };

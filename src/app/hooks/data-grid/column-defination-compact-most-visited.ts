@@ -7,6 +7,7 @@ import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
+import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
 
 const useColumnCompactMostVisitedDefs = (columns: any) => {
   return useMemo(() => {
@@ -31,7 +32,7 @@ const useColumnCompactMostVisitedDefs = (columns: any) => {
             field: 'price',
             headerName: 'Price',
             width: 95,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
           };
         case 'percent_change_24h':
           return {

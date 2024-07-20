@@ -8,7 +8,7 @@ import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 import { TopGainers } from '@/app/components/data-table/top-gainers';
 import { CategoryName } from '@/app/components/data-table/category-name';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-4digits';
+import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
 
 const useColumnCategoryDefs = (columns: any) => {
   return useMemo(() => {

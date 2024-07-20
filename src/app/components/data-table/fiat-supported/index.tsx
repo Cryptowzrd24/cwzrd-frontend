@@ -17,7 +17,9 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
 
   return (
     <div className={styles['fiat-supported']}>
-      <h6>{firstThreeFiats.join(', ')}</h6>
+      <div style={{ fontSize: '12px', color: 'rgba(17, 17, 17, 1)' }}>
+        {firstThreeFiats.join(', ')}
+      </div>
       {remainingFiatsCount > 0 && (
         <div
           style={{

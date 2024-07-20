@@ -134,7 +134,7 @@ export const rowDataNewCoins = [
   {
     index: 1,
     name: 'Solana SOL',
-    price: 6.495,
+    price: 6.49578767,
     chain: 7.37983,
     percent_change_1h: 0.02,
     percent_change_24h: 12.58,
@@ -145,7 +145,7 @@ export const rowDataNewCoins = [
   {
     index: 2,
     name: 'Avalanche AVAX',
-    price: 3.25,
+    price: 3.25785634,
     chain: 7.37983,
     percent_change_1h: 0.12,
     percent_change_24h: 8.78,
@@ -157,7 +157,7 @@ export const rowDataNewCoins = [
     index: 3,
     name: 'Terra LUNA',
     price: 5.5,
-    chain: 7.37983,
+    chain: 7.37983876,
     percent_change_1h: 0.08,
     percent_change_24h: 10.58,
     volume_24h: 32123123123,
@@ -167,7 +167,7 @@ export const rowDataNewCoins = [
   {
     index: 4,
     name: 'Binance Coin BNB',
-    price: 400.2,
+    price: 400.27678989,
     chain: 7.37983,
     percent_change_1h: 0.22,
     percent_change_24h: 6.98,
@@ -178,24 +178,13 @@ export const rowDataNewCoins = [
   {
     index: 5,
     name: 'Polygon MATIC',
-    price: 1.5,
+    price: 1.50998765,
     chain: 7.37983,
     percent_change_1h: 0.3,
     percent_change_24h: 9.32,
     volume_24h: 523123123,
     fdv: 1319030,
     last7Added: '1 Week Ago',
-  },
-  {
-    index: 6,
-    name: 'THETA THETA',
-    price: 7.8,
-    chain: 7.37983,
-    percent_change_1h: 0.05,
-    percent_change_24h: 15.75,
-    volume_24h: 634123123,
-    fdv: 1319030,
-    last7Added: '3 Days Ago',
   },
 ];
 

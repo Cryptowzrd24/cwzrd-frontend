@@ -7,7 +7,7 @@ import { GraphComp } from '../../components/data-table/graph';
 import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-4digits';
+import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
 
 const useColumnTrendingDefs = (columns: any) => {
   return useMemo(() => {
