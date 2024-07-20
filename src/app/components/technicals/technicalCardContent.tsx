@@ -16,10 +16,11 @@ const TechnicalCardContent: React.FC = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 3,
     arrows: false,
     afterChange: (current: any) => setCurrentSlide(current),
+    variableWidth: true
   };
 
   const handlePrev = () => {
@@ -55,12 +56,12 @@ const TechnicalCardContent: React.FC = () => {
         style={{
           position: 'absolute',
           bottom: '-70px',
-          right: '3%',
           transform: 'translateX(-50%)',
           display: 'flex',
           justifyContent: 'space-between',
           width: '48px',
           gap: '8px',
+          left: "67.4%"
         }}
       >
         <Box
@@ -102,11 +103,12 @@ const TechnicalCardContent: React.FC = () => {
         variant="body2"
         sx={{
           position: 'absolute',
-          left: '2%',
+          left: '0%',
           bottom: '-55px',
           color: 'rgba(17, 17, 17, 0.4)',
-          fontSize: '16px',
+          fontSize: '14px',
           fontWeight: '500',
+          lineHeight: "18.2px"
         }}
       >
         {`${Math.ceil(currentSlide / settings.slidesToScroll) + 1}/${totalSlides}`}

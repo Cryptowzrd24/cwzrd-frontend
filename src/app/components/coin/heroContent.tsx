@@ -59,10 +59,11 @@ function HeroContent() {
         )}
         <span
           style={{
-            color: '#7248F7',
+            color: '#808A9D',
             cursor: 'pointer',
             fontSize: '16px',
-            fontWeight: '700',
+            fontWeight: '400',
+            textDecoration: 'underline',
           }}
           onClick={handleToggle}
         >

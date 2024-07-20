@@ -54,7 +54,7 @@ function Technicals() {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '16px', width: '140%' }}>
         <TechnicalCardContent />
       </Box>
       <Box

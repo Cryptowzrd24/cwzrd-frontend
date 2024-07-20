@@ -75,6 +75,12 @@ body {
 
 .MuiPaper-root .MuiList-root {
     padding-bottom: 2px !important;
+
+}
+.MuiPaper-root{
+    margin-top: 8px !important;
+    box-shadow: 0px 4px 28px 0px #0000000D !important;
+
 }
 
 .MuiButtonBase-root.MuiMenuItem-root {

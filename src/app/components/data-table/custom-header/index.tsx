@@ -353,9 +353,10 @@ export const CustomHeader = ({
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
+              alignItems: 'center',
               background: '#1111110D',
+              border: '1px solid #11111100',
               borderRadius: '8px',
-              padding: '3px',
               gap: '4px',
             }}
           >
