@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -44,9 +44,6 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
   const [expanded, setExpanded] = useState<string | false>(false);
   const [isMineableActive, setIsMineableActive] = useState(false);
   const [isAuditedActive, setIsAuditedActive] = useState(false);
-  const [showResultsBtn, setShowResultsBtn] = useState(false);
-  const [showCloseBtn, setShowCloseBtn] = useState(true);
-  const [hasNonNullFilter, setHasNonNullFilter] = useState(false);
   const [ranges, setRanges] = useState<Ranges>({
     market: { min: null, max: null },
     price: { min: null, max: null },
@@ -61,7 +58,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
       if (panel !== 'cryptoCurrency') {
-        setShowResultsBtn(false);
+        // setShowResultsBtn(false);
       }
     };
 
@@ -104,8 +101,6 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
       }),
     );
     setExpanded(false);
-    setShowCloseBtn(false);
-    setShowResultsBtn(true);
   };
 
   const handleCancelFilter = () => {
@@ -119,39 +114,37 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
   const handleClearFilters = () => {
     dispatch(clearAllFilters());
     setExpanded(false);
-    setShowResultsBtn(false);
-    setShowCloseBtn(true);
   };
 
-  useEffect(() => {
-    const checkNonNullFilters = () => {
-      const {
-        circulatingSupply,
-        volume,
-        market,
-        price,
-        percentChange,
-        mineable,
-        audited,
-      } = filterItem;
+  // useEffect(() => {
+  //   const checkNonNullFilters = () => {
+  //     const {
+  //       circulatingSupply,
+  //       volume,
+  //       market,
+  //       price,
+  //       percentChange,
+  //       mineable,
+  //       audited,
+  //     } = filterItem;
 
-      const isRangeFilterSelected = (filter: any) => {
-        return filter.min !== null || filter.max !== null;
-      };
+  //     const isRangeFilterSelected = (filter: any) => {
+  //       return filter.min !== null || filter.max !== null;
+  //     };
 
-      return (
-        isRangeFilterSelected(circulatingSupply) ||
-        isRangeFilterSelected(volume) ||
-        isRangeFilterSelected(market) ||
-        isRangeFilterSelected(price) ||
-        isRangeFilterSelected(percentChange) ||
-        mineable !== false ||
-        audited !== false
-      );
-    };
+  //     return (
+  //       isRangeFilterSelected(circulatingSupply) ||
+  //       isRangeFilterSelected(volume) ||
+  //       isRangeFilterSelected(market) ||
+  //       isRangeFilterSelected(price) ||
+  //       isRangeFilterSelected(percentChange) ||
+  //       mineable !== false ||
+  //       audited !== false
+  //     );
+  //   };
 
-    setHasNonNullFilter(checkNonNullFilters());
-  }, [filterItem]);
+  //   setHasNonNullFilter(checkNonNullFilters());
+  // }, [filterItem]);
 
   return (
     <div>
@@ -163,7 +156,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
       >
         <Box
           sx={styles.modalFilterMain}
-          style={{ height: '700px', overflowY: 'scroll' }}
+          style={{ height: '585px', overflowY: 'scroll', width: '436px' }}
         >
           <Box
             sx={{
@@ -194,7 +187,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
               Component={
                 <Select
                   setExpanded={setExpanded}
-                  setShowResultsBtn={setShowResultsBtn}
+                  // setShowResultsBtn={setShowResultsBtn}
                 />
               }
               expanded={expanded === 'cryptoCurrency'}
@@ -287,7 +280,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '5px 0',
+                padding: '12px 0',
               }}
             >
               <Typography
@@ -312,7 +305,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '5px 0',
+                padding: '12px 0',
               }}
             >
               <Typography
@@ -336,19 +329,13 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
           <Box>
             <Divider sx={styles.divider} />
             <Box sx={styles.filterFooterBtns}>
-              {!expanded &&
-                showCloseBtn &&
-                (filterCount === null || filterCount === 0) && (
-                  <Button
-                    sx={styles.closeCancelBtn}
-                    size="medium"
-                    variant="text"
-                    onClick={handleClose}
-                  >
-                    Close
-                  </Button>
-                )}
-              {expanded && expanded !== 'cryptoCurrency' && (
+              {[
+                'market',
+                'price',
+                'volume',
+                'circulatingSupply',
+                'percentChange',
+              ].includes(expanded || '') ? (
                 <Box>
                   <Button
                     sx={styles.closeCancelBtn}
@@ -366,11 +353,7 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                     Apply Filter
                   </Button>
                 </Box>
-              )}
-              {((!expanded && !showCloseBtn) ||
-                ((filterItem.mineable || !expanded) && hasNonNullFilter) ||
-                ((filterItem.audited || !expanded) && hasNonNullFilter) ||
-                (filterItem.cryptoCurrency && showResultsBtn)) && (
+              ) : filterCount > 0 ? (
                 <Box>
                   <Button
                     sx={styles.closeCancelBtn}
@@ -387,6 +370,15 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                     Show Results
                   </Button>
                 </Box>
+              ) : (
+                <Button
+                  sx={styles.closeCancelBtn}
+                  size="medium"
+                  variant="text"
+                  onClick={handleClose}
+                >
+                  Close
+                </Button>
               )}
             </Box>
           </Box>

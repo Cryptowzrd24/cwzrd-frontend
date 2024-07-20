@@ -11,7 +11,7 @@ const TransactionCard = () => {
           borderRadius: '24px',
           padding: '24px',
           color: 'rgba(255, 255, 255, 1)',
-          boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+          boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           maxWidth: '630px',
         }}
       >
@@ -19,10 +19,10 @@ const TransactionCard = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '24px',
+              fontSize: '16px',
               fontWeight: '500',
               color: 'rgba(17, 17, 17, 1)',
-              mb: '24px',
+              mb: '16px',
             }}
           >
             Average transaction fees
@@ -46,7 +46,7 @@ const TransactionCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '16px',
+                    fontSize: '12px',
                     fontWeight: '400',
                     color: 'rgba(17, 17, 17, 0.6)',
                   }}
@@ -56,7 +56,7 @@ const TransactionCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '24px',
+                    fontSize: '18px',
                     fontWeight: '500',
                     color: 'rgba(17, 17, 17, 1)',
                   }}
@@ -68,7 +68,7 @@ const TransactionCard = () => {
           </Stack>
           {/* ----------------------------------- */}
         </Box>
-        <Box sx={{ mt: '32px' }}>
+        <Box sx={{ mt: '16px' }}>
           <Image
             src={graph2}
             alt="graph"

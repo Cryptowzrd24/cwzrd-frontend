@@ -1,25 +1,29 @@
 import { selectCurrencyTypeFilter } from '@/app/redux/reducers/filters';
-import { Button, Divider, Stack } from '@mui/material';
+import { Box, Button, Divider, Stack } from '@mui/material';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import checkedIcon from '../../assets/icons/checked-tick.svg';
+import Image from 'next/image';
 
 interface SelectProps {
   setExpanded: (expanded: string | false) => void;
-  setShowResultsBtn: (val: boolean) => void;
 }
-export const Select = ({ setExpanded, setShowResultsBtn }: SelectProps) => {
+export const Select = ({ setExpanded }: SelectProps) => {
   const dispatch = useDispatch();
+
+  const filterItem = useSelector((state: any) => state.filters.filters);
+
   const styles = {
     buttonText: {
       display: 'flex',
-      justifyContent: 'start',
+      justifyContent: 'space-between',
     },
   };
 
   const handleCoinTypeSelect = (type: string) => {
     dispatch(selectCurrencyTypeFilter(type));
     setExpanded(false);
-    setShowResultsBtn(true);
   };
 
   return (
@@ -31,7 +35,11 @@ export const Select = ({ setExpanded, setShowResultsBtn }: SelectProps) => {
           variant="text"
           onClick={() => handleCoinTypeSelect('allCryptoCurrencies')}
         >
-          All Cryptocurrencies
+          <Box component="span">All Cryptocurrencies</Box>
+          {(filterItem.cryptoCurrency === 'allCryptoCurrencies' ||
+            filterItem.cryptoCurrency === null) && (
+            <Image src={checkedIcon} alt="" />
+          )}
         </Button>
         <Divider />
         <Button
@@ -40,7 +48,10 @@ export const Select = ({ setExpanded, setShowResultsBtn }: SelectProps) => {
           variant="text"
           onClick={() => handleCoinTypeSelect('coins')}
         >
-          Coins
+          <Box component="span">Coins</Box>
+          {filterItem.cryptoCurrency === 'coins' && (
+            <Image src={checkedIcon} alt="" />
+          )}
         </Button>
         <Divider />
         <Button
@@ -49,7 +60,10 @@ export const Select = ({ setExpanded, setShowResultsBtn }: SelectProps) => {
           variant="text"
           onClick={() => handleCoinTypeSelect('tokens')}
         >
-          Tokens
+          <Box component="span">Tokens</Box>
+          {filterItem.cryptoCurrency === 'tokens' && (
+            <Image src={checkedIcon} alt="" />
+          )}
         </Button>
       </Stack>
     </div>
