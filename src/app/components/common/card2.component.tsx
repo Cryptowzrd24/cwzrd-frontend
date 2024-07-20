@@ -12,6 +12,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 interface ICard2Props {
   heading: string;
   items: any;
+  stepperCount?: number;
 }
 
 // const BootstrapButton = styled(Button)({
@@ -27,7 +28,7 @@ interface ICard2Props {
 // });
 
 const Card2 = (props: ICard2Props) => {
-  const { heading, items } = props;
+  const { heading, items, stepperCount } = props;
 
   const [currentStep] = useState(0);
 
@@ -38,7 +39,7 @@ const Card2 = (props: ICard2Props) => {
       <div className={styles.header_wrapper}>
         <CardHeader
           heading={heading}
-          currentStep={currentStep}
+          currentStep={stepperCount ? stepperCount : currentStep}
           stepSetter={stepSetter}
         />
       </div>

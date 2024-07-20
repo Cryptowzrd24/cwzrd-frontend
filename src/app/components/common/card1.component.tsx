@@ -18,10 +18,11 @@ interface ICard1Props {
   type: 'time' | 'percent' | 'visited' | 'price' | 'nft';
   heading: string;
   items: any;
+  stepperCount?: number;
 }
 
 const Card1 = (props: ICard1Props) => {
-  const { heading, items, type } = props;
+  const { heading, items, type, stepperCount } = props;
 
   const [currentStep] = useState(0);
 
@@ -60,7 +61,7 @@ const Card1 = (props: ICard1Props) => {
       <div className={styles.header_wrapper}>
         <CardHeader
           heading={heading}
-          currentStep={currentStep}
+          currentStep={stepperCount ? stepperCount : currentStep}
           stepSetter={stepSetter}
         />
       </div>
