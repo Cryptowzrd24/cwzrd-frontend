@@ -7,10 +7,12 @@ import Image from 'next/image';
 import styles from './index.module.scss';
 import { Card } from '@mui/material';
 import CardHeader from './cardHeader.component';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 interface ICard2Props {
   heading: string;
   items: any;
+  stepperCount?: number;
 }
 
 // const BootstrapButton = styled(Button)({
@@ -26,7 +28,7 @@ interface ICard2Props {
 // });
 
 const Card2 = (props: ICard2Props) => {
-  const { heading, items } = props;
+  const { heading, items, stepperCount } = props;
 
   const [currentStep] = useState(0);
 
@@ -37,7 +39,7 @@ const Card2 = (props: ICard2Props) => {
       <div className={styles.header_wrapper}>
         <CardHeader
           heading={heading}
-          currentStep={currentStep}
+          currentStep={stepperCount ? stepperCount : currentStep}
           stepSetter={stepSetter}
         />
       </div>
@@ -72,10 +74,14 @@ const Card2 = (props: ICard2Props) => {
             padding: '0px 15px',
             position: 'absolute',
             right: '0px',
-            bottom: '10px',
+            bottom: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
           }}
         >
-          More &gt;
+          More{' '}
+          <ArrowForwardIosIcon sx={{ fontSize: '12px', marginTop: '1px' }} />
         </div>
 
         {/* <Stack direction="row" style={{ justifyContent: 'flex-end' }}>

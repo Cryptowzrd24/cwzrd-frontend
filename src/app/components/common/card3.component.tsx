@@ -154,9 +154,10 @@ const Card3 = (props: ICard3Props) => {
           fontSize: '17px',
           marginRight: '37px',
           fontWeight: '500',
-          lineHeight: '24px',
+          lineHeight: '26px',
           letterSpacing: '1px',
           zIndex: 2,
+          marginTop: '18px',
           position: 'relative',
         }}
       >
@@ -174,7 +175,7 @@ const Card3 = (props: ICard3Props) => {
         direction="row"
         style={{
           marginLeft: '20px',
-          marginTop: '10px',
+          marginTop: '25px',
           zIndex: 2,
           position: 'relative',
         }}

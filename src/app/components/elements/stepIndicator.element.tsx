@@ -10,7 +10,7 @@ const StepIndicator = ({
 }: IStepProps) => {
   const renderSteps = () => {
     return totalSteps?.map((step, index) => {
-      const isActive = index === currentStep;
+      const isActive = Number(step) === currentStep;
       return (
         <li
           onClick={() => setStep && setStep(index + 1)}

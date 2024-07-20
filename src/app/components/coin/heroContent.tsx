@@ -95,8 +95,8 @@ function HeroContent() {
               />
               <GraphCard
                 heading="🔥 24 hour volume"
-                value={{ data: '51.88', prefix: '$' }}
-                percent={-0.32}
+                value={{ data: '41,606,531,750.36', prefix: '$' }}
+                percent={0.32}
                 graphAttr={{ type: 'bar', data: areaChartData }}
               />
               <GraphCard

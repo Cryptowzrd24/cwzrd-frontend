@@ -12,15 +12,17 @@ import {
 import styles from './index.module.scss';
 import { Card } from '@mui/material';
 import CardHeader from './cardHeader.component';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 interface ICard1Props {
   type: 'time' | 'percent' | 'visited' | 'price' | 'nft';
   heading: string;
   items: any;
+  stepperCount?: number;
 }
 
 const Card1 = (props: ICard1Props) => {
-  const { heading, items, type } = props;
+  const { heading, items, type, stepperCount } = props;
 
   const [currentStep] = useState(0);
 
@@ -59,7 +61,7 @@ const Card1 = (props: ICard1Props) => {
       <div className={styles.header_wrapper}>
         <CardHeader
           heading={heading}
-          currentStep={currentStep}
+          currentStep={stepperCount ? stepperCount : currentStep}
           stepSetter={stepSetter}
         />
       </div>
@@ -93,10 +95,14 @@ const Card1 = (props: ICard1Props) => {
             padding: '0px 15px',
             position: 'absolute',
             right: '0px',
-            bottom: '7px',
+            bottom: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
           }}
         >
-          More &gt;
+          More{' '}
+          <ArrowForwardIosIcon sx={{ fontSize: '12px', marginTop: '1px' }} />
         </div>
       </div>
     </Card>
