@@ -16,7 +16,7 @@ const CandlestickCard = (props: IMarketCapCardProps) => {
   const stepSetter = () => {};
 
   return (
-    <Card className={styles.market_cap_wrapper}>
+    <Card className={styles.candle_stick_card_wrapper}>
       <div className={styles.header_wrapper}>
         <CardHeader
           heading={heading}
