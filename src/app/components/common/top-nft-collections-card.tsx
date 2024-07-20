@@ -20,7 +20,7 @@ const TopNftCollection = (props: any) => {
   const stepSetter = () => {};
 
   return (
-    <Card className={styles.market_cap_wrapper}>
+    <Card className={styles.top_nft_card_wrapper}>
       <div className={styles.header_wrapper}>
         <CardHeader
           heading={heading}

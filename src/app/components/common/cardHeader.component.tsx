@@ -32,7 +32,7 @@ const CardHeader = (props: ICardHeaderProps) => {
         <StepIndicator
           currentStep={currentStep}
           invertColor={!!staticTextColor}
-          totalSteps={['1', '2', '3']}
+          totalSteps={['1', '2']}
           setStep={(index: number) => stepSetter(index)}
         />
       </div>

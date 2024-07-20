@@ -54,7 +54,6 @@ const Table = () => {
   };
 
   useEffect(() => {
-    debugger;
     if (chainData && chainData.data) {
       const startIndex = (currentPage - 1) * pageSize + 1;
 

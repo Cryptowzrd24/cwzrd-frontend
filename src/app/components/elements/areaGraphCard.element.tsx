@@ -36,6 +36,7 @@ const AreaChart = (props: IChartProps) => {
       },
       lineWidth: 0,
       gridLineWidth: 0.5,
+      tickAmount: 3,
     },
     legend: {
       enabled: false,
@@ -60,23 +61,48 @@ const AreaChart = (props: IChartProps) => {
         },
         marker: {
           enabled: isMarker ? true : false,
-          fillColor: isMarker ? 'rgba(114, 72, 247, 1)' : '',
+          fillColor: isMarker ? 'rgba(114, 72, 247, 1)' : 'transparent',
+          shadow: false,
           radius: 3,
+          lineWidth: 0,
+          lineColor: '#fff',
+          states: {
+            hover: {
+              enabled: true,
+              fillColor: `rgb( ${color})`,
+              lineColor: '#fff',
+              lineWidth: 4,
+              radius: 8,
+              shadow: false,
+            },
+          },
         },
       },
     ],
     tooltip: {
-      backgroundColor: '#fff',
+      useHTML: true,
+      backgroundColor: 'transparent',
       borderColor: 'transparent',
       borderRadius: 10,
       borderWidth: 0,
-      width: '71px',
-      height: '25px',
+      shadow: false,
       style: {},
       formatter: function () {
         const point = this.point;
         const yValue = point.y;
-        return `<span style="color: '#111111'; font-weight: 400; font-size: 13; line-height: '16px'">$${yValue}M</span>`;
+        return `
+          <div
+           style="display: flex; align-items: center; justify-content: center; 
+           width:71px;
+           height:25px;
+           background: white; 
+           border-radius: 40px; 
+           padding: 4px, 8px, 4px, 8px; 
+           font-size: 13px; 
+           font-weight: 400;
+            color: #111111;">
+            $${yValue}m
+          </div>`;
       },
     },
   };
@@ -88,7 +114,7 @@ const AreaChart = (props: IChartProps) => {
       if (innerDiv) {
         innerDiv.style.height = 'auto';
         innerDiv.style.width = '100% !important';
-        // innerDiv.style.marginTop = '-35px';
+        // innerDiv.style.marginTop = '35px';
       }
       const xAxisElement = chartRef.current.chart.xAxis[0].axisGroup;
       xAxisElement?.destroy();

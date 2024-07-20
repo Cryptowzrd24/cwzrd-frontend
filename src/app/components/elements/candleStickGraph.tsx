@@ -72,8 +72,68 @@ const CandlestickChart: React.FC = () => {
       },
     ],
     tooltip: {
-      enabled: true,
+      useHTML: true,
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
+      borderRadius: 10,
+      borderWidth: 0,
+      shadow: false,
+      style: {
+        outerHeight: '20px',
+        lineHeight: '15px',
+        padding: '5px',
+      },
+      positioner: function (
+        this: any,
+        labelWidth: number,
+        labelHeight: number,
+        point: Highcharts.Point,
+      ): { x: number; y: number } {
+        const chart: any = this.chart;
+        const plotLeft = chart.plotLeft;
+        const plotTop = chart.plotTop;
+        const plotWidth = chart.plotWidth;
+        let tooltipX = point.plotX + plotLeft - labelWidth / 2;
+        const tooltipY = plotTop - labelHeight - 10;
+
+        if (tooltipX < plotLeft) {
+          tooltipX = plotLeft;
+        } else if (tooltipX + labelWidth > plotLeft + plotWidth) {
+          tooltipX = plotLeft + plotWidth - labelWidth;
+        }
+
+        return {
+          x: tooltipX,
+          y: tooltipY,
+        };
+      },
+      formatter: function (this: any) {
+        const point = this.point;
+        const open: any = point.open;
+        const high: any = point.high;
+        const low: any = point.low;
+        const close: any = point.close;
+        return `
+          <div
+           style="display: flex; align-items: center; justify-content: center; 
+           width:120px;
+           height:60px;
+           background: white; 
+           border-radius: 10px; 
+           padding: 4px 8px; 
+           font-size: 13px; 
+           font-weight: 400;
+           color: #111111;">
+           <div styles = "display:flex; flex-direction:column; gap:2px; flex-wrap:wrap;">
+            <div>Open: $${open}</div>
+            <div>High: $${high}</div>
+            <div>Low: $${low}</div>
+            <div>Close: $${close}</div>
+           </div>
+          </div>`;
+      },
     },
+
     credits: {
       enabled: false,
     },
