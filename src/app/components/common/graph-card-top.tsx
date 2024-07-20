@@ -32,7 +32,7 @@ const GraphCardTop = (props: any) => {
   };
 
   return (
-    <Card className={styles.market_cap_wrapper}>
+    <Card className={styles.top_graph_card_wrapper}>
       <div className={styles.header_wrapper}>
         <CardHeader
           heading={heading}
@@ -45,7 +45,7 @@ const GraphCardTop = (props: any) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '2px 21px 10px 18px',
+          padding: '2px 21px 20px 18px',
         }}
       >
         <div style={{ display: 'flex' }}>

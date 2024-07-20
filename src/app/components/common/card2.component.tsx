@@ -7,6 +7,7 @@ import Image from 'next/image';
 import styles from './index.module.scss';
 import { Card } from '@mui/material';
 import CardHeader from './cardHeader.component';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 interface ICard2Props {
   heading: string;
@@ -72,10 +73,14 @@ const Card2 = (props: ICard2Props) => {
             padding: '0px 15px',
             position: 'absolute',
             right: '0px',
-            bottom: '8px',
+            bottom: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
           }}
         >
-          More &gt;
+          More{' '}
+          <ArrowForwardIosIcon sx={{ fontSize: '12px', marginTop: '1px' }} />
         </div>
 
         {/* <Stack direction="row" style={{ justifyContent: 'flex-end' }}>

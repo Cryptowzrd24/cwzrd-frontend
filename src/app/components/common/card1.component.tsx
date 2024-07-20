@@ -12,6 +12,7 @@ import {
 import styles from './index.module.scss';
 import { Card } from '@mui/material';
 import CardHeader from './cardHeader.component';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 interface ICard1Props {
   type: 'time' | 'percent' | 'visited' | 'price' | 'nft';
@@ -94,9 +95,13 @@ const Card1 = (props: ICard1Props) => {
             position: 'absolute',
             right: '0px',
             bottom: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
           }}
         >
-          More &gt;
+          More{' '}
+          <ArrowForwardIosIcon sx={{ fontSize: '12px', marginTop: '1px' }} />
         </div>
       </div>
     </Card>
