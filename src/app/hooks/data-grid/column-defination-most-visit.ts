@@ -34,7 +34,7 @@ const useColumnMostVisitedDefs = (columns: any) => {
           return {
             field: 'price',
             headerName: 'Price',
-            width: 120,
+            width: 140,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'percent_change_1h':
@@ -56,7 +56,8 @@ const useColumnMostVisitedDefs = (columns: any) => {
             field: 'market_cap',
             headerComponent: HeaderComponent,
             width: 165,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
             tooltipComponent: HeaderTooltip,
             headerTooltip: 'Market Cap',
           };

@@ -244,7 +244,7 @@ export const CustomHeader = ({
   };
 
   const getSelectClass = (value: any) => {
-    return value === 100 || value == '24h' ? '34px' : '26px';
+    return value === 100 || value == '24h' || '30d' ? '34px' : '26px';
   };
 
   useEffect(() => {

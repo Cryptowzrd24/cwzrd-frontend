@@ -10,7 +10,7 @@ import third from '../../../../../public/icons/third-rank.png';
 import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
 import Graph from './graphCard';
 
-const Card = ({
+const ExchangeCard = ({
   title,
   price,
   change,
@@ -25,14 +25,12 @@ const Card = ({
   const [activeButton, setActiveButton] = useState<string>('');
 
   const isPositiveChange = change > 0;
-  const changeColor = isPositiveChange
-    ? 'rgba(69, 202, 148, 1)'
-    : 'rgba(245, 65, 65, 1)';
+
   const backgroundImage = isPositiveChange
     ? '/images/spotlight-cards/background1.png'
     : '/images/spotlight-cards/background2.png';
 
-  const imgUrl = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinId}.png`;
+  const imgUrl = `https://s2.coinmarketcap.com/static/img/coins/32x32/${coinId}.png`;
 
   const areachartData = [
     { x: 1, y: 5 },
@@ -73,11 +71,8 @@ const Card = ({
         );
     }
   };
-  const formattedMarketCap = numeral(marketCap).format('0.0a').toUpperCase();
   const formattedVolume = numeral(volume).format('0.0a').toUpperCase();
-  const formattedCirculationSupply = numeral(circulationSupply)
-    .format('0.0a')
-    .toUpperCase();
+
   const formattedTotalMaxSupply = numeral(totalMaxSupply)
     .format('0.0a')
     .toUpperCase();
@@ -97,12 +92,7 @@ const Card = ({
       color: isActive ? 'rgba(255, 255, 255, 1)' : 'rgba(17, 17, 17, 1)',
     };
   };
-  const numericChange = Number(change);
 
-  // Format the change value
-  const formattedChange = isPositiveChange
-    ? `+${numericChange.toFixed(2)}`
-    : numericChange.toFixed(2);
   return (
     <Box
       sx={{
@@ -162,7 +152,7 @@ const Card = ({
                   color: 'rgba(255, 255, 255, 0.6)',
                 }}
               >
-                {symbol}
+                {symbol[0]}
               </Typography>
             </Stack>
           </Box>
@@ -190,24 +180,6 @@ const Card = ({
           >
             ${priceNumberFormatDigits(price)}
           </Typography>
-          <Box
-            sx={{
-              borderRadius: '24px',
-              padding: '4px 8px',
-              background: changeColor,
-            }}
-          >
-            <Typography
-              variant="body2"
-              sx={{
-                fontSize: '14px',
-                fontWeight: '700',
-                color: 'rgba(255, 255, 255, 1)',
-              }}
-            >
-              {formattedChange} %
-            </Typography>
-          </Box>
         </Box>
       </Box>
       <Box
@@ -229,7 +201,7 @@ const Card = ({
                 color: 'rgba(17, 17, 17, 0.4)',
               }}
             >
-              Market Cap <Shift />
+              Liquidity <Shift />
             </Typography>
             <Typography
               variant="body1"
@@ -239,7 +211,7 @@ const Card = ({
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              ${formattedMarketCap}
+              {marketCap}
             </Typography>
           </Stack>
           <Stack sx={{ mt: '8px' }}>
@@ -251,7 +223,7 @@ const Card = ({
                 color: 'rgba(17, 17, 17, 0.4)',
               }}
             >
-              Circulation Supply <Shift />
+              Num Markets <Shift />
             </Typography>
             <Typography
               variant="body1"
@@ -261,7 +233,7 @@ const Card = ({
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              {formattedCirculationSupply}
+              {circulationSupply}
             </Typography>
           </Stack>
         </Box>
@@ -275,7 +247,7 @@ const Card = ({
                 color: 'rgba(17, 17, 17, 0.4)',
               }}
             >
-              Volume (24hours) <Shift />
+              Spot Vol (24h) <Shift />
             </Typography>
             <Typography
               variant="body1"
@@ -297,7 +269,7 @@ const Card = ({
                 color: 'rgba(17, 17, 17, 0.4)',
               }}
             >
-              Total Max. Supply <Shift />
+              Total Visits <Shift />
             </Typography>
             <Typography
               variant="body1"
@@ -364,4 +336,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default ExchangeCard;

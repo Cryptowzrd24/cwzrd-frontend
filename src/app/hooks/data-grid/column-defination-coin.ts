@@ -6,10 +6,9 @@ import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
 import { VolumeComponent } from '../../components/data-table/volume';
 
-import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
-import { profitLossCheck } from '@/utils/profit-loss-val-check';
 import { CirculatingSupply } from '@/app/components/data-table/circulating-supply';
+import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
 
 const useColumnCoinDefs = (columns: any) => {
   return useMemo(() => {
@@ -27,14 +26,14 @@ const useColumnCoinDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 180,
+            width: 150,
           };
         case 'price':
           return {
             field: 'price',
             headerName: 'Price',
-            width: 120,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            width: 140,
+            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
           };
         case 'percent_change_1h':
         case 'percent_change_24h':
@@ -46,29 +45,30 @@ const useColumnCoinDefs = (columns: any) => {
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + ' %';
-              return profitLossCheck(formattedValue);
+
+              return value + '%';
             },
           };
         case 'market_cap':
           return {
             field: 'market_cap',
             headerComponent: HeaderComponent,
-            width: 165,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            width: 178,
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
           };
         case 'volume_24h':
           return {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
-            width: 165,
+            width: 195,
             cellRenderer: VolumeComponent,
           };
         case 'circulating_supply':
           return {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
-            width: 175,
+            width: 165,
             cellRenderer: CirculatingSupply,
             tooltipComponent: RowTooltip,
             tooltipValueGetter: (params: any) =>

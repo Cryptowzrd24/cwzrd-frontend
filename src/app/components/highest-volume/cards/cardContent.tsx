@@ -15,6 +15,7 @@ type CardData = {
   symbol: string;
   coin_id: string;
   index: number;
+  chartData: number[];
 };
 
 interface CardContentProps {
@@ -39,6 +40,7 @@ const CardContent = ({ cardsData }: CardContentProps) => {
               symbol={card.symbol}
               coinId={card.coin_id}
               index={card.index}
+              chartData={card.chartData}
             />
           </Grid>
         ))}

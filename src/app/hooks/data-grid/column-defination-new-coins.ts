@@ -5,12 +5,12 @@ import { ID } from '@/app/components/data-table/id';
 import { ChainComp } from '../../components/data-table/chain';
 import { VolumeComponent } from '../../components/data-table/volume';
 
-import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
 import { DateAdded } from '@/app/components/data-table/date-component';
+import { priceNumberFormatter } from '@/utils/price-number-formater';
 
 const useColumnNewCoinsDefs = (columns: any) => {
   return useMemo(() => {
@@ -34,7 +34,7 @@ const useColumnNewCoinsDefs = (columns: any) => {
           return {
             field: 'price',
             headerName: 'Price',
-            width: 125,
+            width: 135,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'percent_change_1h':
@@ -69,7 +69,8 @@ const useColumnNewCoinsDefs = (columns: any) => {
             field: 'fdv',
             width: 230,
             headerComponent: HeaderComponent,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
           };
         case 'date_added':
           return {
