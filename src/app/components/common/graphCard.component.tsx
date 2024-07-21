@@ -24,28 +24,37 @@ import nft from '@/app/assets/images/nft.png';
 
 const GraphCard = (props: IMarketCapCardProps) => {
   const { heading, value, percent, graphAttr } = props;
-  const [currentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
+  
+  const totalSteps = 2;
 
-  const stepSetter = () => {};
   const settings = {
-    dots: true,
+    dots: false, 
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 6000,
+    beforeChange: (current, next) => setCurrentStep(next),
   };
 
   return (
     <Card className={styles.market_cap_wrapper}>
+      <div className={styles.stepper_dots}>
+        {[...Array(totalSteps)].map((_, index) => (
+          <div
+            key={index}
+            className={`${styles.dot} ${currentStep === index ? styles.active : ''}`}
+          />
+        ))}
+      </div>
       <Slider {...settings}>
         <div>
           <div className={styles.header_wrapper}>
             <CardHeader
               heading={heading}
               currentStep={currentStep}
-              stepSetter={stepSetter}
             />
             <div className={styles.value}>
               {value?.prefix}
@@ -56,7 +65,8 @@ const GraphCard = (props: IMarketCapCardProps) => {
               style={{
                 fontSize: '14px',
                 fontFamily: 'Sf Pro Display',
-                marginTop: '5px',
+                marginTop: '2px',
+                lineHeight: "18.2px",
                 color:
                   getPositiveNegativeIcon(percent) === '-'
                     ? '#F56D6D'
@@ -72,12 +82,11 @@ const GraphCard = (props: IMarketCapCardProps) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              marginTop: '-5px',
-              height: '140px',
+              height: '145px',
             }}
           >
             {graphAttr?.type === 'area' ? (
-              <AreaChart data={graphAttr.data} color={getGraphColor(percent)} />
+              <AreaChart data={graphAttr.data} color={getGraphColor(percent)} percent={value?.postfix ? true : false} />
             ) : null}
             {graphAttr?.type === 'bar' ? (
               <BarChart data={graphAttr.data} color={getGraphColor(percent)} />

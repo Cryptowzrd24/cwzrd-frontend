@@ -151,13 +151,13 @@ const Card3 = (props: ICard3Props) => {
       <Typography
         sx={{
           marginLeft: '22px',
-          fontSize: '17px',
+          fontSize: '18px',
           marginRight: '37px',
           fontWeight: '500',
           lineHeight: '26px',
           letterSpacing: '1px',
           zIndex: 2,
-          marginTop: '18px',
+          marginTop: '8px',
           position: 'relative',
         }}
       >

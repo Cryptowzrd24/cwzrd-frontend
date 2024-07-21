@@ -92,7 +92,7 @@ function HeroContent() {
               textColor={colorConfig.green}
               heading="Top Gain"
               name="Dogwifhat"
-              desc="took the first place with a gain of"
+              desc="took first place with a gain of"
               value="+29.32%"
               end="in 7 days."
             />

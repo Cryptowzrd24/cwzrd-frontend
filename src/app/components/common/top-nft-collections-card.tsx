@@ -33,7 +33,7 @@ const TopNftCollection = (props: any) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '5px 25px 10px 25px',
+          padding: '5px 22px 10px 22px',
         }}
       >
         <div style={{ display: 'flex' }}>
@@ -44,6 +44,7 @@ const TopNftCollection = (props: any) => {
                 fontSize: '14px',
                 margin: '0',
                 fontFamily: 'Sf Pro Display',
+                fontWeight: 500,
               }}
             >
               PudgyPenguins
@@ -61,7 +62,7 @@ const TopNftCollection = (props: any) => {
           </div>
         </div>
         <div>
-          <span style={{ fontSize: '14px' }}>254,567 ETH</span>
+          <span style={{ fontSize: '14px', fontWeight: 500, letterSpacing: "1.2px" }}>254,567 ETH</span>
         </div>
       </div>
       <div

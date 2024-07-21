@@ -77,18 +77,20 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
   };
 
   const toggleMineable = () => {
+    dispatch(
+      selectSwitchFilter({ label: 'mineable', isActive: !isMineableActive }),
+    );
     setIsMineableActive((prevState: any) => {
-      const newState = !prevState;
-      dispatch(selectSwitchFilter({ label: 'mineable', isActive: newState }));
-      return newState;
+      return !prevState;
     });
   };
 
   const toggleAudited = () => {
+    dispatch(
+      selectSwitchFilter({ label: 'audited', isActive: !isAuditedActive }),
+    );
     setIsAuditedActive((prevState: any) => {
-      const newState = !prevState;
-      dispatch(selectSwitchFilter({ label: 'audited', isActive: newState }));
-      return newState;
+      return !prevState;
     });
   };
 
@@ -296,7 +298,6 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 checked={filterItem.mineable}
                 onChange={toggleMineable}
                 name="mineable"
-                value={isMineableActive}
               />
             </Box>
             <Divider />
@@ -317,12 +318,10 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
                 Audited
               </Typography>
               <Switch
-                size="medium"
                 sx={styles.switch}
                 checked={filterItem.audited}
                 onChange={toggleAudited}
                 name="audited"
-                value={isAuditedActive}
               />
             </Box>
           </Box>

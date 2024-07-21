@@ -55,6 +55,7 @@ const GraphCardTop = (props: any) => {
               style={{
                 fontSize: '14px',
                 margin: '0',
+                fontWeight: 500,
                 fontFamily: 'Sf Pro Display',
               }}
             >

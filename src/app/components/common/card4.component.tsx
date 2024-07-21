@@ -51,7 +51,7 @@ const Card4 = (props: ICard4Props) => {
           />
         </div>
 
-        <div style={{ padding: '0px 8px 0px 8px', marginTop: '20px' }}>
+        <div style={{ padding: '0px 8px 0px 8px', marginTop: '26px' }}>
           <div style={{ padding: '0px 8px 0px 8px' }}>
             <Typography
               sx={{

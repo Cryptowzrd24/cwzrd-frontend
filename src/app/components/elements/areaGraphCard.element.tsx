@@ -4,7 +4,7 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts';
 
 const AreaChart = (props: IChartProps) => {
-  const { data, color, isMarker } = props;
+  const { data, color, isMarker, percent } = props;
   const chartRef: any = useRef(null);
 
   const chartOptions: HighchartsChartOptions = {
@@ -48,15 +48,15 @@ const AreaChart = (props: IChartProps) => {
       {
         name: '',
         data: data,
-        lineWidth: 1,
+        lineWidth: 2,
         color: `rgb( ${color})`,
         fillOpacity: 0,
         threshold: null,
         fillColor: {
           linearGradient: { x1: 0, x2: 0, y1: 1, y2: 0 },
           stops: [
-            [0, `rgba( ${color}, 0)`],
-            [1, `rgba( ${color}, 1)`],
+            [0, `rgba( ${color}, 0.1)`],
+            // [1, `rgba( ${color}, 1)`],
           ],
         },
         marker: {
@@ -98,12 +98,16 @@ const AreaChart = (props: IChartProps) => {
            background: white; 
            border-radius: 40px; 
            padding: 4px, 8px, 4px, 8px; 
-           font-size: 13px; 
-           font-weight: 400;
+           box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
+           font-size: 14px; 
+           font-weight: 300;
+           position: absolute;
+           z-index: 9999;
             color: #111111;">
-            $${yValue}m
+            ${percent ? '' : '$'}${yValue}${percent ? '%' : 'm'}
           </div>`;
       },
+      outside: true,
     },
   };
 

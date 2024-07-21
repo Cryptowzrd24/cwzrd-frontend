@@ -4,8 +4,8 @@ import { Box, Divider, Typography } from '@mui/material';
 import { FilterSearchIcon } from '../../../../public/icons/filterSearch';
 import { Filters } from '@/app/constants/filters';
 import styles from './styles';
-// import { useDispatch } from 'react-redux';
-// import { selectFilter } from '@/app/redux/reducers/filters';
+import { useDispatch } from 'react-redux';
+import { selectFilter } from '@/app/redux/reducers/filters';
 
 type FilterKey = keyof typeof Filters;
 interface FilterDropdownProps {
@@ -21,9 +21,9 @@ function FilterDropdown({
   anchorEl,
   setAnchorEl,
   filterKey,
-  // setIsAnyFilterActive,
+  setIsAnyFilterActive,
 }: FilterDropdownProps) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [searchString, setSearchString] = useState('');
   const [filteredMenuItems, setFilteredMenuItems] = useState([]);
   const [menuItems, setMenuItems] = useState([]);
@@ -31,11 +31,11 @@ function FilterDropdown({
     setAnchorEl(null);
   };
 
-  // const handleSelectFilter = (id: number, label: string) => {
-  //   setAnchorEl(null);
-  //   dispatch(selectFilter({ id, label }));
-  //   setIsAnyFilterActive(true);
-  // };
+  const handleSelectFilter = (id: number, label: string) => {
+    setAnchorEl(null);
+    dispatch(selectFilter({ id, label }));
+    setIsAnyFilterActive(true);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -114,7 +114,7 @@ function FilterDropdown({
         <Box
           sx={styles.menuItem}
           key={option}
-          // onClick={() => handleSelectFilter(option.id, filterKey)}
+          onClick={() => handleSelectFilter(1, filterKey)}
         >
           {option}
         </Box>

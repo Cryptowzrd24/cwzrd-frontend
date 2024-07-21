@@ -2,9 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Highcharts from 'highcharts/highstock';
-import HighchartsReact, {
-  HighchartsReactRefObject,
-} from 'highcharts-react-official';
+import HighchartsReact, { HighchartsReactRefObject } from 'highcharts-react-official';
 
 const CandlestickChart: React.FC = () => {
   const chartRef = useRef<HighchartsReactRefObject>(null);
@@ -41,7 +39,6 @@ const CandlestickChart: React.FC = () => {
         type: 'candlestick',
         name: 'Bitcoin',
         data: [
-          // Replace with your actual data points
           [Date.UTC(2024, 6, 1), 100, 130, 90, 110],
           [Date.UTC(2024, 6, 2), 110, 140, 100, 120],
           [Date.UTC(2024, 6, 3), 120, 150, 110, 130],
@@ -78,23 +75,19 @@ const CandlestickChart: React.FC = () => {
       borderRadius: 10,
       borderWidth: 0,
       shadow: false,
+      outside: true,
       style: {
-        outerHeight: '20px',
+        fontSize: '12px',
         lineHeight: '15px',
-        padding: '5px',
       },
-      positioner: function (
-        this: any,
-        labelWidth: number,
-        labelHeight: number,
-        point: Highcharts.Point,
-      ): { x: number; y: number } {
-        const chart: any = this.chart;
+      positioner: function (labelWidth, labelHeight, point) {
+        const chart = this.chart;
         const plotLeft = chart.plotLeft;
         const plotTop = chart.plotTop;
         const plotWidth = chart.plotWidth;
+        const plotHeight = chart.plotHeight;
         let tooltipX = point.plotX + plotLeft - labelWidth / 2;
-        const tooltipY = plotTop - labelHeight - 10;
+        let tooltipY = point.plotY + plotTop - labelHeight - 10;
 
         if (tooltipX < plotLeft) {
           tooltipX = plotLeft;
@@ -102,38 +95,36 @@ const CandlestickChart: React.FC = () => {
           tooltipX = plotLeft + plotWidth - labelWidth;
         }
 
+        if (tooltipY < plotTop) {
+          tooltipY = plotTop + point.plotY + 10;
+        }
+
         return {
           x: tooltipX,
           y: tooltipY,
         };
       },
-      formatter: function (this: any) {
+      formatter: function () {
         const point = this.point;
-        const open: any = point.open;
-        const high: any = point.high;
-        const low: any = point.low;
-        const close: any = point.close;
+        const open = point.open;
+        const high = point.high;
+        const low = point.low;
+        const close = point.close;
         return `
-          <div
-           style="display: flex; align-items: center; justify-content: center; 
-           width:120px;
-           height:60px;
-           background: white; 
-           border-radius: 10px; 
+          <div style="display: flex; flex-direction: column; align-items: start; justify-content: center; 
+           background: rgba(255, 255, 255, 0.75); 
+           border-radius: 8px; 
            padding: 4px 8px; 
-           font-size: 13px; 
+           font-size: 11px; 
            font-weight: 400;
            color: #111111;">
-           <div styles = "display:flex; flex-direction:column; gap:2px; flex-wrap:wrap;">
-            <div>Open: $${open}</div>
-            <div>High: $${high}</div>
-            <div>Low: $${low}</div>
-            <div>Close: $${close}</div>
-           </div>
+            <div style="margin-bottom: 2px;"><strong>Open:</strong> $${open}</div>
+            <div style="margin-bottom: 2px;"><strong>High:</strong> $${high}</div>
+            <div style="margin-bottom: 2px;"><strong>Low:</strong> $${low}</div>
+            <div><strong>Close:</strong> $${close}</div>
           </div>`;
       },
     },
-
     credits: {
       enabled: false,
     },
