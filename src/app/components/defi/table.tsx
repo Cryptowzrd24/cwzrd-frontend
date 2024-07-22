@@ -7,6 +7,7 @@ import useColumnDefiDefs from '@/app/hooks/data-grid/column-defination-defi';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchDefiCoinsDataQuery } from '@/app/redux/reducers/data-grid';
 import { scrollToTop } from '@/utils/scroll-to-top';
+import debounce from 'debounce';
 
 const DefiTable = () => {
   const [search, setSearch] = useState('');
@@ -16,14 +17,28 @@ const DefiTable = () => {
   const [pageSize, setPageSize] = useState<number>(10);
 
   const columnDefiDef = useColumnDefiDefs(columnsDefi);
-  const { data } = useFetchDefiCoinsDataQuery({ start: currentPage, pageSize });
+  const { data } = useFetchDefiCoinsDataQuery({
+    start: currentPage,
+    pageSize,
+    searchString: search,
+  });
 
   const totalCount = data?.count || 0;
   const totalPages = Math.ceil(totalCount / pageSize);
 
-  const handleSetSearch = useCallback((value: any) => {
-    setSearch(value);
-  }, []);
+  const debouncedFetchDefiData = useCallback(
+    debounce((value) => {
+      setSearch(value);
+    }, 600),
+    [],
+  );
+
+  const handleSetSearch = useCallback(
+    (value: any) => {
+      debouncedFetchDefiData(value);
+    },
+    [debouncedFetchDefiData],
+  );
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,

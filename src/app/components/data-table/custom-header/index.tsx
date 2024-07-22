@@ -101,6 +101,26 @@ export const CustomHeader = ({
   const [filterKey, setFilterKey] = useState<FilterKey>('platform');
   const [isAnyFilterActive, setIsAnyFilterActive] = useState(false);
   const [hasNonNullFilter, setHasNonNullFilter] = useState(false);
+  const specificPaths = [
+    'coin',
+    'chains',
+    'exchanges',
+    'airdrops',
+    'categories',
+    'defi',
+  ];
+
+  const checkPathname = (pathname: string) => {
+    const path = pathname.replace('/market/', '').toLowerCase();
+
+    const matchingLink = specificPaths.find(
+      (link) => link.toLowerCase() === path,
+    );
+
+    return !!matchingLink;
+  };
+
+  const isPathNameMatching = checkPathname(pathname);
 
   useEffect(() => {
     if (platforms && platforms.length > 0) return;
@@ -294,9 +314,11 @@ export const CustomHeader = ({
           </Link>
         ))}
         <Box sx={styles.filterContainer}>
-          <Box onClick={handleSearchActiveToggle} sx={styles.iconBox}>
-            <SearchIcon />
-          </Box>
+          {isPathNameMatching && (
+            <Box onClick={handleSearchActiveToggle} sx={styles.iconBox}>
+              <SearchIcon />
+            </Box>
+          )}
           <Typography sx={styles.typography}>Rows:</Typography>
           <Select
             sx={stylesPage.select(getSelectClass(pageSize))}
