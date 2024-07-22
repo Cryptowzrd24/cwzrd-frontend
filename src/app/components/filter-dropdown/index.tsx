@@ -14,6 +14,7 @@ interface FilterDropdownProps {
   setAnchorEl: React.Dispatch<React.SetStateAction<null | HTMLElement>>;
   filterKey: FilterKey;
   setIsAnyFilterActive: (value: boolean) => void;
+  platforms: string[]; // new prop
 }
 
 function FilterDropdown({
@@ -22,11 +23,11 @@ function FilterDropdown({
   setAnchorEl,
   filterKey,
   setIsAnyFilterActive,
+  platforms, // destructure new prop
 }: FilterDropdownProps) {
   const dispatch = useDispatch();
   const [searchString, setSearchString] = useState('');
-  const [filteredMenuItems, setFilteredMenuItems] = useState([]);
-  const [menuItems, setMenuItems] = useState([]);
+  const [filteredMenuItems, setFilteredMenuItems] = useState<any>([]);
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -38,40 +39,14 @@ function FilterDropdown({
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          'https://backend.cwzrd.co.uk/api/platforms/',
-        );
-        const data = await response.json();
-        setFilteredMenuItems(data['platforms']);
-        setMenuItems(data['platforms']);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
     setFilteredMenuItems(
-      menuItems.filter((item: any) =>
+      platforms.filter((item: any) =>
         item.toLowerCase().includes(searchString.toLowerCase()),
       ),
     );
-  }, [searchString, menuItems]);
-
-  // useEffect(() => {
-  //   setFilteredMenuItems(
-  //     Filters[filterKey].filter((item) =>
-  //       item.label.toLowerCase().includes(searchString.toLowerCase()),
-  //     ),
-  //   );
-  // }, [searchString, filterKey]);
+  }, [searchString, platforms]);
 
   return (
-    // <div>
     <Menu
       id="long-menu"
       MenuListProps={{
@@ -114,13 +89,12 @@ function FilterDropdown({
         <Box
           sx={styles.menuItem}
           key={option}
-          onClick={() => handleSelectFilter(1, filterKey)}
+          onClick={() => handleSelectFilter(option, filterKey)}
         >
           {option}
         </Box>
       ))}
     </Menu>
-    // </div>
   );
 }
 

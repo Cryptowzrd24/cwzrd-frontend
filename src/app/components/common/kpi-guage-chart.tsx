@@ -44,14 +44,6 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
         formatter: function () {
           const seriesName = this.series.name;
           const yValue = this.y;
-          const labelColor =
-            {
-              Ethereum: '#8D36A0',
-              Arbitrum: '#8B7AF7',
-              BSC: '#6DE0B1',
-              Tron: '#D24A4A',
-              Others: '#000000',
-            }[seriesName] || 'black';
 
           return `
             <div style="display: flex; flex-direction: column; background: white; border-radius: 8px; font-family: 'Sf Pro Display';">
@@ -310,16 +302,16 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
                         : 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                      <span
-                        style={{
-                          width: '6px',
-                          height: '6px',
-                          display: 'inline-block',
-                          background: elem.bulletColor,
-                          borderRadius: '50%',
-                          marginRight: '4px',
-                        }}
-                      ></span>
+                    <span
+                      style={{
+                        width: '6px',
+                        height: '6px',
+                        display: 'inline-block',
+                        background: elem.bulletColor,
+                        borderRadius: '50%',
+                        marginRight: '4px',
+                      }}
+                    ></span>
                     {elem.label}
                   </p>
                 </div>

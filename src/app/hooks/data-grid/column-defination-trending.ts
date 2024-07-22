@@ -4,10 +4,13 @@ import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
 
-import { priceNumberFormatter } from '@/utils/price-number-formater';
+import {
+  priceNumberFormatDigits,
+  priceNumberFormatter,
+} from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
+import NewCoin from '@/app/components/data-table/price';
 
 const useColumnTrendingDefs = (columns: any) => {
   return useMemo(() => {
@@ -25,20 +28,20 @@ const useColumnTrendingDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 200,
+            width: 220,
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             headerName: 'Price',
-            width: 160,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            width: 170,
+            cellRenderer: NewCoin,
           };
         case 'percent_change_1h':
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 95,
+            width: 120,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
@@ -51,7 +54,7 @@ const useColumnTrendingDefs = (columns: any) => {
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 155,
+            width: 120,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;

@@ -1,7 +1,7 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React from 'react';
 import GaugeChart from '../common/guage-chart';
 import GraphCardTop from '../common/graph-card-top';
 import { areaChartData } from '@/app/constants/charts';
@@ -10,11 +10,6 @@ import { colorConfig } from '@/app/helpers/config';
 import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
 
 function HeroContent() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
   return (
     <>
       <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
@@ -38,26 +33,9 @@ function HeroContent() {
           mt: '8px',
         }}
       >
-        Insights into the biggest events shaping the crypto industry.{' '}
-        {isExpanded && (
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            corrupti iure optio facilis voluptatum similique corporis doloribus
-            laborum iusto, cupiditate eveniet dolore tempore eaque rerum
-            delectus provident porro nisi? Similique.
-          </span>
-        )}
-        <span
-          style={{
-            color: '#7248F7',
-            cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: '700',
-          }}
-          onClick={handleToggle}
-        >
-          {isExpanded ? ' Read Less' : ' Read More'}
-        </span>
+        Which crypto coins and tokens with a 24-hour volume exceeding US$50,000
+        have experienced the most significant gains or losses in the past 24
+        hours?
       </Box>
       <AnimatePresence>
         <motion.div

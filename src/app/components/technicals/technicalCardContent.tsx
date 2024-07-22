@@ -20,7 +20,7 @@ const TechnicalCardContent: React.FC = () => {
     slidesToScroll: 3,
     arrows: false,
     afterChange: (current: any) => setCurrentSlide(current),
-    variableWidth: true
+    variableWidth: true,
   };
 
   const handlePrev = () => {
@@ -61,7 +61,7 @@ const TechnicalCardContent: React.FC = () => {
           justifyContent: 'space-between',
           width: '48px',
           gap: '8px',
-          left: "67.4%"
+          left: '67.4%',
         }}
       >
         <Box
@@ -108,7 +108,7 @@ const TechnicalCardContent: React.FC = () => {
           color: 'rgba(17, 17, 17, 0.4)',
           fontSize: '14px',
           fontWeight: '500',
-          lineHeight: "18.2px"
+          lineHeight: '18.2px',
         }}
       >
         {`${Math.ceil(currentSlide / settings.slidesToScroll) + 1}/${totalSlides}`}

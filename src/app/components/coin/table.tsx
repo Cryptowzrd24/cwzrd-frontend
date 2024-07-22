@@ -70,7 +70,7 @@ const Table = () => {
         id: item.id,
         coin_id: item.coin_id,
         name: item.name,
-        price: item.quote.price,
+        new_price: item.quote.price,
         volume_24h: item.quote.volume_24h,
         percent_change_1h: item.quote.percent_change_1h,
         percent_change_24h: item.quote.percent_change_24h,
@@ -120,7 +120,7 @@ const Table = () => {
     percent_change_7d:
       message.p7d !== null ? message.p7d : existingRow.percent_change_7d,
     market_cap: message.mc !== null ? message.mc : existingRow.market_cap,
-    price: message.p !== null ? message.p : existingRow.price,
+    new_price: message.p !== null ? message.p : existingRow.price,
   });
 
   useWebSocket(

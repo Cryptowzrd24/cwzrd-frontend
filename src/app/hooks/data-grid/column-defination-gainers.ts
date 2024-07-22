@@ -7,7 +7,8 @@ import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
+import NewCoin from '@/app/components/data-table/price';
 
 const useColumnGainersDefs = (columns: any) => {
   return useMemo(() => {
@@ -27,12 +28,12 @@ const useColumnGainersDefs = (columns: any) => {
             cellRenderer: CurrencyNameComponent,
             width: 170,
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             headerName: 'Price',
             width: 155,
-            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
+            cellRenderer: NewCoin,
           };
         case 'volume_24h':
           return {

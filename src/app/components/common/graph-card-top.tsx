@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import AreaChart from '../elements/areaGraphCard.element';
 
@@ -19,9 +19,6 @@ import Image from 'next/image';
 
 const GraphCardTop = (props: any) => {
   const { heading, percent, graphAttr } = props;
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
 
   const getColor = (val: any) => {
     if (val.toString().includes('-')) {
@@ -34,11 +31,7 @@ const GraphCardTop = (props: any) => {
   return (
     <Card className={styles.top_graph_card_wrapper}>
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
-        />
+        <CardHeader heading={heading} />
       </div>
       <div
         style={{

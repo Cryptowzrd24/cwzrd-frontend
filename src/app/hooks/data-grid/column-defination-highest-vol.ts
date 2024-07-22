@@ -11,7 +11,7 @@ import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 import { CirculatingSupply } from '@/app/components/data-table/circulating-supply';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
+import NewCoin from '@/app/components/data-table/price';
 
 const useColumnHighestVolDefs = (columns: any) => {
   return useMemo(() => {
@@ -31,12 +31,12 @@ const useColumnHighestVolDefs = (columns: any) => {
             cellRenderer: CurrencyNameComponent,
             width: 180,
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             headerName: 'Price',
             width: 120,
-            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
+            cellRenderer: NewCoin,
           };
         case 'percent_change_1h':
         case 'percent_change_24h':

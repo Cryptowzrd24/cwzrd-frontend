@@ -7,7 +7,6 @@ import first from '../../../../../public/icons/first-rank.png';
 import second from '../../../../../public/icons/second-rank.png';
 import numeral from 'numeral';
 import third from '../../../../../public/icons/third-rank.png';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
 import Graph from './graphCard';
 
 const Card = ({
@@ -103,6 +102,25 @@ const Card = ({
   const formattedChange = isPositiveChange
     ? `+${numericChange.toFixed(2)}`
     : numericChange.toFixed(2);
+
+  const priceNumberFormatter = (price: any) => {
+    const priceNumber = Number(price);
+
+    if (priceNumber === 0) {
+      return '0';
+    }
+
+    if (priceNumber < 0.1) {
+      // Format with 10 decimal places
+      return priceNumber.toFixed(10);
+    }
+
+    // Format with 2 decimal places
+    const formattedPrice = priceNumber.toFixed(2);
+    const parts = formattedPrice.split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ','); // Apply comma to the integer part only
+    return parts.join('.');
+  };
   return (
     <Box
       sx={{
@@ -188,7 +206,7 @@ const Card = ({
               color: 'rgba(255, 255, 255, 1)',
             }}
           >
-            ${priceNumberFormatDigits(price)}
+            ${priceNumberFormatter(price)}
           </Typography>
           <Box
             sx={{
@@ -217,6 +235,7 @@ const Card = ({
           mt: '24px',
           gap: '48px',
           mb: '-4px',
+          marginLeft: '6px',
         }}
       >
         <Box>
@@ -317,6 +336,7 @@ const Card = ({
           sx={{
             border: '1px solid rgba(17, 17, 17, 0.05)',
             borderRadius: '12px',
+            overflow: 'hidden',
           }}
         >
           <Box
@@ -352,7 +372,11 @@ const Card = ({
               </Box>
             ))}
           </Box>
-          <Box>
+          <Box
+            style={{
+              marginBottom: '-26px',
+            }}
+          >
             <Graph
               graphAttr={{ type: 'area', data: areachartData }}
               change={change}

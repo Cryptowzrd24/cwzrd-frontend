@@ -6,11 +6,10 @@ import { ChainComp } from '../../components/data-table/chain';
 import { VolumeComponent } from '../../components/data-table/volume';
 
 import { getPercentStyle } from '@/utils/profit-loss-color';
-import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
 import { DateAdded } from '@/app/components/data-table/date-component';
-import { priceNumberFormatter } from '@/utils/price-number-formater';
+import NewCoin from '@/app/components/data-table/price';
 
 const useColumnNewCoinsDefs = (columns: any) => {
   return useMemo(() => {
@@ -30,24 +29,24 @@ const useColumnNewCoinsDefs = (columns: any) => {
             cellRenderer: CurrencyNameComponent,
             width: 220,
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             headerName: 'Price',
             width: 135,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            cellRenderer: NewCoin,
           };
         case 'percent_change_1h':
         case 'percent_change_24h':
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 130,
+            width: 100,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + ' %';
-              return profitLossCheck(formattedValue);
+
+              return (value >= 0 ? '+' : '') + value + '%';
             },
           };
         case 'volume_24h':
@@ -75,7 +74,7 @@ const useColumnNewCoinsDefs = (columns: any) => {
         case 'date_added':
           return {
             field: 'date_added',
-            width: 120,
+            width: 160,
             headerName: 'Date Added',
             cellRenderer: DateAdded,
           };

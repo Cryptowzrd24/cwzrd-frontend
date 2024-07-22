@@ -4,10 +4,12 @@ import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
 
-import { priceNumberFormatter } from '@/utils/price-number-formater';
+import {
+  priceNumberFormatDigits,
+  priceNumberFormatter,
+} from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
 
 const useColumnChainsDefs = (columns: any) => {
   return useMemo(() => {
@@ -25,7 +27,7 @@ const useColumnChainsDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 290,
+            width: 260,
           };
 
         case 'protocols':

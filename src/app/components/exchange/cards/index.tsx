@@ -7,8 +7,8 @@ import first from '../../../../../public/icons/first-rank.png';
 import second from '../../../../../public/icons/second-rank.png';
 import numeral from 'numeral';
 import third from '../../../../../public/icons/third-rank.png';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
 import Graph from './graphCard';
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 
 const ExchangeCard = ({
   title,
@@ -30,7 +30,7 @@ const ExchangeCard = ({
     ? '/images/spotlight-cards/background1.png'
     : '/images/spotlight-cards/background2.png';
 
-  const imgUrl = `https://s2.coinmarketcap.com/static/img/coins/32x32/${coinId}.png`;
+  const imgUrl = `https://s2.coinmarketcap.com/static/img/exchanges/64x64/${coinId}.png`;
 
   const areachartData = [
     { x: 1, y: 5 },
@@ -189,6 +189,7 @@ const ExchangeCard = ({
           mt: '24px',
           gap: '48px',
           mb: '-4px',
+          marginLeft: '6px',
         }}
       >
         <Box>

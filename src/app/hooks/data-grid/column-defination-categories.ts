@@ -3,12 +3,15 @@ import { HeaderComponent } from '@/app/components/data-table/header';
 import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
 
-import { priceNumberFormatter } from '@/utils/price-number-formater';
+import {
+  priceNumberFormatDigits,
+  priceNumberFormatter,
+} from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 import { TopGainers } from '@/app/components/data-table/top-gainers';
 import { CategoryName } from '@/app/components/data-table/category-name';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
+import NewCoin from '@/app/components/data-table/price';
 
 const useColumnCategoryDefs = (columns: any) => {
   return useMemo(() => {
@@ -52,14 +55,14 @@ const useColumnCategoryDefs = (columns: any) => {
             field: 'price_24h',
             headerName: '24h',
             width: 110,
-            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
+            cellRenderer: NewCoin,
           };
         case 'price_7d':
           return {
             field: 'price_7d',
             headerName: '7d',
             width: 120,
-            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
+            cellRenderer: NewCoin,
           };
         case 'market_cap':
           return {
@@ -75,7 +78,7 @@ const useColumnCategoryDefs = (columns: any) => {
             headerName: 'Dominance',
             // headerComponent: HeaderComponent,
             width: 125,
-            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
+            cellRenderer: NewCoin,
           };
         case 'volume_24h':
           return {
@@ -89,7 +92,7 @@ const useColumnCategoryDefs = (columns: any) => {
             field: '24h_volume',
             width: 145,
             headerName: '24h Volume',
-            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
+            cellRenderer: NewCoin,
           };
         case 'last7Days':
           return {

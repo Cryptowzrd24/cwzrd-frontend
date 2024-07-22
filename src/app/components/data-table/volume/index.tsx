@@ -11,7 +11,7 @@ export const VolumeComponent = (props: CustomCellRendererProps) => {
   ).toLocaleString();
 
   const rawPriceDiff = priceNumberFormatter(
-    String(Number(props.data.volume_24h) / Number(props.data.price)),
+    String(Number(props.data.volume_24h) / Number(props.data.new_price)),
   );
   const priceDiff = Math.round(
     Number(rawPriceDiff.replace(/[^\d.-]/g, '')),
@@ -22,7 +22,7 @@ export const VolumeComponent = (props: CustomCellRendererProps) => {
 
   return (
     <div className={styles['volume-comp']}>
-      <p className={styles['price-main']}>{numericVal}</p>
+      <p className={styles['price-main']}>${numericVal}</p>
       {!isPathNewCoin && (
         <p className={styles['sub-price']}>
           {`${priceDiff} ${props.data.symbol}`}

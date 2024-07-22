@@ -1,4 +1,5 @@
 'use client';
+import NewCoin from '@/app/components/data-table/price';
 import { SalesAddresses } from '@/app/components/data-table/sales-data/addresses';
 import { SalesItems } from '@/app/components/data-table/sales-data/items';
 import { useMemo } from 'react';
@@ -34,10 +35,11 @@ const useColumnSalesDefs = (columns: any) => {
 
             width: 385,
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             width: 65,
+            cellRenderer: NewCoin,
           };
         case 'gas':
           return {

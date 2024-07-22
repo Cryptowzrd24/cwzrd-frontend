@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import CardHeader from './cardHeader.component';
 import { Button, Card, Stack, Typography, styled } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -32,10 +32,6 @@ const BootstrapButton = styled(Button)({
 const Card8 = (props: ICard8Props) => {
   const { heading, staticTextColor, text1, text2, bg, bgImage, footerButton } =
     props;
-
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
 
   const getBackground = () => {
     if (bgImage) {
@@ -132,12 +128,7 @@ const Card8 = (props: ICard8Props) => {
   return (
     <Card className={styles.market_cap_wrapper} style={getBackground()}>
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
-          staticTextColor={staticTextColor}
-        />
+        <CardHeader heading={heading} staticTextColor={staticTextColor} />
 
         <div
           style={{

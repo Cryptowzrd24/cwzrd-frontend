@@ -8,7 +8,7 @@ import { VolumeComponent } from '../../components/data-table/volume';
 
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { CirculatingSupply } from '@/app/components/data-table/circulating-supply';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
+import NewCoin from '@/app/components/data-table/price';
 
 const useColumnCoinDefs = (columns: any) => {
   return useMemo(() => {
@@ -19,7 +19,7 @@ const useColumnCoinDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 70,
+            width: 60,
           };
         case 'name':
           return {
@@ -28,12 +28,12 @@ const useColumnCoinDefs = (columns: any) => {
             cellRenderer: CurrencyNameComponent,
             width: 150,
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             headerName: 'Price',
-            width: 140,
-            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
+            cellRenderer: NewCoin,
+            width: 130,
           };
         case 'percent_change_1h':
         case 'percent_change_24h':
@@ -46,7 +46,7 @@ const useColumnCoinDefs = (columns: any) => {
             valueFormatter: (p: any) => {
               const value = p.value;
 
-              return value + '%';
+              return (value >= 0 ? '+' : '') + value + '%';
             },
           };
         case 'market_cap':
@@ -61,7 +61,7 @@ const useColumnCoinDefs = (columns: any) => {
           return {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
-            width: 195,
+            width: 180,
             cellRenderer: VolumeComponent,
           };
         case 'circulating_supply':

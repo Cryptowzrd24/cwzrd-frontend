@@ -54,7 +54,7 @@ const Table = () => {
       const res = data.data.map((item: any, index: number) => ({
         id: item.id,
         name: item.name,
-        price: item.quote.USD.price,
+        new_price: item.quote.USD.price,
         volume_24h: item.quote.USD.volume_24h,
         percent_change_1h: item.quote.USD.percent_change_1h,
         percent_change_24h: item.quote.USD.percent_change_24h,

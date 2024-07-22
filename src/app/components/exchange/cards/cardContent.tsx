@@ -1,6 +1,6 @@
 'use client';
 import { Box, Grid } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import Card from '.';
 
 type CardData = {
@@ -22,11 +22,10 @@ interface CardContentProps {
 }
 
 const ExchangeCardContent = ({ cardsData }: CardContentProps) => {
-  const [cardData] = useState(cardsData);
   return (
     <Box sx={{ flexGrow: 1, padding: '16px' }}>
       <Grid container spacing={3} sx={{ display: 'flex', flexWrap: 'wrap' }}>
-        {cardData.map((card) => (
+        {cardsData.map((card) => (
           <Grid item xs={12} sm={6} md={4} key={card.id}>
             <Card
               title={card.exchange}

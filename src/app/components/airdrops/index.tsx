@@ -14,9 +14,11 @@ function AirDrops() {
     <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
       <Box sx={{ mt: '48px' }}>
         <HeroContent />
+      </Box>
+      <Box sx={{ mt: '16px' }}>
         <Stats />
       </Box>
-      <Box sx={{ mt: '48px' }}>
+      <Box sx={{ mt: '16px' }}>
         <Table />
       </Box>
       <Box sx={{ mt: '32px' }}>

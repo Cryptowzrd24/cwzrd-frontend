@@ -1,7 +1,7 @@
 export const columnsTrending = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_1h', headerName: '1h' },
   { field: 'percent_change_24h', headerName: '24h%' },
   { field: 'percent_change_7d', headerName: '7d' },
@@ -13,7 +13,7 @@ export const columnsTrending = [
 export const columnsCoin = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_1h', headerName: '1h%' },
   { field: 'percent_change_24h', headerName: '24h%' },
   { field: 'percent_change_7d', headerName: '7d%' },
@@ -26,7 +26,7 @@ export const columnsCoin = [
 export const columnsDefi = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_1h', headerName: '1h%' },
   { field: 'percent_change_24h', headerName: '24h%' },
   { field: 'percent_change_7d', headerName: '7d%' },
@@ -39,7 +39,7 @@ export const columnsDefi = [
 export const columnsHighestVol = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_1h', headerName: '1h%' },
   { field: 'percent_change_24h', headerName: '24h%' },
   { field: 'percent_change_7d', headerName: '7d%' },
@@ -52,7 +52,7 @@ export const columnsHighestVol = [
 export const columnsMostVisited = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_1h', headerName: '1h%' },
   { field: 'percent_change_24h', headerName: '24h%' },
   { field: 'percent_change_7d', headerName: '7d%' },
@@ -65,7 +65,7 @@ export const columnsMostVisited = [
 export const columnsNewCoin = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'chain' },
   { field: 'percent_change_1h', headerName: '1h%' },
   { field: 'percent_change_24h', headerName: '24h%' },
@@ -89,14 +89,14 @@ export const columnsChain = [
 export const columnsGainers = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'volume_24h', headerName: 'Volume(24h)' },
   { field: 'percent_change_24h', headerName: '24h' },
 ];
 export const columnsLosers = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'volume_24h', headerName: 'Volume(24h)' },
   { field: 'percent_change_24h', headerName: '24h' },
 ];
@@ -104,37 +104,37 @@ export const columnsLosers = [
 export const columnsCompactTrending = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_24h', headerName: '24h%' },
 ];
 export const columnsCompactGainers = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_24h', headerName: '24h%' },
 ];
 export const columnsCompactLosers = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_24h', headerName: '24h%' },
 ];
 export const columnsCompactHighestVolume = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_24h', headerName: '24h%' },
 ];
 export const columnsCompactMostVisited = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_24h', headerName: '24h%' },
 ];
 export const columnsCompactRecentlyAdded = [
   { field: 'index' },
   { field: 'name' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'percent_change_24h', headerName: '24h%' },
 ];
 
@@ -191,7 +191,7 @@ export const columnsSales = [
   { field: 'item' },
   { field: 'Rarity' },
   { field: 'addresses' },
-  { field: 'Price' },
+  { field: 'new_Price' },
   { field: 'Gas' },
   { field: 'ago_1h', headerName: '1hAgo' },
 ];
@@ -208,7 +208,7 @@ export const columnsCoinMarket = [
   { field: 'index', headerName: '#' },
   { field: 'exchange', headerName: 'Exchange' },
   { field: 'pair', headerName: 'Pair' },
-  { field: 'price' },
+  { field: 'new_price' },
   { field: 'depth_positive2', headerName: '+2% Depth' },
   { field: 'depth_negative2', headerName: '-2% Depth' },
   { field: 'volume_24h', headerName: 'Volume(24h)' },

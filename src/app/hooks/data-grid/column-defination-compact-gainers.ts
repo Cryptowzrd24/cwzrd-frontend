@@ -7,7 +7,7 @@ import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
-import { priceNumberFormatDigits } from '@/utils/price-number-formatter-digits';
+import NewCoin from '@/app/components/data-table/price';
 
 const useColumnCompactGainersDefs = (columns: any) => {
   return useMemo(() => {
@@ -18,27 +18,27 @@ const useColumnCompactGainersDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 70,
+            width: 50,
           };
         case 'name':
           return {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 160,
+            width: 180,
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             headerName: 'Price',
-            width: 95,
-            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
+            width: 120,
+            cellRenderer: NewCoin,
           };
         case 'percent_change_24h':
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 100,
+            width: 80,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;

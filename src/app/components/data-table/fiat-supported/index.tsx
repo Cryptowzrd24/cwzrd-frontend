@@ -17,23 +17,32 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
 
   return (
     <div className={styles['fiat-supported']}>
-      <div style={{ fontSize: '12px', color: 'rgba(17, 17, 17, 1)' }}>
+      <div
+        style={{
+          fontSize: '12px',
+          color: 'rgba(17, 17, 17, 1)',
+          fontWeight: 500,
+          lineHeight: '16px',
+        }}
+      >
         {firstThreeFiats.join(', ')}
       </div>
       {remainingFiatsCount > 0 && (
         <div
           style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            lineHeight: '15.6px',
           }}
         >
-          <p>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+            }}
+          >
             and +{remainingFiatsCount} more
-            <span style={{ marginTop: '8px', marginLeft: '4px' }}>
-              <Vector />
-            </span>
-          </p>
+            <Vector />
+          </div>
         </div>
       )}
     </div>

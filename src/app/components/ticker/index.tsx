@@ -5,6 +5,7 @@ import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import { useFetchTickerDataQuery } from '@/app/redux/reducers/data-grid';
 import Image from 'next/image';
+import TickerSkeleton from '../skeleton/ticker';
 
 const TickerContainer = styled(Box)({
   display: 'flex',
@@ -44,7 +45,7 @@ const PriceChange = styled(Typography)(() => ({
 interface TickerData {
   id: string;
   symbol: string;
-  price: string;
+  new_price: string;
   percent_change_24h: any;
   icon: JSX.Element | any;
 }
@@ -60,7 +61,7 @@ const Ticker = () => {
         id: item.id,
         coin_id: item.coin_id,
         symbol: item.symbol,
-        price: item.quote?.price,
+        new_price: item.quote?.price,
         percent_change_24h: item.quote?.percent_change_24h,
         icon: `https://s2.coinmarketcap.com/static/img/coins/64x64/${item.coin_id}.png`,
       }));
@@ -87,7 +88,7 @@ const Ticker = () => {
         if (existingRow) {
           const updatedRow: any = {
             ...existingRow,
-            price: message.p !== null ? message.p : existingRow.price,
+            new_price: message.p !== null ? message.p : existingRow.new_price,
             percent_change_24h:
               message.p24h !== null
                 ? message.p24h
@@ -118,7 +119,7 @@ const Ticker = () => {
     };
   }, []);
 
-  return (
+  return rowData.length > 0 ? (
     <TickerContainer>
       <Marquee autoFill={true} gradient={false}>
         {rowData.map((item, index) => (
@@ -132,7 +133,7 @@ const Ticker = () => {
               style={{ borderRadius: '50%' }}
             />
             <TickerInfo>
-              {item.symbol} ${Number(item.price).toFixed(2)}
+              {item.symbol} ${Number(item.new_price).toFixed(2)}
             </TickerInfo>
             <PriceChange
               sx={{
@@ -148,6 +149,8 @@ const Ticker = () => {
         ))}
       </Marquee>
     </TickerContainer>
+  ) : (
+    <TickerSkeleton />
   );
 };
 

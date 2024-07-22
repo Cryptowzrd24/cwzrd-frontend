@@ -2,7 +2,9 @@
 
 import React, { useEffect, useRef } from 'react';
 import Highcharts from 'highcharts/highstock';
-import HighchartsReact, { HighchartsReactRefObject } from 'highcharts-react-official';
+import HighchartsReact, {
+  HighchartsReactRefObject,
+} from 'highcharts-react-official';
 
 const CandlestickChart: React.FC = () => {
   const chartRef = useRef<HighchartsReactRefObject>(null);
@@ -80,14 +82,13 @@ const CandlestickChart: React.FC = () => {
         fontSize: '12px',
         lineHeight: '15px',
       },
-      positioner: function (labelWidth, labelHeight, point) {
-        const chart = this.chart;
-        const plotLeft = chart.plotLeft;
-        const plotTop = chart.plotTop;
-        const plotWidth = chart.plotWidth;
-        const plotHeight = chart.plotHeight;
-        let tooltipX = point.plotX + plotLeft - labelWidth / 2;
-        let tooltipY = point.plotY + plotTop - labelHeight - 10;
+      positioner: function (labelWidth: any, labelHeight: any, point: any) {
+        const chart: any = (this as any).chart;
+        const plotLeft: any = chart.plotLeft;
+        const plotTop: any = chart.plotTop;
+        const plotWidth: any = chart.plotWidth;
+        let tooltipX: any = point.plotX + plotLeft - labelWidth / 2;
+        let tooltipY: any = point.plotY + plotTop - labelHeight - 10;
 
         if (tooltipX < plotLeft) {
           tooltipX = plotLeft;
@@ -105,7 +106,7 @@ const CandlestickChart: React.FC = () => {
         };
       },
       formatter: function () {
-        const point = this.point;
+        const point: any = (this as any).point;
         const open = point.open;
         const high = point.high;
         const low = point.low;

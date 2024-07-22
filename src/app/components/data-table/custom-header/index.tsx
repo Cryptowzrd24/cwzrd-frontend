@@ -82,6 +82,7 @@ export const CustomHeader = ({
   setPagination = () => {},
 }: CustomHeaderProps) => {
   const [volumeValue, setVolumeValue] = useState('24h');
+  const [platforms, setPlatforms] = useState([]);
 
   const pathname = usePathname();
   const dispatch = useDispatch();
@@ -97,9 +98,26 @@ export const CustomHeader = ({
   const [filterActive, setFilterActive] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openFilterModal, setOpenFilterModal] = useState(false);
-  const [filterKey, setFilterKey] = useState<FilterKey>('category');
+  const [filterKey, setFilterKey] = useState<FilterKey>('platform');
   const [isAnyFilterActive, setIsAnyFilterActive] = useState(false);
   const [hasNonNullFilter, setHasNonNullFilter] = useState(false);
+
+  useEffect(() => {
+    if (platforms && platforms.length > 0) return;
+    const fetchPlatforms = async () => {
+      try {
+        const response = await fetch(
+          'https://backend.cwzrd.co.uk/api/platforms/',
+        );
+        const data = await response.json();
+        setPlatforms(data.platforms);
+      } catch (error) {
+        console.error('Error fetching platforms:', error);
+      }
+    };
+
+    fetchPlatforms();
+  }, []);
 
   const handleChange = (event: any) => {
     setPageSize(event.target.value);
@@ -125,6 +143,8 @@ export const CustomHeader = ({
 
   const handleOpenFilterModal = () => setOpenFilterModal(true);
   const getLabel = (key: string): { label: string; isMatching: boolean } => {
+    if (key === 'platform' && filterItem.filters[key])
+      return { label: filterItem.filters[key], isMatching: true };
     const filterValue = filterItem.filters[key];
     if (filterValue) {
       const filterArray = Filters[key as FilterKey];
@@ -315,7 +335,6 @@ export const CustomHeader = ({
               value={volumeValue}
               onChange={handleChangeVolume}
               disableUnderline
-              // inputProps={{ 'aria-label': 'Without label' }}
               sx={stylesPage.select(getSelectClass(volumeValue))}
               IconComponent={(props) => (
                 <Box
@@ -447,7 +466,7 @@ export const CustomHeader = ({
                   chip
                 )}
               </Stack>
-              {isAnyFilterActive && hasNonNullFilter && (
+              {((isAnyFilterActive && hasNonNullFilter) || filterCount > 0) && (
                 <Chip
                   label="Clear Filters"
                   onClick={handleClearFilters}
@@ -462,6 +481,7 @@ export const CustomHeader = ({
                 setAnchorEl={setAnchorEl}
                 filterKey={filterKey}
                 setIsAnyFilterActive={setIsAnyFilterActive}
+                platforms={platforms} // pass the platforms to the dropdown
               />
             )}
             {openFilterModal && (

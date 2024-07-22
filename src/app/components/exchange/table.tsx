@@ -6,9 +6,9 @@ import { columnsExchanges } from '@/app/constants/columns';
 import useColumnExchangeDefs from '@/app/hooks/data-grid/column-defination-exchange';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { scrollToTop } from '@/utils/scroll-to-top';
-import { useFetchExchangesDataQuery } from '@/app/redux/reducers/data-grid';
 import { Box } from '@mui/material';
 import ExchangeCardContent from './cards/cardContent';
+import { useFetchExchangesDataQuery } from '@/app/redux/reducers/data-grid';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -24,6 +24,7 @@ const Table = () => {
     start: currentPage,
     pageSize,
   });
+
   const totalCount = data?.count || 0;
 
   const handleSetSearch = useCallback((value: any) => {
@@ -71,8 +72,6 @@ const Table = () => {
       setRowData(res);
     }
   }, [data, currentPage, itemStart, pageSize]);
-
-  // ------------------------------------------------------------
 
   return (
     <div className="data-table-wrapper">

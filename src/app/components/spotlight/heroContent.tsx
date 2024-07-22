@@ -1,17 +1,12 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React from 'react';
 import Card1 from '../common/card1.component';
 import GaugeChart from '../common/guage-chart';
 import btc from '@/app/assets/images/btc.png';
 
 function HeroContent() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
   return (
     <>
       <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
@@ -36,26 +31,8 @@ function HeroContent() {
           mt: '8px',
         }}
       >
-        Insights into the biggest events shaping the crypto industry.
-        {isExpanded && (
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            corrupti iure optio facilis voluptatum similique corporis doloribus
-            laborum iusto, cupiditate eveniet dolore tempore eaque rerum
-            delectus provident porro nisi? Similique.
-          </span>
-        )}
-        <span
-          style={{
-            color: '#7248F7',
-            cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: '700',
-          }}
-          onClick={handleToggle}
-        >
-          {isExpanded ? ' Read Less' : ' Read More'}
-        </span>
+        Our 'Cryptocurrencies to Watch' lists are based on the most recent price
+        and user behavior data.
       </Box>
       <AnimatePresence>
         <motion.div

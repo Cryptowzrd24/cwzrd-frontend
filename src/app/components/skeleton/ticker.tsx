@@ -5,7 +5,7 @@ const TickerSkeleton = () => {
     <>
       <Skeleton
         variant="rectangular"
-        height={56}
+        height={40}
         sx={{ mb: '32px', width: '100%' }}
       />
     </>

@@ -3,11 +3,11 @@
   min-height: 185px;
   max-height: 185px;
   border-radius: 15px;
-  box-shadow: 0 4px 28px 0 #0000000D !important;
   background: white !important;
   margin-bottom: 20px;
   width: 100%;
   border: 1px solid rgba(17, 17, 17, 0.05);
+  box-shadow: 0 4px 28px 0 #0000000D !important;
 
   .header_wrapper {
     padding-top: 24px;
@@ -38,6 +38,7 @@
   max-height: 185px;
   border-radius: 15px;
   width: 100%;
+  border: 1px solid rgba(17, 17, 17, 0.05);
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
 
@@ -71,6 +72,7 @@
   max-height: 185px;
   border-radius: 15px;
   width: 100%;
+  border: 1px solid rgba(17, 17, 17, 0.05);
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
 
@@ -103,6 +105,7 @@
   max-height: 185px;
   border-radius: 15px !important;
   width: 100%;
+  border: 1px solid rgba(17, 17, 17, 0.05);
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
 
@@ -160,6 +163,7 @@
   min-height: 185px;
   max-height: 185px;
   border-radius: 15px;
+  border: 1px solid rgba(17, 17, 17, 0.05);
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
 
@@ -191,6 +195,7 @@
   min-height: 185px;
   max-height: 185px;
   border-radius: 15px;
+  border: 1px solid rgba(17, 17, 17, 0.05);
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
   width: 100%;
@@ -224,6 +229,7 @@
   min-height: 185px;
   max-height: 185px;
   border-radius: 15px;
+  border: 1px solid rgba(17, 17, 17, 0.05);
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
   width: 100%;
@@ -257,6 +263,7 @@
   min-height: 185px;
   max-height: 185px;
   border-radius: 15px;
+  border: 1px solid rgba(17, 17, 17, 0.05);
   box-shadow: 0 4px 28px 0 #0000000D !important;
   margin-bottom: 20px;
   width: 100%;
@@ -358,7 +365,7 @@
   right: 24px;
   display: flex;
   gap: 4px;
-  z-index: 9999;
+  z-index: 300;
 }
 
 .dot {

@@ -1,28 +1,13 @@
 .fiat-supported {
   display: flex;
-  /* justify-content: flex-start; */
-  align-items: center;
-  margin-top: -7px;
-  margin-bottom: 14px;
+  justify-content: center;
+  flex-direction: column;
+  height: inherit;
+  gap: 2px;
 }
 
-.fiat-supported h6 {
-  font-size: 16px;
-  font-weight: 400;
-  font-family: 'Sf Pro Display';
-  margin: 0;
-  padding: 0;
+.fiat-supported svg{
+    margin-bottom: -1px;
 }
 
-.fiat-supported p {
-  font-size: 12px;
-  font-weight: 400;
-  font-family: 'Sf Pro Display';
-  color: rgba(17, 17, 17, 0.6);
-  margin: 0;
-  padding: 0;
-  height: 22px;
-  margin-top: -5px;
-  margin-left: -80px;
-  margin-bottom: -8px;
-}
+

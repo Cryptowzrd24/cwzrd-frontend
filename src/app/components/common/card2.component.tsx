@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 // import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -28,20 +28,12 @@ interface ICard2Props {
 // });
 
 const Card2 = (props: ICard2Props) => {
-  const { heading, items, stepperCount } = props;
-
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
+  const { heading, items } = props;
 
   return (
     <Card className={styles.coin_detail_card_wrapper}>
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={stepperCount ? stepperCount : currentStep}
-          stepSetter={stepSetter}
-        />
+        <CardHeader heading={heading} />
       </div>
       <div className={styles.recently_added}>
         <ul>

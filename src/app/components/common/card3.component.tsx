@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Button, Card, Stack, Typography } from '@mui/material';
 
@@ -40,10 +40,6 @@ const Card3 = (props: ICard3Props) => {
     bgColor,
     allWhite,
   } = props;
-
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
 
   const getColor = () => {
     if (allWhite) return colorConfig.white;
@@ -141,12 +137,7 @@ const Card3 = (props: ICard3Props) => {
         className={styles.header_wrapper}
         style={{ position: 'relative', zIndex: 2 }}
       >
-        <CardHeader
-          heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
-          staticTextColor={staticTextColor}
-        />
+        <CardHeader heading={heading} staticTextColor={staticTextColor} />
       </div>
       <Typography
         sx={{
