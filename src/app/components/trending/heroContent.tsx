@@ -1,7 +1,7 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React from 'react';
 import GaugeChart from '../common/guage-chart';
 import Card1 from '../common/card1.component';
 import btc from '@/app/assets/images/btc.png';
@@ -11,11 +11,6 @@ import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
 import CandlestickCard from '../common/candlestickCard';
 
 function HeroContent() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
   return (
     <>
       <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
@@ -40,26 +35,10 @@ function HeroContent() {
           mt: '8px',
         }}
       >
-        Insights into the biggest events shaping the crypto industry.
-        {isExpanded && (
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            corrupti iure optio facilis voluptatum similique corporis doloribus
-            laborum iusto, cupiditate eveniet dolore tempore eaque rerum
-            delectus provident porro nisi? Similique.
-          </span>
-        )}
-        <span
-          style={{
-            color: '#7248F7',
-            cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: '700',
-          }}
-          onClick={handleToggle}
-        >
-          {isExpanded ? ' Read Less' : ' Read More'}
-        </span>
+        Listed below are the hottest trending cryptocurrencies on Crypto WZRD,
+        showcasing the most visible coins and tokens in the past 24 hours. With
+        millions of daily visitors, this list highlights current market trends,
+        pumps, and losses.
       </Box>
       <AnimatePresence>
         <motion.div
@@ -116,7 +95,7 @@ function HeroContent() {
               textColor={colorConfig.green}
               heading="Top Gain"
               name="Dogwifhat"
-              desc="took the first place with a gain of"
+              desc="took first place with a gain of"
               value="+29.32%"
               end="in 7 days."
             />

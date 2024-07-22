@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import AreaChart from '../elements/areaGraphCard.element';
 
@@ -15,25 +15,17 @@ import Image from 'next/image';
 
 const TopNftCollection = (props: any) => {
   const { heading, percent, graphAttr } = props;
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
-
   return (
     <Card className={styles.top_nft_card_wrapper}>
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
-        />
+        <CardHeader heading={heading} />
       </div>
       <div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '5px 25px 10px 25px',
+          padding: '5px 22px 10px 22px',
         }}
       >
         <div style={{ display: 'flex' }}>
@@ -44,6 +36,7 @@ const TopNftCollection = (props: any) => {
                 fontSize: '14px',
                 margin: '0',
                 fontFamily: 'Sf Pro Display',
+                fontWeight: 500,
               }}
             >
               PudgyPenguins
@@ -61,7 +54,15 @@ const TopNftCollection = (props: any) => {
           </div>
         </div>
         <div>
-          <span style={{ fontSize: '14px' }}>254,567 ETH</span>
+          <span
+            style={{
+              fontSize: '14px',
+              fontWeight: 500,
+              letterSpacing: '1.2px',
+            }}
+          >
+            254,567 ETH
+          </span>
         </div>
       </div>
       <div

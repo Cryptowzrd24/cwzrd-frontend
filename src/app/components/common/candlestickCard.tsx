@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import { getPositiveNegativeIcon } from '@/app/helpers/functions';
 
@@ -11,18 +11,11 @@ import CandlestickChart from '../elements/candleStickGraph';
 
 const CandlestickCard = (props: IMarketCapCardProps) => {
   const { heading, value, percent } = props;
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
 
   return (
     <Card className={styles.candle_stick_card_wrapper}>
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
-        />
+        <CardHeader heading={heading} />
         <div className={styles.value}>
           {value?.prefix}
           {value.data}

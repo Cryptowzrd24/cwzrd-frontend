@@ -1,4 +1,5 @@
 'use client';
+
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import GraphCard from '@/app/components/common/graphCard.component';
@@ -6,15 +7,103 @@ import { areaChartData } from '@/app/constants/charts';
 import { useAppSelector } from '@/app/redux/store';
 import { AnimatePresence, motion } from 'framer-motion';
 import GaugeChart from '../common/guage-chart';
+import { useFetchStatsDataQuery } from '@/app/redux/reducers/data-grid';
+import numeral from 'numeral';
 
-function HeroContent() {
+const HeroContent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-
   const { showStats } = useAppSelector((state) => state.market);
+  const { data } = useFetchStatsDataQuery({});
 
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
+  const handleToggle = () => setIsExpanded(!isExpanded);
+
+  const marketCap = numeral(data?.results[0].quote.USD.total_market_cap)
+    .format('0.00a')
+    .toUpperCase();
+  const marketCapChange =
+    data?.results[0].quote.USD.total_market_cap_yesterday_percentage_change.toFixed(
+      2,
+    );
+  const volumeCap = numeral(data?.results[0].quote?.USD?.total_volume_24h ?? 0)
+    .format('0.00a')
+    .toUpperCase();
+  const volumeCapChange =
+    data?.results[0].quote.USD.total_volume_24h_yesterday_percentage_change.toFixed(
+      2,
+    );
+
+  const isMarketCapPositiveChange = parseFloat(marketCapChange) > 0;
+  const marketCapChangeColor = isMarketCapPositiveChange
+    ? '#1FD773'
+    : '#F74848';
+  const marketCapChangeText = isMarketCapPositiveChange
+    ? 'an increase of'
+    : 'a decrease of';
+
+  const isVolumeCapPositiveChange = parseFloat(volumeCapChange) > 0;
+  const volumeCapChangeColor = isVolumeCapPositiveChange
+    ? '#1FD773'
+    : '#F74848';
+  const volumeCapChangeText = isVolumeCapPositiveChange
+    ? 'an increase of'
+    : 'a decrease of';
+
+  const defiVolume = numeral(data?.results[0].quote.USD.defi_volume_24h)
+    .format('0.00a')
+    .toUpperCase();
+  const defiVolumePercent = (
+    (data?.results[0].quote.USD.defi_volume_24h /
+      data?.results[0].quote.USD.total_volume_24h) *
+    100
+  ).toFixed(2);
+  const isDefiVolumePositiveChange =
+    parseFloat(data?.results[0].quote.USD.defi_24h_percentage_change) > 0;
+  const defiVolumeChangeColor = isDefiVolumePositiveChange
+    ? '#1FD773'
+    : '#F74848';
+  const defiVolumeChangeText = isDefiVolumePositiveChange
+    ? 'an increase of'
+    : 'a decrease of';
+  const defiVolumeChange =
+    data?.results[0].quote.USD.defi_24h_percentage_change.toFixed(2);
+
+  const stablecoinVolume = numeral(
+    data?.results[0].quote.USD.stablecoin_volume_24h,
+  )
+    .format('0.00a')
+    .toUpperCase();
+  const stablecoinVolumePercent = (
+    (data?.results[0].quote.USD.stablecoin_volume_24h /
+      data?.results[0].quote.USD.total_volume_24h) *
+    100
+  ).toFixed(2);
+  const isStablecoinVolumePositiveChange =
+    parseFloat(data?.results[0].quote.USD.stablecoin_24h_percentage_change) > 0;
+  const stablecoinVolumeChangeColor = isStablecoinVolumePositiveChange
+    ? '#1FD773'
+    : '#F74848';
+  const stablecoinVolumeChangeText = isStablecoinVolumePositiveChange
+    ? 'an increase of'
+    : 'a decrease of';
+  const stablecoinVolumeChange =
+    data?.results[0].quote.USD.stablecoin_24h_percentage_change.toFixed(2);
+
+  const btcDominance = parseFloat(
+    data?.results[0].btc_dominance || '0',
+  ).toFixed(2);
+  const btcDominanceChange =
+    data?.results[0].quote.USD.total_market_cap_yesterday_percentage_change.toFixed(
+      2,
+    );
+
+  const isBtcDominancePositiveChange = parseFloat(btcDominanceChange) > 0;
+  const btcDominanceChangeColor = isBtcDominancePositiveChange
+    ? '#1FD773'
+    : '#F74848';
+  const btcDominanceChangeText = isBtcDominancePositiveChange
+    ? 'an increase of'
+    : 'a decrease of';
+
   return (
     <>
       <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
@@ -31,6 +120,7 @@ function HeroContent() {
         </span>{' '}
         by Market Cap
       </Typography>
+
       <Box
         sx={{
           fontSize: '16px',
@@ -42,33 +132,115 @@ function HeroContent() {
         The overall market capitalization of the crypto market is
         <span style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}>
           {' '}
-          €2.26T
+          ${marketCap}
         </span>
-        . an increase of{' '}
-        <span style={{ color: '#1FD773', fontWeight: '600', fontSize: '16px' }}>
-          +3.75%
+        , {marketCapChangeText}{' '}
+        <span
+          style={{
+            color: marketCapChangeColor,
+            fontWeight: '600',
+            fontSize: '16px',
+          }}
+        >
+          {marketCapChange}%
         </span>{' '}
         in the last 24 hours.{' '}
         {isExpanded && (
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            corrupti iure optio facilis voluptatum similique corporis doloribus
-            laborum iusto, cupiditate eveniet dolore tempore eaque rerum
-            delectus provident porro nisi? Similique.
-          </span>
+          <>
+            <br />
+            The total crypto market volume over the last 24 hours is
+            <span
+              style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}
+            >
+              {' '}
+              ${volumeCap}
+            </span>
+            , {volumeCapChangeText}{' '}
+            <span
+              style={{
+                color: volumeCapChangeColor,
+                fontWeight: '600',
+                fontSize: '16px',
+              }}
+            >
+              {volumeCapChange}%
+            </span>
+            . The total volume in DeFi is currently
+            <span
+              style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}
+            >
+              {' '}
+              ${defiVolume}
+            </span>
+            , {defiVolumeChangeText}{' '}
+            <span
+              style={{
+                color: defiVolumeChangeColor,
+                fontWeight: '600',
+                fontSize: '16px',
+              }}
+            >
+              {defiVolumeChange}%
+            </span>
+            , which <br /> is{' '}
+            <span style={{ fontWeight: 600 }}>{defiVolumePercent}%</span> of the
+            total crypto market 24-hour volume. The volume of all stable coins
+            is now
+            <span
+              style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}
+            >
+              {' '}
+              ${stablecoinVolume}
+            </span>
+            , {stablecoinVolumeChangeText}{' '}
+            <span
+              style={{
+                color: stablecoinVolumeChangeColor,
+                fontWeight: '600',
+                fontSize: '16px',
+              }}
+            >
+              {stablecoinVolumeChange}%
+            </span>
+            , which is{' '}
+            <span style={{ fontWeight: 600 }}>{stablecoinVolumePercent}%</span>{' '}
+            of the total
+            <br /> crypto market 24-hour volume.
+            <br />
+            Bitcoin’s dominance is currently
+            <span
+              style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}
+            >
+              {' '}
+              {btcDominance}%
+            </span>
+            , {btcDominanceChangeText}{' '}
+            <span
+              style={{
+                color: btcDominanceChangeColor,
+                fontWeight: '600',
+                fontSize: '16px',
+              }}
+            >
+              {btcDominanceChange}%
+            </span>
+            .
+          </>
         )}
         <span
           style={{
-            color: '#7248F7',
+            color: '#808A9D',
             cursor: 'pointer',
             fontSize: '16px',
-            fontWeight: '700',
+            fontWeight: '400',
+            textDecoration: 'underline',
           }}
           onClick={handleToggle}
         >
           {isExpanded ? ' Read Less' : ' Read More'}
         </span>
       </Box>
+
       <AnimatePresence>
         {showStats && (
           <motion.div
@@ -83,7 +255,6 @@ function HeroContent() {
                 flexDirection: 'row',
                 gap: '10px',
                 alignItems: 'center',
-                // justifyContent: 'center',
               }}
             >
               <GraphCard
@@ -111,6 +282,6 @@ function HeroContent() {
       </AnimatePresence>
     </>
   );
-}
+};
 
 export default HeroContent;

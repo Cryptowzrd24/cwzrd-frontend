@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 import {
@@ -22,11 +22,7 @@ interface ICard1Props {
 }
 
 const Card1 = (props: ICard1Props) => {
-  const { heading, items, type, stepperCount } = props;
-
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
+  const { heading, items, type } = props;
 
   const getType = (item: any) => {
     const renderMap = {
@@ -59,11 +55,7 @@ const Card1 = (props: ICard1Props) => {
   return (
     <Card className={styles.coin_detail_card_wrapper}>
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={stepperCount ? stepperCount : currentStep}
-          stepSetter={stepSetter}
-        />
+        <CardHeader heading={heading} />
       </div>
       <div className={styles.recently_added}>
         <ul>
@@ -74,7 +66,13 @@ const Card1 = (props: ICard1Props) => {
                   <span>{item.medal}</span>
                 </div>
                 <div className={styles.profile_block}>
-                  <Image className={styles.image} src={item.image} alt="" />
+                  <Image
+                    width={28}
+                    height={28}
+                    className={styles.image}
+                    src={item.image}
+                    alt=""
+                  />
                 </div>
                 <div className={styles.title}>
                   <span>{item.text1}</span>
@@ -91,18 +89,19 @@ const Card1 = (props: ICard1Props) => {
           style={{
             fontWeight: 700,
             color: '#7248F7',
-            fontSize: '14px',
-            padding: '0px 15px',
+            fontSize: '12px',
+            padding: '0px 12px',
             position: 'absolute',
             right: '0px',
-            bottom: '12px',
+            bottom: '6px',
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
+            gap: '2px',
+            cursor: 'pointer',
           }}
         >
           More{' '}
-          <ArrowForwardIosIcon sx={{ fontSize: '12px', marginTop: '1px' }} />
+          <ArrowForwardIosIcon sx={{ fontSize: '10px', marginTop: '1px' }} />
         </div>
       </div>
     </Card>

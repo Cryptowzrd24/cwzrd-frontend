@@ -17,6 +17,7 @@ interface DataTableProps {
   gridApiRef?: React.MutableRefObject<any>;
   getRowId?: any;
   priceRefs?: React.MutableRefObject<{ [key: string]: HTMLDivElement | null }>;
+  height?: string;
 }
 
 const DataTable = memo(
@@ -30,6 +31,7 @@ const DataTable = memo(
     gridApiRef,
     getRowId = undefined,
     priceRefs,
+    height,
   }: DataTableProps) => {
     const modifiedColumnDefs = useMemo(
       () =>
@@ -62,7 +64,7 @@ const DataTable = memo(
     return (
       <div
         className="ag-theme-material"
-        style={{ width, height: 'auto', overflow: 'visible' }}
+        style={{ width, height: height ? height : 'auto', overflow: 'hidden' }}
       >
         {title && (
           <Box
@@ -110,7 +112,7 @@ const DataTable = memo(
             fontSize: 13,
             fontWeight: 400,
           }}
-          domLayout="autoHeight"
+          domLayout={height ? 'normal' : 'autoHeight'}
           onGridReady={(params) => {
             if (gridApiRef) gridApiRef.current = params.api;
           }}

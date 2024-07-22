@@ -4,7 +4,10 @@ import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
 
-import { priceNumberFormatter } from '@/utils/price-number-formater';
+import {
+  priceNumberFormatDigits,
+  priceNumberFormatter,
+} from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
@@ -24,7 +27,7 @@ const useColumnChainsDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 290,
+            width: 260,
           };
 
         case 'protocols':
@@ -44,7 +47,7 @@ const useColumnChainsDefs = (columns: any) => {
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + ' %';
+              const formattedValue = priceNumberFormatDigits(value) + ' %';
               return profitLossCheck(formattedValue);
             },
           };
@@ -66,7 +69,7 @@ const useColumnChainsDefs = (columns: any) => {
         case 'tvl':
           return {
             field: 'tvl',
-            width: 130,
+            width: 190,
             headerName: 'TVL',
             // headerComponent: HeaderComponent,
             valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),

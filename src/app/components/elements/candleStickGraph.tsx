@@ -41,7 +41,6 @@ const CandlestickChart: React.FC = () => {
         type: 'candlestick',
         name: 'Bitcoin',
         data: [
-          // Replace with your actual data points
           [Date.UTC(2024, 6, 1), 100, 130, 90, 110],
           [Date.UTC(2024, 6, 2), 110, 140, 100, 120],
           [Date.UTC(2024, 6, 3), 120, 150, 110, 130],
@@ -78,23 +77,18 @@ const CandlestickChart: React.FC = () => {
       borderRadius: 10,
       borderWidth: 0,
       shadow: false,
+      outside: true,
       style: {
-        outerHeight: '20px',
+        fontSize: '12px',
         lineHeight: '15px',
-        padding: '5px',
       },
-      positioner: function (
-        this: any,
-        labelWidth: number,
-        labelHeight: number,
-        point: Highcharts.Point,
-      ): { x: number; y: number } {
-        const chart: any = this.chart;
-        const plotLeft = chart.plotLeft;
-        const plotTop = chart.plotTop;
-        const plotWidth = chart.plotWidth;
-        let tooltipX = point.plotX + plotLeft - labelWidth / 2;
-        const tooltipY = plotTop - labelHeight - 10;
+      positioner: function (labelWidth: any, labelHeight: any, point: any) {
+        const chart: any = (this as any).chart;
+        const plotLeft: any = chart.plotLeft;
+        const plotTop: any = chart.plotTop;
+        const plotWidth: any = chart.plotWidth;
+        let tooltipX: any = point.plotX + plotLeft - labelWidth / 2;
+        let tooltipY: any = point.plotY + plotTop - labelHeight - 10;
 
         if (tooltipX < plotLeft) {
           tooltipX = plotLeft;
@@ -102,38 +96,36 @@ const CandlestickChart: React.FC = () => {
           tooltipX = plotLeft + plotWidth - labelWidth;
         }
 
+        if (tooltipY < plotTop) {
+          tooltipY = plotTop + point.plotY + 10;
+        }
+
         return {
           x: tooltipX,
           y: tooltipY,
         };
       },
-      formatter: function (this: any) {
-        const point = this.point;
-        const open: any = point.open;
-        const high: any = point.high;
-        const low: any = point.low;
-        const close: any = point.close;
+      formatter: function () {
+        const point: any = (this as any).point;
+        const open = point.open;
+        const high = point.high;
+        const low = point.low;
+        const close = point.close;
         return `
-          <div
-           style="display: flex; align-items: center; justify-content: center; 
-           width:120px;
-           height:60px;
-           background: white; 
-           border-radius: 10px; 
+          <div style="display: flex; flex-direction: column; align-items: start; justify-content: center; 
+           background: rgba(255, 255, 255, 0.75); 
+           border-radius: 8px; 
            padding: 4px 8px; 
-           font-size: 13px; 
+           font-size: 11px; 
            font-weight: 400;
            color: #111111;">
-           <div styles = "display:flex; flex-direction:column; gap:2px; flex-wrap:wrap;">
-            <div>Open: $${open}</div>
-            <div>High: $${high}</div>
-            <div>Low: $${low}</div>
-            <div>Close: $${close}</div>
-           </div>
+            <div style="margin-bottom: 2px;"><strong>Open:</strong> $${open}</div>
+            <div style="margin-bottom: 2px;"><strong>High:</strong> $${high}</div>
+            <div style="margin-bottom: 2px;"><strong>Low:</strong> $${low}</div>
+            <div><strong>Close:</strong> $${close}</div>
           </div>`;
       },
     },
-
     credits: {
       enabled: false,
     },

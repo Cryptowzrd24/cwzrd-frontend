@@ -3,11 +3,12 @@ import { HeaderComponent } from '@/app/components/data-table/header';
 import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
 
-import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
+import NewCoin from '@/app/components/data-table/price';
 
 const useColumnGainersDefs = (columns: any) => {
   return useMemo(() => {
@@ -27,29 +28,30 @@ const useColumnGainersDefs = (columns: any) => {
             cellRenderer: CurrencyNameComponent,
             width: 170,
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             headerName: 'Price',
-            width: 115,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            width: 155,
+            cellRenderer: NewCoin,
           };
         case 'volume_24h':
           return {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
-            width: 155,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            width: 125,
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
           };
         case 'percent_change_24h':
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 130,
+            width: 110,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + ' %';
+              const formattedValue = priceNumberFormatDigits(value) + ' %';
               return profitLossCheck(formattedValue);
             },
           };

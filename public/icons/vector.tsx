@@ -3,7 +3,7 @@ import React from 'react';
 const Vector = () => {
   return (
     <svg
-      width="14"
+      width="13"
       height="13"
       viewBox="0 0 14 13"
       fill="none"

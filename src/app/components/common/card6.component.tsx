@@ -1,6 +1,6 @@
 'use client';
 import { Card, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './index.module.scss';
 import Image from 'next/image';
@@ -17,10 +17,6 @@ interface ICard6Props {
 const Card6 = (props: ICard6Props) => {
   const { heading, image, mainText, subText, staticTextColor } = props;
 
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
-
   return (
     <Card
       className={styles.market_cap_wrapper}
@@ -29,12 +25,7 @@ const Card6 = (props: ICard6Props) => {
       }}
     >
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
-          staticTextColor={staticTextColor}
-        />
+        <CardHeader heading={heading} staticTextColor={staticTextColor} />
         <div
           style={{
             display: 'flex',

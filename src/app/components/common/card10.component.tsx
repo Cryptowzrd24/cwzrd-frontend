@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './index.module.scss';
 import { Box, Button, Card, Stack, Typography, styled } from '@mui/material';
@@ -35,10 +35,6 @@ const Card10 = (props: ICard10Props) => {
   const { heading, staticTextColor, text1, text2, messageCount, rocketCount } =
     props;
 
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
-
   const renderIconCount = (image: any, value: number, bg?: string) => {
     return (
       <Box
@@ -71,12 +67,7 @@ const Card10 = (props: ICard10Props) => {
       }}
     >
       <Box className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
-          staticTextColor={staticTextColor}
-        />
+        <CardHeader heading={heading} staticTextColor={staticTextColor} />
 
         <Box sx={{}}>
           <Box sx={{ marginTop: '15px' }}>

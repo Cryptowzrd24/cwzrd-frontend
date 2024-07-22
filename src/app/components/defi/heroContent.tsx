@@ -2,7 +2,7 @@
 import { areaChartData } from '@/app/constants/charts';
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React from 'react';
 import GraphCard from '../common/graphCard.component';
 import GaugeChart from '../common/guage-chart';
 import CandlestickCard from '../common/candlestickCard';
@@ -11,11 +11,6 @@ import { colorConfig } from '@/app/helpers/config';
 import cardBgImage from '@/app/assets/images/cardImagebg.png';
 
 function HeroContent() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
   return (
     <>
       <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
@@ -41,26 +36,8 @@ function HeroContent() {
           mt: '8px',
         }}
       >
-        Insights into the biggest events shaping the crypto industry.{' '}
-        {isExpanded && (
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            corrupti iure optio facilis voluptatum similique corporis doloribus
-            laborum iusto, cupiditate eveniet dolore tempore eaque rerum
-            delectus provident porro nisi? Similique.
-          </span>
-        )}
-        <span
-          style={{
-            color: '#7248F7',
-            cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: '700',
-          }}
-          onClick={handleToggle}
-        >
-          {isExpanded ? ' Read Less' : ' Read More'}
-        </span>
+        Discover the top DeFi tokens ranked by Crypto WZRD, based on market
+        performance, user activity, liquidity, and trading volumes.
       </Box>
       <AnimatePresence>
         <motion.div

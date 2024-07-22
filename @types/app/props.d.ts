@@ -19,6 +19,7 @@ declare global {
     data: { x: string | number; y: string | number }[];
     color: string;
     isMarker?: boolean;
+    percent?: boolean;
   }
 
   interface IStepProps {

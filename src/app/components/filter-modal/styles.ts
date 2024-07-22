@@ -108,9 +108,11 @@ const styles = {
     },
     '& .MuiSwitch-switchBase.Mui-checked': {
       color: '#fff',
+      backgroundColor: '#7248F7',
     },
     '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
       backgroundColor: '#7248F7',
+      opacity: 1,
     },
   },
   closeCancelBtn: {

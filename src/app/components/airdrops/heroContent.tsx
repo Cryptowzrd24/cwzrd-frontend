@@ -1,13 +1,8 @@
 'use client';
 import { Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 
 function HeroContent() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
   return (
     <>
       <Typography
@@ -38,28 +33,7 @@ function HeroContent() {
           mt: '8px',
         }}
       >
-        CoinMarketCap ranks and scores exchanges based on traffic, liquidity,
-        trading volumes, and confidence in the legitimacy of trading volumes
-        reported.{' '}
-        {isExpanded && (
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            corrupti iure optio facilis voluptatum similique corporis doloribus
-            laborum iusto, cupiditate eveniet dolore tempore eaque rerum
-            delectus provident porro nisi? Similique.
-          </span>
-        )}
-        <span
-          style={{
-            color: '#7248F7',
-            cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: '700',
-          }}
-          onClick={handleToggle}
-        >
-          {isExpanded ? ' Read Less' : ' Read More'}
-        </span>
+        Be the first to know about upcoming airdrops here.
       </Box>
     </>
   );

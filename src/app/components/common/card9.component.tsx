@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './index.module.scss';
 import { Button, Card, Stack, Typography } from '@mui/material';
@@ -29,9 +29,6 @@ const webkitClasses = {
 const Card9 = (props: ICard9) => {
   const { heading, staticTextColor, text1, text2 } = props;
 
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
   return (
     <Card
       className={styles.market_cap_wrapper}
@@ -41,12 +38,7 @@ const Card9 = (props: ICard9) => {
       }}
     >
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
-          staticTextColor={staticTextColor}
-        />
+        <CardHeader heading={heading} staticTextColor={staticTextColor} />
 
         <div style={{}}>
           <div style={{ marginTop: '20px' }}>

@@ -4,8 +4,8 @@ import { Box, Divider, Typography } from '@mui/material';
 import { FilterSearchIcon } from '../../../../public/icons/filterSearch';
 import { Filters } from '@/app/constants/filters';
 import styles from './styles';
-// import { useDispatch } from 'react-redux';
-// import { selectFilter } from '@/app/redux/reducers/filters';
+import { useDispatch } from 'react-redux';
+import { selectFilter } from '@/app/redux/reducers/filters';
 
 type FilterKey = keyof typeof Filters;
 interface FilterDropdownProps {
@@ -14,6 +14,7 @@ interface FilterDropdownProps {
   setAnchorEl: React.Dispatch<React.SetStateAction<null | HTMLElement>>;
   filterKey: FilterKey;
   setIsAnyFilterActive: (value: boolean) => void;
+  platforms: string[]; // new prop
 }
 
 function FilterDropdown({
@@ -21,57 +22,31 @@ function FilterDropdown({
   anchorEl,
   setAnchorEl,
   filterKey,
-  // setIsAnyFilterActive,
+  setIsAnyFilterActive,
+  platforms, // destructure new prop
 }: FilterDropdownProps) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [searchString, setSearchString] = useState('');
-  const [filteredMenuItems, setFilteredMenuItems] = useState([]);
-  const [menuItems, setMenuItems] = useState([]);
+  const [filteredMenuItems, setFilteredMenuItems] = useState<any>([]);
   const handleClose = () => {
     setAnchorEl(null);
   };
 
-  // const handleSelectFilter = (id: number, label: string) => {
-  //   setAnchorEl(null);
-  //   dispatch(selectFilter({ id, label }));
-  //   setIsAnyFilterActive(true);
-  // };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          'https://backend.cwzrd.co.uk/api/platforms/',
-        );
-        const data = await response.json();
-        setFilteredMenuItems(data['platforms']);
-        setMenuItems(data['platforms']);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const handleSelectFilter = (id: number, label: string) => {
+    setAnchorEl(null);
+    dispatch(selectFilter({ id, label }));
+    setIsAnyFilterActive(true);
+  };
 
   useEffect(() => {
     setFilteredMenuItems(
-      menuItems.filter((item: any) =>
+      platforms.filter((item: any) =>
         item.toLowerCase().includes(searchString.toLowerCase()),
       ),
     );
-  }, [searchString, menuItems]);
-
-  // useEffect(() => {
-  //   setFilteredMenuItems(
-  //     Filters[filterKey].filter((item) =>
-  //       item.label.toLowerCase().includes(searchString.toLowerCase()),
-  //     ),
-  //   );
-  // }, [searchString, filterKey]);
+  }, [searchString, platforms]);
 
   return (
-    // <div>
     <Menu
       id="long-menu"
       MenuListProps={{
@@ -114,13 +89,12 @@ function FilterDropdown({
         <Box
           sx={styles.menuItem}
           key={option}
-          // onClick={() => handleSelectFilter(option.id, filterKey)}
+          onClick={() => handleSelectFilter(option, filterKey)}
         >
           {option}
         </Box>
       ))}
     </Menu>
-    // </div>
   );
 }
 

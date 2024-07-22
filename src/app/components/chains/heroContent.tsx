@@ -3,17 +3,12 @@ import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import { areaChartData } from '@/app/constants/charts';
 
-import React, { useState } from 'react';
+import React from 'react';
 import KpiGuageChart from '../common/kpi-guage-chart';
 import GraphCard from '../common/graphCard.component';
 import GaugeChart from '../common/guage-chart';
 
 function HeroContent() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
   return (
     <>
       <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
@@ -37,26 +32,9 @@ function HeroContent() {
           mt: '8px',
         }}
       >
-        Insights into the biggest events shaping the crypto industry.{' '}
-        {isExpanded && (
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            corrupti iure optio facilis voluptatum similique corporis doloribus
-            laborum iusto, cupiditate eveniet dolore tempore eaque rerum
-            delectus provident porro nisi? Similique.
-          </span>
-        )}
-        <span
-          style={{
-            color: '#7248F7',
-            cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: '700',
-          }}
-          onClick={handleToggle}
-        >
-          {isExpanded ? ' Read Less' : ' Read More'}
-        </span>
+        Listed below are the statistics for various blockchains, including their
+        Total Value Locked (TVL) and the number of protocols. The data is
+        organized by TVL in descending order.
       </Box>
       <AnimatePresence>
         <motion.div
