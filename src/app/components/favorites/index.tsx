@@ -3,7 +3,7 @@ import { Box, Container } from '@mui/material';
 import HeroContent from './heroContent';
 import Table from '@/app/components/favorites/table';
 
-function Coin() {
+function Favorites() {
   return (
     <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
       <Box sx={{ mt: '48px' }}>
@@ -16,4 +16,4 @@ function Coin() {
   );
 }
 
-export default Coin;
+export default Favorites;
