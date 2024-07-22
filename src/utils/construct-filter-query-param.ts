@@ -41,6 +41,10 @@ export const constructQueryParams = (filters: Filters) => {
     queryParams.change_24h_max = filters.percentChange.max.toString();
   }
 
+  if (filters.platform !== null) {
+    queryParams.platform = filters.platform.toString();
+  }
+
   if (filters.mineable) {
     tags.push('mineable');
   }

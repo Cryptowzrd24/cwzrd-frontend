@@ -40,7 +40,7 @@ function FilterDropdown({
 
   useEffect(() => {
     setFilteredMenuItems(
-      platforms.filter((item: any) =>
+      platforms?.filter((item: any) =>
         item.toLowerCase().includes(searchString.toLowerCase()),
       ),
     );
@@ -85,7 +85,7 @@ function FilterDropdown({
         </Typography>
         <Divider />
       </Box>
-      {filteredMenuItems.map((option: any) => (
+      {filteredMenuItems?.map((option: any) => (
         <Box
           sx={styles.menuItem}
           key={option}
