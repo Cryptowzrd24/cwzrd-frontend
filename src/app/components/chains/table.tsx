@@ -9,6 +9,7 @@ import { useFetchChainDataQuery } from '@/app/redux/reducers/data-grid';
 import { Box } from '@mui/material';
 import CardContent from '../highest-volume/cards/cardContent';
 import { scrollToTop } from '@/utils/scroll-to-top';
+import debounce from 'debounce';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -24,11 +25,22 @@ const Table = () => {
   const { data: chainData } = useFetchChainDataQuery({
     start: currentPage,
     pageSize,
+    searchString: search,
   });
 
-  const handleSetSearch = useCallback((value: any) => {
-    setSearch(value);
-  }, []);
+  const debouncedFetchChainData = useCallback(
+    debounce((value) => {
+      setSearch(value);
+    }, 600),
+    [],
+  );
+
+  const handleSetSearch = useCallback(
+    (value: any) => {
+      debouncedFetchChainData(value);
+    },
+    [debouncedFetchChainData],
+  );
   const totalCount = chainData?.count || 0;
 
   const handlePageChange = (
