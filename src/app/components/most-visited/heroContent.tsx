@@ -1,7 +1,7 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React from 'react';
 import GaugeChart from '../common/guage-chart';
 import btc from '@/app/assets/images/btc.png';
 import Card1 from '../common/card1.component';
@@ -10,11 +10,6 @@ import { colorConfig } from '@/app/helpers/config';
 import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
 
 function HeroContent() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
   return (
     <>
       <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
@@ -40,28 +35,9 @@ function HeroContent() {
           mt: '8px',
         }}
       >
-        CoinMarketCap ranks and scores exchanges based on traffic, liquidity,
-        trading volumes, and confidence in the legitimacy of trading volumes
-        reported.{' '}
-        {isExpanded && (
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            corrupti iure optio facilis voluptatum similique corporis doloribus
-            laborum iusto, cupiditate eveniet dolore tempore eaque rerum
-            delectus provident porro nisi? Similique.
-          </span>
-        )}
-        <span
-          style={{
-            color: '#7248F7',
-            cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: '700',
-          }}
-          onClick={handleToggle}
-        >
-          {isExpanded ? ' Read Less' : ' Read More'}
-        </span>
+        Listed below are the most viewed cryptocurrencies, based on real-time
+        internal data from Crypto WZRD. Is your favorite crypto coin or token
+        among the most viewed?
       </Box>
       <AnimatePresence>
         <motion.div
@@ -140,7 +116,7 @@ function HeroContent() {
               textColor={colorConfig.green}
               heading="Top Gain"
               name="Dogwifhat"
-              desc="took the first place with a gain of"
+              desc="took first place with a gain of"
               value="+29.32%"
               end="in 7 days."
             />

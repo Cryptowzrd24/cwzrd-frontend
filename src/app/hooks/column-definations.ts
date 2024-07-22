@@ -11,6 +11,7 @@ import { VolumeComponent } from '../components/data-table/volume';
 import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
+import NewCoin from '../components/data-table/price';
 
 const useColumnDefs = (columns: any) => {
   return useMemo(() => {
@@ -30,12 +31,12 @@ const useColumnDefs = (columns: any) => {
             cellRenderer: CurrencyNameComponent,
             width: 180,
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             headerName: 'Price',
             width: 120,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            cellRenderer: NewCoin,
           };
         case 'protocols':
           return {

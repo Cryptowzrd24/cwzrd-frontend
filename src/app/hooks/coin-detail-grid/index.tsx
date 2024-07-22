@@ -28,11 +28,12 @@ const useColumnCoinDetailDefs = (columns: any) => {
             width: 120,
             // valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             headerName: 'Price',
             width: 130,
+
             // valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'depth_positive2':

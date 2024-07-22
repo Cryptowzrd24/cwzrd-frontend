@@ -6,6 +6,7 @@ import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import MemberShipBanner from '../banners/memberShipBanner';
 import Table from './table';
+import Stats from '../stats';
 
 const Exchange = () => {
   return (
@@ -17,6 +18,9 @@ const Exchange = () => {
       </Container>
 
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
+        <Box sx={{ mt: '16px' }}>
+          <Stats />
+        </Box>
         <Box sx={{ mt: '16px' }}>
           <Table />
         </Box>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './index.module.scss';
 import { Card, Typography } from '@mui/material';
@@ -29,10 +29,6 @@ const Card7 = (props: ICard7Props) => {
   const { heading, staticTextColor, text, bg, options, notinFormatOptions } =
     props;
 
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
-
   const getCss = (index: number): ICssProperties => {
     const cssMap: { [key: number]: ICssProperties } = {
       0: { left: '-19px', top: '20px', rotate: '-11.58deg' },
@@ -54,12 +50,7 @@ const Card7 = (props: ICard7Props) => {
       }}
     >
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
-          staticTextColor={staticTextColor}
-        />
+        <CardHeader heading={heading} staticTextColor={staticTextColor} />
 
         <div style={{ marginTop: '15px' }}>
           <Typography

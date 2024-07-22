@@ -1,6 +1,6 @@
 'use client';
 import { Card, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './index.module.scss';
 import Image from 'next/image';
@@ -15,10 +15,6 @@ interface ICard5Props {
 const Card5 = (props: ICard5Props) => {
   const { heading, image, text } = props;
 
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
-
   return (
     <Card
       className={styles.market_cap_wrapper}
@@ -28,11 +24,7 @@ const Card5 = (props: ICard5Props) => {
       }}
     >
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
-        />
+        <CardHeader heading={heading} />
         <div
           style={{
             display: 'flex',

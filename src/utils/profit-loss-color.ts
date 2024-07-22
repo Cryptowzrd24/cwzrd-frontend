@@ -1,4 +1,5 @@
 export const getPercentStyle = (value: number) => {
+  if (!value) return;
   if (!value.toLocaleString().includes('-')) {
     return { color: 'rgba(69, 202, 148, 1)', fontWeight: '500' };
   } else {

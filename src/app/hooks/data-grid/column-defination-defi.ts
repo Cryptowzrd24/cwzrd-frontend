@@ -6,9 +6,10 @@ import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
 import { VolumeComponent } from '../../components/data-table/volume';
 
-import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
+import NewCoin from '@/app/components/data-table/price';
 
 const useColumnDefiDefs = (columns: any) => {
   return useMemo(() => {
@@ -28,12 +29,12 @@ const useColumnDefiDefs = (columns: any) => {
             cellRenderer: CurrencyNameComponent,
             width: 180,
           };
-        case 'price':
+        case 'new_price':
           return {
-            field: 'price',
+            field: 'new_price',
             headerName: 'Price',
             width: 120,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            cellRenderer: NewCoin,
           };
         case 'percent_change_1h':
         case 'percent_change_24h':
@@ -45,7 +46,7 @@ const useColumnDefiDefs = (columns: any) => {
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
-              const formattedValue = priceNumberFormatter(value) + ' %';
+              const formattedValue = priceNumberFormatDigits(value) + ' %';
               return profitLossCheck(formattedValue);
             },
           };
@@ -54,7 +55,8 @@ const useColumnDefiDefs = (columns: any) => {
             field: 'market_cap',
             headerComponent: HeaderComponent,
             width: 165,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) =>
+              '$' + Math.round(p.value).toLocaleString(),
           };
         case 'volume_24h':
           return {
@@ -68,7 +70,7 @@ const useColumnDefiDefs = (columns: any) => {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
             width: 165,
-            valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
             tooltipComponent: HeaderTooltip,
             headerTooltip: 'Volume 24h',
             tooltipValueGetter: (params: any) =>

@@ -1,12 +1,12 @@
 'use client';
 import { Box, Grid } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import Card from '.';
 
 type CardData = {
   id: string;
   name: string;
-  price: string;
+  new_price: string;
   volume_24h: string;
   percent_change_7d: string;
   market_cap: string;
@@ -15,6 +15,7 @@ type CardData = {
   symbol: string;
   coin_id: string;
   index: number;
+  chartData: number[];
 };
 
 interface CardContentProps {
@@ -22,15 +23,14 @@ interface CardContentProps {
 }
 
 const CardContent = ({ cardsData }: CardContentProps) => {
-  const [cardData] = useState(cardsData);
   return (
     <Box sx={{ flexGrow: 1, padding: '16px' }}>
       <Grid container spacing={3} sx={{ display: 'flex', flexWrap: 'wrap' }}>
-        {cardData.map((card) => (
+        {cardsData.map((card) => (
           <Grid item xs={12} sm={6} md={4} key={card.id}>
             <Card
               title={card.name}
-              price={card.price}
+              price={card.new_price}
               change={card.percent_change_7d}
               marketCap={card.market_cap}
               circulationSupply={card.circulating_supply}
@@ -39,6 +39,7 @@ const CardContent = ({ cardsData }: CardContentProps) => {
               symbol={card.symbol}
               coinId={card.coin_id}
               index={card.index}
+              chartData={card.chartData}
             />
           </Grid>
         ))}

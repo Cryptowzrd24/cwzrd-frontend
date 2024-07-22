@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './index.module.scss';
 import { Box, Button, Card, Stack, Typography, styled } from '@mui/material';
@@ -27,17 +27,11 @@ const BootstrapButton = styled(Button)({
 const Card11 = (props: ICard11Props) => {
   const { heading, text } = props;
 
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
-
   return (
     <Card className={styles.market_cap_wrapper} style={{}}>
       <Box className={styles.header_wrapper}>
         <CardHeader
           heading={heading}
-          currentStep={currentStep}
-          stepSetter={stepSetter}
           // staticTextColor={staticTextColor}
         />
 

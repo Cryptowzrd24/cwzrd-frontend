@@ -1,17 +1,12 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React from 'react';
 import GaugeChart from '../common/guage-chart';
 import GraphCard from '../common/graphCard.component';
 import { areaChartData } from '@/app/constants/charts';
 
 function HeroContent() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
   return (
     <>
       <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
@@ -37,28 +32,9 @@ function HeroContent() {
           mt: '8px',
         }}
       >
-        CoinMarketCap ranks and scores exchanges based on traffic, liquidity,
-        trading volumes, and confidence in the legitimacy of trading volumes
-        reported.
-        {isExpanded && (
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            corrupti iure optio facilis voluptatum similique corporis doloribus
-            laborum iusto, cupiditate eveniet dolore tempore eaque rerum
-            delectus provident porro nisi? Similique.
-          </span>
-        )}
-        <span
-          style={{
-            color: '#7248F7',
-            cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: '700',
-          }}
-          onClick={handleToggle}
-        >
-          {isExpanded ? ' Read Less' : ' Read More'}
-        </span>
+        Listed below are the highest volume cryptocurrencies, based on real-time
+        data from Crypto WZRD. Discover which coins and tokens are leading the
+        market in trading activity.
       </Box>
       <AnimatePresence>
         <motion.div

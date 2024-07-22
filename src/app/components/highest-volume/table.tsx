@@ -55,7 +55,7 @@ const HighestVolumeCoinsTable = () => {
         id: item.id,
         name: item.name,
         coin_id: item.coin_id,
-        price: item.quote.price,
+        new_price: item.quote.price,
         volume_24h: item.quote.volume_24h,
         percent_change_1h: item.quote.percent_change_1h,
         percent_change_24h: item.quote.percent_change_24h,

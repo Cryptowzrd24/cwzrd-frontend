@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 // import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -28,20 +28,12 @@ interface ICard2Props {
 // });
 
 const Card2 = (props: ICard2Props) => {
-  const { heading, items, stepperCount } = props;
-
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
+  const { heading, items } = props;
 
   return (
     <Card className={styles.coin_detail_card_wrapper}>
       <div className={styles.header_wrapper}>
-        <CardHeader
-          heading={heading}
-          currentStep={stepperCount ? stepperCount : currentStep}
-          stepSetter={stepSetter}
-        />
+        <CardHeader heading={heading} />
       </div>
       <div className={styles.recently_added}>
         <ul>
@@ -51,8 +43,21 @@ const Card2 = (props: ICard2Props) => {
                 <div className={styles.medal}>
                   <span>{item.medal}</span>
                 </div>
-                <div className={styles.title} style={{ marginLeft: 'unset' }}>
-                  <span>{item.text1}</span>
+                <div
+                  // className={styles.title}
+                  style={{
+                    marginLeft: 'unset',
+                  }}
+                >
+                  <span
+                    style={{
+                      fontWeight: '500 ',
+                      fontSize: '15px ',
+                      lineHeight: '20.8px',
+                    }}
+                  >
+                    {item.text1}
+                  </span>
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '5px' }}>
@@ -70,18 +75,19 @@ const Card2 = (props: ICard2Props) => {
           style={{
             fontWeight: 700,
             color: '#7248F7',
-            fontSize: '14px',
-            padding: '0px 15px',
+            fontSize: '12px',
+            padding: '0px 12px',
             position: 'absolute',
             right: '0px',
-            bottom: '12px',
+            bottom: '6px',
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
+            gap: '2px',
+            cursor: 'pointer',
           }}
         >
           More{' '}
-          <ArrowForwardIosIcon sx={{ fontSize: '12px', marginTop: '1px' }} />
+          <ArrowForwardIosIcon sx={{ fontSize: '10px', marginTop: '1px' }} />
         </div>
 
         {/* <Stack direction="row" style={{ justifyContent: 'flex-end' }}>

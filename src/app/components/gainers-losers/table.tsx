@@ -47,7 +47,7 @@ const Table = () => {
       const res = data.top_gainers.map((item: any, index: number) => ({
         id: item.id,
         name: item.name,
-        price: item.quote.price,
+        new_price: item.quote.price,
         volume_24h: item.quote.volume_24h,
         percent_change_24h: item.quote.percent_change_24h,
         symbol: item.symbol,
@@ -62,7 +62,7 @@ const Table = () => {
       const res = data.top_losers.map((item: any, index: number) => ({
         id: item.id,
         name: item.name,
-        price: item.quote.price,
+        new_price: item.quote.price,
         volume_24h: item.quote.volume_24h,
         percent_change_24h: item.quote.percent_change_24h,
         symbol: item.symbol,

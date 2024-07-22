@@ -29,14 +29,14 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
     <Stack
       sx={{
         backgroundImage: `url('/images/technicals/cardBackground.png')`,
-        backgroundSize: '115%',
         backgroundPosition: 'center',
         display: 'flex',
         borderRadius: '16px',
         padding: '8px',
-        maxWidth: '394px',
+        maxWidth: '307px',
         width: '100%',
-        boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
+        marginRight: '30px',
+        boxShadow: '0px 4px 6px 0px #00000005',
       }}
     >
       <div
@@ -130,8 +130,8 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
       <Image
         src={image}
         alt="grah"
-        width={380}
-        height={200}
+        width={306}
+        height={160}
         style={{
           marginInline: 'auto',
         }}

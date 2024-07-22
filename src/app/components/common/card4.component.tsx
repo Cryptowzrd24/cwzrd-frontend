@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Card, Stack, Typography, styled } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './index.module.scss';
 import { formatDate } from '@/app/helpers/functions';
@@ -30,10 +30,6 @@ const BootstrapButton = styled(Button)({
 const Card4 = (props: ICard4Props) => {
   const { bgImage, heading, staticTextColor, mainText, date, name } = props;
 
-  const [currentStep] = useState(0);
-
-  const stepSetter = () => {};
-
   return (
     <Card className={styles.coin_content_card_wrapper}>
       <div
@@ -43,15 +39,10 @@ const Card4 = (props: ICard4Props) => {
       <div className={styles.overlay} />
       <div className={styles.content}>
         <div className={styles.header_wrapper}>
-          <CardHeader
-            heading={heading}
-            currentStep={currentStep}
-            stepSetter={stepSetter}
-            staticTextColor={staticTextColor}
-          />
+          <CardHeader heading={heading} staticTextColor={staticTextColor} />
         </div>
 
-        <div style={{ padding: '0px 8px 0px 8px', marginTop: '20px' }}>
+        <div style={{ padding: '0px 8px 0px 8px', marginTop: '26px' }}>
           <div style={{ padding: '0px 8px 0px 8px' }}>
             <Typography
               sx={{

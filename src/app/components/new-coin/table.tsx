@@ -44,7 +44,7 @@ const Table = () => {
         id: item.id,
         coin_id: item.coin_id,
         name: item.name,
-        price: item.quote.price,
+        new_price: item.quote.price,
         volume_24h: item.quote.volume_24h,
         percent_change_1h: item.quote.percent_change_1h,
         percent_change_24h: item.quote.percent_change_24h,

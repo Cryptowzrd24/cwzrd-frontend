@@ -4,7 +4,7 @@ interface QueryParamsType {
   start: number;
   pageSize: number;
   filters?: { [key: string]: string };
-  time_period?: string; // Add this line to include volume in the type
+  time_period?: string;
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -93,6 +93,14 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchExchangesData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/exchanges/?offset=${start}&limit=${pageSize}`,
+          method: 'GET',
+        };
+      },
+    }),
     fetchStatsData: builder.query({
       query: () => ({
         url: '/api/stats/',
@@ -119,4 +127,5 @@ export const {
   useFetchChainDataQuery,
   useFetchStatsDataQuery,
   useFetchTickerDataQuery,
+  useFetchExchangesDataQuery,
 } = dataGridApi;
