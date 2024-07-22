@@ -47,6 +47,14 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchFavoritesData: builder.query({
+      query: ({ id }: { id: string }) => {
+        return {
+          url: `/api/favorites/?coin_ids=${id}`,
+          method: 'GET',
+        };
+      },
+    }),
     fetchSpotlightData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
@@ -130,4 +138,5 @@ export const {
   useFetchStatsDataQuery,
   useFetchTickerDataQuery,
   useFetchExchangesDataQuery,
+  useFetchFavoritesDataQuery,
 } = dataGridApi;
