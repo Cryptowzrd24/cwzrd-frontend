@@ -27,7 +27,7 @@ const useColumnDefiDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 180,
+            width: 185,
           };
         case 'new_price':
           return {
