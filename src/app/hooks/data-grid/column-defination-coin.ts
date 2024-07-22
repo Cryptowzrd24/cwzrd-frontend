@@ -26,7 +26,7 @@ const useColumnCoinDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 175,
+            width: 205,
           };
         case 'new_price':
           return {
@@ -53,7 +53,7 @@ const useColumnCoinDefs = (columns: any) => {
           return {
             field: 'market_cap',
             headerComponent: HeaderComponent,
-            width: 178,
+            width: 158,
             valueFormatter: (p: any) =>
               '$' + Math.round(p.value).toLocaleString(),
           };
@@ -61,7 +61,7 @@ const useColumnCoinDefs = (columns: any) => {
           return {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
-            width: 180,
+            width: 170,
             cellRenderer: VolumeComponent,
           };
         case 'circulating_supply':
@@ -79,7 +79,7 @@ const useColumnCoinDefs = (columns: any) => {
         case 'last7Days':
           return {
             field: 'last7Days',
-            width: 160,
+            width: 150,
             headerName: 'Last 7 Days',
             cellRenderer: GraphComp,
           };

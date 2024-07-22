@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { HeaderTooltip } from '@/app/components/header-tooltip';
 import { HeaderComponent } from '@/app/components/data-table/header';
 import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
@@ -10,6 +9,8 @@ import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 import NewCoin from '@/app/components/data-table/price';
+import { CirculatingSupply } from '@/app/components/data-table/circulating-supply';
+import { RowTooltip } from '@/app/components/row-tooltip';
 
 const useColumnDefiDefs = (columns: any) => {
   return useMemo(() => {
@@ -27,7 +28,7 @@ const useColumnDefiDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 185,
+            width: 205,
           };
         case 'new_price':
           return {
@@ -54,7 +55,7 @@ const useColumnDefiDefs = (columns: any) => {
           return {
             field: 'market_cap',
             headerComponent: HeaderComponent,
-            width: 165,
+            width: 145,
             valueFormatter: (p: any) =>
               '$' + Math.round(p.value).toLocaleString(),
           };
@@ -70,9 +71,8 @@ const useColumnDefiDefs = (columns: any) => {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
             width: 165,
-            valueFormatter: (p: any) => '$' + priceNumberFormatDigits(p.value),
-            tooltipComponent: HeaderTooltip,
-            headerTooltip: 'Volume 24h',
+            cellRenderer: CirculatingSupply,
+            tooltipComponent: RowTooltip,
             tooltipValueGetter: (params: any) =>
               params.value == null || params.value === ''
                 ? '- Missing -'
