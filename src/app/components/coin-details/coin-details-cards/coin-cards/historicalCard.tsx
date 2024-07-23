@@ -168,7 +168,7 @@ const HistoricalCardContent = () => (
         sx={{
           color: 'rgba(255, 255, 255, 1)',
           fontSize: '10px',
-          fontFamily: '700',
+          fontWeight: '700',
           letterSpacing: '1px',
           textTransform: 'uppercase',
           maxWidth: '120px',
@@ -195,7 +195,7 @@ const HistoricalCardContent = () => (
             sx={{
               color: 'rgba(114, 72, 247, 1)',
               fontSize: '14px',
-              fontFamily: '700',
+              fontWeight: '700',
             }}
           >
             43
@@ -219,7 +219,7 @@ const HistoricalCardContent = () => (
             sx={{
               color: 'rgba(255, 255, 255, 1)',
               fontSize: '14px',
-              fontFamily: '700',
+              fontWeight: '700',
               lineHeight: '18.2px',
             }}
           >
@@ -244,7 +244,7 @@ const HistoricalCard = () => {
         style={{
           position: 'absolute',
           top: '-2px',
-          left: '80%',
+          left: '86%',
           display: 'flex',
         }}
       >
@@ -271,7 +271,7 @@ const HistoricalCard = () => {
         .slick-dots li {
           position: relative;
           display: inline-block;
-          width: 6px;
+          width: 2px;
           height: 6px;
           margin: 0 5px;
           padding: 0;

@@ -1,6 +1,7 @@
 'use client';
 import { Box, MenuItem, Select, Stack, Typography } from '@mui/material';
 import React from 'react';
+import SliderIcon from '../../../../../../public/icons/coin-details/sliderIcon';
 
 const InfoCard = () => {
   return (
@@ -126,6 +127,7 @@ const InfoCard = () => {
           >
             <Select
               displayEmpty
+              IconComponent={() => null} // Remove the default icon
               sx={{
                 fontSize: '11px',
                 fontWeight: '500',
@@ -133,22 +135,30 @@ const InfoCard = () => {
                 background: 'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)',
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',
+                display: 'flex',
+                alignItems: 'center',
+                paddingRight: '0 !important',
                 '& .MuiSelect-select': {
-                  padding: '0',
+                  padding: '0 !important',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
                 },
                 '& .MuiOutlinedInput-notchedOutline': {
                   border: 'none',
                 },
                 '& .MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':
                   {
-                    paddingRight: '4px',
+                    paddingRight: '0',
                   },
                 '& .MuiSvgIcon-root': {
                   color: 'rgba(17, 17, 17, 1)',
                 },
               }}
             >
-              <MenuItem>Mempool</MenuItem>
+              <MenuItem sx={{ display: 'flex', gap: '4px' }}>
+                Mempool <SliderIcon />
+              </MenuItem>
             </Select>
           </Box>
         </Box>
@@ -183,6 +193,7 @@ const InfoCard = () => {
           >
             <Select
               displayEmpty
+              IconComponent={() => null} // Remove the default icon
               sx={{
                 fontSize: '11px',
                 fontWeight: '500',
@@ -190,22 +201,30 @@ const InfoCard = () => {
                 background: 'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)',
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',
+                display: 'flex',
+                alignItems: 'center',
+                paddingRight: '0 !important',
                 '& .MuiSelect-select': {
-                  padding: '0',
+                  padding: '0 !important',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
                 },
                 '& .MuiOutlinedInput-notchedOutline': {
                   border: 'none',
                 },
                 '& .MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':
                   {
-                    paddingRight: '4px',
+                    paddingRight: '0',
                   },
                 '& .MuiSvgIcon-root': {
                   color: 'rgba(17, 17, 17, 1)',
                 },
               }}
             >
-              <MenuItem>Ledger</MenuItem>
+              <MenuItem sx={{ display: 'flex', gap: '4px' }}>
+                Ledger <SliderIcon />
+              </MenuItem>
             </Select>
           </Box>
         </Box>
@@ -279,6 +298,7 @@ const InfoCard = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
+            mb: '4px',
           }}
         >
           <Typography
@@ -367,6 +387,7 @@ const InfoCard = () => {
             >
               <Select
                 displayEmpty
+                IconComponent={() => null}
                 sx={{
                   fontSize: '11px',
                   fontWeight: '500',
@@ -375,22 +396,30 @@ const InfoCard = () => {
                     'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)',
                   WebkitBackgroundClip: 'text',
                   backgroundClip: 'text',
+                  display: 'flex',
+                  alignItems: 'center',
+                  paddingRight: '0 !important',
                   '& .MuiSelect-select': {
-                    padding: '0',
+                    padding: '0 !important',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
                   },
                   '& .MuiOutlinedInput-notchedOutline': {
                     border: 'none',
                   },
                   '& .MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':
                     {
-                      paddingRight: '4px',
+                      paddingRight: '0',
                     },
                   '& .MuiSvgIcon-root': {
                     color: 'rgba(17, 17, 17, 1)',
                   },
                 }}
               >
-                <MenuItem>Ledger</MenuItem>
+                <MenuItem sx={{ display: 'flex', gap: '4px' }}>
+                  Ledger <SliderIcon />
+                </MenuItem>
               </Select>
             </Box>
           </Box>

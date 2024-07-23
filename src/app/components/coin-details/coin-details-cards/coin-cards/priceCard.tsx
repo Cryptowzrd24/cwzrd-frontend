@@ -57,7 +57,7 @@ const PriceCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              10,000
+              $2.400.80
             </Typography>
           </Box>
           <Box

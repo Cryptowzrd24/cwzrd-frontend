@@ -20,13 +20,19 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
     return <div className={styles['fiat-supported']}>-</div>;
   }
 
-  const firstThreeFiats = fiats.slice(0, 3).map((fiat) => fiat.trim());
+  const getFlagUrl = (fiat: string) => {
+    return `https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/${fiat}.svg`;
+  };
 
+  const firstThreeFiats = fiats.slice(0, 3).map((fiat) => fiat.trim());
   const remainingFiatsCount = fiats.length - 3;
 
   const filteredFiats = fiats.filter((fiat) =>
     fiat.toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  console.log('fiats:', fiats);
+  console.log('filteredFiats:', filteredFiats);
 
   return (
     <div className={styles['fiat-supported']}>
@@ -84,7 +90,7 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
             variant="body1"
             sx={{ fontSize: '24px', fontWeight: '700', letterSpacing: 1 }}
           >
-            Supported Fiats Supported
+            Binance Fiat Supported
           </Typography>
           <TextField
             placeholder="Search"
@@ -130,12 +136,26 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
           >
             {filteredFiats.length > 0 ? (
               filteredFiats.map((fiat, index) => (
-                <Typography
+                <Box
                   key={index}
-                  sx={{ mt: 2, fontSize: '14px', fontWeight: '500' }}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    mt: 2,
+                    fontSize: '14px',
+                    fontWeight: '500',
+                  }}
                 >
-                  {fiat}
-                </Typography>
+                  <img
+                    src={getFlagUrl(fiat)}
+                    alt={`${fiat} flag`}
+                    style={{ width: '20px', height: '15px' }}
+                  />
+                  <Typography sx={{ fontSize: '14px', fontWeight: '500' }}>
+                    {fiat}
+                  </Typography>
+                </Box>
               ))
             ) : (
               <Typography sx={{ mt: 1 }}>No results found</Typography>
