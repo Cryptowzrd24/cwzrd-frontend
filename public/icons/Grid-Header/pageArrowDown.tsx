@@ -1,4 +1,8 @@
-export const PageArrowDownIcon = () => {
+interface PageArrowDownIconProps {
+  stroke?: boolean;
+}
+
+export const PageArrowDownIcon = ({ stroke }: PageArrowDownIconProps) => {
   return (
     <svg
       width="16"
@@ -9,7 +13,7 @@ export const PageArrowDownIcon = () => {
     >
       <path
         d="M5 7.5L10 12.5L15 7.5"
-        stroke="#7248F7"
+        stroke={stroke ? 'rgba(17, 17, 17, 1)' : '#7248F7'}
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"

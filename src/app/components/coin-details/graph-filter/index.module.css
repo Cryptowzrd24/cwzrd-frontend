@@ -1,0 +1,22 @@
+.graphCustomHeader {
+  width: 261px;
+  height: 32px;
+  padding: 4px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+  background-color: #f3f3f3;
+  position: relative;
+  top: 20px;
+  right: 21px;
+}
+
+.iconBox {
+    padding : 4px 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 1);
+    height: 16px;
+    cursor: pointer;
+}
