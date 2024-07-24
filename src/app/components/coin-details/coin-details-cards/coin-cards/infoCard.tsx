@@ -13,7 +13,7 @@ const InfoCard = () => {
         backgroundPosition: 'center center',
         maxWidth: '290px',
         width: '100%',
-        boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
+        boxShadow: 'rgba(0,0,0, 0.05) 0px 4px 28px 0px',
         borderRadius: '16px',
       }}
     >
@@ -36,7 +36,7 @@ const InfoCard = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             mb: '4px',
           }}
         >
@@ -54,7 +54,7 @@ const InfoCard = () => {
           <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
             <Box
               sx={{
-                padding: '6px 10px',
+                padding: '7px 12px',
                 borderRadius: '8px',
                 background: 'rgba(17, 17, 17, 0.05)',
                 display: 'flex',
@@ -75,7 +75,7 @@ const InfoCard = () => {
             </Box>
             <Box
               sx={{
-                padding: '6px 10px',
+                padding: '7px 12px',
                 borderRadius: '8px',
                 background: 'rgba(17, 17, 17, 0.05)',
                 display: 'flex',
@@ -101,7 +101,7 @@ const InfoCard = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             mb: '4px',
           }}
         >
@@ -117,7 +117,7 @@ const InfoCard = () => {
           </Typography>
           <Box
             sx={{
-              padding: '6px 10px',
+              padding: '7px 12px',
               borderRadius: '8px',
               background: 'rgba(17, 17, 17, 0.05)',
               display: 'flex',
@@ -127,7 +127,7 @@ const InfoCard = () => {
           >
             <Select
               displayEmpty
-              IconComponent={() => null} // Remove the default icon
+              IconComponent={() => null}
               sx={{
                 fontSize: '11px',
                 fontWeight: '500',
@@ -167,7 +167,7 @@ const InfoCard = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             mb: '4px',
           }}
         >
@@ -183,7 +183,7 @@ const InfoCard = () => {
           </Typography>
           <Box
             sx={{
-              padding: '6px 10px',
+              padding: '7px 12px',
               borderRadius: '8px',
               background: 'rgba(17, 17, 17, 0.05)',
               display: 'flex',
@@ -193,7 +193,7 @@ const InfoCard = () => {
           >
             <Select
               displayEmpty
-              IconComponent={() => null} // Remove the default icon
+              IconComponent={() => null}
               sx={{
                 fontSize: '11px',
                 fontWeight: '500',
@@ -233,7 +233,7 @@ const InfoCard = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             mb: '4px',
           }}
         >
@@ -250,7 +250,7 @@ const InfoCard = () => {
           <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
             <Box
               sx={{
-                padding: '6px 10px',
+                padding: '7px 12px',
                 borderRadius: '8px',
                 background: 'rgba(17, 17, 17, 0.05)',
                 display: 'flex',
@@ -271,7 +271,7 @@ const InfoCard = () => {
             </Box>
             <Box
               sx={{
-                padding: '6px 10px',
+                padding: '7px 12px',
                 borderRadius: '8px',
                 background: 'rgba(17, 17, 17, 0.05)',
                 display: 'flex',
@@ -297,7 +297,7 @@ const InfoCard = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             mb: '4px',
           }}
         >
@@ -313,7 +313,7 @@ const InfoCard = () => {
           </Typography>
           <Box
             sx={{
-              padding: '6px 10px',
+              padding: '7px 12px',
               borderRadius: '8px',
               background: 'rgba(17, 17, 17, 0.05)',
               display: 'flex',
@@ -339,8 +339,7 @@ const InfoCard = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center',
-            mb: '4px',
+            alignItems: 'flex-start',
           }}
         >
           <Typography
@@ -356,7 +355,7 @@ const InfoCard = () => {
           <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
             <Box
               sx={{
-                padding: '6px 10px',
+                padding: '7px 12px',
                 borderRadius: '8px',
                 background: 'rgba(17, 17, 17, 0.05)',
                 display: 'flex',
@@ -377,7 +376,7 @@ const InfoCard = () => {
             </Box>
             <Box
               sx={{
-                padding: '6px 10px',
+                padding: '7px 12px',
                 borderRadius: '8px',
                 background: 'rgba(17, 17, 17, 0.05)',
                 display: 'flex',

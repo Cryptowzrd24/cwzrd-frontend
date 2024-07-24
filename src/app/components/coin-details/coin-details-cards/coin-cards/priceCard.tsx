@@ -225,7 +225,6 @@ const PriceCard = () => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              mb: '8px',
             }}
           >
             <Typography
