@@ -1,10 +1,17 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './index.module.css';
 
-function GraphCustomHeader() {
-  const [selectedTab, setSelectedTab] = useState('Price');
-  const headerOptions = ['Price', 'Market cap', 'Trading view', 'Compare with'];
+interface GraphCustomHeaderProps {
+  selectedTab: string;
+  setSelectedTab: (val: string) => void;
+}
+
+function GraphCustomHeader({
+  selectedTab,
+  setSelectedTab,
+}: GraphCustomHeaderProps) {
+  const headerOptions = ['Price', 'Market Cap', 'TradingView', 'Compare with'];
 
   const handleTabSelect = (val: string) => {
     setSelectedTab(val);

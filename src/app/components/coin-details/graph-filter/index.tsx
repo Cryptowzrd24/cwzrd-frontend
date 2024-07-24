@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import { PageArrowDownIcon } from '../../../../../public/icons/Grid-Header/pageArrowDown';
 import { FilterIcon } from '../../../../../public/icons/Grid-Header/filter';
 import { LineGraphIcon } from '../../../../../public/icons/lineGraph';
+import { ExpandIcon } from '../../../../../public/icons/expandIcon';
+import { DownloadIcon } from '../../../../../public/icons/downloadIcon';
 
 const stylesPage = {
   select: (width: any) => ({
@@ -27,7 +29,8 @@ const stylesPage = {
       border: 'none',
     },
     '& .MuiSelect-icon': {
-      right: '12px',
+      right: '9px',
+      top: '6px',
     },
     backgroundColor: '#f3f3f3',
     borderRadius: '8px',
@@ -46,47 +49,75 @@ function GraphFilter() {
 
   return (
     <div className={styles.graphCustomHeader}>
-      <Select
-        value={volumeValue}
-        onChange={handleChangeVolume}
-        disableUnderline
-        sx={stylesPage.select(getSelectClass(volumeValue))}
-        IconComponent={(props) => (
-          <Box
-            component="svg"
-            sx={{ width: '1em', height: '1em', color: 'rgba(17, 17, 17, 1)' }}
-            {...props}
+      <div className={styles.filterHeaderSecOne}>
+        <div>
+          <Select
+            value={volumeValue}
+            onChange={handleChangeVolume}
+            disableUnderline
+            sx={stylesPage.select(getSelectClass(volumeValue))}
+            IconComponent={(props) => (
+              <Box
+                component="svg"
+                sx={{
+                  width: '20px',
+                  height: '20px',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+                {...props}
+              >
+                <PageArrowDownIcon stroke={true} />
+              </Box>
+            )}
           >
-            <PageArrowDownIcon stroke={true} />
+            {volumes.map((v: any) => (
+              <MenuItem
+                key={v}
+                value={v}
+                // onClick={() => setVolume(v)}
+                sx={{
+                  '&.MuiMenuItem-root.MuiButtonBase-root': {
+                    width: '61px',
+                    padding: '0px 20px !important',
+                    borderRadius: '4px',
+                    height: '24px',
+                    marginLeft: '3px',
+                    fontSize: '11px !important',
+                    fontWeight:
+                      volumeValue === v
+                        ? '700 !important'
+                        : 'normal !important',
+                  },
+                }}
+              >
+                {v}
+              </MenuItem>
+            ))}
+          </Select>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <Box className={styles.iconBox}>
+            <FilterIcon isDark={true} />
           </Box>
-        )}
-      >
-        {volumes.map((v: any) => (
-          <MenuItem
-            key={v}
-            value={v}
-            // onClick={() => setVolume(v)}
-            sx={{
-              '&.MuiMenuItem-root.MuiButtonBase-root': {
-                width: '61px',
-                padding: '0px 20px !important',
-                borderRadius: '4px',
-                height: '24px',
-                marginLeft: '3px',
-                fontSize: '11px !important',
-                fontWeight:
-                  volumeValue === v ? '700 !important' : 'normal !important',
-              },
-            }}
-          >
-            {v}
-          </MenuItem>
-        ))}
-      </Select>
-      <Box className={styles.iconBox}>
-        <FilterIcon isDark={true} />
-      </Box>
-      <LineGraphIcon />
+          <LineGraphIcon />
+        </div>
+      </div>
+      <div className={styles.filterHeaderSecTwo}>
+        <div style={{ width: '32px', height: '24px' }}>
+          <DownloadIcon />
+        </div>
+        <div
+          style={{
+            width: '32px',
+            height: '24px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <ExpandIcon />
+        </div>
+      </div>
     </div>
   );
 }

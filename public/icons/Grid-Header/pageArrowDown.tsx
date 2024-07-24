@@ -5,8 +5,8 @@ interface PageArrowDownIconProps {
 export const PageArrowDownIcon = ({ stroke }: PageArrowDownIconProps) => {
   return (
     <svg
-      width="16"
-      height="16"
+      width={stroke ? '20px' : '16px'}
+      height={stroke ? '20px' : '16px'}
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

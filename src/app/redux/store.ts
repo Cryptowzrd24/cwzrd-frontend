@@ -4,15 +4,19 @@ import marketReducer from './market/index';
 import { dataGridApi } from './reducers/data-grid';
 import filterReducer from './reducers/filters';
 import { useDispatch, useSelector } from 'react-redux';
+import { coinDetailsApi } from './coin-details';
 
 export const store = configureStore({
   reducer: {
     market: marketReducer,
     [dataGridApi.reducerPath]: dataGridApi.reducer,
+    [coinDetailsApi.reducerPath]: coinDetailsApi.reducer,
     filters: filterReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(dataGridApi.middleware),
+    getDefaultMiddleware()
+      .concat(dataGridApi.middleware)
+      .concat(coinDetailsApi.middleware),
 });
 
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}

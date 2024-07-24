@@ -3,9 +3,15 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 
-const StockChart = () => {
+interface StockChartProps {
+  selectedGraph: string;
+}
+
+const StockChart = ({ selectedGraph }: StockChartProps) => {
   const [options, setOptions] = useState({});
   const threshold: any = 60000000;
+
+  const graphType = selectedGraph === 'Price' ? 'area' : 'line';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -87,55 +93,82 @@ const StockChart = () => {
           },
         ],
         tooltip: {
-          shape: 'square',
-          headerShape: 'callout',
-          borderWidth: 0,
-          shadow: false,
-          positioner: function (
-            this: any,
-            width: any,
-            height: any,
-            point: any,
-          ) {
-            const chart = this.chart;
-            let position;
-
-            if (point.isHeader) {
-              position = {
-                x: Math.max(
-                  // Left side limit
-                  this.chart.plotLeft,
-                  Math.min(
-                    point.plotX + chart.plotLeft - width / 2,
-                    // Right side limit
-                    chart.chartWidth - width - chart.marginRight,
-                  ),
-                ),
-                y: point.plotY,
-              };
-            } else {
-              position = {
-                x: point.series.chart.plotLeft,
-                y: point.series.yAxis.top - chart.plotTop,
-              };
-            }
-
-            return position;
+          backgroundColor: 'transparent',
+          borderColor: 'transparent',
+          useHTML: true,
+          formatter: function (this: any) {
+            const date = Highcharts.dateFormat('%m/%d/%Y', this.x);
+            const time = Highcharts.dateFormat('%I:%M:%S %p', this.x);
+            return `
+              <div style="padding: 16px; border-radius: 8px; background: white; box-shadow:  0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 250px; max-height: 194px;">
+                <div style="display: flex; justify-content: space-between; padding-bottom: 16px;">
+                <div style="font-size: 11px; font-weight: 600; font-family: Sf Pro Display"; >${date}</div>
+                <div style="font-size: 11px; font-weight: 600; font-family: Sf Pro Display";>${time}</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding-top: 6px;"> 
+                <div style="font-size: 11px; font-weight: 400; font-family: Sf Pro Display; color: rgba(17, 17, 17, 0.4);">Opening</div>
+                <div style="font-size: 14px; font-weight: 500; font-family: Sf Pro Display"; color: rgba(17, 17, 17, 1);>€${Highcharts.numberFormat(this.points[0].point.open, 2)}</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding-top: 6px;"> 
+                <div style="font-size: 11px; font-weight: 400; font-family: Sf Pro Display;color: rgba(17, 17, 17, 0.4);">High</div>
+                <div style="font-size: 14px; font-weight: 500; font-family: Sf Pro Display"; color: rgba(17, 17, 17, 1)>€${Highcharts.numberFormat(this.points[0].point.high, 2)}</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding-top: 6px;"> 
+                <div style="font-size: 11px; font-weight: 400; font-family: Sf Pro Display;color: rgba(17, 17, 17, 0.4);">Low</div>
+                <div style="font-size: 14px; font-weight: 500; font-family: Sf Pro Display"; color: rgba(17, 17, 17, 1)>€${Highcharts.numberFormat(this.points[0].point.low, 2)}</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding-top: 6px;"> 
+                <div style="font-size: 11px; font-weight: 400; font-family: Sf Pro Display;color: rgba(17, 17, 17, 0.4);">Closing</div>
+                <div style="font-size: 14px; font-weight: 500; font-family: Sf Pro Display"; color: rgba(17, 17, 17, 1)>€${Highcharts.numberFormat(this.points[0].point.close, 2)}</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding-top: 6px;"> 
+                <div style="font-size: 11px; font-weight: 400; font-family: Sf Pro Display;color: rgba(17, 17, 17, 0.4);">Variation</div>
+                <div style= "display: flex; gap:5px; align-items: center;">
+                <div style="font-size: 14px; font-weight: 500; font-family: Sf Pro Display"; color: rgba(17, 17, 17, 1)>
+                 €${Highcharts.numberFormat(this.points[0].point.close - this.points[0].point.open, 2)}
+                </div>
+                <div style= "display: flex; justify-content:center; align-items: center; width: 45px; height: 18px; padding:2px, 4px, 2px, 4px; background-color: rgba(31, 215, 115, 0.1); border-radius: 11px">
+                <span style="font-size: 11px; color: ${this.points[0].point.close > this.points[0].point.open ? 'rgba(31, 215, 115, 1)' : 'rgba(31, 215, 115, 1)'}; margin-left: 2px;">${Highcharts.numberFormat(((this.points[0].point.close - this.points[0].point.open) / this.points[0].point.open) * 100, 2)}%</span>
+                </div>
+                </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding-top: 6px;"> 
+                <div style="font-size: 11px; font-weight: 400; font-family: Sf Pro Display; color: rgba(17, 17, 17, 0.4)">Volume</div>
+                <div style="font-size: 14px; font-weight: 500; font-family: Sf Pro Display"; color: rgba(17, 17, 17, 1)>€${Highcharts.numberFormat(this.points[1].point.y, 2)}</div>
+                </div>
+              </div>
+            `;
           },
+          shared: true,
+          split: false,
         },
         series: [
           {
-            type: 'area',
-            id: 'area',
+            type: graphType,
+            id: 'graph',
             name: 'AAPL Stock Price',
             data: ohlc,
             color: 'rgba(69, 202, 148, 1)',
             fillColor: {
               linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
               stops: [
-                [0, 'rgba(69, 202, 148, 0.5)'],
-                [1, 'rgba(69, 202, 148, 0.1)'],
+                [0, 'rgba(69, 202, 148, 0.3)'],
+                [1, 'rgba(69, 202, 148, 0.001)'],
               ],
+            },
+            marker: {
+              shadow: false,
+              radius: 3,
+              lineWidth: 0,
+              lineColor: '#fff',
+              states: {
+                hover: {
+                  enabled: true,
+                  lineWidth: 4,
+                  radius: 8,
+                  shadow: false,
+                },
+              },
             },
           },
           {
@@ -184,7 +217,7 @@ const StockChart = () => {
     };
 
     fetchData();
-  }, []);
+  }, [graphType]);
 
   return (
     <div style={{ padding: '60px 63px 34px 22px' }}>

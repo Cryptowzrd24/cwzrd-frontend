@@ -1,5 +1,6 @@
+'use client';
 import { Box, Container } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CoinHeroSection from './coinHeroSection';
 import CoinNavbar from './coinNavbar';
 import CoinInfo from './coinInfo';
@@ -12,13 +13,25 @@ import Technicals from '../technicals';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import MemberShipBanner from '../banners/memberShipBanner';
 import GraphLayout from './graph-layout';
+import { useFetchCoinDetailsDataQuery } from '@/app/redux/coin-details';
+import { usePathname } from 'next/navigation';
+import { CoinDetailsTypes } from '@/app/models/coin-details';
 
 const CoinDetails = () => {
+  const pathname = usePathname();
+  const [coinDetails, setCoinDetails] = useState<CoinDetailsTypes | null>(null);
+  const id = pathname.split('/').pop();
+  const { data } = useFetchCoinDetailsDataQuery({ coinId: id });
+  useEffect(() => {
+    if (data) {
+      setCoinDetails(data.results[0]);
+    }
+  }, [data]);
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
         <Box sx={{ mt: '48px', mb: '16px' }}>
-          <CoinHeroSection />
+          <CoinHeroSection coinDetails={coinDetails} />
         </Box>
         <Box sx={{ mb: '16px' }}>
           <CoinNavbar />

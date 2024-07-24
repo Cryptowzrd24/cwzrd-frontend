@@ -18,6 +18,7 @@ interface DataTableProps {
   getRowId?: any;
   priceRefs?: React.MutableRefObject<{ [key: string]: HTMLDivElement | null }>;
   height?: string;
+  onRowClicked?: (id: any) => void;
 }
 
 const DataTable = memo(
@@ -32,6 +33,7 @@ const DataTable = memo(
     getRowId = undefined,
     priceRefs,
     height,
+    onRowClicked,
   }: DataTableProps) => {
     const modifiedColumnDefs = useMemo(
       () =>
@@ -121,6 +123,7 @@ const DataTable = memo(
             if (gridApiRef) gridApiRef.current = params.api;
           }}
           {...(typeof getRowId !== 'undefined' ? { getRowId } : {})}
+          onRowClicked={onRowClicked}
         />
       </div>
     );
