@@ -9,7 +9,7 @@ import LikeBlueIcon from '../../../../../../public/icons/coin-details/likeBlue';
 import DislikeBlueIcon from '../../../../../../public/icons/coin-details/dislikeBlue';
 
 const HistoricalCardContent = () => (
-  <Stack >
+  <Stack>
     <Typography
       variant="body1"
       sx={{

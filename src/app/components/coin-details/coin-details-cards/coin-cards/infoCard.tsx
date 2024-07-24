@@ -101,7 +101,7 @@ const InfoCard = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: "flex-start",
+            alignItems: 'flex-start',
             mb: '4px',
           }}
         >
