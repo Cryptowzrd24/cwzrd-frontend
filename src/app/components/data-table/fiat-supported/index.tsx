@@ -154,7 +154,7 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
           >
             {filteredFiats.length > 0 ? (
               filteredFiats.map((fiat, index) => {
-                const trimmedFiat = fiat.trim(); 
+                const trimmedFiat = fiat.trim();
                 return (
                   <Box
                     key={index}

@@ -49,8 +49,7 @@ const TradeManagement = () => {
                 letterSpacing: 0.1,
                 maxWidth: '298px',
                 lineHeight: '44px',
-                animation: 'fadeInUp 0.5s ease-out'
-
+                animation: 'fadeInUp 0.5s ease-out',
               }}
             >
               Hello world <br />

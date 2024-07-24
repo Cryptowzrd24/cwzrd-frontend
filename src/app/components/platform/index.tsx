@@ -13,7 +13,7 @@ const Platform = () => {
         <Box sx={{ mt: '48px', mb: '150px' }}>
           <PlatformHeader />
         </Box>
-        <Box sx={{  mb: '48px' }}>
+        <Box sx={{ mb: '48px' }}>
           <TradeOpportunities />
         </Box>
         <Box sx={{ mb: '48px' }}>

@@ -4,9 +4,7 @@ import React from 'react';
 const TradeCards = () => {
   return (
     <>
-      <Box>
-        
-      </Box>
+      <Box></Box>
     </>
   );
 };

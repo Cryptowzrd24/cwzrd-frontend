@@ -1,8 +1,6 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
-import trade from '../../../../../public/images/platform/trade-header.png';
-import Image from 'next/image';
-import PlusIcon from '../../../../../public/icons/collections/plusIcon';
+
 const WzrdStrategy = () => {
   return (
     <>
@@ -16,12 +14,12 @@ const WzrdStrategy = () => {
           width: '330px',
           height: '390px',
           borderRadius: '32px',
-          display:"flex",
-          justifyContent:"flex-start",
-          alignItems:"flex-end"
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-end',
         }}
       >
-        <Box >
+        <Box>
           <Stack>
             <Typography
               variant="body1"
@@ -45,7 +43,7 @@ const WzrdStrategy = () => {
                 letterSpacing: 0.1,
                 maxWidth: '298px',
                 fontWeight: '400',
-                mt:"-6px"
+                mt: '-6px',
               }}
             >
               Master trading with our essential guides and lessons, covering our
