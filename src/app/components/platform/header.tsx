@@ -2,6 +2,8 @@ import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import memo from '../../../../public/images/platform/memo.png';
+import header from '../../../../public/images/platform/header.png';
+import { ArrowRight } from '../../../../public/icons/arrowRight';
 
 const PlatformHeader = () => {
   return (
@@ -70,6 +72,8 @@ const PlatformHeader = () => {
               maxWidth: '500px',
               width: '100%',
               background: 'rgba(255, 255, 255, 1)',
+              boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
+              mb: '72px',
             }}
           >
             <Image
@@ -92,6 +96,30 @@ const PlatformHeader = () => {
               >
                 people who already joined us
               </span>
+            </Typography>
+          </Box>
+          <Image src={header} alt="header" width={1370} />
+          <Box
+            sx={{
+              mt: '15px',
+              background: 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
+              padding: '16px 20px 16px 24px',
+              borderRadius: '56px',
+            }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '18px',
+                fontWeight: '500',
+                color: 'rgba(255, 255, 255, 1)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}
+            >
+              Become a member
+              <ArrowRight />
             </Typography>
           </Box>
         </Stack>

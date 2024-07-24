@@ -23,9 +23,9 @@ const TradingPlatform = () => {
       <Box
         sx={{
           padding: '0 0 72px 0',
-          backgroundColor: '#d7a2a2',
+          backgroundColor: 'rgba(255, 255, 255, 1)',
           borderRadius: '32px',
-          boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
+          boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
         }}
       >
         <Image

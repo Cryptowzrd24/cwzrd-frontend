@@ -31,9 +31,6 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
     fiat.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
-  console.log('fiats:', fiats);
-  console.log('filteredFiats:', filteredFiats);
-
   return (
     <div className={styles['fiat-supported']}>
       <div
@@ -99,7 +96,18 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
             >
               {props.data?.exchange} Fiat Supported
             </Typography>
-            <IconButton onClick={handleClose}>X</IconButton>
+            <IconButton
+              onClick={handleClose}
+              sx={{
+                '&:hover': {
+                  backgroundColor: 'transparent', // Remove hover effect
+                },
+              }}
+            >
+              <Typography sx={{ fontSize: '18px', color: 'GrayText' }}>
+                X
+              </Typography>
+            </IconButton>
           </Box>
 
           <TextField
@@ -145,28 +153,31 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
             }}
           >
             {filteredFiats.length > 0 ? (
-              filteredFiats.map((fiat, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    mt: 2,
-                    fontSize: '14px',
-                    fontWeight: '500',
-                  }}
-                >
-                  <img
-                    src={getFlagUrl(fiat)}
-                    alt={`${fiat} flag`}
-                    style={{ width: '20px', height: '15px' }}
-                  />
-                  <Typography sx={{ fontSize: '14px', fontWeight: '500' }}>
-                    {fiat}
-                  </Typography>
-                </Box>
-              ))
+              filteredFiats.map((fiat, index) => {
+                const trimmedFiat = fiat.trim(); 
+                return (
+                  <Box
+                    key={index}
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      mt: 2,
+                      fontSize: '14px',
+                      fontWeight: '500',
+                    }}
+                  >
+                    <img
+                      src={getFlagUrl(trimmedFiat)}
+                      alt={`${trimmedFiat} flag`}
+                      style={{ width: '20px', height: '15px' }}
+                    />
+                    <Typography sx={{ fontSize: '14px', fontWeight: '500' }}>
+                      {trimmedFiat}
+                    </Typography>
+                  </Box>
+                );
+              })
             ) : (
               <Typography sx={{ mt: 1 }}>No results found</Typography>
             )}
