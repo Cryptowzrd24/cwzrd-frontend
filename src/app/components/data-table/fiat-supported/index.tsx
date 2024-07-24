@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './index.module.css';
 import { CustomCellRendererProps } from 'ag-grid-react';
 import Vector from '../../../../../public/icons/vector';
-import { Modal, Box, Typography, TextField } from '@mui/material';
+import { Modal, Box, Typography, TextField, IconButton } from '@mui/material';
 
 export const FiatSupported = (props: CustomCellRendererProps) => {
   const [open, setOpen] = useState(false);
@@ -13,7 +13,7 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
   const handleSearchChange = (event: any) => {
     setSearchTerm(event.target.value);
   };
-
+  console.log('props----------', props);
   const fiats = props.value;
 
   if (!fiats || !Array.isArray(fiats) || fiats.length === 0) {
@@ -86,12 +86,22 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
             border: 'none',
           }}
         >
-          <Typography
-            variant="body1"
-            sx={{ fontSize: '24px', fontWeight: '700', letterSpacing: 1 }}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
           >
-            Binance Fiat Supported
-          </Typography>
+            <Typography
+              variant="body1"
+              sx={{ fontSize: '24px', fontWeight: '700', letterSpacing: 1 }}
+            >
+              {props.data?.exchange} Fiat Supported
+            </Typography>
+            <IconButton onClick={handleClose}>X</IconButton>
+          </Box>
+
           <TextField
             placeholder="Search"
             value={searchTerm}
