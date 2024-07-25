@@ -1,7 +1,8 @@
-import { Box } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import React from 'react';
 import EducationCard from './educationCard';
 import RiskCalculator from './riskCalculator';
+import ProfitableCard from './profitableCard';
 
 const Education = () => {
   return (
@@ -14,7 +15,12 @@ const Education = () => {
         }}
       >
         <EducationCard />
-        <RiskCalculator />
+        <Stack>
+          <Box sx={{ mb: '30px' }}>
+            <RiskCalculator />
+          </Box>
+          <ProfitableCard />
+        </Stack>
       </Box>
     </>
   );
