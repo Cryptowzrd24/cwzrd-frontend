@@ -15,7 +15,6 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
     coinId: '1',
     range: '1D',
   });
-  const threshold: any = 60000000;
 
   const graphType =
     selectedFilter === 'candlestick'
@@ -26,39 +25,18 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // const response = await fetch(
-      //   'https://demo-live-data.highcharts.com/aapl-ohlcv.json',
-      // );
-      // const data = await response.json();
-      // console.log(data);
-      // // split the data set into ohlc and volume
-      // const ohlc = [];
-      // const volume = [];
-      // const dataLength = data.length;
-
-      // for (let i = 0; i < dataLength; i += 1) {
-      //   ohlc.push([
-      //     data[i][0], // the date
-      //     data[i][1], // open
-      //     data[i][2], // high
-      //     data[i][3], // low
-      //     data[i][4], // close
-      //   ]);
-
-      //   volume.push([
-      //     data[i][0], // the date
-      //     data[i][5], // the volume
-      //   ]);
-      // }
-      const points = apiData?.data?.points;
+      const points: any[] = apiData?.data?.points;
       const ohlc = [];
       const volume = [];
+
+      const threshold: any = Object.values(points)[0].v[0];
 
       for (const timestamp in points) {
         if (points.hasOwnProperty(timestamp)) {
           const point = points[timestamp];
+          const date = new Date(parseInt(timestamp, 10) * 1000); // Convert to milliseconds
           ohlc.push([
-            parseInt(timestamp, 10), // the date
+            date.getTime(), // Use the date in milliseconds for x-axis
             point.v[0], // open
             point.v[0], // high (using same as open for this example)
             point.v[0], // low (using same as open for this example)
@@ -66,8 +44,8 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
           ]);
 
           volume.push([
-            parseInt(timestamp, 10), // the date
-            point.v[1], // the volume
+            date.getTime(), // Use the date in milliseconds for x-axis
+            point.v[0], // the volume
           ]);
         }
       }
@@ -79,7 +57,17 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
           value > threshold ? 'rgba(69, 202, 148, 1)' : 'rgba(152, 0, 255, 1)',
       }));
 
+      const yMin = Math.min(...ohlc.map((point) => point[1]));
+      const yMax = Math.max(...ohlc.map((point) => point[1]));
+
       setOptions({
+        chart: {
+          zoomType: '', // Disables zooming
+          panning: false, // Disables panning
+        },
+        scrollbar: {
+          enabled: false,
+        },
         rangeSelector: {
           enabled: false,
         },
@@ -99,6 +87,14 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
         ],
         yAxis: [
           {
+            plotLines: [
+              {
+                value: threshold,
+                color: '#999',
+                dashStyle: 'dot',
+                width: 1,
+              },
+            ],
             labels: {
               align: 'left',
               style: {
@@ -112,6 +108,8 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
               enabled: false,
             },
             gridLineWidth: 0.5,
+            min: yMin * 0.999, // Set minimum value slightly lower than the minimum data value
+            max: yMax * 1.001,
             // tickInterval: 5000,
           },
           {
@@ -189,6 +187,29 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
                 [1, 'rgba(69, 202, 148, 0.001)'],
               ],
             },
+            zones: [
+              {
+                value: threshold,
+                color: 'rgba(255, 0, 0, 1)',
+                fillColor: {
+                  linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                  stops: [
+                    [0, 'rgba(255, 0, 0, 0.3)'],
+                    [1, 'rgba(255, 0, 0, 0.001)'],
+                  ],
+                },
+              },
+              {
+                color: 'rgba(69, 202, 148, 1)',
+                fillColor: {
+                  linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                  stops: [
+                    [0, 'rgba(69, 202, 148, 0.3)'],
+                    [1, 'rgba(69, 202, 148, 0.001)'],
+                  ],
+                },
+              },
+            ],
             marker: {
               shadow: false,
               radius: 3,
