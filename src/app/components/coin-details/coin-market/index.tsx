@@ -1,17 +1,19 @@
 'use client';
 import { Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { rowDataCoinMarket } from '@/app/constants/row';
 import DataTable from '../../data-table';
 import { Pagination } from '../../data-table/pagination';
 import useColumnCoinDetailDefs from '@/app/hooks/coin-detail-grid';
 import { columnsCoinMarket } from '@/app/constants/columns';
+import { useFetchMarketDataCoinDetailsQuery } from '@/app/redux/reducers/data-grid';
 
 const CoinMarket = () => {
+  const [rowData, setRowData] = useState([]);
+  const { data } = useFetchMarketDataCoinDetailsQuery('Bitcoin');
   const colDef = useColumnCoinDetailDefs(columnsCoinMarket);
   const pageSize = 10;
-  const totalCount = 50;
+  const totalCount = 10;
 
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -25,6 +27,29 @@ const CoinMarket = () => {
   const handleClick = (button: any) => {
     setActive(button);
   };
+
+  useEffect(() => {
+    if (data && data.data) {
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.marketPairs.map((item: any, index: number) => ({
+        id: item.rank,
+        coin_id: item.exchangeId,
+        exchange: item.exchangeName,
+        pair: item.marketPair,
+        new_price: item.price,
+        depth_positive2: item.depthUsdPositiveTwo,
+        depth_negative2: item.depthUsdNegativeTwo,
+        volume_24h: item.quotes[0]?.volume24h,
+        volume: item.volumePercent,
+        confidence: item.circulating_supply,
+        liquidity_store: item.effectiveLiquidity,
+        baseSymbol: item.baseSymbol,
+        updated: item.lastUpdated,
+        index: startIndex + index,
+      }));
+      setRowData(res);
+    }
+  }, [data, currentPage, pageSize]);
 
   return (
     <>
@@ -153,7 +178,7 @@ const CoinMarket = () => {
         </Box>
       </Box>
       <Box sx={{ mt: '16px' }}>
-        <DataTable rowData={rowDataCoinMarket} columnDefs={colDef} />
+        <DataTable rowData={rowData} columnDefs={colDef} />
         <Pagination
           length={totalCount}
           pageSize={pageSize}

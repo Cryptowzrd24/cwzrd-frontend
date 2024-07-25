@@ -2,7 +2,8 @@ import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 import RightArrowLinearGraident from '../../../../public/icons/nft/rightArrowLinearGraident';
 
-const CoinInfo = () => {
+const CoinInfo = ({ coinDetails }: any) => {
+  console.log(coinDetails);
   return (
     <>
       <Box

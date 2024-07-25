@@ -22,6 +22,7 @@ const CoinDetails = () => {
   const [coinDetails, setCoinDetails] = useState<CoinDetailsTypes | null>(null);
   const id = pathname.split('/').pop();
   const { data } = useFetchCoinDetailsDataQuery({ coinId: id });
+  // const coinName = data.
   useEffect(() => {
     if (data) {
       setCoinDetails(data.results[0]);
@@ -40,7 +41,7 @@ const CoinDetails = () => {
           <GraphLayout />
         </Box>
         <Box sx={{ mb: '48px' }}>
-          <CoinInfo />
+          <CoinInfo coinDetails={coinDetails} />
         </Box>
         <Box sx={{ mb: '48px' }}>
           <NewsLetter />

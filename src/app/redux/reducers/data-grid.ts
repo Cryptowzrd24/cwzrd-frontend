@@ -111,6 +111,14 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchMarketDataCoinDetails: builder.query({
+      query: (coinName: string) => {
+        return {
+          url: `detail/markets/?slug=${coinName}`,
+          method: 'GET',
+        };
+      },
+    }),
     fetchStatsData: builder.query({
       query: () => ({
         url: '/api/stats/',
@@ -139,4 +147,5 @@ export const {
   useFetchTickerDataQuery,
   useFetchExchangesDataQuery,
   useFetchFavoritesDataQuery,
+  useFetchMarketDataCoinDetailsQuery,
 } = dataGridApi;

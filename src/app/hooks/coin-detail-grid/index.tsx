@@ -2,6 +2,12 @@ import { useMemo } from 'react';
 
 import { ID } from '@/app/components/data-table/id';
 import { Exchange } from '@/app/components/data-table/coin-detail/exchange';
+import NewCoin from '@/app/components/data-table/price';
+import {
+  priceNumberFormatDigits,
+  priceNumberFormatter,
+} from '@/utils/price-number-formater';
+import { DateAdded } from '@/app/components/data-table/date-component';
 
 const useColumnCoinDetailDefs = (columns: any) => {
   return useMemo(() => {
@@ -33,6 +39,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'new_price',
             headerName: 'Price',
             width: 130,
+            cellRenderer: NewCoin,
 
             // valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
@@ -41,6 +48,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'depth_positive2',
             headerName: '+2% Depth',
             width: 130,
+            valueFormatter: (p: any) => priceNumberFormatDigits(p.value),
             // valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'depth_negative2':
@@ -48,6 +56,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'depth_negative2',
             headerName: '-2% Depth',
             width: 130,
+            valueFormatter: (p: any) => priceNumberFormatDigits(p.value),
             // valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
         case 'volume_24h':
@@ -55,6 +64,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'volume_24h',
             headerName: 'Volume(24h)',
             width: 145,
+            valueFormatter: (p: any) => priceNumberFormatDigits(p.value),
             // cellRenderer: VolumeComponent,
           };
         case 'volume':
@@ -62,6 +72,9 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'volume',
             headerName: 'Volume%',
             width: 125,
+            valueFormatter: (p: any) => {
+              return priceNumberFormatter(p.value) + '%';
+            },
           };
         case 'confidence':
           return {
@@ -82,6 +95,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'updated',
             width: 100,
             headerName: 'Updated',
+            cellRenderer: DateAdded,
           };
         default:
           return col;

@@ -1,6 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
-import Image from 'next/image';
 
 import exchangeImg from '../../../../../public/images/coin-details/exchange.png';
 import okImg from '../../../../../public/images/coin-details/ok.png';
@@ -8,7 +7,7 @@ import coinbaseImg from '../../../../../public/images/coin-details/coin.png';
 import tokyoCryptoImg from '../../../../../public/images/coin-details/tokyo.png';
 import krakenImg from '../../../../../public/images/coin-details/karaken.png';
 
-export const Exchange = () => {
+export const Exchange = (props: any) => {
   const exchanges = [
     { name: 'Binance', imageSrc: exchangeImg, currency: 'BTC' },
     { name: 'OKX', imageSrc: okImg, currency: 'ETH' },
@@ -17,6 +16,7 @@ export const Exchange = () => {
     { name: 'Kraken', imageSrc: krakenImg, currency: 'ADA' },
   ];
 
+  const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${props.data.coin_id || 1}.png`;
   return (
     <>
       {exchanges.map((exchange) => (
@@ -24,12 +24,7 @@ export const Exchange = () => {
           key={exchange.name}
           sx={{ display: 'flex', alignItems: 'center', gap: '8px', mt: '16px' }}
         >
-          <Image
-            src={exchange.imageSrc}
-            alt={exchange.name}
-            width={32}
-            height={32}
-          />
+          <img src={imgId} alt={exchange.name} width={32} height={32} />
           <Stack>
             <Typography
               variant="body1"
@@ -39,7 +34,7 @@ export const Exchange = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              {exchange.name}
+              {props.value}
             </Typography>
             <Typography
               variant="body1"
@@ -49,7 +44,7 @@ export const Exchange = () => {
                 color: 'rgba(17, 17, 17, 0.6)',
               }}
             >
-              {exchange.currency}
+              {props?.data?.baseSymbol}
             </Typography>
           </Stack>
         </Box>
