@@ -1,10 +1,9 @@
 import { Box, Container, Typography } from '@mui/material';
 import React from 'react';
-import macbook from '../../../../../public/images/platform/MacBook.png';
 const Forex = () => {
   return (
     <>
-      <Container  maxWidth="xl">
+      <Container maxWidth="xl">
         <Box>
           <Typography
             variant="h1"

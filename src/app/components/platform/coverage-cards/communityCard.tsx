@@ -1,17 +1,17 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
-const WzrdStrategy = () => {
+const CommunityCard = () => {
   return (
     <>
       <Box
         sx={{
-          backgroundImage: `url('/images/platform/strategy.png')`,
+          backgroundImage: `url('/images/platform/open-community.png')`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          padding: '32px 48px 48px 48px',
-          width: '330px',
-          height: '390px',
+          padding: '32px',
+          width: '347px',
+          height: '407px',
           borderRadius: '32px',
           display: 'flex',
           justifyContent: 'flex-start',
@@ -32,21 +32,22 @@ const WzrdStrategy = () => {
                 mb: '8px',
               }}
             >
-              The WZRD Strategy
+              Open community chat
             </Typography>
             <Typography
               variant="body1"
               sx={{
                 fontSize: '18px',
                 color: 'rgba(255, 255, 255, 1)',
-                letterSpacing: 0.1,
+                letterSpacing: 0.7,
                 maxWidth: '298px',
                 fontWeight: '400',
-                mt: '-6px',
+                // mt: '-6px',
               }}
             >
-              Master trading with our essential guides and lessons, covering our
-              highly accurate trading strategy.
+              Every trade recommendation is managed on your behalf. You can sit
+              back and relax knowing that our experts are handling all the
+              details to maximize your profits..
             </Typography>
           </Stack>
         </Box>
@@ -55,4 +56,4 @@ const WzrdStrategy = () => {
   );
 };
 
-export default WzrdStrategy;
+export default CommunityCard;

@@ -7,7 +7,15 @@ import CommunityCard from './communityCard';
 const RealWinsCard = () => {
   return (
     <>
-      <Box sx={{ display: 'flex', gap: '42px', alignItems: 'center',maxWidth:"670px",height:"368px" }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '42px',
+          alignItems: 'center',
+          maxWidth: '670px',
+          height: '368px',
+        }}
+      >
         <Stack>
           <DeliverCard />
           <Box sx={{ mt: '20px' }}>

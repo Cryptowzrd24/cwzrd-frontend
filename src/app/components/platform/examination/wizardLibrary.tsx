@@ -43,7 +43,12 @@ const WizardLibrary = () => {
             concepts in crypto.{' '}
           </Typography>
         </Stack>
-        <Image src={mask} alt="mask" width={421} style={{borderRadius:"none"}} />
+        <Image
+          src={mask}
+          alt="mask"
+          width={421}
+          style={{ borderRadius: 'none' }}
+        />
       </Box>
     </>
   );

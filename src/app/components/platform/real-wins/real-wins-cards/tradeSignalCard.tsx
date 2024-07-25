@@ -1,5 +1,4 @@
 import { Box, Stack, Typography } from '@mui/material';
-import Image from 'next/image';
 import React from 'react';
 const TradeSignalCard = () => {
   return (
@@ -24,7 +23,7 @@ const TradeSignalCard = () => {
               lineHeight: '20.8px',
               letterSpacing: '2px',
               maxWidth: '165px',
-              mb:"48px"
+              mb: '48px',
             }}
           >
             Trade Signals{' '}

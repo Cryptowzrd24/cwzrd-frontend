@@ -14,9 +14,9 @@ const ProfitableCard = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          maxWidth:"330px",
-          height:"288px",
-          position:"relative"
+          maxWidth: '330px',
+          height: '288px',
+          position: 'relative',
         }}
       >
         <Image src={vector} alt="vector" width={180} />
@@ -27,8 +27,8 @@ const ProfitableCard = () => {
               fontSize: '40px',
               fontWeight: '700',
               color: 'rgba(255, 255, 255, 1)',
-              textAlign:"center",
-              lineHeight:"44px"
+              textAlign: 'center',
+              lineHeight: '44px',
             }}
           >
             Profitable Opportunities
@@ -56,7 +56,7 @@ const ProfitableCard = () => {
           >
             <PlusIcon />
           </Box>
-          </Box>
+        </Box>
       </Stack>
     </>
   );

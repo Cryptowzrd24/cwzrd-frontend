@@ -14,7 +14,7 @@ const Text = () => {
             lineHeight: '61.1px',
             mb: '8px',
             color: 'rgba(17, 17, 17, 1)',
-            letterSpacing:-1
+            letterSpacing: -1,
           }}
         >
           Real Wins from Our Community
@@ -26,8 +26,8 @@ const Text = () => {
             fontWeight: '400',
             lineHeight: '27px',
             color: 'rgba(17, 17, 17, 0.8)',
-            letterSpacing:-1,
-            maxWidth:"464px"
+            letterSpacing: -1,
+            maxWidth: '464px',
           }}
         >
           {' '}

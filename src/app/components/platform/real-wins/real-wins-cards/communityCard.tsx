@@ -13,11 +13,18 @@ const CommunityCard = () => {
           backgroundPosition: 'center',
           padding: '32px 0 32px 32px',
           borderRadius: '24px',
-          height:"308px"
+          height: '308px',
         }}
       >
         <Image src={comments} alt="deliver" width={386} />
-        <Box sx={{ paddingRight: '32px', maxWidth: '355px', width: '100%',mt:"18px" }}>
+        <Box
+          sx={{
+            paddingRight: '32px',
+            maxWidth: '355px',
+            width: '100%',
+            mt: '18px',
+          }}
+        >
           <Typography
             variant="body1"
             sx={{

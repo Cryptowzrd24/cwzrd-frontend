@@ -10,9 +10,9 @@ const DeliverCard = () => {
           padding: '20px 21px 20px 24px',
           background: 'rgba(17, 17, 17, 1)',
           borderRadius: '16px',
-          maxWidth:"186px",
-          width:"100%",
-          height:"98px"
+          maxWidth: '186px',
+          width: '100%',
+          height: '98px',
         }}
       >
         <Image src={deliver} alt="deliver" width={48} height={48} />
@@ -24,8 +24,8 @@ const DeliverCard = () => {
             color: 'rgba(255, 255, 255, 1)',
             lineHeight: '23.4px',
             letterSpacing: '1px',
-            maxWidth:"165px",
-            mt:"4px",
+            maxWidth: '165px',
+            mt: '4px',
           }}
         >
           Delivering profits for 4+ years

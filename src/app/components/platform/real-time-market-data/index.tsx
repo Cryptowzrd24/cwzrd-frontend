@@ -34,10 +34,13 @@ const RealTimeMarketData = () => {
           <Typography
             variant="body1"
             sx={{
+              maxWidth: '547px',
+
               fontSize: '18px',
-              fontWeight: '600',
+              fontWeight: '400',
               lineHeight: '27px',
-              letterSpacing: '-1px',
+              letterSpacing: '-0.5px',
+              color: 'rgba(17, 17, 17, 0.8)',
             }}
           >
             Access real-time data and visualize market trends effortlessly with

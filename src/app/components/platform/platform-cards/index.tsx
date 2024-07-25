@@ -7,7 +7,13 @@ import WzrdStrategy from './wzrdStrategy';
 const PlatformCards = () => {
   return (
     <>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent:"space-between" }}>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
         <TradeManagement />
         <MileStones />
         <WzrdStrategy />

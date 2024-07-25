@@ -5,7 +5,13 @@ import WizardLibrary from './wizardLibrary';
 
 const ExaminationPart = () => {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center',justifyContent:"space-between" }}>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}
+    >
       <ExaminationCard />
       <WizardLibrary />
     </Box>

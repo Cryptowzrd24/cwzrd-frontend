@@ -13,10 +13,9 @@ import Coverage from './coverage';
 import Portfolio from './portfolio-investing';
 import JoinedPeople from './joined-people-banner';
 import Forex from './forex-cryptocurrencies';
-import Image from 'next/image';
-import macbook from '../../../../public/images/platform/MacBook.png';
 import PersonalCalendar from './personal-calendar';
 import RealTimeMarketData from './real-time-market-data';
+import CoverageCards from './coverage-cards';
 const Platform = () => {
   return (
     <>
@@ -75,6 +74,9 @@ const Platform = () => {
         </Box>
         <Box sx={{ mb: '30px' }}>
           <RealTimeMarketData />
+        </Box>
+        <Box sx={{ mb: '30px' }}>
+          <CoverageCards />
         </Box>
       </Container>
     </>

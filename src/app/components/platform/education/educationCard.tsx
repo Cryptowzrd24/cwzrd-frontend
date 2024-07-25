@@ -3,7 +3,6 @@ import React from 'react';
 import VerifiedGreen from '../../../../../public/icons/coin-details/verifiedGreen';
 import macbook from '../../../../../public/images/platform/MacBook-pro.png';
 import Image from 'next/image';
-import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 import PlusIconBlack from '../../../../../public/icons/collections/plusIconWhite';
 const EducationCard = () => {
   return (
@@ -52,7 +51,6 @@ const EducationCard = () => {
           Upgrade Trading Knowledge with In-Depth Lessons
         </Typography>
         <Stack
-          
           sx={{
             mt: '32px',
             display: 'flex',

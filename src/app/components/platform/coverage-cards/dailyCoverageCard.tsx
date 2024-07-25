@@ -1,10 +1,10 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import trade from '../../../../../public/images/platform/trade-header.png';
+import exam from '../../../../../public/images/platform/daily-coverage.png';
 import Image from 'next/image';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
-const TradeManagement = () => {
+const DailyCoverageCard = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
@@ -13,13 +13,13 @@ const TradeManagement = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url('/images/platform/trade.png')`,
+          backgroundImage: `url('/images/platform/examination.png')`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          padding: '32px 48px 48px 32px',
-          width: '330px',
-          height: '390px',
+          padding: '32px 56px 80px 32px',
+          width: '322px',
+          height: '358px',
           borderRadius: '32px',
           position: 'relative',
         }}
@@ -35,34 +35,32 @@ const TradeManagement = () => {
             letterSpacing: '1px',
           }}
         >
-          Complete Trade management
+          Daily Coverage
         </Typography>
-        <Box sx={{ paddingLeft: '32px' }}>
-          <Image src={trade} alt="trade" width={80} height={80} />
+        <Box
+          sx={{
+            paddingLeft: '24px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Image src={exam} alt="trade" width={150} height={150} />
           {active ? (
             <Typography
               variant="h1"
               sx={{
                 fontSize: '40px',
                 color: 'rgba(255, 255, 255, 1)',
-                mt: '32px',
+                mt: '35px',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
                 lineHeight: '44px',
-                animation: 'fadeInUp 0.5s ease-out',
+                textAlign: 'center',
               }}
             >
-              Hello world <br />
-              <span
-                style={{
-                  backgroundImage:
-                    'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                maximizing profits.
-              </span>
+              Daily Coverage on over 25 Cryptocurrencies{' '}
             </Typography>
           ) : (
             <Typography
@@ -70,23 +68,14 @@ const TradeManagement = () => {
               sx={{
                 fontSize: '40px',
                 color: 'rgba(255, 255, 255, 1)',
-                mt: '32px',
+                mt: '35px',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
                 lineHeight: '44px',
+                textAlign: 'center',
               }}
             >
-              Sit back as our experts handle trades, <br />
-              <span
-                style={{
-                  backgroundImage:
-                    'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                maximizing profits.
-              </span>
+              Daily Coverage on over 25 Cryptocurrencies{' '}
             </Typography>
           )}
         </Box>
@@ -96,7 +85,7 @@ const TradeManagement = () => {
             justifyContent: 'end',
             position: 'absolute',
             right: '24px',
-            bottom: '24px',
+            bottom: '28px',
           }}
         >
           <Box
@@ -119,4 +108,4 @@ const TradeManagement = () => {
   );
 };
 
-export default TradeManagement;
+export default DailyCoverageCard;

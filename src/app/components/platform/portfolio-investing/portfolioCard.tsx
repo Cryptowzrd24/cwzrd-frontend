@@ -2,7 +2,6 @@ import { Box, Divider, Stack, Typography } from '@mui/material';
 import React from 'react';
 import frank from '../../../../../public/images/platform/profile.png';
 import Image from 'next/image';
-import Upload from '../../../../../public/icons/nft/upload';
 import UploadBig from '../../../../../public/icons/nft/uploadBig';
 import Dot from '../../../../../public/icons/coin-details/dot';
 const PortfolioCard = () => {
@@ -18,7 +17,6 @@ const PortfolioCard = () => {
           width: '550px',
           WebkitBorderBottomLeftRadius: '32px',
           WebkitBorderTopRightRadius: '32px',
-
         }}
       >
         <Box
@@ -72,7 +70,14 @@ const PortfolioCard = () => {
                 </Typography>
               </Stack>
             </Box>
-            <Box sx={{ display: 'flex', gap: '9px', alignItems: 'center',paddingRight:"16px" }}>
+            <Box
+              sx={{
+                display: 'flex',
+                gap: '9px',
+                alignItems: 'center',
+                paddingRight: '16px',
+              }}
+            >
               <UploadBig />
               <Dot />
             </Box>
