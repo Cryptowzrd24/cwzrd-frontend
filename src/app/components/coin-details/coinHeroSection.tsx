@@ -190,13 +190,13 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                   ...getPercentColor(coinDetails?.quote?.percent_change_24h),
                 }}
               >
-                {coinDetails?.quote?.percent_change_24h?.includes('-')
+                {/* {coinDetails?.quote?.percent_change_24h?.includes('-')
                   ? ''
                   : '+'}
                 {priceNumberFormatDigits(
                   coinDetails?.quote?.percent_change_24h,
                 )}
-                %
+                % */}
               </Typography>
             </Box>
             <Box sx={{ mb: '8px', width: '100%' }} onClick={handleClick}>

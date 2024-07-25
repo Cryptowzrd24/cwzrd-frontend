@@ -3,17 +3,37 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useFetchCoinDetailsGraphDataQuery } from '@/app/redux/coin-details';
+import { usePathname } from 'next/navigation';
 
 interface StockChartProps {
   selectedGraph: string;
   selectedFilter: string;
+  volumeValue: string;
 }
 
-const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
+const StockChart = ({
+  selectedGraph,
+  selectedFilter,
+  volumeValue,
+}: StockChartProps) => {
+  const pathname = usePathname();
   const [options, setOptions] = useState({});
+
+  const convertToUppercasePeriod = (input: string) => {
+    if (input === '24h') {
+      return '1D';
+    } else {
+      return input.replace(/(\d+)([a-z])/i, (match, number, period) => {
+        return number + period.toUpperCase();
+      });
+    }
+  };
+  const range = convertToUppercasePeriod(volumeValue);
+  const id = pathname.split('/').pop();
+
   const { data: apiData } = useFetchCoinDetailsGraphDataQuery({
-    coinId: '1',
-    range: '1D',
+    coinId: id,
+    range: range,
   });
 
   const graphType =
@@ -61,10 +81,6 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
       const yMax = Math.max(...ohlc.map((point) => point[1]));
 
       setOptions({
-        chart: {
-          zoomType: '', // Disables zooming
-          panning: false, // Disables panning
-        },
         scrollbar: {
           enabled: false,
         },
@@ -102,6 +118,16 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
                 fontFamily: 'Sf Pro Display',
                 color: 'rgba(17, 17, 17, 0.4)',
               },
+              formatter: function (this: any) {
+                const value = this.value;
+                if (value >= 1000000) {
+                  return (value / 1000000).toFixed(1) + 'M';
+                } else if (value >= 1000) {
+                  return (value / 1000).toFixed(1) + 'K';
+                } else {
+                  return value;
+                }
+              },
             },
             height: '80%',
             resize: {
@@ -110,7 +136,6 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
             gridLineWidth: 0.5,
             min: yMin * 0.999, // Set minimum value slightly lower than the minimum data value
             max: yMax * 1.001,
-            // tickInterval: 5000,
           },
           {
             labels: {
@@ -280,7 +305,7 @@ const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
     };
 
     fetchData();
-  }, [graphType, selectedFilter, apiData]);
+  }, [graphType, selectedFilter, apiData, volumeValue]);
 
   return (
     <div style={{ padding: '45px 24px 34px 22px' }}>

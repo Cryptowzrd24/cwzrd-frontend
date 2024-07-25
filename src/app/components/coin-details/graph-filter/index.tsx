@@ -1,7 +1,7 @@
 'use client';
 import { Box, MenuItem, Select } from '@mui/material';
 import styles from './index.module.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { PageArrowDownIcon } from '../../../../../public/icons/Grid-Header/pageArrowDown';
 import { FilterIcon } from '../../../../../public/icons/Grid-Header/filter';
 import { LineGraphIcon } from '../../../../../public/icons/lineGraph';
@@ -11,6 +11,8 @@ import { DownloadIcon } from '../../../../../public/icons/downloadIcon';
 interface GraphFilterProps {
   selectedFilter: string;
   setSelectedFilter: (val: string) => void;
+  volumeValue: string;
+  setVolumeValue: (val: string) => void;
 }
 
 const stylesPage = {
@@ -42,8 +44,12 @@ const stylesPage = {
   }),
 };
 
-function GraphFilter({ selectedFilter, setSelectedFilter }: GraphFilterProps) {
-  const [volumeValue, setVolumeValue] = useState('24h');
+function GraphFilter({
+  selectedFilter,
+  setSelectedFilter,
+  volumeValue,
+  setVolumeValue,
+}: GraphFilterProps) {
   const volumes = ['24h', '3d', '7d', '1m', '6m', '1y'];
   const getSelectClass = (value: any) => {
     return value === 100 || value === '24h' || value === '1m' ? '34px' : '26px';
