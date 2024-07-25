@@ -8,6 +8,7 @@ import GraphFilter from '../graph-filter';
 
 function GraphLayout() {
   const [selectedTab, setSelectedTab] = useState('Price');
+  const [selectedFilter, setSelectedFilter] = useState('filter');
   return (
     <div className={styles.graphLayout}>
       <Box
@@ -21,9 +22,12 @@ function GraphLayout() {
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}
         />
-        <GraphFilter />
+        <GraphFilter
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
+        />
       </Box>
-      <StockChart selectedGraph={selectedTab} />
+      <StockChart selectedGraph={selectedTab} selectedFilter={selectedFilter} />
     </div>
   );
 }

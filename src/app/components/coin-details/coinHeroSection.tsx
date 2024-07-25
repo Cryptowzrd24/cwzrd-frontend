@@ -191,7 +191,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                 }}
               >
                 {coinDetails?.quote?.percent_change_24h?.includes('-')
-                  ? '-'
+                  ? ''
                   : '+'}
                 {priceNumberFormatDigits(
                   coinDetails?.quote?.percent_change_24h,

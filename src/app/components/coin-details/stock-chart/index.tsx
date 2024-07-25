@@ -2,43 +2,76 @@
 import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
+import { useFetchCoinDetailsGraphDataQuery } from '@/app/redux/coin-details';
 
 interface StockChartProps {
   selectedGraph: string;
+  selectedFilter: string;
 }
 
-const StockChart = ({ selectedGraph }: StockChartProps) => {
+const StockChart = ({ selectedGraph, selectedFilter }: StockChartProps) => {
   const [options, setOptions] = useState({});
+  const { data: apiData } = useFetchCoinDetailsGraphDataQuery({
+    coinId: '1',
+    range: '1D',
+  });
   const threshold: any = 60000000;
 
-  const graphType = selectedGraph === 'Price' ? 'area' : 'line';
+  const graphType =
+    selectedFilter === 'candlestick'
+      ? 'candlestick'
+      : selectedGraph === 'Price'
+        ? 'area'
+        : 'line';
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        'https://demo-live-data.highcharts.com/aapl-ohlcv.json',
-      );
-      const data = await response.json();
+      // const response = await fetch(
+      //   'https://demo-live-data.highcharts.com/aapl-ohlcv.json',
+      // );
+      // const data = await response.json();
+      // console.log(data);
+      // // split the data set into ohlc and volume
+      // const ohlc = [];
+      // const volume = [];
+      // const dataLength = data.length;
 
-      // split the data set into ohlc and volume
+      // for (let i = 0; i < dataLength; i += 1) {
+      //   ohlc.push([
+      //     data[i][0], // the date
+      //     data[i][1], // open
+      //     data[i][2], // high
+      //     data[i][3], // low
+      //     data[i][4], // close
+      //   ]);
+
+      //   volume.push([
+      //     data[i][0], // the date
+      //     data[i][5], // the volume
+      //   ]);
+      // }
+      const points = apiData?.data?.points;
       const ohlc = [];
       const volume = [];
-      const dataLength = data.length;
 
-      for (let i = 0; i < dataLength; i += 1) {
-        ohlc.push([
-          data[i][0], // the date
-          data[i][1], // open
-          data[i][2], // high
-          data[i][3], // low
-          data[i][4], // close
-        ]);
+      for (const timestamp in points) {
+        if (points.hasOwnProperty(timestamp)) {
+          const point = points[timestamp];
+          ohlc.push([
+            parseInt(timestamp, 10), // the date
+            point.v[0], // open
+            point.v[0], // high (using same as open for this example)
+            point.v[0], // low (using same as open for this example)
+            point.v[0], // close
+          ]);
 
-        volume.push([
-          data[i][0], // the date
-          data[i][5], // the volume
-        ]);
+          volume.push([
+            parseInt(timestamp, 10), // the date
+            point.v[1], // the volume
+          ]);
+        }
       }
+
       const formattedData = volume.map(([time, value]) => ({
         x: time,
         y: value,
@@ -76,10 +109,10 @@ const StockChart = ({ selectedGraph }: StockChartProps) => {
             },
             height: '80%',
             resize: {
-              enabled: true,
+              enabled: false,
             },
             gridLineWidth: 0.5,
-            tickInterval: 25,
+            // tickInterval: 5000,
           },
           {
             labels: {
@@ -195,6 +228,15 @@ const StockChart = ({ selectedGraph }: StockChartProps) => {
             color: 'rgba(114, 72, 247, 1)',
             fillOpacity: 0,
           },
+          xAxis: {
+            labels: {
+              style: {
+                fontSize: '12px',
+                fontFamily: 'Sf Pro Display',
+                color: 'rgba(17, 17, 17, 0.4)',
+              },
+            },
+          },
         },
         responsive: {
           rules: [
@@ -217,10 +259,10 @@ const StockChart = ({ selectedGraph }: StockChartProps) => {
     };
 
     fetchData();
-  }, [graphType]);
+  }, [graphType, selectedFilter, apiData]);
 
   return (
-    <div style={{ padding: '60px 63px 34px 22px' }}>
+    <div style={{ padding: '45px 24px 34px 22px' }}>
       <HighchartsReact
         highcharts={Highcharts}
         constructorType={'stockChart'}

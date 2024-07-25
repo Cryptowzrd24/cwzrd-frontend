@@ -8,6 +8,11 @@ import { LineGraphIcon } from '../../../../../public/icons/lineGraph';
 import { ExpandIcon } from '../../../../../public/icons/expandIcon';
 import { DownloadIcon } from '../../../../../public/icons/downloadIcon';
 
+interface GraphFilterProps {
+  selectedFilter: string;
+  setSelectedFilter: (val: string) => void;
+}
+
 const stylesPage = {
   select: (width: any) => ({
     '& .MuiSelect-select': {
@@ -37,14 +42,18 @@ const stylesPage = {
   }),
 };
 
-function GraphFilter() {
+function GraphFilter({ selectedFilter, setSelectedFilter }: GraphFilterProps) {
   const [volumeValue, setVolumeValue] = useState('24h');
   const volumes = ['24h', '3d', '7d', '1m', '6m', '1y'];
   const getSelectClass = (value: any) => {
-    return value === 100 || value == '24h' || '30d' ? '34px' : '26px';
+    return value === 100 || value === '24h' || value === '1m' ? '34px' : '26px';
   };
   const handleChangeVolume = (event: any) => {
     setVolumeValue(event.target.value);
+  };
+
+  const handleSelectedFilter = (val: string) => {
+    setSelectedFilter(val);
   };
 
   return (
@@ -96,10 +105,26 @@ function GraphFilter() {
           </Select>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Box className={styles.iconBox}>
+          <Box
+            onClick={() => handleSelectedFilter('filter')}
+            className={
+              selectedFilter === 'filter'
+                ? `${styles.iconBoxFilterSelected}`
+                : `${styles.iconBoxFilter}`
+            }
+          >
             <FilterIcon isDark={true} />
           </Box>
-          <LineGraphIcon />
+          <Box
+            className={
+              selectedFilter === 'candlestick'
+                ? `${styles.iconBoxCandlestickSelected}`
+                : `${styles.iconBoxCandlestick}`
+            }
+            onClick={() => handleSelectedFilter('candlestick')}
+          >
+            <LineGraphIcon />
+          </Box>
         </div>
       </div>
       <div className={styles.filterHeaderSecTwo}>

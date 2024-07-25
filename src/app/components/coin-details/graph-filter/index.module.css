@@ -30,10 +30,34 @@
   justify-content: space-between;
 }
 
-.iconBox {
+.iconBoxFilter {
+  padding: 4px 10px;
+  border-radius: 4px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.iconBoxFilterSelected {
   padding: 4px 6px;
   border-radius: 4px;
   background: rgba(255, 255, 255, 1);
   height: 16px;
   cursor: pointer;
+}
+
+.iconBoxCandlestick {
+  padding: 4px 6px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.iconBoxCandlestickSelected {
+  padding: 4px 0px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 1);
+  height: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
