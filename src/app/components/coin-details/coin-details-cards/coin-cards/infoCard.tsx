@@ -1,33 +1,9 @@
 'use client';
-import {
-  Box,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  Stack,
-  Typography,
-} from '@mui/material';
-import React, { useRef, useState } from 'react';
+import { Box, MenuItem, Select, Stack, Typography } from '@mui/material';
+import React from 'react';
 import SliderIcon from '../../../../../../public/icons/coin-details/sliderIcon';
 
 const InfoCard = () => {
-  const [selectedOption, setSelectedOption] = useState('');
-  const selectRef = useRef<HTMLDivElement | null>(null);
-
-  const handleChange = (event: SelectChangeEvent<string>) => {
-    setSelectedOption(event.target.value);
-  };
-
-  const handleIconClick = () => {
-    if (selectRef.current) {
-      // Trigger open on the select component
-      console.log('click');
-      const selectElement = selectRef.current.querySelector('button');
-      if (selectElement) {
-        selectElement.click();
-      }
-    }
-  };
   return (
     <Box
       sx={{
@@ -227,7 +203,7 @@ const InfoCard = () => {
             <Select
               displayEmpty
               IconComponent={() => (
-                <Box sx={{ marginLeft: '4px',cursor:"pointer" }}>
+                <Box sx={{ marginLeft: '4px', cursor: 'pointer' }}>
                   <SliderIcon />
                 </Box>
               )}
@@ -428,12 +404,9 @@ const InfoCard = () => {
               }}
             >
               <Select
-              
                 displayEmpty
                 IconComponent={() => (
-                  <Box
-                    sx={{ marginLeft: '4px', cursor: 'pointer' }}
-                  >
+                  <Box sx={{ marginLeft: '4px', cursor: 'pointer' }}>
                     <SliderIcon />
                   </Box>
                 )}
