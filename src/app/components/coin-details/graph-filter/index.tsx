@@ -50,7 +50,7 @@ function GraphFilter({
   volumeValue,
   setVolumeValue,
 }: GraphFilterProps) {
-  const volumes = ['24h', '3d', '7d', '1m', '6m', '1y'];
+  const volumes = ['24h', '3d', '7d', '1m', '6m', '1y', 'ALL'];
   const getSelectClass = (value: any) => {
     return value === 100 || value === '24h' || value === '1m' ? '34px' : '26px';
   };
