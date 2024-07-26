@@ -419,12 +419,25 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                 <Typography
                   variant="body1"
                   sx={{
-                    color: 'rgba(76, 254, 182, 1)',
+                    // color: 'rgba(76, 254, 182, 1)',
                     fontSize: '14px',
-                    fontWeight: '600',
+                    fontWeight: '700',
+                    ...getPercentColor(
+                      coinDetails?.statistics
+                        ?.fullyDilutedMarketCapChangePercentage24h,
+                    ),
                   }}
                 >
-                  +7.37%
+                  {coinDetails?.statistics?.fullyDilutedMarketCapChangePercentage24h
+                    ?.toString()
+                    .includes('-')
+                    ? ''
+                    : '+'}
+                  {priceNumberFormatDigits(
+                    coinDetails?.statistics
+                      ?.fullyDilutedMarketCapChangePercentage24h,
+                  )}
+                  %
                 </Typography>
               </Box>
               <Box
