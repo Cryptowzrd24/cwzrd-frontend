@@ -13,6 +13,7 @@ interface GraphFilterProps {
   setSelectedFilter: (val: string) => void;
   volumeValue: string;
   setVolumeValue: (val: string) => void;
+  handleFullScreen: () => void;
 }
 
 const stylesPage = {
@@ -49,8 +50,9 @@ function GraphFilter({
   setSelectedFilter,
   volumeValue,
   setVolumeValue,
+  handleFullScreen,
 }: GraphFilterProps) {
-  const volumes = ['24h', '3d', '7d', '1m', '6m', '1y'];
+  const volumes = ['24h', '3d', '7d', '1m', '6m', '1y', 'ALL'];
   const getSelectClass = (value: any) => {
     return value === 100 || value === '24h' || value === '1m' ? '34px' : '26px';
   };
@@ -138,12 +140,14 @@ function GraphFilter({
           <DownloadIcon />
         </div>
         <div
+          onClick={() => handleFullScreen()}
           style={{
             width: '32px',
             height: '24px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            cursor: 'pointer',
           }}
         >
           <ExpandIcon />

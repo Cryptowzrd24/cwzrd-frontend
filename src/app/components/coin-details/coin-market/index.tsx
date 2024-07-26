@@ -8,9 +8,13 @@ import useColumnCoinDetailDefs from '@/app/hooks/coin-detail-grid';
 import { columnsCoinMarket } from '@/app/constants/columns';
 import { useFetchMarketDataCoinDetailsQuery } from '@/app/redux/reducers/data-grid';
 
-const CoinMarket = () => {
+interface CoinMarketProps {
+  coinName: string | null | undefined;
+}
+
+const CoinMarket = ({ coinName }: CoinMarketProps) => {
   const [rowData, setRowData] = useState([]);
-  const { data } = useFetchMarketDataCoinDetailsQuery('Bitcoin');
+  const { data } = useFetchMarketDataCoinDetailsQuery(coinName || '');
   const colDef = useColumnCoinDetailDefs(columnsCoinMarket);
   const pageSize = 10;
   const totalCount = 10;

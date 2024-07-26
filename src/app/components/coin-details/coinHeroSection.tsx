@@ -359,7 +359,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                     )}
                   </Typography>
                 </Stack>
-                <Typography
+                {/* <Typography
                   variant="body1"
                   sx={{
                     color: 'rgba(76, 254, 182, 1)',
@@ -368,7 +368,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                   }}
                 >
                   +7.37%
-                </Typography>
+                </Typography> */}
               </Box>
             </Stack>
           </Box>
