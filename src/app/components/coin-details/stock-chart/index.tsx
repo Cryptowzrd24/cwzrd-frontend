@@ -135,7 +135,7 @@ const StockChart: React.FC<StockChartProps> = ({
           borderColor: 'transparent',
           shadow: false,
           useHTML: true,
-          formatter: function () {
+          formatter: function (this: any) {
             const date = Highcharts.dateFormat('%m/%d/%Y', this.x);
             const time = Highcharts.dateFormat('%I:%M:%S %p', this.x);
             const price = priceNumberFormatter(
@@ -231,8 +231,8 @@ const StockChart: React.FC<StockChartProps> = ({
           maskFill: '#11111100',
           outlineWidth: 1,
           outlineColor: 'rgba(17, 17, 17, 0.05)',
-          scrollbar: { enabled: false },
-          handles: { enabled: false },
+          scrollbar: { enabled: true },
+          handles: { enabled: true },
           series: {
             type: 'line',
             color: 'rgba(114, 72, 247, 1)',

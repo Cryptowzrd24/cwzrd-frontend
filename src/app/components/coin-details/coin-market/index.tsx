@@ -45,7 +45,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
         depth_negative2: item.depthUsdNegativeTwo,
         volume_24h: item.quotes[0]?.volume24h,
         volume: item.volumePercent,
-        confidence: item.circulating_supply,
+        confidence: item.confidence,
         liquidity_store: item.effectiveLiquidity,
         baseSymbol: item.baseSymbol,
         updated: item.lastUpdated,
@@ -86,7 +86,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
               color: 'rgba(17, 17, 17, 1)',
             }}
           >
-            Bitcoin{' '}
+            {coinName}{' '}
             <span
               style={{
                 backgroundImage:

@@ -81,7 +81,7 @@ const CoinDetails = () => {
           <BitcoinAnalytics />
         </Box>
         <Box sx={{ mb: '48px' }}>
-          <CoinAnalytics />
+          <CoinAnalytics coinId={id} />
         </Box>
         <Box sx={{ mb: '48px' }}>
           <MemberShipBanner />

@@ -1,19 +1,23 @@
 'use client';
 import { Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
-
-import { rowDataCoinAnalytics } from '@/app/constants/row';
+import React, { useEffect, useState } from 'react';
 import DataTable from '../../data-table';
 import { Pagination } from '../../data-table/pagination';
 import { columnsCoinAnalytics } from '@/app/constants/columns';
 import useColumnCoinDetailAnalyticsDefs from '@/app/hooks/coin-details-analytics-grid';
+import { useFetchHistoricalCoinDataDetailsQuery } from '@/app/redux/reducers/data-grid';
 
-const CoinAnalytics = () => {
-  const colDef = useColumnCoinDetailAnalyticsDefs(columnsCoinAnalytics);
-  const pageSize = 10;
-  const totalCount = 50;
-
+const CoinAnalytics = ({ coinId }: any) => {
+  const { data: historicalData } = useFetchHistoricalCoinDataDetailsQuery({
+    coinId: coinId,
+  });
+  const [rowData, setRowData] = useState([]);
+  const [paginatedData, setPaginatedData] = useState([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const pageSize = 10;
+
+  const colDef = useColumnCoinDetailAnalyticsDefs(columnsCoinAnalytics);
+  const totalCount = rowData?.length;
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -21,10 +25,46 @@ const CoinAnalytics = () => {
   ) => {
     setCurrentPage(value);
   };
+
   const [active, setActive] = useState('1 Month');
   const handleClick = (button: any) => {
     setActive(button);
   };
+
+  function formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = {
+      month: 'short',
+      day: '2-digit',
+      year: 'numeric',
+    };
+    return new Intl.DateTimeFormat('en-US', options).format(date);
+  }
+
+  useEffect(() => {
+    if (historicalData && historicalData.data) {
+      const res = historicalData?.data?.quotes?.map(
+        (item: any, index: number) => ({
+          id: index + 1,
+          open: item.quote?.open,
+          high: item.quote?.high,
+          low: item.quote?.low,
+          close: item.quote?.close,
+          volume: item.quote?.volume,
+          market_cap: item.quote?.marketCap,
+          date: formatDate(item.quote?.timestamp),
+          index: index + 1,
+        }),
+      );
+      setRowData(res);
+    }
+  }, [historicalData]);
+
+  useEffect(() => {
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    setPaginatedData(rowData.slice(startIndex, endIndex));
+  }, [rowData, currentPage, pageSize]);
 
   return (
     <>
@@ -58,7 +98,7 @@ const CoinAnalytics = () => {
               color: 'rgba(17, 17, 17, 1)',
             }}
           >
-            Bitcoin{' '}
+            {historicalData?.data?.name}{' '}
             <span
               style={{
                 backgroundImage:
@@ -154,7 +194,7 @@ const CoinAnalytics = () => {
         </Box>
       </Box>
       <Box sx={{ mt: '16px' }}>
-        <DataTable rowData={rowDataCoinAnalytics} columnDefs={colDef} />
+        <DataTable rowData={paginatedData} columnDefs={colDef} />
         <Pagination
           length={totalCount}
           pageSize={pageSize}
