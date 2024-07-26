@@ -11,6 +11,7 @@ const TradeCards = () => {
           paddingBottom: '40px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
+          borderRadius: '32px',
         }}
       >
         <Image src={graph} alt="graph" width={500} />

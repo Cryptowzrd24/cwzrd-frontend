@@ -1,14 +1,22 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import exam from '../../../../../public/images/platform/exam.png';
 import Image from 'next/image';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
+
 const ExaminationCard = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
   };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <>
       <Box
@@ -38,8 +46,14 @@ const ExaminationCard = () => {
           Examinations
         </Typography>
         <Box sx={{ paddingLeft: '24px' }}>
-          <Image src={exam} alt="trade" width={100} height={100} />
-          {active ? (
+          <Image src={exam} alt="exam" width={100} height={100} />
+          <motion.div
+            key={active ? 'active' : 'inactive'} // Use a key to force remounting
+            initial="hidden"
+            animate="visible"
+            variants={textVariants}
+            transition={{ duration: 0.5 }}
+          >
             <Typography
               variant="h1"
               sx={{
@@ -51,23 +65,11 @@ const ExaminationCard = () => {
                 lineHeight: '44px',
               }}
             >
-              Featuring with 450 questions spread.
+              {active
+                ? 'Hello world'
+                : 'Featuring with 450 questions spread across 47 exams.'}
             </Typography>
-          ) : (
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: '40px',
-                color: 'rgba(255, 255, 255, 1)',
-                mt: '37px',
-                letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
-              }}
-            >
-              Featuring with 450 questions spread across 47 exams.
-            </Typography>
-          )}
+          </motion.div>
         </Box>
         <Box
           sx={{

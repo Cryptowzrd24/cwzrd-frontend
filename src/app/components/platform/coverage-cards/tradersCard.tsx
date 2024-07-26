@@ -7,7 +7,7 @@ const TradersCard = () => {
     <>
       <Box
         sx={{
-          padding: '48px',
+          // padding: '24px',
           borderRadius: '32px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
@@ -15,7 +15,7 @@ const TradersCard = () => {
           width: '100%',
         }}
       >
-        <Stack sx={{ maxWidth: '314px' }}>
+        <Stack sx={{ maxWidth: '314px', padding: '48px 48px 26px 48px' }}>
           <Typography
             variant="body1"
             sx={{
@@ -24,7 +24,7 @@ const TradersCard = () => {
               letterSpacing: '2px',
               color: 'rgba(17, 17, 17, 1)',
               mb: '8px',
-              maxWidth: '314px',
+              // maxWidth: '314px',
             }}
           >
             WZRD Traders Hub
@@ -33,14 +33,14 @@ const TradersCard = () => {
             variant="h1"
             sx={{
               color: 'rgba(17, 17, 17, 1)',
-              mb: '26px',
-              maxWidth: '314px',
             }}
           >
             Real-time prices of Cryptocurrencies and key metrics
           </Typography>
-          <Image src={macbook} alt="macbook" width={362} />
         </Stack>
+        <Box sx={{ paddingBottom: '32px' }}>
+          <Image src={macbook} alt="macbook" width={362} />
+        </Box>
       </Box>
     </>
   );

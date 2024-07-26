@@ -8,7 +8,13 @@ import MemberCard from './memberCard';
 const CoverageCards = () => {
   return (
     <>
-      <Box sx={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         <TradersCard />
         <CommunityCard />
         <DailyCoverageCard />

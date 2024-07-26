@@ -40,9 +40,8 @@ const CommunityCard = () => {
                 fontSize: '18px',
                 color: 'rgba(255, 255, 255, 1)',
                 letterSpacing: 0.7,
-                maxWidth: '298px',
+                // maxWidth: '298px',
                 fontWeight: '400',
-                // mt: '-6px',
               }}
             >
               Every trade recommendation is managed on your behalf. You can sit

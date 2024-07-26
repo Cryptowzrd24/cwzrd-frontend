@@ -1,14 +1,22 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import trade from '../../../../../public/images/platform/trade-header.png';
 import Image from 'next/image';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
+
 const TradeManagement = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
   };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <>
       <Box
@@ -39,56 +47,63 @@ const TradeManagement = () => {
         </Typography>
         <Box sx={{ paddingLeft: '32px' }}>
           <Image src={trade} alt="trade" width={80} height={80} />
-          {active ? (
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: '40px',
-                color: 'rgba(255, 255, 255, 1)',
-                mt: '32px',
-                letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
-                animation: 'fadeInUp 0.5s ease-out',
-              }}
-            >
-              Hello world <br />
-              <span
-                style={{
-                  backgroundImage:
-                    'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+          <motion.div
+            key={active ? 'active' : 'inactive'}
+            initial="hidden"
+            animate="visible"
+            variants={textVariants}
+            transition={{ duration: 0.5 }}
+          >
+            {active ? (
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: '40px',
+                  color: 'rgba(255, 255, 255, 1)',
+                  mt: '32px',
+                  letterSpacing: 0.1,
+                  maxWidth: '298px',
+                  lineHeight: '44px',
                 }}
               >
-                maximizing profits.
-              </span>
-            </Typography>
-          ) : (
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: '40px',
-                color: 'rgba(255, 255, 255, 1)',
-                mt: '32px',
-                letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
-              }}
-            >
-              Sit back as our experts handle trades, <br />
-              <span
-                style={{
-                  backgroundImage:
-                    'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+                Hello world <br />
+                <span
+                  style={{
+                    backgroundImage:
+                      'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  maximizing profits.
+                </span>
+              </Typography>
+            ) : (
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: '40px',
+                  color: 'rgba(255, 255, 255, 1)',
+                  mt: '32px',
+                  letterSpacing: 0.1,
+                  maxWidth: '298px',
+                  lineHeight: '44px',
                 }}
               >
-                maximizing profits.
-              </span>
-            </Typography>
-          )}
+                Sit back as our experts handle trades, <br />
+                <span
+                  style={{
+                    backgroundImage:
+                      'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  maximizing profits.
+                </span>
+              </Typography>
+            )}
+          </motion.div>
         </Box>
         <Box
           sx={{

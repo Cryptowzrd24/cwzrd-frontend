@@ -1,12 +1,20 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
+
 const MileStones = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
   };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <>
       <Box
@@ -35,8 +43,15 @@ const MileStones = () => {
         >
           Milestones
         </Typography>
-        {active ? (
-          <Box sx={{ paddingLeft: '32px' }}>
+        <motion.div
+          key={active ? 'active' : 'inactive'}
+          initial="hidden"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.5 }}
+          style={{ paddingLeft: '32px' }}
+        >
+          {active ? (
             <Typography
               variant="h1"
               sx={{
@@ -50,9 +65,7 @@ const MileStones = () => {
             >
               Trading community
             </Typography>
-          </Box>
-        ) : (
-          <Box sx={{ paddingLeft: '32px' }}>
+          ) : (
             <Typography
               variant="h1"
               sx={{
@@ -66,8 +79,8 @@ const MileStones = () => {
             >
               The Smallest trading community
             </Typography>
-          </Box>
-        )}
+          )}
+        </motion.div>
 
         <Box
           sx={{

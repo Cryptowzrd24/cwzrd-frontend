@@ -1,6 +1,7 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import exam from '../../../../../public/images/platform/export.png';
 import Image from 'next/image';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
@@ -10,6 +11,12 @@ const ExportCard = () => {
   const handleClick = () => {
     setActive((show) => !show);
   };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <>
       <Box
@@ -36,8 +43,14 @@ const ExportCard = () => {
           Easy to export notes
         </Typography>
         <Box sx={{ paddingLeft: '24px' }}>
-          <Image src={exam} alt="trade" width={100} height={100} />
-          {active ? (
+          <Image src={exam} alt="export" width={100} height={100} />
+          <motion.div
+            key={active ? 'active' : 'inactive'} // Use a key to force remounting
+            initial="hidden"
+            animate="visible"
+            variants={textVariants}
+            transition={{ duration: 0.5 }}
+          >
             <Typography
               variant="h1"
               sx={{
@@ -49,23 +62,11 @@ const ExportCard = () => {
                 lineHeight: '44px',
               }}
             >
-              Easily export your saved notes into a downloadable PDF
+              {active
+                ? 'Personal Calendar: Keep Track of Everything wanted you'
+                : 'Easily export your saved notes into a downloadable PDF'}
             </Typography>
-          ) : (
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: '40px',
-                color: 'rgba(255, 255, 255, 1)',
-                mt: '74px',
-                letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
-              }}
-            >
-              Easily export your saved notes into a downloadable PDF{' '}
-            </Typography>
-          )}
+          </motion.div>
         </Box>
         <Box
           sx={{

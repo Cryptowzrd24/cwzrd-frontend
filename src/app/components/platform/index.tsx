@@ -12,24 +12,35 @@ import ExaminationPart from './examination';
 import Coverage from './coverage';
 import Portfolio from './portfolio-investing';
 import JoinedPeople from './joined-people-banner';
-import Forex from './forex-cryptocurrencies';
 import PersonalCalendar from './personal-calendar';
 import RealTimeMarketData from './real-time-market-data';
 import CoverageCards from './coverage-cards';
+import Image from 'next/image';
+import FrequentlyAskedQuestion from './frequently-question';
+import ProgressCards from './progress-cards';
+import header from '../../../../public/images/platform/header.png';
+
 const Platform = () => {
   return (
     <>
       <Container maxWidth="xl">
-        <Box sx={{ mt: '48px', mb: '150px' }}>
+        <Box sx={{ mt: '100px' }}>
           <PlatformHeader />
         </Box>
+      </Container>
+      <Image
+        src={header}
+        alt="header"
+        style={{ maxWidth: '100%', height: '600px' }}
+      />
+      <Container maxWidth="xl">
         <Box sx={{ mb: '30px' }}>
           <TradeOpportunities />
         </Box>
         <Box sx={{ mb: '72px' }}>
           <RealWins />
         </Box>
-        <Box sx={{ mb: '72px' }}>
+        <Box sx={{ mb: '30px' }}>
           <TradingPlatform />
         </Box>
         <Box sx={{ mb: '30px' }}>
@@ -54,10 +65,13 @@ const Platform = () => {
           <Portfolio />
         </Box>
         <Box sx={{ mb: '30px' }}>
+          <ProgressCards />
+        </Box>
+        <Box sx={{ mb: '150px' }}>
           <JoinedPeople />
         </Box>
       </Container>
-      <Box
+      {/* <Box
         sx={{
           mb: '150px',
           display: 'flex',
@@ -66,8 +80,10 @@ const Platform = () => {
         }}
       >
         <Forex />
-        <Box>{/* <Image src={macbook} alt="macbook" width={712} /> */}</Box>
-      </Box>
+        <Box>
+          <Image src={Macbook} alt="macbook" width={712} />
+        </Box>
+      </Box> */}
       <Container maxWidth="xl">
         <Box sx={{ mb: '30px' }}>
           <PersonalCalendar />
@@ -75,8 +91,14 @@ const Platform = () => {
         <Box sx={{ mb: '30px' }}>
           <RealTimeMarketData />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mb: '150px' }}>
           <CoverageCards />
+        </Box>
+        <Box sx={{ mb: '150px' }}>
+          <FrequentlyAskedQuestion />
+        </Box>
+        <Box sx={{ mb: '120px' }}>
+          <MemberShipBanner />
         </Box>
       </Container>
     </>

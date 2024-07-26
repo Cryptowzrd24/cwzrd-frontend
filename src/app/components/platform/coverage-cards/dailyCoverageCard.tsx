@@ -1,14 +1,22 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import exam from '../../../../../public/images/platform/daily-coverage.png';
 import Image from 'next/image';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
+
 const DailyCoverageCard = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
   };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <>
       <Box
@@ -46,8 +54,14 @@ const DailyCoverageCard = () => {
             alignItems: 'center',
           }}
         >
-          <Image src={exam} alt="trade" width={150} height={150} />
-          {active ? (
+          <Image src={exam} alt="daily coverage" width={150} height={150} />
+          <motion.div
+            key={active ? 'active' : 'inactive'} // Use a key to force remounting
+            initial="hidden"
+            animate="visible"
+            variants={textVariants}
+            transition={{ duration: 0.5 }}
+          >
             <Typography
               variant="h1"
               sx={{
@@ -60,24 +74,11 @@ const DailyCoverageCard = () => {
                 textAlign: 'center',
               }}
             >
-              Daily Coverage on over 25 Cryptocurrencies{' '}
+              {active
+                ? 'Every trade recommendation is managed'
+                : 'Daily Coverage on over 25 Cryptocurrencies'}
             </Typography>
-          ) : (
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: '40px',
-                color: 'rgba(255, 255, 255, 1)',
-                mt: '35px',
-                letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
-                textAlign: 'center',
-              }}
-            >
-              Daily Coverage on over 25 Cryptocurrencies{' '}
-            </Typography>
-          )}
+          </motion.div>
         </Box>
         <Box
           sx={{
