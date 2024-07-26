@@ -58,13 +58,14 @@ const StockChart: React.FC<StockChartProps> = ({
       const points = apiData.data.points;
       const data: any[] = [];
       const volume: any[] = [];
-      const threshold = Object.values(points)[0].v[0];
+      const coinThreshold = Object.values(points)[0].v[0];
+      const volumeThreshold = Object.values(points)[0].v[1];
 
       for (const timestamp in points) {
         if (points.hasOwnProperty(timestamp)) {
           const point = points[timestamp];
           data.push([getDate(timestamp), point.v[0]]);
-          volume.push([getDate(timestamp), point.v[0]]);
+          volume.push([getDate(timestamp), point.v[1]]);
         }
       }
 
@@ -72,7 +73,9 @@ const StockChart: React.FC<StockChartProps> = ({
         x: time,
         y: value,
         color:
-          value > threshold ? 'rgba(69, 202, 148, 1)' : 'rgba(152, 0, 255, 1)',
+          value > volumeThreshold
+            ? 'rgba(69, 202, 148, 1)'
+            : 'rgba(152, 0, 255, 1)',
       }));
 
       const yMin = Math.min(...data.map((point) => point[1]));
@@ -98,7 +101,12 @@ const StockChart: React.FC<StockChartProps> = ({
         yAxis: [
           {
             plotLines: [
-              { value: threshold, color: '#999', dashStyle: 'dot', width: 1 },
+              {
+                value: coinThreshold,
+                color: '#999',
+                dashStyle: 'dot',
+                width: 1,
+              },
             ],
             labels: {
               align: 'left',
@@ -138,9 +146,7 @@ const StockChart: React.FC<StockChartProps> = ({
           formatter: function (this: any) {
             const date = Highcharts.dateFormat('%m/%d/%Y', this.x);
             const time = Highcharts.dateFormat('%I:%M:%S %p', this.x);
-            const price = priceNumberFormatter(
-              Object.values(points)[this.point.index].v[1],
-            );
+            const price = priceNumberFormatter(this.y);
             const volume = numeral(
               Object.values(points)[this.point.index].v[1],
             ).format('0.00a');
@@ -181,7 +187,7 @@ const StockChart: React.FC<StockChartProps> = ({
             },
             zones: [
               {
-                value: threshold,
+                value: coinThreshold,
                 color: 'rgba(255, 0, 0, 1)',
                 fillColor: {
                   linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
@@ -224,6 +230,7 @@ const StockChart: React.FC<StockChartProps> = ({
             name: 'AAPL Volume',
             data: formattedVolumeData,
             yAxis: 1,
+            dataGrouping: { enabled: false }, // Ensure no data grouping for the volume series
           },
         ],
         navigator: {
