@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useFetchCoinDetailsGraphDataQuery } from '@/app/redux/coin-details';
+import { useFetchHistoricalCoinDataDetailsQuery } from '@/app/redux/reducers/data-grid';
 import { usePathname } from 'next/navigation';
 import { priceNumberFormatter } from '../../data-table/price';
 import numeral from 'numeral';
@@ -41,6 +42,10 @@ const StockChart: React.FC<StockChartProps> = ({
     range,
   });
 
+  const { data: candleStickData } = useFetchHistoricalCoinDataDetailsQuery({
+    coinId,
+  });
+
   const graphType =
     selectedFilter === 'candlestick'
       ? 'candlestick'
@@ -58,6 +63,7 @@ const StockChart: React.FC<StockChartProps> = ({
       const points = apiData.data.points;
       const data: any[] = [];
       const volume: any[] = [];
+      const candleStickVolume: any[] = [];
       const coinThreshold = Object.values(points)[0].v[0];
       const volumeThreshold = Object.values(points)[0].v[1];
 
@@ -80,6 +86,31 @@ const StockChart: React.FC<StockChartProps> = ({
 
       const yMin = Math.min(...data.map((point) => point[1]));
       const yMax = Math.max(...data.map((point) => point[1]));
+
+      let candlestickSeries = [];
+
+      if (selectedFilter === 'candlestick' && candleStickData?.data?.quotes) {
+        candlestickSeries = candleStickData.data.quotes.map((quote: any) => {
+          candleStickVolume.push({
+            x: new Date(quote.timeOpen).getTime(),
+            y: quote.quote.volume,
+            color:
+              quote.quote.volume > volumeThreshold
+                ? 'rgba(69, 202, 148, 1)'
+                : 'rgba(152, 0, 255, 1)',
+          });
+
+          return [
+            new Date(quote.timeOpen).getTime(),
+            quote.quote.open,
+            quote.quote.high,
+            quote.quote.low,
+            quote.quote.close,
+          ];
+        });
+      }
+
+      debugger;
 
       setOptions({
         scrollbar: { enabled: false },
@@ -176,7 +207,7 @@ const StockChart: React.FC<StockChartProps> = ({
             type: graphType,
             id: 'graph',
             name: 'AAPL Stock Price',
-            data,
+            data: graphType === 'candlestick' ? candlestickSeries : data,
             color: 'rgba(69, 202, 148, 1)',
             fillColor: {
               linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
@@ -228,7 +259,10 @@ const StockChart: React.FC<StockChartProps> = ({
             type: 'column',
             id: 'aapl-volume',
             name: 'AAPL Volume',
-            data: formattedVolumeData,
+            data:
+              graphType === 'candlestick'
+                ? candleStickVolume
+                : formattedVolumeData,
             yAxis: 1,
             dataGrouping: { enabled: false }, // Ensure no data grouping for the volume series
           },
@@ -268,7 +302,7 @@ const StockChart: React.FC<StockChartProps> = ({
     };
 
     fetchChartData();
-  }, [graphType, selectedFilter, apiData, volumeValue]);
+  }, [graphType, selectedFilter, apiData, candleStickData, volumeValue]);
 
   return (
     <div
