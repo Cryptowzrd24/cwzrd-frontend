@@ -8,8 +8,42 @@ import useColumnCoinDetailAnalyticsDefs from '@/app/hooks/coin-details-analytics
 import { useFetchHistoricalCoinDataDetailsQuery } from '@/app/redux/reducers/data-grid';
 
 const CoinAnalytics = ({ coinId }: any) => {
+  const [active, setActive] = useState('1 Month');
+  const getTimeStampForPeriod = (period: any) => {
+    const currentTime = Date.now();
+    let pastTime;
+
+    switch (period) {
+      case '1 Month':
+        pastTime = currentTime - 30 * 24 * 60 * 60 * 1000;
+        break;
+      case '1 Year':
+        pastTime = currentTime - 365 * 24 * 60 * 60 * 1000;
+        break;
+      case 'All':
+        pastTime = 0;
+        break;
+      default:
+        throw new Error('Unsupported period. Use "month" or "year".');
+    }
+
+    return Math.floor(pastTime / 1000);
+  };
+  const interval = () => {
+    if (active === '1 Month') {
+      return '1d';
+    } else if (active === '1 Year') {
+      return '7d';
+    } else if (active === 'All') {
+      return '30d';
+    } else {
+      return '1h';
+    }
+  };
   const { data: historicalData } = useFetchHistoricalCoinDataDetailsQuery({
     coinId: coinId,
+    timeStart: getTimeStampForPeriod(active),
+    interval: interval(),
   });
   const [rowData, setRowData] = useState([]);
   const [paginatedData, setPaginatedData] = useState([]);
@@ -26,7 +60,6 @@ const CoinAnalytics = ({ coinId }: any) => {
     setCurrentPage(value);
   };
 
-  const [active, setActive] = useState('1 Month');
   const handleClick = (button: any) => {
     setActive(button);
   };
