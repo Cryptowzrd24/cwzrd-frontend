@@ -42,8 +42,8 @@ const CommunityCard = () => {
                 letterSpacing: -0.5,
                 // maxWidth: '298px',
                 fontWeight: '400',
-                lineHeight:"27px",
-                textAlign:"justify"
+                lineHeight: '27px',
+                textAlign: 'justify',
               }}
             >
               Every trade recommendation is managed on your behalf. You can sit

@@ -14,12 +14,8 @@ const TradeCards = () => {
           borderRadius: '32px',
         }}
       >
-        <Image
-          src={graph}
-          alt="graph"
-          width={500}
-        />
-        <Stack sx={{ maxWidth: '440px',paddingLeft:"8px" }}>
+        <Image src={graph} alt="graph" width={500} />
+        <Stack sx={{ maxWidth: '440px', paddingLeft: '8px' }}>
           <Typography
             variant="body1"
             sx={{

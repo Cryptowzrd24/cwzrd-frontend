@@ -13,7 +13,7 @@ const RealTimeMarketData = () => {
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           justifyContent: 'space-between',
-          borderRadius:"32px"
+          borderRadius: '32px',
         }}
       >
         <Stack>
@@ -29,7 +29,7 @@ const RealTimeMarketData = () => {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               mb: '16px',
-              letterSpacing:"-2px"
+              letterSpacing: '-2px',
             }}
           >
             Visualize Real-Time Market Data Instantly

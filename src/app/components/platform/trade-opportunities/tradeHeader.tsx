@@ -49,8 +49,8 @@ const TradeHeader = () => {
           fontWeight: '400',
           mb: '48px',
           textAlign: 'center',
-          lineHeight:"30px",
-          color:"rgba(17, 17, 17, 0.8)"
+          lineHeight: '30px',
+          color: 'rgba(17, 17, 17, 0.8)',
         }}
       >
         Join the industry's most exclusive Trading Community and unlock a wealth

@@ -31,7 +31,7 @@ const Coverage = () => {
                 WebkitTextFillColor: 'transparent',
                 fontSize: '40px',
                 mb: '8px',
-                lineHeight:"44px"
+                lineHeight: '44px',
               }}
             >
               Stay Updated with 24/7 Coverage

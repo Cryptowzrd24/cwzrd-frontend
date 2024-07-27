@@ -13,7 +13,7 @@ const Portfolio = () => {
           display: 'flex',
           alignItems: 'center',
           borderRadius: '32px',
-          gap:"30px"
+          gap: '30px',
         }}
       >
         <PortfolioCard />

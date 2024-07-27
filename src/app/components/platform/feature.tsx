@@ -38,7 +38,7 @@ const Feature = () => {
                 'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              marginLeft:"12px"
+              marginLeft: '12px',
             }}
           >
             Features

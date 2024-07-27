@@ -72,7 +72,7 @@ const DailyCoverageCard = () => {
                 maxWidth: '298px',
                 lineHeight: '38.4px',
                 textAlign: 'center',
-                fontWeight:"700"
+                fontWeight: '700',
               }}
             >
               {active

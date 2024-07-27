@@ -56,7 +56,7 @@ const TradingPlatform = () => {
               fontSize: '18px',
               fontWeight: '400',
               textAlign: 'center',
-              lineHeight:"27px"
+              lineHeight: '27px',
             }}
           >
             We are fully committed to your success in every aspect of your
