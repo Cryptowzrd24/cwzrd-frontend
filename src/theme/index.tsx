@@ -82,6 +82,7 @@ const theme = createTheme({
     body1: {
       fontSize: '16px',
       fontWeight: 400,
+      lineHeight: 1.2,
       color: colors.primary,
       '@media (max-width:660px)': {
         fontSize: '16px',

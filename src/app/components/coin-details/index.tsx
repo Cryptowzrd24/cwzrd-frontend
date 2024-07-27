@@ -11,6 +11,7 @@ import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import MemberShipBanner from '../banners/memberShipBanner';
+import CoinDetailsCard from './coin-details-cards';
 
 const CoinDetails = () => {
   return (
@@ -21,6 +22,9 @@ const CoinDetails = () => {
         </Box>
         <Box sx={{ mb: '16px' }}>
           <CoinNavbar />
+        </Box>
+        <Box sx={{ mb: '48px' }}>
+          <CoinDetailsCard />
         </Box>
         <Box sx={{ mb: '48px' }}>
           <CoinInfo />

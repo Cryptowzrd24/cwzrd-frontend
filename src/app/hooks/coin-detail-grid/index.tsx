@@ -19,7 +19,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'exchange',
             headerName: 'Exchange',
             cellRenderer: Exchange,
-            width: 125,
+            width: 165,
           };
         case 'pair':
           return {
@@ -61,19 +61,19 @@ const useColumnCoinDetailDefs = (columns: any) => {
           return {
             field: 'volume',
             headerName: 'Volume%',
-            width: 125,
+            width: 135,
           };
         case 'confidence':
           return {
             field: 'confidence',
             headerName: 'Confidence',
 
-            width: 120,
+            width: 110,
           };
         case 'liquidity_store':
           return {
             field: 'liquidity_store',
-            width: 150,
+            width: 130,
             headerName: 'Liquidity Store',
             // cellRenderer: GraphComp,
           };
