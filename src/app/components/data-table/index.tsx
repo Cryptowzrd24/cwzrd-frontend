@@ -64,7 +64,11 @@ const DataTable = memo(
     return (
       <div
         className="ag-theme-material"
-        style={{ width, height: height ? height : 'auto', overflow: 'hidden' }}
+        style={{
+          width,
+          minHeight: height ? height : 'auto',
+          overflow: 'hidden',
+        }}
       >
         {title && (
           <Box
@@ -112,7 +116,7 @@ const DataTable = memo(
             fontSize: 13,
             fontWeight: 400,
           }}
-          domLayout={height ? 'normal' : 'autoHeight'}
+          domLayout={'autoHeight'}
           onGridReady={(params) => {
             if (gridApiRef) gridApiRef.current = params.api;
           }}
