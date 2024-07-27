@@ -53,9 +53,10 @@ const TradingPlatform = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '20px',
+              fontSize: '18px',
               fontWeight: '400',
               textAlign: 'center',
+              lineHeight:"27px"
             }}
           >
             We are fully committed to your success in every aspect of your

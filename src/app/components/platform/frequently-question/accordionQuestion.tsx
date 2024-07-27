@@ -29,13 +29,20 @@ export default function AccordionQuestion({ title, summary }: accordionData) {
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           width: '100%',
+
           '&:last-of-type': {
             borderRadius: '24px',
           },
         }}
       >
         <AccordionSummary
-          expandIcon={expanded ? <RemoveIcon /> : <AddIcon />}
+          expandIcon={
+            expanded ? (
+              <RemoveIcon sx={{ color: '#111111' }} />
+            ) : (
+              <AddIcon sx={{ color: '#111111' }} />
+            )
+          }
           aria-controls="panel1-content"
           id="panel1-header"
           sx={{
@@ -59,6 +66,9 @@ export default function AccordionQuestion({ title, summary }: accordionData) {
                 margin: '0',
               },
             },
+            '&.MuiSvgIcon-root': {
+              color: '#111111',
+            },
           }}
         >
           <Typography
@@ -66,6 +76,7 @@ export default function AccordionQuestion({ title, summary }: accordionData) {
               fontSize: '24px',
               fontWeight: '500',
               color: 'rgba(17, 17, 17, 1)',
+              lineHeight: '26.4px',
             }}
           >
             {title}
@@ -87,6 +98,7 @@ export default function AccordionQuestion({ title, summary }: accordionData) {
               fontSize: '16px',
               fontWeight: '400',
               color: 'rgba(17, 17, 17, 0.8)',
+              lineHeight: '24px',
             }}
           >
             {summary}

@@ -13,13 +13,14 @@ const RealTimeMarketData = () => {
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           justifyContent: 'space-between',
+          borderRadius:"32px"
         }}
       >
         <Stack>
           <Typography
             variant="h1"
             sx={{
-              maxWidth: '547px',
+              maxWidth: '590px',
               fontSize: '56px',
               fontWeight: '600',
               lineHeight: '61.6px',
@@ -28,6 +29,7 @@ const RealTimeMarketData = () => {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               mb: '16px',
+              letterSpacing:"-2px"
             }}
           >
             Visualize Real-Time Market Data Instantly
@@ -35,7 +37,7 @@ const RealTimeMarketData = () => {
           <Typography
             variant="body1"
             sx={{
-              maxWidth: '547px',
+              maxWidth: '600px',
 
               fontSize: '18px',
               fontWeight: '400',

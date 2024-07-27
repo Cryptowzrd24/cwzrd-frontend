@@ -38,11 +38,12 @@ const WzrdStrategy = () => {
               variant="body1"
               sx={{
                 fontSize: '18px',
-                color: 'rgba(255, 255, 255, 1)',
+                color: 'rgba(255, 255, 255, 0.8)',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
                 fontWeight: '400',
                 mt: '-6px',
+                lineHeight:"27px"
               }}
             >
               Master trading with our essential guides and lessons, covering our

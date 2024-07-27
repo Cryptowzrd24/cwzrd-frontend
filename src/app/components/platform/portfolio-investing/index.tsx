@@ -11,9 +11,9 @@ const Portfolio = () => {
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           display: 'flex',
-          justifyContent: 'space-between',
           alignItems: 'center',
           borderRadius: '32px',
+          gap:"30px"
         }}
       >
         <PortfolioCard />
