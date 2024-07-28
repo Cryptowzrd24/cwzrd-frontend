@@ -14,7 +14,12 @@ interface CoinMarketProps {
 
 const CoinMarket = ({ coinName }: CoinMarketProps) => {
   const [rowData, setRowData] = useState([]);
-  const { data } = useFetchMarketDataCoinDetailsQuery(coinName || '');
+  const [active, setActive] = useState('Spot');
+
+  const { data } = useFetchMarketDataCoinDetailsQuery({
+    coinName: coinName,
+    filter: active.toLowerCase(),
+  });
   const colDef = useColumnCoinDetailDefs(columnsCoinMarket);
   const pageSize = 10;
   const totalCount = 10;
@@ -27,7 +32,6 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
   ) => {
     setCurrentPage(value);
   };
-  const [active, setActive] = useState('Spot');
   const handleClick = (button: any) => {
     setActive(button);
   };
@@ -53,7 +57,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
       }));
       setRowData(res);
     }
-  }, [data, currentPage, pageSize]);
+  }, [data, currentPage, pageSize, active]);
 
   return (
     <>
@@ -126,7 +130,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
             </Typography>
           </Box>
           <Box
-            onClick={() => handleClick('Perpetuals')}
+            onClick={() => handleClick('Perpetual')}
             sx={{
               padding: '7px 16px',
               borderRadius: '8px',
@@ -136,7 +140,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
               background: 'rgba(17, 17, 17, 0.05)',
               cursor: 'pointer',
               border:
-                active === 'Perpetuals'
+                active === 'Perpetual'
                   ? '1px solid rgba(114, 72, 247, 1)'
                   : 'none',
             }}
@@ -149,7 +153,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
-              Perpetuals
+              Perpetual
             </Typography>
           </Box>
           <Box

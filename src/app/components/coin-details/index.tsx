@@ -16,6 +16,7 @@ import GraphLayout from './graph-layout';
 import { useFetchCoinDetailsDataQuery } from '@/app/redux/coin-details';
 import { usePathname } from 'next/navigation';
 import { CoinDetailsTypes } from '@/app/models/coin-details';
+import CoinDetailsCard from './coin-details-cards';
 
 const CoinDetails = () => {
   const pathname = usePathname();
@@ -52,12 +53,17 @@ const CoinDetails = () => {
         <Box sx={{ mb: '16px' }}>
           <CoinNavbar />
         </Box>
-        <Box sx={{ mb: '16px' }}>
-          <GraphLayout
-            chartRef={chartRef}
-            isFullScreen={isFullScreen}
-            handleFullScreen={handleFullScreen}
-          />
+        <Box sx={{ display: 'flex', flexDirection: 'row', mb: '48px' }}>
+          <Box>
+            <GraphLayout
+              chartRef={chartRef}
+              isFullScreen={isFullScreen}
+              handleFullScreen={handleFullScreen}
+            />
+          </Box>
+          <Box sx={{ ml: '30px' }}>
+            <CoinDetailsCard coinDetails={coinDetails} />
+          </Box>
         </Box>
         <Box sx={{ mb: '48px' }}>
           <CoinInfo coinDetails={coinDetails} />
@@ -72,7 +78,7 @@ const CoinDetails = () => {
           <Technicals />
         </Box>
         <Box sx={{ mb: '48px' }}>
-          <Converter />
+          <Converter coinDetails={coinDetails} />
         </Box>
         <Box sx={{ mb: '48px' }}>
           <NewsLetterBanner />
