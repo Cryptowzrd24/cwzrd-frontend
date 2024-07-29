@@ -2,9 +2,7 @@ import React from 'react';
 import Ticker from './ticker';
 
 async function fetchTickerData() {
-  const res = await fetch('https://backend.cwzrd.co.uk/api/tickers/', {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch('https://backend.cwzrd.co.uk/api/tickers/');
   const data = await res.json();
 
   return data.data.map((item: any) => ({
