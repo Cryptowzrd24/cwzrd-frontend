@@ -5,7 +5,7 @@ import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import useColumnNewCoinsDefs from '@/app/hooks/data-grid/column-defination-new-coins';
 import { columnsNewCoin } from '@/app/constants/columns';
-import { useFetchNewCoinDataQuery } from '@/app/redux/reducers/data-grid';
+import { useFetchNewCoinDataQuery } from '@/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { scrollToTop } from '@/utils/scroll-to-top';
 

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import numeral from 'numeral';
 import { Box, Typography, Tooltip } from '@mui/material';
 import { ArrowDown } from '../../../../public/icons/arrowDown';
-import { useFetchStatsDataQuery } from '@/app/redux/reducers/data-grid';
+import { useFetchStatsDataQuery } from '@/redux/reducers/data-grid';
 
 interface GasData {
   value: number;

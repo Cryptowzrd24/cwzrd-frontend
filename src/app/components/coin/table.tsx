@@ -4,7 +4,7 @@ import { CustomHeader } from '@/app/components/data-table/custom-header';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
-import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
+import { useFetchCoinDataQuery } from '@/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
 import CardContent from '../highest-volume/cards/cardContent';
 import { Box } from '@mui/material';

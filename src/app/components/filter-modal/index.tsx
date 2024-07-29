@@ -18,7 +18,7 @@ import {
   clearAllFilters,
   selectRangeFilter,
   selectSwitchFilter,
-} from '@/app/redux/reducers/filters';
+} from '@/redux/reducers/filters';
 import { RangeFilterKeys } from '@/app/models/range-filter-keys';
 
 type RangeKey = (typeof RangeFilterKeys)[number];

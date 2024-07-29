@@ -5,6 +5,7 @@ import Navbar from '../navbar';
 import Footer from '../footer';
 import theme from '@/theme';
 import TickerServer from '../ticker';
+import StoreProvider from '@/app/StoreProvider';
 
 export default function CustomLayout({
   children,
@@ -13,13 +14,16 @@ export default function CustomLayout({
 }>) {
   return (
     // <Provider store={store}>
+
     <ThemeProvider theme={theme}>
       <html lang="en">
         <body>
-          <TickerServer />
-          <Navbar />
-          {children}
-          <Footer />
+          <StoreProvider>
+            <TickerServer />
+            <Navbar />
+            {children}
+            <Footer />
+          </StoreProvider>
         </body>
       </html>
     </ThemeProvider>

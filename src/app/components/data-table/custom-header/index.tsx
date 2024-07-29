@@ -28,7 +28,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   clearAllFilters,
   clearSelectedFilter,
-} from '@/app/redux/reducers/filters';
+} from '@/redux/reducers/filters';
 
 interface CustomHeaderProps {
   search: string;

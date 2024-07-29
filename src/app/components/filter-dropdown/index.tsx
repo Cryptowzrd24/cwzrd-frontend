@@ -5,7 +5,7 @@ import { FilterSearchIcon } from '../../../../public/icons/filterSearch';
 import { Filters } from '@/app/constants/filters';
 import styles from './styles';
 import { useDispatch } from 'react-redux';
-import { selectFilter } from '@/app/redux/reducers/filters';
+import { selectFilter } from '@/redux/reducers/filters';
 
 type FilterKey = keyof typeof Filters;
 interface FilterDropdownProps {

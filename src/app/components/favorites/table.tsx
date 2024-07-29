@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
-import { useFetchFavoritesDataQuery } from '@/app/redux/reducers/data-grid';
+import { useFetchFavoritesDataQuery } from '@/redux/reducers/data-grid';
 import { useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
 

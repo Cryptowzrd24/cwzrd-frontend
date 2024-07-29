@@ -6,7 +6,7 @@ import useColumnGainersDefs from '@/app/hooks/data-grid/column-defination-gainer
 import useColumnLosersDefs from '@/app/hooks/data-grid/column-defination-losers';
 import { columnsGainers, columnsLosers } from '@/app/constants/columns';
 import { Pagination } from '@/app/components/data-table/pagination';
-import { useFetchGainersLosersDataQuery } from '@/app/redux/reducers/data-grid';
+import { useFetchGainersLosersDataQuery } from '@/redux/reducers/data-grid';
 import { scrollToTop } from '@/utils/scroll-to-top';
 
 const Table = () => {

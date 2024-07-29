@@ -5,7 +5,7 @@ import DataTable from '@/app/components/data-table';
 import { columnsMostVisited } from '@/app/constants/columns';
 import useColumnMostVisitedDefs from '@/app/hooks/data-grid/column-defination-most-visit';
 import { Pagination } from '@/app/components/data-table/pagination';
-import { useFetchMostVisitedDataQuery } from '@/app/redux/reducers/data-grid';
+import { useFetchMostVisitedDataQuery } from '@/redux/reducers/data-grid';
 import { Box } from '@mui/material';
 import CardContent from '../highest-volume/cards/cardContent';
 

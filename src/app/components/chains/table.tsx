@@ -5,7 +5,7 @@ import DataTable from '@/app/components/data-table';
 import useColumnChainsDefs from '@/app/hooks/data-grid/column-defination-chains';
 import { columnsChain } from '@/app/constants/columns';
 import { Pagination } from '@/app/components/data-table/pagination';
-import { useFetchChainDataQuery } from '@/app/redux/reducers/data-grid';
+import { useFetchChainDataQuery } from '@/redux/reducers/data-grid';
 import { Box } from '@mui/material';
 import CardContent from '../highest-volume/cards/cardContent';
 import { scrollToTop } from '@/utils/scroll-to-top';
