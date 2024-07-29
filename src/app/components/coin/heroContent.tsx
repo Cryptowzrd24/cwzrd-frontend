@@ -123,23 +123,23 @@ const HeroContent = () => {
 
       <Box
         sx={{
-          fontSize: '16px',
+          fontSize: '15px',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           mt: '8px',
         }}
       >
         The overall market capitalization of the crypto market is
-        <span style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}>
+        <span style={{ color: '#808A9D', fontWeight: '600', fontSize: '15px' }}>
           {' '}
-          ${marketCap}
+          +${marketCap}
         </span>
         , {marketCapChangeText}{' '}
         <span
           style={{
             color: marketCapChangeColor,
             fontWeight: '600',
-            fontSize: '16px',
+            fontSize: '15px',
           }}
         >
           {marketCapChange}%
@@ -150,34 +150,34 @@ const HeroContent = () => {
             <br />
             The total crypto market volume over the last 24 hours is
             <span
-              style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}
+              style={{ color: '#808A9D', fontWeight: '600', fontSize: '15px' }}
             >
               {' '}
-              ${volumeCap}
+              +${volumeCap}
             </span>
             , {volumeCapChangeText}{' '}
             <span
               style={{
                 color: volumeCapChangeColor,
                 fontWeight: '600',
-                fontSize: '16px',
+                fontSize: '15px',
               }}
             >
               {volumeCapChange}%
             </span>
             . The total volume in DeFi is currently
             <span
-              style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}
+              style={{ color: '#808A9D', fontWeight: '600', fontSize: '15px' }}
             >
               {' '}
-              ${defiVolume}
+              +${defiVolume}
             </span>
             , {defiVolumeChangeText}{' '}
             <span
               style={{
                 color: defiVolumeChangeColor,
                 fontWeight: '600',
-                fontSize: '16px',
+                fontSize: '15px',
               }}
             >
               {defiVolumeChange}%
@@ -187,51 +187,49 @@ const HeroContent = () => {
             total crypto market 24-hour volume. The volume of all stable coins
             is now
             <span
-              style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}
+              style={{ color: '#808A9D', fontWeight: '600', fontSize: '15px' }}
             >
               {' '}
-              ${stablecoinVolume}
+              +${stablecoinVolume}
             </span>
             , {stablecoinVolumeChangeText}{' '}
             <span
               style={{
                 color: stablecoinVolumeChangeColor,
                 fontWeight: '600',
-                fontSize: '16px',
+                fontSize: '15px',
               }}
             >
               {stablecoinVolumeChange}%
             </span>
             , which is{' '}
             <span style={{ fontWeight: 600 }}>{stablecoinVolumePercent}%</span>{' '}
-            of the total
-            <br /> crypto market 24-hour volume.
-            <br />
+            of the total crypto market 24-hour volume. <br />
             Bitcoin’s dominance is currently
             <span
-              style={{ color: '#7248F7', fontWeight: '600', fontSize: '16px' }}
+              style={{ color: '#808A9D', fontWeight: '600', fontSize: '15px' }}
             >
               {' '}
-              {btcDominance}%
+              +{btcDominance}%
             </span>
             , {btcDominanceChangeText}{' '}
             <span
               style={{
                 color: btcDominanceChangeColor,
                 fontWeight: '600',
-                fontSize: '16px',
+                fontSize: '15px',
               }}
             >
               {btcDominanceChange}%
             </span>
-            .
+            . <br />
           </>
         )}
         <span
           style={{
             color: '#808A9D',
             cursor: 'pointer',
-            fontSize: '16px',
+            fontSize: '15px',
             fontWeight: '400',
             textDecoration: 'underline',
           }}

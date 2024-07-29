@@ -24,7 +24,7 @@ function HeroContent() {
     <>
       <Typography
         variant="h4"
-        sx={{ mb: '12px', letterSpacing: '1.5px', fontSize: 18 }}
+        sx={{ mb: '2px', letterSpacing: '1.5px', fontSize: 14 }}
       >
         MARKET CAP
       </Typography>
@@ -44,10 +44,10 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '20px',
+          fontSize: '15px',
           maxWidth: '600px',
           lineHeight: '30px',
-          mt: '32px',
+          mt: '8px',
         }}
       >
         Listed below are the stats for NFT collections{' '}
@@ -63,7 +63,7 @@ function HeroContent() {
           style={{
             color: '#7248F7',
             cursor: 'pointer',
-            fontSize: '18px',
+            fontSize: '15px',
             fontWeight: '500',
           }}
           onClick={handleToggle}
@@ -74,7 +74,7 @@ function HeroContent() {
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0, height: 0, marginTop: 0 }}
-          animate={{ opacity: 1, height: 'auto', marginTop: '48px' }}
+          animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2, marginTop: 0 }}
         >
