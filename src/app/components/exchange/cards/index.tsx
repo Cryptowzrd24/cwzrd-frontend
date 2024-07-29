@@ -178,7 +178,7 @@ const ExchangeCard = ({
               color: 'rgba(255, 255, 255, 1)',
             }}
           >
-            ${priceNumberFormatDigits(price)}
+            {priceNumberFormatDigits(price)}
           </Typography>
         </Box>
       </Box>
