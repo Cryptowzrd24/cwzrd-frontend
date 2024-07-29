@@ -13,8 +13,6 @@ export default function CustomLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // <Provider store={store}>
-
     <ThemeProvider theme={theme}>
       <html lang="en">
         <body>
@@ -27,6 +25,5 @@ export default function CustomLayout({
         </body>
       </html>
     </ThemeProvider>
-    // </Provider>
   );
 }

@@ -1,23 +1,42 @@
+// components/Table.tsx
 'use client';
 import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
-import { useFetchCoinDataQuery } from '@/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
 import CardContent from '../highest-volume/cards/cardContent';
 import { Box } from '@mui/material';
 import { scrollToTop } from '@/utils/scroll-to-top';
 import { constructQueryParams } from '@/utils/construct-filter-query-param';
 import { useSelector } from 'react-redux';
-import { Filters } from '@/app/models/filters';
 import useWebSocket from '@/app/hooks/coin-websocket/useWebSocket';
 import debounce from 'debounce';
 
-const Table = () => {
+interface CoinData {
+  id: string;
+  coin_id: string;
+  name: string;
+  new_price: number;
+  volume_24h: number;
+  percent_change_1h: number;
+  percent_change_24h: number;
+  percent_change_7d: number;
+  market_cap: number;
+  circulating_supply: number;
+  symbol: string;
+  max_supply: number;
+  index: number;
+}
+
+interface TableProps {
+  initialData: CoinData[];
+}
+
+const Table = ({ initialData }: TableProps) => {
   const [search, setSearch] = useState('');
-  const [rowData, setRowData] = useState([]);
+  const [rowData, setRowData] = useState<CoinData[]>(initialData);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemStart, setItemStart] = useState(1);
   const [showCards, setShowCards] = useState(false);
@@ -25,19 +44,12 @@ const Table = () => {
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const [activeIcon, setActiveIcon] = useState('ListIcon');
   const filters = useSelector((state: any) => state.filters.filters);
-
   const queryParams = constructQueryParams(filters as Filters);
-  const { data } = useFetchCoinDataQuery({
-    start: currentPage,
-    pageSize,
-    filters: queryParams,
-    searchString: search,
-  });
   const gridApiRef = useRef<any>(null);
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const previousPrices = useRef<{ [key: string]: number }>({});
 
-  const totalCount = data?.count || 0;
+  const totalCount = initialData?.length;
 
   const debouncedFetchCoinData = useCallback(
     debounce((value) => {
@@ -75,27 +87,65 @@ const Table = () => {
     );
   };
 
-  useEffect(() => {
-    if (data && data.data) {
-      const startIndex = (currentPage - 1) * pageSize + 1;
-      const res = data.data.map((item: any, index: number) => ({
-        id: item.id,
-        coin_id: item.coin_id,
-        name: item.name,
-        new_price: item.quote.price,
-        volume_24h: item.quote.volume_24h,
-        percent_change_1h: item.quote.percent_change_1h,
-        percent_change_24h: item.quote.percent_change_24h,
-        percent_change_7d: item.quote.percent_change_7d,
-        market_cap: item.quote.market_cap,
-        circulating_supply: item.circulating_supply,
-        symbol: item.symbol,
-        max_supply: item.max_supply,
-        index: startIndex + index,
-      }));
-      setRowData(res);
-    }
-  }, [data, currentPage, itemStart, pageSize, filters]);
+  // useEffect(() => {
+  //   const ws = new WebSocket('wss://backend.cwzrd.co.uk/ws/data/');
+  //   wsRef.current = ws;
+
+  //   ws.addEventListener('open', () => {
+  //     console.log('WebSocket connection opened.');
+  //   });
+
+  //   ws.onmessage = (event) => {
+  //     const message: any = JSON.parse(event.data);
+
+  //     setRowData((prevData) => {
+  //       const existingRow = prevData.find(
+  //         (row: any) => row.coin_id === message.id,
+  //       );
+
+  //       if (existingRow) {
+  //         const updatedRow: any = {
+  //           ...existingRow,
+  //           new_price: message.p !== null ? message.p : existingRow.new_price,
+  //           percent_change_1h:
+  //             message.p1h !== null
+  //               ? message.p1h
+  //               : existingRow.percent_change_1h,
+  //           percent_change_24h:
+  //             message.p24h !== null
+  //               ? message.p24h
+  //               : existingRow.percent_change_24h,
+  //           percent_change_7d:
+  //             message.p7d !== null
+  //               ? message.p7d
+  //               : existingRow.percent_change_7d,
+  //           market_cap:
+  //             message.mc !== null ? message.mc : existingRow.market_cap,
+  //         };
+
+  //         return prevData.map((row: any) =>
+  //           row.coin_id === updatedRow?.coin_id ? updatedRow : row,
+  //         );
+  //       }
+
+  //       return prevData;
+  //     });
+  //   };
+
+  //   ws.onerror = (error) => {
+  //     console.error('WebSocket error:', error);
+  //   };
+
+  //   ws.onclose = (event) => {
+  //     console.log('WebSocket connection closed:', event);
+  //   };
+
+  //   return () => {
+  //     if (wsRef.current) {
+  //       wsRef.current.close();
+  //     }
+  //   };
+  // }, []);
 
   const updateRowData = (updatedRow: any) => {
     const previousPrice = previousPrices.current[updatedRow.coin_id];
