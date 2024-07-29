@@ -3,10 +3,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
-import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
-import { constructQueryParams } from '@/utils/construct-filter-query-param';
+import { useFetchFavoritesDataQuery } from '@/app/redux/reducers/data-grid';
 import { useSelector } from 'react-redux';
-import { Filters } from '@/app/models/filters';
+import Cookies from 'js-cookie';
 
 const Table = () => {
   const [search] = useState('');
@@ -17,19 +16,25 @@ const Table = () => {
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const filters = useSelector((state: any) => state.filters.filters);
 
-  const queryParams = constructQueryParams(filters as Filters);
-  const { data } = useFetchCoinDataQuery({
-    start: currentPage,
-    pageSize,
-    filters: queryParams,
+  const favoriteIds = Cookies.get('favorites')
+    ? JSON.parse(Cookies.get('favorites') as string).join(',')
+    : '';
+
+  const favoriteCount = Cookies.get('favorites')
+    ? JSON.parse(Cookies.get('favorites') as string).length
+    : 0;
+
+  const { data } = useFetchFavoritesDataQuery({
+    id: favoriteIds,
   });
+
   const gridApiRef = useRef<any>(null);
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
     if (data && data.data) {
       const startIndex = (currentPage - 1) * pageSize + 1;
-      const res = data.data.slice(0, 3).map((item: any, index: number) => ({
+      const res = data.data.map((item: any, index: number) => ({
         id: item.id,
         coin_id: item.coin_id,
         name: item.name,
@@ -49,25 +54,40 @@ const Table = () => {
   }, [data, currentPage, itemStart, pageSize, filters]);
 
   return (
-    <div className="data-table-wrapper">
+    <>
       <div
         style={{
-          display: 'flex',
-          gap: '36px',
+          color: '#616E85',
+          fontSize: '14px',
+          fontWeight: '500',
+          marginBottom: '8px',
+          textAlign: 'end',
+          paddingRight: '12px',
+          letterSpacing: '0.4px',
         }}
       >
-        <DataTable
-          search={search}
-          rowData={rowData}
-          columnDefs={columnCoinsDef}
-          width="100%"
-          gridApiRef={gridApiRef}
-          getRowId={(params: any) => params.data.coin_id}
-          priceRefs={priceRefs}
-          height="400px"
-        />
+        {favoriteCount} {favoriteCount === 1 ? 'coin' : 'coins'} in total
       </div>
-    </div>
+      <div className="data-table-wrapper">
+        <div
+          style={{
+            display: 'flex',
+            gap: '36px',
+          }}
+        >
+          <DataTable
+            search={search}
+            rowData={rowData}
+            columnDefs={columnCoinsDef}
+            width="100%"
+            gridApiRef={gridApiRef}
+            getRowId={(params: any) => params.data.coin_id}
+            priceRefs={priceRefs}
+            height="400px"
+          />
+        </div>
+      </div>
+    </>
   );
 };
 

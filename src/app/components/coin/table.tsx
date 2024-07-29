@@ -13,6 +13,7 @@ import { constructQueryParams } from '@/utils/construct-filter-query-param';
 import { useSelector } from 'react-redux';
 import { Filters } from '@/app/models/filters';
 import useWebSocket from '@/app/hooks/coin-websocket/useWebSocket';
+import debounce from 'debounce';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -30,6 +31,7 @@ const Table = () => {
     start: currentPage,
     pageSize,
     filters: queryParams,
+    searchString: search,
   });
   const gridApiRef = useRef<any>(null);
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -37,9 +39,19 @@ const Table = () => {
 
   const totalCount = data?.count || 0;
 
-  const handleSetSearch = useCallback((value: any) => {
-    setSearch(value);
-  }, []);
+  const debouncedFetchCoinData = useCallback(
+    debounce((value) => {
+      setSearch(value);
+    }, 600),
+    [],
+  );
+
+  const handleSetSearch = useCallback(
+    (value: any) => {
+      debouncedFetchCoinData(value);
+    },
+    [debouncedFetchCoinData],
+  );
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
