@@ -7,7 +7,7 @@
   margin-bottom: 20px;
   width: 100%;
   border: 1px solid rgba(17, 17, 17, 0.05);
-  box-shadow: 0 4px 28px 0 #0000000D !important;
+  box-shadow: 0 4px 28px 0 #0000000d !important;
 
   .header_wrapper {
     padding-top: 24px;
@@ -39,8 +39,9 @@
   border-radius: 15px;
   width: 100%;
   border: 1px solid rgba(17, 17, 17, 0.05);
-  box-shadow: 0 4px 28px 0 #0000000D !important;
+  box-shadow: 0 4px 28px 0 #0000000d !important;
   margin-bottom: 20px;
+  background: white !important;
 
   .header_wrapper {
     padding-top: 24px;
@@ -73,8 +74,9 @@
   border-radius: 15px;
   width: 100%;
   border: 1px solid rgba(17, 17, 17, 0.05);
-  box-shadow: 0 4px 28px 0 #0000000D !important;
+  box-shadow: 0 4px 28px 0 #0000000d !important;
   margin-bottom: 20px;
+  background: white !important;
 
   .header_wrapper {
     padding-top: 24px;
@@ -106,8 +108,9 @@
   border-radius: 15px !important;
   width: 100%;
   border: 1px solid rgba(17, 17, 17, 0.05);
-  box-shadow: 0 4px 28px 0 #0000000D !important;
+  box-shadow: 0 4px 28px 0 #0000000d !important;
   margin-bottom: 20px;
+  background: white !important;
 
   .background_image {
     position: absolute;
@@ -120,14 +123,14 @@
     background-position: center;
     z-index: 1;
   }
-  
+
   .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
   .content {
@@ -164,8 +167,9 @@
   max-height: 185px;
   border-radius: 15px;
   border: 1px solid rgba(17, 17, 17, 0.05);
-  box-shadow: 0 4px 28px 0 #0000000D !important;
+  box-shadow: 0 4px 28px 0 #0000000d !important;
   margin-bottom: 20px;
+  background: white !important;
 
   .header_wrapper {
     padding-top: 22px;
@@ -196,9 +200,10 @@
   max-height: 185px;
   border-radius: 15px;
   border: 1px solid rgba(17, 17, 17, 0.05);
-  box-shadow: 0 4px 28px 0 #0000000D !important;
+  box-shadow: 0 4px 28px 0 #0000000d !important;
   margin-bottom: 20px;
   width: 100%;
+  background: white !important;
 
   .header_wrapper {
     padding-top: 24px;
@@ -230,9 +235,10 @@
   max-height: 185px;
   border-radius: 15px;
   border: 1px solid rgba(17, 17, 17, 0.05);
-  box-shadow: 0 4px 28px 0 #0000000D !important;
+  box-shadow: 0 4px 28px 0 #0000000d !important;
   margin-bottom: 20px;
   width: 100%;
+  background: white !important;
 
   .header_wrapper {
     padding-top: 24px;
@@ -264,9 +270,10 @@
   max-height: 185px;
   border-radius: 15px;
   border: 1px solid rgba(17, 17, 17, 0.05);
-  box-shadow: 0 4px 28px 0 #0000000D !important;
+  box-shadow: 0 4px 28px 0 #0000000d !important;
   margin-bottom: 20px;
   width: 100%;
+  background: white !important;
 
   .header_wrapper {
     padding-top: 24px;
@@ -292,9 +299,7 @@
   }
 }
 
-
 .recently_added {
-
   h2 {
     margin-bottom: 1rem;
   }
@@ -339,7 +344,7 @@
 
       .title {
         display: grid;
-        margin-left: 8px;;
+        margin-left: 8px;
 
         span:nth-child(1) {
           font-weight: 700;
@@ -354,10 +359,7 @@
       }
     }
   }
-
 }
-
-
 
 .stepper_dots {
   position: absolute;
@@ -378,3 +380,14 @@
 .dot.active {
   background-color: #111;
 }
+/* index.module.scss */
+.slick-slider {
+  &.slick-initialized {
+    .slick-track, .slick-list {
+      transform: translate3d(0, 0, 0);
+      margin-left: -2px;
+      background: white;
+    }
+  }
+}
+

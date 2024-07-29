@@ -41,6 +41,7 @@
     "sass": "^1.77.5",
     "sharp": "^0.33.4",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.12",
     "styled-jsx": "^5.1.6"
   },
   "devDependencies": {

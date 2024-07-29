@@ -1,14 +1,10 @@
-'use client';
-
 import React, { useState } from 'react';
-
+import styled from 'styled-components';
 import AreaChart from '../elements/areaGraphCard.element';
-
 import {
   getGraphColor,
   getPositiveNegativeIcon,
 } from '@/app/helpers/functions';
-
 import styles from './index.module.scss';
 import BarChart from '../elements/barGraphCard.element';
 import { Card } from '@mui/material';
@@ -21,6 +17,15 @@ import 'slick-carousel/slick/slick-theme.css';
 import Card2 from './card2.component';
 import btc from '@/app/assets/images/btc.png';
 import nft from '@/app/assets/images/nft.png';
+
+const StyledSlider = styled(Slider)`
+  .slick-track,
+  .slick-list {
+    transform: translate3d(0, 0, 0);
+    background: white !important;
+    margin-left: -1.2px;
+  }
+`;
 
 const GraphCard = (props: IMarketCapCardProps) => {
   const { heading, value, percent, graphAttr } = props;
@@ -49,7 +54,7 @@ const GraphCard = (props: IMarketCapCardProps) => {
           />
         ))}
       </div>
-      <Slider {...settings}>
+      <StyledSlider {...settings}>
         <div>
           <div className={styles.header_wrapper}>
             <CardHeader heading={heading} />
@@ -148,7 +153,7 @@ const GraphCard = (props: IMarketCapCardProps) => {
             />
           )}
         </div>
-      </Slider>
+      </StyledSlider>
     </Card>
   );
 };
