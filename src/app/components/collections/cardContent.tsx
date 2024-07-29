@@ -8,7 +8,7 @@ import RightBlue from '../../../../public/icons/collections/rightBlue';
 const CardContent = () => {
   return (
     <>
-    <Box
+      <Box
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -30,14 +30,14 @@ const CardContent = () => {
           <RightBlue />
         </Box>
       </Box>
-    <Grid container spacing={3}>
-      {cardData.map((card) => (
-        <Grid item xs={6} sm={4} md={3} key={card.id}>
-          <Card {...card} />
-        </Grid>
-      ))}
-    </Grid>
-      </>
+      <Grid container spacing={3}>
+        {cardData.map((card) => (
+          <Grid item xs={6} sm={4} md={3} key={card.id}>
+            <Card {...card} />
+          </Grid>
+        ))}
+      </Grid>
+    </>
   );
 };
 

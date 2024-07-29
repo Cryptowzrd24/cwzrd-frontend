@@ -6,7 +6,6 @@ import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import MemberShipBanner from '../banners/memberShipBanner';
 import CardContent from './cardContent';
-import NotableCardContent from './notable-collections';
 import CollectionBanner from './banner';
 import Table from '@/app/components/collections/table';
 
