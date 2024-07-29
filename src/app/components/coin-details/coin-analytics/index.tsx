@@ -144,7 +144,14 @@ const CoinAnalytics = ({ coinId }: any) => {
             </span>{' '}
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            gap: '8px',
+            alignItems: 'center',
+            marginRight: '45px',
+          }}
+        >
           <Box
             onClick={() => handleClick('1 Month')}
             sx={{
@@ -226,7 +233,19 @@ const CoinAnalytics = ({ coinId }: any) => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ mt: '16px' }}>
+      <Box
+        sx={{
+          mt: '16px',
+          backgroundColor: 'rgba(255, 255, 255, 1)',
+          padding: '24px',
+          width: '1290px',
+          borderRadius: '24px',
+          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+          '& .ag-header-cell:last-child .ag-header-cell-label': {
+            justifyContent: 'start !important',
+          },
+        }}
+      >
         <DataTable rowData={paginatedData} columnDefs={colDef} />
         <Pagination
           length={totalCount}

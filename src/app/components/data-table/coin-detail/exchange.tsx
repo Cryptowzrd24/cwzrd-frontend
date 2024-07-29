@@ -16,7 +16,7 @@ export const Exchange = (props: any) => {
     { name: 'Kraken', imageSrc: krakenImg, currency: 'ADA' },
   ];
 
-  const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${props.data.coin_id || 1}.png`;
+  const imgId = `https://s2.coinmarketcap.com/static/img/exchanges/64x64/${props.data.coin_id || 1}.png`;
   return (
     <>
       {exchanges.map((exchange) => (
