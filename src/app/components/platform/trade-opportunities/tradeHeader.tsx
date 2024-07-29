@@ -23,7 +23,7 @@ const TradeHeader = () => {
           mb: '12px',
         }}
       >
-        feature
+        features
       </Typography>
       <Typography
         variant="h1"
@@ -47,8 +47,10 @@ const TradeHeader = () => {
         sx={{
           fontSize: '20px',
           fontWeight: '400',
-          mb: '48px',
+          mb: '72px',
           textAlign: 'center',
+          color: '#111111CC',
+          lineHeight: '30px',
         }}
       >
         Join the industry's most exclusive Trading Community and unlock a wealth

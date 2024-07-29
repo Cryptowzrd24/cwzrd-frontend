@@ -54,6 +54,8 @@ const PlatformHeader = () => {
               fontWeight: '400',
               mb: '48px',
               textAlign: 'center',
+              color: '#111111CC',
+              lineHeight: '30px',
             }}
           >
             On a daily basis we analyze Crypto, Forex, and Stock markets, to
@@ -67,7 +69,7 @@ const PlatformHeader = () => {
               alignItems: 'center',
               padding: '12px 24px 12px 12px',
               borderRadius: '32px',
-              maxWidth: '500px',
+              maxWidth: '455px',
               width: '100%',
               background: 'rgba(255, 255, 255, 1)',
               boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
@@ -84,7 +86,7 @@ const PlatformHeader = () => {
               variant="h5"
               sx={{ fontSize: '16px', fontWeight: '700', lineHeight: '19.2px' }}
             >
-              Join 10,700+{' '}
+              10,700+{' '}
               <span
                 style={{
                   fontSize: '16px',

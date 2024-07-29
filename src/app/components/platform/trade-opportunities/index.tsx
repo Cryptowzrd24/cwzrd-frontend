@@ -12,11 +12,10 @@ const TradeOpportunities = () => {
       >
         <Box
           sx={{
-            mt: '15px',
             background: 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
             padding: '16px 20px 16px 24px',
             borderRadius: '56px',
-            mb: '150px',
+            mb: '168px',
           }}
         >
           <Typography

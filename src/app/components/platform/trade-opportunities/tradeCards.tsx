@@ -4,7 +4,7 @@ import graph from '../../../../../public/images/platform/trade-graph.png';
 import Image from 'next/image';
 const TradeCards = () => {
   return (
-    <Box sx={{ display: 'flex', gap: '48px' }}>
+    <Box sx={{ display: 'flex', gap: '30px' }}>
       <Box
         sx={{
           paddingLeft: '32px',
@@ -51,7 +51,7 @@ const TradeCards = () => {
           padding: '64px 0 0 48px',
           borderRadius: '32px',
           position: 'relative',
-          maxWidth: '740px',
+          // maxWidth: '740px',
           width: '100%',
         }}
       >
@@ -70,10 +70,10 @@ const TradeCards = () => {
           variant="body1"
           sx={{
             fontSize: '18px',
-            color: 'rgba(255, 255, 255, 1)',
             width: '274px',
             fontWeight: '400',
             lineHeight: '27px',
+            color: '#FFFFFFCC',
           }}
         >
           We provide both the Crypto and FX signals with Entry Prices, Take
