@@ -32,7 +32,7 @@ async function fetchCoinData(
   }));
 }
 
-const TableServer = async ({ query }) => {
+const TableServer = async ({ query }: { query: any }) => {
   const { start = 1, pageSize = 10, filters = '', searchString = '' } = query;
   const initialData = await fetchCoinData(
     start,

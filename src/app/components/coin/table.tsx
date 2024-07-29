@@ -1,6 +1,5 @@
-// components/Table.tsx
 'use client';
-import React, { useCallback, useEffect, useState, useRef } from 'react';
+import React, { useCallback, useState, useRef } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
@@ -9,8 +8,8 @@ import { Pagination } from '@/app/components/data-table/pagination';
 import CardContent from '../highest-volume/cards/cardContent';
 import { Box } from '@mui/material';
 import { scrollToTop } from '@/utils/scroll-to-top';
-import { constructQueryParams } from '@/utils/construct-filter-query-param';
-import { useSelector } from 'react-redux';
+// import { constructQueryParams } from '@/utils/construct-filter-query-param';
+// import { useSelector } from 'react-redux';
 import useWebSocket from '@/app/hooks/coin-websocket/useWebSocket';
 import debounce from 'debounce';
 
@@ -36,15 +35,15 @@ interface TableProps {
 
 const Table = ({ initialData }: TableProps) => {
   const [search, setSearch] = useState('');
-  const [rowData, setRowData] = useState<CoinData[]>(initialData);
+  const [rowData] = useState<any[]>(initialData);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemStart, setItemStart] = useState(1);
+  const [, setItemStart] = useState(1);
   const [showCards, setShowCards] = useState(false);
   const [pageSize, setPageSize] = useState<number>(10);
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const [activeIcon, setActiveIcon] = useState('ListIcon');
-  const filters = useSelector((state: any) => state.filters.filters);
-  const queryParams = constructQueryParams(filters as Filters);
+  // const filters = useSelector((state: any) => state.filters.filters);
+  // const queryParams = constructQueryParams(filters as Filters);
   const gridApiRef = useRef<any>(null);
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const previousPrices = useRef<{ [key: string]: number }>({});
