@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useFetchCoinDetailsGraphDataQuery } from '@/app/redux/coin-details';
@@ -25,6 +25,8 @@ const StockChart: React.FC<StockChartProps> = ({
 }) => {
   const pathname = usePathname();
   const [options, setOptions] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const chartComponentRef = useRef<any>(null);
 
   const convertToUppercasePeriod = (input: string) => {
     if (input === '24h') return '1D';
@@ -34,7 +36,63 @@ const StockChart: React.FC<StockChartProps> = ({
     );
   };
 
+  const getTimeStampForPeriod = (period: string) => {
+    const currentTime = Date.now();
+    let pastTime;
+
+    switch (period) {
+      case '24h':
+        pastTime = currentTime - 24 * 60 * 60 * 1000;
+        break;
+      case '3d':
+        pastTime = currentTime - 3 * 24 * 60 * 60 * 1000;
+        break;
+      case '7d':
+        pastTime = currentTime - 7 * 24 * 60 * 60 * 1000;
+        break;
+      case '1m':
+        pastTime = currentTime - 30 * 24 * 60 * 60 * 1000;
+        break;
+      case '6m':
+        pastTime = currentTime - 6 * 30 * 24 * 60 * 60 * 1000;
+        break;
+      case '1y':
+        pastTime = currentTime - 365 * 24 * 60 * 60 * 1000;
+        break;
+      case 'ALL':
+        pastTime = 0;
+        break;
+      default:
+        throw new Error('Unsupported period.');
+    }
+
+    return Math.floor(pastTime / 1000);
+  };
+
+  const getInterval = (period: string) => {
+    switch (period) {
+      case '24h':
+        return '1h';
+      case '3d':
+        return '1h';
+      case '7d':
+        return '1d';
+      case '1m':
+        return '1d';
+      case '6m':
+        return '1w';
+      case '1y':
+        return '1w';
+      case 'ALL':
+        return '1M';
+      default:
+        return '1h';
+    }
+  };
+
   const range = convertToUppercasePeriod(volumeValue);
+  const timeStart = getTimeStampForPeriod(volumeValue);
+  const interval = getInterval(volumeValue);
   const coinId = pathname.split('/').pop();
 
   const { data: apiData } = useFetchCoinDetailsGraphDataQuery({
@@ -44,6 +102,8 @@ const StockChart: React.FC<StockChartProps> = ({
 
   const { data: candleStickData } = useFetchHistoricalCoinDataDetailsQuery({
     coinId,
+    timeStart: timeStart.toString(),
+    interval,
   });
 
   const graphType =
@@ -58,11 +118,15 @@ const StockChart: React.FC<StockChartProps> = ({
 
   useEffect(() => {
     const fetchChartData = async () => {
+      setIsLoading(true);
+
       if (!apiData?.data?.points) return;
 
       const points = apiData.data.points;
       const data: any[] = [];
       const volume: any[] = [];
+      const marketcap: any[] = [];
+      const candleStickMarketcap: any[] = [];
       const candleStickVolume: any[] = [];
       const coinThreshold = Object.values(points)[0].v[0];
       const volumeThreshold = Object.values(points)[0].v[1];
@@ -72,6 +136,7 @@ const StockChart: React.FC<StockChartProps> = ({
           const point = points[timestamp];
           data.push([getDate(timestamp), point.v[0]]);
           volume.push([getDate(timestamp), point.v[1]]);
+          marketcap.push([getDate(timestamp), point.v[2]]);
         }
       }
 
@@ -84,13 +149,32 @@ const StockChart: React.FC<StockChartProps> = ({
             : 'rgba(152, 0, 255, 1)',
       }));
 
-      const yMin = Math.min(...data.map((point) => point[1]));
-      const yMax = Math.max(...data.map((point) => point[1]));
+      let yMin, yMax;
+
+      if (graphType === 'line') {
+        yMin = Math.min(...marketcap.map((point) => point[1]));
+        yMax = Math.max(...marketcap.map((point) => point[1]));
+      } else if (graphType === 'candlestick' && candleStickData?.data?.quotes) {
+        yMin = Math.min(
+          ...candleStickData.data.quotes.map((quote: any) => quote.quote.low),
+        );
+        yMax = Math.max(
+          ...candleStickData.data.quotes.map((quote: any) => quote.quote.high),
+        );
+      } else {
+        yMin = Math.min(...data.map((point) => point[1]));
+        yMax = Math.max(...data.map((point) => point[1]));
+      }
 
       let candlestickSeries = [];
 
       if (selectedFilter === 'candlestick' && candleStickData?.data?.quotes) {
         candlestickSeries = candleStickData.data.quotes.map((quote: any) => {
+          candleStickMarketcap.push([
+            new Date(quote.timeOpen).getTime(),
+            quote.quote.marketCap,
+          ]);
+
           candleStickVolume.push({
             x: new Date(quote.timeOpen).getTime(),
             y: quote.quote.volume,
@@ -100,17 +184,23 @@ const StockChart: React.FC<StockChartProps> = ({
                 : 'rgba(152, 0, 255, 1)',
           });
 
-          return [
-            new Date(quote.timeOpen).getTime(),
-            quote.quote.open,
-            quote.quote.high,
-            quote.quote.low,
-            quote.quote.close,
-          ];
+          return {
+            x: new Date(quote.timeOpen).getTime(),
+            open: quote.quote.open,
+            high: quote.quote.high,
+            low: quote.quote.low,
+            close: quote.quote.close,
+            color:
+              quote.quote.close > quote.quote.open
+                ? 'rgba(69, 202, 148, 1)'
+                : 'rgba(152, 0, 255, 1)',
+            lineColor:
+              quote.quote.close > quote.quote.open
+                ? 'rgba(69, 202, 148, 1)'
+                : 'rgba(152, 0, 255, 1)',
+          };
         });
       }
-
-      debugger;
 
       setOptions({
         scrollbar: { enabled: false },
@@ -150,6 +240,8 @@ const StockChart: React.FC<StockChartProps> = ({
                 const value = this.value;
                 if (value >= 1000000000000)
                   return (value / 1000000000000).toFixed(1) + 'T';
+                if (value >= 1000000000)
+                  return (value / 1000000000).toFixed(1) + 'B';
                 if (value >= 1000000) return (value / 1000000).toFixed(1) + 'M';
                 if (value >= 1000) return (value / 1000).toFixed(1) + 'K';
                 return value;
@@ -177,10 +269,16 @@ const StockChart: React.FC<StockChartProps> = ({
           formatter: function (this: any) {
             const date = Highcharts.dateFormat('%m/%d/%Y', this.x);
             const time = Highcharts.dateFormat('%I:%M:%S %p', this.x);
-            const price = priceNumberFormatter(this.y);
             const volume = numeral(
               Object.values(points)[this.point.index].v[1],
             ).format('0.00a');
+
+            const ohlc = this.points[0].point;
+            const open = priceNumberFormatter(ohlc.open);
+            const high = priceNumberFormatter(ohlc.high);
+            const low = priceNumberFormatter(ohlc.low);
+            const close = priceNumberFormatter(ohlc.close);
+            const price = priceNumberFormatter(this.y);
 
             return `
               <div style="padding: 16px; border-radius: 8px; background: white; box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 250px; max-height: 194px;">
@@ -188,10 +286,53 @@ const StockChart: React.FC<StockChartProps> = ({
                   <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${date}</div>
                   <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${time}</div>
                 </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">Price</div>
-                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">$${price}</div>
-                </div>
+              ${
+                graphType === 'candlestick'
+                  ? `
+                    <div style="display: flex; justify-content: space-between; padding-top: 6px;">
+                      <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
+                        Open
+                      </div>
+                      <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
+                        $${open}
+                      </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding-top: 6px;">
+                      <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
+                        High
+                      </div>
+                      <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
+                        $${high}
+                      </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding-top: 6px;">
+                      <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
+                        Low
+                      </div>
+                      <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
+                        $${low}
+                      </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding-top: 6px;">
+                      <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
+                        Close
+                      </div>
+                      <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
+                        $${close}
+                      </div>
+                    </div>
+                  `
+                  : `
+                  <div style="display: flex; justify-content: space-between; padding-top: 6px;">
+                    <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
+                      Price
+                    </div>
+                    <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
+                      $${price}
+                    </div>
+                  </div>
+                  `
+              }
                 <div style="display: flex; justify-content: space-between; padding-top: 6px;">
                   <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">Volume</div>
                   <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase;">$${volume}</div>
@@ -207,7 +348,12 @@ const StockChart: React.FC<StockChartProps> = ({
             type: graphType,
             id: 'graph',
             name: 'AAPL Stock Price',
-            data: graphType === 'candlestick' ? candlestickSeries : data,
+            data:
+              graphType === 'candlestick'
+                ? candlestickSeries
+                : graphType === 'line'
+                  ? marketcap
+                  : data,
             color: 'rgba(69, 202, 148, 1)',
             fillColor: {
               linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
@@ -266,10 +412,29 @@ const StockChart: React.FC<StockChartProps> = ({
             yAxis: 1,
             dataGrouping: { enabled: false }, // Ensure no data grouping for the volume series
           },
+          {
+            type: 'area',
+            id: 'aapl-marketcap',
+            name: 'AAPL Marketcap',
+            data:
+              graphType === 'candlestick' ? candleStickMarketcap : marketcap,
+            yAxis: 2,
+            color: '#F0F2F5',
+            fillColor: '#F0F2F5',
+            dataGrouping: { enabled: false }, // Ensure no data grouping for the volume series,
+            marker: {
+              enabled: false,
+              states: {
+                hover: {
+                  enabled: false,
+                },
+              },
+            },
+          },
         ],
         navigator: {
           height: 48,
-          maskFill: '#11111100',
+          maskFill: '#EFF3FF75',
           outlineWidth: 1,
           outlineColor: 'rgba(17, 17, 17, 0.05)',
           scrollbar: { enabled: true },
@@ -298,10 +463,29 @@ const StockChart: React.FC<StockChartProps> = ({
           ],
         },
         credits: { enabled: false },
+        chart: {
+          events: {
+            load: function () {
+              setIsLoading(false);
+            },
+          },
+        },
       });
+
+      console.log(candleStickData);
+
+      // Ensure the chart is fully loaded before hiding the loader
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500); // Adjust timeout as needed for your use case
     };
 
     fetchChartData();
+
+    if (chartComponentRef.current) {
+      if (selectedFilter !== 'candlestick')
+        chartComponentRef.current.chart.zoomOut();
+    }
   }, [graphType, selectedFilter, apiData, candleStickData, volumeValue]);
 
   return (
@@ -310,13 +494,47 @@ const StockChart: React.FC<StockChartProps> = ({
       style={{
         padding: '45px 24px 34px 22px',
         height: isFullScreen ? '90vh' : '620px',
+        position: 'relative',
       }}
     >
+      {isLoading && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+            zIndex: 10,
+            marginTop: '50px',
+          }}
+        >
+          <div className="spinner" style={{ marginBottom: '10px' }}></div>
+          <div
+            style={{
+              fontSize: '16px',
+              fontWeight: 'bold',
+              marginBottom: '5px',
+            }}
+          >
+            Loading data
+          </div>
+          <div style={{ fontSize: '14px', color: 'gray' }}>
+            Please wait a moment.
+          </div>
+        </div>
+      )}
       <HighchartsReact
         highcharts={Highcharts}
         constructorType={'stockChart'}
         options={options}
         containerProps={{ style: { height: '100%' } }}
+        ref={chartComponentRef}
       />
     </div>
   );
