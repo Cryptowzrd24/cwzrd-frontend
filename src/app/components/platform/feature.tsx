@@ -38,7 +38,6 @@ const Feature = () => {
                 'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              marginLeft: '10px',
             }}
           >
             Features
@@ -51,6 +50,7 @@ const Feature = () => {
             fontWeight: '400',
             mb: '72px',
             textAlign: 'center',
+            maxWidth: '860px',
           }}
         >
           Keep a detailed record of your trades and transactions with our trade

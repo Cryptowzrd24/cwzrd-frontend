@@ -14,7 +14,7 @@ const TradingPlatform = () => {
             'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          marginLeft: '10px',
+          marginLeft: '40px',
           mb: '48px',
         }}
       >
