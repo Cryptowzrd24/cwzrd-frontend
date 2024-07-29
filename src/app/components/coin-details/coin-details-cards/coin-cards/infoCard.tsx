@@ -13,7 +13,7 @@ const InfoCard = () => {
         backgroundPosition: 'center center',
         maxWidth: '290px',
         width: '100%',
-        boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
+        boxShadow: 'rgba(0,0,0, 0.05) 0px 4px 28px 0px',
         borderRadius: '16px',
       }}
     >
@@ -127,7 +127,11 @@ const InfoCard = () => {
           >
             <Select
               displayEmpty
-              IconComponent={() => null} // Remove the default icon
+              IconComponent={() => (
+                <Box sx={{ marginLeft: '4px' }}>
+                  <SliderIcon />
+                </Box>
+              )}
               sx={{
                 fontSize: '11px',
                 fontWeight: '500',
@@ -157,7 +161,12 @@ const InfoCard = () => {
               }}
             >
               <MenuItem sx={{ display: 'flex', gap: '4px' }}>
-                Mempool <SliderIcon />
+                <Typography
+                  variant="body1"
+                  sx={{ fontSize: '11px', fontWeight: '500' }}
+                >
+                  Mempool
+                </Typography>
               </MenuItem>
             </Select>
           </Box>
@@ -193,7 +202,11 @@ const InfoCard = () => {
           >
             <Select
               displayEmpty
-              IconComponent={() => null} // Remove the default icon
+              IconComponent={() => (
+                <Box sx={{ marginLeft: '4px', cursor: 'pointer' }}>
+                  <SliderIcon />
+                </Box>
+              )}
               sx={{
                 fontSize: '11px',
                 fontWeight: '500',
@@ -223,7 +236,12 @@ const InfoCard = () => {
               }}
             >
               <MenuItem sx={{ display: 'flex', gap: '4px' }}>
-                Ledger <SliderIcon />
+                <Typography
+                  variant="body1"
+                  sx={{ fontSize: '11px', fontWeight: '500' }}
+                >
+                  Ledger
+                </Typography>
               </MenuItem>
             </Select>
           </Box>
@@ -292,7 +310,7 @@ const InfoCard = () => {
             </Box>
           </Box>
         </Box>
-        {/* ------------------------------------ */}
+        {/* ------------------------------- */}
         <Box
           sx={{
             display: 'flex',
@@ -311,30 +329,31 @@ const InfoCard = () => {
           >
             API ID
           </Typography>
-          <Box
-            sx={{
-              padding: '7px 12px',
-              borderRadius: '8px',
-              background: 'rgba(17, 17, 17, 0.05)',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <Typography
-              variant="body1"
+          <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+            <Box
               sx={{
-                fontSize: '11px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
+                padding: '7px 12px',
+                borderRadius: '8px',
+                background: 'rgba(17, 17, 17, 0.05)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
               }}
             >
-              Bitcoin
-            </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '11px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                Bitcoin
+              </Typography>
+            </Box>
           </Box>
         </Box>
-        {/* ------------------------------------------------------- */}
-
+        {/* ------------------------------------------- */}
         <Box
           sx={{
             display: 'flex',
@@ -386,7 +405,11 @@ const InfoCard = () => {
             >
               <Select
                 displayEmpty
-                IconComponent={() => null}
+                IconComponent={() => (
+                  <Box sx={{ marginLeft: '4px', cursor: 'pointer' }}>
+                    <SliderIcon />
+                  </Box>
+                )}
                 sx={{
                   fontSize: '11px',
                   fontWeight: '500',
@@ -417,7 +440,12 @@ const InfoCard = () => {
                 }}
               >
                 <MenuItem sx={{ display: 'flex', gap: '4px' }}>
-                  Ledger <SliderIcon />
+                  <Typography
+                    variant="body1"
+                    sx={{ fontSize: '11px', fontWeight: '500' }}
+                  >
+                    Ledger
+                  </Typography>
                 </MenuItem>
               </Select>
             </Box>

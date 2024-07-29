@@ -5,6 +5,7 @@ interface QueryParamsType {
   pageSize: number;
   filters?: { [key: string]: string };
   time_period?: string;
+  searchString?: string;
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -17,14 +18,15 @@ export const dataGridApi = createApi({
 
   endpoints: (builder) => ({
     fetchCoinData: builder.query({
-      query: ({ start, pageSize, filters }: QueryParamsType) => {
+      query: ({ start, pageSize, filters, searchString }: QueryParamsType) => {
         const queryString = new URLSearchParams({
           offset: start.toString(),
           limit: pageSize.toString(),
           ...filters,
         }).toString();
+        const url = `/api/coins/?${queryString}${searchString ? `&name=${searchString}` : ''}`;
         return {
-          url: `/api/coins/?${queryString}`,
+          url,
           method: 'GET',
         };
       },
@@ -45,6 +47,14 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchFavoritesData: builder.query({
+      query: ({ id }: { id: string }) => {
+        return {
+          url: `/api/favorites/?coin_ids=${id}`,
+          method: 'GET',
+        };
+      },
+    }),
     fetchSpotlightData: builder.query({
       query: ({ start, pageSize }: QueryParamsType) => {
         return {
@@ -54,9 +64,9 @@ export const dataGridApi = createApi({
       },
     }),
     fetchDefiCoinsData: builder.query({
-      query: ({ start, pageSize }: QueryParamsType) => {
+      query: ({ start, pageSize, searchString }: QueryParamsType) => {
         return {
-          url: `/api/defi/?offset=${start}&limit=${pageSize}`,
+          url: `/api/defi/?offset=${start}&limit=${pageSize}${searchString ? `&name=${searchString}` : ''}`,
           method: 'GET',
         };
       },
@@ -78,9 +88,9 @@ export const dataGridApi = createApi({
       },
     }),
     fetchChainData: builder.query({
-      query: ({ start, pageSize }: QueryParamsType) => {
+      query: ({ start, pageSize, searchString }: QueryParamsType) => {
         return {
-          url: `/api/chains/?offset=${start}&limit=${pageSize}`,
+          url: `/api/chains/?offset=${start}&limit=${pageSize}${searchString ? `&name=${searchString}` : ''}`,
           method: 'GET',
         };
       },
@@ -94,9 +104,9 @@ export const dataGridApi = createApi({
       },
     }),
     fetchExchangesData: builder.query({
-      query: ({ start, pageSize }: QueryParamsType) => {
+      query: ({ start, pageSize, searchString }: QueryParamsType) => {
         return {
-          url: `/api/exchanges/?offset=${start}&limit=${pageSize}`,
+          url: `/api/exchanges/?offset=${start}&limit=${pageSize}${searchString ? `&name=${searchString}` : ''}`,
           method: 'GET',
         };
       },
@@ -128,4 +138,5 @@ export const {
   useFetchStatsDataQuery,
   useFetchTickerDataQuery,
   useFetchExchangesDataQuery,
+  useFetchFavoritesDataQuery,
 } = dataGridApi;
