@@ -17,29 +17,29 @@ const Collections = () => {
         <Box sx={{ mt: '80px' }}>
           <HeroContent />
         </Box>
-        <Box sx={{ mt: '40px' }}>
+        <Box sx={{ mt: '16px' }}>
           <Table />
         </Box>
-        <Box sx={{ mt: '80px' }}>
-          <CardContent />
-        </Box>
-        <Box sx={{ mt: '96px' }}>
+        <Box sx={{ mt: '48px' }}>
           <CollectionBanner />
         </Box>
-        <Box sx={{ mt: '80px' }}>
-          <NotableCardContent />
+        <Box sx={{ mt: '48px' }}>
+          <CardContent />
         </Box>
-        <Box sx={{ mt: '80px' }}>
+        {/* <Box sx={{ mt: '80px' }}>
+          <NotableCardContent />
+        </Box> */}
+        <Box sx={{ mt: '48px' }}>
           <NewsLetterBanner />
         </Box>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <NewsLetter />
         </Box>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <Technicals />
         </Box>
 
-        <Box sx={{ mt: '220px', mb: '120px' }}>
+        <Box sx={{ mt: '48px', mb: '48px' }}>
           <MemberShipBanner />
         </Box>
       </Container>
