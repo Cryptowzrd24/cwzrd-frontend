@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './index.module.css';
 import { CustomCellRendererProps } from 'ag-grid-react';
 import Vector from '../../../../../public/icons/vector';
-import { Modal, Box, Typography, TextField } from '@mui/material';
+import { Modal, Box, Typography, TextField, IconButton } from '@mui/material';
 
 export const FiatSupported = (props: CustomCellRendererProps) => {
   const [open, setOpen] = useState(false);
@@ -13,7 +13,7 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
   const handleSearchChange = (event: any) => {
     setSearchTerm(event.target.value);
   };
-
+  console.log('props----------', props);
   const fiats = props.value;
 
   if (!fiats || !Array.isArray(fiats) || fiats.length === 0) {
@@ -30,9 +30,6 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
   const filteredFiats = fiats.filter((fiat) =>
     fiat.toLowerCase().includes(searchTerm.toLowerCase()),
   );
-
-  console.log('fiats:', fiats);
-  console.log('filteredFiats:', filteredFiats);
 
   return (
     <div className={styles['fiat-supported']}>
@@ -86,12 +83,33 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
             border: 'none',
           }}
         >
-          <Typography
-            variant="body1"
-            sx={{ fontSize: '24px', fontWeight: '700', letterSpacing: 1 }}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
           >
-            Binance Fiat Supported
-          </Typography>
+            <Typography
+              variant="body1"
+              sx={{ fontSize: '24px', fontWeight: '700', letterSpacing: 1 }}
+            >
+              {props.data?.exchange} Fiat Supported
+            </Typography>
+            <IconButton
+              onClick={handleClose}
+              sx={{
+                '&:hover': {
+                  backgroundColor: 'transparent', // Remove hover effect
+                },
+              }}
+            >
+              <Typography sx={{ fontSize: '18px', color: 'GrayText' }}>
+                X
+              </Typography>
+            </IconButton>
+          </Box>
+
           <TextField
             placeholder="Search"
             value={searchTerm}
@@ -135,28 +153,31 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
             }}
           >
             {filteredFiats.length > 0 ? (
-              filteredFiats.map((fiat, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    mt: 2,
-                    fontSize: '14px',
-                    fontWeight: '500',
-                  }}
-                >
-                  <img
-                    src={getFlagUrl(fiat)}
-                    alt={`${fiat} flag`}
-                    style={{ width: '20px', height: '15px' }}
-                  />
-                  <Typography sx={{ fontSize: '14px', fontWeight: '500' }}>
-                    {fiat}
-                  </Typography>
-                </Box>
-              ))
+              filteredFiats.map((fiat, index) => {
+                const trimmedFiat = fiat.trim();
+                return (
+                  <Box
+                    key={index}
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      mt: 2,
+                      fontSize: '14px',
+                      fontWeight: '500',
+                    }}
+                  >
+                    <img
+                      src={getFlagUrl(trimmedFiat)}
+                      alt={`${trimmedFiat} flag`}
+                      style={{ width: '20px', height: '15px' }}
+                    />
+                    <Typography sx={{ fontSize: '14px', fontWeight: '500' }}>
+                      {trimmedFiat}
+                    </Typography>
+                  </Box>
+                );
+              })
             ) : (
               <Typography sx={{ mt: 1 }}>No results found</Typography>
             )}

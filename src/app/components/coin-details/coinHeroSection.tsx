@@ -127,7 +127,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
           <Box
             sx={{
               display: 'flex',
-              alignItems: 'self-start',
+              alignItems: 'center',
               gap: '8px',
             }}
           >
@@ -142,7 +142,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                   fontWeight: '500',
                   color: 'rgba(255, 255, 255, 1)',
                   lineHeight: 1,
-                  marginTop: '5px',
+                  mb: '4.5px',
                 }}
               >
                 {coinDetails?.name}
@@ -166,6 +166,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
+                mb: '18px',
               }}
             >
               <Typography
@@ -292,6 +293,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                     fontSize: '12px',
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 1)',
+                    mb: '2px',
                   }}
                 >
                   Low: $
@@ -318,6 +320,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                     fontSize: '12px',
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 1)',
+                    mb: '2px',
                   }}
                 >
                   24h range:
@@ -340,7 +343,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
+            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
           />
 
           {/* --------------------------------------------------------------------------------- */}
@@ -362,6 +365,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                       fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
+                      mb: '2px',
                     }}
                   >
                     Market Cap
@@ -414,6 +418,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                       fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
+                      mb: '2px',
                     }}
                   >
                     1D Trading Vol
@@ -421,7 +426,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: '26px',
+                      fontSize: '16px',
                       fontWeight: '700',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -449,7 +454,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
+            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
           />
 
           {/* -------------------------------------------------------------------------- */}
@@ -471,6 +476,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                       fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
+                      mb: '2px',
                     }}
                   >
                     Diluted Valuation
@@ -529,6 +535,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                       fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
+                      mb: '2px',
                     }}
                   >
                     Circulating Supply
@@ -554,7 +561,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
+            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
           />
 
           {/* ------------------------------------------------------------------------------------------- */}
@@ -576,6 +583,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                       fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
+                      mb: '2px',
                     }}
                   >
                     Total Supply
@@ -611,6 +619,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                       fontSize: '12px',
                       fontWeight: '400',
                       color: 'rgba(255, 255, 255, 1)',
+                      mb: '2px',
                     }}
                   >
                     Max Supply
