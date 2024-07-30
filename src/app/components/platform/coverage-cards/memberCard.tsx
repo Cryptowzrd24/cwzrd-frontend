@@ -20,7 +20,7 @@ const MemberCard = () => {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
           <Image src={join} alt="join" width={64} />
           <Typography variant="h1" sx={{ color: 'rgba(255, 255, 255, 1)' }}>
-            10,700+ people already joined us
+          We are the largest trading community. Join Now?
           </Typography>
         </Box>
         <Box>

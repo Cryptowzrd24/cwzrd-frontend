@@ -52,6 +52,7 @@ const Feature = () => {
             mb: '72px',
             textAlign: 'center',
             maxWidth: '860px',
+            lineHeight:"30px"
           }}
         >
           Keep a detailed record of your trades and transactions with our trade

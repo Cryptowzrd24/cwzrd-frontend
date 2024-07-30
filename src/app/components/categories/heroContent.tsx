@@ -37,7 +37,7 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '16px',
+          fontSize: '15px',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           mt: '8px',
@@ -56,7 +56,7 @@ function HeroContent() {
           style={{
             color: '#7248F7',
             cursor: 'pointer',
-            fontSize: '16px',
+            fontSize: '15px',
             fontWeight: '700',
           }}
           onClick={handleToggle}

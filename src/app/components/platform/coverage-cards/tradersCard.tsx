@@ -25,6 +25,7 @@ const TradersCard = () => {
               color: 'rgba(17, 17, 17, 1)',
               mb: '8px',
               // maxWidth: '314px',
+              textTransform:"uppercase"
             }}
           >
             WZRD Traders Hub
@@ -38,7 +39,7 @@ const TradersCard = () => {
             Real-time prices of Cryptocurrencies and key metrics
           </Typography>
         </Stack>
-        <Box sx={{ paddingBottom: '32px' }}>
+        <Box sx={{ paddingBottom: '32px',marginLeft:"24px" }}>
           <Image src={macbook} alt="macbook" width={362} />
         </Box>
       </Box>

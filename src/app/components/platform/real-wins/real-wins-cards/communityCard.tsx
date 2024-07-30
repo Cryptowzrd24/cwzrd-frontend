@@ -19,8 +19,8 @@ const CommunityCard = () => {
         <Image src={comments} alt="deliver" width={386} />
         <Box
           sx={{
-            paddingRight: '32px',
-            maxWidth: '355px',
+            paddingRight: '24px',
+            maxWidth: '366px',
             width: '100%',
             mt: '18px',
           }}

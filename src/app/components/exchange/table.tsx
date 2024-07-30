@@ -9,6 +9,7 @@ import { scrollToTop } from '@/utils/scroll-to-top';
 import { Box } from '@mui/material';
 import ExchangeCardContent from './cards/cardContent';
 import { useFetchExchangesDataQuery } from '@/app/redux/reducers/data-grid';
+import debounce from 'debounce';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -23,13 +24,24 @@ const Table = () => {
   const { data } = useFetchExchangesDataQuery({
     start: currentPage,
     pageSize,
+    searchString: search,
   });
 
   const totalCount = data?.count || 0;
 
-  const handleSetSearch = useCallback((value: any) => {
-    setSearch(value);
-  }, []);
+  const debouncedFetchExhchangesData = useCallback(
+    debounce((value) => {
+      setSearch(value);
+    }, 600),
+    [],
+  );
+
+  const handleSetSearch = useCallback(
+    (value: any) => {
+      debouncedFetchExhchangesData(value);
+    },
+    [debouncedFetchExhchangesData],
+  );
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
