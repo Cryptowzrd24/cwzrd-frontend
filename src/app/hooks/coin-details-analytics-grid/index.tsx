@@ -1,5 +1,4 @@
 import NewCoin from '@/app/components/data-table/price';
-import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { useMemo } from 'react';
 
 const useColumnCoinDetailAnalyticsDefs = (columns: any) => {
@@ -10,7 +9,12 @@ const useColumnCoinDetailAnalyticsDefs = (columns: any) => {
           return {
             field: 'date',
             headerName: 'Date',
-            width: 180,
+            width: 220,
+            cellStyle: {
+              fontSize: '13px',
+              fontWeight: '500',
+              fontFamily: 'Sf Pro Display',
+            },
           };
         case 'open':
           return {
@@ -52,9 +56,7 @@ const useColumnCoinDetailAnalyticsDefs = (columns: any) => {
             field: 'market_cap',
             headerName: 'Market Cap',
             width: 180,
-            valueFormatter: (p: any) => {
-              return '$' + priceNumberFormatter(p.value);
-            },
+            cellRenderer: NewCoin,
           };
 
         default:

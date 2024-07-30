@@ -54,6 +54,7 @@ const CoinDetails = () => {
           <CoinNavbar />
         </Box>
         <Box id="details" sx={{ display: 'flex', flexDirection: 'row', mb: '48px' }}>
+        <Box id="details" sx={{ display: 'flex', flexDirection: 'row', mb: '48px' }}>
           <Box>
             <GraphLayout
               chartRef={chartRef}
@@ -72,6 +73,7 @@ const CoinDetails = () => {
           <NewsLetter />
         </Box>
         <Box id="market" sx={{ mb: '48px' }}>
+          <CoinMarket coinName={coinName} />
           <CoinMarket coinName={coinName} />
         </Box>
         <Box id="technicals" sx={{ mb: '48px' }}>

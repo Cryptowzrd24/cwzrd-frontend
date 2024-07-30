@@ -5,7 +5,11 @@ import React, { useEffect, useState } from 'react';
 import DataTable from '../../data-table';
 import { Pagination } from '../../data-table/pagination';
 import useColumnCoinDetailDefs from '@/app/hooks/coin-detail-grid';
-import { columnsCoinMarket } from '@/app/constants/columns';
+import {
+  columnsCoinMarketSpot,
+  columnsCoinMarketPerpetual,
+  columnsCoinMarketFutures,
+} from '@/app/constants/columns';
 import { useFetchMarketDataCoinDetailsQuery } from '@/app/redux/reducers/data-grid';
 
 interface CoinMarketProps {
@@ -20,7 +24,13 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
     coinName: coinName,
     filter: active.toLowerCase(),
   });
-  const colDef = useColumnCoinDetailDefs(columnsCoinMarket);
+  const columnHeaders =
+    active === 'Spot'
+      ? columnsCoinMarketSpot
+      : active === 'Perpetual'
+        ? columnsCoinMarketPerpetual
+        : columnsCoinMarketFutures;
+  const colDef = useColumnCoinDetailDefs(columnHeaders);
   const pageSize = 10;
   const totalCount = 10;
 
@@ -36,8 +46,24 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
     setActive(button);
   };
 
+  function formatDate(dateString: string) {
+    // Create a new Date object from the provided string
+    const date = new Date(dateString);
+
+    // Extract the parts of the date
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+
+    // Combine the parts into the desired format
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  }
+
   useEffect(() => {
-    if (data && data.data) {
+    if (data && data.data && active === 'Spot') {
       const startIndex = (currentPage - 1) * pageSize + 1;
       const res = data.data.marketPairs.map((item: any, index: number) => ({
         id: item.rank,
@@ -51,6 +77,46 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
         volume: item.volumePercent,
         confidence: item.confidence,
         liquidity_store: item.effectiveLiquidity,
+        baseSymbol: item.baseSymbol,
+        updated: item.lastUpdated,
+        index: startIndex + index,
+      }));
+      setRowData(res);
+    }
+    if (data && data.data && active === 'Perpetual') {
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.marketPairs.map((item: any, index: number) => ({
+        id: item.rank,
+        coin_id: item.exchangeId,
+        exchange: item.exchangeName,
+        pair: item.marketPair,
+        new_price: item.price,
+        index_price: item.indexPrice,
+        basis: item.indexBasis,
+        funding_rate: item.fundingRate,
+        open_interest: item.openInterestUsd,
+        volume_24h: item.quotes[0]?.volume24h,
+        volume: item.volumePercent,
+        baseSymbol: item.baseSymbol,
+        updated: item.lastUpdated,
+        index: startIndex + index,
+      }));
+      setRowData(res);
+    }
+    if (data && data.data && active === 'Futures') {
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.marketPairs.map((item: any, index: number) => ({
+        id: item.rank,
+        coin_id: item.exchangeId,
+        exchange: item.exchangeName,
+        pair: item.marketPair,
+        new_price: item.price,
+        index_price: item.indexPrice,
+        basis: item.indexBasis,
+        expiry_date: formatDate(item.expiration),
+        open_interest: item.openInterestUsd,
+        volume_24h: item.quotes[0]?.volume24h,
+        volume: item.volumePercent,
         baseSymbol: item.baseSymbol,
         updated: item.lastUpdated,
         index: startIndex + index,
@@ -185,7 +251,14 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ mt: '16px' }}>
+      <Box
+        sx={{
+          mt: '16px',
+          '& .ag-header-cell:last-child .ag-header-cell-label': {
+            justifyContent: 'start !important',
+          },
+        }}
+      >
         <DataTable rowData={rowData} columnDefs={colDef} />
         <Pagination
           length={totalCount}
