@@ -53,6 +53,7 @@ const Feature = () => {
             textAlign: 'center',
             maxWidth: '860px',
             lineHeight: '30px',
+            color: 'rgba(17, 17, 17, 0.8)',
           }}
         >
           Keep a detailed record of your trades and transactions with our trade

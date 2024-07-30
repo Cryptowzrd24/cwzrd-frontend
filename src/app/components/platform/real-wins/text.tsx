@@ -42,6 +42,7 @@ const Text = () => {
               display: 'flex',
               alignItems: 'center',
               cursor: 'pointer',
+              gap: '4px',
             }}
           >
             View Our Community Success

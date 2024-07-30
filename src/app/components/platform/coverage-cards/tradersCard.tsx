@@ -12,9 +12,13 @@ const TradersCard = () => {
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           maxWidth: '100%',
           width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '26px',
+          alignItems: 'center',
         }}
       >
-        <Stack sx={{ maxWidth: '314px', padding: '48px 48px 26px 48px' }}>
+        <Stack sx={{ maxWidth: '314px', padding: '48px 0px 26px 24px' }}>
           <Typography
             variant="body1"
             sx={{
@@ -23,7 +27,6 @@ const TradersCard = () => {
               letterSpacing: '2px',
               color: 'rgba(17, 17, 17, 1)',
               mb: '8px',
-              // maxWidth: '314px',
               textTransform: 'uppercase',
             }}
           >
@@ -38,7 +41,7 @@ const TradersCard = () => {
             Real-time prices of Cryptocurrencies and key metrics
           </Typography>
         </Stack>
-        <Box sx={{ padding: '0 24px 32px 24px' }}>
+        <Box sx={{ padding: '0 0 32px' }}>
           <Image src={macbook} alt="macbook" width={362} />
         </Box>
       </Box>

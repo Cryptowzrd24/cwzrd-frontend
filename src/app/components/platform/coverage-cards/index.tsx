@@ -11,7 +11,6 @@ const CoverageCards = () => {
       <Box
         sx={{
           display: 'grid',
-          alignItems: 'center',
           gridTemplateColumns: '1fr 1fr 1fr',
           gap: '30px',
         }}

@@ -10,11 +10,13 @@ const TradingPlatform = () => {
         sx={{
           fontSize: '56px',
           fontWeight: '600',
-          backgroundImage: 'linear-gradient(90deg, #634DFD 0%, #BF48F7 100%)',
+          backgroundImage:
+            'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           marginLeft: '40px',
           mb: '48px',
+          width: 'min-content',
         }}
       >
         Trading
