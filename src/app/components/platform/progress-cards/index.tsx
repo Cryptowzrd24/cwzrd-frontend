@@ -8,8 +8,8 @@ const ProgressCards = () => {
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'space-between',
           alignItems: 'center',
+          gap: '30px',
         }}
       >
         <ProgressCard

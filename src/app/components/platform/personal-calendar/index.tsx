@@ -23,7 +23,8 @@ const PersonalCalendar = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          gap: '30px',
+          width: '100%',
         }}
       >
         <Box
@@ -31,7 +32,7 @@ const PersonalCalendar = () => {
             padding: '77px 68px 0px 94px',
             background: 'rgba(255, 255, 255, 1)',
             borderRadius: '32px',
-            maxWidth: '690px',
+            maxWidth: '67.4%',
             width: '100%',
             height: '514px',
             boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',

@@ -19,12 +19,7 @@ const JoinedPeople = () => {
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-          <Image
-            src={join}
-            alt="join"
-            width={252}
-            style={{ paddingTop: '8px' }}
-          />
+          <Image src={join} alt="join" width={252} />
           <Typography variant="h1" sx={{ color: 'rgba(255, 255, 255, 1)' }}>
             10,700+ people already joined us
           </Typography>

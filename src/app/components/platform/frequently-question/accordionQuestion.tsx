@@ -19,7 +19,7 @@ export default function AccordionQuestion({ title, summary }: accordionData) {
   };
 
   return (
-    <div style={{ maxWidth: '566px', marginBottom: '16px' }}>
+    <div style={{ marginBottom: '16px', maxWidth: '90%' }}>
       <Accordion
         expanded={expanded}
         onChange={handleChange}

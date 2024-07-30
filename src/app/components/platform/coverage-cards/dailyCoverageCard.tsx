@@ -26,7 +26,7 @@ const DailyCoverageCard = () => {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           padding: '32px 56px 80px 32px',
-          width: '322px',
+          maxWidth: '100%',
           height: '358px',
           borderRadius: '32px',
           position: 'relative',

@@ -4,7 +4,7 @@ import graph from '../../../../../public/images/platform/trade-graph.png';
 import Image from 'next/image';
 const TradeCards = () => {
   return (
-    <Box sx={{ display: 'flex', gap: '30px' }}>
+    <Box sx={{ display: 'flex', gap: '30px', flex: 1 }}>
       <Box
         sx={{
           paddingLeft: '32px',
@@ -12,6 +12,7 @@ const TradeCards = () => {
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '32px',
+          width: '41.2%',
         }}
       >
         <Image src={graph} alt="graph" width={500} />
@@ -53,7 +54,7 @@ const TradeCards = () => {
           borderRadius: '32px',
           position: 'relative',
           // maxWidth: '740px',
-          width: '100%',
+          width: '58.7%',
         }}
       >
         <Typography

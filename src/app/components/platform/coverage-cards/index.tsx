@@ -10,9 +10,10 @@ const CoverageCards = () => {
     <>
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
+          display: 'grid',
           alignItems: 'center',
+          gridTemplateColumns: '1fr 1fr 1fr',
+          gap: '30px',
         }}
       >
         <TradersCard />

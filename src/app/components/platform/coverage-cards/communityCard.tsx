@@ -10,7 +10,7 @@ const CommunityCard = () => {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           padding: '32px',
-          width: '347px',
+          maxWidth: '100%',
           height: '407px',
           borderRadius: '32px',
           display: 'flex',
