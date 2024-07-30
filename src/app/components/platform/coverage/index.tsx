@@ -10,7 +10,7 @@ const Coverage = () => {
           padding: '61px 88px',
           borderRadius: '32px',
           display: 'flex',
-          justifyContent: 'space-between',
+          gap: '48px',
           alignItems: 'center',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
@@ -24,7 +24,6 @@ const Coverage = () => {
             <Typography
               variant="h1"
               sx={{
-                maxWidth: '930px',
                 backgroundImage:
                   ' linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
                 WebkitBackgroundClip: 'text',

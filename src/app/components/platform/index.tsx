@@ -19,8 +19,10 @@ import Image from 'next/image';
 import FrequentlyAskedQuestion from './frequently-question';
 import ProgressCards from './progress-cards';
 import header from '../../../../public/images/platform/header.png';
+import Macbook from '../../../../public/images/platform/MacBook.png';
 
 import './index.scss';
+import Forex from './forex-cryptocurrencies';
 
 const Platform = () => {
   return (
@@ -73,19 +75,26 @@ const Platform = () => {
           <JoinedPeople />
         </Box>
       </Container>
-      {/* <Box
+      <Box
         sx={{
           mb: '150px',
           display: 'flex',
-          // justifyContent: 'space-between',
-          // alignItems: 'center',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '56px',
         }}
       >
         <Forex />
-        <Box>
-          <Image src={Macbook} alt="macbook" width={712} />
-        </Box>
-      </Box> */}
+        <Image
+          src={Macbook}
+          alt="macbook"
+          style={{
+            flex: 1,
+            width: '45%',
+            height: 'auto',
+          }}
+        />
+      </Box>
       <Container maxWidth="xl">
         <Box sx={{ mb: '30px' }}>
           <PersonalCalendar />

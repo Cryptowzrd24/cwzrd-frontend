@@ -16,6 +16,7 @@ const TradeOpportunities = () => {
             padding: '16px 20px 16px 24px',
             borderRadius: '56px',
             mb: '168px',
+            marginTop: '-16px',
           }}
         >
           <Typography

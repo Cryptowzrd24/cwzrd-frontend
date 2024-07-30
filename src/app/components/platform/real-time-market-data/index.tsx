@@ -9,7 +9,7 @@ const RealTimeMarketData = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          padding: '80px 0 0 64px',
+          padding: '0px 0 0 64px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           justifyContent: 'space-between',
@@ -54,8 +54,13 @@ const RealTimeMarketData = () => {
         <Image
           src={macbook}
           alt="macbook"
-          width={592}
-          style={{ borderBottomRightRadius: '32px' }}
+          loading="lazy"
+          style={{
+            borderBottomRightRadius: '32px',
+            marginTop: '80px',
+            width: '592px',
+            height: 'auto',
+          }}
         />
       </Box>
     </>

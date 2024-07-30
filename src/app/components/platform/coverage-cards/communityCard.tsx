@@ -11,11 +11,11 @@ const CommunityCard = () => {
           backgroundPosition: 'center',
           padding: '32px',
           maxWidth: '100%',
-          height: '407px',
           borderRadius: '32px',
           display: 'flex',
           justifyContent: 'flex-start',
           alignItems: 'flex-end',
+          height: 'auto',
         }}
       >
         <Box>
