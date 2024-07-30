@@ -15,7 +15,7 @@ const EducationCard = () => {
           backgroundPosition: 'center',
           padding: '48px 32px 56px 32px',
           borderRadius: '32px',
-          maxWidth: '788px',
+          maxWidth: '67.4%',
           width: '100%',
           position: 'relative',
         }}

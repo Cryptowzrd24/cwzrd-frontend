@@ -26,7 +26,7 @@ const DailyCoverageCard = () => {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           padding: '32px 56px 80px 32px',
-          width: '322px',
+          maxWidth: '100%',
           height: '358px',
           borderRadius: '32px',
           position: 'relative',
@@ -65,13 +65,14 @@ const DailyCoverageCard = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: '40px',
+                fontSize: '32px',
                 color: 'rgba(255, 255, 255, 1)',
                 mt: '35px',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
-                lineHeight: '44px',
+                lineHeight: '38.4px',
                 textAlign: 'center',
+                fontWeight: '700',
               }}
             >
               {active

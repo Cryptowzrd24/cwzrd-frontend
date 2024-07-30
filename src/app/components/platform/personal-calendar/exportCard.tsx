@@ -23,10 +23,11 @@ const ExportCard = () => {
         sx={{
           backgroundImage: 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
           padding: '32px 56px 32px 32px',
-          maxWidth: '410px',
+          maxWidth: '23.5%',
           borderRadius: '32px',
           position: 'relative',
           height: '528px',
+          width: '100%',
         }}
       >
         <Typography

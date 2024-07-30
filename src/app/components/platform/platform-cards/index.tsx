@@ -12,6 +12,7 @@ const PlatformCards = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          gap: '30px',
         }}
       >
         <TradeManagement />

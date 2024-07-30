@@ -26,9 +26,10 @@ const TradeManagement = () => {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           padding: '32px 48px 48px 32px',
-          width: '330px',
+          width: '100%',
           height: '390px',
           borderRadius: '32px',
+          flex: 1,
           position: 'relative',
         }}
       >

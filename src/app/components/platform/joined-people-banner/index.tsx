@@ -15,10 +15,11 @@ const JoinedPeople = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          height: 56,
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-          <Image src={join} alt="join" width={225} />
+          <Image src={join} alt="join" width={252} />
           <Typography variant="h1" sx={{ color: 'rgba(255, 255, 255, 1)' }}>
             10,700+ people already joined us
           </Typography>
@@ -36,7 +37,7 @@ const JoinedPeople = () => {
             }}
           >
             Become a member
-            <span style={{ marginTop: '10px', marginLeft: '4px' }}>
+            <span style={{ marginTop: '8px', marginLeft: '4px' }}>
               <ArrowRight />
             </span>
           </Typography>
