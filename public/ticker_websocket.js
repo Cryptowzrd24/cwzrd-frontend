@@ -1,0 +1,47 @@
+const ws = new WebSocket('wss://backend.cwzrd.co.uk/ws/data/');
+
+document.querySelector('.ticker-info').textContent = 'BLAHBLAHBLAH';
+
+debugger;
+
+ws.addEventListener('open', () => {
+  console.log('WebSocket connection opened falsdjflasjfl lkjasflk');
+});
+
+ws.addEventListener('message', (event) => {
+  const message = JSON.parse(event.data);
+
+  if (message.d && message.id) {
+    const coinId = message.id;
+    const newPrice = message.p;
+    const percentChange24h = message.p24h;
+
+    const priceElement = document.getElementById(`price-${coinId}`);
+    const percentChangeElement = document.getElementById(
+      `percent-change-${coinId}`,
+    );
+
+    console.log(priceElement);
+
+    if (priceElement) {
+      priceElement.textContent = `${priceElement.textContent.split(' ')[0]} $${newPrice.toFixed(2)}`;
+    }
+
+    if (percentChangeElement) {
+      percentChangeElement.textContent =
+        percentChange24h > 0
+          ? `+${percentChange24h.toFixed(2)}%`
+          : `${percentChange24h.toFixed(2)}%`;
+      percentChangeElement.style.backgroundColor =
+        percentChange24h > 0 ? '#1FD773' : '#F74848';
+    }
+  }
+});
+
+ws.addEventListener('error', (error) => {
+  console.error('WebSocket error:', error);
+});
+
+ws.addEventListener('close', (event) => {
+  console.log('WebSocket connection closed:', event);
+});

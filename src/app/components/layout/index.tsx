@@ -6,6 +6,7 @@ import Footer from '../footer';
 import theme from '@/theme';
 import TickerServer from '../ticker';
 import StoreProvider from '@/app/StoreProvider';
+import Script from 'next/script';
 
 export default function CustomLayout({
   children,
@@ -22,6 +23,7 @@ export default function CustomLayout({
             {children}
             <Footer />
           </StoreProvider>
+          <Script src="/ticker_websocket.js" />
         </body>
       </html>
     </ThemeProvider>
