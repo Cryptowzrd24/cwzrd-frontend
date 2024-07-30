@@ -74,7 +74,7 @@ const TradeCards = () => {
             color: 'rgba(255, 255, 255, 0.8)',
             width: '274px',
             fontWeight: '400',
-            lineHeight: '27px'
+            lineHeight: '27px',
           }}
         >
           We provide both the Crypto and FX signals with Entry Prices, Take

@@ -41,7 +41,7 @@ const Text = () => {
               lineHeight: '23.4px',
               display: 'flex',
               alignItems: 'center',
-              cursor:"pointer"
+              cursor: 'pointer',
             }}
           >
             View Our Community Success
