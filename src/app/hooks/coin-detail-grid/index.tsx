@@ -8,6 +8,7 @@ import {
   priceNumberFormatter,
 } from '@/utils/price-number-formater';
 import { DateAdded } from '@/app/components/data-table/date-component';
+import ThresholdCellRenderer from './thresholdCellRenderer';
 
 const useColumnCoinDetailDefs = (columns: any) => {
   return useMemo(() => {
@@ -25,7 +26,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'exchange',
             headerName: 'Exchange',
             cellRenderer: Exchange,
-            width: 165,
+            width: 185,
           };
         case 'pair':
           return {
@@ -47,7 +48,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
           return {
             field: 'index_price',
             headerName: 'Index price',
-            width: 130,
+            width: 110,
             cellRenderer: NewCoin,
 
             // valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
@@ -72,7 +73,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
           return {
             field: 'volume_24h',
             headerName: 'Volume(24h)',
-            width: 145,
+            width: 135,
             valueFormatter: (p: any) => priceNumberFormatDigits(p.value),
             // cellRenderer: VolumeComponent,
           };
@@ -80,7 +81,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
           return {
             field: 'volume',
             headerName: 'Volume%',
-            width: 135,
+            width: 100,
             valueFormatter: (p: any) => {
               return priceNumberFormatter(p.value) + '%';
             },
@@ -89,10 +90,8 @@ const useColumnCoinDetailDefs = (columns: any) => {
           return {
             field: 'basis',
             headerName: 'Basis',
-            width: 135,
-            valueFormatter: (p: any) => {
-              return priceNumberFormatter(p.value) + '%';
-            },
+            width: 75,
+            cellRenderer: ThresholdCellRenderer,
           };
         case 'confidence':
           return {
@@ -112,19 +111,23 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'funding_rate',
             width: 130,
             headerName: 'Funding rate',
+            cellRenderer: ThresholdCellRenderer,
             // cellRenderer: GraphComp,
           };
         case 'open_interest':
           return {
             field: 'open_interest',
-            width: 130,
+            width: 150,
             headerName: 'Open interest',
+            valueFormatter: (p: any) => {
+              return '$' + priceNumberFormatDigits(p.value);
+            },
             // cellRenderer: GraphComp,
           };
         case 'expiry_date':
           return {
             field: 'expiry_date',
-            width: 130,
+            width: 170,
             headerName: 'Expiry date',
             // cellRenderer: GraphComp,
           };
