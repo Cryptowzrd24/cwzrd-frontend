@@ -41,7 +41,11 @@ const Text = () => {
               lineHeight: '23.4px',
               display: 'flex',
               alignItems: 'center',
+<<<<<<< Updated upstream
+=======
               cursor: 'pointer',
+              gap: '4px',
+>>>>>>> Stashed changes
             }}
           >
             View Our Community Success

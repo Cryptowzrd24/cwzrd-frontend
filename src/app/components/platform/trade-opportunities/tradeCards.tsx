@@ -15,7 +15,15 @@ const TradeCards = () => {
           width: '41.2%',
         }}
       >
-        <Image src={graph} alt="graph" width={500} />
+        <Image
+          src={graph}
+          alt="graph"
+          width={500}
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+        />
         <Stack sx={{ maxWidth: '440px', paddingLeft: '8px' }}>
           <Typography
             variant="body1"

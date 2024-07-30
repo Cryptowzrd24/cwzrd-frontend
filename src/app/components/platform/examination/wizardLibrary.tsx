@@ -19,7 +19,7 @@ const WizardLibrary = () => {
           padding: '62px 0 38px 64px',
         }}
       >
-        <Stack gap={1} sx={{ maxWidth: '358px' }}>
+        <Stack gap={1} sx={{ maxWidth: '422px' }}>
           <Typography
             variant="h1"
             sx={{
