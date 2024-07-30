@@ -21,6 +21,72 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
       chart: {
         type: 'solidgauge',
         height: '100%',
+        events: {
+          render: function (this: any) {
+            // const chart = this;
+            const renderer = this.renderer;
+            if (!renderer.defs) {
+              renderer.defs = renderer.createElement('defs').add();
+            }
+
+            if (!renderer.defs.filter) {
+              const filter = renderer
+                .createElement('filter')
+                .attr({
+                  id: 'drop-shadow',
+                  height: '130%',
+                })
+                .add(renderer.defs);
+
+              renderer
+                .createElement('feGaussianBlur')
+                .attr({
+                  in: 'SourceAlpha',
+                  stdDeviation: 1.5,
+                })
+                .add(filter);
+
+              renderer
+                .createElement('feOffset')
+                .attr({
+                  dx: 0.5,
+                  dy: 0.5,
+                  result: 'offsetblur',
+                })
+                .add(filter);
+
+              renderer
+                .createElement('feFlood')
+                .attr({
+                  'flood-color': 'rgba(255, 255, 255, 1)',
+                  'flood-opacity': 0.1,
+                  result: 'color',
+                })
+                .add(filter);
+
+              const feMerge = renderer.createElement('feMerge').add(filter);
+              renderer
+                .createElement('feMergeNode')
+                .attr({
+                  in: 'offsetblur',
+                })
+                .add(feMerge);
+              renderer
+                .createElement('feMergeNode')
+                .attr({
+                  in: 'SourceGraphic',
+                })
+                .add(feMerge);
+            }
+
+            const outermostCircle = this.series[0].data[0].graphic;
+            if (outermostCircle) {
+              outermostCircle.attr({
+                filter: 'url(#drop-shadow)',
+              });
+            }
+          },
+        },
       },
       title: {
         text: undefined,
@@ -119,10 +185,9 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
               color: {
                 linearGradient: { x1: 0, y1: 0, x2: 1, y2: 0 },
                 stops: [
-                  [0.3, '#8D36A0'],
-                  [0.7, '#E65CD9'],
-                  [1, '#b91d73'],
-                  [1, '##A487D3'],
+                  [0.5, '#7A2E94'],
+                  [0.75, '#E35AD8'],
+                  [1, '#B769E4'],
                 ],
               },
               radius: '112%',
@@ -136,7 +201,14 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
           name: 'Arbitrum',
           data: [
             {
-              color: '#8B7AF7',
+              color: {
+                linearGradient: { x1: 0, y1: 0, x2: 1, y2: 0 },
+                stops: [
+                  [0.3, '#8B7AF7'],
+                  [1, 'rgba(222, 72, 247, 1)'],
+                  [1, '#8B7AF7'],
+                ],
+              },
               radius: '87%',
               innerRadius: '62%',
               y: 25.32,
@@ -148,7 +220,14 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
           name: 'BSC',
           data: [
             {
-              color: '#6DE0B1',
+              color: {
+                linearGradient: { x1: 0, y1: 0, x2: 1, y2: 0 },
+                stops: [
+                  [0.5, '#6DE0B1'],
+                  [1, 'rgba(69, 202, 148, 1)'],
+                  [1, '#8B7AF7'],
+                ],
+              },
               radius: '62%',
               innerRadius: '38%',
               y: 20.21,
@@ -160,7 +239,14 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
           name: 'Tron',
           data: [
             {
-              color: '#D24A4A',
+              color: {
+                linearGradient: { x1: 0, y1: 0, x2: 1, y2: 0 },
+                stops: [
+                  [0.5, '#D24A4A'],
+                  [1, 'rgba(204, 56, 56, 1)'],
+                  [1, '#8B7AF7'],
+                ],
+              },
               radius: '38%',
               innerRadius: '22%',
               y: 10.11,
@@ -219,6 +305,8 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
         backgroundColor: isDarkTheme
           ? 'rgba(17, 17, 17, 1)'
           : 'rgba(255, 255, 255, 1)',
+        boxShadow: '0px 20px 30px rgba(0, 0, 0, 0.1)', // Add your box shadow here
+        borderRadius: '8px', // Ensure border radius is also applied
       }}
     >
       <div

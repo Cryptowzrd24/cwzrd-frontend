@@ -86,6 +86,7 @@ function Navbar() {
               padding: { xs: '2px', sm: '2.6px 3px 1.6px 2.6px' },
               display: 'flex',
               cursor: 'pointer',
+              background: 'white',
             }}
           >
             <Box height={26.5} onClick={() => setIsActive('light')}>
