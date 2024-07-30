@@ -5,7 +5,11 @@ import React, { useEffect, useState } from 'react';
 import DataTable from '../../data-table';
 import { Pagination } from '../../data-table/pagination';
 import useColumnCoinDetailDefs from '@/app/hooks/coin-detail-grid';
-import { columnsCoinMarket } from '@/app/constants/columns';
+import {
+  columnsCoinMarketSpot,
+  columnsCoinMarketPerpetual,
+  columnsCoinMarketFutures,
+} from '@/app/constants/columns';
 import { useFetchMarketDataCoinDetailsQuery } from '@/app/redux/reducers/data-grid';
 
 interface CoinMarketProps {
@@ -20,7 +24,13 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
     coinName: coinName,
     filter: active.toLowerCase(),
   });
-  const colDef = useColumnCoinDetailDefs(columnsCoinMarket);
+  const columnHeaders =
+    active === 'Spot'
+      ? columnsCoinMarketSpot
+      : active === 'Perpetual'
+        ? columnsCoinMarketPerpetual
+        : columnsCoinMarketFutures;
+  const colDef = useColumnCoinDetailDefs(columnHeaders);
   const pageSize = 10;
   const totalCount = 10;
 

@@ -43,6 +43,15 @@ const useColumnCoinDetailDefs = (columns: any) => {
 
             // valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
           };
+        case 'index_price':
+          return {
+            field: 'index_price',
+            headerName: 'Index price',
+            width: 130,
+            cellRenderer: NewCoin,
+
+            // valueFormatter: (p: any) => '$' + priceNumberFormatter(p.value),
+          };
         case 'depth_positive2':
           return {
             field: 'depth_positive2',
@@ -76,11 +85,19 @@ const useColumnCoinDetailDefs = (columns: any) => {
               return priceNumberFormatter(p.value) + '%';
             },
           };
+        case 'basis':
+          return {
+            field: 'basis',
+            headerName: 'Basis',
+            width: 135,
+            valueFormatter: (p: any) => {
+              return priceNumberFormatter(p.value) + '%';
+            },
+          };
         case 'confidence':
           return {
             field: 'confidence',
             headerName: 'Confidence',
-
             width: 110,
           };
         case 'liquidity_store':
@@ -88,6 +105,27 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'liquidity_store',
             width: 130,
             headerName: 'Liquidity Store',
+            // cellRenderer: GraphComp,
+          };
+        case 'funding_rate':
+          return {
+            field: 'funding_rate',
+            width: 130,
+            headerName: 'Funding rate',
+            // cellRenderer: GraphComp,
+          };
+        case 'open_interest':
+          return {
+            field: 'open_interest',
+            width: 130,
+            headerName: 'Open interest',
+            // cellRenderer: GraphComp,
+          };
+        case 'expiry_date':
+          return {
+            field: 'expiry_date',
+            width: 130,
+            headerName: 'Expiry date',
             // cellRenderer: GraphComp,
           };
         case 'updated':
