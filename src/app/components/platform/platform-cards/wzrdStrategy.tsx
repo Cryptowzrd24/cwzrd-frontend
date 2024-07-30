@@ -10,12 +10,13 @@ const WzrdStrategy = () => {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           padding: '32px 48px 48px 48px',
-          width: '330px',
+          width: '100%',
           height: '390px',
           borderRadius: '32px',
           display: 'flex',
-          justifyContent: 'flex-start',
+          justifyContent: 'center',
           alignItems: 'flex-end',
+          flex: 1,
         }}
       >
         <Box>
@@ -27,7 +28,7 @@ const WzrdStrategy = () => {
                 color: 'rgba(255, 255, 255, 1)',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
-                lineHeight: '44px',
+                lineHeight: '23.4px',
                 fontWeight: '500',
                 mb: '8px',
               }}
@@ -38,11 +39,11 @@ const WzrdStrategy = () => {
               variant="body1"
               sx={{
                 fontSize: '18px',
-                color: 'rgba(255, 255, 255, 1)',
+                color: 'rgba(255, 255, 255, 0.8)',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
                 fontWeight: '400',
-                mt: '-6px',
+                lineHeight: '27px',
               }}
             >
               Master trading with our essential guides and lessons, covering our

@@ -13,7 +13,8 @@ const WizardLibrary = () => {
           borderRadius: '32px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          maxWidth: '850px',
+          // maxWidth: '850px',
+          maxWidth: '67.4%',
           width: '100%',
           padding: '62px 0 38px 64px',
         }}

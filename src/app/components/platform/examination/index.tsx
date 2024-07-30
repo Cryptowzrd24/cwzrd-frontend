@@ -9,7 +9,9 @@ const ExaminationPart = () => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        gap: '30px',
+        flex: 1,
+        width: '100%',
       }}
     >
       <ExaminationCard />

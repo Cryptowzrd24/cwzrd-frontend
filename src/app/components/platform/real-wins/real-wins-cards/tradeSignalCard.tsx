@@ -17,13 +17,14 @@ const TradeSignalCard = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '18px',
+              fontSize: '14px',
               fontWeight: '400',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '20.8px',
               letterSpacing: '2px',
               maxWidth: '165px',
               mb: '48px',
+              textTransform: 'uppercase',
             }}
           >
             Trade Signals{' '}
@@ -46,7 +47,7 @@ const TradeSignalCard = () => {
             sx={{
               fontSize: '18px',
               fontWeight: '500',
-              color: 'rgba(255, 255, 255, 1)',
+              color: '#FFFFFFCC',
               lineHeight: '23.4px',
               letterSpacing: '1px',
               maxWidth: '165px',

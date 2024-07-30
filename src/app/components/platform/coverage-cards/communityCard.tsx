@@ -10,7 +10,7 @@ const CommunityCard = () => {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           padding: '32px',
-          width: '347px',
+          maxWidth: '100%',
           height: '407px',
           borderRadius: '32px',
           display: 'flex',
@@ -38,15 +38,17 @@ const CommunityCard = () => {
               variant="body1"
               sx={{
                 fontSize: '18px',
-                color: 'rgba(255, 255, 255, 1)',
-                letterSpacing: 0.7,
+                color: 'rgba(255, 255, 255, 0.8)',
+                letterSpacing: -0.5,
                 // maxWidth: '298px',
                 fontWeight: '400',
+                lineHeight: '27px',
+                textAlign: 'justify',
               }}
             >
               Every trade recommendation is managed on your behalf. You can sit
               back and relax knowing that our experts are handling all the
-              details to maximize your profits..
+              details to maximize your profits.
             </Typography>
           </Stack>
         </Box>

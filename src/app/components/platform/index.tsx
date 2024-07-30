@@ -20,6 +20,8 @@ import FrequentlyAskedQuestion from './frequently-question';
 import ProgressCards from './progress-cards';
 import header from '../../../../public/images/platform/header.png';
 
+import './index.scss';
+
 const Platform = () => {
   return (
     <>
@@ -31,7 +33,7 @@ const Platform = () => {
       <Image
         src={header}
         alt="header"
-        style={{ maxWidth: '100%', height: '600px' }}
+        style={{ maxWidth: '100%', height: 'auto' }}
       />
       <Container maxWidth="xl">
         <Box sx={{ mb: '30px' }}>

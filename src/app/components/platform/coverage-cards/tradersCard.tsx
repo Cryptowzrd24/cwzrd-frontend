@@ -7,11 +7,10 @@ const TradersCard = () => {
     <>
       <Box
         sx={{
-          // padding: '24px',
           borderRadius: '32px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          maxWidth: '410px',
+          maxWidth: '100%',
           width: '100%',
         }}
       >
@@ -25,6 +24,7 @@ const TradersCard = () => {
               color: 'rgba(17, 17, 17, 1)',
               mb: '8px',
               // maxWidth: '314px',
+              textTransform: 'uppercase',
             }}
           >
             WZRD Traders Hub
@@ -38,7 +38,7 @@ const TradersCard = () => {
             Real-time prices of Cryptocurrencies and key metrics
           </Typography>
         </Stack>
-        <Box sx={{ paddingBottom: '32px' }}>
+        <Box sx={{ padding: '0 24px 32px 24px' }}>
           <Image src={macbook} alt="macbook" width={362} />
         </Box>
       </Box>

@@ -10,8 +10,7 @@ const TradingPlatform = () => {
         sx={{
           fontSize: '56px',
           fontWeight: '600',
-          backgroundImage:
-            'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+          backgroundImage: 'linear-gradient(90deg, #634DFD 0%, #BF48F7 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           marginLeft: '40px',
@@ -46,16 +45,18 @@ const TradingPlatform = () => {
         >
           <Typography
             variant="h1"
-            sx={{ fontSize: '40px', lineHeight: '72px', mb: '16px' }}
+            sx={{ fontSize: '40px', lineHeight: '44px', mb: '16px' }}
           >
             Dedicated Professional Mentorship
           </Typography>
           <Typography
             variant="body1"
             sx={{
-              fontSize: '20px',
+              fontSize: '18px',
               fontWeight: '400',
               textAlign: 'center',
+              color: 'rgba(17, 17, 17, 0.8)',
+              lineHeight: '27px',
             }}
           >
             We are fully committed to your success in every aspect of your
