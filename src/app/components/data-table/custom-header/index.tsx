@@ -142,10 +142,12 @@ export const CustomHeader = ({
 
   const handleSearchActiveToggle = () => {
     setSearchActive(!searchActive);
+    setFilterActive(false);
   };
 
   const handleFilterActiveToggle = () => {
     setFilterActive(!filterActive);
+    setSearchActive(false);
   };
 
   const openFilterDropdown = Boolean(anchorEl);
