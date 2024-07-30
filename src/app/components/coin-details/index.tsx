@@ -53,8 +53,10 @@ const CoinDetails = () => {
         <Box id="overview" sx={{ mb: '16px' }}>
           <CoinNavbar />
         </Box>
-        <Box id="details" sx={{ display: 'flex', flexDirection: 'row', mb: '48px' }}>
-        <Box id="details" sx={{ display: 'flex', flexDirection: 'row', mb: '48px' }}>
+        <Box
+          id="details"
+          sx={{ display: 'flex', flexDirection: 'row', mb: '48px' }}
+        >
           <Box>
             <GraphLayout
               chartRef={chartRef}
@@ -66,7 +68,7 @@ const CoinDetails = () => {
             <CoinDetailsCard coinDetails={coinDetails} />
           </Box>
         </Box>
-        <Box id="about"  sx={{ mb: '48px' }}>
+        <Box id="about" sx={{ mb: '48px' }}>
           <CoinInfo coinDetails={coinDetails} />
         </Box>
         <Box id="news" sx={{ mb: '48px' }}>
@@ -79,7 +81,7 @@ const CoinDetails = () => {
         <Box id="technicals" sx={{ mb: '48px' }}>
           <Technicals />
         </Box>
-        <Box  id="converter" sx={{ mb: '48px' }}>
+        <Box id="converter" sx={{ mb: '48px' }}>
           <Converter coinDetails={coinDetails} />
         </Box>
         <Box id="newsletter-banner" sx={{ mb: '48px' }}>
