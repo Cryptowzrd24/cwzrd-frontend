@@ -15,7 +15,6 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
   const handleSearchChange = (event: any) => {
     setSearchTerm(event.target.value);
   };
-  console.log('props----------', props);
   const fiats = props.value;
 
   if (!fiats || !Array.isArray(fiats) || fiats.length === 0) {

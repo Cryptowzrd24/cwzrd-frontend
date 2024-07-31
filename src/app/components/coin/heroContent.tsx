@@ -148,7 +148,7 @@ const HeroContent = () => {
           }}
         >
           {' '}
-          ${marketCap}
+          +${marketCap}
         </span>
         , {marketCapChangeText}{' '}
         <span
@@ -173,7 +173,7 @@ const HeroContent = () => {
               }}
             >
               {' '}
-              ${volumeCap}
+              +${volumeCap}
             </span>
             , {volumeCapChangeText}{' '}
             <span
@@ -194,7 +194,7 @@ const HeroContent = () => {
               }}
             >
               {' '}
-              ${defiVolume}
+              +${defiVolume}
             </span>
             , {defiVolumeChangeText}{' '}
             <span
@@ -218,7 +218,7 @@ const HeroContent = () => {
               }}
             >
               {' '}
-              ${stablecoinVolume}
+              +${stablecoinVolume}
             </span>
             , {stablecoinVolumeChangeText}{' '}
             <span
@@ -233,6 +233,7 @@ const HeroContent = () => {
             , which is{' '}
             <span style={{ fontWeight: 600 }}>{stablecoinVolumePercent}%</span>{' '}
             of the total crypto market 24-hour volume. <br />
+            of the total crypto market 24-hour volume. <br />
             Bitcoin’s dominance is currently
             <span
               style={{
@@ -242,7 +243,7 @@ const HeroContent = () => {
               }}
             >
               {' '}
-              {btcDominance}%
+              +{btcDominance}%
             </span>
             , {btcDominanceChangeText}{' '}
             <span
@@ -254,6 +255,7 @@ const HeroContent = () => {
             >
               {formattedBtcDominanceChange}%
             </span>
+            . <br />
             . <br />
           </>
         )}
