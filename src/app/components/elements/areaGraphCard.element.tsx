@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts';
 
@@ -7,7 +6,7 @@ const AreaChart = (props: IChartProps) => {
   const { data, color, isMarker, percent } = props;
   const chartRef: any = useRef(null);
 
-  const chartOptions: HighchartsChartOptions = {
+  const chartOptions: Highcharts.ChartOptions = {
     chart: {
       type: 'area',
       plotBorderWidth: 0,
@@ -49,13 +48,13 @@ const AreaChart = (props: IChartProps) => {
         name: '',
         data: data,
         lineWidth: 2,
-        color: `rgb( ${color})`,
+        color: `rgb(${color})`,
         fillOpacity: 0,
         threshold: null,
         fillColor: {
           linearGradient: { x1: 0, x2: 0, y1: 1, y2: 0 },
           stops: [
-            [0, `rgba( ${color}, 0.1)`],
+            [0, `rgba(${color}, 0.1)`],
             // [1, `rgba( ${color}, 1)`],
           ],
         },
@@ -69,7 +68,7 @@ const AreaChart = (props: IChartProps) => {
           states: {
             hover: {
               enabled: true,
-              fillColor: `rgb( ${color})`,
+              fillColor: `rgb(${color})`,
               lineColor: '#fff',
               lineWidth: 4,
               radius: 8,
@@ -99,16 +98,36 @@ const AreaChart = (props: IChartProps) => {
            background: white; 
            border-radius: 40px; 
            padding: 4px, 8px, 4px, 8px; 
-           box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
            font-size: 14px; 
            font-weight: 300;
-           position: absolute;
-           z-index: 9999;
-            color: #111111;">
+           color: #111111;">
             ${percent ? '' : '$'}${yValue}${percent ? '%' : 'm'}
           </div>`;
       },
-      outside: true,
+      positioner: function (
+        labelWidth: number,
+        labelHeight: number,
+        point: any,
+      ) {
+        const chart = this.chart;
+        let x = point.plotX + chart.plotLeft - labelWidth / 2;
+        let y = point.plotY + chart.plotTop - labelHeight - 10;
+
+        if (x < chart.plotLeft) {
+          x = chart.plotLeft;
+        } else if (x + labelWidth > chart.plotLeft + chart.plotWidth) {
+          x = chart.plotLeft + chart.plotWidth - labelWidth;
+        }
+        if (y < chart.plotTop) {
+          y = chart.plotTop;
+        } else if (y + labelHeight > chart.plotTop + chart.plotHeight) {
+          y = chart.plotTop + chart.plotHeight - labelHeight;
+        }
+
+        return { x, y };
+      },
+      outside: false,
     },
   };
 

@@ -17,7 +17,7 @@ const TechnicalCardContent: React.FC = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 3,
+    slidesToScroll: 4,
     arrows: false,
     afterChange: (current: any) => setCurrentSlide(current),
     variableWidth: true,
@@ -61,7 +61,7 @@ const TechnicalCardContent: React.FC = () => {
           justifyContent: 'space-between',
           width: '48px',
           gap: '8px',
-          left: '67.4%',
+          right: '2%',
         }}
       >
         <Box

@@ -63,7 +63,6 @@ const BarChart = (props: IChartProps) => {
       borderWidth: 0,
       shadow: false,
       style: {},
-      outside: true,
       formatter: function () {
         const point = this.point;
         const yValue = point.y;
@@ -75,13 +74,36 @@ const BarChart = (props: IChartProps) => {
            background: white; 
            border-radius: 40px; 
            padding: 4px, 8px, 4px, 8px; 
-           box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
            font-size: 14px; 
            font-weight: 300;
-            color: #111111;">
+           color: #111111;">
             $${yValue}m
           </div>`;
       },
+      positioner: function (
+        labelWidth: number,
+        labelHeight: number,
+        point: any,
+      ) {
+        const chart = this.chart;
+        let x = point.plotX + chart.plotLeft - labelWidth / 2;
+        let y = point.plotY + chart.plotTop - labelHeight - 10;
+
+        if (x < chart.plotLeft) {
+          x = chart.plotLeft;
+        } else if (x + labelWidth > chart.plotLeft + chart.plotWidth) {
+          x = chart.plotLeft + chart.plotWidth - labelWidth;
+        }
+        if (y < chart.plotTop) {
+          y = chart.plotTop;
+        } else if (y + labelHeight > chart.plotTop + chart.plotHeight) {
+          y = chart.plotTop + chart.plotHeight - labelHeight;
+        }
+
+        return { x, y };
+      },
+      outside: false,
     },
   };
 

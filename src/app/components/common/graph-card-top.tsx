@@ -5,6 +5,7 @@ import React from 'react';
 import AreaChart from '../elements/areaGraphCard.element';
 
 import {
+  getBarGraphColor,
   getGraphColor,
   getPositiveNegativeIcon,
 } from '@/app/helpers/functions';
@@ -85,7 +86,7 @@ const GraphCardTop = (props: any) => {
           <AreaChart data={graphAttr.data} color={getGraphColor(percent)} />
         ) : null}
         {graphAttr.type === 'bar' ? (
-          <BarChart data={graphAttr.data} color={getGraphColor(percent)} />
+          <BarChart data={graphAttr.data} color={getBarGraphColor(percent)} />
         ) : null}
       </div>
     </Card>

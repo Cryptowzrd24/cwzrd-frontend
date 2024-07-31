@@ -106,3 +106,8 @@ body {
 .ag-center-cols-viewport {
     overflow: hidden !important;
 }
+
+.highcharts-tooltip span {
+    background: transparent !important;
+    border: none !important;
+}

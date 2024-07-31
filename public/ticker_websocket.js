@@ -2,8 +2,6 @@ const ws = new WebSocket('wss://backend.cwzrd.co.uk/ws/data/');
 
 document.querySelector('.ticker-info').textContent = 'BLAHBLAHBLAH';
 
-debugger;
-
 ws.addEventListener('open', () => {
   console.log('WebSocket connection opened falsdjflasjfl lkjasflk');
 });

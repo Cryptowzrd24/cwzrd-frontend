@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import AreaChart from '../elements/areaGraphCard.element';
 import {
+  getBarGraphColor,
   getGraphColor,
   getPositiveNegativeIcon,
 } from '@/app/helpers/functions';
@@ -96,7 +97,10 @@ const GraphCard = (props: IMarketCapCardProps) => {
               />
             ) : null}
             {graphAttr?.type === 'bar' ? (
-              <BarChart data={graphAttr.data} color={getGraphColor(percent)} />
+              <BarChart
+                data={graphAttr.data}
+                color={getBarGraphColor(percent)}
+              />
             ) : null}
           </div>
         </div>

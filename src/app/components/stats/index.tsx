@@ -1,9 +1,7 @@
-'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import numeral from 'numeral';
 import { Box, Typography, Tooltip } from '@mui/material';
 import { ArrowDown } from '../../../../public/icons/arrowDown';
-import { useFetchStatsDataQuery } from '@/redux/reducers/data-grid';
 
 interface GasData {
   value: number;
@@ -42,6 +40,65 @@ interface StatItemProps {
     standard: GasData;
     fast: GasData;
   };
+}
+
+async function fetchStatsData() {
+  const res = await fetch('https://backend.cwzrd.co.uk/api/stats/', {
+    next: { revalidate: 60 },
+  });
+  const data = await res.json();
+
+  const rowData = data.results.flatMap((item: ApiData) => [
+    {
+      label: 'Cryptos',
+      value: '2.4M',
+    },
+    {
+      label: 'Exchanges:',
+      value: item.active_exchanges.toString(),
+    },
+    {
+      label: 'Market Cap:',
+      value: `$${numeral(item.quote.USD.total_market_cap).format('0.00a').toUpperCase()}`,
+      change: item.quote.USD.total_market_cap_yesterday_percentage_change
+        ? `${item.quote.USD.total_market_cap_yesterday_percentage_change.toFixed(2)}%`
+        : '0.00%',
+    },
+    {
+      label: '24h Vol:',
+      value: `$${numeral(item.quote?.USD?.total_volume_24h ?? 0)
+        .format('0.00a')
+        .toUpperCase()}`,
+      change: item.quote.USD.total_volume_24h_yesterday_percentage_change
+        ? `${item.quote.USD.total_volume_24h_yesterday_percentage_change?.toFixed(2) || '0.00'}%`
+        : '0.00%',
+    },
+    {
+      label: 'Dominance:',
+      value: `BTC: ${parseFloat(item.btc_dominance?.toString() ?? '0').toFixed(2)}% ETH: ${parseFloat(item.eth_dominance?.toString() ?? '0').toFixed(2)}%`,
+    },
+    {
+      label: 'ETH Gas:',
+      value: '20 Gwei',
+      data: {
+        slow: {
+          value: 20,
+          second: 145,
+        },
+        standard: {
+          value: 20,
+          second: 145,
+        },
+        fast: {
+          value: 23,
+          second: 145,
+        },
+      },
+    },
+    { label: 'Fear & Greed:', value: '76/100' },
+  ]);
+
+  return rowData;
 }
 
 const GasInfo = ({ label, value, second }: GasData & { label: string }) => (
@@ -192,63 +249,12 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
   </Tooltip>
 );
 
-const Stats = () => {
-  const { data } = useFetchStatsDataQuery({});
-  const [rowData, setRowData] = useState<RowData[]>([]);
-  useEffect(() => {
-    if (data && data.results) {
-      const formattedData: RowData[] = data.results.map((item: ApiData) => [
-        {
-          label: 'Cryptos',
-          value: '2.4M',
-        },
-        {
-          label: 'Exchanges:',
-          value: item.active_exchanges.toString(),
-        },
-        {
-          label: 'Market Cap:',
-          value: `$${numeral(item.quote.USD.total_market_cap).format('0.00a').toUpperCase()}`,
-          change: item.quote.USD.total_market_cap_yesterday_percentage_change
-            ? `${item.quote.USD.total_market_cap_yesterday_percentage_change.toFixed(2)}%`
-            : '0.00%',
-        },
-        {
-          label: '24h Vol:',
-          value: `$${numeral(item.quote?.USD?.total_volume_24h ?? 0)
-            .format('0.00a')
-            .toUpperCase()}`,
-          change: item.quote.USD.total_volume_24h_yesterday_percentage_change
-            ? `${item.quote.USD.total_volume_24h_yesterday_percentage_change?.toFixed(2) || '0.00'}%`
-            : '0.00%',
-        },
-        {
-          label: 'Dominance:',
-          value: `BTC: ${parseFloat(item.btc_dominance?.toString() ?? '0').toFixed(2)}% ETH: ${parseFloat(item.eth_dominance?.toString() ?? '0').toFixed(2)}%`,
-        },
-        {
-          label: 'ETH Gas:',
-          value: '20 Gwei',
-          data: {
-            slow: {
-              value: 20,
-              second: 145,
-            },
-            standard: {
-              value: 20,
-              second: 145,
-            },
-            fast: {
-              value: 23,
-              second: 145,
-            },
-          },
-        },
-        { label: 'Fear & Greed:', value: '76/100' },
-      ]);
-      setRowData(formattedData.flat());
-    }
-  }, [data]);
+interface StatsProps {
+  rowData: RowData[];
+}
+
+const Stats: React.FC<StatsProps> = async () => {
+  const rowData = await fetchStatsData();
 
   return (
     <Box
@@ -261,7 +267,7 @@ const Stats = () => {
         boxShadow: '0px 4px 28px 0px #0000000D',
       }}
     >
-      {rowData.map((stat, index) => (
+      {rowData.map((stat: StatItemProps, index: number) => (
         <StatItem
           key={index}
           label={stat.label}
@@ -273,4 +279,5 @@ const Stats = () => {
     </Box>
   );
 };
+
 export default Stats;
