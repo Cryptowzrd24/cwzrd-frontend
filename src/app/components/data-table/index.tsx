@@ -26,7 +26,6 @@ const DataTable = memo(
     rowData,
     columnDefs,
     width = '100%',
-    search = '',
     seeMore = '',
     gridApiRef,
     getRowId = undefined,
@@ -109,7 +108,6 @@ const DataTable = memo(
           pagination={true}
           suppressPaginationPanel={true}
           tooltipShowDelay={0}
-          quickFilterText={search}
           tooltipInteraction={true}
           rowStyle={{
             fontFamily: 'SF Pro Display',

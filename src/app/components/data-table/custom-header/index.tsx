@@ -3,7 +3,7 @@
 import { Badge, Box, MenuItem, Select, Typography } from '@mui/material';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SearchIcon } from '../../../../../public/icons/Grid-Header/search';
 import { FilterIcon } from '../../../../../public/icons/Grid-Header/filter';
@@ -93,6 +93,7 @@ export const CustomHeader = ({
   const filterCount = useSelector(
     (state: any) => state.filters.selectedFilterCount,
   );
+  const searchInputRef = useRef<any>(null);
 
   const [searchActive, setSearchActive] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
@@ -469,7 +470,7 @@ export const CustomHeader = ({
                 strokeOpacity={search.length > 0 ? '1' : '0.5'}
               />
               <input
-                value={search}
+                ref={searchInputRef}
                 style={styles.searchInput}
                 placeholder={'Search...'}
                 onChange={(e: any) => setSearch(e.target.value)}
@@ -477,7 +478,15 @@ export const CustomHeader = ({
               {search !== '' && (
                 <Chip
                   label="Clear Search"
-                  onClick={() => setSearch('')}
+                  onClick={() => {
+                    if (
+                      searchInputRef.current &&
+                      searchInputRef?.current.value
+                    ) {
+                      searchInputRef.current.value = '';
+                    }
+                    setSearch('');
+                  }}
                   clickable
                 />
               )}
