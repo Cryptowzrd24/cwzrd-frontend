@@ -317,7 +317,14 @@ export const CustomHeader = ({
         ))}
         <Box sx={styles.filterContainer}>
           {isPathNameMatching && (
-            <Box onClick={handleSearchActiveToggle} sx={styles.iconBox}>
+            <Box
+              onClick={handleSearchActiveToggle}
+              sx={
+                searchActive
+                  ? { ...styles.iconBox, ...styles.filterActive }
+                  : { ...styles.iconBox }
+              }
+            >
               <SearchIcon />
             </Box>
           )}
@@ -388,7 +395,14 @@ export const CustomHeader = ({
           )}
 
           {filter && (
-            <Box onClick={handleFilterActiveToggle} sx={styles.iconBox}>
+            <Box
+              onClick={handleFilterActiveToggle}
+              sx={
+                filterActive
+                  ? { ...styles.iconBox, ...styles.filterActive }
+                  : { ...styles.iconBox }
+              }
+            >
               <FilterIcon />
             </Box>
           )}
@@ -455,10 +469,18 @@ export const CustomHeader = ({
                 strokeOpacity={search.length > 0 ? '1' : '0.5'}
               />
               <input
+                value={search}
                 style={styles.searchInput}
                 placeholder={'Search...'}
                 onChange={(e: any) => setSearch(e.target.value)}
               />
+              {search !== '' && (
+                <Chip
+                  label="Clear Search"
+                  onClick={() => setSearch('')}
+                  clickable
+                />
+              )}
             </Box>
           </motion.div>
         )}
