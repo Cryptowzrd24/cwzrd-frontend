@@ -24,24 +24,33 @@ export const ExchangeNameComponent = (props: CustomCellRendererProps) => {
         />
       </div>
       <div style={{ cursor: 'pointer' }}>
-        <Tooltip
-          title={props.value}
-          placement="top-start"
-          slotProps={{
-            popper: {
+        {props.value.length > 13 ? (
+          <Tooltip
+            title={props.value}
+            placement="top-start"
+            PopperProps={{
               modifiers: [
                 {
                   name: 'offset',
                   options: {
-                    offset: [0, -30],
+                    offset: [0, -17],
                   },
                 },
               ],
-            },
-          }}
-        >
+            }}
+            componentsProps={{
+              tooltip: {
+                sx: {
+                  fontSize: '16px',
+                },
+              },
+            }}
+          >
+            <p className={styles['full-name']}>{getDisplayName(props.value)}</p>
+          </Tooltip>
+        ) : (
           <p className={styles['full-name']}>{getDisplayName(props.value)}</p>
-        </Tooltip>
+        )}
       </div>
     </div>
   );

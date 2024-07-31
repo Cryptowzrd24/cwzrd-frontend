@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styles from './index.module.css';
 import { CustomCellRendererProps } from 'ag-grid-react';
-import Vector from '../../../../../public/icons/vector';
 import { Modal, Box, Typography, TextField, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import infoIcon from '@/app/assets/icons/infoIcon.svg';
+import Image from 'next/image';
 
 export const FiatSupported = (props: CustomCellRendererProps) => {
   const [open, setOpen] = useState(false);
@@ -13,7 +15,6 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
   const handleSearchChange = (event: any) => {
     setSearchTerm(event.target.value);
   };
-  console.log('props----------', props);
   const fiats = props.value;
 
   if (!fiats || !Array.isArray(fiats) || fiats.length === 0) {
@@ -57,8 +58,8 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
             }}
           >
             and +{remainingFiatsCount} more
-            <span style={{ cursor: 'pointer' }} onClick={handleOpen}>
-              <Vector />
+            <span onClick={handleOpen} style={{ marginTop: '3px' }}>
+              <Image className={styles['info-icon']} src={infoIcon} alt="" />
             </span>
           </div>
         </div>
@@ -71,14 +72,13 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            maxWidth: '500px',
+            maxWidth: '440px',
             width: '100%',
             bgcolor: 'background.paper',
             boxShadow: 24,
-            p: 4,
+            p: '30px',
             display: 'flex',
             flexDirection: 'column',
-            gap: 2,
             borderRadius: '26px',
             border: 'none',
           }}
@@ -92,7 +92,12 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
           >
             <Typography
               variant="body1"
-              sx={{ fontSize: '24px', fontWeight: '700', letterSpacing: 1 }}
+              sx={{
+                fontSize: '24px',
+                fontWeight: '700',
+                letterSpacing: 1,
+                mb: '20px',
+              }}
             >
               {props.data?.exchange} Fiat Supported
             </Typography>
@@ -100,13 +105,18 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
               onClick={handleClose}
               sx={{
                 '&:hover': {
-                  backgroundColor: 'transparent', // Remove hover effect
+                  backgroundColor: 'transparent',
                 },
               }}
             >
-              <Typography sx={{ fontSize: '18px', color: 'GrayText' }}>
-                X
-              </Typography>
+              <CloseIcon
+                sx={{
+                  fontSize: '24px',
+                  color: 'GrayText',
+                  opacity: '0.5',
+                  mb: '10px',
+                }}
+              />
             </IconButton>
           </Box>
 
@@ -118,25 +128,37 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
             size="small"
             fullWidth
             sx={{
+              mb: '16px',
               '& .MuiOutlinedInput-root': {
                 borderRadius: '8px',
+                backgroundColor: 'rgba(255, 255, 255, 0.3)', // Background color set here to ensure it remains during focus
                 '& fieldset': {
                   borderRadius: '8px',
+                  borderColor: '#eff2ff5', // Outline color
                 },
                 '&:hover fieldset': {
-                  borderColor: 'currentColor',
+                  borderColor: '#eff2ff5', // Outline color on hover
                 },
-                '&.Mui-focused fieldset': {
-                  borderColor: 'currentColor',
+                '&.Mui-focused': {
+                  '& fieldset': {
+                    borderColor: '#eff2ff5', // Outline color when focused
+                  },
                 },
+              },
+              '& .MuiOutlinedInput-input': {
+                color: 'black', // Text color
+                fontSize: '14px', // Font size
+              },
+              '& .MuiInputBase-input': {
+                color: 'black', // Ensure text is black when typing
               },
             }}
           />
+
           <Box
             sx={{
               maxHeight: '300px',
               overflowY: 'auto',
-              mt: 2,
               '&::-webkit-scrollbar': {
                 width: '8px',
               },
@@ -161,8 +183,8 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
                     sx={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '8px',
-                      mt: 2,
+                      gap: '16px',
+                      padding: '10px 0',
                       fontSize: '14px',
                       fontWeight: '500',
                     }}
@@ -170,7 +192,7 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
                     <img
                       src={getFlagUrl(trimmedFiat)}
                       alt={`${trimmedFiat} flag`}
-                      style={{ width: '20px', height: '15px' }}
+                      style={{ width: '24px', height: '24px' }}
                     />
                     <Typography sx={{ fontSize: '14px', fontWeight: '500' }}>
                       {trimmedFiat}

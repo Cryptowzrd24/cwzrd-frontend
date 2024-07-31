@@ -194,6 +194,30 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
 
 const Stats = () => {
   const { data } = useFetchStatsDataQuery({});
+  const [statsData, setStatsData] = useState({
+    label: 'Fear & Greed:',
+    value: '',
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://api.alternative.me/fng/?limit=2');
+        const statsData = await response.json();
+        console.log('stats data', statsData);
+        if (statsData && statsData.data && statsData.data.length > 0) {
+          const value = statsData.data[0].value;
+          setStatsData({ label: 'Fear & Greed:', value: `${value}/100` });
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // ------------------------------------------------
+
   const [rowData, setRowData] = useState<RowData[]>([]);
   useEffect(() => {
     if (data && data.results) {
@@ -244,7 +268,8 @@ const Stats = () => {
             },
           },
         },
-        { label: 'Fear & Greed:', value: '76/100' },
+        // { label: 'Fear & Greed:', value: '76/100' },
+        statsData,
       ]);
       setRowData(formattedData.flat());
     }
