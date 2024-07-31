@@ -186,7 +186,7 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
                     sx={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '8px',
+                      gap: '16px',
                       padding: '10px 0',
                       fontSize: '14px',
                       fontWeight: '500',
@@ -195,7 +195,7 @@ export const FiatSupported = (props: CustomCellRendererProps) => {
                     <img
                       src={getFlagUrl(trimmedFiat)}
                       alt={`${trimmedFiat} flag`}
-                      style={{ width: '20px', height: '15px' }}
+                      style={{ width: '24px', height: '24px' }}
                     />
                     <Typography sx={{ fontSize: '14px', fontWeight: '500' }}>
                       {trimmedFiat}
