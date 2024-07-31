@@ -24,7 +24,7 @@ const StyledSlider = styled(Slider)`
   .slick-list {
     transform: translate3d(0, 0, 0);
     background: white !important;
-    margin-left: -1.2px;
+    margin-left: -0.5px;
   }
 `;
 
