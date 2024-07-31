@@ -395,7 +395,7 @@ export const CustomHeader = ({
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              background: '#1111110D',
+              // background: '#1111110D',
               border: '1px solid #11111100',
               borderRadius: '8px',
               gap: '4px',

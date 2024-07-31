@@ -124,8 +124,11 @@ const Converter = () => {
             background: 'rgba(255, 255, 255, 1)',
             marginBottom: '24px',
             display: 'flex',
-            justifyContent: 'space-between',
+            // justifyContent: 'space-between',
             alignItems: 'center',
+            width:"100%",
+            gap:"30px"
+
           }}
         >
           <input
@@ -174,7 +177,9 @@ const Converter = () => {
               style={{ cursor: 'pointer' }}
             />
           </Box>
-          <Box>
+
+         
+          <Box >
             <input
               style={{
                 borderRadius: '100px',
@@ -184,8 +189,7 @@ const Converter = () => {
                 fontSize: '16px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
-                maxWidth: '396px',
-                width: '100%',
+                // width:"100%"
               }}
               placeholder="49,627.43"
             />
@@ -240,6 +244,7 @@ const Converter = () => {
               </MenuItem>
             </Select>
           </Box>
+          </Box>
         </Box>
         <Box
           sx={{
@@ -285,7 +290,6 @@ const Converter = () => {
               Refresh
             </Box>
           </Typography>
-        </Box>
       </Box>
     </>
   );
