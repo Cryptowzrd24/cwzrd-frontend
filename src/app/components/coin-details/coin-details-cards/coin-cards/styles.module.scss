@@ -1,0 +1,16 @@
+.slickDots {
+    position: relative;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    // margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+    background: rgba(17, 17, 17, 0.1);
+    border-radius: 50%;
+  }
+  
+  .slickDotsActive {
+    background: rgba(17, 17, 17, 1);
+  }
+  

@@ -36,6 +36,8 @@ const HeroContent = () => {
   const marketCapChangeColor = isMarketCapPositiveChange
     ? '#1FD773'
     : '#F74848';
+  const formattedMarketCapChange = `${marketCapChange >= 0 ? '+' : ''}${marketCapChange}`;
+
   const marketCapChangeText = isMarketCapPositiveChange
     ? 'an increase of'
     : 'a decrease of';
@@ -44,6 +46,8 @@ const HeroContent = () => {
   const volumeCapChangeColor = isVolumeCapPositiveChange
     ? '#1FD773'
     : '#F74848';
+  const formattedVolumeCapChange = `${isVolumeCapPositiveChange ? '+' : ''}${volumeCapChange}`;
+
   const volumeCapChangeText = isVolumeCapPositiveChange
     ? 'an increase of'
     : 'a decrease of';
@@ -61,17 +65,19 @@ const HeroContent = () => {
   const defiVolumeChangeColor = isDefiVolumePositiveChange
     ? '#1FD773'
     : '#F74848';
-  const defiVolumeChangeText = isDefiVolumePositiveChange
-    ? 'an increase of'
-    : 'a decrease of';
+
   const defiVolumeChange =
     data?.results[0].quote.USD.defi_24h_percentage_change.toFixed(2);
+  const formattedDefiVolumeChange = `${isDefiVolumePositiveChange ? '+' : ''}${defiVolumeChange}`;
 
   const stablecoinVolume = numeral(
     data?.results[0].quote.USD.stablecoin_volume_24h,
   )
     .format('0.00a')
     .toUpperCase();
+  const defiVolumeChangeText = isDefiVolumePositiveChange
+    ? 'an increase of'
+    : 'a decrease of';
   const stablecoinVolumePercent = (
     (data?.results[0].quote.USD.stablecoin_volume_24h /
       data?.results[0].quote.USD.total_volume_24h) *
@@ -82,11 +88,13 @@ const HeroContent = () => {
   const stablecoinVolumeChangeColor = isStablecoinVolumePositiveChange
     ? '#1FD773'
     : '#F74848';
+
   const stablecoinVolumeChangeText = isStablecoinVolumePositiveChange
     ? 'an increase of'
     : 'a decrease of';
   const stablecoinVolumeChange =
     data?.results[0].quote.USD.stablecoin_24h_percentage_change.toFixed(2);
+  const formattedStablecoinVolumeChange = `${isStablecoinVolumePositiveChange ? '+' : ''}${stablecoinVolumeChange}`;
 
   const btcDominance = parseFloat(
     data?.results[0].btc_dominance || '0',
@@ -100,6 +108,8 @@ const HeroContent = () => {
   const btcDominanceChangeColor = isBtcDominancePositiveChange
     ? '#1FD773'
     : '#F74848';
+  const formattedBtcDominanceChange = `${isBtcDominancePositiveChange ? '+' : ''}${btcDominanceChange}`;
+
   const btcDominanceChangeText = isBtcDominancePositiveChange
     ? 'an increase of'
     : 'a decrease of';
@@ -130,7 +140,13 @@ const HeroContent = () => {
         }}
       >
         The overall market capitalization of the crypto market is
-        <span style={{ color: 'rgba(17,17,17,0.8)', fontWeight: '600', fontSize: '15px' }}>
+        <span
+          style={{
+            color: 'rgba(17,17,17,0.8)',
+            fontWeight: '600',
+            fontSize: '15px',
+          }}
+        >
           {' '}
           ${marketCap}
         </span>
@@ -142,7 +158,7 @@ const HeroContent = () => {
             fontSize: '15px',
           }}
         >
-          {marketCapChange}%
+          {formattedMarketCapChange}%
         </span>{' '}
         in the last 24 hours.{' '}
         {isExpanded && (
@@ -150,7 +166,11 @@ const HeroContent = () => {
             <br />
             The total crypto market volume over the last 24 hours is
             <span
-              style={{ color: 'rgba(17,17,17,0.8)', fontWeight: '600', fontSize: '15px' }}
+              style={{
+                color: 'rgba(17,17,17,0.8)',
+                fontWeight: '600',
+                fontSize: '15px',
+              }}
             >
               {' '}
               ${volumeCap}
@@ -163,11 +183,15 @@ const HeroContent = () => {
                 fontSize: '15px',
               }}
             >
-              {volumeCapChange}%
+              {formattedVolumeCapChange}%
             </span>
             . The total volume in DeFi is currently
             <span
-              style={{ color: 'rgba(17,17,17,0.8)', fontWeight: '600', fontSize: '15px' }}
+              style={{
+                color: 'rgba(17,17,17,0.8)',
+                fontWeight: '600',
+                fontSize: '15px',
+              }}
             >
               {' '}
               ${defiVolume}
@@ -180,14 +204,18 @@ const HeroContent = () => {
                 fontSize: '15px',
               }}
             >
-              {defiVolumeChange}%
+              {formattedDefiVolumeChange}%
             </span>
             , which <br /> is{' '}
             <span style={{ fontWeight: 600 }}>{defiVolumePercent}%</span> of the
             total crypto market 24-hour volume. The volume of all stable coins
             is now
             <span
-              style={{ color: 'rgba(17,17,17,0.8)', fontWeight: '600', fontSize: '15px' }}
+              style={{
+                color: 'rgba(17,17,17,0.8)',
+                fontWeight: '600',
+                fontSize: '15px',
+              }}
             >
               {' '}
               ${stablecoinVolume}
@@ -200,16 +228,18 @@ const HeroContent = () => {
                 fontSize: '15px',
               }}
             >
-              {stablecoinVolumeChange}%
+              {formattedStablecoinVolumeChange}%
             </span>
             , which is{' '}
             <span style={{ fontWeight: 600 }}>{stablecoinVolumePercent}%</span>{' '}
-            of the total
-            <br /> crypto market 24-hour volume.
-            <br />
+            of the total crypto market 24-hour volume. <br />
             Bitcoin’s dominance is currently
             <span
-              style={{color: 'rgba(17,17,17,0.8)', fontWeight: '600', fontSize: '15px' }}
+              style={{
+                color: 'rgba(17,17,17,0.8)',
+                fontWeight: '600',
+                fontSize: '15px',
+              }}
             >
               {' '}
               {btcDominance}%
@@ -222,9 +252,9 @@ const HeroContent = () => {
                 fontSize: '15px',
               }}
             >
-              {btcDominanceChange}%
+              {formattedBtcDominanceChange}%
             </span>
-            .
+            . <br />
           </>
         )}
         <span

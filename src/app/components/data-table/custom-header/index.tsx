@@ -145,10 +145,12 @@ export const CustomHeader = ({
 
   const handleSearchActiveToggle = () => {
     setSearchActive(!searchActive);
+    setFilterActive(false);
   };
 
   const handleFilterActiveToggle = () => {
     setFilterActive(!filterActive);
+    setSearchActive(false);
   };
 
   const openFilterDropdown = Boolean(anchorEl);
@@ -399,6 +401,7 @@ export const CustomHeader = ({
               border: '1px solid #11111100',
               borderRadius: '8px',
               gap: '4px',
+              boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             }}
           >
             {view && (

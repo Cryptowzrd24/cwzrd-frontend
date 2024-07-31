@@ -14,5 +14,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <CustomLayout>{children}</CustomLayout>;
+  return (
+    <>
+      <CustomLayout>{children}</CustomLayout>
+    </>
+  );
 }

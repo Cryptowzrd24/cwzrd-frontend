@@ -1,6 +1,7 @@
 'use client';
 import { Box, MenuItem, Select, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import SliderIconBlue from '../../../../public/icons/coin-details/sliderIconBlue';
 
 const CoinNavbar = () => {
   const [activeHeading, setActiveHeading] = useState('Overview');
@@ -20,6 +21,27 @@ const CoinNavbar = () => {
 
   const handleHeadingClick = (heading: any) => {
     setActiveHeading(heading);
+    const sectionIdMap: { [key: string]: string } = {
+      Overview: 'overview',
+      About: 'about',
+      News: 'news',
+      Markets: 'market',
+      Technicals: 'technicals',
+      Analytics: 'analytics',
+      'Historical Data': 'historical',
+    };
+    const sectionId = sectionIdMap[heading];
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const topOffset = -80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset + topOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
   };
 
   const options = ['Buy', 'Exchange', 'Gaming', 'Earn'];
@@ -32,6 +54,10 @@ const CoinNavbar = () => {
     'Analytics',
     'Historical Data',
   ];
+
+  const CustomSelectIcon = () => {
+    return <SliderIconBlue />;
+  };
 
   return (
     <Box
@@ -85,40 +111,43 @@ const CoinNavbar = () => {
             onChange={(event) => handleChange(event, option)}
             displayEmpty
             inputProps={{ 'aria-label': 'Without label' }}
+            IconComponent={CustomSelectIcon} // Use the custom icon component
             sx={{
               border: 'none',
               background: 'rgba(114, 72, 247, 0.1)',
               fontSize: '11px',
               fontWeight: '500',
               color: 'rgba(114, 72, 247, 1)',
+              display: 'flex',
+              gap: '3px',
               borderRadius: '8px',
-              padding: '10px 0px 10px 12px',
+              cursor: 'pointer',
+              padding: '10px 10px 10px 12px',
               '& .MuiSelect-select': {
-                padding: '0',
+                padding: '0 !important',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
               },
               '& .MuiOutlinedInput-notchedOutline': {
                 border: 'none',
               },
               '& .MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input': {
-                paddingRight: '4px',
+                paddingRight: '0',
               },
               '& .MuiSvgIcon-root': {
-                color: 'rgba(114, 72, 247, 1)',
+                color: 'rgba(17, 17, 17, 1)',
               },
             }}
           >
             <MenuItem value="" key="">
-              {option}
+              <Box>{option}</Box>
             </MenuItem>
-            <MenuItem value="option1" key="option1">
-              Option 1
-            </MenuItem>
-            <MenuItem value="option2" key="option2">
-              Option 2
-            </MenuItem>
-            <MenuItem value="option3" key="option3">
-              Option 3
-            </MenuItem>
+            {['option1', 'option2', 'option3'].map((opt) => (
+              <MenuItem value={opt} key={opt}>
+                <Box>{opt}</Box>
+              </MenuItem>
+            ))}
           </Select>
         ))}
       </Box>
