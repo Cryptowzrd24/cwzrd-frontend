@@ -50,7 +50,7 @@ export const Accordian = ({
     if (name === 'coins') {
       return 'Coins Only';
     } else if (name === 'allCryptoCurrencies') {
-      return 'All Crypto Currencies';
+      return 'All Cryptocurrencies';
     } else if (name === 'tokens') {
       return 'Tokens Only';
     } else {
