@@ -76,7 +76,6 @@ const useColumnExchangeDefs = (columns: any) => {
             headerName: 'Fiat Supported',
             width: 155,
             cellRenderer: FiatSupported,
-            
           };
         case 'last7Days':
           return {

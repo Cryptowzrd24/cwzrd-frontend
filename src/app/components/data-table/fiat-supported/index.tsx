@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import styles from './index.module.css';
 import { CustomCellRendererProps } from 'ag-grid-react';
-import Vector from '../../../../../public/icons/vector';
 import { Modal, Box, Typography, TextField, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import styled from 'styled-components';
 import infoIcon from '@/app/assets/icons/infoIcon.svg';
 import Image from 'next/image';
 

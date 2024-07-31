@@ -126,9 +126,8 @@ const Converter = () => {
             display: 'flex',
             // justifyContent: 'space-between',
             alignItems: 'center',
-            width:"100%",
-            gap:"30px"
-
+            width: '100%',
+            gap: '30px',
           }}
         >
           <input
@@ -178,8 +177,7 @@ const Converter = () => {
             />
           </Box>
 
-         
-          <Box >
+          <Box>
             <input
               style={{
                 borderRadius: '100px',
@@ -244,52 +242,52 @@ const Converter = () => {
               </MenuItem>
             </Select>
           </Box>
-          </Box>
         </Box>
-        <Box
+      </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          width: '100%',
+        }}
+      >
+        <Typography
+          variant="body1"
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
+            fontSize: '12px',
+            fontWeight: '600',
+            color: 'rgba(17, 17, 17, 0.8)',
             width: '100%',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
           }}
         >
-          <Typography
-            variant="body1"
+          Last Update: 3.04 AM, April 17, 2024
+          <Box
+            component="span"
             sx={{
+              color: 'rgba(114, 72, 247, 1)',
+              display: 'flex',
+              alignItems: 'center',
+              ml: '24px',
               fontSize: '12px',
               fontWeight: '600',
-              color: 'rgba(17, 17, 17, 0.8)',
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
             }}
           >
-            Last Update: 3.04 AM, April 17, 2024
-            <Box
-              component="span"
-              sx={{
-                color: 'rgba(114, 72, 247, 1)',
-                display: 'flex',
-                alignItems: 'center',
-                ml: '24px',
-                fontSize: '12px',
-                fontWeight: '600',
+            <span
+              style={{
+                marginTop: '4px',
+                marginRight: '4px',
+                cursor: 'pointer',
               }}
             >
-              <span
-                style={{
-                  marginTop: '4px',
-                  marginRight: '4px',
-                  cursor: 'pointer',
-                }}
-              >
-                <Refresh />
-              </span>
-              Refresh
-            </Box>
-          </Typography>
+              <Refresh />
+            </span>
+            Refresh
+          </Box>
+        </Typography>
       </Box>
     </>
   );
