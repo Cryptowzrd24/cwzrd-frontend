@@ -12,7 +12,7 @@ import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 const getPercentColor = (val: any) => {
   if (!val) return;
   if (!val.toLocaleString().includes('-')) {
-    return { color: 'rgba(76, 254, 182, 1)' };
+    return { color: 'rgba(1, 200, 119, 1)' };
   } else {
     return { color: 'rgba(245, 109, 109, 1)' };
   }
@@ -109,7 +109,7 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
           color: 'rgba(17, 17, 17, 1)',
           display: 'flex',
           alignItems: 'center',
-          gap: '4px',
+          gap: '2px',
         }}
       >
         All-Time Low
@@ -161,7 +161,7 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
           color: 'rgba(17, 17, 17, 1)',
           display: 'flex',
           alignItems: 'center',
-          gap: '4px',
+          gap: '2px',
         }}
       >
         All-Time High
@@ -252,8 +252,8 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
             gap: '8px',
             padding: '8px 12px 8px 10px',
             borderRadius: '100px',
-            background: 'rgba(114, 72, 247, 1)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
+            background: '#805AF8',
+            border: '1px solid #936BFA',
             cursor: 'pointer',
           }}
         >
