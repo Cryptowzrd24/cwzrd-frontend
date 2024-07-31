@@ -492,7 +492,7 @@ const StockChart: React.FC<StockChartProps> = ({
     <div
       ref={chartRef}
       style={{
-        padding: '45px 24px 34px 22px',
+        padding: '34px 24px 34px 22px',
         height: isFullScreen ? '90vh' : '620px',
         position: 'relative',
       }}

@@ -26,6 +26,7 @@ const CoinDetails = () => {
 
   const id = pathname.split('/').pop();
   const { data } = useFetchCoinDetailsDataQuery({ coinId: id });
+  console.log('coin data', data);
   const coinName = coinDetails?.name;
   const handleFullScreen = () => {
     if (chartRef.current) {
@@ -55,7 +56,7 @@ const CoinDetails = () => {
         </Box>
         <Box
           id="details"
-          sx={{ display: 'flex', flexDirection: 'row', mb: '48px' }}
+          sx={{ display: 'flex', flexDirection: 'row', mb: '8px' }}
         >
           <Box>
             <GraphLayout
@@ -68,14 +69,13 @@ const CoinDetails = () => {
             <CoinDetailsCard coinDetails={coinDetails} />
           </Box>
         </Box>
-        <Box id="about" sx={{ mb: '48px' }}>
+        <Box id="about" sx={{ mt: '-24px', mb: '48px' }}>
           <CoinInfo coinDetails={coinDetails} />
         </Box>
         <Box id="news" sx={{ mb: '48px' }}>
           <NewsLetter />
         </Box>
         <Box id="market" sx={{ mb: '48px' }}>
-          <CoinMarket coinName={coinName} />
           <CoinMarket coinName={coinName} />
         </Box>
         <Box id="technicals" sx={{ mb: '48px' }}>
