@@ -124,6 +124,7 @@ const HeroContent = () => {
       <Box
         sx={{
           fontSize: '15px',
+          fontSize: '15px',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           mt: '8px',
@@ -132,7 +133,7 @@ const HeroContent = () => {
         The overall market capitalization of the crypto market is
         <span style={{ color: 'rgba(17,17,17,0.8)', fontWeight: '600', fontSize: '15px' }}>
           {' '}
-          ${marketCap}
+          +${marketCap}
         </span>
         , {marketCapChangeText}{' '}
         <span
@@ -153,7 +154,7 @@ const HeroContent = () => {
               style={{ color: 'rgba(17,17,17,0.8)', fontWeight: '600', fontSize: '15px' }}
             >
               {' '}
-              ${volumeCap}
+              +${volumeCap}
             </span>
             , {volumeCapChangeText}{' '}
             <span
@@ -170,7 +171,7 @@ const HeroContent = () => {
               style={{ color: 'rgba(17,17,17,0.8)', fontWeight: '600', fontSize: '15px' }}
             >
               {' '}
-              ${defiVolume}
+              +${defiVolume}
             </span>
             , {defiVolumeChangeText}{' '}
             <span
@@ -190,7 +191,7 @@ const HeroContent = () => {
               style={{ color: 'rgba(17,17,17,0.8)', fontWeight: '600', fontSize: '15px' }}
             >
               {' '}
-              ${stablecoinVolume}
+              +${stablecoinVolume}
             </span>
             , {stablecoinVolumeChangeText}{' '}
             <span
@@ -204,15 +205,13 @@ const HeroContent = () => {
             </span>
             , which is{' '}
             <span style={{ fontWeight: 600 }}>{stablecoinVolumePercent}%</span>{' '}
-            of the total
-            <br /> crypto market 24-hour volume.
-            <br />
+            of the total crypto market 24-hour volume. <br />
             Bitcoin’s dominance is currently
             <span
               style={{color: 'rgba(17,17,17,0.8)', fontWeight: '600', fontSize: '15px' }}
             >
               {' '}
-              {btcDominance}%
+              +{btcDominance}%
             </span>
             , {btcDominanceChangeText}{' '}
             <span
@@ -224,7 +223,7 @@ const HeroContent = () => {
             >
               {btcDominanceChange}%
             </span>
-            .
+            . <br />
           </>
         )}
         <span

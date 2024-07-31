@@ -51,6 +51,9 @@ const styles = {
     gap: '8px',
     marginTop: '12px',
   },
+  filterActive: {
+    border: '1px solid rgba(114, 72, 247, 1)',
+  },
   filterContainerBox: {
     paddingTop: '12px',
     borderTop: '1px solid #1111111A',

@@ -71,7 +71,7 @@ const Converter = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '20px',
+                fontSize: '14px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
                 mb: '16px',

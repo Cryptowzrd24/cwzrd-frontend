@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: center;
     margin-top: -15px;
+    cursor: pointer;
 }
 
 
@@ -21,6 +22,7 @@
     margin: 0;
     font-weight: 600;
     line-height: 18.2px;
+    cursor: pointer;
 }
 
 .short-name {

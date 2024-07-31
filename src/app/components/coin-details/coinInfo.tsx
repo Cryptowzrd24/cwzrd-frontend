@@ -9,7 +9,7 @@ const CoinInfo = () => {
         sx={{
           boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
           padding: '32px',
-          borderRadius: '16px',
+          borderRadius: '24px',
           background: 'rgba(255, 255, 255, 1)',
           marginBottom: '24px',
         }}
@@ -192,7 +192,7 @@ const CoinInfo = () => {
             >
               Read More
             </Typography>
-            <Box sx={{ mt: '8px' }}>
+            <Box sx={{ mt: '4px' }}>
               <RightArrowLinearGraident />
             </Box>
           </Box>
