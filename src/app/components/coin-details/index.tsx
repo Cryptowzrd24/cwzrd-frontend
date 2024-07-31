@@ -76,7 +76,6 @@ const CoinDetails = () => {
         </Box>
         <Box id="market" sx={{ mb: '48px' }}>
           <CoinMarket coinName={coinName} />
-          <CoinMarket coinName={coinName} />
         </Box>
         <Box id="technicals" sx={{ mb: '48px' }}>
           <Technicals />

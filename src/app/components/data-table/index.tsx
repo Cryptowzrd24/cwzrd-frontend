@@ -19,6 +19,7 @@ interface DataTableProps {
   priceRefs?: React.MutableRefObject<{ [key: string]: HTMLDivElement | null }>;
   height?: string;
   onRowClicked?: (id: any) => void;
+  rowHeight?: number;
 }
 
 const DataTable = memo(
@@ -33,6 +34,7 @@ const DataTable = memo(
     getRowId = undefined,
     priceRefs,
     height,
+    rowHeight,
     onRowClicked,
   }: DataTableProps) => {
     const modifiedColumnDefs = useMemo(
@@ -113,6 +115,7 @@ const DataTable = memo(
           tooltipShowDelay={0}
           quickFilterText={search}
           tooltipInteraction={true}
+          {...(rowHeight ? { rowHeight } : {})}
           rowStyle={{
             fontFamily: 'SF Pro Display',
             fontSize: 13,

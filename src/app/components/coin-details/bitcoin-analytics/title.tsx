@@ -62,7 +62,7 @@ const Title = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === '1 Month'
@@ -89,7 +89,7 @@ const Title = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === '1 Year'
@@ -116,7 +116,7 @@ const Title = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === 'All' ? '1px solid rgba(114, 72, 247, 1)' : 'none',

@@ -24,7 +24,15 @@ export const Exchange = (props: any) => {
           key={exchange.name}
           sx={{ display: 'flex', alignItems: 'center', gap: '8px', mt: '16px' }}
         >
-          <img src={imgId} alt={exchange.name} width={32} height={32} />
+          <img
+            src={imgId}
+            alt={exchange.name}
+            width={32}
+            height={32}
+            style={{
+              borderRadius: '50%',
+            }}
+          />
           <Stack>
             <Typography
               variant="body1"

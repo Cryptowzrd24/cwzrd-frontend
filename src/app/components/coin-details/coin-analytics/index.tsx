@@ -160,7 +160,7 @@ const CoinAnalytics = ({ coinId }: any) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === '1 Month'
@@ -187,7 +187,7 @@ const CoinAnalytics = ({ coinId }: any) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === '1 Year'
@@ -214,7 +214,7 @@ const CoinAnalytics = ({ coinId }: any) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === 'All' ? '1px solid rgba(114, 72, 247, 1)' : 'none',
@@ -244,9 +244,18 @@ const CoinAnalytics = ({ coinId }: any) => {
           '& .ag-header-cell:last-child .ag-header-cell-label': {
             justifyContent: 'start !important',
           },
+          '& .ag-header': {
+            borderTop: 'none',
+          },
+          '& .ag-header-cell': {
+            paddingBottom: '22px',
+          },
+          '& .ag-row': {
+            height: '42px !important',
+          },
         }}
       >
-        <DataTable rowData={paginatedData} columnDefs={colDef} />
+        <DataTable rowData={paginatedData} columnDefs={colDef} rowHeight={38} />
         <Pagination
           length={totalCount}
           pageSize={pageSize}

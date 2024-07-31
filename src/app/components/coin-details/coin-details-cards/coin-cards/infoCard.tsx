@@ -102,7 +102,61 @@ const InfoCard = ({ coinDetails }: any) => {
           </Typography>
 
           <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
-            {coinDetails?.urls?.website?.map((elem: any, index: number) => {
+            <Box
+              // key={index}
+              sx={{
+                padding: '7px 12px',
+                borderRadius: '8px',
+                background: 'rgba(17, 17, 17, 0.05)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '11px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  maxWidth: '200px',
+                }}
+              >
+                Bitocin.org
+              </Typography>
+            </Box>
+            <Box
+              // key={index}
+              sx={{
+                padding: '7px 12px',
+                borderRadius: '8px',
+                background: 'rgba(17, 17, 17, 0.05)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '11px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  maxWidth: '200px',
+                }}
+              >
+                Whitepaper
+              </Typography>
+            </Box>
+            {/* When the api will be connected, the below code will be used for
+            dynaimc rendering */}
+            {/* {coinDetails?.urls?.website?.map((elem: any, index: number) => {
               return (
                 <Box
                   key={index}
@@ -131,7 +185,7 @@ const InfoCard = ({ coinDetails }: any) => {
                   </Typography>
                 </Box>
               );
-            })}
+            })} */}
           </Box>
         </Box>
         {/* ---------------------------------------------- */}
@@ -189,6 +243,68 @@ const InfoCard = ({ coinDetails }: any) => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '4px',
+                  maxWidth: '200px',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  border: 'none',
+                },
+                '& .MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':
+                  {
+                    paddingRight: '0',
+                  },
+                '& .MuiSvgIcon-root': {
+                  color: 'rgba(17, 17, 17, 1)',
+                },
+              }}
+            >
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '4px',
+                  maxWidth: '200px',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                }}
+              >
+                <Typography
+                  variant="body1"
+                  sx={{ fontSize: '11px', fontWeight: '400' }}
+                >
+                  Mempool
+                </Typography>
+              </MenuItem>
+            </Select>
+
+            {/* <Select
+              displayEmpty
+              IconComponent={() => (
+                <Box sx={{ marginLeft: '4px' }}>
+                  <SliderIcon />
+                </Box>
+              )}
+              sx={{
+                fontSize: '11px',
+                fontWeight: '500',
+                color: 'rgba(17, 17, 17, 1)',
+                background: 'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                display: 'flex',
+                alignItems: 'center',
+                paddingRight: '0 !important',
+                maxWidth: '100px', // Fixed width for the Select component
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                '& .MuiSelect-select': {
+                  padding: '0 !important',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
                   maxWidth: '200px', // Ensure the text within the Select component is also constrained
                   whiteSpace: 'nowrap',
                   overflow: 'hidden',
@@ -207,7 +323,7 @@ const InfoCard = ({ coinDetails }: any) => {
               }}
             >
               {explorerMenuItems}
-            </Select>
+            </Select> */}
           </Box>
         </Box>
         {/* -------------------------------------------------------------- */}

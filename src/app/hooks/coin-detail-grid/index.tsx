@@ -9,6 +9,7 @@ import {
 } from '@/utils/price-number-formater';
 import { DateAdded } from '@/app/components/data-table/date-component';
 import ThresholdCellRenderer from './thresholdCellRenderer';
+import Confidence from './confidence';
 
 const useColumnCoinDetailDefs = (columns: any) => {
   return useMemo(() => {
@@ -98,6 +99,7 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'confidence',
             headerName: 'Confidence',
             width: 110,
+            cellRenderer: Confidence,
           };
         case 'liquidity_store':
           return {

@@ -178,7 +178,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === 'Spot' ? '1px solid rgba(114, 72, 247, 1)' : 'none',
@@ -203,7 +203,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === 'Perpetual'
@@ -230,7 +230,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === 'Futures'
@@ -254,8 +254,16 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
       <Box
         sx={{
           mt: '16px',
+          backgroundColor: 'rgba(255, 255, 255, 1)',
+          padding: '24px',
+          width: '1340px',
+          borderRadius: '24px',
+          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           '& .ag-header-cell:last-child .ag-header-cell-label': {
             justifyContent: 'start !important',
+          },
+          '& .ag-header': {
+            borderTop: 'none',
           },
         }}
       >

@@ -86,8 +86,8 @@ const Converter = ({ coinDetails }: any) => {
               mb: '16px',
             }}
           >
-            1 {coinDetails?.name} equals {coinDetails?.quote?.price} United
-            States Dollar
+            1 {coinDetails?.name} equals $
+            {coinDetails?.quote?.price?.toFixed(2)} United States Dollar
           </Typography>
           <Box
             sx={{
@@ -190,7 +190,7 @@ const Converter = ({ coinDetails }: any) => {
         <Box>
           <input
             type="text"
-            defaultValue={coinDetails?.quote?.price}
+            defaultValue={coinDetails?.quote?.price?.toFixed(2)}
             value={convertedVal?.toFixed(2)}
             readOnly
             style={{
