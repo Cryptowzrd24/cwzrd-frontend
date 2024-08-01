@@ -21,72 +21,6 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
       chart: {
         type: 'solidgauge',
         height: '100%',
-        events: {
-          render: function (this: any) {
-            // const chart = this;
-            const renderer = this.renderer;
-            if (!renderer.defs) {
-              renderer.defs = renderer.createElement('defs').add();
-            }
-
-            if (!renderer.defs.filter) {
-              const filter = renderer
-                .createElement('filter')
-                .attr({
-                  id: 'drop-shadow',
-                  height: '130%',
-                })
-                .add(renderer.defs);
-
-              renderer
-                .createElement('feGaussianBlur')
-                .attr({
-                  in: 'SourceAlpha',
-                  stdDeviation: 1.5,
-                })
-                .add(filter);
-
-              renderer
-                .createElement('feOffset')
-                .attr({
-                  dx: 0.5,
-                  dy: 0.5,
-                  result: 'offsetblur',
-                })
-                .add(filter);
-
-              renderer
-                .createElement('feFlood')
-                .attr({
-                  'flood-color': 'rgba(255, 255, 255, 1)',
-                  'flood-opacity': 0.1,
-                  result: 'color',
-                })
-                .add(filter);
-
-              const feMerge = renderer.createElement('feMerge').add(filter);
-              renderer
-                .createElement('feMergeNode')
-                .attr({
-                  in: 'offsetblur',
-                })
-                .add(feMerge);
-              renderer
-                .createElement('feMergeNode')
-                .attr({
-                  in: 'SourceGraphic',
-                })
-                .add(feMerge);
-            }
-
-            const outermostCircle = this.series[0].data[0].graphic;
-            if (outermostCircle) {
-              outermostCircle.attr({
-                filter: 'url(#drop-shadow)',
-              });
-            }
-          },
-        },
       },
       title: {
         text: undefined,
@@ -121,10 +55,23 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
         },
         outside: true,
         positioner: function (labelWidth, labelHeight, point) {
-          return {
-            x: point.plotX + this.chart.plotLeft - labelWidth / 2,
-            y: point.plotY + this.chart.plotTop - labelHeight + 60,
-          };
+          const chart = this.chart;
+          let x = point.plotX + chart.plotLeft + 10; // Position tooltip 10px to the right of the point
+          let y = point.plotY + chart.plotTop - labelHeight / 2; // Center vertically with the point
+
+          // Ensure tooltip stays within chart bounds on x-axis
+          if (x + labelWidth > chart.plotLeft + chart.plotWidth) {
+            x = point.plotX + chart.plotLeft - labelWidth + 110; // Position tooltip to the left if it overflows
+          }
+
+          // Ensure tooltip stays within chart bounds on y-axis
+          if (y < chart.plotTop) {
+            y = chart.plotTop;
+          } else if (y + labelHeight > chart.plotTop + chart.plotHeight) {
+            y = chart.plotTop + chart.plotHeight - labelHeight;
+          }
+
+          return { x, y };
         },
       },
       pane: {
@@ -185,9 +132,10 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
               color: {
                 linearGradient: { x1: 0, y1: 0, x2: 1, y2: 0 },
                 stops: [
-                  [0.5, '#7A2E94'],
-                  [0.75, '#E35AD8'],
-                  [1, '#B769E4'],
+                  [0, '#4884F7'], // Start color
+                  [0.001, '#431CBF'], // Very slight move
+                  [0.77, '#E95DDB'], // Bright color, near end
+                  [1, '#4884F7'], // End, loop back to start color
                 ],
               },
               radius: '112%',
@@ -299,130 +247,139 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
   ];
 
   return (
-    <Card
-      className={styles.tvl_chain_card_wrapper}
+    <div
       style={{
-        backgroundColor: isDarkTheme
-          ? 'rgba(17, 17, 17, 1)'
-          : 'rgba(255, 255, 255, 1)',
-        boxShadow: '0px 20px 30px rgba(0, 0, 0, 0.1)', // Add your box shadow here
-        borderRadius: '8px', // Ensure border radius is also applied
+        width: '24%',
+        display: 'flex',
+        borderRadius: '15px',
+        border: '1px solid rgba(17, 17, 17, 0.05)',
+        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
       }}
     >
-      <div
+      <Card
+        className={styles.tvl_chain_card_wrapper}
         style={{
-          paddingTop: '24px',
-          paddingLeft: '24px',
-          paddingRight: '22px',
+          backgroundColor: isDarkTheme
+            ? 'rgba(17, 17, 17, 1)'
+            : 'rgba(255, 255, 255, 1)',
+          borderRadius: '8px', // Ensure border radius is also applied
         }}
       >
-        <Typography
+        <div
           style={{
-            fontSize: '12px',
-            fontWeight: 700,
-            letterSpacing: '1px',
-            fontFamily: 'Sf Pro Display',
-            color: !isDarkTheme
-              ? 'rgba(17, 17, 17, 1)'
-              : 'rgba(255, 255, 255, 1)',
+            paddingTop: '24px',
+            paddingLeft: '24px',
+            paddingRight: '22px',
           }}
         >
-          ⭐️ TVL BY CHAINS
-        </Typography>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'start',
-          alignItems: 'start',
-        }}
-      >
-        <div style={{ display: 'flex' }}>
-          <div
+          <Typography
             style={{
-              width: '85%',
-              marginLeft: '10px',
-            }}
-            id="container"
-          ></div>
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '5px',
-              paddingLeft: '5px',
-              paddingTop: '10px',
-              height: '30px',
+              fontSize: '12px',
+              fontWeight: 700,
+              letterSpacing: '1px',
+              fontFamily: 'Sf Pro Display',
+              color: !isDarkTheme
+                ? 'rgba(17, 17, 17, 1)'
+                : 'rgba(255, 255, 255, 1)',
             }}
           >
-            {listItems.map((elem) => (
-              <div
-                key={elem.label}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1px',
-                }}
-              >
+            ⭐️ TVL BY CHAINS
+          </Typography>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'start',
+            alignItems: 'start',
+          }}
+        >
+          <div style={{ display: 'flex' }}>
+            <div
+              style={{
+                width: '85%',
+                marginLeft: '10px',
+              }}
+              id="container"
+            ></div>
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '5px',
+                paddingLeft: '5px',
+                paddingTop: '10px',
+                height: '30px',
+              }}
+            >
+              {listItems.map((elem) => (
                 <div
+                  key={elem.label}
                   style={{
                     display: 'flex',
-                    justifyContent: 'start',
-                    alignItems: 'center',
+                    flexDirection: 'column',
+                    gap: '1px',
                   }}
                 >
-                  <li
+                  <div
                     style={{
-                      margin: '0',
-                      width: '8px',
-                      backgroundColor: `${elem.bulletColor}`,
-                      listStyle: 'none',
+                      display: 'flex',
+                      justifyContent: 'start',
+                      alignItems: 'center',
                     }}
-                  ></li>
+                  >
+                    <li
+                      style={{
+                        margin: '0',
+                        width: '8px',
+                        backgroundColor: `${elem.bulletColor}`,
+                        listStyle: 'none',
+                      }}
+                    ></li>
+                    <p
+                      style={{
+                        margin: '0',
+                        fontSize: '11px',
+                        fontWeight: 400,
+                        color: !isDarkTheme
+                          ? 'rgba(17, 17, 17, 1)'
+                          : 'rgba(255, 255, 255, 1)',
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: '6px',
+                          height: '6px',
+                          display: 'inline-block',
+                          background: elem.bulletColor,
+                          borderRadius: '50%',
+                          marginRight: '4px',
+                        }}
+                      ></span>
+                      {elem.label}
+                    </p>
+                  </div>
                   <p
                     style={{
                       margin: '0',
-                      fontSize: '11px',
-                      fontWeight: 400,
+                      fontSize: '14px',
+                      fontWeight: 700,
                       color: !isDarkTheme
                         ? 'rgba(17, 17, 17, 1)'
                         : 'rgba(255, 255, 255, 1)',
+                      marginTop: '2px',
+                      marginLeft: '17px',
                     }}
                   >
-                    <span
-                      style={{
-                        width: '6px',
-                        height: '6px',
-                        display: 'inline-block',
-                        background: elem.bulletColor,
-                        borderRadius: '50%',
-                        marginRight: '4px',
-                      }}
-                    ></span>
-                    {elem.label}
+                    {elem.value}
                   </p>
                 </div>
-                <p
-                  style={{
-                    margin: '0',
-                    fontSize: '14px',
-                    fontWeight: 700,
-                    color: !isDarkTheme
-                      ? 'rgba(17, 17, 17, 1)'
-                      : 'rgba(255, 255, 255, 1)',
-                    marginTop: '2px',
-                    marginLeft: '17px',
-                  }}
-                >
-                  {elem.value}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </div>
   );
 };
 

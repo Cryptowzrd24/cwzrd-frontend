@@ -97,28 +97,34 @@ const AreaChart = (props: IChartProps) => {
            height:25px;
            background: white; 
            border-radius: 40px; 
-           padding: 4px, 8px, 4px, 8px; 
-          box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
+           padding: 4px 8px; 
+           box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
            font-size: 14px; 
            font-weight: 300;
            color: #111111;">
             ${percent ? '' : '$'}${yValue}${percent ? '%' : 'm'}
           </div>`;
       },
-      positioner: function (
-        labelWidth: number,
-        labelHeight: number,
-        point: any,
-      ) {
+      positioner: function (labelWidth, labelHeight, point) {
         const chart = this.chart;
-        let x = point.plotX + chart.plotLeft - labelWidth / 2;
-        let y = point.plotY + chart.plotTop - labelHeight - 10;
+        const plotX = point.plotX + chart.plotLeft;
+        const plotY = point.plotY + chart.plotTop;
+        const cursorPadding = 10;
 
+        let x = plotX + cursorPadding; // Default position to the right
+        let y = plotY - labelHeight / 2;
+
+        // Adjust position to the left if the tooltip goes out of bounds
+        if (x + labelWidth > chart.plotLeft + chart.plotWidth) {
+          x = plotX - labelWidth - cursorPadding;
+        }
+
+        // Ensure tooltip stays within chart bounds on x-axis
         if (x < chart.plotLeft) {
           x = chart.plotLeft;
-        } else if (x + labelWidth > chart.plotLeft + chart.plotWidth) {
-          x = chart.plotLeft + chart.plotWidth - labelWidth;
         }
+
+        // Ensure tooltip stays within chart bounds on y-axis
         if (y < chart.plotTop) {
           y = chart.plotTop;
         } else if (y + labelHeight > chart.plotTop + chart.plotHeight) {

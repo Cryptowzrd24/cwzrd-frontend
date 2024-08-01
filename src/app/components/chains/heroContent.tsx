@@ -49,8 +49,11 @@ function HeroContent() {
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
+              maxWidth: '100%',
               justifyContent: 'space-between',
+              marginBottom: '20px',
             }}
+            className="chains__container"
           >
             <KpiGuageChart isDarkTheme={false} />
             <GraphCard

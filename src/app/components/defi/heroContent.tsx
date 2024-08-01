@@ -52,11 +52,14 @@ function HeroContent() {
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
-              // justifyContent: 'center',
+              maxWidth: '100%',
+              justifyContent: 'space-between',
+              marginBottom: '20px',
             }}
+            className="defi__container"
           >
             <CandlestickCard
-              heading="🪙 Bitcoin"
+              heading="Bitcoin"
               value={{ data: '36,606,531,750.36', prefix: '$' }}
               percent={6.32}
             />

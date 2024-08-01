@@ -47,7 +47,9 @@ function HeroContent() {
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
+              maxWidth: '100%',
               justifyContent: 'space-between',
+              marginBottom: '20px',
             }}
           >
             <Card1

@@ -75,7 +75,7 @@ const Components = () => {
         <KpiGuageChart isDarkTheme={false} />
         <GaugeChart value={0} />
         <CandlestickCard
-          heading="🪙 Bitcoin"
+          heading="Bitcoin"
           value={{ data: '36,606,531,750.36', prefix: '$' }}
           percent={6.32}
         />
