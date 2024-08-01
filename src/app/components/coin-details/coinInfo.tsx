@@ -1,8 +1,85 @@
 import { Box, Stack, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import RightArrowLinearGraident from '../../../../public/icons/nft/rightArrowLinearGraident';
 
-const CoinInfo = () => {
+const CoinInfo = ({ coinDetails }: any) => {
+  const [showAll, setShowAll] = useState(false);
+
+  const processParagraph = (text: any) => {
+    const urlPattern = /(\[([^\]]+)\]\((https?:\/\/[^\)]+)\))/g;
+    const parts = text.split(urlPattern);
+
+    return parts.map((part: any, index: any) => {
+      if (urlPattern.test(part)) {
+        const match = part.match(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/);
+        const label = match[1];
+        const url = match[2];
+        return (
+          <>
+            <a
+              key={index}
+              href={url}
+              style={{
+                backgroundImage:
+                  'linear-gradient(90deg, rgb(99, 77, 253) 0%, rgb(114, 72, 247) 50%, rgb(191, 72, 247) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                textDecoration: 'none',
+              }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {label}
+            </a>{' '}
+          </>
+        );
+      }
+      return part;
+    });
+  };
+
+  const renderItems = () => {
+    const itemsToRender = showAll
+      ? coinDetails?.about_coin?.data
+      : coinDetails?.about_coin?.data.slice(0, 3);
+
+    return itemsToRender?.map((item: any, index: any) => (
+      <Box key={index} sx={{ mb: '16px' }}>
+        <Typography
+          variant="body1"
+          sx={{
+            fontSize: '18px',
+            fontWeight: '500',
+            color: 'rgba(17, 17, 17, 1)',
+            mb: '8px',
+            lineHeight: '23.4px',
+          }}
+        >
+          {item.title}
+        </Typography>
+        {item.paragraph.map((paragraph: any, idx: any) => (
+          <Typography
+            key={idx}
+            variant="body1"
+            sx={{
+              fontSize: '13px',
+              fontWeight: '400',
+              color: 'rgba(17, 17, 17, 0.8)',
+              mb: '8px',
+              lineHeight: '18.85px',
+            }}
+          >
+            {processParagraph(paragraph)}
+          </Typography>
+        ))}
+      </Box>
+    ));
+  };
+
+  const handleToggle = () => {
+    setShowAll(!showAll);
+  };
+
   return (
     <>
       <Box
@@ -14,7 +91,7 @@ const CoinInfo = () => {
           marginBottom: '24px',
         }}
       >
-        <Stack sx={{ maxWidth: '1226px', width: '100%' }}>
+        <Stack sx={{ width: '100%' }}>
           <Typography
             variant="body1"
             sx={{
@@ -46,127 +123,11 @@ const CoinInfo = () => {
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              Bitcoin
+              {coinDetails?.name}
             </span>{' '}
           </Typography>
-          <Box sx={{ mb: '24px' }}>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '18px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-                mb: '4px',
-              }}
-            >
-              Bitcoin (BTC) price has declined today{' '}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '13px',
-                fontWeight: '400',
-                color: 'rgba(17, 17, 17, 0.8)',
-              }}
-            >
-              The price of Bitcoin (BTC) is $33,947.22 today with a 24-hour
-              trading volume of $16,824,224,604.76. This represents
-              a -0.79% price decline in the last 24 hours and a 14.34% price
-              increase in the past 7 days. With a circulating supply of 20
-              Million BTC, Bitcoin is valued at a market cap
-              of $662,835,338,273.
-            </Typography>
-          </Box>
 
-          {/* --------------------- */}
-          <Box sx={{ mb: '16px' }}>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '18px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-                mb: '4px',
-              }}
-            >
-              What is Bitcoin?{' '}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '13px',
-                fontWeight: '400',
-                color: 'rgba(17, 17, 17, 0.8)',
-              }}
-            >
-              Bitcoin is a cryptocurrency launched in January 2009, where the
-              first genesis block was mined on 9th January 2009. It is a
-              decentralized digital currency that is based on cryptography. As
-              such, it can operate without the need of a central authority like
-              a central bank or a company. It is unlike government-issued or
-              fiat currencies such as US Dollars or Euro in which they are
-              controlled by the country’s central bank. The decentralized nature
-              allows it to operate on a peer-to-peer network whereby users are
-              able to send funds to each other without going through
-              intermediaries.
-            </Typography>
-          </Box>
-          {/* ---------------------------------- */}
-          <Box sx={{ mb: '16px' }}>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '18px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-                mb: '4px',
-              }}
-            >
-              Who created Bitcoin?{' '}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '13px',
-                fontWeight: '400',
-                color: 'rgba(17, 17, 17, 0.8)',
-              }}
-            >
-              The creator is an unknown individual or group that goes by the
-              name Satoshi Nakamoto with the idea of an electronic peer-to-peer
-              cash system as it is written in a whitepaper. Until today, the
-              true identity of Satoshi Nakamoto has not been verified though
-              there has been speculation and rumor as to who Satoshi might be.
-            </Typography>
-          </Box>
-          {/* ------------------------------ */}
-          <Box sx={{ mb: '16px' }}>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '18px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-                mb: '4px',
-              }}
-            >
-              How does Bitcoin work?{' '}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '13px',
-                fontWeight: '400',
-                color: 'rgba(17, 17, 17, 0.8)',
-              }}
-            >
-              While the general public perceives Bitcoin as a physical looking
-              coin, it is actually far from that. Under the hood, it is a
-              distributed accounting ledger that is stored as a chain of blocks
-              - hence the name blockchain.{' '}
-            </Typography>
-          </Box>
-          {/* ------------------------------- */}
+          {renderItems()}
 
           <Box
             sx={{
@@ -175,6 +136,7 @@ const CoinInfo = () => {
               gap: '4px',
               cursor: 'pointer',
             }}
+            onClick={handleToggle}
           >
             <Typography
               variant="body1"
@@ -190,7 +152,7 @@ const CoinInfo = () => {
                 fontWeight: '600',
               }}
             >
-              Read More
+              {showAll ? 'Read Less' : 'Read More'}
             </Typography>
             <Box sx={{ mt: '4px' }}>
               <RightArrowLinearGraident />

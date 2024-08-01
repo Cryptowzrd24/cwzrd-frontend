@@ -1,17 +1,38 @@
 'use client';
 import { Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { rowDataCoinMarket } from '@/app/constants/row';
 import DataTable from '../../data-table';
 import { Pagination } from '../../data-table/pagination';
 import useColumnCoinDetailDefs from '@/app/hooks/coin-detail-grid';
-import { columnsCoinMarket } from '@/app/constants/columns';
+import {
+  columnsCoinMarketSpot,
+  columnsCoinMarketPerpetual,
+  columnsCoinMarketFutures,
+} from '@/app/constants/columns';
+import { useFetchMarketDataCoinDetailsQuery } from '@/app/redux/reducers/data-grid';
 
-const CoinMarket = () => {
-  const colDef = useColumnCoinDetailDefs(columnsCoinMarket);
+interface CoinMarketProps {
+  coinName: string | null | undefined;
+}
+
+const CoinMarket = ({ coinName }: CoinMarketProps) => {
+  const [rowData, setRowData] = useState([]);
+  const [active, setActive] = useState('Spot');
+
+  const { data } = useFetchMarketDataCoinDetailsQuery({
+    coinName: coinName,
+    filter: active.toLowerCase(),
+  });
+  const columnHeaders =
+    active === 'Spot'
+      ? columnsCoinMarketSpot
+      : active === 'Perpetual'
+        ? columnsCoinMarketPerpetual
+        : columnsCoinMarketFutures;
+  const colDef = useColumnCoinDetailDefs(columnHeaders);
   const pageSize = 10;
-  const totalCount = 50;
+  const totalCount = 10;
 
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -21,10 +42,88 @@ const CoinMarket = () => {
   ) => {
     setCurrentPage(value);
   };
-  const [active, setActive] = useState('Spot');
   const handleClick = (button: any) => {
     setActive(button);
   };
+
+  function formatDate(dateString: string) {
+    // Create a new Date object from the provided string
+    const date = new Date(dateString);
+
+    // Extract the parts of the date
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+
+    // Combine the parts into the desired format
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  }
+
+  useEffect(() => {
+    if (data && data.data && active === 'Spot') {
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.marketPairs.map((item: any, index: number) => ({
+        id: item.rank,
+        coin_id: item.exchangeId,
+        exchange: item.exchangeName,
+        pair: item.marketPair,
+        new_price: item.price,
+        depth_positive2: item.depthUsdPositiveTwo,
+        depth_negative2: item.depthUsdNegativeTwo,
+        volume_24h: item.quotes[0]?.volume24h,
+        volume: item.volumePercent,
+        confidence: item.confidence,
+        liquidity_store: item.effectiveLiquidity,
+        baseSymbol: item.baseSymbol,
+        updated: item.lastUpdated,
+        index: startIndex + index,
+      }));
+      setRowData(res);
+    }
+    if (data && data.data && active === 'Perpetual') {
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.marketPairs.map((item: any, index: number) => ({
+        id: item.rank,
+        coin_id: item.exchangeId,
+        exchange: item.exchangeName,
+        pair: item.marketPair,
+        new_price: item.price,
+        index_price: item.indexPrice,
+        basis: item.indexBasis,
+        funding_rate: item.fundingRate,
+        open_interest: item.openInterestUsd,
+        volume_24h: item.quotes[0]?.volume24h,
+        volume: item.volumePercent,
+        baseSymbol: item.baseSymbol,
+        updated: item.lastUpdated,
+        index: startIndex + index,
+      }));
+      setRowData(res);
+    }
+    if (data && data.data && active === 'Futures') {
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.marketPairs.map((item: any, index: number) => ({
+        id: item.rank,
+        coin_id: item.exchangeId,
+        exchange: item.exchangeName,
+        pair: item.marketPair,
+        new_price: item.price,
+        index_price: item.indexPrice,
+        basis: item.indexBasis,
+        expiry_date: formatDate(item.expiration),
+        open_interest: item.openInterestUsd,
+        volume_24h: item.quotes[0]?.volume24h,
+        volume: item.volumePercent,
+        baseSymbol: item.baseSymbol,
+        updated: item.lastUpdated,
+        index: startIndex + index,
+      }));
+      setRowData(res);
+    }
+  }, [data, currentPage, pageSize, active]);
 
   return (
     <>
@@ -57,7 +156,7 @@ const CoinMarket = () => {
               color: 'rgba(17, 17, 17, 1)',
             }}
           >
-            Bitcoin{' '}
+            {coinName}{' '}
             <span
               style={{
                 backgroundImage:
@@ -79,7 +178,7 @@ const CoinMarket = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === 'Spot' ? '1px solid rgba(114, 72, 247, 1)' : 'none',
@@ -97,17 +196,17 @@ const CoinMarket = () => {
             </Typography>
           </Box>
           <Box
-            onClick={() => handleClick('Perpetuals')}
+            onClick={() => handleClick('Perpetual')}
             sx={{
               padding: '7px 16px',
               borderRadius: '8px',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
-                active === 'Perpetuals'
+                active === 'Perpetual'
                   ? '1px solid rgba(114, 72, 247, 1)'
                   : 'none',
             }}
@@ -120,7 +219,7 @@ const CoinMarket = () => {
                 color: 'rgba(114, 72, 247, 1)',
               }}
             >
-              Perpetuals
+              Perpetual
             </Typography>
           </Box>
           <Box
@@ -131,7 +230,7 @@ const CoinMarket = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === 'Futures'
@@ -152,8 +251,23 @@ const CoinMarket = () => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ mt: '16px' }}>
-        <DataTable rowData={rowDataCoinMarket} columnDefs={colDef} />
+      <Box
+        sx={{
+          mt: '16px',
+          backgroundColor: 'rgba(255, 255, 255, 1)',
+          padding: '24px',
+          width: '1340px',
+          borderRadius: '24px',
+          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+          '& .ag-header-cell:last-child .ag-header-cell-label': {
+            justifyContent: 'start !important',
+          },
+          '& .ag-header': {
+            borderTop: 'none',
+          },
+        }}
+      >
+        <DataTable rowData={rowData} columnDefs={colDef} />
         <Pagination
           length={totalCount}
           pageSize={pageSize}

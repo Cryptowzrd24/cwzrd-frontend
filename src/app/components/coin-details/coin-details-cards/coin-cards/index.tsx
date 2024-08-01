@@ -4,17 +4,17 @@ import PriceCard from './priceCard';
 import InfoCard from './infoCard';
 import HistoricalCard from './historicalCard';
 
-const CoinCards = () => {
+const CoinCards = ({ coinDetails }: any) => {
   return (
     <>
       <Box sx={{ mb: '8px' }}>
-        <PriceCard />
+        <PriceCard coinDetails={coinDetails} />
       </Box>
       <Box sx={{ mb: '8px' }}>
-        <InfoCard />
+        <InfoCard coinDetails={coinDetails} />
       </Box>
       <Box sx={{ mb: '8px' }}>
-        <HistoricalCard />
+        <HistoricalCard coinDetails={coinDetails} />
       </Box>
     </>
   );

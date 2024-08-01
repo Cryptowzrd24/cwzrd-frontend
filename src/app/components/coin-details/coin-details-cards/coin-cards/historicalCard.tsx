@@ -7,8 +7,18 @@ import 'slick-carousel/slick/slick-theme.css';
 import SmallDetails from '../../../../../../public/icons/coin-details/smallDetails';
 import LikeBlueIcon from '../../../../../../public/icons/coin-details/likeBlue';
 import DislikeBlueIcon from '../../../../../../public/icons/coin-details/dislikeBlue';
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 
-const HistoricalCardContent = () => (
+const getPercentColor = (val: any) => {
+  if (!val) return;
+  if (!val.toLocaleString().includes('-')) {
+    return { color: 'rgba(1, 200, 119, 1)' };
+  } else {
+    return { color: 'rgba(245, 109, 109, 1)' };
+  }
+};
+
+const HistoricalCardContent = ({ coinDetails }: any) => (
   <Stack>
     <Typography
       variant="body1"
@@ -49,7 +59,8 @@ const HistoricalCardContent = () => (
           color: 'rgba(17, 17, 17, 1)',
         }}
       >
-        $61,514.38 - $67,862.17
+        ${priceNumberFormatDigits(coinDetails?.statistics?.low24h)} - $
+        {priceNumberFormatDigits(coinDetails?.statistics?.high24h)}
       </Typography>
     </Box>
     <Box
@@ -78,7 +89,8 @@ const HistoricalCardContent = () => (
           color: 'rgba(17, 17, 17, 1)',
         }}
       >
-        $61,514.38 - $67,862.17
+        ${priceNumberFormatDigits(coinDetails?.statistics?.low7d)}
+        -${priceNumberFormatDigits(coinDetails?.statistics?.high7d)}
       </Typography>
     </Box>
     <Box
@@ -97,10 +109,10 @@ const HistoricalCardContent = () => (
           color: 'rgba(17, 17, 17, 1)',
           display: 'flex',
           alignItems: 'center',
-          gap: '4px',
+          gap: '2px',
         }}
       >
-        All-Time High
+        All-Time Low
         <SmallDetails />
       </Typography>
       <Typography
@@ -111,9 +123,25 @@ const HistoricalCardContent = () => (
           color: 'rgba(17, 17, 17, 1)',
         }}
       >
-        $73,737.94{' '}
-        <span style={{ color: 'rgba(245, 109, 109, 1)', marginLeft: '5px' }}>
-          -7.37%
+        ${priceNumberFormatDigits(coinDetails?.statistics?.lowAllTime)}{' '}
+        <span
+          style={{
+            // color: 'rgba(1, 200, 119, 1)',
+            marginLeft: '4px',
+            ...getPercentColor(
+              coinDetails?.statistics?.lowAllTimeChangePercentage,
+            ),
+          }}
+        >
+          {coinDetails?.statistics?.lowAllTimeChangePercentage
+            ?.toString()
+            .includes('-')
+            ? ''
+            : '+'}
+          {priceNumberFormatDigits(
+            coinDetails?.statistics?.lowAllTimeChangePercentage,
+          )}
+          %
         </span>
       </Typography>
     </Box>
@@ -133,7 +161,7 @@ const HistoricalCardContent = () => (
           color: 'rgba(17, 17, 17, 1)',
           display: 'flex',
           alignItems: 'center',
-          gap: '4px',
+          gap: '2px',
         }}
       >
         All-Time High
@@ -147,9 +175,25 @@ const HistoricalCardContent = () => (
           color: 'rgba(17, 17, 17, 1)',
         }}
       >
-        $47.81{' '}
-        <span style={{ color: 'rgba(1, 200, 119, 1)', marginLeft: '4px' }}>
-          +2381.1%
+        ${priceNumberFormatDigits(coinDetails?.statistics?.highAllTime)}{' '}
+        <span
+          style={{
+            // color: 'rgba(1, 200, 119, 1)',
+            marginLeft: '4px',
+            ...getPercentColor(
+              coinDetails?.statistics?.highAllTimeChangePercentage,
+            ),
+          }}
+        >
+          {coinDetails?.statistics?.highAllTimeChangePercentage
+            ?.toString()
+            .includes('-')
+            ? ''
+            : '+'}
+          {priceNumberFormatDigits(
+            coinDetails?.statistics?.highAllTimeChangePercentage,
+          )}
+          %
         </span>
       </Typography>
     </Box>
@@ -208,8 +252,8 @@ const HistoricalCardContent = () => (
             gap: '8px',
             padding: '8px 12px 8px 10px',
             borderRadius: '100px',
-            background: 'rgba(114, 72, 247, 1)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
+            background: '#805AF8',
+            border: '1px solid #936BFA',
             cursor: 'pointer',
           }}
         >
@@ -231,7 +275,7 @@ const HistoricalCardContent = () => (
   </Stack>
 );
 
-const HistoricalCard = () => {
+const HistoricalCard = ({ coinDetails }: any) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -297,13 +341,13 @@ const HistoricalCard = () => {
       `}</style>
       <Slider {...settings}>
         <Box sx={{ paddingRight: '10px' }}>
-          <HistoricalCardContent />
+          <HistoricalCardContent coinDetails={coinDetails} />
         </Box>
         <Box sx={{ paddingRight: '10px' }}>
-          <HistoricalCardContent />
+          <HistoricalCardContent coinDetails={coinDetails} />
         </Box>
         <Box sx={{ paddingRight: '10px' }}>
-          <HistoricalCardContent />
+          <HistoricalCardContent coinDetails={coinDetails} />
         </Box>
       </Slider>
     </Box>

@@ -204,7 +204,7 @@ export const columnsMarket = [
   { field: 'service_fee', headerName: 'Service Fee' },
   { field: 'floor_price', headerName: 'Floor Price' },
 ];
-export const columnsCoinMarket = [
+export const columnsCoinMarketSpot = [
   { field: 'index', headerName: '#' },
   { field: 'exchange', headerName: 'Exchange' },
   { field: 'pair', headerName: 'Pair' },
@@ -215,6 +215,32 @@ export const columnsCoinMarket = [
   { field: 'volume', headerName: 'Volume%' },
   { field: 'confidence' },
   { field: 'liquidity_store', headerName: 'Liquidity Store' },
+  { field: 'updated' },
+];
+export const columnsCoinMarketPerpetual = [
+  { field: 'index', headerName: '#' },
+  { field: 'exchange', headerName: 'Exchange' },
+  { field: 'pair', headerName: 'Pair' },
+  { field: 'new_price' },
+  { field: 'index_price', headerName: 'Index Price' },
+  { field: 'basis', headerName: 'Basis' },
+  { field: 'volume_24h', headerName: 'Volume(24h)' },
+  { field: 'volume', headerName: 'Volume%' },
+  { field: 'funding_rate', headerName: 'Funding Rate' },
+  { field: 'open_interest', headerName: 'Open Interest' },
+  { field: 'updated' },
+];
+export const columnsCoinMarketFutures = [
+  { field: 'index', headerName: '#' },
+  { field: 'exchange', headerName: 'Exchange' },
+  { field: 'pair', headerName: 'Pair' },
+  { field: 'new_price' },
+  { field: 'index_price', headerName: 'Index Price' },
+  { field: 'basis', headerName: 'Basis' },
+  { field: 'volume_24h', headerName: 'Volume(24h)' },
+  { field: 'volume', headerName: 'Volume%' },
+  { field: 'expiry_date', headerName: 'Expiry Date' },
+  { field: 'open_interest', headerName: 'Open Interest' },
   { field: 'updated' },
 ];
 export const columnsCoinAnalytics = [

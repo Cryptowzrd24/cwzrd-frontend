@@ -1,8 +1,15 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
-import Image from 'next/image';
-import rank1 from '../../../../../../public/icons/first-rank.png';
-const PriceCard = () => {
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
+const PriceCard = ({ coinDetails }: any) => {
+  const showRank =
+    coinDetails?.statistics?.rank === 1
+      ? `#Rank ${coinDetails?.statistics?.rank}  🥇`
+      : coinDetails?.statistics?.rank === 2
+        ? `#Rank ${coinDetails?.statistics?.rank}  🥈`
+        : coinDetails?.statistics?.rank === 3
+          ? `#Rank ${coinDetails?.statistics?.rank}  🥉`
+          : `#Rank ${coinDetails?.statistics?.rank}`;
   return (
     <>
       <Box
@@ -57,7 +64,7 @@ const PriceCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              $2.400.80
+              ${priceNumberFormatDigits(coinDetails?.quote?.price)}
             </Typography>
           </Box>
           <Box
@@ -89,7 +96,15 @@ const PriceCard = () => {
                 color: 'transparent',
               }}
             >
-              +7.37%
+              {coinDetails?.statistics?.priceChangePercentage1h
+                ?.toString()
+                .includes('-')
+                ? ''
+                : '+'}
+              {priceNumberFormatDigits(
+                coinDetails?.statistics?.priceChangePercentage1h,
+              )}
+              %
             </Typography>
           </Box>
           <Box
@@ -147,7 +162,10 @@ const PriceCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              $27,593,393.02
+              $
+              {priceNumberFormatDigits(
+                coinDetails?.statistics?.volumeYesterday,
+              )}
             </Typography>
           </Box>
 
@@ -177,7 +195,10 @@ const PriceCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              18%
+              {priceNumberFormatDigits(
+                coinDetails?.statistics?.marketCapDominance,
+              )}
+              %
             </Typography>
           </Box>
           <Box
@@ -215,9 +236,9 @@ const PriceCard = () => {
                   mt: '2px',
                 }}
               >
-                #1
+                {showRank}
               </Typography>
-              <Image src={rank1} alt="blur" width={14} height={14} />
+              {/* <Image src={rank1} alt="blur" width={14} height={14} /> */}
             </Box>
           </Box>
           <Box
@@ -245,7 +266,7 @@ const PriceCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              $987,847,229.10
+              ${priceNumberFormatDigits(coinDetails?.statistics?.marketCap)}
             </Typography>
           </Box>
         </Stack>

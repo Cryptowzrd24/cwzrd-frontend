@@ -14,8 +14,10 @@ import { useSelector } from 'react-redux';
 import { Filters } from '@/app/models/filters';
 import useWebSocket from '@/app/hooks/coin-websocket/useWebSocket';
 import debounce from 'debounce';
+import { useRouter } from 'next/navigation';
 
 const Table = () => {
+  const router = useRouter();
   const [search, setSearch] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -73,6 +75,11 @@ const Table = () => {
     setActiveIcon((prevActiveIcon) =>
       prevActiveIcon === 'ListIcon' ? 'BoxIcon' : 'ListIcon',
     );
+  };
+
+  const onRowClicked = (event: any) => {
+    const id = event.data.coin_id;
+    router.push(`/market/coin-details/${id}`);
   };
 
   useEffect(() => {
@@ -172,6 +179,7 @@ const Table = () => {
             gridApiRef={gridApiRef}
             getRowId={(params: any) => params.data.coin_id}
             priceRefs={priceRefs}
+            onRowClicked={onRowClicked}
           />
         )}
       </div>
