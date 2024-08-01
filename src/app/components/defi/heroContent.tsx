@@ -37,7 +37,7 @@ function HeroContent() {
           mb: '12px',
         }}
       >
-        Discover the top DeFi tokens ranked by Crypto WZRD, based on market
+        Discover the top DeFi tokens ranked by CryptoWZRD, based on market
         performance, user activity, liquidity, and trading volumes.
       </Box>
       <AnimatePresence>

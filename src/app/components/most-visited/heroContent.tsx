@@ -37,7 +37,7 @@ function HeroContent() {
         }}
       >
         Listed below are the most viewed cryptocurrencies, based on real-time
-        internal data from Crypto WZRD. Is your favorite crypto coin or token
+        internal data from CryptoWZRD. Is your favorite crypto coin or token
         among the most viewed?
       </Box>
       <AnimatePresence>

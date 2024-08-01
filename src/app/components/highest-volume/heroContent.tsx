@@ -34,7 +34,7 @@ function HeroContent() {
         }}
       >
         Listed below are the highest volume cryptocurrencies, based on real-time
-        data from Crypto WZRD. Discover which coins and tokens are leading the
+        data from CryptoWZRD. Discover which coins and tokens are leading the
         market in trading activity.
       </Box>
       <AnimatePresence>
