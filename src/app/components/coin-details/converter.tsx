@@ -1,12 +1,11 @@
 'use client';
 import { Box, MenuItem, Select, Stack, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import Image from 'next/image';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Refresh from '../../../../public/icons/coin-details/refresh';
 import ArrowRightBlack from '../../../../public/icons/News-Letter/arrowRightBlack';
-import converter from '../../../../public/images/coin-details/converter.png';
 import TimeAgo from 'react-timeago';
+import IconConvertor from '../../../../public/icons/coin-details/converter';
 
 const Converter = ({ coinDetails }: any) => {
   const [currency, setCurrency] = useState('');
@@ -182,14 +181,15 @@ const Converter = ({ coinDetails }: any) => {
             {coinDetails?.about_coin?.symbol}{' '}
           </Typography>
         </Box>
-        <Box sx={{ mr: '16px' }}>
-          <Image
+        <Box sx={{ mr: '16px', cursor: 'pointer' }}>
+          {/* <Image
             src={converter}
             alt="converter"
             width={48}
             height={48}
             style={{ cursor: 'pointer' }}
-          />
+          /> */}
+          <IconConvertor />
         </Box>
         <Box sx={{ width: '100%' }}>
           <input
