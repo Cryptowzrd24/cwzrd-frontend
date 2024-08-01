@@ -7,13 +7,70 @@ import {
   styled,
   Typography,
 } from '@mui/material';
-import Image from 'next/image';
-import React, { useState } from 'react';
-import Star from '../../../../public/icons/nft/star';
+import React, { useEffect, useState } from 'react';
 import Upload from '../../../../public/icons/nft/upload';
-import bitcoin from '../../../../public/images/coin-details/Ellipse 1.png';
-const CoinHeroSection = () => {
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
+import Cookies from 'js-cookie';
+
+import unselectedStarWhite from '@/app/assets/icons/unselectedStarWhite.svg';
+import selectedStar from '@/app/assets/icons/selectedStar.svg';
+import Image from 'next/image';
+
+const CoinHeroSection = ({ coinDetails }: any) => {
   const [progress, setProgress] = useState(55);
+  const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinDetails?.coin_id || 1}.png`;
+
+  const coinId = coinDetails?.coin_id;
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
+
+  const styles = {
+    loader: {
+      border: '2px solid #f3f3f3',
+      borderTop: '2px solid rgba(17, 17, 17, 1)',
+      borderRadius: '50%',
+      width: '10px',
+      height: '10px',
+      animation: 'spin 1s linear infinite',
+      margin: 'auto',
+    },
+    starImage: {
+      cursor: 'pointer',
+    },
+    svgStyle: {
+      stroke: '#fff !important', // Add white stroke color
+      strokeWidth: 2,
+    },
+  };
+
+  useEffect(() => {
+    const favorites = Cookies.get('favorites')
+      ? JSON.parse(Cookies.get('favorites') as string)
+      : [];
+    if (favorites.includes(coinId)) {
+      setIsSelected(true);
+    }
+  }, [coinId]);
+
+  const handleFavClick = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      const favorites = Cookies.get('favorites')
+        ? JSON.parse(Cookies.get('favorites') as string)
+        : [];
+      if (favorites.includes(coinId)) {
+        const updatedFavorites = favorites.filter((id: any) => id !== coinId);
+        Cookies.set('favorites', JSON.stringify(updatedFavorites));
+        setIsSelected(false);
+      } else {
+        favorites.push(coinId);
+        Cookies.set('favorites', JSON.stringify(favorites));
+        setIsSelected(true);
+      }
+      setIsLoading(false);
+    }, 600);
+  };
+
   const handleClick = (event: any) => {
     const box = event.currentTarget;
     const clickX = event.clientX - box.getBoundingClientRect().left;
@@ -30,6 +87,24 @@ const CoinHeroSection = () => {
       backgroundColor: 'rgba(230, 230, 230, 1)',
     },
   }));
+
+  const showRank =
+    coinDetails?.statistics?.rank === 1
+      ? `🥇 Rank ${coinDetails?.statistics?.rank}`
+      : coinDetails?.statistics?.rank === 2
+        ? `🥈 Rank ${coinDetails?.statistics?.rank}`
+        : coinDetails?.statistics?.rank === 3
+          ? `🥉 Rank ${coinDetails?.statistics?.rank}`
+          : `Rank ${coinDetails?.statistics?.rank}`;
+
+  const getPercentColor = (val: any) => {
+    if (!val) return;
+    if (!val.toLocaleString().includes('-')) {
+      return { color: 'rgba(76, 254, 182, 1)' };
+    } else {
+      return { color: 'rgba(245, 109, 109, 1)' };
+    }
+  };
   return (
     <>
       <Box
@@ -57,7 +132,7 @@ const CoinHeroSection = () => {
             }}
           >
             <Box>
-              <Image src={bitcoin} alt="persona" width={48} height={48} />
+              <img src={imgId} alt="persona" width={48} height={48} />
             </Box>
             <Stack>
               <Typography
@@ -70,7 +145,7 @@ const CoinHeroSection = () => {
                   mb: '4.5px',
                 }}
               >
-                Bitcoin
+                {coinDetails?.name}
               </Typography>
               <Typography
                 variant="body1"
@@ -80,7 +155,7 @@ const CoinHeroSection = () => {
                   color: 'rgba(255, 255, 255, 1)',
                 }}
               >
-                BTC
+                {coinDetails?.about_coin?.symbol}
               </Typography>
             </Stack>
             <Box
@@ -102,7 +177,7 @@ const CoinHeroSection = () => {
                   color: 'rgba(255, 255, 255, 1)',
                 }}
               >
-                🥇 Rank 1
+                {showRank}
               </Typography>
             </Box>
           </Box>
@@ -118,7 +193,20 @@ const CoinHeroSection = () => {
                 cursor: 'pointer',
               }}
             >
-              <Star />
+              {/* <Star /> */}
+              <div onClick={handleFavClick}>
+                {isLoading ? (
+                  <div style={styles['loader']}></div>
+                ) : (
+                  <Image
+                    style={
+                      !isSelected ? styles['starImage'] : { stroke: '#fff' }
+                    }
+                    src={isSelected ? selectedStar : unselectedStarWhite}
+                    alt=""
+                  />
+                )}
+              </div>
             </Box>
             <Box
               sx={{
@@ -164,18 +252,28 @@ const CoinHeroSection = () => {
                   lineHeight: 1,
                 }}
               >
-                $49,627.43
+                ${priceNumberFormatDigits(coinDetails?.quote?.price)}
               </Typography>
               <Typography
                 variant="body1"
                 sx={{
                   fontSize: '16px',
                   fontWeight: '500',
-                  color: 'rgba(76, 254, 182, 1)',
                   lineHeight: 1,
+                  ...getPercentColor(
+                    coinDetails?.statistics?.priceChangePercentage1h,
+                  ),
                 }}
               >
-                +7,37%{' '}
+                {coinDetails?.statistics?.priceChangePercentage1h
+                  ?.toString()
+                  .includes('-')
+                  ? ''
+                  : '+'}
+                {priceNumberFormatDigits(
+                  coinDetails?.statistics?.priceChangePercentage1h,
+                )}
+                %
               </Typography>
             </Box>
             <Box sx={{ mb: '8px', width: '100%' }} onClick={handleClick}>
@@ -198,7 +296,8 @@ const CoinHeroSection = () => {
                     mb: '2px',
                   }}
                 >
-                  Low: $48,406.50
+                  Low: $
+                  {priceNumberFormatDigits(coinDetails?.statistics?.lowAllTime)}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -208,7 +307,10 @@ const CoinHeroSection = () => {
                     color: 'rgba(255, 255, 255, 1)',
                   }}
                 >
-                  Low: $48,406.50
+                  High: $
+                  {priceNumberFormatDigits(
+                    coinDetails?.statistics?.highAllTime,
+                  )}
                 </Typography>
               </Stack>
               <Stack>
@@ -231,7 +333,8 @@ const CoinHeroSection = () => {
                     color: 'rgba(255, 255, 255, 1)',
                   }}
                 >
-                  $61,514.38-$67,862.17
+                  ${priceNumberFormatDigits(coinDetails?.statistics?.low24h)}
+                  -${priceNumberFormatDigits(coinDetails?.statistics?.high24h)}
                 </Typography>
               </Stack>
             </Box>
@@ -240,7 +343,11 @@ const CoinHeroSection = () => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.3)',
+              opacity: 0.5,
+              borderWidth: '1px',
+            }}
           />
 
           {/* --------------------------------------------------------------------------------- */}
@@ -275,18 +382,28 @@ const CoinHeroSection = () => {
                       color: 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                    $987,847,229.10
+                    ${priceNumberFormatDigits(coinDetails?.quote?.market_cap)}
                   </Typography>
                 </Stack>
                 <Typography
                   variant="body1"
                   sx={{
-                    color: 'rgba(76, 254, 182, 1)',
                     fontSize: '14px',
                     fontWeight: '600',
+                    ...getPercentColor(
+                      coinDetails?.statistics?.marketCapChangePercentage24h,
+                    ),
                   }}
                 >
-                  +7.37%
+                  {coinDetails?.statistics?.marketCapChangePercentage24h
+                    ?.toString()
+                    .includes('-')
+                    ? ''
+                    : '+'}
+                  {priceNumberFormatDigits(
+                    coinDetails?.statistics?.marketCapChangePercentage24h,
+                  )}
+                  %
                 </Typography>
               </Box>
               <Box
@@ -318,10 +435,13 @@ const CoinHeroSection = () => {
                       color: 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                    $27,593,393.02
+                    $
+                    {priceNumberFormatDigits(
+                      coinDetails?.statistics?.volumeYesterday,
+                    )}
                   </Typography>
                 </Stack>
-                <Typography
+                {/* <Typography
                   variant="body1"
                   sx={{
                     color: 'rgba(76, 254, 182, 1)',
@@ -330,7 +450,7 @@ const CoinHeroSection = () => {
                   }}
                 >
                   +7.37%
-                </Typography>
+                </Typography> */}
               </Box>
             </Stack>
           </Box>
@@ -338,7 +458,7 @@ const CoinHeroSection = () => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', opacity: 0.5 }}
           />
 
           {/* -------------------------------------------------------------------------- */}
@@ -373,18 +493,34 @@ const CoinHeroSection = () => {
                       color: 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                    $1,394,394,493.33
+                    $
+                    {priceNumberFormatDigits(
+                      coinDetails?.quote?.fully_diluted_market_cap,
+                    )}
                   </Typography>
                 </Stack>
                 <Typography
                   variant="body1"
                   sx={{
-                    color: 'rgba(76, 254, 182, 1)',
+                    // color: 'rgba(76, 254, 182, 1)',
                     fontSize: '14px',
-                    fontWeight: '600',
+                    fontWeight: '700',
+                    ...getPercentColor(
+                      coinDetails?.statistics
+                        ?.fullyDilutedMarketCapChangePercentage24h,
+                    ),
                   }}
                 >
-                  +7.37%
+                  {coinDetails?.statistics?.fullyDilutedMarketCapChangePercentage24h
+                    ?.toString()
+                    .includes('-')
+                    ? ''
+                    : '+'}
+                  {priceNumberFormatDigits(
+                    coinDetails?.statistics
+                      ?.fullyDilutedMarketCapChangePercentage24h,
+                  )}
+                  %
                 </Typography>
               </Box>
               <Box
@@ -416,7 +552,10 @@ const CoinHeroSection = () => {
                       color: 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                    $392,998,476,119
+                    $
+                    {priceNumberFormatDigits(
+                      coinDetails?.statistics?.circulatingSupply,
+                    )}
                   </Typography>
                 </Stack>
               </Box>
@@ -426,7 +565,7 @@ const CoinHeroSection = () => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', opacity: 0.5 }}
           />
 
           {/* ------------------------------------------------------------------------------------------- */}
@@ -461,7 +600,10 @@ const CoinHeroSection = () => {
                       color: 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                    $23,190,978,112.90
+                    $
+                    {priceNumberFormatDigits(
+                      coinDetails?.statistics?.totalSupply,
+                    )}
                   </Typography>
                 </Stack>
               </Box>
@@ -494,7 +636,9 @@ const CoinHeroSection = () => {
                       color: 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                    $23,190,978,112.90
+                    {coinDetails?.max_supply
+                      ? `$${priceNumberFormatDigits(coinDetails?.statistics?.maxSupply)}`
+                      : '-'}
                   </Typography>
                 </Stack>
               </Box>

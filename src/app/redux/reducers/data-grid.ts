@@ -111,6 +111,22 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchMarketDataCoinDetails: builder.query({
+      query: ({ coinName, filter }: any) => {
+        return {
+          url: `detail/markets/?slug=${coinName}&category=${filter}`,
+          method: 'GET',
+        };
+      },
+    }),
+    fetchHistoricalCoinDataDetails: builder.query({
+      query: ({ coinId, timeStart, interval }) => {
+        return {
+          url: `detail/historical/?id=${coinId}&timeStart=${timeStart}&interval=${interval}&convertId=2781`,
+          method: 'GET',
+        };
+      },
+    }),
     fetchStatsData: builder.query({
       query: () => ({
         url: '/api/stats/',
@@ -139,4 +155,6 @@ export const {
   useFetchTickerDataQuery,
   useFetchExchangesDataQuery,
   useFetchFavoritesDataQuery,
+  useFetchMarketDataCoinDetailsQuery,
+  useFetchHistoricalCoinDataDetailsQuery,
 } = dataGridApi;

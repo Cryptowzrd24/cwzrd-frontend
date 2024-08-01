@@ -102,7 +102,7 @@ const Table = () => {
         }}
       >
         {showCards ? (
-          <Box>
+          <Box sx={{ borderTop: '1px solid #1111111A ', mt: '0px', ml: '0px' }}>
             <ExchangeCardContent cardsData={rowData} />
           </Box>
         ) : (

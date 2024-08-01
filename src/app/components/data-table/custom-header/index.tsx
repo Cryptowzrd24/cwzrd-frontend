@@ -3,7 +3,7 @@
 import { Badge, Box, MenuItem, Select, Typography } from '@mui/material';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SearchIcon } from '../../../../../public/icons/Grid-Header/search';
 import { FilterIcon } from '../../../../../public/icons/Grid-Header/filter';
@@ -90,6 +90,7 @@ export const CustomHeader = ({
   const filterCount = useSelector(
     (state: any) => state.filters.selectedFilterCount,
   );
+  const searchInputRef = useRef<any>(null);
 
   const [searchActive, setSearchActive] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
@@ -314,7 +315,14 @@ export const CustomHeader = ({
         ))}
         <Box sx={styles.filterContainer}>
           {isPathNameMatching && (
-            <Box onClick={handleSearchActiveToggle} sx={styles.iconBox}>
+            <Box
+              onClick={handleSearchActiveToggle}
+              sx={
+                searchActive
+                  ? { ...styles.iconBox, ...styles.filterActive }
+                  : { ...styles.iconBox }
+              }
+            >
               <SearchIcon />
             </Box>
           )}
@@ -385,7 +393,14 @@ export const CustomHeader = ({
           )}
 
           {filter && (
-            <Box onClick={handleFilterActiveToggle} sx={styles.iconBox}>
+            <Box
+              onClick={handleFilterActiveToggle}
+              sx={
+                filterActive
+                  ? { ...styles.iconBox, ...styles.filterActive }
+                  : { ...styles.iconBox }
+              }
+            >
               <FilterIcon />
             </Box>
           )}
@@ -394,10 +409,11 @@ export const CustomHeader = ({
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              background: '#1111110D',
+              // background: '#1111110D',
               border: '1px solid #11111100',
               borderRadius: '8px',
               gap: '4px',
+              boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             }}
           >
             {view && (
@@ -452,10 +468,26 @@ export const CustomHeader = ({
                 strokeOpacity={search.length > 0 ? '1' : '0.5'}
               />
               <input
+                ref={searchInputRef}
                 style={styles.searchInput}
                 placeholder={'Search...'}
                 onChange={(e: any) => setSearch(e.target.value)}
               />
+              {search !== '' && (
+                <Chip
+                  label="Clear Search"
+                  onClick={() => {
+                    if (
+                      searchInputRef.current &&
+                      searchInputRef?.current.value
+                    ) {
+                      searchInputRef.current.value = '';
+                    }
+                    setSearch('');
+                  }}
+                  clickable
+                />
+              )}
             </Box>
           </motion.div>
         )}

@@ -1,110 +1,115 @@
 @font-face {
-    font-family: "Sf Pro Display";
-    src: url("../assests/fonts/SFPRODISPLAYLIGHT.otf");
-    font-weight: 400;
-    font-variant: normal;
-    font-display: block;
+  font-family: 'Sf Pro Display';
+  src: url('../assests/fonts/SFPRODISPLAYLIGHT.otf');
+  font-weight: 400;
+  font-variant: normal;
+  font-display: block;
 }
 
 @font-face {
-    font-family: "Sf Pro Display";
-    src: url("../assests/fonts/SFPRODISPLAYREGULAR.OTF");
-    font-weight: 500;
-    font-variant: normal;
-    font-display: block;
+  font-family: 'Sf Pro Display';
+  src: url('../assests/fonts/SFPRODISPLAYREGULAR.OTF');
+  font-weight: 500;
+  font-variant: normal;
+  font-display: block;
 }
 
 @font-face {
-    font-family: "Sf Pro Display";
-    src: url("../assests/fonts/SFPRODISPLAYSEMIBOLD.otf");
-    font-weight: 600;
-    font-variant: normal;
-    font-display: block;
+  font-family: 'Sf Pro Display';
+  src: url('../assests/fonts/SFPRODISPLAYSEMIBOLD.otf');
+  font-weight: 600;
+  font-variant: normal;
+  font-display: block;
 }
 
 @font-face {
-    font-family: "Sf Pro Display";
-    src: url("../assests/fonts/SFPRODISPLAYBOLD.OTF");
-    font-weight: 700;
-    font-variant: normal;
-    font-display: block;
+  font-family: 'Sf Pro Display';
+  src: url('../assests/fonts/SFPRODISPLAYBOLD.OTF');
+  font-weight: 700;
+  font-variant: normal;
+  font-display: block;
 }
 
 @font-face {
-    font-family: "Sf Pro Text";
-    src: url("../assests/fonts/SFPROTEXTLIGHT.otf");
-    font-weight: 500;
-    font-variant: normal;
-    font-display: block;
+  font-family: 'Sf Pro Text';
+  src: url('../assests/fonts/SFPROTEXTLIGHT.otf');
+  font-weight: 500;
+  font-variant: normal;
+  font-display: block;
 }
 
 body {
-    font-family: "Sf Pro Display";
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
+  font-family: 'Sf Pro Display';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .text-light {
-    color: rgba(17, 17, 17, 0.6);
+  color: rgba(17, 17, 17, 0.6);
 }
 
 .text-sm {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .text-primary {
-    color: rgba(17, 17, 17, 1);
+  color: rgba(17, 17, 17, 1);
 }
 
 .font-semibold {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .MuiPaginationItem-root {
-    color: #11111199;
-    font-weight: 700;
-    font-size: 14px;
+  color: #11111199;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .MuiPaginationItem-root.Mui-selected {
-    color: #7248f7 !important;
-    background: #7248f71a !important;
+  color: #7248f7 !important;
+  background: #7248f71a !important;
 }
 
 .MuiPaper-root .MuiList-root {
-    padding-bottom: 2px !important;
+  padding-bottom: 2px !important;
 }
 .MuiPaper-root.MuiMenu-paper {
-    margin-top: 8px !important;
-    box-shadow: 0px 4px 28px 0px #0000000d !important;
+  margin-top: 8px !important;
+  box-shadow: 0px 4px 28px 0px #0000000d !important;
+  border-radius: 8px;
 }
 
 .MuiButtonBase-root.MuiMenuItem-root {
-    font-size: 14px !important;
-    line-height: 18.2px !important;
-    font-weight: 600 !important;
-    text-align: center !important;
-    color: #111111cc !important;
-    padding: 0 !important;
-    margin-bottom: 6px !important;
-    align-items: center;
-    justify-content: center;
+  font-size: 14px !important;
+  line-height: 18.2px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  color: #111111cc !important;
+  padding: 0 !important;
+  margin-bottom: 6px !important;
+  align-items: center;
+  justify-content: center;
 }
 
 .price-increase {
-    color: #01c877 !important;
-    transition: color 0.5s ease;
+  color: #01c877 !important;
+  transition: color 0.5s ease;
 }
 
 .price-decrease {
-    color: #f56d6d !important;
-    transition: color 0.5s ease;
+  color: #f56d6d !important;
+  transition: color 0.5s ease;
 }
 
 .ag-center-cols-viewport {
-    overflow: hidden !important;
+  overflow: hidden !important;
+}
+
+.highcharts-scrollbar {
+  display: none;
 }
 
 .highcharts-tooltip span {

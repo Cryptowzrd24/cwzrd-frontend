@@ -46,7 +46,7 @@ function HeroContent() {
         sx={{
           fontSize: '15px',
           maxWidth: '600px',
-          lineHeight: '30px',
+          lineHeight: '24px',
           mt: '8px',
         }}
       >

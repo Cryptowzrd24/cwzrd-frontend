@@ -1,29 +1,47 @@
-.exchange-comp{
-    display: flex;
-    align-items: center;
-    height: inherit;
-    /* justify-content: center; */
-    gap: 8px;
-    /* margin-top: 15px; */
-  }
-  
+.exchange-comp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: inherit;
+}
 
-  .exchange-icon{
-    margin-top: -15px;
-    height: 22px;
-    border-radius: 50%;
-  }
+.exchange-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-  .exchange-comp p{
-    margin: 0;
-    padding: 0;
-    /* height: 22px; */
-    /* margin-top: -20px; */
-    /* margin-bottom: 12px; */
-  }
+.exchange-icon {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
 
-  .full-name{
-    font-size: 14px;
-    font-family: 'Sf Pro Display';
-    font-weight: 600;
-  }
+.exchange-comp p {
+  margin: 0;
+  padding: 0;
+}
+
+.full-name {
+  font-size: 14px;
+  font-family: 'SF Pro Display';
+  font-weight: 600;
+}
+
+.name {
+  width: 40px;
+  height: 20px;
+  border-radius: 8px;
+  border: 1px solid #7248f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+
+.name span {
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Sf Pro Display';
+  color: #7248f7;
+}
