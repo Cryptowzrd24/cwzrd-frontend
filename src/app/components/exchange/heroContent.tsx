@@ -34,7 +34,7 @@ function HeroContent() {
           mb: '12px',
         }}
       >
-        Crypto WZRD ranks and scores exchanges by evaluating traffic, liquidity,
+        CryptoWZRD ranks and scores exchanges by evaluating traffic, liquidity,
         trading volumes, and confidence in the legitimacy of the reported
         volumes.
       </Box>

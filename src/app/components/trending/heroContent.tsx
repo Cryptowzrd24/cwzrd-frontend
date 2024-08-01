@@ -36,7 +36,7 @@ function HeroContent() {
           mb: '12px',
         }}
       >
-        Listed below are the hottest trending cryptocurrencies on Crypto WZRD,
+        Listed below are the hottest trending cryptocurrencies on CryptoWZRD,
         showcasing the most visible coins and tokens in the past 24 hours. With
         millions of daily visitors, this list highlights current market trends,
         pumps, and losses.
