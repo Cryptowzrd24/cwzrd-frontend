@@ -25,7 +25,7 @@ import FilterDropdown from '../../filter-dropdown';
 import FilterModal from '../../filter-modal';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { clearAllFilters, clearSelectedFilter } from '@/redux/reducers/filters';
+import { clearAllFilters, clearSelectedFilter } from '@/app/redux/reducers/filters';
 
 interface CustomHeaderProps {
   search: string;

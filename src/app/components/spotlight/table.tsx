@@ -17,7 +17,7 @@ import useColumnCompactRecentlyAddedDefs from '@/app/hooks/data-grid/column-defi
 import useColumnCompactHighestVolumeDefs from '@/app/hooks/data-grid/column-defination-compact-highest-volume';
 import useColumnCompactMostVisitedDefs from '@/app/hooks/data-grid/column-defination-compact-most-visited';
 import { Pagination } from '@/app/components/data-table/pagination';
-import { useFetchSpotlightDataQuery } from '@/redux/reducers/data-grid';
+import { useFetchSpotlightDataQuery } from '@/app/redux/reducers/data-grid';
 import { scrollToTop } from '@/utils/scroll-to-top';
 
 const Table = () => {

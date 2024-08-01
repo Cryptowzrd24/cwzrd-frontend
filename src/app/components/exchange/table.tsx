@@ -8,7 +8,7 @@ import { Pagination } from '@/app/components/data-table/pagination';
 import { scrollToTop } from '@/utils/scroll-to-top';
 import { Box } from '@mui/material';
 import ExchangeCardContent from './cards/cardContent';
-import { useFetchExchangesDataQuery } from '@/redux/reducers/data-grid';
+import { useFetchExchangesDataQuery } from '@/app/redux/reducers/data-grid';
 import debounce from 'debounce';
 
 const Table = () => {

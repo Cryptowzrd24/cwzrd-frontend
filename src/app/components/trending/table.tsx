@@ -4,7 +4,7 @@ import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import { columnsTrending } from '@/app/constants/columns';
 import useColumnTrendingDefs from '@/app/hooks/data-grid/column-defination-trending';
-import { useFetchTrendingDataQuery } from '@/redux/reducers/data-grid';
+import { useFetchTrendingDataQuery } from '@/app/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { scrollToTop } from '@/utils/scroll-to-top';
 

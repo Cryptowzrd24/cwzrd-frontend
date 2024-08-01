@@ -5,7 +5,7 @@ import DataTable from '@/app/components/data-table';
 import { columnsHighestVol } from '@/app/constants/columns';
 import useColumnHighestVolDefs from '@/app/hooks/data-grid/column-defination-highest-vol';
 import { Pagination } from '@/app/components/data-table/pagination';
-import { useFetchHighestVolumeCoinsDataQuery } from '@/redux/reducers/data-grid';
+import { useFetchHighestVolumeCoinsDataQuery } from '@/app/redux/reducers/data-grid';
 import { Box } from '@mui/material';
 import CardContent from './cards/cardContent';
 

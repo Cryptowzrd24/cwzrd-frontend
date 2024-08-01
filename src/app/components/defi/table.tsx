@@ -5,7 +5,7 @@ import DataTable from '@/app/components/data-table';
 import { columnsDefi } from '@/app/constants/columns';
 import useColumnDefiDefs from '@/app/hooks/data-grid/column-defination-defi';
 import { Pagination } from '@/app/components/data-table/pagination';
-import { useFetchDefiCoinsDataQuery } from '@/redux/reducers/data-grid';
+import { useFetchDefiCoinsDataQuery } from '@/app/redux/reducers/data-grid';
 import { scrollToTop } from '@/utils/scroll-to-top';
 import debounce from 'debounce';
 

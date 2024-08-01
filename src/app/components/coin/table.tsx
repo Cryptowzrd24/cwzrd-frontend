@@ -1,54 +1,45 @@
 'use client';
-import React, { useCallback, useState, useRef } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
+import { useFetchCoinDataQuery } from '@/app/redux/reducers/data-grid';
 import { Pagination } from '@/app/components/data-table/pagination';
 import CardContent from '../highest-volume/cards/cardContent';
 import { Box } from '@mui/material';
 import { scrollToTop } from '@/utils/scroll-to-top';
-// import { constructQueryParams } from '@/utils/construct-filter-query-param';
-// import { useSelector } from 'react-redux';
+import { constructQueryParams } from '@/utils/construct-filter-query-param';
+import { useSelector } from 'react-redux';
+import { Filters } from '@/app/models/filters';
 import useWebSocket from '@/app/hooks/coin-websocket/useWebSocket';
 import debounce from 'debounce';
+import { useRouter } from 'next/navigation';
 
-interface CoinData {
-  id: string;
-  coin_id: string;
-  name: string;
-  new_price: number;
-  volume_24h: number;
-  percent_change_1h: number;
-  percent_change_24h: number;
-  percent_change_7d: number;
-  market_cap: number;
-  circulating_supply: number;
-  symbol: string;
-  max_supply: number;
-  index: number;
-}
-
-interface TableProps {
-  initialData: CoinData[];
-}
-
-const Table = ({ initialData }: TableProps) => {
+const Table = () => {
+  const router = useRouter();
   const [search, setSearch] = useState('');
-  const [rowData] = useState<any[]>(initialData);
+  const [rowData, setRowData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [, setItemStart] = useState(1);
+  const [itemStart, setItemStart] = useState(1);
   const [showCards, setShowCards] = useState(false);
   const [pageSize, setPageSize] = useState<number>(10);
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const [activeIcon, setActiveIcon] = useState('ListIcon');
-  // const filters = useSelector((state: any) => state.filters.filters);
-  // const queryParams = constructQueryParams(filters as Filters);
+  const filters = useSelector((state: any) => state.filters.filters);
+
+  const queryParams = constructQueryParams(filters as Filters);
+  const { data } = useFetchCoinDataQuery({
+    start: currentPage,
+    pageSize,
+    filters: queryParams,
+    searchString: search,
+  });
   const gridApiRef = useRef<any>(null);
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const previousPrices = useRef<{ [key: string]: number }>({});
 
-  const totalCount = initialData?.length;
+  const totalCount = data?.count || 0;
 
   const debouncedFetchCoinData = useCallback(
     debounce((value) => {
@@ -86,65 +77,32 @@ const Table = ({ initialData }: TableProps) => {
     );
   };
 
-  // useEffect(() => {
-  //   const ws = new WebSocket('wss://backend.cwzrd.co.uk/ws/data/');
-  //   wsRef.current = ws;
+  const onRowClicked = (event: any) => {
+    const id = event.data.coin_id;
+    router.push(`/market/coin-details/${id}`);
+  };
 
-  //   ws.addEventListener('open', () => {
-  //     console.log('WebSocket connection opened.');
-  //   });
-
-  //   ws.onmessage = (event) => {
-  //     const message: any = JSON.parse(event.data);
-
-  //     setRowData((prevData) => {
-  //       const existingRow = prevData.find(
-  //         (row: any) => row.coin_id === message.id,
-  //       );
-
-  //       if (existingRow) {
-  //         const updatedRow: any = {
-  //           ...existingRow,
-  //           new_price: message.p !== null ? message.p : existingRow.new_price,
-  //           percent_change_1h:
-  //             message.p1h !== null
-  //               ? message.p1h
-  //               : existingRow.percent_change_1h,
-  //           percent_change_24h:
-  //             message.p24h !== null
-  //               ? message.p24h
-  //               : existingRow.percent_change_24h,
-  //           percent_change_7d:
-  //             message.p7d !== null
-  //               ? message.p7d
-  //               : existingRow.percent_change_7d,
-  //           market_cap:
-  //             message.mc !== null ? message.mc : existingRow.market_cap,
-  //         };
-
-  //         return prevData.map((row: any) =>
-  //           row.coin_id === updatedRow?.coin_id ? updatedRow : row,
-  //         );
-  //       }
-
-  //       return prevData;
-  //     });
-  //   };
-
-  //   ws.onerror = (error) => {
-  //     console.error('WebSocket error:', error);
-  //   };
-
-  //   ws.onclose = (event) => {
-  //     console.log('WebSocket connection closed:', event);
-  //   };
-
-  //   return () => {
-  //     if (wsRef.current) {
-  //       wsRef.current.close();
-  //     }
-  //   };
-  // }, []);
+  useEffect(() => {
+    if (data && data.data) {
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.map((item: any, index: number) => ({
+        id: item.id,
+        coin_id: item.coin_id,
+        name: item.name,
+        new_price: item.quote.price,
+        volume_24h: item.quote.volume_24h,
+        percent_change_1h: item.quote.percent_change_1h,
+        percent_change_24h: item.quote.percent_change_24h,
+        percent_change_7d: item.quote.percent_change_7d,
+        market_cap: item.quote.market_cap,
+        circulating_supply: item.circulating_supply,
+        symbol: item.symbol,
+        max_supply: item.max_supply,
+        index: startIndex + index,
+      }));
+      setRowData(res);
+    }
+  }, [data, currentPage, itemStart, pageSize, filters]);
 
   const updateRowData = (updatedRow: any) => {
     const previousPrice = previousPrices.current[updatedRow.coin_id];
@@ -209,7 +167,7 @@ const Table = ({ initialData }: TableProps) => {
         }}
       >
         {showCards ? (
-          <Box>
+          <Box sx={{ borderTop: '1px solid #1111111A ', mt: '0px', ml: '0px' }}>
             <CardContent cardsData={rowData} />
           </Box>
         ) : (
@@ -221,6 +179,7 @@ const Table = ({ initialData }: TableProps) => {
             gridApiRef={gridApiRef}
             getRowId={(params: any) => params.data.coin_id}
             priceRefs={priceRefs}
+            onRowClicked={onRowClicked}
           />
         )}
       </div>

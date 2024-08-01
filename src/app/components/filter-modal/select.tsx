@@ -1,4 +1,4 @@
-import { selectCurrencyTypeFilter } from '@/redux/reducers/filters';
+import { selectCurrencyTypeFilter } from '@/app/redux/reducers/filters';
 import { Box, Button, Divider, Stack } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';

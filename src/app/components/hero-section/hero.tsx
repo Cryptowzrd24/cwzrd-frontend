@@ -1,8 +1,8 @@
 'use client';
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
-import { useAppDispatch, useAppSelector } from '@/redux/store';
-import { hideToggleStats, showToggleStats } from '@/redux/market';
+import { useAppDispatch, useAppSelector } from '@/app/redux/store';
+import { hideToggleStats, showToggleStats } from '@/app/redux/market';
 
 const Hero: React.FC = () => {
   const { showStats } = useAppSelector((state) => state.market);

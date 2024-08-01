@@ -4,10 +4,10 @@ import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import GraphCard from '@/app/components/common/graphCard.component';
 import { areaChartData } from '@/app/constants/charts';
-import { useAppSelector } from '@/redux/store';
+import { useAppSelector } from '@/app/redux/store';
 import { AnimatePresence, motion } from 'framer-motion';
 import GaugeChart from '../common/guage-chart';
-import { useFetchStatsDataQuery } from '@/redux/reducers/data-grid';
+import { useFetchStatsDataQuery } from '@/app/redux/reducers/data-grid';
 import numeral from 'numeral';
 
 const HeroContent = () => {
