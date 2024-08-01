@@ -1,12 +1,12 @@
-'use client';
-
-import { Provider } from 'react-redux';
-import { store } from '../../redux/store';
+// import { Provider } from 'react-redux';
+// import { store } from '../../redux/store';
 import { ThemeProvider } from '@mui/material';
-import Ticker from '../ticker';
 import Navbar from '../navbar';
 import Footer from '../footer';
 import theme from '@/theme';
+import TickerServer from '../ticker';
+import StoreProvider from '@/app/StoreProvider';
+import Script from 'next/script';
 
 export default function CustomLayout({
   children,
@@ -14,17 +14,18 @@ export default function CustomLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <html lang="en">
-          <body>
-            <Ticker />
+    <ThemeProvider theme={theme}>
+      <html lang="en">
+        <body>
+          <StoreProvider>
+            <TickerServer />
             <Navbar />
             {children}
             <Footer />
-          </body>
-        </html>
-      </ThemeProvider>
-    </Provider>
+          </StoreProvider>
+          <Script src="/ticker_websocket.js" />
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }

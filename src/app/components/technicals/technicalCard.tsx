@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Image from 'next/image';
 import { Box, Stack, Typography } from '@mui/material';
 
 interface TechnicalProps {
@@ -33,7 +32,7 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
         display: 'flex',
         borderRadius: '16px',
         padding: '8px',
-        maxWidth: '307px',
+        maxWidth: '255px',
         width: '100%',
         marginRight: '30px',
         boxShadow: '0px 4px 6px 0px #00000005',
@@ -127,13 +126,12 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
           </Box>
         </Box>
       </div>
-      <Image
+      <img
         src={image}
         alt="grah"
-        width={306}
-        height={160}
         style={{
           marginInline: 'auto',
+          width: '100%',
         }}
       />
     </Stack>

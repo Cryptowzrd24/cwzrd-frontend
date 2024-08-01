@@ -73,10 +73,10 @@ function HeroContent() {
       </Box>
       <AnimatePresence>
         <motion.div
-          initial={{ opacity: 0, height: 0, marginTop: 0 }}
-          animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.2, marginTop: 0 }}
+          transition={{ duration: 0.2 }}
         >
           <Box
             sx={{

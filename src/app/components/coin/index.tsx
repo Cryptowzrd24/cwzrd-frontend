@@ -7,7 +7,7 @@ import NewsLetterBanner from '../banners/newsLetterBanner';
 import MemberShipBanner from '../banners/memberShipBanner';
 import HeroContent from './heroContent';
 import Stats from '@/app/components/stats';
-import Table from '@/app/components/coin/table';
+import Table from './table';
 
 function Coin() {
   return (
