@@ -56,16 +56,21 @@ const CoinDetails = () => {
         </Box>
         <Box
           id="details"
-          sx={{ display: 'flex', flexDirection: 'row', mb: '8px' }}
+          sx={{
+            display: 'flex',
+            mb: '8px',
+            gap: '30px',
+            width: '100%',
+          }}
         >
-          <Box>
+          <Box sx={{ flex: 1 }}>
             <GraphLayout
               chartRef={chartRef}
               isFullScreen={isFullScreen}
               handleFullScreen={handleFullScreen}
             />
           </Box>
-          <Box sx={{ ml: '30px' }}>
+          <Box sx={{ flex: 1 }}>
             <CoinDetailsCard coinDetails={coinDetails} />
           </Box>
         </Box>

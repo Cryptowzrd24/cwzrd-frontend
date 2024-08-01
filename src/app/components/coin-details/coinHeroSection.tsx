@@ -82,6 +82,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
     height: '10px !important',
     borderRadius: 16,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    border: '1px solid rgba(230, 230, 230, 1)', // Add the border property here
     '& .MuiLinearProgress-bar': {
       borderRadius: 16,
       backgroundColor: 'rgba(230, 230, 230, 1)',
@@ -313,7 +314,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                   )}
                 </Typography>
               </Stack>
-              <Stack>
+              <Stack sx={{ paddingRight: '74px' }}>
                 <Typography
                   variant="body2"
                   sx={{
@@ -346,7 +347,6 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             sx={{
               backgroundColor: 'rgba(255, 255, 255, 0.3)',
               opacity: 0.5,
-              borderWidth: '1px',
             }}
           />
 

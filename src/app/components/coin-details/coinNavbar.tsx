@@ -56,7 +56,11 @@ const CoinNavbar = () => {
   ];
 
   const CustomSelectIcon = () => {
-    return <SliderIconBlue />;
+    return (
+      <div style={{ width: '8px', marginTop: '2px' }}>
+        <SliderIconBlue />
+      </div>
+    );
   };
 
   return (
