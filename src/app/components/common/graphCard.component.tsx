@@ -1,8 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import AreaChart from '../elements/areaGraphCard.element';
 import {
+  getBarGraphColor,
   getGraphColor,
   getPositiveNegativeIcon,
 } from '@/app/helpers/functions';
@@ -31,6 +32,7 @@ const StyledSlider = styled(Slider)`
 const GraphCard = (props: IMarketCapCardProps) => {
   const { heading, value, percent, graphAttr } = props;
   const [currentStep, setCurrentStep] = useState(0);
+  const sliderRef = useRef<Slider>(null);
 
   const totalSteps = 2;
 
@@ -45,117 +47,137 @@ const GraphCard = (props: IMarketCapCardProps) => {
     beforeChange: (current: any, next: any) => setCurrentStep(next),
   };
 
+  const handleDotClick = (index: number) => {
+    setCurrentStep(index);
+    sliderRef.current?.slickGoTo(index);
+  };
+
   return (
-    <Card className={styles.market_cap_wrapper}>
-      <div className={styles.stepper_dots}>
-        {[...Array(totalSteps)].map((_, index) => (
-          <div
-            key={index}
-            className={`${styles.dot} ${currentStep === index ? styles.active : ''}`}
-          />
-        ))}
-      </div>
-      <StyledSlider {...settings}>
-        <div>
-          <div className={styles.header_wrapper}>
-            <CardHeader heading={heading} />
-            <div className={styles.value}>
-              {value?.prefix}
-              {value.data}
-              {value?.postfix}
+    <div
+      style={{
+        width: '24%',
+        display: 'flex',
+        borderRadius: '15px',
+        border: '1px solid rgba(17, 17, 17, 0.05)',
+        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+      }}
+    >
+      <Card className={styles.market_cap_wrapper}>
+        <div className={styles.stepper_dots}>
+          {[...Array(totalSteps)].map((_, index) => (
+            <div
+              key={index}
+              className={`${styles.dot} ${currentStep === index ? styles.active : ''}`}
+              onClick={() => handleDotClick(index)}
+            />
+          ))}
+        </div>
+        <StyledSlider ref={sliderRef} {...settings}>
+          <div>
+            <div className={styles.header_wrapper}>
+              <CardHeader heading={heading} />
+              <div className={styles.value}>
+                {value?.prefix}
+                {value.data}
+                {value?.postfix}
+              </div>
+              <div
+                style={{
+                  fontSize: '14px',
+                  fontFamily: 'Sf Pro Display',
+                  marginTop: '2px',
+                  lineHeight: '18.2px',
+                  color:
+                    getPositiveNegativeIcon(percent) === '-'
+                      ? '#F56D6D'
+                      : '#45CA94',
+                }}
+              >
+                {getPositiveNegativeIcon(percent)}
+                {Math.abs(percent)}%
+              </div>
             </div>
             <div
               style={{
-                fontSize: '14px',
-                fontFamily: 'Sf Pro Display',
-                marginTop: '2px',
-                lineHeight: '18.2px',
-                color:
-                  getPositiveNegativeIcon(percent) === '-'
-                    ? '#F56D6D'
-                    : '#45CA94',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '145px',
+                marginRight: '-4px',
               }}
             >
-              {getPositiveNegativeIcon(percent)}
-              {Math.abs(percent)}%
+              {graphAttr?.type === 'area' ? (
+                <AreaChart
+                  data={graphAttr.data}
+                  color={getGraphColor(percent)}
+                  percent={value?.postfix ? true : false}
+                />
+              ) : null}
+              {graphAttr?.type === 'bar' ? (
+                <BarChart
+                  data={graphAttr.data}
+                  color={getBarGraphColor(percent)}
+                />
+              ) : null}
             </div>
           </div>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '145px',
-            }}
-          >
+          <div>
             {graphAttr?.type === 'area' ? (
-              <AreaChart
-                data={graphAttr.data}
-                color={getGraphColor(percent)}
-                percent={value?.postfix ? true : false}
+              <Card1
+                stepperCount={2}
+                type="time"
+                heading="✨ Recently Added"
+                items={[
+                  {
+                    medal: '🥇',
+                    image: frogImage,
+                    text1: 'PEPI',
+                    text2: 'PEPI',
+                    time: 4,
+                  },
+                  {
+                    medal: '🥇',
+                    image: frogImage,
+                    text1: 'PEPI',
+                    text2: 'PEPI',
+                    time: 4,
+                  },
+                  {
+                    medal: '🥇',
+                    image: frogImage,
+                    text1: 'PEPI',
+                    text2: 'PEPI',
+                    time: 4,
+                  },
+                ]}
               />
-            ) : null}
-            {graphAttr?.type === 'bar' ? (
-              <BarChart data={graphAttr.data} color={getGraphColor(percent)} />
-            ) : null}
+            ) : (
+              <Card2
+                stepperCount={2}
+                heading="🎖 Top Categories"
+                items={[
+                  {
+                    medal: '🥇',
+                    text1: 'Base Ecosystem',
+                    images: [nft, btc, frogImage],
+                  },
+                  {
+                    medal: '🥇',
+                    text1: 'Base Ecosystem',
+                    images: [nft, btc, frogImage],
+                  },
+                  {
+                    medal: '🥇',
+                    text1: 'Base Ecosystem',
+                    images: [nft, btc, frogImage],
+                  },
+                ]}
+              />
+            )}
           </div>
-        </div>
-        <div>
-          {graphAttr?.type === 'area' ? (
-            <Card1
-              stepperCount={2}
-              type="time"
-              heading="✨ Recently Added"
-              items={[
-                {
-                  medal: '🥇',
-                  image: frogImage,
-                  text1: 'PEPI',
-                  text2: 'PEPI',
-                  time: 4,
-                },
-                {
-                  medal: '🥇',
-                  image: frogImage,
-                  text1: 'PEPI',
-                  text2: 'PEPI',
-                  time: 4,
-                },
-                {
-                  medal: '🥇',
-                  image: frogImage,
-                  text1: 'PEPI',
-                  text2: 'PEPI',
-                  time: 4,
-                },
-              ]}
-            />
-          ) : (
-            <Card2
-              stepperCount={2}
-              heading="🎖 Top Categories"
-              items={[
-                {
-                  medal: '🥇',
-                  text1: 'Base Ecosystem',
-                  images: [nft, btc, frogImage],
-                },
-                {
-                  medal: '🥇',
-                  text1: 'Base Ecosystem',
-                  images: [nft, btc, frogImage],
-                },
-                {
-                  medal: '🥇',
-                  text1: 'Base Ecosystem',
-                  images: [nft, btc, frogImage],
-                },
-              ]}
-            />
-          )}
-        </div>
-      </StyledSlider>
-    </Card>
+        </StyledSlider>
+      </Card>
+    </div>
   );
 };
 

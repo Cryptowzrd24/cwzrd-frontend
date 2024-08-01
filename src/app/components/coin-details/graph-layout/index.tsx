@@ -9,7 +9,7 @@ import GraphFilter from '../graph-filter';
 function GraphLayout({ chartRef, isFullScreen, handleFullScreen }: any) {
   const [selectedTab, setSelectedTab] = useState('Price');
   const [selectedFilter, setSelectedFilter] = useState('filter');
-  const [volumeValue, setVolumeValue] = useState('24h');
+  const [volumeValue, setVolumeValue] = useState('1D');
   return (
     <div className={styles.graphLayout}>
       <Box

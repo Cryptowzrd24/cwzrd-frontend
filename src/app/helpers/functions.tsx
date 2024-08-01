@@ -8,6 +8,11 @@ export const getGraphColor = (number: number) => {
   return color;
 };
 
+export const getBarGraphColor = (number: number) => {
+  const color = number >= 0 ? '31, 215, 115, 1' : '245, 109, 109';
+  return color;
+};
+
 export const getTimeAgoText = (value: Date | number) => {
   const minutesAgo = typeof value === 'number' ? value : '';
   return `${minutesAgo} Minutes Ago`;

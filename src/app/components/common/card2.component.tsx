@@ -31,66 +31,67 @@ const Card2 = (props: ICard2Props) => {
   const { heading, items } = props;
 
   return (
-    <Card className={styles.coin_detail_card_wrapper}>
-      <div className={styles.header_wrapper}>
-        <CardHeader heading={heading} />
-      </div>
-      <div className={styles.recently_added}>
-        <ul>
-          {items.map((item: any) => (
-            <li key={item.name}>
-              <div className={styles.profile}>
-                <div className={styles.medal}>
-                  <span>{item.medal}</span>
-                </div>
-                <div
-                  // className={styles.title}
-                  style={{
-                    marginLeft: 'unset',
-                  }}
-                >
-                  <span
+    <div className="card_wrapper">
+      <Card className={styles.coin_detail_card_wrapper}>
+        <div className={styles.header_wrapper}>
+          <CardHeader heading={heading} />
+        </div>
+        <div className={styles.recently_added}>
+          <ul>
+            {items.map((item: any) => (
+              <li key={item.name}>
+                <div className={styles.profile}>
+                  <div className={styles.medal}>
+                    <span>{item.medal}</span>
+                  </div>
+                  <div
+                    // className={styles.title}
                     style={{
-                      fontWeight: '500 ',
-                      fontSize: '15px ',
-                      lineHeight: '20.8px',
+                      marginLeft: 'unset',
                     }}
                   >
-                    {item.text1}
-                  </span>
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: '5px' }}>
-                {item.images.map((img: any) => (
-                  <div className={styles.profile_block}>
-                    <Image className={styles.image} src={img} alt="" />
+                    <span
+                      style={{
+                        fontWeight: '500 ',
+                        fontSize: '15px ',
+                        lineHeight: '20.8px',
+                      }}
+                    >
+                      {item.text1}
+                    </span>
                   </div>
-                ))}
-              </div>
-            </li>
-          ))}
-        </ul>
+                </div>
+                <div style={{ display: 'flex', gap: '5px' }}>
+                  {item.images.map((img: any) => (
+                    <div className={styles.profile_block}>
+                      <Image className={styles.image} src={img} alt="" />
+                    </div>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ul>
 
-        <div
-          style={{
-            fontWeight: 700,
-            color: '#7248F7',
-            fontSize: '12px',
-            padding: '0px 12px',
-            position: 'absolute',
-            right: '0px',
-            bottom: '6px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '2px',
-            cursor: 'pointer',
-          }}
-        >
-          More{' '}
-          <ArrowForwardIosIcon sx={{ fontSize: '10px', marginTop: '1px' }} />
-        </div>
+          <div
+            style={{
+              fontWeight: 700,
+              color: '#7248F7',
+              fontSize: '12px',
+              padding: '0px 12px',
+              position: 'absolute',
+              right: '0px',
+              bottom: '6px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '2px',
+              cursor: 'pointer',
+            }}
+          >
+            More{' '}
+            <ArrowForwardIosIcon sx={{ fontSize: '10px', marginTop: '1px' }} />
+          </div>
 
-        {/* <Stack direction="row" style={{ justifyContent: 'flex-end' }}>
+          {/* <Stack direction="row" style={{ justifyContent: 'flex-end' }}>
           <BootstrapButton
             variant="text"
             size="medium"
@@ -99,8 +100,9 @@ const Card2 = (props: ICard2Props) => {
             More &nbsp; <ArrowForwardIosIcon sx={{ fontSize: '12px' }} />
           </BootstrapButton>
         </Stack> */}
-      </div>
-    </Card>
+        </div>
+      </Card>
+    </div>
   );
 };
 

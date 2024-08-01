@@ -6,6 +6,8 @@ const HighBadge = (props: any) => {
     justifyContent: 'center',
     alignItems: 'center',
     padding: '5px 12px',
+    marginTop: '10px',
+    height: '26px',
     borderRadius: '8px',
     background:
       props?.props?.value === 'High'
@@ -23,7 +25,6 @@ const HighBadge = (props: any) => {
     textAlign: 'center',
     fontSize: '12px',
     width: '53px',
-    height: '26px',
   };
 
   console.log(props);
@@ -32,7 +33,14 @@ const HighBadge = (props: any) => {
 
 const Confidence = (props: any) => {
   return (
-    <div style={{ marginTop: '15px', textAlign: 'center' }}>
+    <div
+      style={{
+        display: 'flex',
+        alignContent: 'center',
+        justifyContent: 'center',
+        height: 'inherit',
+      }}
+    >
       <HighBadge props={props} />
     </div>
   );
