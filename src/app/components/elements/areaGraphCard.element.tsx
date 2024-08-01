@@ -94,7 +94,7 @@ const AreaChart = (props: IChartProps) => {
           <div
            style="display: flex; align-items: center; justify-content: center; 
            width:71px;
-           height:25px;
+           height:20px;
            background: white; 
            border-radius: 40px; 
            padding: 4px 8px; 

@@ -25,7 +25,10 @@ import FilterDropdown from '../../filter-dropdown';
 import FilterModal from '../../filter-modal';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { clearAllFilters, clearSelectedFilter } from '@/app/redux/reducers/filters';
+import {
+  clearAllFilters,
+  clearSelectedFilter,
+} from '@/app/redux/reducers/filters';
 
 interface CustomHeaderProps {
   search: string;
@@ -409,11 +412,7 @@ export const CustomHeader = ({
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              // background: '#1111110D',
-              border: '1px solid #11111100',
-              borderRadius: '8px',
               gap: '4px',
-              boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             }}
           >
             {view && (

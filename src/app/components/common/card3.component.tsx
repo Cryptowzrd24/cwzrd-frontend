@@ -50,7 +50,7 @@ const Card3 = (props: ICard3Props) => {
   const getBackground = () => {
     if (bgImage) {
       return {
-        backgroundImage: `url(${bgImage.src})`,
+        backgroundImage: `url(${bgImage.src}) !important`,
         boxShadow:
           '0px 4px 4px 0px #00000040,inset 0 0 0 1000px rgba(0,0,0,.5)',
         backgroundSize: 'cover',

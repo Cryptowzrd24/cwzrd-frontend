@@ -1,22 +1,18 @@
-'use client';
-
 import { Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
-import GraphCard from '@/app/components/common/graphCard.component';
-import { areaChartData } from '@/app/constants/charts';
-import { useAppSelector } from '@/app/redux/store';
-import { AnimatePresence, motion } from 'framer-motion';
-import GaugeChart from '../common/guage-chart';
-import { useFetchStatsDataQuery } from '@/app/redux/reducers/data-grid';
 import numeral from 'numeral';
+import StatsContainer from './statsContainer';
 
-const HeroContent = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const { showStats } = useAppSelector((state) => state.market);
-  const { data } = useFetchStatsDataQuery({});
+async function fetchStatsData() {
+  const res = await fetch('https://backend.cwzrd.co.uk/api/stats/', {
+    next: { revalidate: 60 },
+  });
+  const data = await res.json();
 
-  const handleToggle = () => setIsExpanded(!isExpanded);
+  return data;
+}
 
+const HeroContent = async () => {
+  const data = await fetchStatsData();
   const marketCap = numeral(data?.results[0].quote.USD.total_market_cap)
     .format('0.00a')
     .toUpperCase();
@@ -133,10 +129,11 @@ const HeroContent = () => {
 
       <Box
         sx={{
-          fontSize: '15px',
+          fontSize: '14px',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           mt: '8px',
+          mb: '12px',
         }}
       >
         The overall market capitalization of the crypto market is
@@ -144,178 +141,142 @@ const HeroContent = () => {
           style={{
             color: 'rgba(17,17,17,0.8)',
             fontWeight: '600',
-            fontSize: '15px',
+            fontSize: '14px',
           }}
         >
           {' '}
-          +${marketCap}
+          ${marketCap}
         </span>
         , {marketCapChangeText}{' '}
         <span
           style={{
             color: marketCapChangeColor,
             fontWeight: '600',
-            fontSize: '15px',
+            fontSize: '14px',
           }}
         >
           {formattedMarketCapChange}%
         </span>{' '}
         in the last 24 hours.{' '}
-        {isExpanded && (
-          <>
-            <br />
-            The total crypto market volume over the last 24 hours is
-            <span
-              style={{
-                color: 'rgba(17,17,17,0.8)',
-                fontWeight: '600',
-                fontSize: '15px',
-              }}
-            >
-              {' '}
-              +${volumeCap}
-            </span>
-            , {volumeCapChangeText}{' '}
-            <span
-              style={{
-                color: volumeCapChangeColor,
-                fontWeight: '600',
-                fontSize: '15px',
-              }}
-            >
-              {formattedVolumeCapChange}%
-            </span>
-            . The total volume in DeFi is currently
-            <span
-              style={{
-                color: 'rgba(17,17,17,0.8)',
-                fontWeight: '600',
-                fontSize: '15px',
-              }}
-            >
-              {' '}
-              +${defiVolume}
-            </span>
-            , {defiVolumeChangeText}{' '}
-            <span
-              style={{
-                color: defiVolumeChangeColor,
-                fontWeight: '600',
-                fontSize: '15px',
-              }}
-            >
-              {formattedDefiVolumeChange}%
-            </span>
-            , which <br /> is{' '}
-            <span style={{ fontWeight: 600 }}>{defiVolumePercent}%</span> of the
-            total crypto market 24-hour volume. The volume of all stable coins
-            is now
-            <span
-              style={{
-                color: 'rgba(17,17,17,0.8)',
-                fontWeight: '600',
-                fontSize: '15px',
-              }}
-            >
-              {' '}
-              +${stablecoinVolume}
-            </span>
-            , {stablecoinVolumeChangeText}{' '}
-            <span
-              style={{
-                color: stablecoinVolumeChangeColor,
-                fontWeight: '600',
-                fontSize: '15px',
-              }}
-            >
-              {formattedStablecoinVolumeChange}%
-            </span>
-            , which is{' '}
-            <span style={{ fontWeight: 600 }}>{stablecoinVolumePercent}%</span>{' '}
-            of the total crypto market 24-hour volume. <br />
-            of the total crypto market 24-hour volume. <br />
-            Bitcoin’s dominance is currently
-            <span
-              style={{
-                color: 'rgba(17,17,17,0.8)',
-                fontWeight: '600',
-                fontSize: '15px',
-              }}
-            >
-              {' '}
-              +{btcDominance}%
-            </span>
-            , {btcDominanceChangeText}{' '}
-            <span
-              style={{
-                color: btcDominanceChangeColor,
-                fontWeight: '600',
-                fontSize: '15px',
-              }}
-            >
-              {formattedBtcDominanceChange}%
-            </span>
-            . <br />
-            . <br />
-          </>
-        )}
         <span
           style={{
             color: '#808A9D',
             cursor: 'pointer',
-            fontSize: '15px',
+            fontSize: '14px',
             fontWeight: '400',
             textDecoration: 'underline',
           }}
-          onClick={handleToggle}
+          id="toggleMore"
         >
-          {isExpanded ? ' Read Less' : ' Read More'}
+          Read More
         </span>
-      </Box>
-
-      <AnimatePresence>
-        {showStats && (
-          <motion.div
-            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-            animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2, marginTop: 0 }}
+        <div id="additionalContent" style={{ display: 'none' }}>
+          The total crypto market volume over the last 24 hours is
+          <span
+            style={{
+              color: 'rgba(17,17,17,0.8)',
+              fontWeight: '600',
+              fontSize: '14px',
+            }}
           >
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                gap: '10px',
-                alignItems: 'center',
-                maxWidth: '100%',
-                justifyContent: 'space-between',
-                marginBottom: '20px',
-              }}
-              className="coin__container"
-            >
-              <GraphCard
-                heading="🔥 Market CAP"
-                value={{ data: '36,606,531,750.36', prefix: '$' }}
-                percent={6.32}
-                graphAttr={{ type: 'area', data: areaChartData }}
-              />
-              <GraphCard
-                heading="🔥 24 hour volume"
-                value={{ data: '41,606,531,750.36', prefix: '$' }}
-                percent={0.32}
-                graphAttr={{ type: 'bar', data: areaChartData }}
-              />
-              <GraphCard
-                heading="🔥 Bitcoin Dominance"
-                value={{ data: '51.88', postfix: '%' }}
-                percent={-0.32}
-                graphAttr={{ type: 'area', data: areaChartData }}
-              />
-              <GaugeChart value={0} />
-            </Box>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {' '}
+            ${volumeCap}
+          </span>
+          , {volumeCapChangeText}{' '}
+          <span
+            style={{
+              color: volumeCapChangeColor,
+              fontWeight: '600',
+              fontSize: '14px',
+            }}
+          >
+            {formattedVolumeCapChange}%
+          </span>
+          . The total volume in DeFi is currently
+          <span
+            style={{
+              color: 'rgba(17,17,17,0.8)',
+              fontWeight: '600',
+              fontSize: '14px',
+            }}
+          >
+            {' '}
+            ${defiVolume}
+          </span>
+          , {defiVolumeChangeText}{' '}
+          <span
+            style={{
+              color: defiVolumeChangeColor,
+              fontWeight: '600',
+              fontSize: '14px',
+            }}
+          >
+            {formattedDefiVolumeChange}%
+          </span>
+          , which is{' '}
+          <span style={{ fontWeight: 600 }}>{defiVolumePercent}%</span> of the
+          total crypto market 24-hour volume. The volume of all stable coins is
+          now
+          <span
+            style={{
+              color: 'rgba(17,17,17,0.8)',
+              fontWeight: '600',
+              fontSize: '14px',
+            }}
+          >
+            {' '}
+            ${stablecoinVolume}
+          </span>
+          , {stablecoinVolumeChangeText}{' '}
+          <span
+            style={{
+              color: stablecoinVolumeChangeColor,
+              fontWeight: '600',
+              fontSize: '14px',
+            }}
+          >
+            {formattedStablecoinVolumeChange}%
+          </span>
+          , which is{' '}
+          <span style={{ fontWeight: 600 }}>{stablecoinVolumePercent}%</span> of
+          the total crypto market 24-hour volume. <br />
+          Bitcoin’s dominance is currently
+          <span
+            style={{
+              color: 'rgba(17,17,17,0.8)',
+              fontWeight: '600',
+              fontSize: '14px',
+            }}
+          >
+            {' '}
+            {btcDominance}%
+          </span>
+          , {btcDominanceChangeText}{' '}
+          <span
+            style={{
+              color: btcDominanceChangeColor,
+              fontWeight: '600',
+              fontSize: '14px',
+            }}
+          >
+            {formattedBtcDominanceChange}%
+          </span>
+          .{' '}
+          <span
+            style={{
+              color: '#808A9D',
+              cursor: 'pointer',
+              fontSize: '14px',
+              fontWeight: '400',
+              textDecoration: 'underline',
+            }}
+            id="toggleLess"
+          >
+            Read Less
+          </span>
+        </div>
+      </Box>
+      <StatsContainer />
     </>
   );
 };

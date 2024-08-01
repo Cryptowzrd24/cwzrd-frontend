@@ -7,7 +7,7 @@ import NewsLetterBanner from '../banners/newsLetterBanner';
 import MemberShipBanner from '../banners/memberShipBanner';
 import HeroContent from './heroContent';
 import Stats from '@/app/components/stats';
-import TableServer from './tableServer';
+import Table from './table';
 
 function Coin() {
   return (
@@ -18,9 +18,7 @@ function Coin() {
         <Stats />
       </Box>
       <Box sx={{ mt: '16px' }}>
-        <TableServer
-          query={{ start: 1, pageSize: 10, filters: '', searchString: '' }}
-        />
+        <Table />
       </Box>
       <Box sx={{ mt: '48px' }}>
         <NewsLetterBanner />

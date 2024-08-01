@@ -36,12 +36,19 @@ interface StatItemProps {
 }
 
 async function fetchStatsData() {
-  const res = await fetch('https://backend.cwzrd.co.uk/api/stats/', {
+  const statsRes = await fetch('https://backend.cwzrd.co.uk/api/stats/', {
     next: { revalidate: 60 },
   });
-  const data = await res.json();
+  const statsData = await statsRes.json();
 
-  const rowData = data.results.flatMap((item: ApiData) => [
+  const fearGreedRes = await fetch('https://api.alternative.me/fng/?limit=2', {
+    next: {
+      revalidate: 60,
+    },
+  });
+  const fearGreedData = await fearGreedRes.json();
+
+  const rowData = statsData.results.flatMap((item: ApiData) => [
     {
       label: 'Cryptos',
       value: '2.4M',
@@ -88,7 +95,10 @@ async function fetchStatsData() {
         },
       },
     },
-    { label: 'Fear & Greed:', value: '76/100' },
+    {
+      label: 'Fear & Greed:',
+      value: `${fearGreedData.data[0].value}/100 (${fearGreedData.data[0].value_classification})`,
+    },
   ]);
 
   return rowData;

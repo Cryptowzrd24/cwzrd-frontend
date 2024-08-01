@@ -62,6 +62,8 @@ const BarChart = (props: IChartProps) => {
       borderRadius: 10,
       borderWidth: 0,
       shadow: false,
+      hideDelay: 5600000,
+      show: true,
       style: {},
       formatter: function () {
         const point = this.point;
@@ -70,7 +72,7 @@ const BarChart = (props: IChartProps) => {
           <div
            style="display: flex; align-items: center; justify-content: center; 
            width:71px;
-           height:25px;
+           height:20px;
            background: white; 
            border-radius: 40px; 
            padding: 4px 8px; 
@@ -96,7 +98,7 @@ const BarChart = (props: IChartProps) => {
 
         // Adjust position to the left if the tooltip goes out of bounds
         if (x + labelWidth > chart.plotLeft + chart.plotWidth) {
-          x = plotX - labelWidth - cursorPadding + 10;
+          x = plotX - labelWidth - cursorPadding + 15;
         }
 
         // Ensure tooltip stays within chart bounds on x-axis

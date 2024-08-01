@@ -29,20 +29,21 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '15px',
+          fontSize: '14px',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           mt: '8px',
+          mb: '12px',
         }}
       >
         New cryptocurrencies added to Crypto WZRD in the last 30 days.
       </Box>
       <AnimatePresence>
         <motion.div
-          initial={{ opacity: 0, height: 0, marginTop: 0 }}
-          animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.2, marginTop: 0 }}
+          transition={{ duration: 0.2 }}
         >
           <Box
             sx={{

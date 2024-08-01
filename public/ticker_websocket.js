@@ -1,7 +1,5 @@
 const ws = new WebSocket('wss://backend.cwzrd.co.uk/ws/data/');
 
-document.querySelector('.ticker-info').textContent = 'BLAHBLAHBLAH';
-
 ws.addEventListener('open', () => {
   console.log('WebSocket connection opened falsdjflasjfl lkjasflk');
 });
@@ -42,4 +40,20 @@ ws.addEventListener('error', (error) => {
 
 ws.addEventListener('close', (event) => {
   console.log('WebSocket connection closed:', event);
+});
+
+const toggleMoreButton = document.getElementById('toggleMore');
+const toggleLessButton = document.getElementById('toggleLess');
+const additionalContent = document.getElementById('additionalContent');
+
+toggleMoreButton.addEventListener('click', () => {
+  additionalContent.style.display = 'block';
+  toggleMoreButton.style.display = 'none';
+  toggleLessButton.style.display = 'inline-block';
+});
+
+toggleLessButton.addEventListener('click', () => {
+  additionalContent.style.display = 'none';
+  toggleLessButton.style.display = 'none';
+  toggleMoreButton.style.display = 'inline-block';
 });
