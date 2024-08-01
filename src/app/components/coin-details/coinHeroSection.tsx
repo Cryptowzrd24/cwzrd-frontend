@@ -343,7 +343,11 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)',opacity:0.5 }}
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.3)',
+              opacity: 0.5,
+              borderWidth: '1px',
+            }}
           />
 
           {/* --------------------------------------------------------------------------------- */}
@@ -454,7 +458,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)',opacity:0.5 }}
+            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', opacity: 0.5 }}
           />
 
           {/* -------------------------------------------------------------------------- */}
@@ -561,7 +565,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)',opacity:0.5 }}
+            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', opacity: 0.5 }}
           />
 
           {/* ------------------------------------------------------------------------------------------- */}

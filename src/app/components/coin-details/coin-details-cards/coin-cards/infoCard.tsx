@@ -4,31 +4,6 @@ import React from 'react';
 import SliderIcon from '../../../../../../public/icons/coin-details/sliderIcon';
 
 const InfoCard = ({ coinDetails }: any) => {
-  const explorerMenuItems = coinDetails?.urls?.explorer?.map(
-    (elem: any, index: number) => {
-      return (
-        <MenuItem
-          key={index}
-          sx={{
-            display: 'flex',
-            gap: '4px',
-            maxWidth: '200px',
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-        >
-          <Typography
-            variant="body1"
-            sx={{ fontSize: '11px', fontWeight: '500' }}
-          >
-            {elem}
-          </Typography>
-        </MenuItem>
-      );
-    },
-  );
-
   const explorerWalletItems = coinDetails?.urls?.wallets?.map(
     (elem: any, index: number) => {
       return (

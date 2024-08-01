@@ -9,5 +9,12 @@
 .fiat-supported svg{
     margin-bottom: -1px;
 }
+.info-icon {
+  transition: filter 0.3s ease;
+  filter: brightness(10);
+}
 
+.info-icon:hover {
+  filter: brightness(1);
+}
 

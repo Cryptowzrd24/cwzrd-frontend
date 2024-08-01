@@ -412,10 +412,11 @@ export const CustomHeader = ({
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              background: '#1111110D',
+              // background: '#1111110D',
               border: '1px solid #11111100',
               borderRadius: '8px',
               gap: '4px',
+              boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             }}
           >
             {view && (
