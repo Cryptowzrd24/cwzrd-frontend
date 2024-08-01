@@ -24,13 +24,6 @@ interface ApiData {
   };
 }
 
-interface RowData {
-  label: string;
-  value: string;
-  change?: string;
-  data?: any;
-}
-
 interface StatItemProps {
   label: string;
   value: string;
@@ -249,11 +242,7 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
   </Tooltip>
 );
 
-interface StatsProps {
-  rowData: RowData[];
-}
-
-const Stats: React.FC<StatsProps> = async () => {
+const Stats: React.FC = async () => {
   const rowData = await fetchStatsData();
 
   return (

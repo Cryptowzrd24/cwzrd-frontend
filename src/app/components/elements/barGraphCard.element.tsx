@@ -81,10 +81,14 @@ const BarChart = (props: IChartProps) => {
              $${yValue}m
           </div>`;
       },
-      positioner: function (labelWidth, labelHeight, point) {
+      positioner: function (
+        labelWidth: number,
+        labelHeight: number,
+        point: any,
+      ) {
         const chart = this.chart;
-        const plotX = point.plotX + chart.plotLeft;
-        const plotY = point.plotY + chart.plotTop;
+        const plotX = point?.plotX + chart.plotLeft;
+        const plotY = point?.plotY + chart.plotTop;
         const cursorPadding = 10;
 
         let x = plotX + cursorPadding; // Default position to the right

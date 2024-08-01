@@ -6,7 +6,7 @@ const AreaChart = (props: IChartProps) => {
   const { data, color, isMarker, percent } = props;
   const chartRef: any = useRef(null);
 
-  const chartOptions: Highcharts.ChartOptions = {
+  const chartOptions: any = {
     chart: {
       type: 'area',
       plotBorderWidth: 0,
@@ -88,7 +88,7 @@ const AreaChart = (props: IChartProps) => {
       shadow: false,
       style: {},
       formatter: function () {
-        const point = this.point;
+        const point: any = (this as any)?.point;
         const yValue = point.y;
         return `
           <div
@@ -105,10 +105,14 @@ const AreaChart = (props: IChartProps) => {
             ${percent ? '' : '$'}${yValue}${percent ? '%' : 'm'}
           </div>`;
       },
-      positioner: function (labelWidth, labelHeight, point) {
-        const chart = this.chart;
-        const plotX = point.plotX + chart.plotLeft;
-        const plotY = point.plotY + chart.plotTop;
+      positioner: function (
+        labelWidth: number,
+        labelHeight: number,
+        point: any,
+      ) {
+        const chart: any = (this as any)?.chart;
+        const plotX: any = point.plotX + chart.plotLeft;
+        const plotY: any = point.plotY + chart.plotTop;
         const cursorPadding = 10;
 
         let x = plotX + cursorPadding; // Default position to the right
