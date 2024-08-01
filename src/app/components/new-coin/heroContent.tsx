@@ -36,7 +36,7 @@ function HeroContent() {
           mb: '12px',
         }}
       >
-        New cryptocurrencies added to Crypto WZRD in the last 30 days.
+        New cryptocurrencies added to CryptoWZRD in the last 30 days.
       </Box>
       <AnimatePresence>
         <motion.div
