@@ -1,0 +1,63 @@
+.graphCustomHeader {
+  width: 261px;
+  height: 32px;
+  padding: 4px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+  background-color: #f3f3f3;
+  position: relative;
+  top: 20px;
+  right: 21px;
+}
+
+.filterHeaderSecOne {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-right: 2px solid rgba(17, 17, 17, 0.1);
+  padding-right: 12px;
+  height: 90%;
+}
+
+.filterHeaderSecTwo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 6px;
+  justify-content: space-between;
+}
+
+.iconBoxFilter {
+  padding: 4px 10px;
+  border-radius: 4px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.iconBoxFilterSelected {
+  padding: 4px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 1);
+  height: 16px;
+  cursor: pointer;
+}
+
+.iconBoxCandlestick {
+  padding: 4px 6px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.iconBoxCandlestickSelected {
+  padding: 4px 0px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 1);
+  height: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

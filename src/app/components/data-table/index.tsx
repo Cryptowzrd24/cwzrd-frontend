@@ -18,6 +18,8 @@ interface DataTableProps {
   getRowId?: any;
   priceRefs?: React.MutableRefObject<{ [key: string]: HTMLDivElement | null }>;
   height?: string;
+  onRowClicked?: (id: any) => void;
+  rowHeight?: number;
 }
 
 const DataTable = memo(
@@ -31,6 +33,8 @@ const DataTable = memo(
     getRowId = undefined,
     priceRefs,
     height,
+    rowHeight,
+    onRowClicked,
   }: DataTableProps) => {
     const modifiedColumnDefs = useMemo(
       () =>
@@ -109,6 +113,7 @@ const DataTable = memo(
           suppressPaginationPanel={true}
           tooltipShowDelay={0}
           tooltipInteraction={true}
+          {...(rowHeight ? { rowHeight } : {})}
           rowStyle={{
             fontFamily: 'SF Pro Display',
             fontSize: 13,
@@ -119,6 +124,7 @@ const DataTable = memo(
             if (gridApiRef) gridApiRef.current = params.api;
           }}
           {...(typeof getRowId !== 'undefined' ? { getRowId } : {})}
+          onRowClicked={onRowClicked}
         />
       </div>
     );
