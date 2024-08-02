@@ -6,7 +6,7 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
   background-color: #f3f3f3;
   position: relative;
   top: 20px;
@@ -23,6 +23,17 @@
   transition: 0.3s ease-in-out;
   margin-left: 4px;
 }
+
+.link {
+  /* background-color: green; */
+  padding: 5px 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* .link:hover {
+  background-color: #e0e0e0;
+} */
 
 .selectedLink {
   transition: 0.3s ease-in-out;

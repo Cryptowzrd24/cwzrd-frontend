@@ -17,6 +17,7 @@ declare global {
       lineWidth: number;
       gridLineWidth: number;
       lineColor: string;
+      offset: number;
     };
     yAxis: {
       tickInterval?: number;

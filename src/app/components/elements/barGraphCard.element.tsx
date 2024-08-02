@@ -27,6 +27,7 @@ const BarChart = (props: IChartProps) => {
       lineWidth: 0,
       gridLineWidth: 0,
       lineColor: 'transparent',
+      offset: 13,
     },
     yAxis: {
       labels: {
