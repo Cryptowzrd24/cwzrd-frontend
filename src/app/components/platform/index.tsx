@@ -28,7 +28,7 @@ const Platform = () => {
   return (
     <>
       <Container maxWidth="xl">
-        <Box sx={{ mt: '100px' }}>
+        <Box sx={{ mt: '64px' }}>
           <PlatformHeader />
         </Box>
       </Container>
@@ -41,7 +41,7 @@ const Platform = () => {
         <Box sx={{ mb: '30px' }}>
           <TradeOpportunities />
         </Box>
-        <Box sx={{ mb: '72px' }}>
+        <Box sx={{ mb: '64px' }}>
           <RealWins />
         </Box>
         <Box sx={{ mb: '30px' }}>
@@ -50,10 +50,10 @@ const Platform = () => {
         <Box sx={{ mb: '30px' }}>
           <PlatformCards />
         </Box>
-        <Box sx={{ mb: '150px' }}>
+        <Box sx={{ mb: '64px' }}>
           <MemberShipBanner />
         </Box>
-        <Box sx={{ mb: '150px' }}>
+        <Box sx={{ mb: '30px' }}>
           <Feature />
         </Box>
         <Box sx={{ mb: '30px' }}>
@@ -71,13 +71,13 @@ const Platform = () => {
         <Box sx={{ mb: '30px' }}>
           <ProgressCards />
         </Box>
-        <Box sx={{ mb: '150px' }}>
+        <Box sx={{ mb: '30px' }}>
           <JoinedPeople />
         </Box>
       </Container>
       <Box
         sx={{
-          mb: '150px',
+          mb: '30px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -102,13 +102,13 @@ const Platform = () => {
         <Box sx={{ mb: '30px' }}>
           <RealTimeMarketData />
         </Box>
-        <Box sx={{ mb: '150px' }}>
+        <Box sx={{ mb: '64px' }}>
           <CoverageCards />
         </Box>
-        <Box sx={{ mb: '150px' }}>
+        <Box sx={{ mb: '30px' }}>
           <FrequentlyAskedQuestion />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '30px' }}>
           <MemberShipBanner />
         </Box>
       </Container>

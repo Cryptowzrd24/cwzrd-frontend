@@ -20,14 +20,14 @@ const TradeHeader = () => {
           fontWeight: '500',
           textTransform: 'uppercase',
           letterSpacing: 2,
-          mb: '12px',
+          mb: '8px',
         }}
       >
         features
       </Typography>
       <Typography
         variant="h1"
-        sx={{ fontSize: '72px', lineHeight: '72px', mb: '16px' }}
+        sx={{ fontSize: '72px', lineHeight: '72px', mb: '12px' }}
       >
         <span
           style={{
@@ -47,7 +47,7 @@ const TradeHeader = () => {
         sx={{
           fontSize: '20px',
           fontWeight: '400',
-          mb: '72px',
+          mb: '36px',
           textAlign: 'center',
           lineHeight: '30px',
           color: 'rgba(17, 17, 17, 0.8)',

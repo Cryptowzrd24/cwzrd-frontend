@@ -22,14 +22,14 @@ const Feature = () => {
             fontWeight: '500',
             textTransform: 'uppercase',
             letterSpacing: 2,
-            mb: '12px',
+            mb: '8px',
           }}
         >
           features
         </Typography>
         <Typography
           variant="h1"
-          sx={{ fontSize: '72px', lineHeight: '72px', mb: '16px' }}
+          sx={{ fontSize: '72px', lineHeight: '72px', mb: '12px' }}
         >
           Our Platform
           <span
@@ -49,7 +49,7 @@ const Feature = () => {
           sx={{
             fontSize: '20px',
             fontWeight: '400',
-            mb: '72px',
+            mb: '36px',
             textAlign: 'center',
             maxWidth: '860px',
             lineHeight: '30px',
