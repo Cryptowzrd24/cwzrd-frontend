@@ -22,6 +22,7 @@ const AreaChart = (props: IChartProps) => {
       lineWidth: 0,
       gridLineWidth: 0,
       lineColor: 'transparent',
+      offset: 13,
     },
     title: {
       text: null,

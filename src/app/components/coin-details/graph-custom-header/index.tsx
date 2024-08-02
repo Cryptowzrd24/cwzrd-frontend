@@ -22,7 +22,9 @@ function GraphCustomHeader({
       <div
         key={opt}
         onClick={() => handleTabSelect(opt)}
-        className={selectedTab === opt ? `${styles.selectedLink}` : ''}
+        className={
+          selectedTab === opt ? `${styles.selectedLink}` : `${styles.link}`
+        }
       >
         <span
           className={
