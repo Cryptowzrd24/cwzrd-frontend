@@ -26,22 +26,23 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '15px',
+          fontSize: '14px',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           mt: '8px',
+          mb: '12px',
         }}
       >
         Listed below are the highest volume cryptocurrencies, based on real-time
-        data from Crypto WZRD. Discover which coins and tokens are leading the
+        data from CryptoWZRD. Discover which coins and tokens are leading the
         market in trading activity.
       </Box>
       <AnimatePresence>
         <motion.div
-          initial={{ opacity: 0, height: 0, marginTop: 0 }}
-          animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.2, marginTop: 0 }}
+          transition={{ duration: 0.2 }}
         >
           <Box
             sx={{
@@ -49,8 +50,11 @@ function HeroContent() {
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
+              maxWidth: '100%',
               justifyContent: 'space-between',
+              marginBottom: '20px',
             }}
+            className="high_volume__container"
           >
             <GraphCard
               heading="🔥 24 hour volume"

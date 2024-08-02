@@ -111,3 +111,42 @@ body {
 .highcharts-scrollbar {
   display: none;
 }
+
+.highcharts-tooltip span {
+    background: transparent !important;
+    border: none !important;
+}
+
+.card_wrapper {
+    width: 100%;
+    display: flex;
+    border-radius: 15px;
+    border: 1px solid rgba(17, 17, 17, 0.05);
+    box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
+}
+.slick-track .card_wrapper {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.coin__container .guage-chart {
+    width: calc(25% - 7.5px) !important;
+}
+.high_volume__container .guage-chart {
+    width: calc(25% - 7.5px) !important;
+}
+.chains__container .guage-chart {
+    width: calc(25% - 7.5px) !important;
+}
+
+.defi__container .guage-chart {
+    width: calc(25% - 7.5px) !important;
+}
+
+.defi__container .defi__candlestick_card {
+    width: calc(25% - 7.5px) !important;
+}
+
+.defi__container .defi__trending_card {
+    width: calc(25% - 7.5px) !important;
+}

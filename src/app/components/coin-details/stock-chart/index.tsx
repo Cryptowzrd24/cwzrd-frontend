@@ -41,22 +41,22 @@ const StockChart: React.FC<StockChartProps> = ({
     let pastTime;
 
     switch (period) {
-      case '24h':
+      case '1D':
         pastTime = currentTime - 24 * 60 * 60 * 1000;
         break;
-      case '3d':
+      case '3D':
         pastTime = currentTime - 3 * 24 * 60 * 60 * 1000;
         break;
-      case '7d':
+      case '7D':
         pastTime = currentTime - 7 * 24 * 60 * 60 * 1000;
         break;
-      case '1m':
+      case '1M':
         pastTime = currentTime - 30 * 24 * 60 * 60 * 1000;
         break;
       case '6m':
         pastTime = currentTime - 6 * 30 * 24 * 60 * 60 * 1000;
         break;
-      case '1y':
+      case '1Y':
         pastTime = currentTime - 365 * 24 * 60 * 60 * 1000;
         break;
       case 'ALL':
@@ -128,8 +128,8 @@ const StockChart: React.FC<StockChartProps> = ({
       const marketcap: any[] = [];
       const candleStickMarketcap: any[] = [];
       const candleStickVolume: any[] = [];
-      const coinThreshold = Object.values(points)[0].v[0];
-      const volumeThreshold = Object.values(points)[0].v[1];
+      const coinThreshold = (Object as any).values(points)[0].v[0];
+      const volumeThreshold = (Object as any).values(points)[0].v[1];
 
       for (const timestamp in points) {
         if (points.hasOwnProperty(timestamp)) {
@@ -270,7 +270,7 @@ const StockChart: React.FC<StockChartProps> = ({
             const date = Highcharts.dateFormat('%m/%d/%Y', this.x);
             const time = Highcharts.dateFormat('%I:%M:%S %p', this.x);
             const volume = numeral(
-              Object.values(points)[this.point.index].v[1],
+              (Object as any).values(points)[this.point.index].v[1],
             ).format('0.00a');
 
             const ohlc = this.points[0].point;

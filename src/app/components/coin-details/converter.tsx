@@ -1,11 +1,11 @@
 'use client';
 import { Box, MenuItem, Select, Stack, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import Image from 'next/image';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Refresh from '../../../../public/icons/coin-details/refresh';
 import ArrowRightBlack from '../../../../public/icons/News-Letter/arrowRightBlack';
-import converter from '../../../../public/images/coin-details/converter.png';
+import TimeAgo from 'react-timeago';
+import IconConvertor from '../../../../public/icons/coin-details/converter';
 
 const Converter = ({ coinDetails }: any) => {
   const [currency, setCurrency] = useState('');
@@ -23,6 +23,8 @@ const Converter = ({ coinDetails }: any) => {
     setBitcoinAmount(amount);
     setConvertedVal(amount * (coinDetails?.quote?.price || 0));
   };
+
+  console.log(coinDetails?.data?.quote?.last_updated);
 
   return (
     <Box
@@ -134,7 +136,6 @@ const Converter = ({ coinDetails }: any) => {
           background: 'rgba(255, 255, 255, 1)',
           marginBottom: '24px',
           display: 'flex',
-          justifyContent: 'space-between',
           alignItems: 'center',
         }}
       >
@@ -152,6 +153,7 @@ const Converter = ({ coinDetails }: any) => {
             color: 'rgba(17, 17, 17, 1)',
             maxWidth: '396px',
             width: '100%',
+            marginRight: '10px',
           }}
           placeholder="1"
         />
@@ -164,6 +166,7 @@ const Converter = ({ coinDetails }: any) => {
             justifyContent: 'center',
             alignItems: 'center',
             gap: '4px',
+            marginRight: '16px',
           }}
         >
           <img src={imgId} alt="bitcoin" width={30} height={30} />
@@ -178,16 +181,17 @@ const Converter = ({ coinDetails }: any) => {
             {coinDetails?.about_coin?.symbol}{' '}
           </Typography>
         </Box>
-        <Box>
-          <Image
+        <Box sx={{ mr: '16px', cursor: 'pointer' }}>
+          {/* <Image
             src={converter}
             alt="converter"
             width={48}
             height={48}
             style={{ cursor: 'pointer' }}
-          />
+          /> */}
+          <IconConvertor />
         </Box>
-        <Box>
+        <Box sx={{ width: '100%' }}>
           <input
             type="text"
             defaultValue={coinDetails?.quote?.price?.toFixed(2)}
@@ -201,8 +205,8 @@ const Converter = ({ coinDetails }: any) => {
               fontSize: '16px',
               fontWeight: '500',
               color: 'rgba(17, 17, 17, 1)',
-              maxWidth: '396px',
-              width: '100%',
+              width: '84%',
+              marginRight: '10px',
             }}
             placeholder={coinDetails?.quote?.price}
           />
@@ -270,7 +274,8 @@ const Converter = ({ coinDetails }: any) => {
             alignItems: 'center',
           }}
         >
-          Last Update: 3.04 AM, April 17, 2024
+          Last Update:
+          <TimeAgo date={coinDetails?.quote?.last_updated} />
           <Box
             component="span"
             sx={{
