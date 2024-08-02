@@ -46,7 +46,7 @@ const useColumnCoinDefs = (columns: any) => {
             valueFormatter: (p: any) => {
               const value = p.value;
 
-              return (value >= 0 ? '+' : '') + value + '%';
+              return (value > 0 ? '+' : '') + value + '%';
             },
           };
         case 'market_cap':

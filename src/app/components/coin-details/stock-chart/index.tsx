@@ -41,22 +41,22 @@ const StockChart: React.FC<StockChartProps> = ({
     let pastTime;
 
     switch (period) {
-      case '24h':
+      case '1D':
         pastTime = currentTime - 24 * 60 * 60 * 1000;
         break;
-      case '3d':
+      case '3D':
         pastTime = currentTime - 3 * 24 * 60 * 60 * 1000;
         break;
-      case '7d':
+      case '7D':
         pastTime = currentTime - 7 * 24 * 60 * 60 * 1000;
         break;
-      case '1m':
+      case '1M':
         pastTime = currentTime - 30 * 24 * 60 * 60 * 1000;
         break;
       case '6m':
         pastTime = currentTime - 6 * 30 * 24 * 60 * 60 * 1000;
         break;
-      case '1y':
+      case '1Y':
         pastTime = currentTime - 365 * 24 * 60 * 60 * 1000;
         break;
       case 'ALL':

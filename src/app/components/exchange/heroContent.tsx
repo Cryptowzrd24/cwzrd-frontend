@@ -27,13 +27,14 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '15px',
+          fontSize: '14px',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           mt: '8px',
+          mb: '12px',
         }}
       >
-        Crypto WZRD ranks and scores exchanges by evaluating traffic, liquidity,
+        CryptoWZRD ranks and scores exchanges by evaluating traffic, liquidity,
         trading volumes, and confidence in the legitimacy of the reported
         volumes.
       </Box>

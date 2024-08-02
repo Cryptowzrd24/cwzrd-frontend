@@ -52,7 +52,7 @@ function GraphFilter({
   setVolumeValue,
   handleFullScreen,
 }: GraphFilterProps) {
-  const volumes = ['24h', '3d', '7d', '1m', '6m', '1y', 'ALL'];
+  const volumes = ['1D', '7D', '1M', '1Y', 'ALL'];
   const getSelectClass = (value: any) => {
     return value === 100 || value === '24h' || value === '1m' ? '34px' : '26px';
   };

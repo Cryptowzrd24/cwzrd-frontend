@@ -54,7 +54,7 @@ const tooltips: any = {
     <div className={styles['tooltip']}>
       <p style={{ fontWeight: '500' }}>Spot Exchange Score</p>
       <p>
-        CoinMarketCap ranks and scores exchanges based on the following: Web
+        CryptoWZRD ranks and scores exchanges based on the following: Web
         Traffic Factor; Average Liquidity; Volume, as well as the Confidence
         that the volume reported by an exchange is legitimate. Weights are
         assigned to the above-mentioned factors and a score from 0.0 to 10.0 is
