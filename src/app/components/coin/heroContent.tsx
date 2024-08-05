@@ -129,8 +129,6 @@ const HeroContent = async () => {
 
       <Box
         sx={{
-          fontSize: '15px',
-          fontSize: '15px',
           fontSize: '14px',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
