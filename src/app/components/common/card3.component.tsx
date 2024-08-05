@@ -50,7 +50,7 @@ const Card3 = (props: ICard3Props) => {
   const getBackground = () => {
     if (bgImage) {
       return {
-        backgroundImage: `url(${bgImage.src})`,
+        backgroundImage: `url(${bgImage.src}) !important`,
         boxShadow:
           '0px 4px 4px 0px #00000040,inset 0 0 0 1000px rgba(0,0,0,.5)',
         backgroundSize: 'cover',
@@ -64,127 +64,129 @@ const Card3 = (props: ICard3Props) => {
     return {};
   };
   return (
-    <Card
-      className={styles.coin_content_card_wrapper}
-      style={{ ...getBackground(), position: 'relative' }}
-    >
-      {blendImage ? (
-        <Image
-          style={{
-            width: '80px',
-            height: '80px',
-            position: 'absolute',
-            right: '20px',
-            mixBlendMode: 'luminosity',
-            opacity: '0.2',
-            bottom: '45px',
-            backgroundBlendMode: 'multiply' /* Blending mode */,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            borderRadius: '50%',
-          }}
-          alt="image"
-          src={blendImage}
-        />
-      ) : null}
-      {!bgColor ? (
-        <>
+    <div className="card_wrapper defi__trending_card">
+      <Card
+        className={styles.coin_content_card_wrapper}
+        style={{ ...getBackground(), position: 'relative' }}
+      >
+        {blendImage ? (
+          <Image
+            style={{
+              width: '80px',
+              height: '80px',
+              position: 'absolute',
+              right: '20px',
+              mixBlendMode: 'luminosity',
+              opacity: '0.2',
+              bottom: '45px',
+              backgroundBlendMode: 'multiply' /* Blending mode */,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: '50%',
+            }}
+            alt="image"
+            src={blendImage}
+          />
+        ) : null}
+        {!bgColor ? (
+          <>
+            <div
+              style={{
+                borderColor: '#ab47bc',
+                borderWidth: '50px',
+                borderStyle: 'solid',
+                height: '400px',
+                position: 'absolute',
+                borderRadius: '50%',
+                width: '500px',
+                top: '-217px',
+                right: '-128px',
+                zIndex: 2,
+              }}
+            />
+            <div
+              style={{
+                borderColor: 'pink',
+                borderWidth: '50px',
+                borderStyle: 'solid',
+                height: '400px',
+                position: 'absolute',
+                borderRadius: '50%',
+                width: '500px',
+                top: '-214px',
+                right: '-58px',
+                zIndex: 2,
+              }}
+            />
+          </>
+        ) : null}
+        {/* Overlay */}
+        {bgImage && (
           <div
             style={{
-              borderColor: '#ab47bc',
-              borderWidth: '50px',
-              borderStyle: 'solid',
-              height: '400px',
               position: 'absolute',
-              borderRadius: '50%',
-              width: '500px',
-              top: '-217px',
-              right: '-128px',
-              zIndex: 2,
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'rgba(0, 0, 0, 0.6)',
+              zIndex: 1,
             }}
-          />
-          <div
-            style={{
-              borderColor: 'pink',
-              borderWidth: '50px',
-              borderStyle: 'solid',
-              height: '400px',
-              position: 'absolute',
-              borderRadius: '50%',
-              width: '500px',
-              top: '-214px',
-              right: '-58px',
-              zIndex: 2,
-            }}
-          />
-        </>
-      ) : null}
-      {/* Overlay */}
-      {bgImage && (
+          ></div>
+        )}
         <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            zIndex: 1,
-          }}
-        ></div>
-      )}
-      <div
-        className={styles.header_wrapper}
-        style={{ position: 'relative', zIndex: 2 }}
-      >
-        <CardHeader heading={heading} staticTextColor={staticTextColor} />
-      </div>
-      <Typography
-        sx={{
-          marginLeft: '22px',
-          fontSize: '18px',
-          marginRight: '37px',
-          fontWeight: '500',
-          lineHeight: '26px',
-          letterSpacing: '1px',
-          zIndex: 2,
-          marginTop: '8px',
-          position: 'relative',
-        }}
-      >
-        <span style={{ color: `${getColor()}` }}>{name} </span>
-        <span style={staticTextColor ? { color: staticTextColor } : {}}>
-          {desc}{' '}
-        </span>
-        <span style={{ color: `${getColor()}` }}>{value ?? ''} </span>
-        <span style={staticTextColor ? { color: staticTextColor } : {}}>
-          {end ?? ''}
-        </span>
-      </Typography>
-
-      <Stack
-        direction="row"
-        style={{
-          marginLeft: '20px',
-          marginTop: '25px',
-          zIndex: 2,
-          position: 'relative',
-        }}
-      >
-        <Button
-          variant="contained"
-          size="small"
+          className={styles.header_wrapper}
+          style={{ position: 'relative', zIndex: 2 }}
+        >
+          <CardHeader heading={heading} staticTextColor={staticTextColor} />
+        </div>
+        <Typography
           sx={{
-            backgroundColor: `${transparentButton ? 'rgba(255, 255, 255, 0.1)' : '#111111'}`,
-            borderRadius: '25px',
+            marginLeft: '22px',
+            fontSize: '18px',
+            marginRight: '37px',
+            fontWeight: '500',
+            lineHeight: '26px',
+            letterSpacing: '1px',
+            zIndex: 2,
+            marginTop: '8px',
+            position: 'relative',
+          }}
+        >
+          <span style={{ color: `${getColor()}` }}>{name} </span>
+          <span style={staticTextColor ? { color: staticTextColor } : {}}>
+            {desc}{' '}
+          </span>
+          <span style={{ color: `${getColor()}` }}>{value ?? ''} </span>
+          <span style={staticTextColor ? { color: staticTextColor } : {}}>
+            {end ?? ''}
+          </span>
+        </Typography>
+
+        <Stack
+          direction="row"
+          style={{
+            marginLeft: '20px',
+            marginTop: '25px',
             zIndex: 2,
             position: 'relative',
           }}
         >
-          See all &nbsp; <ArrowForwardIosIcon sx={{ fontSize: '12px' }} />
-        </Button>
-      </Stack>
-    </Card>
+          <Button
+            variant="contained"
+            size="small"
+            sx={{
+              backgroundColor: `${transparentButton ? 'rgba(255, 255, 255, 0.1)' : '#111111'}`,
+              borderRadius: '25px',
+              zIndex: 2,
+              position: 'relative',
+            }}
+          >
+            See all &nbsp; <ArrowForwardIosIcon sx={{ fontSize: '12px' }} />
+          </Button>
+        </Stack>
+      </Card>
+    </div>
   );
 };
 

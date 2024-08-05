@@ -134,20 +134,31 @@ const GaugeChart = ({ value }: GaugeChartProps) => {
   }, [value]);
 
   return (
-    <Card className={styles.guage_card_wrapper}>
-      <Typography
-        sx={{
-          textAlign: 'center',
-          paddingTop: '15px',
-          fontWeight: 600,
-          fontFamily: 'Sf Pro Display',
-          fontSize: '16px',
-        }}
-      >
-        Index Fear & Greed
-      </Typography>
-      <div style={{ width: '100%' }} id="gauge-container"></div>
-    </Card>
+    <div
+      style={{
+        width: '100%',
+        display: 'flex',
+        borderRadius: '15px',
+        border: '1px solid rgba(17, 17, 17, 0.05)',
+        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+      }}
+      className="guage-chart"
+    >
+      <Card className={styles.guage_card_wrapper}>
+        <Typography
+          sx={{
+            textAlign: 'center',
+            paddingTop: '15px',
+            fontWeight: 600,
+            fontFamily: 'Sf Pro Display',
+            fontSize: '16px',
+          }}
+        >
+          Index Fear & Greed
+        </Typography>
+        <div style={{ width: '100%' }} id="gauge-container"></div>
+      </Card>
+    </div>
   );
 };
 

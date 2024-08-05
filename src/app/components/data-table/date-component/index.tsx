@@ -7,7 +7,7 @@ import TimeAgo from 'react-timeago';
 export const DateAdded = (props: CustomCellRendererProps) => {
   return (
     <div className={styles['date-comp']}>
-      <TimeAgo date={props.data.date_added} />
+      <TimeAgo date={props.data.date_added || props.data.updated} />
     </div>
   );
 };

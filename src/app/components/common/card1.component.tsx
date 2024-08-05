@@ -53,58 +53,60 @@ const Card1 = (props: ICard1Props) => {
   };
 
   return (
-    <Card className={styles.coin_detail_card_wrapper}>
-      <div className={styles.header_wrapper}>
-        <CardHeader heading={heading} />
-      </div>
-      <div className={styles.recently_added}>
-        <ul>
-          {items.map((item: any) => (
-            <li key={item.name}>
-              <div className={styles.profile}>
-                <div className={styles.medal}>
-                  <span>{item.medal}</span>
-                </div>
-                <div className={styles.profile_block}>
-                  <Image
-                    width={28}
-                    height={28}
-                    className={styles.image}
-                    src={item.image}
-                    alt=""
-                  />
-                </div>
-                <div className={styles.title}>
-                  <span>{item.text1}</span>
-                  <span>{item.text2}</span>
-                </div>
-              </div>
-              <div style={{ alignContent: 'center' }}>
-                <span style={{ fontSize: '12px' }}>{getType(item)}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <div
-          style={{
-            fontWeight: 700,
-            color: '#7248F7',
-            fontSize: '12px',
-            padding: '0px 12px',
-            position: 'absolute',
-            right: '0px',
-            bottom: '6px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '2px',
-            cursor: 'pointer',
-          }}
-        >
-          More{' '}
-          <ArrowForwardIosIcon sx={{ fontSize: '10px', marginTop: '1px' }} />
+    <div className="card_wrapper">
+      <Card className={styles.coin_detail_card_wrapper}>
+        <div className={styles.header_wrapper}>
+          <CardHeader heading={heading} />
         </div>
-      </div>
-    </Card>
+        <div className={styles.recently_added}>
+          <ul>
+            {items.map((item: any) => (
+              <li key={item.name}>
+                <div className={styles.profile}>
+                  <div className={styles.medal}>
+                    <span>{item.medal}</span>
+                  </div>
+                  <div className={styles.profile_block}>
+                    <Image
+                      width={28}
+                      height={28}
+                      className={styles.image}
+                      src={item.image}
+                      alt=""
+                    />
+                  </div>
+                  <div className={styles.title}>
+                    <span>{item.text1}</span>
+                    <span>{item.text2}</span>
+                  </div>
+                </div>
+                <div style={{ alignContent: 'center' }}>
+                  <span style={{ fontSize: '12px' }}>{getType(item)}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div
+            style={{
+              fontWeight: 700,
+              color: '#7248F7',
+              fontSize: '12px',
+              padding: '0px 12px',
+              position: 'absolute',
+              right: '0px',
+              bottom: '6px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '2px',
+              cursor: 'pointer',
+            }}
+          >
+            More{' '}
+            <ArrowForwardIosIcon sx={{ fontSize: '10px', marginTop: '1px' }} />
+          </div>
+        </div>
+      </Card>
+    </div>
   );
 };
 

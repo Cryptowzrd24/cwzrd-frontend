@@ -29,23 +29,24 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '15px',
+          fontSize: '14px',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           mt: '8px',
+          mb: '12px',
         }}
       >
-        Listed below are the hottest trending cryptocurrencies on Crypto WZRD,
+        Listed below are the hottest trending cryptocurrencies on CryptoWZRD,
         showcasing the most visible coins and tokens in the past 24 hours. With
         millions of daily visitors, this list highlights current market trends,
         pumps, and losses.
       </Box>
       <AnimatePresence>
         <motion.div
-          initial={{ opacity: 0, height: 0, marginTop: 0 }}
-          animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.2, marginTop: 0 }}
+          transition={{ duration: 0.2 }}
         >
           <Box
             sx={{
@@ -53,7 +54,9 @@ function HeroContent() {
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
+              maxWidth: '100%',
               justifyContent: 'space-between',
+              marginBottom: '20px',
             }}
           >
             <Card1
@@ -84,7 +87,7 @@ function HeroContent() {
               ]}
             />
             <CandlestickCard
-              heading="🪙 Bitcoin"
+              heading="Bitcoin"
               value={{ data: '36,606,531,750.36', prefix: '$' }}
               percent={6.32}
             />

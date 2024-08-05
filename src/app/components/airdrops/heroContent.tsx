@@ -27,10 +27,11 @@ function HeroContent() {
       </Typography>
       <Box
         sx={{
-          fontSize: '15px',
+          fontSize: '14px',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           mt: '8px',
+          mb: '12px',
         }}
       >
         Be the first to know about upcoming airdrops here.

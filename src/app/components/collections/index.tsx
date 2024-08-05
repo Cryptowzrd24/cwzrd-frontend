@@ -13,7 +13,7 @@ const Collections = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '80px' }}>
+        <Box sx={{ mt: '48px' }}>
           <HeroContent />
         </Box>
         <Box sx={{ mt: '16px' }}>
