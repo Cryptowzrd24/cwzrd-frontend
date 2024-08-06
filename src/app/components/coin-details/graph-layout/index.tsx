@@ -6,7 +6,12 @@ import GraphCustomHeader from '../graph-custom-header';
 import { Box } from '@mui/material';
 import GraphFilter from '../graph-filter';
 
-function GraphLayout({ chartRef, isFullScreen, handleFullScreen }: any) {
+function GraphLayout({
+  chartRef,
+  isFullScreen,
+  handleFullScreen,
+  setIsFullScreen,
+}: any) {
   const [selectedTab, setSelectedTab] = useState('Price');
   const [selectedFilter, setSelectedFilter] = useState('filter');
   const [volumeValue, setVolumeValue] = useState('1D');
@@ -37,6 +42,7 @@ function GraphLayout({ chartRef, isFullScreen, handleFullScreen }: any) {
         volumeValue={volumeValue}
         isFullScreen={isFullScreen}
         chartRef={chartRef}
+        setIsFullScreen={setIsFullScreen}
       />
     </div>
   );

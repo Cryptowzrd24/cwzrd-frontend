@@ -20,10 +20,18 @@ interface StockChartProps {
   volumeValue: string;
   isFullScreen: boolean;
   chartRef: any;
+  setIsFullScreen: (val: boolean) => void;
 }
 
 const StockChart: React.FC<StockChartProps> = React.memo(
-  ({ selectedGraph, selectedFilter, volumeValue, isFullScreen, chartRef }) => {
+  ({
+    selectedGraph,
+    selectedFilter,
+    volumeValue,
+    isFullScreen,
+    chartRef,
+    setIsFullScreen,
+  }) => {
     const pathname = usePathname();
     const [options, setOptions] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -502,14 +510,40 @@ const StockChart: React.FC<StockChartProps> = React.memo(
       }
     }, [fetchChartData]);
 
+    const handleKeyDown = (event: any) => {
+      if (event.keyCode === 27 && isFullScreen) {
+        document.exitFullscreen();
+        setIsFullScreen(false);
+      }
+    };
+
+    const handleFullScreenChange = () => {
+      if (!document.fullscreenElement) {
+        setIsFullScreen(false);
+      }
+    };
+
+    useEffect(() => {
+      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('fullscreenchange', handleFullScreenChange);
+
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener(
+          'fullscreenchange',
+          handleFullScreenChange,
+        );
+      };
+    }, [isFullScreen]);
+
     return (
       <div
         ref={chartRef}
         style={{
-          padding: '0 24px 34px 22px',
+          padding: isFullScreen ? '0' : '0 24px 34px 22px',
           height: isFullScreen ? '90vh' : '620px',
           position: 'relative',
-          marginTop: '45px',
+          marginTop: '35px',
         }}
       >
         {isLoading && (
