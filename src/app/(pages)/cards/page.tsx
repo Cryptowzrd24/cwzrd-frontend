@@ -38,6 +38,7 @@ import GraphCardTop from '@/app/components/common/graph-card-top';
 import TopNftCollection from '@/app/components/common/top-nft-collections-card';
 import CandlestickChart from '@/app/components/elements/candleStickGraph';
 import CandlestickCard from '@/app/components/common/candlestickCard';
+import CollectionCardWrapper from '@/app/components/common/collection-cards/collection-card-wrapper';
 const Components = () => {
   const areachartData = [
     { x: 1, y: 5 },
@@ -70,6 +71,15 @@ const Components = () => {
           alignItems: 'center',
         }}
       >
+        <CollectionCardWrapper
+          headerName={'Market Cap'}
+          tooltipName={'Market_cap'}
+        />
+        <CollectionCardWrapper
+          headerName={'Sales Volume'}
+          tooltipName={'volume'}
+        />
+
         <TvlChainCard isDarkTheme={true} />
         <TvlChainCard isDarkTheme={false} />
         <KpiGuageChart isDarkTheme={false} />
