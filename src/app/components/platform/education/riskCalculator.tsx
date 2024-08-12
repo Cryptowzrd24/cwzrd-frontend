@@ -7,11 +7,13 @@ const RiskCalculator = () => {
     <>
       <Box
         sx={{
-          padding: '48px 24px 34px 24px',
+          // padding: '48px 24px 34px 24px',
+          padding: '28px 16px 28px 16px',
           borderRadius: '32px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          maxWidth: '380px',
+          maxWidth: '415px',
+          height: '305px',
         }}
       >
         <Box sx={{ paddingLeft: '24px', paddingRight: '24px' }}>
@@ -26,11 +28,19 @@ const RiskCalculator = () => {
           >
             RISK CALCULATOR
           </Typography>
-          <Typography variant="h1" sx={{ mb: '56px' }}>
+          <Typography variant="h1" sx={{ mb: '24px' }}>
             Make Data-Driven Investment Choices{' '}
           </Typography>
         </Box>
-        <Image src={macbook} alt="macbook" width={372} />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Image src={macbook} alt="macbook" width={309} />
+        </Box>
       </Box>
     </>
   );

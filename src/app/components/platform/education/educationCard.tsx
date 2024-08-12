@@ -1,10 +1,21 @@
+'use client';
 import { Box, Stack, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import VerifiedGreen from '../../../../../public/icons/coin-details/verifiedGreen';
 import macbook from '../../../../../public/images/platform/MacBook-pro.png';
 import Image from 'next/image';
 import PlusIconBlack from '../../../../../public/icons/collections/plusIconWhite';
+import { motion } from 'framer-motion';
+
 const EducationCard = () => {
+  const [active, setActive] = useState(false);
+  const handleClick = () => {
+    setActive((show) => !show);
+  };
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
   return (
     <>
       <Box
@@ -13,7 +24,7 @@ const EducationCard = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          padding: '48px 32px 56px 32px',
+          padding: '48px 32px 56px 14px',
           borderRadius: '32px',
           maxWidth: '67.4%',
           width: '100%',
@@ -34,22 +45,52 @@ const EducationCard = () => {
         >
           Education
         </Typography>
-        <Typography
-          variant="h1"
-          sx={{
-            fontSize: '48px',
-            fontWeight: '700',
-            color: 'rgba(255, 255, 255, 1)',
-            lineHeight: '57.6px',
-            textAlign: 'center',
-            mb: '32px',
-            maxWidth: '690px',
-            width: '100%',
-            margin: 'auto',
-          }}
+        <motion.div
+          key={active ? 'active' : 'inactive'}
+          initial="hidden"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.5 }}
+          style={{ paddingLeft: '32px' }}
         >
-          Upgrade Trading Knowledge with In-Depth Lessons
-        </Typography>
+          {active ? (
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: '48px',
+                fontWeight: '700',
+                color: 'rgba(255, 255, 255, 1)',
+                lineHeight: '57.6px',
+                textAlign: 'center',
+                mb: '32px',
+                maxWidth: '690px',
+                width: '100%',
+                margin: 'auto',
+              }}
+            >
+              Graduate Standing Knowledge with In-Depth Lessons
+            </Typography>
+          ) : (
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: '48px',
+                fontWeight: '700',
+                color: 'rgba(255, 255, 255, 1)',
+                lineHeight: '57.6px',
+                textAlign: 'center',
+                mb: '32px',
+                maxWidth: '690px',
+                width: '100%',
+                margin: 'auto',
+              }}
+            >
+              {' '}
+              Upgrade Trading Knowledge with In-Depth Lessons
+            </Typography>
+          )}
+        </motion.div>
+
         <Stack
           sx={{
             mt: '32px',
@@ -205,7 +246,20 @@ const EducationCard = () => {
           </Box>
           {/* -------------------- */}
         </Stack>
-        <Image src={macbook} alt="macbook" width={786} />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Image
+            src={macbook}
+            alt="macbook"
+            width={496}
+            style={{ height: '310px' }}
+          />
+        </Box>
         <Box
           sx={{
             display: 'flex',
@@ -225,6 +279,7 @@ const EducationCard = () => {
               borderRadius: '100px',
               cursor: 'pointer',
             }}
+            onClick={handleClick}
           >
             <PlusIconBlack />
           </Box>

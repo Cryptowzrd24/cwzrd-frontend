@@ -24,7 +24,7 @@ const Forex = () => {
             mb: '16px',
           }}
         >
-          Daily Technical Analysis on Cryptocurrencies and Forex{' '}
+          Daily Technical Analysis on Cryptocurrencies and Forex
         </Typography>
         <Typography
           variant="body1"
