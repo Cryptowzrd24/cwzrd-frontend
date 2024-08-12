@@ -82,7 +82,7 @@ const Components = () => {
             tooltipName={'volume'}
             type={'bar'}
           />
-            <CollectionCardWrapper
+          <CollectionCardWrapper
             headerName={'Total Sales'}
             tooltipName={'sales'}
             type={'bar'}

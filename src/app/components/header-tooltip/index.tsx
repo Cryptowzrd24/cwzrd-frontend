@@ -76,13 +76,18 @@ const tooltips: any = {
   ),
   volume: (
     <div className={styles['tooltip']}>
-      <p>The number indicates the total value of NFT transactions over the past selected time.</p>
+      <p>
+        The number indicates the total value of NFT transactions over the past
+        selected time.
+      </p>
       <p>The graph shows the sales volume value on an hourly basis.</p>
     </div>
   ),
   sales: (
     <div className={styles['tooltip']}>
-      <p>The number indicates the total sales of NFTs in the past selected time.</p>
+      <p>
+        The number indicates the total sales of NFTs in the past selected time.
+      </p>
       <p>The graph shows the sales figures on an hourly basis..</p>
     </div>
   ),
