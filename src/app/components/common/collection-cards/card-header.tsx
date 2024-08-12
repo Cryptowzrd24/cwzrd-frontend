@@ -8,6 +8,7 @@ import infoIcon from '@/app/assets/icons/infoIcon.svg';
 
 import { Tooltip } from '@mui/material';
 import { HeaderTooltip } from '../../header-tooltip';
+import DownArrow from '../../../../../public/icons/coin-details/downArrow';
 
 function CardHeader({
   headerName,
@@ -57,20 +58,22 @@ function CardHeader({
         </div>
         <div className={styles.graphCustomHeader}>{renderHeaderOptions}</div>
       </div>
-      <div style={{ marginTop: '10px' }}>
+      <div style={{ display: 'flex', marginTop: '10px', gap: '10px' }}>
         <span style={{ fontSize: '20px', fontWeight: '700' }}>
           $3,096,908,099.62
         </span>
-        <span
-          style={{
-            color: '#ea3943',
-            fontSize: '12px',
-            fontWeight: '500',
-            marginLeft: '10px',
-          }}
-        >
-          99.88% ({selectedTab})
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+          <DownArrow />
+          <span
+            style={{
+              color: '#ea3943',
+              fontSize: '12px',
+              fontWeight: '500',
+            }}
+          >
+            99.88% ({selectedTab})
+          </span>
+        </div>
       </div>
     </>
   );
