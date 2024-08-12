@@ -78,7 +78,7 @@ export const CustomHeader = ({
   volume,
   setVolume = () => {},
   onToggleView = () => {},
-  activeIcon = 'BoxIcon',
+  activeIcon = 'ListIcon',
   setPagination = () => {},
 }: CustomHeaderProps) => {
   const [volumeValue, setVolumeValue] = useState('24h');
@@ -422,14 +422,16 @@ export const CustomHeader = ({
                     sx={{
                       ...styles.iconBox,
                       background:
-                        activeIcon === 'BoxIcon'
+                        activeIcon === 'ListIcon'
                           ? 'rgba(114, 72, 247, 0.1)'
                           : 'white',
                     }}
-                    onClick={onToggleView}
+                    onClick={
+                      activeIcon === 'ListIcon' ? () => {} : onToggleView
+                    }
                   >
-                    <BoxIcon
-                      color={activeIcon === 'BoxIcon' ? '#7248F7' : '#111111'}
+                    <ListIcon
+                      color={activeIcon === 'ListIcon' ? '#7248F7' : '#111111'}
                     />
                   </Box>
                 </Box>
@@ -438,14 +440,14 @@ export const CustomHeader = ({
                     sx={{
                       ...styles.iconBox,
                       background:
-                        activeIcon === 'ListIcon'
+                        activeIcon === 'BoxIcon'
                           ? 'rgba(114, 72, 247, 0.1)'
                           : 'white',
                     }}
-                    onClick={onToggleView}
+                    onClick={activeIcon === 'BoxIcon' ? () => {} : onToggleView}
                   >
-                    <ListIcon
-                      color={activeIcon === 'ListIcon' ? '#7248F7' : '#111111'}
+                    <BoxIcon
+                      color={activeIcon === 'BoxIcon' ? '#7248F7' : '#111111'}
                     />
                   </Box>
                 </Box>

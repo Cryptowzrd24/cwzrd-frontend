@@ -24,14 +24,14 @@ const PlatformHeader = () => {
               fontWeight: '500',
               textTransform: 'uppercase',
               letterSpacing: 2,
-              mb: '12px',
+              mb: '8px',
             }}
           >
             PLATFORM
           </Typography>
           <Typography
             variant="h1"
-            sx={{ fontSize: '72px', lineHeight: '72px', mb: '16px' }}
+            sx={{ fontSize: '72px', lineHeight: '72px', mb: '12px' }}
           >
             Discover Our
             <span
@@ -52,7 +52,7 @@ const PlatformHeader = () => {
             sx={{
               fontSize: '20px',
               fontWeight: '400',
-              mb: '48px',
+              mb: '24px',
               textAlign: 'center',
               color: '#111111CC',
               lineHeight: '30px',
@@ -73,7 +73,7 @@ const PlatformHeader = () => {
               width: '100%',
               background: 'rgba(255, 255, 255, 1)',
               boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-              mb: '72px',
+              mb: '36px',
             }}
           >
             <Image

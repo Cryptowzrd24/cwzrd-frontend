@@ -79,7 +79,7 @@ const GraphCardTop = (props: any) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            marginTop: '-5px',
+            marginTop: '-10px',
             height: '140px',
           }}
         >

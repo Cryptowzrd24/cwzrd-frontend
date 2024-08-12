@@ -80,6 +80,17 @@ const styles = {
     '& .MuiFormHelperText-root': {
       fontSize: '14px',
     },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'defaultColor',
+      },
+      '&:hover fieldset': {
+        borderColor: 'rgba(114, 72, 247, 1)',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'rgba(114, 72, 247, 1)',
+      },
+    },
   },
   mostSearchedBox: {
     // marginTop: '45px',

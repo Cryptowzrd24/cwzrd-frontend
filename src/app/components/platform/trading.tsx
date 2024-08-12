@@ -15,7 +15,7 @@ const TradingPlatform = () => {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           marginLeft: '40px',
-          mb: '48px',
+          mb: '36px',
           width: 'min-content',
         }}
       >

@@ -1,5 +1,11 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+  useCallback,
+} from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useFetchCoinDetailsGraphDataQuery } from '@/app/redux/coin-details';
@@ -14,113 +20,130 @@ interface StockChartProps {
   volumeValue: string;
   isFullScreen: boolean;
   chartRef: any;
+  setIsFullScreen: (val: boolean) => void;
 }
 
-const StockChart: React.FC<StockChartProps> = ({
-  selectedGraph,
-  selectedFilter,
-  volumeValue,
-  isFullScreen,
-  chartRef,
-}) => {
-  const pathname = usePathname();
-  const [options, setOptions] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const chartComponentRef = useRef<any>(null);
+const StockChart: React.FC<StockChartProps> = React.memo(
+  ({
+    selectedGraph,
+    selectedFilter,
+    volumeValue,
+    isFullScreen,
+    chartRef,
+    setIsFullScreen,
+  }) => {
+    const pathname = usePathname();
+    const [options, setOptions] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+    const chartComponentRef = useRef<any>(null);
 
-  const convertToUppercasePeriod = (input: string) => {
-    if (input === '24h') return '1D';
-    return input.replace(
-      /(\d+)([a-z])/i,
-      (_, number, period) => `${number}${period.toUpperCase()}`,
+    const convertToUppercasePeriod = (input: string) => {
+      if (input === '24h') return '1D';
+      return input.replace(
+        /(\d+)([a-z])/i,
+        (_, number, period) => `${number}${period.toUpperCase()}`,
+      );
+    };
+
+    const getTimeStampForPeriod = (period: string) => {
+      const currentTime = Date.now();
+      let pastTime;
+
+      switch (period) {
+        case '1D':
+          pastTime = currentTime - 24 * 60 * 60 * 1000;
+          break;
+        case '3D':
+          pastTime = currentTime - 3 * 24 * 60 * 60 * 1000;
+          break;
+        case '7D':
+          pastTime = currentTime - 7 * 24 * 60 * 60 * 1000;
+          break;
+        case '1M':
+          pastTime = currentTime - 30 * 24 * 60 * 60 * 1000;
+          break;
+        case '6m':
+          pastTime = currentTime - 6 * 30 * 24 * 60 * 60 * 1000;
+          break;
+        case '1Y':
+          pastTime = currentTime - 365 * 24 * 60 * 60 * 1000;
+          break;
+        case 'ALL':
+          pastTime = 0;
+          break;
+        default:
+          throw new Error('Unsupported period.');
+      }
+
+      return Math.floor(pastTime / 1000);
+    };
+
+    const getInterval = (period: string) => {
+      switch (period) {
+        case '24h':
+          return '1h';
+        case '3d':
+          return '1h';
+        case '7d':
+          return '1d';
+        case '1m':
+          return '1d';
+        case '6m':
+          return '1w';
+        case '1y':
+          return '1w';
+        case 'ALL':
+          return '1M';
+        default:
+          return '1h';
+      }
+    };
+
+    const range = useMemo(
+      () => convertToUppercasePeriod(volumeValue),
+      [volumeValue],
     );
-  };
+    const timeStart = useMemo(
+      () => getTimeStampForPeriod(volumeValue),
+      [volumeValue],
+    );
+    const interval = useMemo(() => getInterval(volumeValue), [volumeValue]);
+    const coinId = useMemo(() => pathname.split('/').pop(), [pathname]);
 
-  const getTimeStampForPeriod = (period: string) => {
-    const currentTime = Date.now();
-    let pastTime;
+    const { data: apiData } = useFetchCoinDetailsGraphDataQuery(
+      {
+        coinId,
+        range,
+      },
+      { skip: !coinId },
+    );
 
-    switch (period) {
-      case '1D':
-        pastTime = currentTime - 24 * 60 * 60 * 1000;
-        break;
-      case '3D':
-        pastTime = currentTime - 3 * 24 * 60 * 60 * 1000;
-        break;
-      case '7D':
-        pastTime = currentTime - 7 * 24 * 60 * 60 * 1000;
-        break;
-      case '1M':
-        pastTime = currentTime - 30 * 24 * 60 * 60 * 1000;
-        break;
-      case '6m':
-        pastTime = currentTime - 6 * 30 * 24 * 60 * 60 * 1000;
-        break;
-      case '1Y':
-        pastTime = currentTime - 365 * 24 * 60 * 60 * 1000;
-        break;
-      case 'ALL':
-        pastTime = 0;
-        break;
-      default:
-        throw new Error('Unsupported period.');
-    }
+    const { data: candleStickData } = useFetchHistoricalCoinDataDetailsQuery(
+      {
+        coinId,
+        timeStart: timeStart.toString(),
+        interval,
+      },
+      { skip: !coinId || selectedFilter !== 'candlestick' },
+    );
 
-    return Math.floor(pastTime / 1000);
-  };
+    const graphType =
+      selectedFilter === 'candlestick'
+        ? 'candlestick'
+        : selectedGraph === 'Price'
+          ? 'area'
+          : 'line';
 
-  const getInterval = (period: string) => {
-    switch (period) {
-      case '24h':
-        return '1h';
-      case '3d':
-        return '1h';
-      case '7d':
-        return '1d';
-      case '1m':
-        return '1d';
-      case '6m':
-        return '1w';
-      case '1y':
-        return '1w';
-      case 'ALL':
-        return '1M';
-      default:
-        return '1h';
-    }
-  };
+    const getDate = (timestamp: string) =>
+      new Date(parseInt(timestamp, 10) * 1000).getTime();
 
-  const range = convertToUppercasePeriod(volumeValue);
-  const timeStart = getTimeStampForPeriod(volumeValue);
-  const interval = getInterval(volumeValue);
-  const coinId = pathname.split('/').pop();
-
-  const { data: apiData } = useFetchCoinDetailsGraphDataQuery({
-    coinId,
-    range,
-  });
-
-  const { data: candleStickData } = useFetchHistoricalCoinDataDetailsQuery({
-    coinId,
-    timeStart: timeStart.toString(),
-    interval,
-  });
-
-  const graphType =
-    selectedFilter === 'candlestick'
-      ? 'candlestick'
-      : selectedGraph === 'Price'
-        ? 'area'
-        : 'line';
-
-  const getDate = (timestamp: string) =>
-    new Date(parseInt(timestamp, 10) * 1000).getTime();
-
-  useEffect(() => {
-    const fetchChartData = async () => {
+    const fetchChartData = useCallback(async () => {
       setIsLoading(true);
 
-      if (!apiData?.data?.points) return;
+      if (!apiData?.data?.points) {
+        setIsLoading(false);
+        return;
+      }
 
       const points = apiData.data.points;
       const data: any[] = [];
@@ -281,64 +304,64 @@ const StockChart: React.FC<StockChartProps> = ({
             const price = priceNumberFormatter(this.y);
 
             return `
-              <div style="padding: 16px; border-radius: 8px; background: white; box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 250px; max-height: 194px;">
-                <div style="display: flex; justify-content: space-between; padding-bottom: 16px;">
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${date}</div>
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${time}</div>
-                </div>
-              ${
-                graphType === 'candlestick'
-                  ? `
-                    <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                      <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                        Open
-                      </div>
-                      <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
-                        $${open}
-                      </div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                      <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                        High
-                      </div>
-                      <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
-                        $${high}
-                      </div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                      <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                        Low
-                      </div>
-                      <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
-                        $${low}
-                      </div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                      <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                        Close
-                      </div>
-                      <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
-                        $${close}
-                      </div>
-                    </div>
-                  `
-                  : `
+            <div style="padding: 16px; border-radius: 8px; background: white; box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 250px; max-height: 194px;">
+              <div style="display: flex; justify-content: space-between; padding-bottom: 16px;">
+                <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${date}</div>
+                <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${time}</div>
+              </div>
+            ${
+              graphType === 'candlestick'
+                ? `
                   <div style="display: flex; justify-content: space-between; padding-top: 6px;">
                     <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                      Price
+                      Open
                     </div>
                     <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
-                      $${price}
+                      $${open}
                     </div>
                   </div>
-                  `
-              }
+                  <div style="display: flex; justify-content: space-between; padding-top: 6px;">
+                    <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
+                      High
+                    </div>
+                    <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
+                      $${high}
+                    </div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding-top: 6px;">
+                    <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
+                      Low
+                    </div>
+                    <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
+                      $${low}
+                    </div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding-top: 6px;">
+                    <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
+                      Close
+                    </div>
+                    <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
+                      $${close}
+                    </div>
+                  </div>
+                `
+                : `
                 <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">Volume</div>
-                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase;">$${volume}</div>
+                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
+                    Price
+                  </div>
+                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
+                    $${price}
+                  </div>
                 </div>
+                `
+            }
+              <div style="display: flex; justify-content: space-between; padding-top: 6px;">
+                <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">Volume</div>
+                <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase;">$${volume}</div>
               </div>
-            `;
+            </div>
+          `;
           },
           shared: true,
           split: false,
@@ -472,72 +495,99 @@ const StockChart: React.FC<StockChartProps> = ({
         },
       });
 
-      console.log(candleStickData);
-
       // Ensure the chart is fully loaded before hiding the loader
       setTimeout(() => {
         setIsLoading(false);
       }, 500); // Adjust timeout as needed for your use case
+    }, [apiData, candleStickData, graphType, selectedFilter, volumeValue]);
+
+    useEffect(() => {
+      fetchChartData();
+
+      if (chartComponentRef.current) {
+        if (selectedFilter !== 'candlestick')
+          chartComponentRef.current.chart.zoomOut();
+      }
+    }, [fetchChartData]);
+
+    const handleKeyDown = (event: any) => {
+      if (event.keyCode === 27 && isFullScreen) {
+        document.exitFullscreen();
+        setIsFullScreen(false);
+      }
     };
 
-    fetchChartData();
+    const handleFullScreenChange = () => {
+      if (!document.fullscreenElement) {
+        setIsFullScreen(false);
+      }
+    };
 
-    if (chartComponentRef.current) {
-      if (selectedFilter !== 'candlestick')
-        chartComponentRef.current.chart.zoomOut();
-    }
-  }, [graphType, selectedFilter, apiData, candleStickData, volumeValue]);
+    useEffect(() => {
+      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('fullscreenchange', handleFullScreenChange);
 
-  return (
-    <div
-      ref={chartRef}
-      style={{
-        padding: '34px 24px 34px 22px',
-        height: isFullScreen ? '90vh' : '620px',
-        position: 'relative',
-      }}
-    >
-      {isLoading && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'rgba(255, 255, 255, 0.8)',
-            zIndex: 10,
-            marginTop: '50px',
-          }}
-        >
-          <div className="spinner" style={{ marginBottom: '10px' }}></div>
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener(
+          'fullscreenchange',
+          handleFullScreenChange,
+        );
+      };
+    }, [isFullScreen]);
+
+    return (
+      <div
+        ref={chartRef}
+        style={{
+          padding: isFullScreen ? '0' : '0 24px 34px 22px',
+          height: isFullScreen ? '90vh' : '620px',
+          position: 'relative',
+          marginTop: '35px',
+        }}
+      >
+        {isLoading && (
           <div
             style={{
-              fontSize: '16px',
-              fontWeight: 'bold',
-              marginBottom: '5px',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: 'rgba(255, 255, 255, 0.8)',
+              zIndex: 10,
+              marginTop: '50px',
             }}
           >
-            Loading data
+            <div className="spinner" style={{ marginBottom: '10px' }}></div>
+            <div
+              style={{
+                fontSize: '16px',
+                fontWeight: 'bold',
+                marginBottom: '5px',
+              }}
+            >
+              Loading data
+            </div>
+            <div style={{ fontSize: '14px', color: 'gray' }}>
+              Please wait a moment.
+            </div>
           </div>
-          <div style={{ fontSize: '14px', color: 'gray' }}>
-            Please wait a moment.
-          </div>
-        </div>
-      )}
-      <HighchartsReact
-        highcharts={Highcharts}
-        constructorType={'stockChart'}
-        options={options}
-        containerProps={{ style: { height: '100%' } }}
-        ref={chartComponentRef}
-      />
-    </div>
-  );
-};
+        )}
+        <HighchartsReact
+          highcharts={Highcharts}
+          constructorType={'stockChart'}
+          options={options}
+          containerProps={{ style: { height: '100%' } }}
+          ref={chartComponentRef}
+        />
+      </div>
+    );
+  },
+);
 
 export default StockChart;
