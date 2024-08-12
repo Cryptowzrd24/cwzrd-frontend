@@ -44,7 +44,9 @@ function CardHeader({
     <>
       <div className={styles['cardHeader']}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-          <p style={{ fontSize: '14px', fontWeight: '600' }}>{headerName}</p>
+          <p style={{ fontSize: '14px', fontWeight: '600' }}>
+            {`${headerName} (${selectedTab})`}
+          </p>
           <Tooltip
             title={<HeaderTooltip headerName={tooltipName} />}
             arrow={false}
@@ -67,7 +69,7 @@ function CardHeader({
             marginLeft: '10px',
           }}
         >
-          99.88%
+          99.88% ({selectedTab})
         </span>
       </div>
     </>

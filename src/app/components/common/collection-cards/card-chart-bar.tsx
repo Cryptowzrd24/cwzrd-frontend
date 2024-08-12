@@ -28,11 +28,12 @@ const CardChartBar = (props: any) => {
       lineWidth: 0,
       gridLineWidth: 0,
       lineColor: 'transparent',
-      crosshair: { // Enable crosshair for y-axis
+      crosshair: {
+        // Enable crosshair for y-axis
         width: 1,
         color: 'rgba(17, 17, 17, 0.4)',
-        dashStyle: 'longdash' // Style as dotted
-      }
+        dashStyle: 'longdash', // Style as dotted
+      },
     },
     title: {
       text: null,
@@ -54,11 +55,12 @@ const CardChartBar = (props: any) => {
       gridLineDashStyle: 'shortdot',
       tickAmount: 10,
       opposite: true,
-      crosshair: { // Enable crosshair for y-axis
+      crosshair: {
+        // Enable crosshair for y-axis
         width: 1,
         color: 'rgba(17, 17, 17, 0.4)',
-        dashStyle: 'longdash' // Style as dotted
-      }
+        dashStyle: 'longdash', // Style as dotted
+      },
     },
     legend: {
       enabled: false,

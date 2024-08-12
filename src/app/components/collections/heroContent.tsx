@@ -2,20 +2,8 @@
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
-import GaugeChart from '../common/guage-chart';
-import Card3 from '../common/card3.component';
-import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
-import { colorConfig } from '@/app/helpers/config';
-import Card2 from '../common/card2.component';
-
-import btc from '@/app/assets/images/btc.png';
-import nft from '@/app/assets/images/nft.png';
-import frogImage from '@/app/assets/images/frogImage.png';
-import TopNftCollection from '../common/top-nft-collections-card';
-import { areaChartData } from '@/app/constants/charts';
 
 import CollectionCardWrapper from '@/app/components/common/collection-cards/collection-card-wrapper';
-
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -87,24 +75,24 @@ function HeroContent() {
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
-              justifyContent: 'space-between',
+              justifyContent: 'center',
             }}
           >
-          <CollectionCardWrapper
-            headerName={'Market Cap'}
-            tooltipName={'Market_cap'}
-            type={'area'}
-          />
-          <CollectionCardWrapper
-            headerName={'Sales Volume'}
-            tooltipName={'volume'}
-            type={'bar'}
-          />
             <CollectionCardWrapper
-            headerName={'Total Sales'}
-            tooltipName={'sales'}
-            type={'bar'}
-          />
+              headerName={'Market Cap'}
+              tooltipName={'Market_cap'}
+              type={'area'}
+            />
+            <CollectionCardWrapper
+              headerName={'Sales Volume'}
+              tooltipName={'volume'}
+              type={'bar'}
+            />
+            <CollectionCardWrapper
+              headerName={'Total Sales'}
+              tooltipName={'sales'}
+              type={'bar'}
+            />
           </Box>
         </motion.div>
       </AnimatePresence>
