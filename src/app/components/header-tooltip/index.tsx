@@ -74,6 +74,18 @@ const tooltips: any = {
       <p>Will be applied once available.</p>
     </div>
   ),
+  volume: (
+    <div className={styles['tooltip']}>
+      <p>The number indicates the total value of NFT transactions over the past selected time.</p>
+      <p>The graph shows the sales volume value on an hourly basis.</p>
+    </div>
+  ),
+  sales: (
+    <div className={styles['tooltip']}>
+      <p>The number indicates the total sales of NFTs in the past selected time.</p>
+      <p>The graph shows the sales figures on an hourly basis..</p>
+    </div>
+  ),
   'Market Cap/TVL': (
     <div className={styles['tooltip']}>
       <p>Content for it to be displayed here. No content for it yet.</p>

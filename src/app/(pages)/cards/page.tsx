@@ -71,14 +71,23 @@ const Components = () => {
           alignItems: 'center',
         }}
       >
-        <CollectionCardWrapper
-          headerName={'Market Cap'}
-          tooltipName={'Market_cap'}
-        />
-        <CollectionCardWrapper
-          headerName={'Sales Volume'}
-          tooltipName={'volume'}
-        />
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '40px' }}>
+          <CollectionCardWrapper
+            headerName={'Market Cap'}
+            tooltipName={'Market_cap'}
+            type={'area'}
+          />
+          <CollectionCardWrapper
+            headerName={'Sales Volume'}
+            tooltipName={'volume'}
+            type={'bar'}
+          />
+            <CollectionCardWrapper
+            headerName={'Total Sales'}
+            tooltipName={'sales'}
+            type={'bar'}
+          />
+        </div>
 
         <TvlChainCard isDarkTheme={true} />
         <TvlChainCard isDarkTheme={false} />
@@ -95,7 +104,6 @@ const Components = () => {
           percent={6.32}
           graphAttr={{ type: 'area', data: areachartData }}
         />
-
         <GraphCard
           heading="🩸 Bitcoin Dominance"
           value={{ data: '51.88', postfix: '%' }}
