@@ -11,7 +11,7 @@ const FrequentlyAskedQuestion = () => {
           fontSize: '56px',
           fontWeight: '600',
           lineHeight: '61.6px',
-          marginBottom: '72px',
+          marginBottom: '36px',
           textAlign: 'center',
           letterSpacing: '-1px',
         }}

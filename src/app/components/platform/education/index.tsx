@@ -11,13 +11,12 @@ const Education = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          // justifyContent: 'space-between',
           gap: '30px',
           width: '100%',
         }}
       >
         <EducationCard />
-        <Stack sx={{ maxWidth: '32.5%', width: '100%' }}>
+        <Stack sx={{ maxWidth: '30.5%', width: '100%' }}>
           <Box sx={{ mb: '30px' }}>
             <RiskCalculator />
           </Box>

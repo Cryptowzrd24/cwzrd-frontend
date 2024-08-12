@@ -58,6 +58,14 @@ export const Range = ({
     ],
   };
 
+  const placeholders = {
+    price: { min: '0', max: '99,999' },
+    market: { min: '0', max: '999,999,999' },
+    change: { min: '-100', max: '1000' },
+    volume: { min: '0', max: '999,999,999' },
+    circulating: { min: '0', max: '999,999,999' },
+  };
+
   const handleMinValChange = (value: string) => {
     setMinVal(Number(value));
   };
@@ -98,6 +106,13 @@ export const Range = ({
       ))
     : null;
 
+  const minPlaceholder = matchingKey
+    ? placeholders[matchingKey as keyof typeof placeholders].min
+    : '';
+  const maxPlaceholder = matchingKey
+    ? placeholders[matchingKey as keyof typeof placeholders].max
+    : '';
+
   return (
     <div>
       <Box
@@ -122,7 +137,7 @@ export const Range = ({
             size="small"
             id="outlined-basic"
             variant="outlined"
-            placeholder={`${rangeUnit}0`}
+            placeholder={`${rangeUnit}${minPlaceholder}`}
             onChange={(e) => handleMinValChange(e.target.value)}
             value={range.min}
             type="number"
@@ -140,7 +155,7 @@ export const Range = ({
             size="small"
             id="outlined-basic"
             variant="outlined"
-            placeholder={`${rangeUnit}1000`}
+            placeholder={`${rangeUnit}${maxPlaceholder}`}
             onChange={(e) => handleMaxValChange(e.target.value)}
             value={range.max}
             type="number"

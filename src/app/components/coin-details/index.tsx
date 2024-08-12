@@ -26,7 +26,6 @@ const CoinDetails = () => {
 
   const id = pathname.split('/').pop();
   const { data } = useFetchCoinDetailsDataQuery({ coinId: id });
-  console.log('coin data', data);
   const coinName = coinDetails?.name;
   const handleFullScreen = () => {
     if (chartRef.current) {
@@ -68,6 +67,7 @@ const CoinDetails = () => {
               chartRef={chartRef}
               isFullScreen={isFullScreen}
               handleFullScreen={handleFullScreen}
+              setIsFullScreen={setIsFullScreen}
             />
           </Box>
           <Box sx={{ flex: 1 }}>
