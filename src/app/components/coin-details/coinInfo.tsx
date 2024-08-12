@@ -6,36 +6,11 @@ const CoinInfo = ({ coinDetails }: any) => {
   const [showAll, setShowAll] = useState(false);
 
   const processParagraph = (text: any) => {
-    const urlPattern = /(\[([^\]]+)\]\((https?:\/\/[^\)]+)\))/g;
-    const parts = text.split(urlPattern);
-
-    return parts.map((part: any, index: any) => {
-      if (urlPattern.test(part)) {
-        const match = part.match(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/);
-        const label = match[1];
-        const url = match[2];
-        return (
-          <>
-            <a
-              key={index}
-              href={url}
-              style={{
-                backgroundImage:
-                  'linear-gradient(90deg, rgb(99, 77, 253) 0%, rgb(114, 72, 247) 50%, rgb(191, 72, 247) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textDecoration: 'none',
-              }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {label}
-            </a>{' '}
-          </>
-        );
-      }
-      return part;
-    });
+    const urlPattern = /(https?:\/\/[^\s]+)/g;
+    const parenthesesPattern = /[\(\)]/g;
+    let processedText = text.replace(urlPattern, '');
+    processedText = processedText.replace(parenthesesPattern, '');
+    return processedText;
   };
 
   const renderItems = () => {

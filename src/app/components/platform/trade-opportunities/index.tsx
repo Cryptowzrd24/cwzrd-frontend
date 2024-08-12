@@ -15,8 +15,7 @@ const TradeOpportunities = () => {
             background: 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
             padding: '16px 20px 16px 24px',
             borderRadius: '56px',
-            mb: '168px',
-            marginTop: '-16px',
+            mb: '64px',
           }}
         >
           <Typography
