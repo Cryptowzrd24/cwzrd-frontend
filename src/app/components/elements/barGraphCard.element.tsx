@@ -63,12 +63,11 @@ const BarChart = (props: IChartProps) => {
       borderRadius: 10,
       borderWidth: 0,
       shadow: false,
-      hideDelay: 5600000,
       show: true,
       style: {},
       formatter: function () {
         const point = this.point;
-        const yValue = point.y;
+        const yValue = point.y.toFixed(2);
         return `
           <div
            style="display: flex; align-items: center; justify-content: center; 
