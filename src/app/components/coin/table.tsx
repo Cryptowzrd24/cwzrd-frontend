@@ -27,6 +27,7 @@ const Table = () => {
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const [activeIcon, setActiveIcon] = useState('ListIcon');
   const filters = useSelector((state: any) => state.filters.filters);
+  const [starClicked, setStarClicked] = useState(false); // State to track star clicks
 
   const queryParams = constructQueryParams(filters as Filters);
   const { data } = useFetchCoinDataQuery({
@@ -78,10 +79,27 @@ const Table = () => {
   };
 
   const onRowClicked = (event: any) => {
+    if (starClicked) {
+      console.log('Star icon clicked, no navigation.');
+      setStarClicked(false);
+      return;
+    }
+
+    console.log('Star icon is not clicked, navigation.');
     const id = event.data.coin_id;
     router.push(`/market/coin-details/${id}`);
   };
+  useEffect(() => {
+    const handleStarClicked = () => {
+      setStarClicked(true);
+    };
 
+    window.addEventListener('starClicked', handleStarClicked);
+
+    return () => {
+      window.removeEventListener('starClicked', handleStarClicked);
+    };
+  }, []);
   useEffect(() => {
     if (data && data.data) {
       const startIndex = (currentPage - 1) * pageSize + 1;
