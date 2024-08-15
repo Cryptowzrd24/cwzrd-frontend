@@ -38,6 +38,7 @@ import GraphCardTop from '@/app/components/common/graph-card-top';
 import TopNftCollection from '@/app/components/common/top-nft-collections-card';
 import CandlestickChart from '@/app/components/elements/candleStickGraph';
 import CandlestickCard from '@/app/components/common/candlestickCard';
+import CollectionCardWrapper from '@/app/components/common/collection-cards/collection-card-wrapper';
 const Components = () => {
   const areachartData = [
     { x: 1, y: 5 },
@@ -70,6 +71,24 @@ const Components = () => {
           alignItems: 'center',
         }}
       >
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '40px' }}>
+          <CollectionCardWrapper
+            headerName={'Market Cap'}
+            tooltipName={'Market_cap'}
+            type={'area'}
+          />
+          <CollectionCardWrapper
+            headerName={'Sales Volume'}
+            tooltipName={'volume'}
+            type={'bar'}
+          />
+          <CollectionCardWrapper
+            headerName={'Total Sales'}
+            tooltipName={'sales'}
+            type={'bar'}
+          />
+        </div>
+
         <TvlChainCard isDarkTheme={true} />
         <TvlChainCard isDarkTheme={false} />
         <KpiGuageChart isDarkTheme={false} />
@@ -85,7 +104,6 @@ const Components = () => {
           percent={6.32}
           graphAttr={{ type: 'area', data: areachartData }}
         />
-
         <GraphCard
           heading="🩸 Bitcoin Dominance"
           value={{ data: '51.88', postfix: '%' }}

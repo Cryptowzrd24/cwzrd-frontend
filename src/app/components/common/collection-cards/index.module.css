@@ -1,0 +1,95 @@
+.collectionCardWrapper {
+  display: flex;
+  background-color: #ffffff;
+  flex-direction: column;
+  /* flex: 1 1; */
+  min-width: 442px;
+  height: 298px;
+  padding: 24px 24px 12px 24px;
+  border-radius: 8px;
+  box-shadow:
+    0 4px 24px 0 rgba(88, 102, 126, 0.08),
+    0 1px 2px 0 rgba(88, 102, 126, 0.12);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* graph filter css */
+.graphCustomHeader {
+  width: max-content;
+  padding: 2px 18px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 24px;
+  background-color: #f3f3f3;
+  /* position: relative; */
+}
+
+.headerText {
+  font-family: 'Sf Pro Display';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18.2px;
+  color: rgba(17, 17, 17, 0.6);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin-left: 4px;
+}
+
+.selectedLink {
+  transition: 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  width: auto;
+  padding: 3px 12px;
+  color: #000;
+}
+
+.selectedLink:first-of-type {
+  margin-left: -15px;
+}
+
+.selectedLink:last-of-type {
+  margin-right: -15px;
+}
+
+.selectedTabText {
+  font-family: 'Sf Pro Display';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18.2px;
+  color: rgba(17, 17, 17, 1);
+  cursor: pointer;
+}
+/* graph filter css */
+
+.custom-tooltip {
+  background: none;
+  color: inherit;
+  box-shadow: none;
+  padding: 0;
+}
+
+.custom-tooltip-content {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.info-icon {
+  transition: filter 0.3s ease;
+  filter: brightness(10);
+}
+
+.info-icon:hover {
+  filter: brightness(1);
+  cursor: pointer;
+}
