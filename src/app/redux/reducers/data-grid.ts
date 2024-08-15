@@ -50,7 +50,7 @@ export const dataGridApi = createApi({
     fetchFavoritesData: builder.query({
       query: ({ id }: { id: string }) => {
         return {
-          url: `/api/favorites/?coin_ids=${id}`,
+          url: `/api/coins-by-ids/?coin_ids=${id}`,
           method: 'GET',
         };
       },
@@ -139,6 +139,21 @@ export const dataGridApi = createApi({
         method: 'GET',
       }),
     }),
+    addWatchlist: builder.mutation({
+      query: ({
+        email,
+        collection_name,
+      }: {
+        email: string;
+        collection_name: string;
+      }) => {
+        return {
+          url: `/api/favorites/`,
+          method: 'POST',
+          body: { email, collection_name },
+        };
+      },
+    }),
   }),
 });
 export const {
@@ -157,4 +172,5 @@ export const {
   useFetchFavoritesDataQuery,
   useFetchMarketDataCoinDetailsQuery,
   useFetchHistoricalCoinDataDetailsQuery,
+  useAddWatchlistMutation,
 } = dataGridApi;

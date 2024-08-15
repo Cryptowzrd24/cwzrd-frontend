@@ -2,17 +2,8 @@
 import { Box, Typography } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
-import GaugeChart from '../common/guage-chart';
-import Card3 from '../common/card3.component';
-import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
-import { colorConfig } from '@/app/helpers/config';
-import Card2 from '../common/card2.component';
 
-import btc from '@/app/assets/images/btc.png';
-import nft from '@/app/assets/images/nft.png';
-import frogImage from '@/app/assets/images/frogImage.png';
-import TopNftCollection from '../common/top-nft-collections-card';
-import { areaChartData } from '@/app/constants/charts';
+import CollectionCardWrapper from '@/app/components/common/collection-cards/collection-card-wrapper';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -84,46 +75,24 @@ function HeroContent() {
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
-              justifyContent: 'space-between',
+              justifyContent: 'center',
             }}
           >
-            <TopNftCollection
-              heading="🎖 Top NFT Colllections"
-              percent={-0.32}
-              graphAttr={{ type: 'area', data: areaChartData }}
+            <CollectionCardWrapper
+              headerName={'Market Cap'}
+              tooltipName={'Market_cap'}
+              type={'area'}
             />
-            <Card2
-              heading="🎖 Top Categories"
-              items={[
-                {
-                  medal: '🥇',
-                  text1: 'Base Ecosystem',
-                  images: [nft, btc, frogImage],
-                },
-                {
-                  medal: '🥇',
-                  text1: 'Base Ecosystem',
-                  images: [nft, btc, frogImage],
-                },
-                {
-                  medal: '🥇',
-                  text1: 'Base Ecosystem',
-                  images: [nft, btc, frogImage],
-                },
-              ]}
+            <CollectionCardWrapper
+              headerName={'Sales Volume'}
+              tooltipName={'volume'}
+              type={'bar'}
             />
-            <Card3
-              transparentButton={true}
-              bgImage={cardBgImage7}
-              staticTextColor={colorConfig.white}
-              textColor={colorConfig.green}
-              heading="Top Gain"
-              name="Dogwifhat"
-              desc="took first place with a gain of"
-              value="+29.32%"
-              end="in 7 days."
+            <CollectionCardWrapper
+              headerName={'Total Sales'}
+              tooltipName={'sales'}
+              type={'bar'}
             />
-            <GaugeChart value={0} />
           </Box>
         </motion.div>
       </AnimatePresence>
