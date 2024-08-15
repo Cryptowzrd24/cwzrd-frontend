@@ -1,93 +1,12 @@
-'use client';
-import {
-  Box,
-  Divider,
-  LinearProgress,
-  Stack,
-  styled,
-  Typography,
-} from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { Box, Divider, Stack, Typography } from '@mui/material';
+import React from 'react';
 import Upload from '../../../../public/icons/nft/upload';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
-import Cookies from 'js-cookie';
-
-import unselectedStarWhite from '@/app/assets/icons/unselectedStarWhite.svg';
-import selectedStar from '@/app/assets/icons/selectedStar.svg';
-import Image from 'next/image';
+import StarComponent from './star-component/starComponent';
+import ProgressBar from './progress-bar/progressBar';
 
 const CoinHeroSection = ({ coinDetails }: any) => {
-  const [progress, setProgress] = useState(55);
   const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinDetails?.coin_id || 1}.png`;
-
-  const coinId = coinDetails?.coin_id;
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSelected, setIsSelected] = useState(false);
-
-  const styles = {
-    loader: {
-      border: '2px solid #f3f3f3',
-      borderTop: '2px solid rgba(17, 17, 17, 1)',
-      borderRadius: '50%',
-      width: '10px',
-      height: '10px',
-      animation: 'spin 1s linear infinite',
-      margin: 'auto',
-    },
-    starImage: {
-      cursor: 'pointer',
-    },
-    svgStyle: {
-      stroke: '#fff !important', // Add white stroke color
-      strokeWidth: 2,
-    },
-  };
-
-  useEffect(() => {
-    const favorites = Cookies.get('favorites')
-      ? JSON.parse(Cookies.get('favorites') as string)
-      : [];
-    if (favorites.includes(coinId)) {
-      setIsSelected(true);
-    }
-  }, [coinId]);
-
-  const handleFavClick = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const favorites = Cookies.get('favorites')
-        ? JSON.parse(Cookies.get('favorites') as string)
-        : [];
-      if (favorites.includes(coinId)) {
-        const updatedFavorites = favorites.filter((id: any) => id !== coinId);
-        Cookies.set('favorites', JSON.stringify(updatedFavorites));
-        setIsSelected(false);
-      } else {
-        favorites.push(coinId);
-        Cookies.set('favorites', JSON.stringify(favorites));
-        setIsSelected(true);
-      }
-      setIsLoading(false);
-    }, 600);
-  };
-
-  const handleClick = (event: any) => {
-    const box = event.currentTarget;
-    const clickX = event.clientX - box.getBoundingClientRect().left;
-    const newValue = (clickX / box.clientWidth) * 100;
-    setProgress(newValue);
-  };
-
-  const CustomLinearProgress = styled(LinearProgress)(({}) => ({
-    height: '10px !important',
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    border: '1px solid rgba(230, 230, 230, 1)', // Add the border property here
-    '& .MuiLinearProgress-bar': {
-      borderRadius: 16,
-      backgroundColor: 'rgba(230, 230, 230, 1)',
-    },
-  }));
 
   const showRank =
     coinDetails?.statistics?.rank === 1
@@ -195,19 +114,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
               }}
             >
               {/* <Star /> */}
-              <div onClick={handleFavClick}>
-                {isLoading ? (
-                  <div style={styles['loader']}></div>
-                ) : (
-                  <Image
-                    style={
-                      !isSelected ? styles['starImage'] : { stroke: '#fff' }
-                    }
-                    src={isSelected ? selectedStar : unselectedStarWhite}
-                    alt=""
-                  />
-                )}
-              </div>
+              <StarComponent coinId={coinDetails?.coin_id} />
             </Box>
             <Box
               sx={{
@@ -277,8 +184,8 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                 %
               </Typography>
             </Box>
-            <Box sx={{ mb: '8px', width: '100%' }} onClick={handleClick}>
-              <CustomLinearProgress variant="determinate" value={progress} />
+            <Box sx={{ mb: '8px', width: '100%' }}>
+              <ProgressBar />
             </Box>
             <Box
               sx={{

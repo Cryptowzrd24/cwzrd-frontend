@@ -1,6 +1,5 @@
-'use client';
 import { Box, Container } from '@mui/material';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import CoinHeroSection from './coinHeroSection';
 import CoinNavbar from './coinNavbar';
 import CoinInfo from './coinInfo';
@@ -13,42 +12,17 @@ import Technicals from '../technicals';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import MemberShipBanner from '../banners/memberShipBanner';
 import GraphLayout from './graph-layout';
-import { useFetchCoinDetailsDataQuery } from '@/app/redux/coin-details';
-import { usePathname } from 'next/navigation';
-import { CoinDetailsTypes } from '@/app/models/coin-details';
+// import { CoinDetailsTypes } from '@/app/models/coin-details';
 import CoinDetailsCard from './coin-details-cards';
 
-const CoinDetails = () => {
-  const pathname = usePathname();
-  const [coinDetails, setCoinDetails] = useState<CoinDetailsTypes | null>(null);
-  const chartRef = useRef<HTMLDivElement>(null);
-  const [isFullScreen, setIsFullScreen] = useState(false);
-
-  const id = pathname.split('/').pop();
-  const { data } = useFetchCoinDetailsDataQuery({ coinId: id });
-  const coinName = coinDetails?.name;
-  const handleFullScreen = () => {
-    if (chartRef.current) {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-        setIsFullScreen(false);
-      } else {
-        chartRef.current.requestFullscreen();
-        setIsFullScreen(true);
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (data) {
-      setCoinDetails(data.results[0]);
-    }
-  }, [data]);
+const CoinDetails = ({ serverCoindata }: any) => {
+  const coinName = serverCoindata?.name;
+  const coinId = serverCoindata?.coin_id;
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
         <Box id="hero" sx={{ mt: '48px', mb: '16px' }}>
-          <CoinHeroSection coinDetails={coinDetails} />
+          <CoinHeroSection coinDetails={serverCoindata} />
         </Box>
         <Box id="overview" sx={{ mb: '16px' }}>
           <CoinNavbar />
@@ -63,19 +37,14 @@ const CoinDetails = () => {
           }}
         >
           <Box sx={{ flex: 1 }}>
-            <GraphLayout
-              chartRef={chartRef}
-              isFullScreen={isFullScreen}
-              handleFullScreen={handleFullScreen}
-              setIsFullScreen={setIsFullScreen}
-            />
+            <GraphLayout />
           </Box>
           <Box sx={{ flex: 1 }}>
-            <CoinDetailsCard coinDetails={coinDetails} />
+            <CoinDetailsCard coinDetails={serverCoindata} />
           </Box>
         </Box>
         <Box id="about" sx={{ mt: '-24px', mb: '48px' }}>
-          <CoinInfo coinDetails={coinDetails} />
+          <CoinInfo coinDetails={serverCoindata} />
         </Box>
         <Box id="news" sx={{ mb: '48px' }}>
           <NewsLetter />
@@ -87,7 +56,7 @@ const CoinDetails = () => {
           <Technicals />
         </Box>
         <Box id="converter" sx={{ mb: '48px' }}>
-          <Converter coinDetails={coinDetails} />
+          <Converter coinDetails={serverCoindata} />
         </Box>
         <Box id="newsletter-banner" sx={{ mb: '48px' }}>
           <NewsLetterBanner />
@@ -96,7 +65,7 @@ const CoinDetails = () => {
           <BitcoinAnalytics />
         </Box>
         <Box id="historical" sx={{ mb: '48px' }}>
-          <CoinAnalytics coinId={id} />
+          <CoinAnalytics coinId={coinId} />
         </Box>
         <Box id="membership-banner" sx={{ mb: '48px' }}>
           <MemberShipBanner />
