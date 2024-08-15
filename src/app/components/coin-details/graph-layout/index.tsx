@@ -1,20 +1,29 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './index.module.css';
 import StockChart from '../stock-chart';
 import GraphCustomHeader from '../graph-custom-header';
 import { Box } from '@mui/material';
 import GraphFilter from '../graph-filter';
 
-function GraphLayout({
-  chartRef,
-  isFullScreen,
-  handleFullScreen,
-  setIsFullScreen,
-}: any) {
+function GraphLayout() {
+  const chartRef = useRef<HTMLDivElement>(null);
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
   const [selectedTab, setSelectedTab] = useState('Price');
   const [selectedFilter, setSelectedFilter] = useState('filter');
   const [volumeValue, setVolumeValue] = useState('1D');
+  const handleFullScreen = () => {
+    if (chartRef.current) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+        setIsFullScreen(false);
+      } else {
+        chartRef.current.requestFullscreen();
+        setIsFullScreen(true);
+      }
+    }
+  };
   return (
     <div className={styles.graphLayout}>
       <Box

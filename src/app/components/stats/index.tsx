@@ -59,9 +59,9 @@ async function fetchStatsData() {
     },
     {
       label: 'Market Cap:',
-      value: `$${numeral(item.quote.USD.total_market_cap).format('0.00a').toUpperCase()}`,
-      change: item.quote.USD.total_market_cap_yesterday_percentage_change
-        ? `${item.quote.USD.total_market_cap_yesterday_percentage_change.toFixed(2)}%`
+      value: `$${numeral(item.quote?.USD.total_market_cap).format('0.00a').toUpperCase()}`,
+      change: item.quote?.USD.total_market_cap_yesterday_percentage_change
+        ? `${item.quote?.USD.total_market_cap_yesterday_percentage_change.toFixed(2)}%`
         : '0.00%',
     },
     {
@@ -69,8 +69,8 @@ async function fetchStatsData() {
       value: `$${numeral(item.quote?.USD?.total_volume_24h ?? 0)
         .format('0.00a')
         .toUpperCase()}`,
-      change: item.quote.USD.total_volume_24h_yesterday_percentage_change
-        ? `${item.quote.USD.total_volume_24h_yesterday_percentage_change?.toFixed(2) || '0.00'}%`
+      change: item.quote?.USD.total_volume_24h_yesterday_percentage_change
+        ? `${item.quote?.USD.total_volume_24h_yesterday_percentage_change?.toFixed(2) || '0.00'}%`
         : '0.00%',
     },
     {

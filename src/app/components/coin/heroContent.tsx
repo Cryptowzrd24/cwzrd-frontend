@@ -8,23 +8,29 @@ async function fetchStatsData() {
   });
   const data = await res.json();
 
+  if (!data || !data.quote) {
+    return { notFound: true };
+  }
+
   return data;
 }
 
 const HeroContent = async () => {
   const data = await fetchStatsData();
-  const marketCap = numeral(data?.results[0].quote.USD.total_market_cap)
+  const marketCap = numeral(data?.results?.[0].quote?.USD.total_market_cap)
     .format('0.00a')
     .toUpperCase();
   const marketCapChange =
-    data?.results[0].quote.USD.total_market_cap_yesterday_percentage_change.toFixed(
+    data?.results?.[0].quote?.USD.total_market_cap_yesterday_percentage_change.toFixed(
       2,
     );
-  const volumeCap = numeral(data?.results[0].quote?.USD?.total_volume_24h ?? 0)
+  const volumeCap = numeral(
+    data?.results?.[0].quote?.USD?.total_volume_24h ?? 0,
+  )
     .format('0.00a')
     .toUpperCase();
   const volumeCapChange =
-    data?.results[0].quote.USD.total_volume_24h_yesterday_percentage_change.toFixed(
+    data?.results?.[0].quote?.USD.total_volume_24h_yesterday_percentage_change.toFixed(
       2,
     );
 
@@ -48,26 +54,26 @@ const HeroContent = async () => {
     ? 'an increase of'
     : 'a decrease of';
 
-  const defiVolume = numeral(data?.results[0].quote.USD.defi_volume_24h)
+  const defiVolume = numeral(data?.results?.[0].quote?.USD.defi_volume_24h)
     .format('0.00a')
     .toUpperCase();
   const defiVolumePercent = (
-    (data?.results[0].quote.USD.defi_volume_24h /
-      data?.results[0].quote.USD.total_volume_24h) *
+    (data?.results?.[0].quote?.USD.defi_volume_24h /
+      data?.results?.[0].quote?.USD.total_volume_24h) *
     100
   ).toFixed(2);
   const isDefiVolumePositiveChange =
-    parseFloat(data?.results[0].quote.USD.defi_24h_percentage_change) > 0;
+    parseFloat(data?.results?.[0].quote?.USD.defi_24h_percentage_change) > 0;
   const defiVolumeChangeColor = isDefiVolumePositiveChange
     ? '#1FD773'
     : '#F74848';
 
   const defiVolumeChange =
-    data?.results[0].quote.USD.defi_24h_percentage_change.toFixed(2);
+    data?.results?.[0].quote?.USD.defi_24h_percentage_change.toFixed(2);
   const formattedDefiVolumeChange = `${isDefiVolumePositiveChange ? '+' : ''}${defiVolumeChange}`;
 
   const stablecoinVolume = numeral(
-    data?.results[0].quote.USD.stablecoin_volume_24h,
+    data?.results?.[0].quote?.USD.stablecoin_volume_24h,
   )
     .format('0.00a')
     .toUpperCase();
@@ -75,12 +81,13 @@ const HeroContent = async () => {
     ? 'an increase of'
     : 'a decrease of';
   const stablecoinVolumePercent = (
-    (data?.results[0].quote.USD.stablecoin_volume_24h /
-      data?.results[0].quote.USD.total_volume_24h) *
+    (data?.results?.[0].quote?.USD.stablecoin_volume_24h /
+      data?.results?.[0].quote?.USD.total_volume_24h) *
     100
   ).toFixed(2);
   const isStablecoinVolumePositiveChange =
-    parseFloat(data?.results[0].quote.USD.stablecoin_24h_percentage_change) > 0;
+    parseFloat(data?.results?.[0].quote?.USD.stablecoin_24h_percentage_change) >
+    0;
   const stablecoinVolumeChangeColor = isStablecoinVolumePositiveChange
     ? '#1FD773'
     : '#F74848';
@@ -89,14 +96,14 @@ const HeroContent = async () => {
     ? 'an increase of'
     : 'a decrease of';
   const stablecoinVolumeChange =
-    data?.results[0].quote.USD.stablecoin_24h_percentage_change.toFixed(2);
+    data?.results?.[0].quote?.USD.stablecoin_24h_percentage_change.toFixed(2);
   const formattedStablecoinVolumeChange = `${isStablecoinVolumePositiveChange ? '+' : ''}${stablecoinVolumeChange}`;
 
   const btcDominance = parseFloat(
-    data?.results[0].btc_dominance || '0',
+    data?.results?.[0].btc_dominance || '0',
   ).toFixed(2);
   const btcDominanceChange =
-    data?.results[0].quote.USD.total_market_cap_yesterday_percentage_change.toFixed(
+    data?.results?.[0].quote?.USD.total_market_cap_yesterday_percentage_change.toFixed(
       2,
     );
 
