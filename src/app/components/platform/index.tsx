@@ -1,5 +1,6 @@
+'use client';
 import { Box, Container } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import PlatformHeader from './header';
 import TradingPlatform from './trading';
 import Feature from './feature';
@@ -21,10 +22,16 @@ import ProgressCards from './progress-cards';
 import header from '../../../../public/images/platform/header.png';
 import Macbook from '../../../../public/images/platform/MacBook.png';
 
-import './index.scss';
 import Forex from './forex-cryptocurrencies';
 
 const Platform = () => {
+  useEffect(() => {
+    document.body.style.backgroundColor = '#f5f5f7';
+
+    return () => {
+      document.body.style.backgroundColor = '';
+    };
+  }, []);
   return (
     <>
       <Container maxWidth="xl">
