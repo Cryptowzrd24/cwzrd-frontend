@@ -41,9 +41,9 @@ import CandlestickCard from '@/app/components/common/candlestickCard';
 import CollectionCardWrapper from '@/app/components/common/collection-cards/collection-card-wrapper';
 const Components = () => {
   const areachartData = [
-    { x: 1, y: 5 },
+    { x: 1, y: 5.11 },
     { x: 2, y: 10 },
-    { x: 3, y: 15 },
+    { x: 3, y: 15.5 },
     { x: 4, y: 8 },
     { x: 5, y: 1 },
     { x: 6, y: 6 },
