@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PlusIcon = () => {
+const PlusIcon = ({ active }: any) => {
   return (
     <>
       {/* Hello world */}
@@ -13,14 +13,14 @@ const PlusIcon = () => {
       >
         <path
           d="M10 4.1665V15.8332"
-          stroke="#111111"
+          stroke={active ? '#ffff' : '#111111'}
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M4.16669 10H15.8334"
-          stroke="#111111"
+          stroke={active ? '#ffff' : '#111111'}
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"

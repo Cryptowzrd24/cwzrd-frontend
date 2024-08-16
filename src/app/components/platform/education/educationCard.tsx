@@ -20,7 +20,9 @@ const EducationCard = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url('/images/platform/community.png')`,
+          backgroundImage: !active
+            ? `url('/images/platform/community.png')`
+            : '',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -29,6 +31,8 @@ const EducationCard = () => {
           maxWidth: '67.4%',
           width: '100%',
           position: 'relative',
+          background: active ? '#027fff' : '',
+          height: active ? '628px' : '',
         }}
       >
         <Typography
@@ -51,24 +55,25 @@ const EducationCard = () => {
           animate="visible"
           variants={textVariants}
           transition={{ duration: 0.5 }}
-          style={{ paddingLeft: '32px' }}
+          style={{ paddingLeft: !active ? '32px' : '20px' }}
         >
           {active ? (
             <Typography
-              variant="h1"
+              // variant="h1"
               sx={{
-                fontSize: '48px',
-                fontWeight: '700',
+                fontSize: '14px',
+                fontWeight: '600',
                 color: 'rgba(255, 255, 255, 1)',
-                lineHeight: '57.6px',
-                textAlign: 'center',
-                mb: '32px',
+                lineHeight: '23.6px',
+                textAlign: 'start',
+                mt: '230px',
                 maxWidth: '690px',
-                width: '100%',
-                margin: 'auto',
               }}
             >
-              Graduate Standing Knowledge with In-Depth Lessons
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book
             </Typography>
           ) : (
             <Typography
@@ -91,175 +96,179 @@ const EducationCard = () => {
           )}
         </motion.div>
 
-        <Stack
-          sx={{
-            mt: '32px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '8px',
-            width: '100%',
-            mb: '78px',
-          }}
-        >
-          {/* ----------------------------- */}
+        {!active && (
+          <Stack
+            sx={{
+              mt: '32px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '8px',
+              width: '100%',
+              mb: '78px',
+            }}
+          >
+            {/* ----------------------------- */}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '8px',
+              }}
+            >
+              <Box
+                sx={{
+                  padding: '8px 12px 8px 8px',
+                  borderRadius: '100px',
+                  background: 'rgba(255, 255, 255, 1)',
+                  border: '0.5px solid rgba(17, 17, 17, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                <VerifiedGreen />
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  26 WZRD Guide book
+                </Typography>
+              </Box>
+              {/* -------------------------------- */}
+              <Box
+                sx={{
+                  padding: '8px 12px 8px 8px',
+                  borderRadius: '100px',
+                  background: 'rgba(255, 255, 255, 1)',
+                  border: '0.5px solid rgba(17, 17, 17, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                <VerifiedGreen />
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  77 Videos (24+ hours){' '}
+                </Typography>
+              </Box>
+            </Box>
+            {/* --------------------------------------------------------------------------- */}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '8px',
+              }}
+            >
+              <Box
+                sx={{
+                  padding: '8px 12px 8px 8px',
+                  borderRadius: '100px',
+                  background: 'rgba(255, 255, 255, 1)',
+                  border: '0.5px solid rgba(17, 17, 17, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                <VerifiedGreen />
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  Daily Technical Write-ups{' '}
+                </Typography>
+              </Box>
+              {/* -------------------- */}{' '}
+              <Box
+                sx={{
+                  padding: '8px 12px 8px 8px',
+                  borderRadius: '100px',
+                  background: 'rgba(255, 255, 255, 1)',
+                  border: '0.5px solid rgba(17, 17, 17, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                <VerifiedGreen />
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  315+ Examinations{' '}
+                </Typography>
+              </Box>
+              {/* -------------------- */}{' '}
+              <Box
+                sx={{
+                  padding: '8px 12px 8px 8px',
+                  borderRadius: '100px',
+                  background: 'rgba(255, 255, 255, 1)',
+                  border: '0.5px solid rgba(17, 17, 17, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                <VerifiedGreen />
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  Market breakdowns{' '}
+                </Typography>
+              </Box>
+            </Box>
+            {/* -------------------- */}
+          </Stack>
+        )}
+        {!active && (
           <Box
             sx={{
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              gap: '8px',
             }}
           >
-            <Box
-              sx={{
-                padding: '8px 12px 8px 8px',
-                borderRadius: '100px',
-                background: 'rgba(255, 255, 255, 1)',
-                border: '0.5px solid rgba(17, 17, 17, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
-            >
-              <VerifiedGreen />
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                26 WZRD Guide book
-              </Typography>
-            </Box>
-            {/* -------------------------------- */}
-            <Box
-              sx={{
-                padding: '8px 12px 8px 8px',
-                borderRadius: '100px',
-                background: 'rgba(255, 255, 255, 1)',
-                border: '0.5px solid rgba(17, 17, 17, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
-            >
-              <VerifiedGreen />
-
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                77 Videos (24+ hours){' '}
-              </Typography>
-            </Box>
+            <Image
+              src={macbook}
+              alt="macbook"
+              width={496}
+              style={{ height: '310px' }}
+            />
           </Box>
-          {/* --------------------------------------------------------------------------- */}
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: '8px',
-            }}
-          >
-            <Box
-              sx={{
-                padding: '8px 12px 8px 8px',
-                borderRadius: '100px',
-                background: 'rgba(255, 255, 255, 1)',
-                border: '0.5px solid rgba(17, 17, 17, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
-            >
-              <VerifiedGreen />
-
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                Daily Technical Write-ups{' '}
-              </Typography>
-            </Box>
-            {/* -------------------- */}{' '}
-            <Box
-              sx={{
-                padding: '8px 12px 8px 8px',
-                borderRadius: '100px',
-                background: 'rgba(255, 255, 255, 1)',
-                border: '0.5px solid rgba(17, 17, 17, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
-            >
-              <VerifiedGreen />
-
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                315+ Examinations{' '}
-              </Typography>
-            </Box>
-            {/* -------------------- */}{' '}
-            <Box
-              sx={{
-                padding: '8px 12px 8px 8px',
-                borderRadius: '100px',
-                background: 'rgba(255, 255, 255, 1)',
-                border: '0.5px solid rgba(17, 17, 17, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
-            >
-              <VerifiedGreen />
-
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                Market breakdowns{' '}
-              </Typography>
-            </Box>
-          </Box>
-          {/* -------------------- */}
-        </Stack>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <Image
-            src={macbook}
-            alt="macbook"
-            width={496}
-            style={{ height: '310px' }}
-          />
-        </Box>
+        )}
         <Box
           sx={{
             display: 'flex',
@@ -267,6 +276,8 @@ const EducationCard = () => {
             position: 'absolute',
             right: '24px',
             bottom: '28px',
+            transform: active ? 'rotate(45deg)' : '',
+            transition: '0.3s ease-in-out',
           }}
         >
           <Box

@@ -31,7 +31,7 @@ const ProfitableCard = () => {
           position: 'relative',
         }}
       >
-        <Image src={vector} alt="vector" width={160} />
+        {!active && <Image src={vector} alt="vector" width={160} />}
         <Box sx={{ mt: '24px' }}>
           <motion.div
             key={active ? 'active' : 'inactive'}
@@ -39,20 +39,23 @@ const ProfitableCard = () => {
             animate="visible"
             variants={textVariants}
             transition={{ duration: 0.5 }}
-            style={{ paddingLeft: '32px' }}
+            style={{ paddingLeft: !active ? '32px' : '0' }}
           >
             {active ? (
               <Typography
-                variant="h1"
+                // variant="h1"
                 sx={{
-                  fontSize: '40px',
-                  fontWeight: '700',
+                  fontSize: '14px',
+                  fontWeight: '500',
                   color: 'rgba(255, 255, 255, 1)',
-                  textAlign: 'center',
-                  lineHeight: '44px',
+                  textAlign: 'start',
+                  lineHeight: '16px',
                 }}
               >
-                Lorem ispum router
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book
               </Typography>
             ) : (
               <Typography
@@ -77,6 +80,8 @@ const ProfitableCard = () => {
             position: 'absolute',
             right: '20px',
             bottom: '20px',
+            transform: active ? 'rotate(45deg)' : '',
+            transition: '0.3s ease-in-out',
           }}
         >
           <Box

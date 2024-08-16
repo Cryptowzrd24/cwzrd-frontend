@@ -16,12 +16,13 @@ const ExaminationCard = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
-
   return (
     <>
       <Box
         sx={{
-          backgroundImage: `url('/images/platform/examination.png')`,
+          backgroundImage: !active
+            ? `url('/images/platform/examination.png')`
+            : '',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -31,6 +32,7 @@ const ExaminationCard = () => {
           height: '358px',
           borderRadius: '32px',
           position: 'relative',
+          background: active ? '#F77F21' : '',
         }}
       >
         <Typography
@@ -46,15 +48,34 @@ const ExaminationCard = () => {
         >
           Examinations
         </Typography>
-        <Box sx={{ paddingLeft: '24px' }}>
-          <Image src={exam} alt="exam" width={100} height={100} />
+        <Box sx={{ paddingLeft: !active ? '24px' : '0' }}>
+          {!active && <Image src={exam} alt="exam" width={100} height={100} />}
           <motion.div
-            key={active ? 'active' : 'inactive'} // Use a key to force remounting
+            key={active ? 'active' : 'inactive'}
             initial="hidden"
             animate="visible"
             variants={textVariants}
             transition={{ duration: 0.5 }}
           >
+            {active && (
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: '14px',
+                  color: 'rgba(255, 255, 255, 1)',
+                  mt: '137px',
+                  letterSpacing: 0.1,
+                  // maxWidth: '298px',
+                  lineHeight: '14px',
+                  fontWeight: '500',
+                }}
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book
+              </Typography>
+            )}
             <Typography
               variant="h1"
               sx={{
@@ -67,7 +88,7 @@ const ExaminationCard = () => {
               }}
             >
               {active
-                ? 'Hello world'
+                ? ''
                 : 'Featuring with 450 questions spread across 47 exams.'}
             </Typography>
           </motion.div>
@@ -79,6 +100,8 @@ const ExaminationCard = () => {
             position: 'absolute',
             right: '24px',
             bottom: '28px',
+            transform: active ? 'rotate(45deg)' : '',
+            transition: '0.3s ease-in-out',
           }}
         >
           <Box
