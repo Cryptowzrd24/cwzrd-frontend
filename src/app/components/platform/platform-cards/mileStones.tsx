@@ -53,18 +53,20 @@ const MileStones = () => {
           animate="visible"
           variants={textVariants}
           transition={{ duration: 0.5 }}
-          style={{ paddingLeft: active ? '0' : '32px' }}
+          style={{
+            paddingLeft: active ? '0' : '32px',
+          }}
         >
           {active ? (
             <Typography
               // variant="h1"
               sx={{
-                fontSize: '12px',
+                fontSize: '14px',
                 color: 'rgba(255, 255, 255, 1)',
                 mt: '145px',
                 letterSpacing: 0.1,
                 // maxWidth: '298px',
-                lineHeight: '14px',
+                lineHeight: '22px',
               }}
             >
               Lorem Ipsum is simply dummy text of the printing and typesetting

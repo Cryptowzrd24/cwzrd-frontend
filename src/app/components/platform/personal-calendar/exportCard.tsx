@@ -30,7 +30,7 @@ const ExportCard = () => {
           position: 'relative',
           height: '528px',
           width: '100%',
-          background: active ? '#BF48F7' : '',
+          background: active ? '#7248F7 ' : '',
         }}
       >
         <Typography
@@ -59,15 +59,12 @@ const ExportCard = () => {
           >
             {active && (
               <Typography
-                variant="h1"
                 sx={{
                   fontSize: '14px',
                   color: 'rgba(255, 255, 255, 1)',
                   mt: '184px',
-                  letterSpacing: 0.7,
-                  // maxWidth: '298px',
-                  lineHeight: '18px',
-                  fontWeight: '500',
+                  letterSpacing: 0.1,
+                  lineHeight: '22px',
                   textAlign: 'start',
                 }}
               >

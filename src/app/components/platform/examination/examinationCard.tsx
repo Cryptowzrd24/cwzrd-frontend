@@ -59,15 +59,14 @@ const ExaminationCard = () => {
           >
             {active && (
               <Typography
-                variant="h1"
                 sx={{
                   fontSize: '14px',
                   color: 'rgba(255, 255, 255, 1)',
                   mt: '137px',
                   letterSpacing: 0.1,
                   // maxWidth: '298px',
-                  lineHeight: '14px',
-                  fontWeight: '500',
+                  lineHeight: '22px',
+                  // fontWeight: '500',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting

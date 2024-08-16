@@ -80,7 +80,7 @@ const GraphCardTop = (props: any) => {
             justifyContent: 'center',
             alignItems: 'center',
             marginTop: '-10px',
-            height: '140px',
+            height: '160px',
           }}
         >
           {graphAttr.type === 'area' ? (

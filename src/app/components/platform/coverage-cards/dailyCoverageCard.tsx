@@ -69,16 +69,14 @@ const DailyCoverageCard = () => {
           >
             {active && (
               <Typography
-                variant="h1"
                 sx={{
                   fontSize: '14px',
                   color: 'rgba(255, 255, 255, 1)',
-                  mt: '125px',
+                  mt: '115px',
                   letterSpacing: 0.1,
                   // maxWidth: '298px',
-                  lineHeight: '17.4px',
+                  lineHeight: '22px',
                   textAlign: 'start',
-                  fontWeight: '500',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting

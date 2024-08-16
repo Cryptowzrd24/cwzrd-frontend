@@ -6,6 +6,8 @@ import trade from '../../../../../public/images/platform/trade-header.png';
 import Image from 'next/image';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
+const MotionBox = motion(Box); // Create a motion-enabled Box component
+
 const TradeManagement = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
@@ -17,9 +19,20 @@ const TradeManagement = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const backgroundVariants = {
+    active: {
+      backgroundColor: '#ffffff',
+      transition: { duration: 0.5 }, // Adjust the duration as needed
+    },
+    inactive: {
+      backgroundColor: '#000000',
+      transition: { duration: 0.5 }, // Adjust the duration as needed
+    },
+  };
+
   return (
     <>
-      <Box
+      <MotionBox
         sx={{
           backgroundImage: !active ? `url('/images/platform/trade.png')` : '',
           backgroundSize: 'cover',
@@ -31,8 +44,10 @@ const TradeManagement = () => {
           borderRadius: '32px',
           flex: 1,
           position: 'relative',
-          background: active ? '#ffff' : '',
+          background: 'inherit',
         }}
+        variants={backgroundVariants}
+        animate={active ? 'active' : 'inactive'}
       >
         <Typography
           variant="body1"
@@ -58,32 +73,20 @@ const TradeManagement = () => {
           >
             {active ? (
               <Typography
-                // variant="h1"
                 sx={{
-                  fontSize: '12px',
+                  fontSize: '14px',
                   color: !active
                     ? 'rgba(255, 255, 255, 1)'
                     : 'rgba(0, 0, 0, 1)',
                   mt: '145px',
                   letterSpacing: 0.1,
-                  // maxWidth: '298px',
-                  lineHeight: '14px',
+                  lineHeight: '22px',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s, when an unknown printer took a galley
                 of type and scrambled it to make a type specimen book <br />
-                {/* <span
-                  style={{
-                    backgroundImage:
-                      'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  maximizing profits.
-                </span> */}
               </Typography>
             ) : (
               <Typography
@@ -140,7 +143,7 @@ const TradeManagement = () => {
             <PlusIcon active={active} />
           </Box>
         </Box>
-      </Box>
+      </MotionBox>
     </>
   );
 };

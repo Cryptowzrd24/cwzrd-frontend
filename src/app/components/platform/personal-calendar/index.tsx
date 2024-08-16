@@ -59,14 +59,11 @@ const PersonalCalendar = () => {
               >
                 {active && (
                   <Typography
-                    variant="h1"
                     sx={{
                       fontSize: '14px',
-                      fontWeight: '500',
-                      lineHeight: '27.6px',
+                      lineHeight: '22px',
                       color: 'rgba(17, 17, 17, 1)',
-                      // maxWidth: '324px',
-                      mt: '164px',
+                      mt: '174px',
                     }}
                   >
                     Lorem Ipsum is simply dummy text of the printing and

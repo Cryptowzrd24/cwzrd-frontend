@@ -20,7 +20,7 @@ const ProfitableCard = () => {
     <>
       <Stack
         sx={{
-          background: 'rgba(153, 23, 255, 1)',
+          background: !active ? 'rgba(153, 23, 255, 1)' : '#6b0db3',
           padding: '48px 40px 71px 30px',
           borderRadius: '32px',
           display: 'flex',
@@ -43,13 +43,11 @@ const ProfitableCard = () => {
           >
             {active ? (
               <Typography
-                // variant="h1"
                 sx={{
                   fontSize: '14px',
-                  fontWeight: '500',
                   color: 'rgba(255, 255, 255, 1)',
                   textAlign: 'start',
-                  lineHeight: '16px',
+                  lineHeight: '22px',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
