@@ -60,7 +60,11 @@ function Footer() {
             {FooterData.map((item) => (
               <Link
                 key={item.id}
-                href="#"
+                href={
+                  item.title === 'Market'
+                    ? '/market/coin'
+                    : `/${item.title.toLowerCase()}`
+                }
                 style={{
                   color: 'rgba(255, 255, 255, 1)',
                   cursor: 'pointer',
