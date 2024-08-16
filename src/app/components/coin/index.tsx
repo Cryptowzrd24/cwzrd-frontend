@@ -5,7 +5,7 @@ import NewsLetter from '../news-letter';
 import Technicals from '../technicals';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import MemberShipBanner from '../banners/memberShipBanner';
-// import HeroContent from './heroContent';
+import HeroContent from './heroContent';
 import Stats from '@/app/components/stats';
 import Table from './table';
 
@@ -14,7 +14,7 @@ function Coin() {
     <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
       <Box sx={{ mt: '48px' }}>
         <Hero />
-        {/* <HeroContent /> */}
+        <HeroContent />
         <Stats />
       </Box>
       <Box sx={{ mt: '16px' }}>

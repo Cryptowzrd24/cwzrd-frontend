@@ -148,7 +148,7 @@ const GaugeChart = ({ value }: GaugeChartProps) => {
         <Typography
           sx={{
             textAlign: 'center',
-            paddingTop: '15px',
+            paddingTop: '12px',
             fontWeight: 600,
             fontFamily: 'Sf Pro Display',
             fontSize: '16px',
