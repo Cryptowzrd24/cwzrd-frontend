@@ -133,7 +133,39 @@ export const Range = ({
         </Typography>
         <Box sx={styles.priceRangeBox}>
           <TextField
-            sx={styles.textField}
+            sx={{
+              width: '450px',
+              '& .MuiInputBase-input': {
+                borderRadius: '8px',
+                fontSize: '14px',
+                '::-webkit-inner-spin-button': {
+                  WebkitAppearance: 'none',
+                  margin: 0,
+                },
+                '::-webkit-outer-spin-button': {
+                  WebkitAppearance: 'none',
+                  margin: 0,
+                },
+                MozAppearance: 'textfield',
+              },
+              '& .MuiInputLabel-root': {
+                fontSize: '14px',
+              },
+              '& .MuiFormHelperText-root': {
+                fontSize: '14px',
+              },
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'defaultColor',
+                },
+                '&:hover fieldset': {
+                  borderColor: 'rgba(114, 72, 247, 1)',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'rgba(114, 72, 247, 1)',
+                },
+              },
+            }}
             size="small"
             id="outlined-basic"
             variant="outlined"
@@ -151,7 +183,39 @@ export const Range = ({
             to
           </Typography>
           <TextField
-            sx={styles.textField}
+            sx={{
+              width: '450px',
+              '& .MuiInputBase-input': {
+                borderRadius: '8px',
+                fontSize: '14px',
+                '::-webkit-inner-spin-button': {
+                  WebkitAppearance: 'none',
+                  margin: 0,
+                },
+                '::-webkit-outer-spin-button': {
+                  WebkitAppearance: 'none',
+                  margin: 0,
+                },
+                MozAppearance: 'textfield',
+              },
+              '& .MuiInputLabel-root': {
+                fontSize: '14px',
+              },
+              '& .MuiFormHelperText-root': {
+                fontSize: '14px',
+              },
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'defaultColor',
+                },
+                '&:hover fieldset': {
+                  borderColor: 'rgba(114, 72, 247, 1)',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'rgba(114, 72, 247, 1)',
+                },
+              },
+            }}
             size="small"
             id="outlined-basic"
             variant="outlined"

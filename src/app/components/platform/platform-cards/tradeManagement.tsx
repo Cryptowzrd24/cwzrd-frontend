@@ -21,7 +21,7 @@ const TradeManagement = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url('/images/platform/trade.png')`,
+          backgroundImage: !active ? `url('/images/platform/trade.png')` : '',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -31,6 +31,7 @@ const TradeManagement = () => {
           borderRadius: '32px',
           flex: 1,
           position: 'relative',
+          background: active ? '#ffff' : '',
         }}
       >
         <Typography
@@ -38,7 +39,7 @@ const TradeManagement = () => {
           sx={{
             fontSize: '16px',
             fontWeight: '400',
-            color: 'rgba(255, 255, 255, 1)',
+            color: !active ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)',
             textTransform: 'uppercase',
             mb: '32px',
             letterSpacing: '1px',
@@ -46,8 +47,8 @@ const TradeManagement = () => {
         >
           Complete Trade management
         </Typography>
-        <Box sx={{ paddingLeft: '32px' }}>
-          <Image src={trade} alt="trade" width={80} height={80} />
+        <Box sx={{ paddingLeft: !active ? '32px' : '0' }}>
+          {!active && <Image src={trade} alt="trade" width={80} height={80} />}
           <motion.div
             key={active ? 'active' : 'inactive'}
             initial="hidden"
@@ -57,18 +58,23 @@ const TradeManagement = () => {
           >
             {active ? (
               <Typography
-                variant="h1"
+                // variant="h1"
                 sx={{
-                  fontSize: '40px',
-                  color: 'rgba(255, 255, 255, 1)',
-                  mt: '32px',
+                  fontSize: '12px',
+                  color: !active
+                    ? 'rgba(255, 255, 255, 1)'
+                    : 'rgba(0, 0, 0, 1)',
+                  mt: '145px',
                   letterSpacing: 0.1,
-                  maxWidth: '298px',
-                  lineHeight: '44px',
+                  // maxWidth: '298px',
+                  lineHeight: '14px',
                 }}
               >
-                Hello world <br />
-                <span
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book <br />
+                {/* <span
                   style={{
                     backgroundImage:
                       'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
@@ -77,14 +83,16 @@ const TradeManagement = () => {
                   }}
                 >
                   maximizing profits.
-                </span>
+                </span> */}
               </Typography>
             ) : (
               <Typography
                 variant="h1"
                 sx={{
                   fontSize: '40px',
-                  color: 'rgba(255, 255, 255, 1)',
+                  color: !active
+                    ? 'rgba(255, 255, 255, 1)'
+                    : 'rgba(0, 0, 0, 1)',
                   mt: '32px',
                   letterSpacing: 0.1,
                   maxWidth: '298px',
@@ -113,6 +121,8 @@ const TradeManagement = () => {
             position: 'absolute',
             right: '24px',
             bottom: '24px',
+            transform: active ? 'rotate(45deg)' : '',
+            transition: '0.3s ease-in-out',
           }}
         >
           <Box
@@ -121,13 +131,13 @@ const TradeManagement = () => {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '8px',
-              background: '#FFFFFF',
+              background: !active ? '#FFFFFF' : '#000',
               borderRadius: '100px',
               cursor: 'pointer',
             }}
             onClick={handleClick}
           >
-            <PlusIcon />
+            <PlusIcon active={active} />
           </Box>
         </Box>
       </Box>

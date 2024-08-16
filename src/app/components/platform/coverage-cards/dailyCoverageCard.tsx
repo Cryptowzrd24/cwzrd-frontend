@@ -21,7 +21,9 @@ const DailyCoverageCard = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url('/images/platform/examination.png')`,
+          backgroundImage: !active
+            ? `url('/images/platform/examination.png')`
+            : '',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -30,6 +32,7 @@ const DailyCoverageCard = () => {
           height: 'auto',
           borderRadius: '32px',
           position: 'relative',
+          background: active ? '#F77F21' : '',
         }}
       >
         <Typography
@@ -47,14 +50,16 @@ const DailyCoverageCard = () => {
         </Typography>
         <Box
           sx={{
-            paddingLeft: '24px',
+            paddingLeft: !active ? '24px' : '0',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
           }}
         >
-          <Image src={exam} alt="daily coverage" width={150} height={150} />
+          {!active && (
+            <Image src={exam} alt="daily coverage" width={150} height={150} />
+          )}
           <motion.div
             key={active ? 'active' : 'inactive'} // Use a key to force remounting
             initial="hidden"
@@ -62,6 +67,26 @@ const DailyCoverageCard = () => {
             variants={textVariants}
             transition={{ duration: 0.5 }}
           >
+            {active && (
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: '14px',
+                  color: 'rgba(255, 255, 255, 1)',
+                  mt: '125px',
+                  letterSpacing: 0.1,
+                  // maxWidth: '298px',
+                  lineHeight: '17.4px',
+                  textAlign: 'start',
+                  fontWeight: '500',
+                }}
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book
+              </Typography>
+            )}
             <Typography
               variant="h1"
               sx={{
@@ -75,9 +100,7 @@ const DailyCoverageCard = () => {
                 fontWeight: '700',
               }}
             >
-              {active
-                ? 'Every trade recommendation is managed'
-                : 'Daily Coverage on over 25 Cryptocurrencies'}
+              {active ? '' : 'Daily Coverage on over 25 Cryptocurrencies'}
             </Typography>
           </motion.div>
         </Box>
@@ -88,6 +111,8 @@ const DailyCoverageCard = () => {
             position: 'absolute',
             right: '24px',
             bottom: '28px',
+            transform: active ? 'rotate(45deg)' : '',
+            transition: '0.3s ease-in-out',
           }}
         >
           <Box

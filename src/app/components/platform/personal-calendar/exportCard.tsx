@@ -21,13 +21,16 @@ const ExportCard = () => {
     <>
       <Box
         sx={{
-          backgroundImage: 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
+          backgroundImage: !active
+            ? 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)'
+            : '',
           padding: '32px 56px 32px 32px',
           maxWidth: '23.5%',
           borderRadius: '32px',
           position: 'relative',
           height: '528px',
           width: '100%',
+          background: active ? '#BF48F7' : '',
         }}
       >
         <Typography
@@ -43,8 +46,10 @@ const ExportCard = () => {
         >
           Easy to export notes
         </Typography>
-        <Box sx={{ paddingLeft: '24px' }}>
-          <Image src={exam} alt="export" width={100} height={100} />
+        <Box sx={{ paddingLeft: !active ? '24px' : '0' }}>
+          {!active && (
+            <Image src={exam} alt="export" width={100} height={100} />
+          )}
           <motion.div
             key={active ? 'active' : 'inactive'} // Use a key to force remounting
             initial="hidden"
@@ -52,6 +57,26 @@ const ExportCard = () => {
             variants={textVariants}
             transition={{ duration: 0.5 }}
           >
+            {active && (
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: '14px',
+                  color: 'rgba(255, 255, 255, 1)',
+                  mt: '184px',
+                  letterSpacing: 0.7,
+                  // maxWidth: '298px',
+                  lineHeight: '18px',
+                  fontWeight: '500',
+                  textAlign: 'start',
+                }}
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book
+              </Typography>
+            )}
             <Typography
               variant="h1"
               sx={{
@@ -64,7 +89,7 @@ const ExportCard = () => {
               }}
             >
               {active
-                ? 'Personal Calendar: Keep Track of Everything wanted you'
+                ? ''
                 : 'Easily export your saved notes into a downloadable PDF'}
             </Typography>
           </motion.div>
@@ -76,6 +101,8 @@ const ExportCard = () => {
             position: 'absolute',
             right: '24px',
             bottom: '28px',
+            transform: active ? 'rotate(45deg)' : '',
+            transition: '0.3s ease-in-out',
           }}
         >
           <Box

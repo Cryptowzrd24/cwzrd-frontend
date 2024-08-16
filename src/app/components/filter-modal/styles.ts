@@ -73,6 +73,12 @@ const styles = {
     '& .MuiInputBase-input': {
       borderRadius: '8px',
       fontSize: '14px',
+      '&[type="number"]': {
+        MozAppearance: 'textfield', // Firefox
+        WebkitAppearance: 'none', // Chrome, Safari, and Opera
+        appearance: 'none', // Standard
+        margin: 0, // Remove default margin
+      },
     },
     '& .MuiInputLabel-root': {
       fontSize: '14px',

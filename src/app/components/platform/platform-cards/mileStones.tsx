@@ -19,7 +19,9 @@ const MileStones = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url('/images/platform/milestone.png')`,
+          backgroundImage: !active
+            ? `url('/images/platform/milestone.png')`
+            : '',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -29,6 +31,7 @@ const MileStones = () => {
           borderRadius: '32px',
           position: 'relative',
           flex: 1,
+          background: active ? 'rgb(113, 77, 195)' : '',
         }}
       >
         <Typography
@@ -50,21 +53,24 @@ const MileStones = () => {
           animate="visible"
           variants={textVariants}
           transition={{ duration: 0.5 }}
-          style={{ paddingLeft: '32px' }}
+          style={{ paddingLeft: active ? '0' : '32px' }}
         >
           {active ? (
             <Typography
-              variant="h1"
+              // variant="h1"
               sx={{
-                fontSize: '40px',
+                fontSize: '12px',
                 color: 'rgba(255, 255, 255, 1)',
-                mt: '32px',
+                mt: '145px',
                 letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
+                // maxWidth: '298px',
+                lineHeight: '14px',
               }}
             >
-              Trading community
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book
             </Typography>
           ) : (
             <Typography
@@ -90,6 +96,8 @@ const MileStones = () => {
             position: 'absolute',
             right: '24px',
             bottom: '24px',
+            transform: active ? 'rotate(45deg)' : '',
+            transition: '0.3s ease-in-out',
           }}
         >
           <Box
@@ -98,13 +106,13 @@ const MileStones = () => {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '8px',
-              background: '#FFFFFF',
+              background: !active ? '#FFFFFF' : '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',
             }}
             onClick={handleClick}
           >
-            <PlusIcon />
+            <PlusIcon active={false} />
           </Box>
         </Box>
       </Box>

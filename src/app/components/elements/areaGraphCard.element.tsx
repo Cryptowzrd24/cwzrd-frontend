@@ -90,7 +90,7 @@ const AreaChart = (props: IChartProps) => {
       style: {},
       formatter: function () {
         const point: any = (this as any)?.point;
-        const yValue = point.y;
+        const yValue = point.y.toFixed(2);
         return `
           <div
            style="display: flex; align-items: center; justify-content: center; 
@@ -106,6 +106,7 @@ const AreaChart = (props: IChartProps) => {
             ${percent ? '' : '$'}${yValue}${percent ? '%' : 'm'}
           </div>`;
       },
+      valueDecimals: 2,
       positioner: function (
         labelWidth: number,
         labelHeight: number,

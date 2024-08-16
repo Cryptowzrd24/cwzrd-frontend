@@ -43,6 +43,7 @@ function GraphLayout() {
           volumeValue={volumeValue}
           setVolumeValue={setVolumeValue}
           handleFullScreen={handleFullScreen}
+          selectedTab={selectedTab}
         />
       </Box>
       <StockChart
