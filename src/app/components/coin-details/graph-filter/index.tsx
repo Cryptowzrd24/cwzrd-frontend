@@ -14,6 +14,7 @@ interface GraphFilterProps {
   volumeValue: string;
   setVolumeValue: (val: string) => void;
   handleFullScreen: () => void;
+  selectedTab: string;
 }
 
 const stylesPage = {
@@ -51,6 +52,7 @@ function GraphFilter({
   volumeValue,
   setVolumeValue,
   handleFullScreen,
+  selectedTab,
 }: GraphFilterProps) {
   const volumes = ['1D', '7D', '1M', '1Y', 'ALL'];
   const getSelectClass = (value: any) => {
@@ -63,9 +65,12 @@ function GraphFilter({
   const handleSelectedFilter = (val: string) => {
     setSelectedFilter(val);
   };
-
+  const isSelectedTabMarket = selectedTab === 'Market Cap' ? true : false;
   return (
-    <div className={styles.graphCustomHeader}>
+    <div
+      style={{ justifyContent: isSelectedTabMarket ? 'space-evenly' : 'start' }}
+      className={styles.graphCustomHeader}
+    >
       <div className={styles.filterHeaderSecOne}>
         <div>
           <Select
@@ -123,16 +128,18 @@ function GraphFilter({
           >
             <FilterIcon isDark={true} />
           </Box>
-          <Box
-            className={
-              selectedFilter === 'candlestick'
-                ? `${styles.iconBoxCandlestickSelected}`
-                : `${styles.iconBoxCandlestick}`
-            }
-            onClick={() => handleSelectedFilter('candlestick')}
-          >
-            <LineGraphIcon />
-          </Box>
+          {selectedTab !== 'Market Cap' && (
+            <Box
+              className={
+                selectedFilter === 'candlestick'
+                  ? `${styles.iconBoxCandlestickSelected}`
+                  : `${styles.iconBoxCandlestick}`
+              }
+              onClick={() => handleSelectedFilter('candlestick')}
+            >
+              <LineGraphIcon />
+            </Box>
+          )}
         </div>
       </div>
       <div className={styles.filterHeaderSecTwo}>
