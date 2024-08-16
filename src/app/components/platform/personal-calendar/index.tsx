@@ -46,7 +46,9 @@ const PersonalCalendar = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Image src={iphone} alt="iphone" width={292} height={514} />
+            {!active && (
+              <Image src={iphone} alt="iphone" width={292} height={514} />
+            )}
             <Stack>
               <motion.div
                 key={active ? 'active' : 'inactive'} // Use a key to force remounting
@@ -55,6 +57,25 @@ const PersonalCalendar = () => {
                 variants={textVariants}
                 transition={{ duration: 0.5 }}
               >
+                {active && (
+                  <Typography
+                    variant="h1"
+                    sx={{
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      lineHeight: '27.6px',
+                      color: 'rgba(17, 17, 17, 1)',
+                      // maxWidth: '324px',
+                      mt: '164px',
+                    }}
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book
+                  </Typography>
+                )}
                 <Typography
                   variant="h1"
                   sx={{
@@ -66,25 +87,25 @@ const PersonalCalendar = () => {
                     mb: '64px',
                   }}
                 >
-                  {active
-                    ? 'Easily export your saved notes into account'
-                    : 'Personal Calendar: Keep Track of Everything'}
+                  {active ? '' : 'Personal Calendar: Keep Track of Everything'}
                 </Typography>
               </motion.div>
 
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '16px',
-                  fontWeight: '400',
-                  lineHeight: '20.8px',
-                  color: 'rgba(17, 17, 17, 1)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px',
-                }}
-              >
-                Your Life, Your Schedule
-              </Typography>
+              {!active && (
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    lineHeight: '20.8px',
+                    color: 'rgba(17, 17, 17, 1)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                  }}
+                >
+                  Your Life, Your Schedule
+                </Typography>
+              )}
               <Box
                 sx={{
                   display: 'flex',
@@ -92,6 +113,8 @@ const PersonalCalendar = () => {
                   position: 'absolute',
                   right: '24px',
                   bottom: '28px',
+                  transform: active ? 'rotate(45deg)' : '',
+                  transition: '0.3s ease-in-out',
                 }}
               >
                 <Box
