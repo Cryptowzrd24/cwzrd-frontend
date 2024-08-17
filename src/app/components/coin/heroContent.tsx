@@ -8,7 +8,7 @@ async function fetchStatsData() {
   });
   const data = await res.json();
 
-  if (!data || !data.quote) {
+  if (!data || !data.results) {
     return { notFound: true };
   }
 
@@ -17,6 +17,7 @@ async function fetchStatsData() {
 
 const HeroContent = async () => {
   const data = await fetchStatsData();
+
   const marketCap = numeral(data?.results?.[0].quote?.USD.total_market_cap)
     .format('0.00a')
     .toUpperCase();

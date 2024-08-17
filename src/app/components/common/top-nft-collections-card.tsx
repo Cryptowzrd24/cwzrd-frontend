@@ -72,6 +72,7 @@ const TopNftCollection = (props: any) => {
             justifyContent: 'center',
             alignItems: 'center',
             marginTop: '15px',
+            height: '120px',
           }}
         >
           <AreaChart
