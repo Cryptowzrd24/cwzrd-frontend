@@ -8,17 +8,16 @@ const CoinInfo = ({ coinDetails }: any) => {
 
   const processParagraph = (text: any) => {
     const urlPattern = /(https?:\/\/[^\s]+)/g;
-    const parenthesesPattern = /[\(\)]/g;
-    let processedText = text.replace(urlPattern, '');
-    processedText = processedText.replace(parenthesesPattern, '');
-    return processedText;
+    const bracketsPattern = /[\[\]\(\)]/g; // Pattern to remove square brackets and parentheses
+    let processedText = text.replace(urlPattern, ''); // Remove URLs
+    processedText = processedText.replace(bracketsPattern, ''); // Remove square brackets and parentheses
+    return processedText.trim(); // Trim any extra spaces
   };
 
   const renderItems = () => {
     const itemsToRender = showAll
       ? coinDetails?.about_coin?.data
       : coinDetails?.about_coin?.data.slice(0, 3);
-
     return itemsToRender?.map((item: any, index: any) => (
       <Box key={index} sx={{ mb: '16px' }}>
         <Typography
