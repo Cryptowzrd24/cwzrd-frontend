@@ -103,7 +103,7 @@ const GraphCard = (props: IMarketCapCardProps) => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '145px',
+                height: '170px',
                 marginRight: '-4px',
               }}
             >

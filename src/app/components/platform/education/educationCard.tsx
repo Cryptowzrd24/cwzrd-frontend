@@ -62,9 +62,9 @@ const EducationCard = () => {
               // variant="h1"
               sx={{
                 fontSize: '14px',
-                fontWeight: '600',
+                // fontWeight: '600',
                 color: 'rgba(255, 255, 255, 1)',
-                lineHeight: '23.6px',
+                lineHeight: '22px',
                 textAlign: 'start',
                 mt: '230px',
                 maxWidth: '690px',

@@ -17,13 +17,23 @@ const DailyCoverageCard = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const iconVariants = {
+    hidden: { opacity: 1, rotate: 0 },
+    visible: { opacity: 1, rotate: 45 },
+  };
+
   return (
     <>
       <Box
         sx={{
           backgroundImage: !active
-            ? `url('/images/platform/examination.png')`
-            : '',
+            ? `linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)`
+            : 'linear-gradient(116.74deg, #F77F21 -4.07%, #F77F21 100.68%)',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -32,7 +42,7 @@ const DailyCoverageCard = () => {
           height: 'auto',
           borderRadius: '32px',
           position: 'relative',
-          background: active ? '#F77F21' : '',
+          transition: 'background 0.5s ease-in-out',
         }}
       >
         <Typography
@@ -58,27 +68,31 @@ const DailyCoverageCard = () => {
           }}
         >
           {!active && (
-            <Image src={exam} alt="daily coverage" width={150} height={150} />
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={imageVariants}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+            >
+              <Image src={exam} alt="daily coverage" width={150} height={150} />
+            </motion.div>
           )}
           <motion.div
-            key={active ? 'active' : 'inactive'} // Use a key to force remounting
+            key={active ? 'active' : 'inactive'}
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
           >
             {active && (
               <Typography
-                variant="h1"
                 sx={{
                   fontSize: '14px',
                   color: 'rgba(255, 255, 255, 1)',
-                  mt: '125px',
+                  mt: '115px',
                   letterSpacing: 0.1,
-                  // maxWidth: '298px',
-                  lineHeight: '17.4px',
+                  lineHeight: '22px',
                   textAlign: 'start',
-                  fontWeight: '500',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -111,12 +125,15 @@ const DailyCoverageCard = () => {
             position: 'absolute',
             right: '24px',
             bottom: '28px',
-            transform: active ? 'rotate(45deg)' : '',
-            transition: '0.3s ease-in-out',
           }}
         >
-          <Box
-            sx={{
+          <motion.div
+            initial="hidden"
+            animate={active ? 'visible' : 'hidden'}
+            variants={iconVariants}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            onClick={handleClick}
+            style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -125,10 +142,9 @@ const DailyCoverageCard = () => {
               borderRadius: '100px',
               cursor: 'pointer',
             }}
-            onClick={handleClick}
           >
             <PlusIcon />
-          </Box>
+          </motion.div>
         </Box>
       </Box>
     </>
