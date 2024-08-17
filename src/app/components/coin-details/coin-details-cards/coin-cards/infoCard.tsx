@@ -86,7 +86,7 @@ const InfoCard = ({ coinDetails }: any) => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             mb: '4px',
           }}
         >
@@ -193,7 +193,7 @@ const InfoCard = ({ coinDetails }: any) => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             mb: '4px',
           }}
         >
@@ -410,7 +410,7 @@ const InfoCard = ({ coinDetails }: any) => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             mb: '4px',
           }}
         >
@@ -516,7 +516,7 @@ const InfoCard = ({ coinDetails }: any) => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             mb: '4px',
           }}
         >
@@ -559,7 +559,7 @@ const InfoCard = ({ coinDetails }: any) => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'flex-start',
+            alignItems: 'center',
           }}
         >
           <Typography
