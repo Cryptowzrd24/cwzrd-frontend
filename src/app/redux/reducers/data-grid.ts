@@ -143,14 +143,19 @@ export const dataGridApi = createApi({
       query: ({
         email,
         collection_name,
+        main,
+        ids,
       }: {
-        email: string;
+        email: string | undefined;
         collection_name: string;
+        main: boolean;
+        ids: string[];
       }) => {
+        console.log('API Call:', { email, collection_name, main, ids });
         return {
           url: `/api/favorites/`,
           method: 'POST',
-          body: { email, collection_name },
+          body: { email, collection_name, main, ids },
         };
       },
     }),

@@ -10,8 +10,10 @@ import {
   Snackbar,
   Alert,
   Stack,
+  Menu,
+  MenuItem,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -19,7 +21,11 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import Cookies from 'js-cookie';
 import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
+
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
 const HeroContent = () => {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const [active, setActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [emailStored, setEmailStored] = useState('');
@@ -30,9 +36,15 @@ const HeroContent = () => {
   // const [modalContent, setModalContent] = useState({ title: '', icon: null });
   const [isMainWatchlist, setIsMainWatchlist] = useState(false);
   const [addWatchlist] = useAddWatchlistMutation();
+  const [emailExistError, setEmailExistError] = useState('');
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [watchListNames, setWatchListNames] = useState([]);
+  const [selectedWatchNameList, setSelectedWatchNameList] = useState('');
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const [reload, setReload] = useState(false);
 
   const handleStarClick = () => {
-    setIsMainWatchlist((prev) => !prev);
+    setIsMainWatchlist(true);
   };
   const handleWatchlistNameChange = (event: any) => {
     setWatchlistName(event.target.value);
@@ -77,27 +89,56 @@ const HeroContent = () => {
     }
   };
 
-  const handleCreateWatchlist = async () => {
-    console.log('handleCreateWatchlist called');
-    console.log('emailStored:', emailStored);
-    console.log('watchlistName:', watchlistName);
+  const coindIdsString = Cookies.get('favorites') || '[]';
+  const coinIdsArray = JSON.parse(coindIdsString).map((id: any) =>
+    id.toString(),
+  );
 
+  const handleCreateWatchlist = async () => {
     if (!emailStored) {
-      console.log('Storing email:', searchTerm);
-      Cookies.set('watchlistEmail', searchTerm, { expires: 7 });
-      setEmailStored(searchTerm);
-      setSearchTerm('');
+      try {
+        // Call the API to check if the email exists
+        const response = await fetch(
+          `${baseUrl}api/favorites/check-email?email=${searchTerm}`,
+        );
+
+        if (response.status === 404) {
+          // If the email does not exist, store it in cookies and proceed
+          Cookies.set('watchlistEmail', searchTerm, { expires: 7 });
+          try {
+            await addWatchlist({
+              email: searchTerm,
+              collection_name: 'My Favorite Coin',
+              main: true,
+              ids: coinIdsArray,
+            }).unwrap();
+            setReload(true);
+          } catch (error) {
+            console.error('Failed to create watchlist:', error);
+          }
+          setEmailStored(searchTerm);
+          setSearchTerm('');
+
+          // Optionally, you can do something else here after setting the email
+          console.log('Email not found, stored in cookies and proceeding...');
+        } else if (response.status === 200) {
+          // Handle the case where the email is found
+          setEmailExistError('Email already exists. Try another email');
+          console.log('Email already exists.');
+        } else {
+          console.log(`Unexpected response: ${response.status}`);
+        }
+      } catch (error) {
+        console.error('Error checking email:', error);
+      }
     } else {
-      console.log('Calling API with:', {
-        email: emailStored,
-        collection_name: watchlistName,
-      });
       try {
         await addWatchlist({
           email: emailStored,
           collection_name: watchlistName,
+          main: false,
+          ids: coinIdsArray,
         }).unwrap();
-
         setToastOpen(true);
         setSearchTerm('');
         setWatchlistName('');
@@ -108,6 +149,89 @@ const HeroContent = () => {
     }
   };
 
+  function getCoinIdsByCollectionName(data: any, collectionName: any) {
+    // Find the collection object that matches the given collectionName
+    const collection = data?.find(
+      (item: any) => item.collection_name === collectionName,
+    );
+
+    // If collection is found, extract the coin_ids and return them as an array of strings
+    if (collection) {
+      return collection.coins.map((coin: any) => coin.coin_id.toString());
+    }
+
+    // If no matching collection is found, return an empty array
+    return [];
+  }
+
+  const coinIdsForMain = getCoinIdsByCollectionName(
+    watchListNames,
+    selectedWatchNameList,
+  );
+
+  const handleAddMainWatchList = async () => {
+    try {
+      await addWatchlist({
+        email: Cookies.get('watchlistEmail'),
+        collection_name: selectedWatchNameList,
+        main: true,
+        ids: coinIdsForMain,
+      }).unwrap();
+      handleStarClick();
+      setActive(false);
+    } catch (error) {
+      console.error('Failed to create watchlist:', error);
+    }
+  };
+
+  const handleIconClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleIconClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleSelectedWatchList = (val: string) => {
+    setSelectedWatchNameList(val);
+    handleClose();
+  };
+
+  // Close the dropdown when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        handleIconClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
+
+  useEffect(() => {
+    const fetchWatchListNames = async () => {
+      if (Cookies.get('watchlistEmail')) {
+        try {
+          const response = await fetch(
+            `${baseUrl}api/favorites?email=${Cookies.get('watchlistEmail')}`,
+          );
+          const data = await response.json();
+          console.log(data.collections);
+          setWatchListNames(data.collections);
+        } catch (error) {
+          console.error('Error checking email:', error);
+        }
+      }
+    };
+    fetchWatchListNames();
+  }, [isMainWatchlist, reload, toastOpen]);
+
   return (
     <>
       <Box
@@ -117,19 +241,120 @@ const HeroContent = () => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-5px' }}>
-          My{' '}
-          <span
-            style={{
-              backgroundImage:
-                'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
+        {!Cookies.get('watchlistEmail') && (
+          <Typography
+            variant="h1"
+            sx={{ maxWidth: '960px', marginTop: '-5px' }}
           >
-            Favorite Coins
-          </span>{' '}
-        </Typography>
+            <span
+              style={{
+                backgroundImage:
+                  'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              My Favorite Coins
+            </span>{' '}
+          </Typography>
+        )}
+        {/* watchList dropdwon */}
+        {Cookies.get('watchlistEmail') && (
+          <div ref={dropdownRef}>
+            <Button
+              aria-controls="watchlist-menu"
+              aria-haspopup="true"
+              onClick={handleIconClick}
+              endIcon={<ArrowDropDownIcon />}
+              sx={{ textTransform: 'none' }} // To keep the button text as-is
+            >
+              <Typography
+                variant="h1"
+                sx={{ maxWidth: '960px', marginTop: '-5px' }}
+              >
+                {' '}
+                <span
+                  style={{
+                    backgroundImage:
+                      'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  {selectedWatchNameList === 'My Favorite Coins' ||
+                  selectedWatchNameList === ''
+                    ? 'My Favorite Coins'
+                    : selectedWatchNameList}
+                </span>{' '}
+              </Typography>
+            </Button>
+            <Menu
+              id="watchlist-menu"
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              PaperProps={{
+                elevation: 3,
+                sx: {
+                  mt: 1,
+                  borderRadius: '8px',
+                  padding: '5px 10px 15px 10px',
+                  minWidth: '240px',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                },
+              }}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+            >
+              {watchListNames?.map((collection: any, index: any) => (
+                <MenuItem
+                  key={index}
+                  onClick={() =>
+                    handleSelectedWatchList(collection.collection_name)
+                  }
+                  sx={{
+                    height: '40px',
+                    padding: '8px 10px',
+                    display: 'flex',
+                    justifyContent: 'flex-start !important',
+                    '&:hover': {
+                      height: '40px',
+                      backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                      borderRadius: '8px',
+                    },
+                  }}
+                >
+                  <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                    {collection.collection_name}
+                  </Typography>
+                  {collection.main && (
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        ml: 1,
+                        backgroundColor: '#3f51b5',
+                        color: 'white',
+                        borderRadius: '4px',
+                        padding: '2px 8px',
+                        fontSize: '12px',
+                        fontWeight: 500,
+                      }}
+                    >
+                      Main
+                    </Typography>
+                  )}
+                </MenuItem>
+              ))}
+            </Menu>
+          </div>
+        )}
+        {/* watchList dropdwon */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Button
             variant="contained"
@@ -146,15 +371,15 @@ const HeroContent = () => {
             variant="text"
             sx={{
               // fontSize: '24px',
-              borderRadius: '56px',
-              padding: '8px 12px',
+              borderRadius: '50px',
+              padding: '8px 10px',
               background: 'rgba(17, 17, 17, 0.2)',
               letterSpacing: '2px',
               fontWeight: 'bold',
             }}
             onClick={handleMoreOptionsClick}
           >
-            ...
+            <div style={{ marginBottom: '5px' }}>...</div>
           </Button>
         </Box>
       </Box>
@@ -256,12 +481,12 @@ const HeroContent = () => {
           <Typography
             variant="caption"
             sx={{
-              color: '#A6B0C3',
+              color: emailExistError !== '' ? 'red' : '#A6B0C3',
               fontSize: '12px',
               display: 'block',
             }}
           >
-            0-32 characters
+            {emailExistError !== '' ? emailExistError : '0-32 characters'}
           </Typography>
           <Button
             variant="contained"
@@ -357,7 +582,7 @@ const HeroContent = () => {
               },
               padding: '8px',
             }}
-            onClick={handleStarClick}
+            onClick={handleAddMainWatchList}
           >
             {isMainWatchlist ? (
               <StarIcon sx={{ mr: 1 }} />
