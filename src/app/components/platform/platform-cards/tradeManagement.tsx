@@ -22,11 +22,11 @@ const TradeManagement = () => {
   const backgroundVariants = {
     active: {
       backgroundColor: '#ffffff',
-      transition: { duration: 0.5 }, // Adjust the duration as needed
+      transition: { duration: 0.2, ease: 'easeInOut' },
     },
     inactive: {
       backgroundColor: '#000000',
-      transition: { duration: 0.5 }, // Adjust the duration as needed
+      transition: { duration: 0.2, ease: 'easeInOut' },
     },
   };
 
@@ -34,10 +34,6 @@ const TradeManagement = () => {
     <>
       <MotionBox
         sx={{
-          backgroundImage: !active ? `url('/images/platform/trade.png')` : '',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
           padding: '32px 48px 48px 32px',
           width: '100%',
           height: '390px',
@@ -45,6 +41,7 @@ const TradeManagement = () => {
           flex: 1,
           position: 'relative',
           background: 'inherit',
+          transition: 'all 0.3s ease-in-out',
         }}
         variants={backgroundVariants}
         animate={active ? 'active' : 'inactive'}
@@ -58,18 +55,24 @@ const TradeManagement = () => {
             textTransform: 'uppercase',
             mb: '32px',
             letterSpacing: '1px',
+            transition: 'color 0.3s ease-in-out',
           }}
         >
           Complete Trade management
         </Typography>
-        <Box sx={{ paddingLeft: !active ? '32px' : '0' }}>
+        <Box
+          sx={{
+            paddingLeft: !active ? '32px' : '0',
+            transition: 'padding-left 0.3s ease-in-out',
+          }}
+        >
           {!active && <Image src={trade} alt="trade" width={80} height={80} />}
           <motion.div
             key={active ? 'active' : 'inactive'}
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
           >
             {active ? (
               <Typography
@@ -81,6 +84,8 @@ const TradeManagement = () => {
                   mt: '145px',
                   letterSpacing: 0.1,
                   lineHeight: '22px',
+                  transition: 'color 0.3s ease-in-out',
+                  fontWeight: '400',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -100,6 +105,7 @@ const TradeManagement = () => {
                   letterSpacing: 0.1,
                   maxWidth: '298px',
                   lineHeight: '44px',
+                  transition: 'color 0.3s ease-in-out',
                 }}
               >
                 Sit back as our experts handle trades, <br />
@@ -109,6 +115,7 @@ const TradeManagement = () => {
                       'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
+                    transition: 'background-image 0.3s ease-in-out', // Smooth gradient transition
                   }}
                 >
                   maximizing profits.
@@ -125,7 +132,7 @@ const TradeManagement = () => {
             right: '24px',
             bottom: '24px',
             transform: active ? 'rotate(45deg)' : '',
-            transition: '0.3s ease-in-out',
+            transition: 'transform 0.3s ease-in-out', // Smooth rotation transition
           }}
         >
           <Box
@@ -137,6 +144,7 @@ const TradeManagement = () => {
               background: !active ? '#FFFFFF' : '#000',
               borderRadius: '100px',
               cursor: 'pointer',
+              transition: 'background 0.3s ease-in-out', // Smooth background color transition
             }}
             onClick={handleClick}
           >

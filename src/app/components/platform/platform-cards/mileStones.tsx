@@ -4,35 +4,30 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
+const MotionBox = motion(Box); // Create a motion-enabled Box component
+
 const MileStones = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
   };
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <>
-      <Box
+      <MotionBox
         sx={{
-          backgroundImage: !active
-            ? `url('/images/platform/milestone.png')`
-            : '',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
           padding: '32px 48px 48px 32px',
           width: '100%',
           height: '390px',
           borderRadius: '32px',
           position: 'relative',
           flex: 1,
-          background: active ? 'rgb(113, 77, 195)' : '',
+          transition: 'background 0.1s ease-in-out, transform 0.5s ease-in-out', // Ensure smooth background transition
+          background: active
+            ? 'rgb(113, 77, 195)'
+            : "url('/images/platform/milestone.png') no-repeat center/cover", // Background shorthand for seamless transition
         }}
+        onClick={handleClick}
       >
         <Typography
           variant="body1"
@@ -43,30 +38,30 @@ const MileStones = () => {
             textTransform: 'uppercase',
             mb: '32px',
             letterSpacing: '1px',
+            transition: 'color 0.5s ease-in-out', // Smooth color transition
           }}
         >
           Milestones
         </Typography>
         <motion.div
           key={active ? 'active' : 'inactive'}
-          initial="hidden"
-          animate="visible"
-          variants={textVariants}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }} // Smooth text transition
           style={{
             paddingLeft: active ? '0' : '32px',
+            transition: 'padding-left 0.5s ease-in-out', // Smooth padding transition
           }}
         >
           {active ? (
             <Typography
-              // variant="h1"
               sx={{
                 fontSize: '14px',
                 color: 'rgba(255, 255, 255, 1)',
                 mt: '145px',
                 letterSpacing: 0.1,
-                // maxWidth: '298px',
                 lineHeight: '22px',
+                transition: 'color 0.5s ease-in-out', // Smooth color transition
               }}
             >
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -84,6 +79,7 @@ const MileStones = () => {
                 letterSpacing: 0.1,
                 maxWidth: '298px',
                 lineHeight: '44px',
+                transition: 'color 0.5s ease-in-out', // Smooth color transition
               }}
             >
               The Smallest trading community
@@ -99,7 +95,7 @@ const MileStones = () => {
             right: '24px',
             bottom: '24px',
             transform: active ? 'rotate(45deg)' : '',
-            transition: '0.3s ease-in-out',
+            transition: 'transform 0.3s ease-in-out', // Smooth rotation transition
           }}
         >
           <Box
@@ -108,16 +104,17 @@ const MileStones = () => {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '8px',
-              background: !active ? '#FFFFFF' : '#FFFFFF',
+              background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',
+              transition: 'background 0.5s ease-in-out', // Smooth background color transition
             }}
             onClick={handleClick}
           >
             <PlusIcon active={false} />
           </Box>
         </Box>
-      </Box>
+      </MotionBox>
     </>
   );
 };
