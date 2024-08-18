@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Logo from '../../../../public/icons/logo';
 import { NavbarData } from './data';
 import LightmodeIcon from '../../../../public/icons/Navbar-Section/lightmode';
@@ -8,10 +8,39 @@ import ProfileIcon from '../../../../public/icons/Navbar-Section/profile';
 import SearchIcon from '../../../../public/icons/Navbar-Section/search';
 import { Box, Container, Typography } from '@mui/material';
 import Link from 'next/link';
+import { useAppDispatch } from '@/app/redux/store';
+import { setMainWatchFavorites, updateFavorites } from '@/app/redux/market';
+import Cookies from 'js-cookie';
 
 function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [isActive, setIsActive] = useState<string | null>('light');
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    // Update favorites from cookies
+    const favorites = JSON.parse(
+      Cookies.get('favorites') === 'null' ||
+        Cookies.get('favorites') === undefined
+        ? '[]'
+        : (Cookies.get('favorites') as string),
+    );
+    const mainWatchFavorites = JSON.parse(
+      Cookies.get('mainWatchFavorites') === 'null' ||
+        Cookies.get('mainWatchFavorites') === undefined
+        ? '[]'
+        : (Cookies.get('mainWatchFavorites') as string),
+    );
+    dispatch(updateFavorites(favorites));
+    dispatch(setMainWatchFavorites(mainWatchFavorites));
+
+    // Set activeId based on current pathname
+    NavbarData.forEach((item) => {
+      if (window.location.pathname.includes(item.name.toLowerCase())) {
+        setActiveId(item.id);
+      }
+    });
+  }, []);
 
   return (
     <Container maxWidth="xl">
@@ -46,11 +75,10 @@ function Navbar() {
                         activeId === item.id
                           ? '#7248F7'
                           : 'rgba(17, 17, 17, 1)',
-                      fontWeight: activeId === item.id ? '500' : '400',
                       cursor: 'pointer',
                       transition: 'transform 0.1s ease-in-out',
-                      transform:
-                        activeId === item.id ? 'scale(1.1)' : 'scale(1)',
+                      fontWeight: 500,
+                      letterSpacing: '0.7px',
                     }}
                     onClick={() => setActiveId(item.id)}
                   >
@@ -74,11 +102,10 @@ function Navbar() {
                         activeId === item.id
                           ? '#7248F7'
                           : 'rgba(17, 17, 17, 1)',
-                      fontWeight: activeId === item.id ? '500' : '400',
                       cursor: 'pointer',
                       transition: 'transform 0.1s ease-in-out',
-                      transform:
-                        activeId === item.id ? 'scale(1.1)' : 'scale(1)',
+                      fontWeight: 500,
+                      letterSpacing: '0.7px',
                     }}
                     onClick={() => setActiveId(item.id)}
                   >

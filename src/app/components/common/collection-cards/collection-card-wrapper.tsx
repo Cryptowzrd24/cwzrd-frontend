@@ -7,25 +7,21 @@ import { getGraphColor } from '@/app/helpers/functions';
 import CardChartBar from './card-chart-bar';
 function CollectionCardWrapper({ headerName, tooltipName, type }: any) {
   const [selectedTab, setSelectedTab] = useState('24h');
-  const areachartData = [
-    { x: 1, y: 5 },
-    { x: 2, y: 10 },
-    { x: 3, y: 15 },
-    { x: 4, y: 8 },
-    { x: 5, y: 1 },
-    { x: 6, y: 6 },
-    { x: 7, y: 2 },
-    { x: 8, y: 3 },
-    { x: 9, y: 9 },
-    { x: 10, y: 7 },
-    { x: 11, y: 1 },
-    { x: 12, y: 12 },
-    { x: 13, y: 2 },
-    { x: 14, y: 5 },
-    { x: 15, y: 1 },
-    { x: 16, y: 15 },
-    { x: 17, y: 7 },
+  const data = [
+    [Date.UTC(2024, 7, 18, 0, 0), 300000],
+    [Date.UTC(2024, 7, 18, 2, 0), 200000],
+    [Date.UTC(2024, 7, 18, 4, 0), 250000],
+    [Date.UTC(2024, 7, 18, 6, 0), 320000],
+    [Date.UTC(2024, 7, 18, 8, 0), 280000],
+    [Date.UTC(2024, 7, 18, 10, 0), 350000],
+    [Date.UTC(2024, 7, 18, 12, 0), 420000],
+    [Date.UTC(2024, 7, 18, 14, 0), 390000],
+    [Date.UTC(2024, 7, 18, 16, 0), 430000],
+    [Date.UTC(2024, 7, 18, 18, 0), 370000],
+    [Date.UTC(2024, 7, 18, 20, 0), 450000],
+    [Date.UTC(2024, 7, 18, 22, 0), 400000],
   ];
+
   const value = { data: '51.88', postfix: '%' };
   return (
     <>
@@ -39,19 +35,18 @@ function CollectionCardWrapper({ headerName, tooltipName, type }: any) {
         <div
           style={{
             height: '145px',
-            marginRight: '4px',
             marginTop: '20px',
           }}
         >
           {type === 'area' ? (
             <CardChartArea
-              data={areachartData}
+              data={data}
               color={getGraphColor(6.32)}
               percent={value?.postfix ? true : false}
             />
           ) : (
             <CardChartBar
-              data={areachartData}
+              data={data}
               color={getGraphColor(6.32)}
               percent={value?.postfix ? true : false}
               headerName={headerName}

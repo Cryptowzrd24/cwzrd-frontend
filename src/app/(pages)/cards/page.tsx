@@ -71,7 +71,13 @@ const Components = () => {
           alignItems: 'center',
         }}
       >
-        <div style={{ display: 'flex', gap: '20px', marginBottom: '40px' }}>
+        <div
+          style={{
+            display: 'flex',
+            gap: '20px',
+            marginBottom: '40px',
+          }}
+        >
           <CollectionCardWrapper
             headerName={'Market Cap'}
             tooltipName={'Market_cap'}

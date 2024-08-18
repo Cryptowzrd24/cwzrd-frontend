@@ -95,7 +95,7 @@ const CandlestickChart: React.FC = () => {
         const plotTop: any = chart.plotTop;
         const plotWidth: any = chart.plotWidth;
         let tooltipX: any = point.plotX + plotLeft - labelWidth / 2;
-        let tooltipY: any = point.plotY + plotTop - labelHeight - 10;
+        let tooltipY: any = point.plotY + plotTop - labelHeight - 20; // Move tooltip higher by 20 more pixels
 
         if (tooltipX < plotLeft) {
           tooltipX = plotLeft;
@@ -119,13 +119,15 @@ const CandlestickChart: React.FC = () => {
         const low = point.low;
         const close = point.close;
         return `
-          <div style="display: flex; flex-direction: column; align-items: start; justify-content: center; 
-           background: rgba(255, 255, 255, 0.75); 
-           border-radius: 8px; 
-           padding: 4px 8px; 
-           font-size: 11px; 
+          <div style="display: flex; flex-direction: column; align-items: start; justify-content: center;
+           background: rgba(255, 255, 255, 0.85);
+           border-radius: 8px;
+           padding: 4px 8px;
+           font-size: 11px;
            font-weight: 400;
-           color: #111111;">
+           color: #111111;
+           margin-top: -70px;
+           ">
             <div style="margin-bottom: 2px;"><strong>Open:</strong> $${open}</div>
             <div style="margin-bottom: 2px;"><strong>High:</strong> $${high}</div>
             <div style="margin-bottom: 2px;"><strong>Low:</strong> $${low}</div>
