@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import VerifiedGreen from '../../../../../public/icons/coin-details/verifiedGreen';
 import macbook from '../../../../../public/images/platform/MacBook-pro.png';
 import Image from 'next/image';
-import PlusIconBlack from '../../../../../public/icons/collections/plusIconWhite';
 import { motion } from 'framer-motion';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
@@ -44,7 +43,7 @@ const EducationCard = () => {
     visible: { opacity: 1, rotate: 45 },
   };
 
-  const loremVariants = {
+  const loremVariants: any = {
     hidden: { opacity: 0, visibility: 'hidden', y: 20, display: 'none' },
     visible: {
       opacity: 1,

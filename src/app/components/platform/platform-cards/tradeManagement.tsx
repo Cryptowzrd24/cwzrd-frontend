@@ -46,7 +46,7 @@ const TradeManagement = () => {
     },
   };
 
-  const loremVariants = {
+  const loremVariants: any = {
     hidden: { opacity: 0, visibility: 'hidden', y: 20 },
     visible: {
       opacity: 1,

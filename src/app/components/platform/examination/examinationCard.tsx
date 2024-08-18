@@ -2,7 +2,6 @@
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
 const ExaminationCard = () => {
@@ -40,12 +39,7 @@ const ExaminationCard = () => {
     },
   };
 
-  const iconVariants = {
-    hidden: { opacity: 1, rotate: 0 },
-    visible: { opacity: 1, rotate: 45 },
-  };
-
-  const loremVariants = {
+  const loremVariants: any = {
     hidden: { opacity: 0, visibility: 'hidden', y: 20, display: 'none' },
     visible: {
       opacity: 1,

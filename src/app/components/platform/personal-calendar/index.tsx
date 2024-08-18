@@ -44,7 +44,7 @@ const PersonalCalendar = () => {
     visible: { opacity: 1, rotate: 45, filter: 'invert(0)' },
   };
 
-  const loremVariants = {
+  const loremVariants: any = {
     hidden: { opacity: 0, visibility: 'hidden', y: 20, display: 'none' },
     visible: {
       opacity: 1,

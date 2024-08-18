@@ -1,8 +1,6 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import vector from '../../../../../public/images/platform/vector.png';
-import Image from 'next/image';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 import { motion } from 'framer-motion';
 
@@ -10,11 +8,6 @@ const ProfitableCard = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
   };
 
   const backgroundVariants = {
@@ -41,7 +34,7 @@ const ProfitableCard = () => {
     },
   };
 
-  const loremVariants = {
+  const loremVariants: any = {
     hidden: { opacity: 0, visibility: 'hidden', y: 20, display: 'none' },
     visible: {
       opacity: 1,
