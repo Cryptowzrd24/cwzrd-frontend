@@ -76,6 +76,7 @@ function HeroContent() {
               gap: '10px',
               alignItems: 'center',
               justifyContent: 'center',
+              marginTop: '16px',
             }}
           >
             <CollectionCardWrapper

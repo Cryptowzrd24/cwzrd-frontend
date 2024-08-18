@@ -1,23 +1,15 @@
 'use client';
-import { Box, MenuItem, Select, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import SliderIconBlue from '../../../../public/icons/coin-details/sliderIconBlue';
 
 const CoinNavbar = () => {
   const [activeHeading, setActiveHeading] = useState('Overview');
-  const [currencies, setCurrencies] = useState<any>({
-    Buy: '',
-    Exchange: '',
-    Gaming: '',
-    Earn: '',
-  });
-
-  const handleChange = (event: any, option: any) => {
-    setCurrencies({
-      ...currencies,
-      [option]: event.target.value,
-    });
-  };
+  // const [currencies, setCurrencies] = useState<any>({
+  //   Buy: '',
+  //   Exchange: '',
+  //   Gaming: '',
+  //   Earn: '',
+  // });
 
   const handleHeadingClick = (heading: any) => {
     setActiveHeading(heading);
@@ -44,7 +36,7 @@ const CoinNavbar = () => {
     }
   };
 
-  const options = ['Buy', 'Exchange', 'Gaming', 'Earn'];
+  // const options = ['Buy', 'Exchange', 'Gaming', 'Earn'];
   const headings = [
     'Overview',
     'About',
@@ -55,13 +47,13 @@ const CoinNavbar = () => {
     'Historical Data',
   ];
 
-  const CustomSelectIcon = () => {
-    return (
-      <div style={{ width: '8px', marginTop: '2px' }}>
-        <SliderIconBlue />
-      </div>
-    );
-  };
+  // const CustomSelectIcon = () => {
+  //   return (
+  //     <div style={{ width: '8px', marginTop: '2px' }}>
+  //       <SliderIconBlue />
+  //     </div>
+  //   );
+  // };
 
   return (
     <Box
@@ -99,60 +91,6 @@ const CoinNavbar = () => {
           >
             {heading}
           </Typography>
-        ))}
-      </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          gap: '8px',
-          alignItems: 'center',
-        }}
-      >
-        {options.map((option) => (
-          <Select
-            key={option}
-            value={currencies[option]}
-            onChange={(event) => handleChange(event, option)}
-            displayEmpty
-            inputProps={{ 'aria-label': 'Without label' }}
-            IconComponent={CustomSelectIcon} // Use the custom icon component
-            sx={{
-              border: 'none',
-              background: 'rgba(114, 72, 247, 0.1)',
-              fontSize: '11px',
-              fontWeight: '500',
-              color: 'rgba(114, 72, 247, 1)',
-              display: 'flex',
-              gap: '3px',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              padding: '10px 10px 10px 12px',
-              '& .MuiSelect-select': {
-                padding: '0 !important',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              },
-              '& .MuiOutlinedInput-notchedOutline': {
-                border: 'none',
-              },
-              '& .MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input': {
-                paddingRight: '0',
-              },
-              '& .MuiSvgIcon-root': {
-                color: 'rgba(17, 17, 17, 1)',
-              },
-            }}
-          >
-            <MenuItem value="" key="">
-              <Box>{option}</Box>
-            </MenuItem>
-            {['option1', 'option2', 'option3'].map((opt) => (
-              <MenuItem value={opt} key={opt}>
-                <Box>{opt}</Box>
-              </MenuItem>
-            ))}
-          </Select>
         ))}
       </Box>
     </Box>

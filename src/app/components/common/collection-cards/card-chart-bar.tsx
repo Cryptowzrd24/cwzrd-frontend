@@ -12,16 +12,23 @@ const CardChartBar = (props: any) => {
       type: 'column',
       plotBorderWidth: 0,
       plotMarginBottom: 0,
+      height: 168,
+      width: 394,
     },
     xAxis: {
+      type: 'datetime',
       labels: {
         enabled: true,
+        format: '{value:%H:%M}', // Shortened format to show only hours and minutes
         style: {
-          fontSize: '12px',
+          fontSize: '10px', // Slightly reduce font size to fit more labels
           fontFamily: 'Sf Pro Display',
           color: 'rgba(17, 17, 17, 0.4)',
         },
+        rotation: 0, // Prevent rotation for better readability
+        align: 'center', // Align the labels to the center
       },
+      tickInterval: 3 * 3600 * 1000, // Set tick interval to 3 hours for better spacing
       title: {
         text: null,
       },
@@ -29,12 +36,12 @@ const CardChartBar = (props: any) => {
       gridLineWidth: 0,
       lineColor: 'transparent',
       crosshair: {
-        // Enable crosshair for y-axis
-        width: 1,
+        width: 0,
         color: 'rgba(17, 17, 17, 0.4)',
         dashStyle: 'longdash', // Style as dotted
       },
     },
+
     title: {
       text: null,
     },
@@ -106,19 +113,21 @@ const CardChartBar = (props: any) => {
       shadow: false,
       style: {},
       formatter: function () {
-        // const point: any = (this as any)?.point;
-        // const yValue = point.y;
-        return `<div style="padding: 16px; border-radius: 8px; background: white; box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 230px; max-height: 194px;">
-                <div style="display: flex; justify-content: space-between; padding-bottom: 16px;">
-                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">Aug 11, 2024</div>
-                  <div style="font-size: 14px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.6);">10:30 AM</div>
+        const date = Highcharts.dateFormat('%b %e, %Y', (this as any).x);
+        const time = Highcharts.dateFormat('%H:%M %p', (this as any).x);
+        const value = Highcharts.numberFormat((this as any).y, 2);
+
+        return `<div style="padding: 8px; border-radius: 8px; background: white; box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 180px; max-height: 150px;">
+                <div style="display: flex; justify-content: space-between; padding-bottom: 8px;">
+                  <div style="font-size: 12px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${date}</div>
+                  <div style="font-size: 12px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.6);">${time}</div>
                 </div>
-                <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                <div style="display: flex; justify-content: start; gap:10px">
-                <div style='width:16px; height:16px; background-color:#7248F7; border-radius:50%'></div>
-                  <div style="font-size: 14px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.8)">${headerName}:</div>
+                <div style="display: flex; justify-content: space-between; padding-top: 4px;">
+                <div style="display: flex; justify-content: start; gap:6px">
+                <div style='width:12px; height:12px; background-color:#7248F7; border-radius:50%'></div>
+                  <div style="font-size: 12px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.8)">${headerName}:</div>
                 </div>
-                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase;">$96,789.80</div>
+                  <div style="font-size: 12px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase;">$${value}</div>
                 </div>
               </div>`;
       },
@@ -130,37 +139,42 @@ const CardChartBar = (props: any) => {
         const chart: any = (this as any)?.chart;
         const plotX: any = point.plotX + chart.plotLeft;
         const plotY: any = point.plotY + chart.plotTop;
-        const cursorPadding = 10;
+        const cursorPadding = 5; // Padding to keep tooltip close but not overlapping with cursor
 
-        let x = plotX + cursorPadding; // Default position to the right
-        let y = plotY - labelHeight / 2;
+        let x = plotX + cursorPadding; // Default position to the right of the cursor
+        let y = plotY - labelHeight - cursorPadding; // Default position above the cursor
 
-        // Adjust position to the left if the tooltip goes out of bounds
+        // Adjust x position if tooltip would overflow the chart's width
         if (x + labelWidth > chart.plotLeft + chart.plotWidth) {
-          x = plotX - labelWidth - cursorPadding;
+          x = plotX - labelWidth - cursorPadding; // Move to the left of the cursor
+        } else if (x < chart.plotLeft) {
+          x = plotX + cursorPadding; // Move to the right within the bounds
         }
 
-        // Ensure tooltip stays within chart bounds on x-axis
-        if (x < chart.plotLeft) {
-          x = chart.plotLeft;
-        }
-
-        // Ensure tooltip stays within chart bounds on y-axis
+        // Adjust y position if tooltip would overflow the chart's height
         if (y < chart.plotTop) {
-          y = chart.plotTop;
+          y = plotY + cursorPadding; // Move below the cursor
         } else if (y + labelHeight > chart.plotTop + chart.plotHeight) {
-          y = chart.plotTop + chart.plotHeight - labelHeight;
+          y = chart.plotTop + chart.plotHeight - labelHeight - cursorPadding; // Keep within the bottom bounds
+        }
+
+        // Adjust y position to avoid cursor overlap, switching direction if necessary
+        if (y < plotY && y + labelHeight > plotY) {
+          y = plotY + cursorPadding; // Position below if too close to the cursor
+        } else if (y > plotY && y < plotY + cursorPadding) {
+          y = plotY - labelHeight - cursorPadding; // Position above if below the cursor
         }
 
         return { x, y };
       },
-      outside: false,
+
+      outside: true,
     },
   };
 
   useEffect(() => {
     if (chartRef.current) {
-      chartRef.current?.chart.setSize(undefined, 190);
+      chartRef.current?.chart.setSize(394, 168);
       const innerDiv = chartRef.current.container.current.querySelector('div');
       if (innerDiv) {
         innerDiv.style.height = 'auto';
@@ -172,7 +186,7 @@ const CardChartBar = (props: any) => {
   }, []);
 
   return (
-    <div style={{ width: '95%' }}>
+    <div style={{ width: '100%' }}>
       <HighchartsReact
         ref={chartRef}
         highcharts={Highcharts}

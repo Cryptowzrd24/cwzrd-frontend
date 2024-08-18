@@ -5,9 +5,9 @@ import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
 import { useFetchFavoritesDataQuery } from '@/app/redux/reducers/data-grid';
 import { useSelector } from 'react-redux';
-import Cookies from 'js-cookie';
+import { useAppSelector } from '@/app/redux/store';
 
-const Table = () => {
+const Table = ({}) => {
   const [search] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage] = useState(1);
@@ -15,16 +15,11 @@ const Table = () => {
   const [pageSize] = useState<number>(10);
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const filters = useSelector((state: any) => state.filters.filters);
+  const { favorites } = useAppSelector((state) => state.market);
 
-  const favoriteIds = Cookies.get('favorites')
-    ? JSON.parse(Cookies.get('favorites') as string).join(',')
-    : '';
+  const favoriteIds = favorites ? favorites.join(',') : '';
 
-  const favoriteCount = Cookies.get('favorites')
-    ? JSON.parse(Cookies.get('favorites') as string).length
-    : 0;
-
-  const { data } = useFetchFavoritesDataQuery({
+  const { data, error } = useFetchFavoritesDataQuery({
     id: favoriteIds,
   });
 
@@ -32,6 +27,15 @@ const Table = () => {
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
+    console.log(favoriteIds);
+    if (!favoriteIds) {
+      setRowData([]);
+      return;
+    }
+    if ((error as any)?.status === 400) {
+      setRowData([]);
+      return;
+    }
     if (data && data.data) {
       const startIndex = (currentPage - 1) * pageSize + 1;
       const res = data.data.map((item: any, index: number) => ({
@@ -51,7 +55,7 @@ const Table = () => {
       }));
       setRowData(res);
     }
-  }, [data, currentPage, itemStart, pageSize, filters]);
+  }, [data, currentPage, itemStart, pageSize, filters, error]);
 
   return (
     <>
@@ -66,7 +70,7 @@ const Table = () => {
           letterSpacing: '0.4px',
         }}
       >
-        {favoriteCount} {favoriteCount === 1 ? 'coin' : 'coins'} in total
+        {favorites.length} {favorites.length === 1 ? 'coin' : 'coins'} in total
       </div>
       <div className="data-table-wrapper">
         <div

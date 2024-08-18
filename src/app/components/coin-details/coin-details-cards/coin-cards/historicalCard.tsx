@@ -4,7 +4,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import SmallDetails from '../../../../../../public/icons/coin-details/smallDetails';
 import LikeBlueIcon from '../../../../../../public/icons/coin-details/likeBlue';
 import DislikeBlueIcon from '../../../../../../public/icons/coin-details/dislikeBlue';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
@@ -113,7 +112,6 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
         }}
       >
         All-Time Low
-        <SmallDetails />
       </Typography>
       <Typography
         variant="body1"
@@ -165,7 +163,6 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
         }}
       >
         All-Time High
-        <SmallDetails />
       </Typography>
       <Typography
         variant="body1"

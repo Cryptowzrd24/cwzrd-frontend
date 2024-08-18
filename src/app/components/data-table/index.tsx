@@ -6,6 +6,7 @@ import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 import { ArrowRight } from '../../../../public/icons/arrowRight';
 import { priceNumberFormatter } from '@/utils/price-number-formater';
+import { useRouter } from 'next/navigation';
 
 interface DataTableProps {
   title?: string;
@@ -18,7 +19,6 @@ interface DataTableProps {
   getRowId?: any;
   priceRefs?: React.MutableRefObject<{ [key: string]: HTMLDivElement | null }>;
   height?: string;
-  onRowClicked?: (id: any) => void;
   rowHeight?: number;
 }
 
@@ -34,8 +34,8 @@ const DataTable = memo(
     priceRefs,
     height,
     rowHeight,
-    onRowClicked,
   }: DataTableProps) => {
+    const router = useRouter();
     const modifiedColumnDefs = useMemo(
       () =>
         columnDefs.map((colDef) => {
@@ -124,7 +124,11 @@ const DataTable = memo(
             if (gridApiRef) gridApiRef.current = params.api;
           }}
           {...(typeof getRowId !== 'undefined' ? { getRowId } : {})}
-          onRowClicked={onRowClicked}
+          onRowClicked={(event: any) => {
+            if (event?.event && event?.event?.target?.src?.includes('Star'))
+              return;
+            router.push(`/market/coin-details/${event.data.coin_id}`);
+          }}
         />
       </div>
     );
