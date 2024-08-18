@@ -64,7 +64,7 @@ function StarComponent({ coinId }: any) {
       event.stopPropagation();
 
       const isFavorite = currentFavorites.includes(String(coinId));
-      let newFavorites = isFavorite
+      const newFavorites = isFavorite
         ? currentFavorites.filter((id) => id !== String(coinId))
         : [...currentFavorites, String(coinId)];
 
@@ -88,8 +88,8 @@ function StarComponent({ coinId }: any) {
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites?email=${Cookies.get('watchlistEmail')}`,
           );
           const data = await response.json();
-          const mainCollection = Object.values(data.collections).find(
-            (collection) => collection?.main === true,
+          const mainCollection: any = Object.values(data.collections).find(
+            (collection: any) => collection?.main === true,
           );
 
           if (mainCollection) {

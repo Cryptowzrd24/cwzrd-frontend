@@ -5,10 +5,9 @@ import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
 import { useFetchFavoritesDataQuery } from '@/app/redux/reducers/data-grid';
 import { useSelector } from 'react-redux';
-import Cookies from 'js-cookie';
 import { useAppSelector } from '@/app/redux/store';
 
-const Table = ({ selectedWatchList }) => {
+const Table = ({}) => {
   const [search] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage] = useState(1);
@@ -33,7 +32,7 @@ const Table = ({ selectedWatchList }) => {
       setRowData([]);
       return;
     }
-    if (error?.status === 400) {
+    if ((error as any)?.status === 400) {
       setRowData([]);
       return;
     }

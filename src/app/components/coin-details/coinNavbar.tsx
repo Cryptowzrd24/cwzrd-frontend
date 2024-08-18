@@ -1,23 +1,15 @@
 'use client';
-import { Box, MenuItem, Select, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import SliderIconBlue from '../../../../public/icons/coin-details/sliderIconBlue';
 
 const CoinNavbar = () => {
   const [activeHeading, setActiveHeading] = useState('Overview');
-  const [currencies, setCurrencies] = useState<any>({
-    Buy: '',
-    Exchange: '',
-    Gaming: '',
-    Earn: '',
-  });
-
-  const handleChange = (event: any, option: any) => {
-    setCurrencies({
-      ...currencies,
-      [option]: event.target.value,
-    });
-  };
+  // const [currencies, setCurrencies] = useState<any>({
+  //   Buy: '',
+  //   Exchange: '',
+  //   Gaming: '',
+  //   Earn: '',
+  // });
 
   const handleHeadingClick = (heading: any) => {
     setActiveHeading(heading);
@@ -44,7 +36,7 @@ const CoinNavbar = () => {
     }
   };
 
-  const options = ['Buy', 'Exchange', 'Gaming', 'Earn'];
+  // const options = ['Buy', 'Exchange', 'Gaming', 'Earn'];
   const headings = [
     'Overview',
     'About',
@@ -55,13 +47,13 @@ const CoinNavbar = () => {
     'Historical Data',
   ];
 
-  const CustomSelectIcon = () => {
-    return (
-      <div style={{ width: '8px', marginTop: '2px' }}>
-        <SliderIconBlue />
-      </div>
-    );
-  };
+  // const CustomSelectIcon = () => {
+  //   return (
+  //     <div style={{ width: '8px', marginTop: '2px' }}>
+  //       <SliderIconBlue />
+  //     </div>
+  //   );
+  // };
 
   return (
     <Box

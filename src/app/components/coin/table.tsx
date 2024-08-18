@@ -76,17 +76,6 @@ const Table = () => {
   };
 
   useEffect(() => {
-    const handleStarClicked = () => {
-      setStarClicked(true);
-    };
-
-    window.addEventListener('starClicked', handleStarClicked);
-
-    return () => {
-      window.removeEventListener('starClicked', handleStarClicked);
-    };
-  }, []);
-  useEffect(() => {
     if (data && data.data) {
       const startIndex = (currentPage - 1) * pageSize + 1;
       const res = data.data.map((item: any, index: number) => ({

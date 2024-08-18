@@ -15,13 +15,13 @@ import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
 import { useAppDispatch, useAppSelector } from '@/app/redux/store';
 import { setMainWatchFavorites, updateFavorites } from '@/app/redux/market';
 
-const rankImages = {
+const rankImages: any = {
   1: firstRank,
   2: secondRank,
   3: thirdRank,
 };
 
-const displayIndex = (index) => {
+const displayIndex = (index: any) => {
   if (rankImages[index]) {
     return (
       <div className={styles['rank-image-div']}>
@@ -75,7 +75,7 @@ export const ID = (props: CustomCellRendererProps) => {
       event.stopPropagation();
 
       const isFavorite = currentFavorites.includes(String(coinId));
-      let newFavorites = isFavorite
+      const newFavorites = isFavorite
         ? currentFavorites.filter((id) => id !== String(coinId))
         : [...currentFavorites, String(coinId)];
 
@@ -99,8 +99,8 @@ export const ID = (props: CustomCellRendererProps) => {
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites?email=${Cookies.get('watchlistEmail')}`,
           );
           const data = await response.json();
-          const mainCollection = Object.values(data.collections).find(
-            (collection) => collection?.main === true,
+          const mainCollection: any = Object.values(data.collections).find(
+            (collection: any) => collection?.main === true,
           );
 
           if (mainCollection) {

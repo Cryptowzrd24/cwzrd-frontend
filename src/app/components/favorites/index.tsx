@@ -15,7 +15,7 @@ function Favorites() {
         />
       </Box>
       <Box sx={{ mt: '16px', mb: '48px' }}>
-        <Table selectedWatchList={selectedWatchList} />
+        <Table />
       </Box>
     </Container>
   );

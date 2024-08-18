@@ -18,15 +18,28 @@ function Navbar() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const favorites = JSON.parse((Cookies.get('favorites') as string) ?? '[]');
-    console.log(Cookies.get('mainWatchFavorites') === 'null');
+    // Update favorites from cookies
+    const favorites = JSON.parse(
+      Cookies.get('favorites') === 'null' ||
+        Cookies.get('favorites') === undefined
+        ? '[]'
+        : (Cookies.get('favorites') as string),
+    );
     const mainWatchFavorites = JSON.parse(
-      (Cookies.get('mainWatchFavorites') as string) === 'null'
+      Cookies.get('mainWatchFavorites') === 'null' ||
+        Cookies.get('mainWatchFavorites') === undefined
         ? '[]'
         : (Cookies.get('mainWatchFavorites') as string),
     );
     dispatch(updateFavorites(favorites));
     dispatch(setMainWatchFavorites(mainWatchFavorites));
+
+    // Set activeId based on current pathname
+    NavbarData.forEach((item) => {
+      if (window.location.pathname.includes(item.name.toLowerCase())) {
+        setActiveId(item.id);
+      }
+    });
   }, []);
 
   return (
