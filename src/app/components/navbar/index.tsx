@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Logo from '../../../../public/icons/logo';
 import { NavbarData } from './data';
 import LightmodeIcon from '../../../../public/icons/Navbar-Section/lightmode';
@@ -8,10 +8,20 @@ import ProfileIcon from '../../../../public/icons/Navbar-Section/profile';
 import SearchIcon from '../../../../public/icons/Navbar-Section/search';
 import { Box, Container, Typography } from '@mui/material';
 import Link from 'next/link';
+import { useAppDispatch } from '@/app/redux/store';
+import { updateFavorites } from '@/app/redux/market';
+import Cookies from 'js-cookie';
 
 function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [isActive, setIsActive] = useState<string | null>('light');
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const favorites = JSON.parse((Cookies.get('favorites') as string) ?? '[]');
+    debugger;
+    dispatch(updateFavorites(favorites));
+  }, []);
 
   return (
     <Container maxWidth="xl">

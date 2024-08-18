@@ -49,6 +49,7 @@ export const dataGridApi = createApi({
     }),
     fetchFavoritesData: builder.query({
       query: ({ id }: { id: string }) => {
+        console.log(id);
         return {
           url: `/api/coins-by-ids/?coin_ids=${id}`,
           method: 'GET',
@@ -151,7 +152,6 @@ export const dataGridApi = createApi({
         main: boolean;
         ids: string[];
       }) => {
-        console.log('API Call:', { email, collection_name, main, ids });
         return {
           url: `/api/favorites/`,
           method: 'POST',
