@@ -27,7 +27,6 @@ const HighBadge = (props: any) => {
     width: '53px',
   };
 
-  console.log(props);
   return <div style={badgeStyle}>{props?.props?.value?.toUpperCase()}</div>;
 };
 
