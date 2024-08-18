@@ -17,20 +17,30 @@ const ExportCard = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const iconVariants = {
+    hidden: { opacity: 1, rotate: 0 },
+    visible: { opacity: 1, rotate: 45 },
+  };
+
   return (
     <>
       <Box
         sx={{
           backgroundImage: !active
             ? 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)'
-            : '',
+            : 'linear-gradient(180deg, #7248F7 0%, #7248F7 100%)',
           padding: '32px 56px 32px 32px',
           maxWidth: '23.5%',
           borderRadius: '32px',
           position: 'relative',
           height: '528px',
           width: '100%',
-          background: active ? '#BF48F7' : '',
+          transition: 'background 0.5s ease-in-out',
         }}
       >
         <Typography
@@ -48,26 +58,30 @@ const ExportCard = () => {
         </Typography>
         <Box sx={{ paddingLeft: !active ? '24px' : '0' }}>
           {!active && (
-            <Image src={exam} alt="export" width={100} height={100} />
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={imageVariants}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+            >
+              <Image src={exam} alt="export" width={100} height={100} />
+            </motion.div>
           )}
           <motion.div
-            key={active ? 'active' : 'inactive'} // Use a key to force remounting
+            key={active ? 'active' : 'inactive'}
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
           >
             {active && (
               <Typography
-                variant="h1"
                 sx={{
                   fontSize: '14px',
                   color: 'rgba(255, 255, 255, 1)',
                   mt: '184px',
-                  letterSpacing: 0.7,
-                  // maxWidth: '298px',
-                  lineHeight: '18px',
-                  fontWeight: '500',
+                  letterSpacing: 0.1,
+                  lineHeight: '22px',
                   textAlign: 'start',
                 }}
               >
@@ -77,21 +91,21 @@ const ExportCard = () => {
                 of type and scrambled it to make a type specimen book
               </Typography>
             )}
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: '40px',
-                color: 'rgba(255, 255, 255, 1)',
-                mt: '74px',
-                letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
-              }}
-            >
-              {active
-                ? ''
-                : 'Easily export your saved notes into a downloadable PDF'}
-            </Typography>
+            {!active && (
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: '40px',
+                  color: 'rgba(255, 255, 255, 1)',
+                  mt: '74px',
+                  letterSpacing: 0.1,
+                  maxWidth: '298px',
+                  lineHeight: '44px',
+                }}
+              >
+                Easily export your saved notes into a downloadable PDF
+              </Typography>
+            )}
           </motion.div>
         </Box>
         <Box
@@ -101,12 +115,15 @@ const ExportCard = () => {
             position: 'absolute',
             right: '24px',
             bottom: '28px',
-            transform: active ? 'rotate(45deg)' : '',
-            transition: '0.3s ease-in-out',
           }}
         >
-          <Box
-            sx={{
+          <motion.div
+            initial="hidden"
+            animate={active ? 'visible' : 'hidden'}
+            variants={iconVariants}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            onClick={handleClick}
+            style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -115,10 +132,9 @@ const ExportCard = () => {
               borderRadius: '100px',
               cursor: 'pointer',
             }}
-            onClick={handleClick}
           >
             <PlusIcon />
-          </Box>
+          </motion.div>
         </Box>
       </Box>
     </>

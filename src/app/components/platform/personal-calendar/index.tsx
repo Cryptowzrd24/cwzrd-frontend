@@ -17,6 +17,17 @@ const PersonalCalendar = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const iconVariants = {
+    hidden: { opacity: 1, rotate: 0 },
+    visible: { opacity: 1, rotate: 45 },
+  };
+
   return (
     <>
       <Box
@@ -30,13 +41,16 @@ const PersonalCalendar = () => {
         <Box
           sx={{
             padding: '77px 68px 0px 94px',
-            background: 'rgba(255, 255, 255, 1)',
             borderRadius: '32px',
             maxWidth: '67.4%',
             width: '100%',
             height: '514px',
-            boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
+            boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             position: 'relative',
+            backgroundImage: active
+              ? 'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)'
+              : 'linear-gradient(180deg, #ffffff 0%, #ffffff 100%)',
+            transition: 'background 0.5s ease-in-out',
           }}
         >
           <Box
@@ -47,26 +61,31 @@ const PersonalCalendar = () => {
             }}
           >
             {!active && (
-              <Image src={iphone} alt="iphone" width={292} height={514} />
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={imageVariants}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+              >
+                <Image src={iphone} alt="iphone" width={292} height={514} />
+              </motion.div>
             )}
             <Stack>
               <motion.div
-                key={active ? 'active' : 'inactive'} // Use a key to force remounting
+                key={active ? 'active' : 'inactive'}
                 initial="hidden"
                 animate="visible"
                 variants={textVariants}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
               >
                 {active && (
                   <Typography
-                    variant="h1"
                     sx={{
                       fontSize: '14px',
-                      fontWeight: '500',
-                      lineHeight: '27.6px',
+                      lineHeight: '22px',
                       color: 'rgba(17, 17, 17, 1)',
-                      // maxWidth: '324px',
-                      mt: '164px',
+                      mt: '174px',
+                      width: '80%',
                     }}
                   >
                     Lorem Ipsum is simply dummy text of the printing and
@@ -113,12 +132,15 @@ const PersonalCalendar = () => {
                   position: 'absolute',
                   right: '24px',
                   bottom: '28px',
-                  transform: active ? 'rotate(45deg)' : '',
-                  transition: '0.3s ease-in-out',
                 }}
               >
-                <Box
-                  sx={{
+                <motion.div
+                  initial="hidden"
+                  animate={active ? 'visible' : 'hidden'}
+                  variants={iconVariants}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  onClick={handleClick}
+                  style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -127,10 +149,9 @@ const PersonalCalendar = () => {
                     borderRadius: '100px',
                     cursor: 'pointer',
                   }}
-                  onClick={handleClick}
                 >
                   <PlusIconBlack />
-                </Box>
+                </motion.div>
               </Box>
             </Stack>
           </Box>
