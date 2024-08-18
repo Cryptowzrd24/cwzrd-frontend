@@ -3,7 +3,6 @@ import React from 'react';
 const PlusIconBlack = () => {
   return (
     <>
-      {/* Hello world */}
       <svg
         width={20}
         height={20}
