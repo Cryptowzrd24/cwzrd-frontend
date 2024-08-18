@@ -226,7 +226,11 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   };
 
   useEffect(() => {
-    const storedFavorites: any = Cookies.get('mainWatchFavorites') ?? [];
+    const storedFavorites: any =
+      Cookies.get('mainWatchFavorites') === 'null' ||
+      Cookies.get('mainWatchFavorites') === undefined
+        ? '[]'
+        : (Cookies.get('mainWatchFavorites') as string);
     if (storedFavorites) {
       dispatch(setMainWatchFavorites(JSON.parse(storedFavorites)));
     }
@@ -273,7 +277,6 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           const mainCollection: any = Object.values(data.collections).find(
             (collection: any) => collection?.main === true,
           );
-          debugger;
           setWatchList(data.collections);
 
           if (mainCollection && !selectedWatchList.collection_name) {
