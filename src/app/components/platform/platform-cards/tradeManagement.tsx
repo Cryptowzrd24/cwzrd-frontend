@@ -2,11 +2,7 @@
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import trade from '../../../../../public/images/platform/trade-header.png';
-import Image from 'next/image';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
-
-const MotionBox = motion(Box); // Create a motion-enabled Box component
 
 const TradeManagement = () => {
   const [active, setActive] = useState(false);
@@ -14,78 +10,140 @@ const TradeManagement = () => {
     setActive((show) => !show);
   };
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   const backgroundVariants = {
+    initial: { backgroundColor: 'black' },
     active: {
       backgroundColor: '#ffffff',
-      transition: { duration: 0.2, ease: 'easeInOut' },
     },
     inactive: {
-      backgroundColor: '#000000',
-      transition: { duration: 0.2, ease: 'easeInOut' },
+      backgroundColor: 'black',
+    },
+  };
+
+  const textVariants = {
+    initial: { color: 'rgba(255, 255, 255, 1)' },
+    active: {
+      color: 'rgba(0, 0, 0, 1)',
+      transition: { duration: 0.325 },
+    },
+    inactive: {
+      color: 'rgba(255, 255, 255, 1)',
+      transition: { duration: 0.325 },
+    },
+  };
+
+  const imgAndTextVariants = {
+    initial: { opacity: 1, display: 'block' },
+    active: {
+      opacity: 0,
+      transition: { duration: 0.325 },
+      transitionEnd: { display: 'none' },
+    },
+    inactive: {
+      opacity: 1,
+      display: 'block',
+      transition: { duration: 0.325 },
+    },
+  };
+
+  const loremVariants: any = {
+    hidden: { opacity: 0, visibility: 'hidden', y: 20 },
+    visible: {
+      opacity: 1,
+      visibility: 'visible',
+      y: 0,
+      transition: { delay: 0.625, duration: 0.325 },
     },
   };
 
   return (
     <>
-      <MotionBox
-        sx={{
+      <motion.div
+        style={{
           padding: '32px 48px 48px 32px',
           width: '100%',
           height: '390px',
           borderRadius: '32px',
           flex: 1,
           position: 'relative',
-          background: 'inherit',
-          transition: 'all 0.3s ease-in-out',
+          transition: 'all 0.325s linear',
         }}
-        variants={backgroundVariants}
+        initial="initial"
         animate={active ? 'active' : 'inactive'}
+        variants={backgroundVariants}
       >
         <Typography
           variant="body1"
+          component={motion.div}
           sx={{
             fontSize: '16px',
             fontWeight: '400',
-            color: !active ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)',
             textTransform: 'uppercase',
             mb: '32px',
             letterSpacing: '1px',
-            transition: 'color 0.3s ease-in-out',
           }}
+          variants={textVariants}
         >
           Complete Trade management
         </Typography>
         <Box
           sx={{
-            paddingLeft: !active ? '32px' : '0',
-            transition: 'padding-left 0.3s ease-in-out',
+            paddingLeft: '32px',
           }}
         >
-          {!active && <Image src={trade} alt="trade" width={80} height={80} />}
+          <motion.img
+            src={'/images/platform/trade-header.png'}
+            alt="trade"
+            width={80}
+            height={80}
+            variants={imgAndTextVariants}
+            initial="initial"
+            animate={active ? 'active' : 'inactive'}
+          />
           <motion.div
-            key={active ? 'active' : 'inactive'}
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            variants={imgAndTextVariants}
+            initial="initial"
+            animate={active ? 'active' : 'inactive'}
           >
-            {active ? (
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: '40px',
+                color: 'rgba(255, 255, 255, 1)',
+                mt: '32px',
+                letterSpacing: 0.1,
+                maxWidth: '298px',
+                lineHeight: '44px',
+              }}
+            >
+              Sit back as our experts handle trades, <br />
+              <span
+                style={{
+                  backgroundImage:
+                    'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                maximizing profits.
+              </span>
+            </Typography>
+          </motion.div>
+          {active && (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={loremVariants}
+            >
               <Typography
                 sx={{
                   fontSize: '14px',
-                  color: !active
-                    ? 'rgba(255, 255, 255, 1)'
-                    : 'rgba(0, 0, 0, 1)',
-                  mt: '145px',
+                  color: 'rgba(0, 0, 0, 1)',
+                  mt: '125px',
                   letterSpacing: 0.1,
                   lineHeight: '22px',
-                  transition: 'color 0.3s ease-in-out',
                   fontWeight: '400',
+                  marginLeft: '-32px',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -93,36 +151,8 @@ const TradeManagement = () => {
                 text ever since the 1500s, when an unknown printer took a galley
                 of type and scrambled it to make a type specimen book <br />
               </Typography>
-            ) : (
-              <Typography
-                variant="h1"
-                sx={{
-                  fontSize: '40px',
-                  color: !active
-                    ? 'rgba(255, 255, 255, 1)'
-                    : 'rgba(0, 0, 0, 1)',
-                  mt: '32px',
-                  letterSpacing: 0.1,
-                  maxWidth: '298px',
-                  lineHeight: '44px',
-                  transition: 'color 0.3s ease-in-out',
-                }}
-              >
-                Sit back as our experts handle trades, <br />
-                <span
-                  style={{
-                    backgroundImage:
-                      'linear-gradient(180deg, #2BFF27 0%, #FBFF39 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    transition: 'background-image 0.3s ease-in-out', // Smooth gradient transition
-                  }}
-                >
-                  maximizing profits.
-                </span>
-              </Typography>
-            )}
-          </motion.div>
+            </motion.div>
+          )}
         </Box>
         <Box
           sx={{
@@ -131,8 +161,8 @@ const TradeManagement = () => {
             position: 'absolute',
             right: '24px',
             bottom: '24px',
+            transition: 'all 0.5s ease-in-out',
             transform: active ? 'rotate(45deg)' : '',
-            transition: 'transform 0.3s ease-in-out', // Smooth rotation transition
           }}
         >
           <Box
@@ -141,17 +171,16 @@ const TradeManagement = () => {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '8px',
-              background: !active ? '#FFFFFF' : '#000',
+              background: active ? '#000' : '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',
-              transition: 'background 0.3s ease-in-out', // Smooth background color transition
             }}
             onClick={handleClick}
           >
             <PlusIcon active={active} />
           </Box>
         </Box>
-      </MotionBox>
+      </motion.div>
     </>
   );
 };

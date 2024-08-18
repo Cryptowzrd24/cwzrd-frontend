@@ -4,36 +4,75 @@ import React, { useState } from 'react';
 import VerifiedGreen from '../../../../../public/icons/coin-details/verifiedGreen';
 import macbook from '../../../../../public/images/platform/MacBook-pro.png';
 import Image from 'next/image';
-import PlusIconBlack from '../../../../../public/icons/collections/plusIconWhite';
 import { motion } from 'framer-motion';
+import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
 const EducationCard = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
   };
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+  const backgroundVariants = {
+    initial: {
+      backgroundImage: 'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)',
+    },
+    active: {
+      backgroundImage: 'linear-gradient(180deg, #027fff 0%, #027fff 100%)',
+    },
+    inactive: {
+      backgroundImage: 'linear-gradient(180deg, #027fff 0%, #37A9FB 100%)',
+    },
   };
+
+  const imgAndTextVariants = {
+    initial: { opacity: 1, display: 'block' },
+    active: {
+      opacity: 0,
+      transition: { duration: 0.325 },
+      transitionEnd: { display: 'none' },
+    },
+    inactive: {
+      opacity: 1,
+      display: 'block',
+      transition: { duration: 0.325 },
+    },
+  };
+
+  const iconVariants = {
+    hidden: { opacity: 1, rotate: 0 },
+    visible: { opacity: 1, rotate: 45 },
+  };
+
+  const loremVariants: any = {
+    hidden: { opacity: 0, visibility: 'hidden', y: 20, display: 'none' },
+    visible: {
+      opacity: 1,
+      visibility: 'visible',
+      display: 'block',
+      y: 0,
+      transition: { delay: 0.625, duration: 0.325 },
+    },
+  };
+
   return (
     <>
-      <Box
-        sx={{
+      <motion.div
+        style={{
           backgroundImage: !active
             ? `url('/images/platform/community.png')`
             : '',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
+
           padding: '48px 32px 56px 14px',
           borderRadius: '32px',
           maxWidth: '67.4%',
           width: '100%',
           position: 'relative',
-          background: active ? '#027fff' : '',
-          height: active ? '628px' : '',
+          transition: 'all 0.325s linear',
+          height: '628px',
         }}
+        initial="initial"
+        animate={active ? 'active' : 'inactive'}
+        variants={backgroundVariants}
       >
         <Typography
           variant="body1"
@@ -49,25 +88,22 @@ const EducationCard = () => {
         >
           Education
         </Typography>
-        <motion.div
-          key={active ? 'active' : 'inactive'}
-          initial="hidden"
-          animate="visible"
-          variants={textVariants}
-          transition={{ duration: 0.5 }}
-          style={{ paddingLeft: !active ? '32px' : '20px' }}
-        >
-          {active ? (
+        {active && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={loremVariants}
+          >
             <Typography
-              // variant="h1"
               sx={{
-                fontSize: '14px',
-                // fontWeight: '600',
+                fontSize: '16px',
                 color: 'rgba(255, 255, 255, 1)',
-                lineHeight: '22px',
+                letterSpacing: 0.1,
+                lineHeight: '24px',
                 textAlign: 'start',
-                mt: '230px',
                 maxWidth: '690px',
+                mt: '260px',
+                marginLeft: '36px',
               }}
             >
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -75,28 +111,35 @@ const EducationCard = () => {
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book
             </Typography>
-          ) : (
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: '48px',
-                fontWeight: '700',
-                color: 'rgba(255, 255, 255, 1)',
-                lineHeight: '57.6px',
-                textAlign: 'center',
-                mb: '32px',
-                maxWidth: '690px',
-                width: '100%',
-                margin: 'auto',
-              }}
-            >
-              {' '}
-              Upgrade Trading Knowledge with In-Depth Lessons
-            </Typography>
-          )}
+          </motion.div>
+        )}
+        <motion.div
+          variants={imgAndTextVariants}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
+        >
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: '48px',
+              fontWeight: '700',
+              color: 'rgba(255, 255, 255, 1)',
+              lineHeight: '57.6px',
+              textAlign: 'center',
+              mb: '32px',
+              maxWidth: '690px',
+              width: '100%',
+              margin: 'auto',
+            }}
+          >
+            Upgrade Trading Knowledge with In-Depth Lessons
+          </Typography>
         </motion.div>
-
-        {!active && (
+        <motion.div
+          variants={imgAndTextVariants}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
+        >
           <Stack
             sx={{
               mt: '32px',
@@ -108,7 +151,6 @@ const EducationCard = () => {
               mb: '78px',
             }}
           >
-            {/* ----------------------------- */}
             <Box
               sx={{
                 display: 'flex',
@@ -140,7 +182,6 @@ const EducationCard = () => {
                   26 WZRD Guide book
                 </Typography>
               </Box>
-              {/* -------------------------------- */}
               <Box
                 sx={{
                   padding: '8px 12px 8px 8px',
@@ -166,7 +207,6 @@ const EducationCard = () => {
                 </Typography>
               </Box>
             </Box>
-            {/* --------------------------------------------------------------------------- */}
             <Box
               sx={{
                 display: 'flex',
@@ -199,7 +239,6 @@ const EducationCard = () => {
                   Daily Technical Write-ups{' '}
                 </Typography>
               </Box>
-              {/* -------------------- */}{' '}
               <Box
                 sx={{
                   padding: '8px 12px 8px 8px',
@@ -224,7 +263,6 @@ const EducationCard = () => {
                   315+ Examinations{' '}
                 </Typography>
               </Box>
-              {/* -------------------- */}{' '}
               <Box
                 sx={{
                   padding: '8px 12px 8px 8px',
@@ -250,10 +288,14 @@ const EducationCard = () => {
                 </Typography>
               </Box>
             </Box>
-            {/* -------------------- */}
           </Stack>
-        )}
-        {!active && (
+        </motion.div>
+
+        <motion.div
+          variants={imgAndTextVariants}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
+        >
           <Box
             sx={{
               display: 'flex',
@@ -268,7 +310,8 @@ const EducationCard = () => {
               style={{ height: '310px' }}
             />
           </Box>
-        )}
+        </motion.div>
+
         <Box
           sx={{
             display: 'flex',
@@ -276,26 +319,28 @@ const EducationCard = () => {
             position: 'absolute',
             right: '24px',
             bottom: '28px',
-            transform: active ? 'rotate(45deg)' : '',
-            transition: '0.3s ease-in-out',
           }}
         >
-          <Box
-            sx={{
+          <motion.div
+            initial="hidden"
+            animate={active ? 'visible' : 'hidden'}
+            variants={iconVariants}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            onClick={handleClick}
+            style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               padding: '8px',
-              background: 'rgba(17, 17, 17, 1)',
+              background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',
             }}
-            onClick={handleClick}
           >
-            <PlusIconBlack />
-          </Box>
+            <PlusIcon />
+          </motion.div>
         </Box>
-      </Box>
+      </motion.div>
     </>
   );
 };

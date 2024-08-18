@@ -4,30 +4,72 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
-const MotionBox = motion(Box); // Create a motion-enabled Box component
-
 const MileStones = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
   };
 
+  const backgroundVariants = {
+    initial: {
+      background:
+        "url('/images/platform/milestone.png') no-repeat center/cover",
+    },
+    active: {
+      background:
+        "url('/images/platform/milestone-static.png') no-repeat center/cover",
+    },
+    inactive: {
+      background:
+        "url('/images/platform/milestone.png') no-repeat center/cover",
+    },
+  };
+
+  const imgAndTextVariants = {
+    initial: { opacity: 1, display: 'block' },
+    active: {
+      opacity: 0,
+      transition: { duration: 0.325 },
+      transitionEnd: { display: 'none' },
+    },
+    inactive: {
+      opacity: 1,
+      display: 'block',
+      transition: { duration: 0.325 },
+    },
+  };
+
+  const iconVariants = {
+    hidden: { opacity: 1, rotate: 0 },
+    visible: { opacity: 1, rotate: 45 },
+  };
+
+  const loremVariants: any = {
+    hidden: { opacity: 0, visibility: 'hidden', y: 20, display: 'none' },
+    visible: {
+      opacity: 1,
+      visibility: 'visible',
+      display: 'block',
+      y: 0,
+      transition: { delay: 0.625, duration: 0.325 },
+    },
+  };
+
   return (
     <>
-      <MotionBox
-        sx={{
+      <motion.div
+        style={{
           padding: '32px 48px 48px 32px',
           width: '100%',
           height: '390px',
           borderRadius: '32px',
           position: 'relative',
           flex: 1,
-          transition: 'background 0.1s ease-in-out, transform 0.5s ease-in-out', // Ensure smooth background transition
-          background: active
-            ? 'rgb(113, 77, 195)'
-            : "url('/images/platform/milestone.png') no-repeat center/cover", // Background shorthand for seamless transition
+          transition: 'all 0.325s linear',
         }}
-        onClick={handleClick}
+        initial="initial"
+        animate={active ? 'active' : 'inactive'}
+        variants={backgroundVariants}
       >
         <Typography
           variant="body1"
@@ -38,38 +80,24 @@ const MileStones = () => {
             textTransform: 'uppercase',
             mb: '32px',
             letterSpacing: '1px',
-            transition: 'color 0.5s ease-in-out', // Smooth color transition
           }}
         >
           Milestones
         </Typography>
-        <motion.div
-          key={active ? 'active' : 'inactive'}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }} // Smooth text transition
-          style={{
-            paddingLeft: active ? '0' : '32px',
-            transition: 'padding-left 0.5s ease-in-out', // Smooth padding transition
+        <Box
+          sx={{
+            paddingLeft: '16px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          {active ? (
-            <Typography
-              sx={{
-                fontSize: '14px',
-                color: 'rgba(255, 255, 255, 1)',
-                mt: '145px',
-                letterSpacing: 0.1,
-                lineHeight: '22px',
-                transition: 'color 0.5s ease-in-out', // Smooth color transition
-              }}
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book
-            </Typography>
-          ) : (
+          <motion.div
+            variants={imgAndTextVariants}
+            initial="initial"
+            animate={active ? 'active' : 'inactive'}
+          >
             <Typography
               variant="h1"
               sx={{
@@ -79,13 +107,36 @@ const MileStones = () => {
                 letterSpacing: 0.1,
                 maxWidth: '298px',
                 lineHeight: '44px',
-                transition: 'color 0.5s ease-in-out', // Smooth color transition
               }}
             >
               The Smallest trading community
             </Typography>
+          </motion.div>
+          {active && (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={loremVariants}
+            >
+              <Typography
+                sx={{
+                  fontSize: '14px',
+                  color: 'rgba(255, 255, 255, 1)',
+                  mt: '105px',
+                  letterSpacing: 0.1,
+                  lineHeight: '22px',
+                  textAlign: 'start',
+                  marginLeft: '-16px',
+                }}
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book
+              </Typography>
+            </motion.div>
           )}
-        </motion.div>
+        </Box>
 
         <Box
           sx={{
@@ -93,13 +144,16 @@ const MileStones = () => {
             justifyContent: 'end',
             position: 'absolute',
             right: '24px',
-            bottom: '24px',
-            transform: active ? 'rotate(45deg)' : '',
-            transition: 'transform 0.3s ease-in-out', // Smooth rotation transition
+            bottom: '28px',
           }}
         >
-          <Box
-            sx={{
+          <motion.div
+            initial="hidden"
+            animate={active ? 'visible' : 'hidden'}
+            variants={iconVariants}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            onClick={handleClick}
+            style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -107,14 +161,12 @@ const MileStones = () => {
               background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',
-              transition: 'background 0.5s ease-in-out', // Smooth background color transition
             }}
-            onClick={handleClick}
           >
-            <PlusIcon active={false} />
-          </Box>
+            <PlusIcon />
+          </motion.div>
         </Box>
-      </MotionBox>
+      </motion.div>
     </>
   );
 };
