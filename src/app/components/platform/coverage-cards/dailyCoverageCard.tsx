@@ -29,13 +29,13 @@ const DailyCoverageCard = () => {
     initial: { opacity: 1, display: 'block' },
     active: {
       opacity: 0,
-      transition: { delay: 0.65, duration: 0.325 },
+      transition: { duration: 0.325 },
       transitionEnd: { display: 'none' },
     },
     inactive: {
       opacity: 1,
       display: 'block',
-      transition: { delay: 0.65, duration: 0.325 },
+      transition: { duration: 0.325 },
     },
   };
 
@@ -51,7 +51,7 @@ const DailyCoverageCard = () => {
       visibility: 'visible',
       display: 'block',
       y: 0,
-      transition: { delay: 0.975, duration: 0.325 },
+      transition: { delay: 0.625, duration: 0.325 },
     },
   };
 
@@ -120,7 +120,7 @@ const DailyCoverageCard = () => {
                 fontWeight: '700',
               }}
             >
-              'Daily Coverage on over 25 Cryptocurrencies'
+              Daily Coverage on over 25 Cryptocurrencies
             </Typography>
           </motion.div>
           {active && (
@@ -133,10 +133,11 @@ const DailyCoverageCard = () => {
                 sx={{
                   fontSize: '14px',
                   color: 'rgba(255, 255, 255, 1)',
-                  mt: '125px',
+                  mt: '110px',
                   letterSpacing: 0.1,
                   lineHeight: '22px',
                   textAlign: 'start',
+                  marginLeft: '-24px',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting

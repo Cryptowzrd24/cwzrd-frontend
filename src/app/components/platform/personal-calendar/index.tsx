@@ -4,8 +4,8 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import iphone from '../../../../../public/images/platform/iPhone.png';
 import ExportCard from './exportCard';
-import PlusIconBlack from '../../../../../public/icons/collections/plusIconWhite';
 import { motion } from 'framer-motion';
+import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
 const PersonalCalendar = () => {
   const [active, setActive] = useState(false);
@@ -13,19 +13,46 @@ const PersonalCalendar = () => {
     setActive((show) => !show);
   };
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+  const backgroundVariants = {
+    initial: {
+      backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #ffffff 100%)',
+    },
+    active: {
+      backgroundImage: 'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)',
+    },
+    inactive: {
+      backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #ffffff 100%)',
+    },
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1 },
+  const imgAndTextVariants = {
+    initial: { opacity: 1, display: 'block' },
+    active: {
+      opacity: 0,
+      transition: { duration: 0.325 },
+      transitionEnd: { display: 'none' },
+    },
+    inactive: {
+      opacity: 1,
+      display: 'block',
+      transition: { duration: 0.325 },
+    },
   };
 
   const iconVariants = {
-    hidden: { opacity: 1, rotate: 0 },
-    visible: { opacity: 1, rotate: 45 },
+    hidden: { opacity: 1, rotate: 0, filter: 'invert(1)' },
+    visible: { opacity: 1, rotate: 45, filter: 'invert(0)' },
+  };
+
+  const loremVariants = {
+    hidden: { opacity: 0, visibility: 'hidden', y: 20, display: 'none' },
+    visible: {
+      opacity: 1,
+      visibility: 'visible',
+      display: 'block',
+      y: 0,
+      transition: { delay: 0.625, duration: 0.325 },
+    },
   };
 
   return (
@@ -38,8 +65,8 @@ const PersonalCalendar = () => {
           width: '100%',
         }}
       >
-        <Box
-          sx={{
+        <motion.div
+          style={{
             padding: '77px 68px 0px 94px',
             borderRadius: '32px',
             maxWidth: '67.4%',
@@ -47,11 +74,11 @@ const PersonalCalendar = () => {
             height: '514px',
             boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             position: 'relative',
-            backgroundImage: active
-              ? 'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)'
-              : 'linear-gradient(180deg, #ffffff 0%, #ffffff 100%)',
-            transition: 'background 0.5s ease-in-out',
+            transition: 'all 0.325s linear',
           }}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
+          variants={backgroundVariants}
         >
           <Box
             sx={{
@@ -60,41 +87,47 @@ const PersonalCalendar = () => {
               justifyContent: 'space-between',
             }}
           >
-            {!active && (
+            <motion.div
+              variants={imgAndTextVariants}
+              initial="initial"
+              animate={active ? 'active' : 'inactive'}
+            >
+              <Image src={iphone} alt="iphone" width={292} height={514} />
+            </motion.div>
+
+            {active && (
               <motion.div
                 initial="hidden"
                 animate="visible"
-                variants={imageVariants}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                variants={loremVariants}
               >
-                <Image src={iphone} alt="iphone" width={292} height={514} />
+                <Typography
+                  sx={{
+                    fontSize: '16px',
+                    color: 'rgba(255, 255, 255, 1)',
+                    mt: '185px',
+                    letterSpacing: 0.1,
+                    lineHeight: '26px',
+                    textAlign: 'start',
+                    marginLeft: '-24px',
+                    maxWidth: '690px',
+                  }}
+                >
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book
+                </Typography>
               </motion.div>
             )}
+
             <Stack>
               <motion.div
-                key={active ? 'active' : 'inactive'}
-                initial="hidden"
-                animate="visible"
-                variants={textVariants}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                variants={imgAndTextVariants}
+                initial="initial"
+                animate={active ? 'active' : 'inactive'}
               >
-                {active && (
-                  <Typography
-                    sx={{
-                      fontSize: '14px',
-                      lineHeight: '22px',
-                      color: 'rgba(17, 17, 17, 1)',
-                      mt: '174px',
-                      width: '80%',
-                    }}
-                  >
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book
-                  </Typography>
-                )}
                 <Typography
                   variant="h1"
                   sx={{
@@ -106,11 +139,9 @@ const PersonalCalendar = () => {
                     mb: '64px',
                   }}
                 >
-                  {active ? '' : 'Personal Calendar: Keep Track of Everything'}
+                  Personal Calendar: Keep Track of Everything
                 </Typography>
-              </motion.div>
 
-              {!active && (
                 <Typography
                   variant="body1"
                   sx={{
@@ -124,38 +155,38 @@ const PersonalCalendar = () => {
                 >
                   Your Life, Your Schedule
                 </Typography>
-              )}
-              <Box
-                sx={{
+              </motion.div>
+            </Stack>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'end',
+                position: 'absolute',
+                right: '24px',
+                bottom: '28px',
+              }}
+            >
+              <motion.div
+                initial="hidden"
+                animate={active ? 'visible' : 'hidden'}
+                variants={iconVariants}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                onClick={handleClick}
+                style={{
                   display: 'flex',
-                  justifyContent: 'end',
-                  position: 'absolute',
-                  right: '24px',
-                  bottom: '28px',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '8px',
+                  background: '#FFFFFF',
+                  borderRadius: '100px',
+                  cursor: 'pointer',
                 }}
               >
-                <motion.div
-                  initial="hidden"
-                  animate={active ? 'visible' : 'hidden'}
-                  variants={iconVariants}
-                  transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  onClick={handleClick}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '8px',
-                    background: 'rgba(17, 17, 17, 1)',
-                    borderRadius: '100px',
-                    cursor: 'pointer',
-                  }}
-                >
-                  <PlusIconBlack />
-                </motion.div>
-              </Box>
-            </Stack>
+                <PlusIcon />
+              </motion.div>
+            </Box>
           </Box>
-        </Box>
+        </motion.div>
         <ExportCard />
       </Box>
     </>
