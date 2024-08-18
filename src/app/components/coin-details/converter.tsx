@@ -24,7 +24,6 @@ const Converter = ({ coinDetails }: any) => {
     setConvertedVal(amount * (coinDetails?.quote?.price || 0));
   };
 
-
   return (
     <Box
       sx={{
