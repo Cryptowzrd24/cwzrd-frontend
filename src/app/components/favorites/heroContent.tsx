@@ -467,9 +467,11 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           >
             New Watchlist
           </Button>
-          <IconButton onClick={handleMoreOptionsClick}>
-            <MoreVertIcon />
-          </IconButton>
+          {Cookies.get('watchlistEmail') && (
+            <IconButton onClick={handleMoreOptionsClick}>
+              <MoreVertIcon />
+            </IconButton>
+          )}
         </Box>
       </Box>
       <AddWatchListModal
