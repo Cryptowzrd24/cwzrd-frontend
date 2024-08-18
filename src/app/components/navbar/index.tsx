@@ -56,11 +56,10 @@ function Navbar() {
                         activeId === item.id
                           ? '#7248F7'
                           : 'rgba(17, 17, 17, 1)',
-                      fontWeight: activeId === item.id ? '500' : '400',
                       cursor: 'pointer',
                       transition: 'transform 0.1s ease-in-out',
-                      transform:
-                        activeId === item.id ? 'scale(1.1)' : 'scale(1)',
+                      fontWeight: 500,
+                      letterSpacing: '0.7px',
                     }}
                     onClick={() => setActiveId(item.id)}
                   >
@@ -84,11 +83,10 @@ function Navbar() {
                         activeId === item.id
                           ? '#7248F7'
                           : 'rgba(17, 17, 17, 1)',
-                      fontWeight: activeId === item.id ? '500' : '400',
                       cursor: 'pointer',
                       transition: 'transform 0.1s ease-in-out',
-                      transform:
-                        activeId === item.id ? 'scale(1.1)' : 'scale(1)',
+                      fontWeight: 500,
+                      letterSpacing: '0.7px',
                     }}
                     onClick={() => setActiveId(item.id)}
                   >
