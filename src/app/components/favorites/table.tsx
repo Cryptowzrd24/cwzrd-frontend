@@ -20,12 +20,6 @@ const Table = ({ selectedWatchList }) => {
 
   const favoriteIds = favorites ? favorites.join(',') : '';
 
-  const favoriteCount = Cookies.get('watchlistEmail')
-    ? (selectedWatchList?.ids?.length ?? 0)
-    : favorites
-      ? favorites.length
-      : 0;
-
   const { data, error } = useFetchFavoritesDataQuery({
     id: favoriteIds,
   });
@@ -34,6 +28,11 @@ const Table = ({ selectedWatchList }) => {
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
+    console.log(favoriteIds);
+    if (!favoriteIds) {
+      setRowData([]);
+      return;
+    }
     if (error?.status === 400) {
       setRowData([]);
       return;

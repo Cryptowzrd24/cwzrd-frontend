@@ -9,7 +9,7 @@ import SearchIcon from '../../../../public/icons/Navbar-Section/search';
 import { Box, Container, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useAppDispatch } from '@/app/redux/store';
-import { updateFavorites } from '@/app/redux/market';
+import { setMainWatchFavorites, updateFavorites } from '@/app/redux/market';
 import Cookies from 'js-cookie';
 
 function Navbar() {
@@ -19,7 +19,14 @@ function Navbar() {
 
   useEffect(() => {
     const favorites = JSON.parse((Cookies.get('favorites') as string) ?? '[]');
+    console.log(Cookies.get('mainWatchFavorites') === 'null');
+    const mainWatchFavorites = JSON.parse(
+      (Cookies.get('mainWatchFavorites') as string) === 'null'
+        ? '[]'
+        : (Cookies.get('mainWatchFavorites') as string),
+    );
     dispatch(updateFavorites(favorites));
+    dispatch(setMainWatchFavorites(mainWatchFavorites));
   }, []);
 
   return (

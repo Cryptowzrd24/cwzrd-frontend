@@ -21,6 +21,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddWatchListModal from './addWatchListModal';
 import { useAppDispatch, useAppSelector } from '@/app/redux/store';
 import {
+  setMainWatchFavorites,
   updateFavorites,
   updateSelectedWatchListMain,
   updateSelectedWatchListName,
@@ -167,7 +168,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
 
     try {
       const response = await fetch(
-        `${baseUrl}/api/favorites/?email=${emailStored}&collection_name=${selectedWatchList.collection_name}`,
+        `${baseUrl}/api/favorites/?email=${Cookies.get('watchlistEmail')}&collection_name=${selectedWatchList.collection_name}`,
         {
           method: 'DELETE',
         },
@@ -175,7 +176,8 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
 
       if (response.ok) {
         console.log('Watchlist deleted successfully.');
-        setReload(true);
+        setSelectedWatchList({});
+        setReload(!reload);
       } else {
         console.error('Failed to delete the watchlist.');
       }
@@ -207,8 +209,14 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
         email: Cookies.get('watchlistEmail'),
         collection_name: selectedWatchList?.collection_name,
         main: true,
-        ids: selectedWatchList.ids,
+        ids: favorites,
       }).unwrap();
+      setSelectedWatchList({
+        collection_name: selectedWatchList.collection_name,
+        main: true,
+        ids: favorites,
+      });
+      dispatch(updateSelectedWatchListMain(true));
       handleStarClick();
       setMoreOptionsOpen(false);
       setActive(false);
@@ -229,6 +237,26 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
     setSelectedWatchList(watchlist);
     handleClose();
   };
+
+  useEffect(() => {
+    const storedFavorites = Cookies.get('mainWatchFavorites') ?? [];
+    if (storedFavorites) {
+      dispatch(setMainWatchFavorites(JSON.parse(storedFavorites)));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (selectedWatchList.main) {
+      Cookies.set(
+        'mainWatchFavorites',
+        JSON.stringify(selectedWatchList.ids ?? []),
+        {
+          expires: 365,
+        },
+      );
+      dispatch(setMainWatchFavorites(selectedWatchList.ids));
+    }
+  }, [selectedWatchList, dispatch]);
 
   // Close the dropdown when clicking outside of it
   useEffect(() => {
@@ -258,6 +286,8 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
           const mainCollection = Object.values(data.collections).find(
             (collection) => collection?.main === true,
           );
+          debugger;
+          setWatchList(data.collections);
 
           if (mainCollection && !selectedWatchList.collection_name) {
             setSelectedWatchList(mainCollection);
@@ -266,8 +296,6 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
             );
             dispatch(updateSelectedWatchListMain(mainCollection?.main));
           }
-
-          setWatchList(data.collections);
         } catch (error) {
           console.error('Error checking email:', error);
         }
@@ -318,7 +346,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
               aria-controls="watchlist-menu"
               aria-haspopup="true"
               onClick={handleIconClick}
-              endIcon={<ExpandMoreIcon sx={{ color: '#634DFD', width: 48 }} />}
+              endIcon={<ExpandMoreIcon sx={{ color: '#7248F7', width: 48 }} />}
               sx={{
                 textTransform: 'none',
                 padding: 0,
@@ -351,6 +379,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
               id="watchlist-menu"
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
+              key={selectedWatchList.collection_name}
               onClose={handleClose}
               PaperProps={{
                 elevation: 4,
@@ -409,7 +438,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
                       variant="caption"
                       sx={{
                         ml: 1,
-                        backgroundColor: '#634DFD',
+                        backgroundColor: '#7248F7',
                         color: 'white',
                         borderRadius: '4px',
                         padding: '2px 6px 1px 6px',

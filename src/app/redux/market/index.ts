@@ -5,6 +5,7 @@ export interface MarketState {
   favorites: any[];
   selectedWatchListName: string;
   selectedWatchListMain: boolean;
+  mainWatchFavorites: any[];
 }
 
 const initialState: MarketState = {
@@ -12,6 +13,7 @@ const initialState: MarketState = {
   favorites: [],
   selectedWatchListName: '',
   selectedWatchListMain: false,
+  mainWatchFavorites: [],
 };
 
 export const marketSlice = createSlice({
@@ -33,6 +35,9 @@ export const marketSlice = createSlice({
     updateSelectedWatchListMain: (state, action) => {
       state.selectedWatchListMain = action.payload;
     },
+    setMainWatchFavorites: (state, action) => {
+      state.mainWatchFavorites = action.payload;
+    },
   },
 });
 
@@ -42,6 +47,7 @@ export const {
   updateFavorites,
   updateSelectedWatchListName,
   updateSelectedWatchListMain,
+  setMainWatchFavorites,
 } = marketSlice.actions;
 
 export default marketSlice.reducer;

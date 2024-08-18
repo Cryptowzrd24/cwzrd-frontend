@@ -13,7 +13,7 @@ import secondRank from '../../../../../public/icons/second-rank.png';
 import thirdRank from '../../../../../public/icons/third-rank.png';
 import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
 import { useAppDispatch, useAppSelector } from '@/app/redux/store';
-import { updateFavorites } from '@/app/redux/market';
+import { setMainWatchFavorites, updateFavorites } from '@/app/redux/market';
 
 const rankImages = {
   1: firstRank,
@@ -40,28 +40,57 @@ const displayIndex = (index) => {
 export const ID = (props: CustomCellRendererProps) => {
   const { index, coin_id: coinId } = props.data;
   const [isLoading, setIsLoading] = React.useState(false);
-  const { favorites, selectedWatchListName, selectedWatchListMain } =
-    useAppSelector((state) => state.market);
+
+  const {
+    favorites,
+    selectedWatchListName,
+    selectedWatchListMain,
+    mainWatchFavorites,
+  } = useAppSelector((state) => state.market);
+
   const dispatch = useAppDispatch();
   const [addWatchlist] = useAddWatchlistMutation();
 
+  // Determine if we are on the favorites page
+  const isFavoritesPage = useMemo(
+    () => window.location.pathname.includes('favorites'),
+    [],
+  );
+
+  // Use favorites if no watchlistEmail is available, otherwise use mainWatchFavorites based on the page
+  const currentFavorites = useMemo(() => {
+    if (!Cookies.get('watchlistEmail')) {
+      return favorites;
+    }
+    return isFavoritesPage ? favorites : mainWatchFavorites;
+  }, [favorites, mainWatchFavorites, isFavoritesPage]);
+
   const isSelected = useMemo(
-    () => favorites.includes(String(coinId)),
-    [coinId, favorites],
+    () => currentFavorites.includes(String(coinId)),
+    [coinId, currentFavorites],
   );
 
   const handleClick = useCallback(
     async (event: React.MouseEvent) => {
       event.stopPropagation();
 
-      const isFavorite = favorites.includes(String(coinId));
-
+      const isFavorite = currentFavorites.includes(String(coinId));
       let newFavorites = isFavorite
-        ? favorites.filter((id) => id !== String(coinId))
-        : [...favorites, String(coinId)];
+        ? currentFavorites.filter((id) => id !== String(coinId))
+        : [...currentFavorites, String(coinId)];
 
-      Cookies.set('favorites', JSON.stringify(newFavorites));
-      dispatch(updateFavorites(newFavorites));
+      if (!Cookies.get('watchlistEmail') || isFavoritesPage) {
+        Cookies.set('favorites', JSON.stringify(newFavorites));
+        dispatch(updateFavorites(newFavorites));
+        if (selectedWatchListMain) {
+          Cookies.set('mainWatchFavorites', JSON.stringify(newFavorites));
+          dispatch(setMainWatchFavorites(newFavorites));
+        }
+      } else {
+        Cookies.set('mainWatchFavorites', JSON.stringify(newFavorites));
+        dispatch(setMainWatchFavorites(newFavorites));
+      }
+
       setIsLoading(true);
 
       if (Cookies.get('watchlistEmail')) {
@@ -78,13 +107,11 @@ export const ID = (props: CustomCellRendererProps) => {
             await addWatchlist({
               email: Cookies.get('watchlistEmail'),
               collection_name:
-                selectedWatchListName !== '' &&
-                window.location.pathname.includes('favorites')
+                selectedWatchListName !== '' && isFavoritesPage
                   ? selectedWatchListName
                   : mainCollection?.collection_name,
               main:
-                selectedWatchListName !== '' &&
-                window.location.pathname.includes('favorites')
+                selectedWatchListName !== '' && isFavoritesPage
                   ? selectedWatchListMain
                   : true,
               ids: newFavorites,
@@ -101,7 +128,7 @@ export const ID = (props: CustomCellRendererProps) => {
         }, 300);
       }
     },
-    [favorites, coinId, addWatchlist, dispatch],
+    [currentFavorites, coinId, addWatchlist, dispatch, isFavoritesPage],
   );
 
   return (
