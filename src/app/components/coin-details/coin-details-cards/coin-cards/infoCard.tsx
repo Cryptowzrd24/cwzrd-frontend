@@ -4,54 +4,31 @@ import React from 'react';
 import SliderIcon from '../../../../../../public/icons/coin-details/sliderIcon';
 
 const InfoCard = ({ coinDetails }: any) => {
-  // const explorerMenuItems = coinDetails?.urls?.explorer?.map(
-  //   (elem: any, index: number) => {
-  //     return (
-  //       <MenuItem
-  //         key={index}
-  //         sx={{
-  //           display: 'flex',
-  //           gap: '4px',
-  //           maxWidth: '200px',
-  //           whiteSpace: 'nowrap',
-  //           overflow: 'hidden',
-  //           textOverflow: 'ellipsis',
-  //         }}
-  //       >
-  //         <Typography
-  //           variant="body1"
-  //           sx={{ fontSize: '11px', fontWeight: '500' }}
-  //         >
-  //           {elem}
-  //         </Typography>
-  //       </MenuItem>
-  //     );
-  //   },
-  // );
-
   const explorerWalletItems = coinDetails?.urls?.wallets?.map(
-    (elem: any, index: number) => {
-      return (
-        <MenuItem
-          key={index}
-          sx={{
-            display: 'flex',
-            gap: '4px',
-            maxWidth: '200px',
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
+    (elem: any, index: number) => (
+      <MenuItem
+        key={index}
+        component="a"
+        href={elem}
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{
+          display: 'flex',
+          gap: '4px',
+          maxWidth: '200px',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        }}
+      >
+        <Typography
+          variant="body1"
+          sx={{ fontSize: '11px', fontWeight: '500' }}
         >
-          <Typography
-            variant="body1"
-            sx={{ fontSize: '11px', fontWeight: '500' }}
-          >
-            {elem}
-          </Typography>
-        </MenuItem>
-      );
-    },
+          {elem}
+        </Typography>
+      </MenuItem>
+    ),
   );
 
   return (
@@ -82,91 +59,46 @@ const InfoCard = ({ coinDetails }: any) => {
           👀 Info
         </Typography>
         {/* ----------------------------------- */}
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            mb: '4px',
-          }}
-        >
-          <Typography
-            variant="body1"
+        {coinDetails?.urls?.website?.length > 0 && (
+          <Box
             sx={{
-              fontSize: '12px',
-              fontWeight: '400',
-              color: 'rgba(17, 17, 17, 1)',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: '6px',
             }}
           >
-            Website
-          </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(17, 17, 17, 1)',
+              }}
+            >
+              Website
+            </Typography>
 
-          <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
-            <Box
-              // key={index}
-              sx={{
-                padding: '7px 12px',
-                borderRadius: '8px',
-                background: 'rgba(17, 17, 17, 0.05)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '11px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  maxWidth: '200px',
-                }}
-              >
-                Bitocin.org
-              </Typography>
-            </Box>
-            <Box
-              // key={index}
-              sx={{
-                padding: '7px 12px',
-                borderRadius: '8px',
-                background: 'rgba(17, 17, 17, 0.05)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '11px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  maxWidth: '200px',
-                }}
-              >
-                Whitepaper
-              </Typography>
-            </Box>
-            {/* When the api will be connected, the below code will be used for
-            dynaimc rendering */}
-            {/* {coinDetails?.urls?.website?.map((elem: any, index: number) => {
-              return (
+            <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+              {coinDetails?.urls?.website.map((url: string, index: number) => (
                 <Box
                   key={index}
+                  component="a"
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   sx={{
                     padding: '7px 12px',
                     borderRadius: '8px',
-                    background: 'rgba(17, 17, 17, 0.05)',
+                    background: '#EFEEF2',
+                    transition: 'all 0.3s ',
+                    ':hover': {
+                      background: '#dddce1',
+                    },
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    textDecoration: 'none',
                   }}
                 >
                   <Typography
@@ -181,151 +113,213 @@ const InfoCard = ({ coinDetails }: any) => {
                       maxWidth: '200px',
                     }}
                   >
-                    {elem}
+                    Website {index + 1}
                   </Typography>
                 </Box>
-              );
-            })} */}
+              ))}
+            </Box>
           </Box>
-        </Box>
+        )}
         {/* ---------------------------------------------- */}
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            mb: '4px',
-          }}
-        >
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: '12px',
-              fontWeight: '400',
-              color: 'rgba(17, 17, 17, 1)',
-            }}
-          >
-            Explorers
-          </Typography>
+        {coinDetails?.urls?.technical_doc?.length > 0 && (
           <Box
             sx={{
-              padding: '7px 12px',
-              borderRadius: '8px',
-              background: 'rgba(17, 17, 17, 0.05)',
               display: 'flex',
-              justifyContent: 'center',
+              justifyContent: 'space-between',
               alignItems: 'center',
+              mb: '6px',
             }}
           >
-            <Select
-              displayEmpty
-              IconComponent={() => (
-                <Box sx={{ marginLeft: '4px' }}>
-                  <SliderIcon />
-                </Box>
-              )}
+            <Typography
+              variant="body1"
               sx={{
-                fontSize: '11px',
-                fontWeight: '500',
+                fontSize: '12px',
+                fontWeight: '400',
                 color: 'rgba(17, 17, 17, 1)',
-                background: 'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-                display: 'flex',
-                alignItems: 'center',
-                paddingRight: '0 !important',
-                maxWidth: '100px', // Fixed width for the Select component
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                '& .MuiSelect-select': {
-                  padding: '0 !important',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  maxWidth: '200px',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                },
-                '& .MuiOutlinedInput-notchedOutline': {
-                  border: 'none',
-                },
-                '& .MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':
-                  {
-                    paddingRight: '0',
-                  },
-                '& .MuiSvgIcon-root': {
-                  color: 'rgba(17, 17, 17, 1)',
-                },
               }}
             >
-              <MenuItem
+              Whitepaper
+            </Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                gap: '4px',
+                alignItems: 'center',
+              }}
+            >
+              {coinDetails?.urls?.technical_doc.map(
+                (url: string, index: number) => (
+                  <Box
+                    key={index}
+                    component="a"
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      padding: '7px 12px',
+                      borderRadius: '8px',
+                      background: '#EFEEF2',
+                      transition: 'all 0.3s ',
+                      ':hover': {
+                        background: '#dddce1',
+                      },
+                      textDecoration: 'none',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        fontSize: '11px',
+                        fontWeight: '500',
+                        color: 'rgba(17, 17, 17, 1)',
+                      }}
+                    >
+                      Whitepaper {index + 1}
+                    </Typography>
+                  </Box>
+                ),
+              )}
+            </Box>
+          </Box>
+        )}
+        {/* ---------------------------------------------- */}
+        {coinDetails?.urls?.explorer?.length > 0 && (
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: '6px',
+            }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(17, 17, 17, 1)',
+              }}
+            >
+              Explorers
+            </Typography>
+            <Box
+              sx={{
+                padding: '7px 12px',
+                borderRadius: '8px',
+                background: '#EFEEF2',
+                transition: 'all 0.3s ',
+                ':hover': {
+                  background: '#dddce1',
+                },
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Select
+                displayEmpty
+                renderValue={() => 'Explorers'} // This ensures no value is selected or displayed
+                IconComponent={() => (
+                  <Box
+                    sx={{
+                      marginLeft: '4px',
+                      cursor: 'pointer',
+                      marginTop: '-5.5px',
+                    }}
+                  >
+                    <SliderIcon />
+                  </Box>
+                )}
                 sx={{
+                  fontSize: '11px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                  background:
+                    'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
                   display: 'flex',
-                  gap: '4px',
-                  maxWidth: '200px',
+                  alignItems: 'center',
+                  paddingRight: '0 !important',
+                  maxWidth: '100px',
                   whiteSpace: 'nowrap',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
+                  svg: {
+                    position: 'absolute',
+                    right: '0',
+                    pointerEvents: 'none',
+                  },
+                  '& .MuiSelect-select': {
+                    padding: '0 !important',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    maxWidth: '200px',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    paddingRight: '12px !important',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    border: 'none',
+                  },
+                  '& .MuiMenuItem-root': {
+                    padding: '1px 4px !important',
+                  },
+                  '& .MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':
+                    {
+                      paddingRight: '12px !important',
+                    },
+                  '& .MuiSvgIcon-root': {
+                    color: 'rgba(17, 17, 17, 1)',
+                  },
                 }}
               >
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: '11px', fontWeight: '400' }}
-                >
-                  Mempool
-                </Typography>
-              </MenuItem>
-            </Select>
-
-            {/* <Select
-              displayEmpty
-              IconComponent={() => (
-                <Box sx={{ marginLeft: '4px' }}>
-                  <SliderIcon />
-                </Box>
-              )}
-              sx={{
-                fontSize: '11px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-                background: 'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-                display: 'flex',
-                alignItems: 'center',
-                paddingRight: '0 !important',
-                maxWidth: '100px', // Fixed width for the Select component
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                '& .MuiSelect-select': {
-                  padding: '0 !important',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  maxWidth: '200px', // Ensure the text within the Select component is also constrained
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                },
-                '& .MuiOutlinedInput-notchedOutline': {
-                  border: 'none',
-                },
-                '& .MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':
-                  {
-                    paddingRight: '0',
-                  },
-                '& .MuiSvgIcon-root': {
-                  color: 'rgba(17, 17, 17, 1)',
-                },
-              }}
-            >
-              {explorerMenuItems}
-            </Select> */}
+                {coinDetails?.urls?.explorer.map(
+                  (url: string, index: number) => (
+                    <MenuItem
+                      key={index}
+                      id="explorer"
+                      component="a"
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        display: 'flex',
+                        gap: '4px',
+                        maxWidth: '200px',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        marginInline: '6px',
+                        borderRadius: '4px',
+                        padding: '4px 8px',
+                        '&:hover': {
+                          backgroundColor: '#f5f5f5',
+                        },
+                      }}
+                    >
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontSize: '11px',
+                          fontWeight: '400',
+                          paddingBlock: '2px',
+                        }}
+                      >
+                        Explorer {index + 1}
+                      </Typography>
+                    </MenuItem>
+                  ),
+                )}
+              </Select>
+            </Box>
           </Box>
-        </Box>
+        )}
         {/* -------------------------------------------------------------- */}
         {coinDetails?.urls?.wallets?.length > 0 && (
           <Box
@@ -333,7 +327,7 @@ const InfoCard = ({ coinDetails }: any) => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'flex-start',
-              mb: '4px',
+              mb: '6px',
             }}
           >
             <Typography
@@ -350,7 +344,11 @@ const InfoCard = ({ coinDetails }: any) => {
               sx={{
                 padding: '7px 12px',
                 borderRadius: '8px',
-                background: 'rgba(17, 17, 17, 0.05)',
+                background: '#EFEEF2',
+                transition: 'all 0.3s ',
+                ':hover': {
+                  background: '#dddce1',
+                },
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -411,7 +409,7 @@ const InfoCard = ({ coinDetails }: any) => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            mb: '4px',
+            mb: '6px',
           }}
         >
           <Typography
@@ -434,7 +432,11 @@ const InfoCard = ({ coinDetails }: any) => {
                 sx={{
                   padding: '7px 12px',
                   borderRadius: '8px',
-                  background: 'rgba(17, 17, 17, 0.05)',
+                  background: '#EFEEF2',
+                  transition: 'all 0.3s ',
+                  ':hover': {
+                    background: '#dddce1',
+                  },
                   textDecoration: 'none',
                   display: 'flex',
                   justifyContent: 'center',
@@ -462,7 +464,11 @@ const InfoCard = ({ coinDetails }: any) => {
                 sx={{
                   padding: '7px 12px',
                   borderRadius: '8px',
-                  background: 'rgba(17, 17, 17, 0.05)',
+                  background: '#EFEEF2',
+                  transition: 'all 0.3s ',
+                  ':hover': {
+                    background: '#dddce1',
+                  },
                   display: 'flex',
                   justifyContent: 'center',
                   textDecoration: 'none',
@@ -490,7 +496,11 @@ const InfoCard = ({ coinDetails }: any) => {
                 sx={{
                   padding: '7px 12px',
                   borderRadius: '8px',
-                  background: 'rgba(17, 17, 17, 0.05)',
+                  background: '#EFEEF2',
+                  transition: 'all 0.3s ',
+                  ':hover': {
+                    background: '#dddce1',
+                  },
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -517,7 +527,7 @@ const InfoCard = ({ coinDetails }: any) => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            mb: '4px',
+            mb: '6px',
           }}
         >
           <Typography
@@ -535,7 +545,11 @@ const InfoCard = ({ coinDetails }: any) => {
               sx={{
                 padding: '7px 12px',
                 borderRadius: '8px',
-                background: 'rgba(17, 17, 17, 0.05)',
+                background: '#EFEEF2',
+                transition: 'all 0.3s ',
+                ':hover': {
+                  background: '#dddce1',
+                },
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -555,116 +569,56 @@ const InfoCard = ({ coinDetails }: any) => {
           </Box>
         </Box>
         {/* ------------------------------------------- */}
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <Typography
-            variant="body1"
+        {coinDetails?.tags?.length > 0 && (
+          <Box
             sx={{
-              fontSize: '12px',
-              fontWeight: '400',
-              color: 'rgba(17, 17, 17, 1)',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
             }}
           >
-            Categories
-          </Typography>
-          <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
-            <Box
+            <Typography
+              variant="body1"
               sx={{
-                padding: '7px 12px',
-                borderRadius: '8px',
-                background: 'rgba(17, 17, 17, 0.05)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '11px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                Cryptocurrencies
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                padding: '7px 12px',
-                borderRadius: '8px',
-                background: 'rgba(17, 17, 17, 0.05)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Select
-                displayEmpty
-                IconComponent={() => (
-                  <Box sx={{ marginLeft: '4px', cursor: 'pointer' }}>
-                    <SliderIcon />
-                  </Box>
-                )}
-                sx={{
-                  fontSize: '11px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                  background:
-                    'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)',
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
-                  display: 'flex',
-                  alignItems: 'center',
-                  paddingRight: '0 !important',
-                  '& .MuiSelect-select': {
-                    padding: '0 !important',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    maxWidth: '200px',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                  },
-                  '& .MuiOutlinedInput-notchedOutline': {
-                    border: 'none',
-                  },
-                  '& .MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':
-                    {
-                      paddingRight: '0',
-                    },
-                  '& .MuiSvgIcon-root': {
-                    color: 'rgba(17, 17, 17, 1)',
-                  },
-                }}
-              >
-                <MenuItem
+              Categories
+            </Typography>
+            <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+              {coinDetails?.tags.map((tag: string, index: number) => (
+                <Box
+                  key={index}
                   sx={{
+                    padding: '7px 12px',
+                    borderRadius: '8px',
+                    background: '#EFEEF2',
+                    transition: 'all 0.3s ',
                     display: 'flex',
-                    gap: '4px',
-                    maxWidth: '200px',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    ':hover': {
+                      background: '#dddce1',
+                    },
                   }}
                 >
                   <Typography
                     variant="body1"
-                    sx={{ fontSize: '11px', fontWeight: '500' }}
+                    sx={{
+                      fontSize: '11px',
+                      fontWeight: '500',
+                      color: 'rgba(17, 17, 17, 1)',
+                    }}
                   >
-                    Ledger
+                    {tag}
                   </Typography>
-                </MenuItem>
-              </Select>
+                </Box>
+              ))}
             </Box>
           </Box>
-        </Box>
+        )}
       </Stack>
     </Box>
   );

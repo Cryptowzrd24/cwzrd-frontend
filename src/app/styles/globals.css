@@ -150,3 +150,24 @@ body {
 .defi__container .defi__trending_card {
   width: calc(25% - 7.5px) !important;
 }
+
+#explorer {
+  padding: 2px 12px !important;
+  background: transparent;
+  &:hover {
+    background: rgba(17, 17, 17, 0.05);
+  }
+}
+
+#coininfo .MuiAccordionSummary-root {
+  padding-left: 0 !important;
+}
+
+#coininfo .MuiAccordionSummary-root .MuiAccordionSummary-content p {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+#coininfo.Mui-expanded {
+  margin-top: 0 !important;
+}

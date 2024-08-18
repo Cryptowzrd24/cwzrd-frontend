@@ -113,7 +113,6 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
         }}
       >
         All-Time Low
-        <SmallDetails />
       </Typography>
       <Typography
         variant="body1"
@@ -165,7 +164,6 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
         }}
       >
         All-Time High
-        <SmallDetails />
       </Typography>
       <Typography
         variant="body1"

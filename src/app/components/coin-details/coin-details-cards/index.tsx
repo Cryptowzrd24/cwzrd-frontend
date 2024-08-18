@@ -3,6 +3,7 @@ import React from 'react';
 import CoinCards from './coin-cards';
 
 const CoinDetailsCard = ({ coinDetails }: any) => {
+  console.log(coinDetails);
   return (
     <>
       <Box sx={{ mb: '80px' }}>

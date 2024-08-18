@@ -72,7 +72,7 @@ const Table = ({ selectedWatchList }) => {
           letterSpacing: '0.4px',
         }}
       >
-        {favoriteCount} {favoriteCount === 1 ? 'coin' : 'coins'} in total
+        {favorites.length} {favorites.length === 1 ? 'coin' : 'coins'} in total
       </div>
       <div className="data-table-wrapper">
         <div

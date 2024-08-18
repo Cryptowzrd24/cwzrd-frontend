@@ -20,7 +20,11 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddWatchListModal from './addWatchListModal';
 import { useAppDispatch, useAppSelector } from '@/app/redux/store';
-import { updateFavorites } from '@/app/redux/market';
+import {
+  updateFavorites,
+  updateSelectedWatchListMain,
+  updateSelectedWatchListName,
+} from '@/app/redux/market';
 
 const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -155,6 +159,33 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
     }
   };
 
+  const handleDeleteWatchlist = async () => {
+    if (selectedWatchList.main) {
+      console.log('Cannot delete the main watchlist.');
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `${baseUrl}/api/favorites/?email=${emailStored}&collection_name=${selectedWatchList.collection_name}`,
+        {
+          method: 'DELETE',
+        },
+      );
+
+      if (response.ok) {
+        console.log('Watchlist deleted successfully.');
+        setReload(true);
+      } else {
+        console.error('Failed to delete the watchlist.');
+      }
+    } catch (error) {
+      console.error('Error deleting watchlist:', error);
+    } finally {
+      setMoreOptionsOpen(false);
+    }
+  };
+
   function getCoinIdsByCollectionName(data: any, collectionName: any) {
     // Find the collection object that matches the given collectionName
     const collection = data?.find(
@@ -227,9 +258,15 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
           const mainCollection = Object.values(data.collections).find(
             (collection) => collection?.main === true,
           );
-          console.log(data.collections);
-          if (mainCollection && !selectedWatchList.collection_name)
+
+          if (mainCollection && !selectedWatchList.collection_name) {
             setSelectedWatchList(mainCollection);
+            dispatch(
+              updateSelectedWatchListName(mainCollection?.collection_name),
+            );
+            dispatch(updateSelectedWatchListMain(mainCollection?.main));
+          }
+
           setWatchList(data.collections);
         } catch (error) {
           console.error('Error checking email:', error);
@@ -337,7 +374,14 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
               {watchList?.map((collection: any, index: any) => (
                 <MenuItem
                   key={index}
-                  onClick={() => handleSelectedWatchList(collection)}
+                  onClick={() => {
+                    handleSelectedWatchList(collection);
+                    dispatch(
+                      updateSelectedWatchListName(collection?.collection_name),
+                    );
+                    dispatch(updateSelectedWatchListMain(collection?.main));
+                    setReload(!reload);
+                  }}
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -435,7 +479,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
         PaperProps={{
           sx: {
             width: 250,
-            p: '16px 8px 24px 16px',
+            p: '12px 12px',
             borderRadius: 2,
             boxShadow: 24,
             '& .MuiMenuItem-root': {
@@ -453,7 +497,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
         }}
       >
         <MenuItem
-          onClick={selectedWatchList.main ? null : handleAddMainWatchList}
+          onClick={selectedWatchList.main ? null : handleDeleteWatchlist}
           sx={{
             display: 'flex',
             alignItems: 'center',
@@ -506,7 +550,9 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }) => {
             component="span"
             sx={{ fontWeight: '600', fontSize: '14px' }}
           >
-            This is your Main Watchlist
+            {selectedWatchList.main
+              ? 'This is your Main Watchlist'
+              : 'Set as Main Watchlist'}
           </Typography>
         </MenuItem>
       </Menu>

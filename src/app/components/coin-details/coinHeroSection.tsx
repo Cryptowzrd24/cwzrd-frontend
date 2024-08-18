@@ -52,7 +52,13 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             }}
           >
             <Box>
-              <img src={imgId} alt="persona" width={48} height={48} />
+              <img
+                src={imgId}
+                alt="persona"
+                style={{ borderRadius: '50%' }}
+                width={48}
+                height={48}
+              />
             </Box>
             <Stack>
               <Typography

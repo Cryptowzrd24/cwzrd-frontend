@@ -40,7 +40,8 @@ const displayIndex = (index) => {
 export const ID = (props: CustomCellRendererProps) => {
   const { index, coin_id: coinId } = props.data;
   const [isLoading, setIsLoading] = React.useState(false);
-  const { favorites } = useAppSelector((state) => state.market);
+  const { favorites, selectedWatchListName, selectedWatchListMain } =
+    useAppSelector((state) => state.market);
   const dispatch = useAppDispatch();
   const [addWatchlist] = useAddWatchlistMutation();
 
@@ -76,8 +77,16 @@ export const ID = (props: CustomCellRendererProps) => {
           if (mainCollection) {
             await addWatchlist({
               email: Cookies.get('watchlistEmail'),
-              collection_name: mainCollection?.collection_name,
-              main: true,
+              collection_name:
+                selectedWatchListName !== '' &&
+                window.location.pathname.includes('favorites')
+                  ? selectedWatchListName
+                  : mainCollection?.collection_name,
+              main:
+                selectedWatchListName !== '' &&
+                window.location.pathname.includes('favorites')
+                  ? selectedWatchListMain
+                  : true,
               ids: newFavorites,
             }).unwrap();
           }

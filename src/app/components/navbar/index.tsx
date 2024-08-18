@@ -19,7 +19,6 @@ function Navbar() {
 
   useEffect(() => {
     const favorites = JSON.parse((Cookies.get('favorites') as string) ?? '[]');
-    debugger;
     dispatch(updateFavorites(favorites));
   }, []);
 

@@ -1,15 +1,26 @@
 'use client';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import unselectedStarWhite from '@/app/assets/icons/unselectedStarWhite.svg';
 import selectedStar from '@/app/assets/icons/selectedStar.svg';
 
 import Cookies from 'js-cookie';
+import { useAppDispatch, useAppSelector } from '@/app/redux/store';
+import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
+import { updateFavorites } from '@/app/redux/market';
 
 function StarComponent({ coinId }: any) {
   const [isLoading, setIsLoading] = useState(false);
-  const [isSelected, setIsSelected] = useState(false);
+  const [addWatchlist] = useAddWatchlistMutation();
+
+  const { favorites } = useAppSelector((state) => state.market);
+  const dispatch = useAppDispatch();
+
+  const isSelected = useMemo(
+    () => favorites.includes(String(coinId)),
+    [coinId, favorites],
+  );
 
   const styles = {
     loader: {
@@ -30,36 +41,49 @@ function StarComponent({ coinId }: any) {
     },
   };
 
-  const handleFavClick = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const favorites = Cookies.get('favorites')
-        ? JSON.parse(Cookies.get('favorites') as string)
-        : [];
-      if (favorites.includes(coinId)) {
-        const updatedFavorites = favorites.filter((id: any) => id !== coinId);
-        Cookies.set('favorites', JSON.stringify(updatedFavorites));
-        setIsSelected(false);
-      } else {
-        favorites.push(coinId);
-        Cookies.set('favorites', JSON.stringify(favorites));
-        setIsSelected(true);
-      }
-      setIsLoading(false);
-    }, 600);
-  };
+  const handleClick = useCallback(async () => {
+    const isFavorite = favorites.includes(String(coinId));
 
-  useEffect(() => {
-    const favorites = Cookies.get('favorites')
-      ? JSON.parse(Cookies.get('favorites') as string)
-      : [];
-    if (favorites.includes(coinId)) {
-      setIsSelected(true);
+    let newFavorites = isFavorite
+      ? favorites.filter((id) => id !== String(coinId))
+      : [...favorites, String(coinId)];
+
+    Cookies.set('favorites', JSON.stringify(newFavorites));
+    dispatch(updateFavorites(newFavorites));
+    setIsLoading(true);
+
+    if (Cookies.get('watchlistEmail')) {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites?email=${Cookies.get('watchlistEmail')}`,
+        );
+        const data = await response.json();
+        const mainCollection = Object.values(data.collections).find(
+          (collection) => collection?.main === true,
+        );
+
+        if (mainCollection) {
+          await addWatchlist({
+            email: Cookies.get('watchlistEmail'),
+            collection_name: mainCollection?.collection_name,
+            main: true,
+            ids: newFavorites,
+          }).unwrap();
+        }
+      } catch (error) {
+        console.error('Error checking email:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    } else {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 300);
     }
-  }, [coinId]);
+  }, [favorites, coinId, addWatchlist, dispatch]);
 
   return (
-    <div onClick={handleFavClick}>
+    <div onClick={handleClick}>
       {isLoading ? (
         <div style={styles['loader']}></div>
       ) : (

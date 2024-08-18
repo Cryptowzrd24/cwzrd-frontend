@@ -1,141 +1,143 @@
 'use client';
-import { Box, Stack, Typography } from '@mui/material';
+import {
+  Box,
+  Stack,
+  Typography,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from '@mui/material';
 import React, { useState } from 'react';
-import RightArrowLinearGraident from '../../../../public/icons/nft/rightArrowLinearGraident';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const CoinInfo = ({ coinDetails }: any) => {
-  const [showAll, setShowAll] = useState(false);
+  const [expanded, setExpanded] = useState<string | false>('panel0'); // First panel open by default
 
   const processParagraph = (text: any) => {
     const urlPattern = /(https?:\/\/[^\s]+)/g;
-    const bracketsPattern = /[\[\]\(\)]/g; // Pattern to remove square brackets and parentheses
-    let processedText = text.replace(urlPattern, ''); // Remove URLs
-    processedText = processedText.replace(bracketsPattern, ''); // Remove square brackets and parentheses
-    return processedText.trim(); // Trim any extra spaces
+    const bracketsPattern = /[\[\]\(\)]/g;
+    let processedText = text.replace(urlPattern, '');
+    processedText = processedText.replace(bracketsPattern, '');
+    return processedText.trim();
   };
 
-  const renderItems = () => {
-    const itemsToRender = showAll
-      ? coinDetails?.about_coin?.data
-      : coinDetails?.about_coin?.data.slice(0, 3);
-    return itemsToRender?.map((item: any, index: any) => (
-      <Box key={index} sx={{ mb: '16px' }}>
+  const handleAccordionChange =
+    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
+
+  return (
+    <Box
+      sx={{
+        boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
+        padding: '32px',
+        borderRadius: '24px',
+        background: 'rgba(255, 255, 255, 1)',
+        marginBottom: '24px',
+      }}
+    >
+      <Stack sx={{ width: '100%' }}>
         <Typography
           variant="body1"
           sx={{
-            fontSize: '18px',
-            fontWeight: '500',
+            fontSize: '16px',
+            fontWeight: '400',
             color: 'rgba(17, 17, 17, 1)',
-            mb: '8px',
-            lineHeight: '23.4px',
+            letterSpacing: '2px',
+            ml: '4px',
+            mb: '4px',
           }}
         >
-          {item.title}
+          INFO
         </Typography>
-        {item.paragraph.map((paragraph: any, idx: any) => (
-          <Typography
-            key={idx}
-            variant="body1"
-            sx={{
-              fontSize: '13px',
-              fontWeight: '400',
-              color: 'rgba(17, 17, 17, 0.8)',
-              mb: '8px',
-              lineHeight: '18.85px',
+        <Typography
+          variant="h2"
+          sx={{
+            fontSize: '40px',
+            fontWeight: '700',
+            color: 'rgba(17, 17, 17, 1)',
+            mb: '24px',
+          }}
+        >
+          About{' '}
+          <span
+            style={{
+              backgroundImage:
+                'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
-            {processParagraph(paragraph)}
-          </Typography>
-        ))}
-      </Box>
-    ));
-  };
+            {coinDetails?.name}
+          </span>
+        </Typography>
 
-  const handleToggle = () => {
-    setShowAll(!showAll);
-  };
-
-  return (
-    <>
-      <Box
-        sx={{
-          boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
-          padding: '32px',
-          borderRadius: '24px',
-          background: 'rgba(255, 255, 255, 1)',
-          marginBottom: '24px',
-        }}
-      >
-        <Stack sx={{ width: '100%' }}>
-          <Typography
-            variant="body1"
+        {coinDetails?.about_coin?.data?.map((item: any, index: any) => (
+          <Accordion
+            id={'coininfo'}
+            key={index}
+            expanded={expanded === `panel${index}`}
+            onChange={handleAccordionChange(`panel${index}`)}
             sx={{
-              fontSize: '16px',
-              fontWeight: '400',
-              color: 'rgba(17, 17, 17, 1)',
-              letterSpacing: '2px',
-              ml: '4px',
-              mb: '4px',
+              boxShadow: 'none',
+              '&:before': {
+                display: 'none',
+              },
+              '& .MuiAccordion-root': {
+                boxShadow: 'none',
+              },
             }}
           >
-            INFO
-          </Typography>
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: '40px',
-              fontWeight: '700',
-              color: 'rgba(17, 17, 17, 1)',
-              mb: '24px',
-            }}
-          >
-            About{' '}
-            <span
-              style={{
-                backgroundImage:
-                  'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              {coinDetails?.name}
-            </span>{' '}
-          </Typography>
-
-          {renderItems()}
-
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-              cursor: 'pointer',
-            }}
-            onClick={handleToggle}
-          >
-            <Typography
-              variant="body1"
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`panel${index}bh-content`}
+              id={`panel${index}bh-header`}
               sx={{
-                backgroundImage:
-                  'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-                fontSize: '14px',
-                fontWeight: '600',
+                '& .MuiAccordionSummary-content': {
+                  margin: 0,
+                },
+                '& .MuiAccordionSummary-root': {
+                  borderBottom: 'none',
+                },
               }}
             >
-              {showAll ? 'Read Less' : 'Read More'}
-            </Typography>
-            <Box sx={{ mt: '4px' }}>
-              <RightArrowLinearGraident />
-            </Box>
-          </Box>
-        </Stack>
-      </Box>
-    </>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                  lineHeight: '23.4px',
+                }}
+              >
+                {item.title}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails
+              sx={{
+                padding: '8px 0',
+              }}
+            >
+              {item.paragraph.map((paragraph: any, idx: any) => (
+                <Typography
+                  key={idx}
+                  variant="body1"
+                  sx={{
+                    fontSize: '13px',
+                    fontWeight: '400',
+                    color: 'rgba(17, 17, 17, 0.8)',
+                    mb: '8px',
+                    lineHeight: '18.85px',
+                  }}
+                >
+                  {processParagraph(paragraph)}
+                </Typography>
+              ))}
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </Stack>
+    </Box>
   );
 };
 
