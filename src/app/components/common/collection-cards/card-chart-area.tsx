@@ -37,7 +37,7 @@ const CardChartArea = (props: any) => {
       lineColor: 'transparent',
       crosshair: {
         width: 0,
-        color: 'rgba(17, 17, 17, 0.4)',
+        color: 'transparent',
         dashStyle: 'longdash', // Style as dotted
       },
     },
@@ -63,7 +63,7 @@ const CardChartArea = (props: any) => {
       tickAmount: 4,
       opposite: true,
       crosshair: {
-        width: 1,
+        width: 0,
         color: 'rgba(17, 17, 17, 0.4)',
         dashStyle: 'longdash',
       },
