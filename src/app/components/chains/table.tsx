@@ -82,7 +82,6 @@ const Table = () => {
         index: startIndex + index,
         coin_id: item.cryptoId,
       }));
-      console.log(res);
       setRowData(res);
     }
   }, [chainData, currentPage, itemStart, pageSize]);

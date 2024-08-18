@@ -27,10 +27,6 @@ const Table = () => {
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
-    if (!favoriteIds) {
-      setRowData([]);
-      return;
-    }
     if ((error as any)?.status === 400) {
       setRowData([]);
       return;
