@@ -30,13 +30,13 @@ const ExaminationCard = () => {
     initial: { opacity: 1, display: 'block' },
     active: {
       opacity: 0,
-      transition: { delay: 0.65, duration: 0.325 },
+      transition: { duration: 0.325 },
       transitionEnd: { display: 'none' },
     },
     inactive: {
       opacity: 1,
       display: 'block',
-      transition: { delay: 0.65, duration: 0.325 },
+      transition: { duration: 0.325 },
     },
   };
 
@@ -52,7 +52,7 @@ const ExaminationCard = () => {
       visibility: 'visible',
       display: 'block',
       y: 0,
-      transition: { delay: 0.975, duration: 0.325 },
+      transition: { delay: 0.625, duration: 0.325 },
     },
   };
 

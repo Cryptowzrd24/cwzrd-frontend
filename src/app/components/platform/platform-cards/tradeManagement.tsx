@@ -24,11 +24,11 @@ const TradeManagement = () => {
     initial: { color: 'rgba(255, 255, 255, 1)' },
     active: {
       color: 'rgba(0, 0, 0, 1)',
-      transition: { delay: 0.65, duration: 0.325 },
+      transition: { duration: 0.325 },
     },
     inactive: {
       color: 'rgba(255, 255, 255, 1)',
-      transition: { delay: 0.65, duration: 0.325 },
+      transition: { duration: 0.325 },
     },
   };
 
@@ -36,13 +36,13 @@ const TradeManagement = () => {
     initial: { opacity: 1, display: 'block' },
     active: {
       opacity: 0,
-      transition: { delay: 0.65, duration: 0.325 },
+      transition: { duration: 0.325 },
       transitionEnd: { display: 'none' },
     },
     inactive: {
       opacity: 1,
       display: 'block',
-      transition: { delay: 0.65, duration: 0.325 },
+      transition: { duration: 0.325 },
     },
   };
 
@@ -52,7 +52,7 @@ const TradeManagement = () => {
       opacity: 1,
       visibility: 'visible',
       y: 0,
-      transition: { delay: 0.975, duration: 0.325 },
+      transition: { delay: 0.625, duration: 0.325 },
     },
   };
 
