@@ -36,9 +36,10 @@ const CardChartBar = (props: any) => {
       gridLineWidth: 0,
       lineColor: 'transparent',
       crosshair: {
-        width: 0,
+        width: 1,
         color: 'rgba(17, 17, 17, 0.4)',
-        dashStyle: 'longdash', // Style as dotted
+        dashStyle: 'shortdash',
+        snap: false, // Allows the crosshair to be free-floating
       },
     },
 
@@ -63,10 +64,10 @@ const CardChartBar = (props: any) => {
       tickAmount: 10,
       opposite: true,
       crosshair: {
-        // Enable crosshair for y-axis
         width: 1,
         color: 'rgba(17, 17, 17, 0.4)',
-        dashStyle: 'longdash', // Style as dotted
+        dashStyle: 'shortdash',
+        snap: false, // Allows the crosshair to be free-floating
       },
     },
     legend: {

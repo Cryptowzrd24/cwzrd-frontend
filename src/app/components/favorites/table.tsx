@@ -7,7 +7,7 @@ import { useFetchFavoritesDataQuery } from '@/app/redux/reducers/data-grid';
 import { useSelector } from 'react-redux';
 import { useAppSelector } from '@/app/redux/store';
 
-const Table = ({}) => {
+const Table = () => {
   const [search] = useState('');
   const [rowData, setRowData] = useState([]);
   const [currentPage] = useState(1);
@@ -27,7 +27,6 @@ const Table = ({}) => {
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
-    console.log(favoriteIds);
     if (!favoriteIds) {
       setRowData([]);
       return;
