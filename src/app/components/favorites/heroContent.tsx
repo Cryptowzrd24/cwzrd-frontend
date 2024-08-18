@@ -300,6 +300,11 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
         expires: 365,
       });
       dispatch(updateFavorites(selectedWatchList.ids));
+    } else {
+      Cookies.set('favorites', JSON.stringify([]), {
+        expires: 365,
+      });
+      dispatch(updateFavorites([]));
     }
   }, [selectedWatchList]);
 
