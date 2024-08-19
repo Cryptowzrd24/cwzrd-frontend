@@ -135,7 +135,7 @@ function HeroContent() {
                 },
               ]}
             />
-            <GaugeChart value={0} />
+            <GaugeChart />
           </Box>
         </motion.div>
       </AnimatePresence>

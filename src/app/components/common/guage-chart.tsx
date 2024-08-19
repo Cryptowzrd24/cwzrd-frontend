@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import SolidGauge from 'highcharts/modules/solid-gauge';
@@ -11,12 +11,27 @@ if (typeof Highcharts === 'object') {
   SolidGauge(Highcharts);
 }
 
-interface GaugeChartProps {
-  value: number;
-}
+const GaugeChart = () => {
+  const [val, setVal] = useState(0);
+  const [classification, setClassification] = useState('');
+  async function getFearGreedIndex() {
+    const fearGreedRes = await fetch(
+      'https://api.alternative.me/fng/?limit=2',
+      {
+        next: {
+          revalidate: 60,
+        },
+      },
+    );
 
-const GaugeChart = ({ value }: GaugeChartProps) => {
+    const data = await fearGreedRes.json();
+    const firstDataPoint = data.data[0];
+    setVal(parseInt(firstDataPoint.value));
+    setClassification(firstDataPoint.value_classification);
+  }
+  // getFearGreedIndex().then((data) => console.log(data));
   useEffect(() => {
+    getFearGreedIndex();
     const chartOptions: Highcharts.Options = {
       chart: {
         type: 'solidgauge',
@@ -93,7 +108,7 @@ const GaugeChart = ({ value }: GaugeChartProps) => {
             [0.5, '#DDDF0D'],
             [1.0, '#55BF3B'],
           ],
-          tickPositions: [value],
+          tickPositions: [val],
           lineWidth: 0,
           tickWidth: 0,
           minorTickInterval: undefined,
@@ -116,7 +131,7 @@ const GaugeChart = ({ value }: GaugeChartProps) => {
             useHTML: true,
             format: `<div style="text-align:center;">
                       <span style="font-size:38px;">{y}</span><br/>
-                      <span style="font-size:14px; letter-spacing:10%;">GREED</span>
+                      <span style="font-size:14px; letter-spacing:10%;">${classification?.toUpperCase()}</span>
                      </div>`,
           },
         },
@@ -125,13 +140,13 @@ const GaugeChart = ({ value }: GaugeChartProps) => {
         {
           type: 'solidgauge',
           name: 'Value',
-          data: [value],
+          data: [val],
         },
       ],
     };
 
     Highcharts.chart('gauge-container', chartOptions);
-  }, [value]);
+  }, [val, classification]);
 
   return (
     <div

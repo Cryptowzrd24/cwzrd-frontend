@@ -69,7 +69,7 @@ function HeroContent() {
               percent={-0.32}
               graphAttr={{ type: 'area', data: areaChartData }}
             />
-            <GaugeChart value={0} />
+            <GaugeChart />
           </Box>
         </motion.div>
       </AnimatePresence>
