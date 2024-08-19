@@ -32,9 +32,9 @@ const GaugeChart = () => {
   // getFearGreedIndex().then((data) => console.log(data));
   useEffect(() => {
     getFearGreedIndex();
-    const chartOptions: Highcharts.Options = {
+    const chartOptions: any = {
       chart: {
-        type: 'solidgauge',
+        type: 'gauge',
         backgroundColor: 'transparent',
       },
       title: {
@@ -103,11 +103,7 @@ const GaugeChart = () => {
       tooltip: { enabled: false },
       yAxis: [
         {
-          stops: [
-            [0.8, '#DF5353'],
-            [0.5, '#DDDF0D'],
-            [1.0, '#55BF3B'],
-          ],
+          stops: [[0.8, 'transparent']],
           tickPositions: [val],
           lineWidth: 0,
           tickWidth: 0,
@@ -124,9 +120,23 @@ const GaugeChart = () => {
         },
       ],
       plotOptions: {
-        solidgauge: {
+        gauge: {
+          dial: {
+            backgroundColor: 'black',
+            baseLength: '100%',
+            baseWidth: 5.5,
+            rearLength: '-50%',
+            topWidth: 0,
+            radius: '92%',
+          },
+        },
+      },
+      series: [
+        {
+          name: 'Value',
+          data: [val],
           dataLabels: {
-            y: -70,
+            y: -60,
             borderWidth: 0,
             useHTML: true,
             format: `<div style="text-align:center;">
@@ -134,13 +144,6 @@ const GaugeChart = () => {
                       <span style="font-size:14px; letter-spacing:10%;">${classification?.toUpperCase()}</span>
                      </div>`,
           },
-        },
-      },
-      series: [
-        {
-          type: 'solidgauge',
-          name: 'Value',
-          data: [val],
         },
       ],
     };
