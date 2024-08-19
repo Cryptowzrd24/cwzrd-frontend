@@ -102,7 +102,7 @@ function HeroContent() {
               value="+29.32%"
               end="in 7 days."
             />
-            <GaugeChart value={0} />
+            <GaugeChart />
           </Box>
         </motion.div>
       </AnimatePresence>

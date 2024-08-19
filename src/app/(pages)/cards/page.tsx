@@ -98,7 +98,7 @@ const Components = () => {
         <TvlChainCard isDarkTheme={true} />
         <TvlChainCard isDarkTheme={false} />
         <KpiGuageChart isDarkTheme={false} />
-        <GaugeChart value={0} />
+        <GaugeChart />
         <CandlestickCard
           heading="Bitcoin"
           value={{ data: '36,606,531,750.36', prefix: '$' }}
