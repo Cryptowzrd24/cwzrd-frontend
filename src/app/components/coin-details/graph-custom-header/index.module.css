@@ -1,54 +1,52 @@
 .graphCustomHeader {
-  width: 428px;
-  height: 32px;
-  padding: 4px;
+  height: 42px;
   border-radius: 8px;
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
-  gap: 18px;
   background-color: #f3f3f3;
   position: relative;
   top: 20px;
   left: 20px;
 }
 
-.headerText {
+.tab {
+  text-align: center;
+  padding: 5px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out,
+    margin-right 0.3s ease-in-out,
+    margin-left 0.3s ease-in-out;
+  margin: 0 6px;
+}
+
+.selectedTab {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(17, 17, 17, 1);
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+.selectedText {
+  font-family: 'Sf Pro Display';
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18.2px;
+  color: rgba(17, 17, 17, 0.8) !important;
+}
+
+.tab span {
   font-family: 'Sf Pro Display';
   font-weight: 600;
   font-size: 14px;
   line-height: 18.2px;
   color: rgba(17, 17, 17, 0.6);
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  margin-left: 4px;
-}
-
-.link {
-  /* background-color: green; */
-  padding: 5px 5px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-/* .link:hover {
-  background-color: #e0e0e0;
-} */
-
-.selectedLink {
-  transition: 0.3s ease-in-out;
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 4px;
-  width: auto;
-  padding: 3px 16px;
-  color: #000;
-}
-
-.selectedTabText {
-  font-family: 'Sf Pro Display';
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 18.2px;
-  color: rgba(17, 17, 17, 1);
-  cursor: pointer;
+  transition:
+    color 0.3s ease-in-out,
+    width 0.3s ease-in-out;
+  white-space: nowrap; /* Prevent text wrapping */
 }

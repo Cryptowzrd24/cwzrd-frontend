@@ -1,5 +1,6 @@
 'use client';
 import { Box, Typography } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 import React, { useEffect, useState } from 'react';
 
 import DataTable from '../../data-table';
@@ -20,7 +21,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
   const [rowData, setRowData] = useState([]);
   const [active, setActive] = useState('Spot');
 
-  const { data } = useFetchMarketDataCoinDetailsQuery({
+  const { data, isFetching } = useFetchMarketDataCoinDetailsQuery({
     coinName: coinName,
     filter: active.toLowerCase(),
   });
@@ -267,7 +268,21 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
           },
         }}
       >
-        <DataTable rowData={rowData} columnDefs={colDef} />
+        {isFetching ? (
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '1340px',
+              height: '800px',
+            }}
+          >
+            <CircularProgress sx={{ color: 'rgba(114, 72, 247, 1)' }} />
+          </Box>
+        ) : (
+          <DataTable rowData={rowData} columnDefs={colDef} />
+        )}
         <Pagination
           length={totalCount}
           pageSize={pageSize}

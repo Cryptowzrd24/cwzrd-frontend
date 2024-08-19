@@ -17,28 +17,23 @@ function GraphCustomHeader({
     setSelectedTab(val);
   };
 
-  const renderHeaderOptions = headerOptions.map((opt) => {
-    return (
-      <div
-        key={opt}
-        onClick={() => handleTabSelect(opt)}
-        className={
-          selectedTab === opt ? `${styles.selectedLink}` : `${styles.link}`
-        }
-      >
-        <span
-          className={
-            selectedTab === opt
-              ? `${styles.selectedTabText}`
-              : `${styles.headerText}`
-          }
+  return (
+    <div className={styles.graphCustomHeader}>
+      {headerOptions.map((opt) => (
+        <div
+          key={opt}
+          onClick={() => handleTabSelect(opt)}
+          className={`${styles.tab} ${
+            selectedTab === opt ? styles.selectedTab : ''
+          }`}
         >
-          {opt}
-        </span>
-      </div>
-    );
-  });
-  return <div className={styles.graphCustomHeader}>{renderHeaderOptions}</div>;
+          <span className={selectedTab === opt ? styles.selectedText : ''}>
+            {opt}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default GraphCustomHeader;
