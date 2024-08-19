@@ -84,16 +84,16 @@ const StockChart: React.FC<StockChartProps> = React.memo(
           return '1h';
         case '3d':
           return '1h';
-        case '7d':
-          return '1d';
-        case '1m':
+        case '7D':
+          return '3h';
+        case '1M':
           return '1d';
         case '6m':
           return '1w';
-        case '1y':
-          return '1w';
+        case '1Y':
+          return '7d';
         case 'ALL':
-          return '1M';
+          return '30d';
         default:
           return '1h';
       }
@@ -422,7 +422,9 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 },
               },
             },
-            dataGrouping: { enabled: false },
+            dataGrouping: {
+              enabled: graphType === 'candlestick' ? true : false,
+            },
           },
           {
             type: 'column',
@@ -433,7 +435,9 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 ? candleStickVolume
                 : formattedVolumeData,
             yAxis: 1,
-            dataGrouping: { enabled: false }, // Ensure no data grouping for the volume series
+            dataGrouping: {
+              enabled: graphType === 'candlestick' ? true : false,
+            }, // Ensure no data grouping for the volume series
           },
           {
             type: 'area',
@@ -444,7 +448,9 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             yAxis: 2,
             color: '#F0F2F5',
             fillColor: '#F0F2F5',
-            dataGrouping: { enabled: false }, // Ensure no data grouping for the volume series,
+            dataGrouping: {
+              enabled: graphType === 'candlestick' ? true : false,
+            }, // Ensure no data grouping for the volume series,
             marker: {
               enabled: false,
               states: {

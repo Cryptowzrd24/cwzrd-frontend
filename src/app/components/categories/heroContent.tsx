@@ -116,7 +116,7 @@ function HeroContent() {
               date={new Date()}
               name={'John Smith'}
             />
-            <GaugeChart value={0} />
+            <GaugeChart />
           </Box>
         </motion.div>
       </AnimatePresence>

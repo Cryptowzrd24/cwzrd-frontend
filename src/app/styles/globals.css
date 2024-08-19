@@ -171,3 +171,7 @@ body {
 #coininfo.Mui-expanded {
   margin-top: 0 !important;
 }
+
+.highcharts-pivot {
+  display: none;
+}

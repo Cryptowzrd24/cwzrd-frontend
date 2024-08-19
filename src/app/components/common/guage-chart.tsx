@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import SolidGauge from 'highcharts/modules/solid-gauge';
@@ -11,15 +11,30 @@ if (typeof Highcharts === 'object') {
   SolidGauge(Highcharts);
 }
 
-interface GaugeChartProps {
-  value: number;
-}
+const GaugeChart = () => {
+  const [val, setVal] = useState(0);
+  const [classification, setClassification] = useState('');
+  async function getFearGreedIndex() {
+    const fearGreedRes = await fetch(
+      'https://api.alternative.me/fng/?limit=2',
+      {
+        next: {
+          revalidate: 60,
+        },
+      },
+    );
 
-const GaugeChart = ({ value }: GaugeChartProps) => {
+    const data = await fearGreedRes.json();
+    const firstDataPoint = data.data[0];
+    setVal(parseInt(firstDataPoint.value));
+    setClassification(firstDataPoint.value_classification);
+  }
+  // getFearGreedIndex().then((data) => console.log(data));
   useEffect(() => {
-    const chartOptions: Highcharts.Options = {
+    getFearGreedIndex();
+    const chartOptions: any = {
       chart: {
-        type: 'solidgauge',
+        type: 'gauge',
         backgroundColor: 'transparent',
       },
       title: {
@@ -88,12 +103,8 @@ const GaugeChart = ({ value }: GaugeChartProps) => {
       tooltip: { enabled: false },
       yAxis: [
         {
-          stops: [
-            [0.8, '#DF5353'],
-            [0.5, '#DDDF0D'],
-            [1.0, '#55BF3B'],
-          ],
-          tickPositions: [value],
+          stops: [[0.8, 'transparent']],
+          tickPositions: [val],
           lineWidth: 0,
           tickWidth: 0,
           minorTickInterval: undefined,
@@ -109,29 +120,36 @@ const GaugeChart = ({ value }: GaugeChartProps) => {
         },
       ],
       plotOptions: {
-        solidgauge: {
-          dataLabels: {
-            y: -70,
-            borderWidth: 0,
-            useHTML: true,
-            format: `<div style="text-align:center;">
-                      <span style="font-size:38px;">{y}</span><br/>
-                      <span style="font-size:14px; letter-spacing:10%;">GREED</span>
-                     </div>`,
+        gauge: {
+          dial: {
+            backgroundColor: 'black',
+            baseLength: '100%',
+            baseWidth: 5.5,
+            rearLength: '-50%',
+            topWidth: 0,
+            radius: '92%',
           },
         },
       },
       series: [
         {
-          type: 'solidgauge',
           name: 'Value',
-          data: [value],
+          data: [val],
+          dataLabels: {
+            y: -60,
+            borderWidth: 0,
+            useHTML: true,
+            format: `<div style="text-align:center;">
+                      <span style="font-size:38px;">{y}</span><br/>
+                      <span style="font-size:14px; letter-spacing:10%;">${classification?.toUpperCase()}</span>
+                     </div>`,
+          },
         },
       ],
     };
 
     Highcharts.chart('gauge-container', chartOptions);
-  }, [value]);
+  }, [val, classification]);
 
   return (
     <div
