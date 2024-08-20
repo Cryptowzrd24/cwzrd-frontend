@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { HeaderComponent } from '@/app/components/data-table/header';
-import { ID } from '@/app/components/data-table/id';
 import { GraphComp } from '../../components/data-table/graph';
 
 import { priceNumberFormatter } from '@/utils/price-number-formater';
