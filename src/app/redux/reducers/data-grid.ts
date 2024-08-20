@@ -148,6 +148,12 @@ export const dataGridApi = createApi({
         method: 'GET',
       }),
     }),
+    fetchCoinsList: builder.query({
+      query: () => ({
+        url: '/detail/compare/',
+        method: 'GET',
+      }),
+    }),
     addWatchlist: builder.mutation({
       query: ({
         email,
@@ -186,5 +192,6 @@ export const {
   useFetchMarketDataCoinDetailsQuery,
   useFetchHistoricalCoinDataDetailsQuery,
   useFetchCategoriesDataQuery,
+  useFetchCoinsListQuery,
   useAddWatchlistMutation,
 } = dataGridApi;

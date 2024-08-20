@@ -5,6 +5,7 @@ import StockChart from '../stock-chart';
 import GraphCustomHeader from '../graph-custom-header';
 import { Box } from '@mui/material';
 import GraphFilter from '../graph-filter';
+import CompareCoin from '../compare-coin';
 
 function GraphLayout() {
   const chartRef = useRef<HTMLDivElement>(null);
@@ -12,6 +13,7 @@ function GraphLayout() {
 
   const [selectedTab, setSelectedTab] = useState('Price');
   const [selectedFilter, setSelectedFilter] = useState('filter');
+  const [selectedCompareCoinId, setSelectedCompareCoinId] = useState();
   const [volumeValue, setVolumeValue] = useState('1D');
   const handleFullScreen = () => {
     if (chartRef.current) {
@@ -37,6 +39,12 @@ function GraphLayout() {
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}
         />
+        {selectedTab === 'Compare with' && (
+          <CompareCoin
+            selectedCompareCoinId={selectedCompareCoinId}
+            setSelectedCompareCoinId={setSelectedCompareCoinId}
+          />
+        )}
         <GraphFilter
           selectedFilter={selectedFilter}
           setSelectedFilter={setSelectedFilter}
@@ -53,6 +61,7 @@ function GraphLayout() {
         isFullScreen={isFullScreen}
         chartRef={chartRef}
         setIsFullScreen={setIsFullScreen}
+        selectedCompareCoinId={selectedCompareCoinId}
       />
     </div>
   );
