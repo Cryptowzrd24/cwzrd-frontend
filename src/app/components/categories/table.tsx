@@ -1,18 +1,29 @@
 'use client';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import { columnsCategories } from '@/app/constants/columns';
 import { rowDataCategory } from '@/app/constants/row';
-import useColumnCategoryDefs from '@/app/hooks/data-grid/column-defination-categories';
 import { Pagination } from '@/app/components/data-table/pagination';
+import { useFetchCategoriesDataQuery } from '@/app/redux/reducers/data-grid';
+import { scrollToTop } from '@/utils/scroll-to-top';
+import useColumnCategoryDefs from '@/app/hooks/data-grid/column-defination-categories';
 
 const Table = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState<number>(10);
+  const [rowData, setRowData] = useState([]);
+  const [itemStart, setItemStart] = useState(1);
 
   const columnCategoryDef = useColumnCategoryDefs(columnsCategories);
+
+  const { data } = useFetchCategoriesDataQuery({
+    start: currentPage,
+    pageSize,
+    searchString: search,
+  });
+  const totalCount = data?.count || 0;
 
   const handleSetSearch = useCallback((value: any) => {
     setSearch(value);
@@ -23,21 +34,39 @@ const Table = () => {
     value: number,
   ) => {
     setCurrentPage(value);
+    setItemStart((value - 1) * pageSize + 1);
+    scrollToTop();
   };
-  const handlePagination = (page: number) => {
-    setPageSize(page);
+
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    setCurrentPage(1);
+    setItemStart(1);
   };
-  const paginatedRowData = rowDataCategory.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize,
-  );
+
+  useEffect(() => {
+    if (data && data.data) {
+      const startIndex = (currentPage - 1) * pageSize + 1;
+      const res = data.data.map((item: any, index: number) => ({
+        category: item.name,
+        top_gainers: item.gainers,
+        avg_price_change: item.avg_price_change,
+        market_cap: item.market_cap,
+        volume_24: String(item.volume),
+        num_of_tokens: item.num_tokens,
+        last7Days: 'graph',
+        index: startIndex + index,
+      }));
+      setRowData(res);
+    }
+  }, [data, currentPage, itemStart, pageSize]);
 
   return (
     <div className="data-table-wrapper">
       <CustomHeader
         search={search}
         setSearch={handleSetSearch}
-        setPagination={handlePagination}
+        setPagination={handlePageSizeChange}
       />
       <div
         style={{
@@ -47,13 +76,13 @@ const Table = () => {
       >
         <DataTable
           search={search}
-          rowData={paginatedRowData}
+          rowData={rowData}
           columnDefs={columnCategoryDef}
           width="100%"
         />
       </div>
       <Pagination
-        length={rowDataCategory.length}
+        length={totalCount}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}
