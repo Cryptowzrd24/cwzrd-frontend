@@ -21,6 +21,8 @@ interface StockChartProps {
   isFullScreen: boolean;
   chartRef: any;
   setIsFullScreen: (val: boolean) => void;
+  selectedCompareCoinId: any;
+  coinSymbol: any;
 }
 
 const StockChart: React.FC<StockChartProps> = React.memo(
@@ -31,6 +33,8 @@ const StockChart: React.FC<StockChartProps> = React.memo(
     isFullScreen,
     chartRef,
     setIsFullScreen,
+    selectedCompareCoinId,
+    coinSymbol,
   }) => {
     const pathname = usePathname();
     const [options, setOptions] = useState({});
@@ -117,6 +121,16 @@ const StockChart: React.FC<StockChartProps> = React.memo(
       },
       { skip: !coinId },
     );
+    // New API call for comparison coin data
+    const { data: compareApiData } = useFetchCoinDetailsGraphDataQuery(
+      {
+        coinId: selectedCompareCoinId,
+        range,
+      },
+      { skip: !selectedCompareCoinId },
+    );
+
+    console.log(compareApiData, apiData, selectedCompareCoinId);
 
     const { data: candleStickData } = useFetchHistoricalCoinDataDetailsQuery(
       {
@@ -134,6 +148,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
           ? 'area'
           : 'line';
 
+    console.log(graphType);
     const getDate = (timestamp: string) =>
       new Date(parseInt(timestamp, 10) * 1000).getTime();
 
@@ -147,6 +162,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
 
       const points = apiData.data.points;
       const data: any[] = [];
+      const compareData: any[] = [];
       const volume: any[] = [];
       const marketcap: any[] = [];
       const candleStickMarketcap: any[] = [];
@@ -163,6 +179,20 @@ const StockChart: React.FC<StockChartProps> = React.memo(
         }
       }
 
+      // If there is comparison data, map it to the compareData array
+      if (compareApiData?.data?.points) {
+        const comparePoints = compareApiData.data.points;
+        for (const timestamp in comparePoints) {
+          if (comparePoints.hasOwnProperty(timestamp)) {
+            const point = comparePoints[timestamp];
+            compareData.push([getDate(timestamp), point.v[2]]);
+          }
+        }
+      }
+
+      console.log('compareData>>', compareData);
+      console.log('data>>', data);
+
       const formattedVolumeData = volume.map(([time, value]) => ({
         x: time,
         y: value,
@@ -174,9 +204,17 @@ const StockChart: React.FC<StockChartProps> = React.memo(
 
       let yMin, yMax;
 
+      console.log(selectedGraph);
+
       if (graphType === 'line') {
-        yMin = Math.min(...marketcap.map((point) => point[1]));
-        yMax = Math.max(...marketcap.map((point) => point[1]));
+        if (selectedGraph === 'Compare with' && compareData.length > 0) {
+          const combinedData = [...marketcap, ...compareData];
+          yMin = Math.min(...combinedData.map((point) => point[1]));
+          yMax = Math.max(...combinedData.map((point) => point[1]));
+        } else {
+          yMin = Math.min(...marketcap.map((point) => point[1]));
+          yMax = Math.max(...marketcap.map((point) => point[1]));
+        }
       } else if (graphType === 'candlestick' && candleStickData?.data?.quotes) {
         yMin = Math.min(
           ...candleStickData.data.quotes.map((quote: any) => quote.quote.low),
@@ -370,7 +408,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
           {
             type: graphType,
             id: 'graph',
-            name: 'AAPL Stock Price',
+            name: coinSymbol,
             data:
               graphType === 'candlestick'
                 ? candlestickSeries
@@ -438,6 +476,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             dataGrouping: {
               enabled: graphType === 'candlestick' ? true : false,
             }, // Ensure no data grouping for the volume series
+            showInLegend: false,
           },
           {
             type: 'area',
@@ -459,8 +498,54 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 },
               },
             },
+            showInLegend: false,
           },
+          ...(compareData.length && selectedGraph === 'Compare with'
+            ? [
+                {
+                  type: 'line',
+                  id: 'compare-graph',
+                  name: '2nd Coin',
+                  data: compareData,
+                  color: 'rgba(255, 99, 132, 1)',
+                  marker: {
+                    shadow: false,
+                    radius: 3,
+                    lineWidth: 0,
+                    lineColor: '#fff',
+                    states: {
+                      hover: {
+                        enabled: true,
+                        lineWidth: 4,
+                        radius: 8,
+                        shadow: false,
+                      },
+                    },
+                  },
+                },
+              ]
+            : []),
         ],
+        legend:
+          selectedGraph === 'Compare with'
+            ? {
+                enabled: true,
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom',
+                symbolRadius: 120,
+                symbolHeight: 16,
+                symbolWidth: 1,
+                symbolPadding: 10,
+                itemStyle: {
+                  fontSize: '14px',
+                  fontFamily: 'Sf Pro Display',
+                  color: '#111',
+                  fontWeight: 500,
+                },
+                symbol: 'circle',
+              }
+            : { enabled: false },
         navigator: {
           height: 48,
           maskFill: '#EFF3FF75',
@@ -505,7 +590,16 @@ const StockChart: React.FC<StockChartProps> = React.memo(
       setTimeout(() => {
         setIsLoading(false);
       }, 500); // Adjust timeout as needed for your use case
-    }, [apiData, candleStickData, graphType, selectedFilter, volumeValue]);
+    }, [
+      apiData,
+      candleStickData,
+      graphType,
+      selectedFilter,
+      volumeValue,
+      selectedCompareCoinId,
+      compareApiData,
+      selectedGraph,
+    ]);
 
     useEffect(() => {
       fetchChartData();

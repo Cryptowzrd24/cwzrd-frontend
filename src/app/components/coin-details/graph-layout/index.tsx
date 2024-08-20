@@ -7,7 +7,7 @@ import { Box } from '@mui/material';
 import GraphFilter from '../graph-filter';
 import CompareCoin from '../compare-coin';
 
-function GraphLayout() {
+function GraphLayout({ coinSymbol }: any) {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
@@ -38,6 +38,7 @@ function GraphLayout() {
         <GraphCustomHeader
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}
+          selectedFilter={selectedFilter}
         />
         {selectedTab === 'Compare with' && (
           <CompareCoin
@@ -62,6 +63,7 @@ function GraphLayout() {
         chartRef={chartRef}
         setIsFullScreen={setIsFullScreen}
         selectedCompareCoinId={selectedCompareCoinId}
+        coinSymbol={coinSymbol}
       />
     </div>
   );
