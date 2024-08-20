@@ -3,7 +3,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import { columnsCategories } from '@/app/constants/columns';
-import { rowDataCategory } from '@/app/constants/row';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchCategoriesDataQuery } from '@/app/redux/reducers/data-grid';
 import { scrollToTop } from '@/utils/scroll-to-top';
