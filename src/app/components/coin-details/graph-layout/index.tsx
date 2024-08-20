@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './index.module.css';
 import StockChart from '../stock-chart';
 import GraphCustomHeader from '../graph-custom-header';
@@ -26,6 +26,11 @@ function GraphLayout({ coinSymbol }: any) {
       }
     }
   };
+  useEffect(() => {
+    if (selectedTab !== 'Compare with') {
+      setSelectedCompareCoinId(undefined);
+    }
+  }, [selectedTab]);
   return (
     <div className={styles.graphLayout}>
       <Box

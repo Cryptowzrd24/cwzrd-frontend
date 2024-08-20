@@ -40,7 +40,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
     const [options, setOptions] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const chartComponentRef = useRef<any>(null);
-
+    const useZones = !selectedCompareCoinId || selectedGraph !== 'Compare with';
     const convertToUppercasePeriod = (input: string) => {
       if (input === '24h') return '1D';
       return input.replace(
@@ -130,8 +130,6 @@ const StockChart: React.FC<StockChartProps> = React.memo(
       { skip: !selectedCompareCoinId },
     );
 
-    console.log(compareApiData, apiData, selectedCompareCoinId);
-
     const { data: candleStickData } = useFetchHistoricalCoinDataDetailsQuery(
       {
         coinId,
@@ -140,13 +138,16 @@ const StockChart: React.FC<StockChartProps> = React.memo(
       },
       { skip: !coinId || selectedFilter !== 'candlestick' },
     );
-
     const graphType =
       selectedFilter === 'candlestick'
         ? 'candlestick'
-        : selectedGraph === 'Price'
-          ? 'area'
-          : 'line';
+        : selectedGraph === 'Compare with'
+          ? selectedCompareCoinId
+            ? 'line'
+            : 'area'
+          : selectedGraph === 'Market Cap'
+            ? 'line'
+            : 'area';
 
     console.log(graphType);
     const getDate = (timestamp: string) =>
@@ -190,9 +191,6 @@ const StockChart: React.FC<StockChartProps> = React.memo(
         }
       }
 
-      console.log('compareData>>', compareData);
-      console.log('data>>', data);
-
       const formattedVolumeData = volume.map(([time, value]) => ({
         x: time,
         y: value,
@@ -203,8 +201,6 @@ const StockChart: React.FC<StockChartProps> = React.memo(
       }));
 
       let yMin, yMax;
-
-      console.log(selectedGraph);
 
       if (graphType === 'line') {
         if (selectedGraph === 'Compare with' && compareData.length > 0) {
@@ -297,22 +293,35 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 fontFamily: 'Sf Pro Display',
                 color: 'rgba(17, 17, 17, 0.4)',
               },
-              formatter: function (this: any) {
-                const value = this.value;
-                if (value >= 1000000000000)
-                  return (value / 1000000000000).toFixed(1) + 'T';
-                if (value >= 1000000000)
-                  return (value / 1000000000).toFixed(1) + 'B';
-                if (value >= 1000000) return (value / 1000000).toFixed(1) + 'M';
-                if (value >= 1000) return (value / 1000).toFixed(1) + 'K';
-                return value;
-              },
+              ...(selectedCompareCoinId && selectedGraph === 'Compare with'
+                ? {
+                    format: '{#if (gt value 0)}+{/if}{value}%',
+                  }
+                : {
+                    formatter: function (this: any) {
+                      const value = this.value;
+                      if (value >= 1000000000000)
+                        return (value / 1000000000000).toFixed(1) + 'T';
+                      if (value >= 1000000000)
+                        return (value / 1000000000).toFixed(1) + 'B';
+                      if (value >= 1000000)
+                        return (value / 1000000).toFixed(1) + 'M';
+                      if (value >= 1000) return (value / 1000).toFixed(1) + 'K';
+                      return value;
+                    },
+                  }),
             },
             height: '80%',
             resize: { enabled: false },
             gridLineWidth: 0.5,
-            min: yMin * 0.999,
-            max: yMax * 1.001,
+            min:
+              selectedCompareCoinId && selectedGraph === 'Compare with'
+                ? undefined
+                : yMin * 0.999,
+            max:
+              selectedCompareCoinId && selectedGraph === 'Compare with'
+                ? undefined
+                : yMax * 1.001,
           },
           {
             labels: { enabled: false, align: 'left' },
@@ -322,6 +331,19 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             gridLineWidth: 0,
           },
         ],
+        plotOptions: {
+          series: {
+            compare:
+              selectedCompareCoinId && selectedGraph === 'Compare with'
+                ? 'percent'
+                : '',
+            states: {
+              inactive: {
+                opacity: 1,
+              },
+            },
+          },
+        },
         tooltip: {
           backgroundColor: 'transparent',
           borderColor: 'transparent',
@@ -426,7 +448,9 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             zones: [
               {
                 value: coinThreshold,
-                color: 'rgba(255, 0, 0, 1)',
+                color: useZones
+                  ? 'rgba(255, 0, 0, 1)'
+                  : 'rgba(114, 72, 247, 1)',
                 fillColor: {
                   linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
                   stops: [
@@ -457,6 +481,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                   lineWidth: 4,
                   radius: 8,
                   shadow: false,
+                  fillColor: useZones ? '' : 'rgba(114, 72, 247, 1)',
                 },
               },
             },
@@ -507,7 +532,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                   id: 'compare-graph',
                   name: '2nd Coin',
                   data: compareData,
-                  color: 'rgba(255, 99, 132, 1)',
+                  color: '#FF775E',
                   marker: {
                     shadow: false,
                     radius: 3,
@@ -532,7 +557,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 enabled: true,
                 layout: 'horizontal',
                 align: 'center',
-                verticalAlign: 'bottom',
+                verticalAlign: 'top',
                 symbolRadius: 120,
                 symbolHeight: 16,
                 symbolWidth: 1,
