@@ -1,7 +1,7 @@
-.top-gainers{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 17px;
-    gap: 5px;
+.top-gainers {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 17px;
+  gap: 5px;
 }

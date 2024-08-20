@@ -152,13 +152,10 @@ export const columnsCategories = [
   { field: 'index' },
   { field: 'category' },
   { field: 'top_gainers' },
-  { field: 'percent_change_1h', headerName: '1h%' },
-  { field: 'price_24h', headerName: '24h' },
-  { field: 'price_7d', headerName: '7d' },
+  { field: 'avg_price_change' },
   { field: 'market_cap' },
-  { field: 'dominance' },
-  { field: 'volume_24h' },
-  { field: '24h_volume', headerName: '24h Volume' },
+  { field: 'volume_24' },
+  { field: 'num_of_tokens' },
   { field: 'last7Days' },
 ];
 

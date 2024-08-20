@@ -112,6 +112,14 @@ export const dataGridApi = createApi({
         };
       },
     }),
+    fetchCategoriesData: builder.query({
+      query: ({ start, pageSize }: QueryParamsType) => {
+        return {
+          url: `/api/cryptocurrency-categories/?offset=${start}&limit=${pageSize}`,
+          method: 'GET',
+        };
+      },
+    }),
     fetchMarketDataCoinDetails: builder.query({
       query: ({ coinName, filter }: any) => {
         return {
@@ -177,5 +185,6 @@ export const {
   useFetchFavoritesDataQuery,
   useFetchMarketDataCoinDetailsQuery,
   useFetchHistoricalCoinDataDetailsQuery,
+  useFetchCategoriesDataQuery,
   useAddWatchlistMutation,
 } = dataGridApi;
