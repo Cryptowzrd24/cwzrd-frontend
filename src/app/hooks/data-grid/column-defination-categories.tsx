@@ -7,6 +7,11 @@ import { TopGainers } from '@/app/components/data-table/top-gainers';
 import { CategoryName } from '@/app/components/data-table/category-name';
 import NewCoin from '@/app/components/data-table/price';
 
+import firstRank from '../../../../public/icons/first-rank.png';
+import secondRank from '../../../../public/icons/second-rank.png';
+import thirdRank from '../../../../public/icons/third-rank.png';
+import Image from 'next/image';
+
 const NumOfTokens = ({ value }: { value: any }) => {
   return (
     <div
@@ -29,6 +34,48 @@ const NumOfTokens = ({ value }: { value: any }) => {
   );
 };
 
+const styles = {
+  indexCompMain: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '8px',
+  },
+  rankImageDiv: {
+    marginTop: '6px',
+  },
+  rankImage: {
+    borderRadius: '50%',
+  },
+};
+
+const rankImages: any = {
+  1: firstRank,
+  2: secondRank,
+  3: thirdRank,
+};
+
+const displayIndex = (index: any) => {
+  if (rankImages[index]) {
+    return (
+      <div style={styles.rankImageDiv}>
+        <Image
+          style={styles.rankImage}
+          src={rankImages[index]}
+          width={22}
+          alt=""
+        />
+      </div>
+    );
+  }
+  return <div>{index}</div>;
+};
+
+const RankDisplay = (props: any) => {
+  const { index } = props.data;
+  return <div style={styles.indexCompMain}>{displayIndex(index)}</div>;
+};
+
 const useColumnCategoryDefs = (columns: any) => {
   return useMemo(() => {
     return columns.map((col: any) => {
@@ -38,9 +85,10 @@ const useColumnCategoryDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             width: 50,
-            valueFormatter: (p: any) => {
-              return p.rowIndex;
-            },
+            cellRenderer: RankDisplay,
+            // valueFormatter: (p: any) => {
+            //   return p.rowIndex;
+            // },
           };
         case 'category':
           return {
