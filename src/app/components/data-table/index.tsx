@@ -125,6 +125,7 @@ const DataTable = memo(
           }}
           {...(typeof getRowId !== 'undefined' ? { getRowId } : {})}
           onRowClicked={(event: any) => {
+            if (event.data.coin_id === undefined) return;
             if (event?.event && event?.event?.target?.src?.includes('Star'))
               return;
             router.push(`/market/coin-details/${event.data.coin_id}`);
