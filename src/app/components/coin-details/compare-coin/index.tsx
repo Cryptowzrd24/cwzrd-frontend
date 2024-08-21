@@ -1,9 +1,7 @@
 import { Select } from 'antd';
 import './index.scss';
-import { useFetchCoinsListQuery } from '@/app/redux/reducers/data-grid';
 
-const CompareCoin = ({ selectedCompareCoinId, setSelectedCompareCoinId }) => {
-  const { data } = useFetchCoinsListQuery();
+const CompareCoin = ({ setSelectedCompareCoinId, compareData }: any) => {
   return (
     <Select
       showSearch
@@ -23,7 +21,7 @@ const CompareCoin = ({ selectedCompareCoinId, setSelectedCompareCoinId }) => {
       filterOption={(input, option) =>
         (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
       }
-      options={data}
+      options={compareData}
     />
   );
 };

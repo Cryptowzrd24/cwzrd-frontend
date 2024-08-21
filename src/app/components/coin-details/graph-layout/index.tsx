@@ -6,6 +6,7 @@ import GraphCustomHeader from '../graph-custom-header';
 import { Box } from '@mui/material';
 import GraphFilter from '../graph-filter';
 import CompareCoin from '../compare-coin';
+import { useFetchCoinsListQuery } from '@/app/redux/reducers/data-grid';
 
 function GraphLayout({ coinSymbol }: any) {
   const chartRef = useRef<HTMLDivElement>(null);
@@ -15,6 +16,15 @@ function GraphLayout({ coinSymbol }: any) {
   const [selectedFilter, setSelectedFilter] = useState('filter');
   const [selectedCompareCoinId, setSelectedCompareCoinId] = useState();
   const [volumeValue, setVolumeValue] = useState('1D');
+
+  const { data } = useFetchCoinsListQuery({});
+
+  const foundCoin = data?.find(
+    (coin: any) => coin.coin_id === selectedCompareCoinId,
+  );
+
+  const compareCoinSymbol = foundCoin ? foundCoin.symbol : '';
+
   const handleFullScreen = () => {
     if (chartRef.current) {
       if (document.fullscreenElement) {
@@ -47,7 +57,7 @@ function GraphLayout({ coinSymbol }: any) {
         />
         {selectedTab === 'Compare with' && (
           <CompareCoin
-            selectedCompareCoinId={selectedCompareCoinId}
+            compareData={data}
             setSelectedCompareCoinId={setSelectedCompareCoinId}
           />
         )}
@@ -69,6 +79,7 @@ function GraphLayout({ coinSymbol }: any) {
         setIsFullScreen={setIsFullScreen}
         selectedCompareCoinId={selectedCompareCoinId}
         coinSymbol={coinSymbol}
+        compareCoinSymbol={compareCoinSymbol}
       />
     </div>
   );
