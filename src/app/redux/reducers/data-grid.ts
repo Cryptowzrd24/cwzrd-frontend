@@ -113,9 +113,9 @@ export const dataGridApi = createApi({
       },
     }),
     fetchCategoriesData: builder.query({
-      query: ({ start, pageSize }: QueryParamsType) => {
+      query: ({ start, pageSize, searchString }: QueryParamsType) => {
         return {
-          url: `/api/cryptocurrency-categories/?offset=${start}&limit=${pageSize}`,
+          url: `/api/cryptocurrency-categories/?offset=${start}&limit=${pageSize}${searchString ? `&name=${searchString}` : ''}`,
           method: 'GET',
         };
       },
