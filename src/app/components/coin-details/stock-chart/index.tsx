@@ -149,7 +149,6 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             ? 'line'
             : 'area';
 
-    console.log(graphType);
     const getDate = (timestamp: string) =>
       new Date(parseInt(timestamp, 10) * 1000).getTime();
 
@@ -293,23 +292,19 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 fontFamily: 'Sf Pro Display',
                 color: 'rgba(17, 17, 17, 0.4)',
               },
-              ...(selectedCompareCoinId && selectedGraph === 'Compare with'
-                ? {
-                    format: '{#if (gt value 0)}+{/if}{value}%',
-                  }
-                : {
-                    formatter: function (this: any) {
-                      const value = this.value;
-                      if (value >= 1000000000000)
-                        return (value / 1000000000000).toFixed(1) + 'T';
-                      if (value >= 1000000000)
-                        return (value / 1000000000).toFixed(1) + 'B';
-                      if (value >= 1000000)
-                        return (value / 1000000).toFixed(1) + 'M';
-                      if (value >= 1000) return (value / 1000).toFixed(1) + 'K';
-                      return value;
-                    },
-                  }),
+              formatter: function (this: any) {
+                const value = this.value;
+                if (selectedCompareCoinId && selectedGraph === 'Compare with') {
+                  return `${value.toFixed(2)}%`;
+                }
+                if (value >= 1000000000000)
+                  return (value / 1000000000000).toFixed(1) + 'T';
+                if (value >= 1000000000)
+                  return (value / 1000000000).toFixed(1) + 'B';
+                if (value >= 1000000) return (value / 1000000).toFixed(1) + 'M';
+                if (value >= 1000) return (value / 1000).toFixed(1) + 'K';
+                return value;
+              },
             },
             height: '80%',
             resize: { enabled: false },
@@ -362,7 +357,6 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             const low = priceNumberFormatter(ohlc.low);
             const close = priceNumberFormatter(ohlc.close);
             const price = priceNumberFormatter(this.y);
-
             return `
             <div style="padding: 16px; border-radius: 8px; background: white; box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 250px; max-height: 194px;">
               <div style="display: flex; justify-content: space-between; padding-bottom: 16px;">
@@ -536,6 +530,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                   marker: {
                     shadow: false,
                     radius: 3,
+                    symbol: 'circle',
                     lineWidth: 0,
                     lineColor: '#fff',
                     states: {
