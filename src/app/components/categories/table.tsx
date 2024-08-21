@@ -7,6 +7,7 @@ import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchCategoriesDataQuery } from '@/app/redux/reducers/data-grid';
 import { scrollToTop } from '@/utils/scroll-to-top';
 import useColumnCategoryDefs from '@/app/hooks/data-grid/column-defination-categories';
+import debounce from 'debounce';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -24,9 +25,19 @@ const Table = () => {
   });
   const totalCount = data?.count || 0;
 
-  const handleSetSearch = useCallback((value: any) => {
-    setSearch(value);
-  }, []);
+  const debouncedFetchCoinData = useCallback(
+    debounce((value) => {
+      setSearch(value);
+    }, 600),
+    [],
+  );
+
+  const handleSetSearch = useCallback(
+    (value: any) => {
+      debouncedFetchCoinData(value);
+    },
+    [debouncedFetchCoinData],
+  );
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
