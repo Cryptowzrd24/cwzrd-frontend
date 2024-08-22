@@ -18,9 +18,6 @@ const CompareCoin = ({ setSelectedCompareCoinId, compareData }: any) => {
       fieldNames={{ label: 'name', value: 'coin_id' }}
       optionFilterProp="name"
       onChange={setSelectedCompareCoinId}
-      filterOption={(input, option) =>
-        (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
-      }
       options={compareData}
     />
   );

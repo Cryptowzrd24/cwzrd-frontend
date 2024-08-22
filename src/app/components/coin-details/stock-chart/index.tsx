@@ -188,7 +188,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
         for (const timestamp in comparePoints) {
           if (comparePoints.hasOwnProperty(timestamp)) {
             const point = comparePoints[timestamp];
-            compareData.push([getDate(timestamp), point.v[2]]);
+            compareData.push([getDate(timestamp), point.v[0]]);
           }
         }
       }
@@ -361,10 +361,11 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             const low = priceNumberFormatter(ohlc.low);
             const close = priceNumberFormatter(ohlc.close);
             const price = priceNumberFormatter(this.y);
+            const comparePrice = priceNumberFormatter(this?.points?.[3]?.y);
             const priceChangeFirstCoin =
-              this.points[0]?.point?.change?.toFixed(2);
+              this.points?.[0]?.point?.change?.toFixed(2);
             const priceChangeSecondCoin =
-              this.points[3]?.point?.change?.toFixed(2);
+              this.points?.[3]?.point?.change?.toFixed(2);
 
             const firstPriceChangeColor = priceChangeFirstCoin?.includes('-')
               ? 'rgba(255, 0, 0, 1)'
@@ -446,7 +447,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                   </div>
                 </div>
                   <div style="font-size: 13px; font-weight: 500; font-family: 'Sf Pro Display'; color: ${secondPriceChangeColor}">
-                    $${price}(${priceChangeSecondCoin}%)
+                    $${comparePrice}(${priceChangeSecondCoin}%)
                   </div>
                 </div>
                 `

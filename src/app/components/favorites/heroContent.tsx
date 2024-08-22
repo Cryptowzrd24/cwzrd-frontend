@@ -164,7 +164,6 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
   const handleDeleteWatchlist = async () => {
     if (selectedWatchList.main) {
-      console.log('Cannot delete the main watchlist.');
       return;
     }
 
@@ -177,7 +176,6 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
       );
 
       if (response.ok) {
-        console.log('Watchlist deleted successfully.');
         setSelectedWatchList({});
         setReload(!reload);
       } else {
