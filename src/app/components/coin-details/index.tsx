@@ -14,6 +14,7 @@ import MemberShipBanner from '../banners/memberShipBanner';
 import GraphLayout from './graph-layout';
 // import { CoinDetailsTypes } from '@/app/models/coin-details';
 import CoinDetailsCard from './coin-details-cards';
+import Script from 'next/script';
 
 const CoinDetails = ({ serverCoindata }: any) => {
   const coinName = serverCoindata?.name;
@@ -71,6 +72,7 @@ const CoinDetails = ({ serverCoindata }: any) => {
           <MemberShipBanner />
         </Box>
       </Container>
+      <Script src="/coin_details_banner_websocket.js" />
     </>
   );
 };
