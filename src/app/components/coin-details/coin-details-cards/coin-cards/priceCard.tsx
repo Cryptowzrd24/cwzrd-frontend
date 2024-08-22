@@ -57,6 +57,7 @@ const PriceCard = ({ coinDetails }: any) => {
               Price
             </Typography>
             <Typography
+              id={`banner-price-${coinDetails.coin_id}`}
               variant="body1"
               sx={{
                 fontSize: '14px',
@@ -86,6 +87,7 @@ const PriceCard = ({ coinDetails }: any) => {
               Price Change
             </Typography>
             <Typography
+              id={`banner-price-change-${coinDetails.coin_id}`}
               variant="body1"
               sx={{
                 fontSize: '14px',
@@ -259,6 +261,7 @@ const PriceCard = ({ coinDetails }: any) => {
               Market Cap
             </Typography>
             <Typography
+              id={`banner-market-cap-${coinDetails.coin_id}`}
               variant="body1"
               sx={{
                 fontSize: '14px',
