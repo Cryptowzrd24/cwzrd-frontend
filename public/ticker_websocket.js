@@ -17,8 +17,6 @@ ws.addEventListener('message', (event) => {
       `percent-change-${coinId}`,
     );
 
-    console.log(priceElement);
-
     if (priceElement) {
       priceElement.textContent = `${priceElement.textContent.split(' ')[0]} $${newPrice.toFixed(2)}`;
     }
@@ -57,4 +55,3 @@ toggleLessButton.addEventListener('click', () => {
   toggleLessButton.style.display = 'none';
   toggleMoreButton.style.display = 'inline-block';
 });
-

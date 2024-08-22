@@ -1,0 +1,23 @@
+.compareCoinSelect.ant-select .ant-select-selector {
+  background: #f3f3f3;
+  box-shadow: none !important;
+}
+.compareCoinSelect.ant-select.ant-select-open .ant-select-selector,
+.compareCoinSelect.ant-select.ant-select-open:hover .ant-select-selector,
+.compareCoinSelect.ant-select.ant-select-focused .ant-select-selector {
+  border-color: #7248f7 !important;
+}
+
+.compareCoinSelect.ant-select:hover .ant-select-selector {
+  border-color: #7248f7 !important;
+}
+
+.compareCoinSelect .ant-select-selection-item {
+  color: #111111cc;
+  font-weight: 600;
+}
+
+.compareCoinSelect .ant-select-selection-placeholder {
+  color: #11111199;
+  font-weight: 600;
+}

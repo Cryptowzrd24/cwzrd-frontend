@@ -49,7 +49,6 @@ export const dataGridApi = createApi({
     }),
     fetchFavoritesData: builder.query({
       query: ({ id }: { id: string }) => {
-        console.log(id);
         return {
           url: `/api/coins-by-ids/?coin_ids=${id}`,
           method: 'GET',
@@ -148,6 +147,12 @@ export const dataGridApi = createApi({
         method: 'GET',
       }),
     }),
+    fetchCoinsList: builder.query({
+      query: () => ({
+        url: '/detail/compare/',
+        method: 'GET',
+      }),
+    }),
     addWatchlist: builder.mutation({
       query: ({
         email,
@@ -186,5 +191,6 @@ export const {
   useFetchMarketDataCoinDetailsQuery,
   useFetchHistoricalCoinDataDetailsQuery,
   useFetchCategoriesDataQuery,
+  useFetchCoinsListQuery,
   useAddWatchlistMutation,
 } = dataGridApi;
