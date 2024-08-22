@@ -37,8 +37,8 @@ function GraphLayout({ coinSymbol }: any) {
     }
   };
   useEffect(() => {
-    if (selectedTab !== 'Compare with') {
-      setSelectedCompareCoinId(undefined);
+    if (selectedTab === 'Market Cap') {
+      setSelectedFilter('filter');
     }
   }, [selectedTab]);
   return (
