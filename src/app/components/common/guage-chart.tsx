@@ -29,7 +29,6 @@ const GaugeChart = () => {
     setVal(parseInt(firstDataPoint.value));
     setClassification(firstDataPoint.value_classification);
   }
-  // getFearGreedIndex().then((data) => console.log(data));
   useEffect(() => {
     getFearGreedIndex();
     const chartOptions: any = {
