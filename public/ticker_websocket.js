@@ -55,4 +55,3 @@ toggleLessButton.addEventListener('click', () => {
   toggleLessButton.style.display = 'none';
   toggleMoreButton.style.display = 'inline-block';
 });
-

@@ -19,6 +19,7 @@ import Script from 'next/script';
 const CoinDetails = ({ serverCoindata }: any) => {
   const coinName = serverCoindata?.name;
   const coinId = serverCoindata?.coin_id;
+  const coinSymbol = serverCoindata?.about_coin?.symbol;
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
@@ -38,7 +39,7 @@ const CoinDetails = ({ serverCoindata }: any) => {
           }}
         >
           <Box sx={{ flex: 1 }}>
-            <GraphLayout />
+            <GraphLayout coinSymbol={coinSymbol} />
           </Box>
           <Box sx={{ flex: 1 }}>
             <CoinDetailsCard coinDetails={serverCoindata} />

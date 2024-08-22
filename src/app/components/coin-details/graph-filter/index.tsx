@@ -65,7 +65,10 @@ function GraphFilter({
   const handleSelectedFilter = (val: string) => {
     setSelectedFilter(val);
   };
-  const isSelectedTabMarket = selectedTab === 'Market Cap' ? true : false;
+  const isSelectedTabMarket =
+    selectedTab === 'Market Cap' || selectedTab === 'Compare with'
+      ? true
+      : false;
   return (
     <div
       style={{ justifyContent: isSelectedTabMarket ? 'space-evenly' : 'start' }}
@@ -128,7 +131,7 @@ function GraphFilter({
           >
             <FilterIcon isDark={true} />
           </Box>
-          {selectedTab !== 'Market Cap' && (
+          {selectedTab !== 'Market Cap' && selectedTab !== 'Compare with' && (
             <Box
               className={
                 selectedFilter === 'candlestick'
