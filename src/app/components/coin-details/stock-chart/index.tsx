@@ -42,6 +42,9 @@ const StockChart: React.FC<StockChartProps> = React.memo(
     const [options, setOptions] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const chartComponentRef = useRef<any>(null);
+    const [hiddenSeriesIndices, setHiddenSeriesIndices] = useState<number[]>(
+      [],
+    );
     const useZones = !selectedCompareCoinId || selectedGraph !== 'Compare with';
     const convertToUppercasePeriod = (input: string) => {
       if (input === '24h') return '1D';
@@ -50,6 +53,17 @@ const StockChart: React.FC<StockChartProps> = React.memo(
         (_, number, period) => `${number}${period.toUpperCase()}`,
       );
     };
+    const handleHide = useCallback(function (this: any) {
+      const seriesIndex = this.index;
+      setHiddenSeriesIndices((prevIndices) => [...prevIndices, seriesIndex]);
+    }, []);
+
+    const handleShow = useCallback(function (this: any) {
+      const seriesIndex = this.index;
+      setHiddenSeriesIndices((prevIndices) =>
+        prevIndices.filter((index) => index !== seriesIndex),
+      );
+    }, []);
     const getTimeStampForPeriod = (period: string) => {
       const currentTime = Date.now();
       let pastTime;
@@ -150,7 +164,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             ? 'line'
             : 'area';
 
-    console.log(selectedCompareCoinId);
+    console.log(hiddenSeriesIndices);
 
     const getDate = (timestamp: string) =>
       new Date(parseInt(timestamp, 10) * 1000).getTime();
@@ -340,6 +354,10 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 opacity: 1,
               },
             },
+            events: {
+              hide: handleHide,
+              show: handleShow,
+            },
           },
         },
         tooltip: {
@@ -361,11 +379,17 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             const low = priceNumberFormatter(ohlc.low);
             const close = priceNumberFormatter(ohlc.close);
             const price = priceNumberFormatter(this.y);
-            const comparePrice = priceNumberFormatter(this?.points?.[3]?.y);
+            const comparePrice = priceNumberFormatter(
+              this.points?.length === 3
+                ? this?.points?.[2]?.y
+                : this?.points?.[3]?.y,
+            );
             const priceChangeFirstCoin =
               this.points?.[0]?.point?.change?.toFixed(2);
             const priceChangeSecondCoin =
-              this.points?.[3]?.point?.change?.toFixed(2);
+              this.points?.length === 3
+                ? this.points?.[2]?.point?.change?.toFixed(2)
+                : this.points?.[3]?.point?.change?.toFixed(2);
 
             const firstPriceChangeColor = priceChangeFirstCoin?.includes('-')
               ? 'rgba(255, 0, 0, 1)'
@@ -428,7 +452,8 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                   </div>
                 </div>
                 `
-                  : `<div style="display: flex; justify-content:space-between; align-items:center; padding-top: 6px; gap:10px">
+                  : `
+                  <div style="display: flex; justify-content:space-between; align-items:center; padding-top: 6px; gap:10px">
                   <div style="display: flex; justify-content:start; align-items:center; gap:8px;">
                   <div style="width:12px; height: 12px; background-color:rgba(114, 72, 247, 1); border-radius:50%"></div>
                   <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
