@@ -10,6 +10,8 @@ const PriceCard = ({ coinDetails }: any) => {
         : coinDetails?.statistics?.rank === 3
           ? `#Rank ${coinDetails?.statistics?.rank}  🥉`
           : `#Rank ${coinDetails?.statistics?.rank}`;
+
+  console.log(coinDetails);
   return (
     <>
       <Box
@@ -57,7 +59,7 @@ const PriceCard = ({ coinDetails }: any) => {
               Price
             </Typography>
             <Typography
-              id={`banner-price-${coinDetails.coin_id}`}
+              id={`card-price-${coinDetails.coin_id}`}
               variant="body1"
               sx={{
                 fontSize: '14px',
@@ -87,7 +89,7 @@ const PriceCard = ({ coinDetails }: any) => {
               Price Change
             </Typography>
             <Typography
-              id={`banner-price-change-${coinDetails.coin_id}`}
+              id={`card-price-change-${coinDetails.coin_id}`}
               variant="body1"
               sx={{
                 fontSize: '14px',
@@ -261,7 +263,7 @@ const PriceCard = ({ coinDetails }: any) => {
               Market Cap
             </Typography>
             <Typography
-              id={`banner-market-cap-${coinDetails.coin_id}`}
+              id={`card-market-cap-${coinDetails.coin_id}`}
               variant="body1"
               sx={{
                 fontSize: '14px',

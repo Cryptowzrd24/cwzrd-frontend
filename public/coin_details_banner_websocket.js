@@ -31,16 +31,31 @@ socketCoinDetailBanner.addEventListener('message', (event) => {
     );
     const marketCapElement = document.getElementById(`banner-market-cap-${coinId}`);
 
-    console.log(priceElement)
+    const priceElementCard = document.getElementById(`card-price-${coinId}`);
+    const percentChangeElementCard = document.getElementById(
+      `card-price-change-${coinId}`,
+    );
+    const marketCapElementCard = document.getElementById(`card-market-cap-${coinId}`);
+
     
     if (priceElement) {
       console.log(priceNumberFormatDigits(newPrice))
       priceElement.innerHTML = `$${priceNumberFormatDigits(newPrice)}`;
     }
 
+    if (priceElementCard) {
+      console.log(priceNumberFormatDigits(newPrice))
+      priceElementCard.innerHTML = `$${priceNumberFormatDigits(newPrice)}`;
+    }
+
     if (marketCapElement) {
       console.log(priceNumberFormatDigits(marketCap))
       marketCapElement.innerHTML = `$${priceNumberFormatDigits(marketCap)}`;
+    }
+
+    if (marketCapElementCard) {
+      console.log(priceNumberFormatDigits(marketCap))
+      marketCapElementCard.innerHTML = `$${priceNumberFormatDigits(marketCap)}`;
     }
 
     if (percentChangeElement && percentChange1h ) {
@@ -49,6 +64,15 @@ socketCoinDetailBanner.addEventListener('message', (event) => {
           ? `+${percentChange1h.toFixed(2)}%`
           : `${percentChange1h.toFixed(2)}%`;
       percentChangeElement.style.color =
+      percentChange1h > 0 ? 'rgba(76, 254, 182, 1)' : 'rgba(245, 109, 109, 1)';
+    }
+
+    if (percentChangeElementCard && percentChange1h ) {
+      percentChangeElementCard.innerHTML =
+      percentChange1h > 0
+          ? `+${percentChange1h.toFixed(2)}%`
+          : `${percentChange1h.toFixed(2)}%`;
+          percentChangeElementCard.style.color =
       percentChange1h > 0 ? 'rgba(76, 254, 182, 1)' : 'rgba(245, 109, 109, 1)';
     }
   }
