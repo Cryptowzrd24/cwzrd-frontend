@@ -101,7 +101,6 @@ const PriceCard = ({ coinDetails }: any) => {
               sx={{
                 fontSize: '14px',
                 fontWeight: '600',
-                // background: 'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)',
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',
                 color: 'transparent',
