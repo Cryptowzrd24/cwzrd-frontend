@@ -1,0 +1,10 @@
+.headerbg{
+    background-image: url("/images/banner/headerbg.png");
+    object-fit:cover;
+    background-size: cover;
+    // width: 100vw;
+    background-repeat: no-repeat;
+    z-index: -1;
+    height:330px;
+    padding-top: 32px;
+}

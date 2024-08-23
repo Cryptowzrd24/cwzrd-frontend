@@ -11,11 +11,16 @@ import Link from 'next/link';
 import { useAppDispatch } from '@/app/redux/store';
 import { setMainWatchFavorites, updateFavorites } from '@/app/redux/market';
 import Cookies from 'js-cookie';
+import "./index.scss"
+import { usePathname } from 'next/navigation';
+import LogoWhite from '../../../../public/icons/logoWhite';
 
 function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [isActive, setIsActive] = useState<string | null>('light');
   const dispatch = useAppDispatch();
+  const pathname = usePathname();
+
 
   useEffect(() => {
     // Update favorites from cookies
@@ -43,7 +48,8 @@ function Navbar() {
   }, []);
 
   return (
-    <Container maxWidth="xl">
+    <Box  className={pathname === "/news" ? "headerbg" : ""}>
+      {/* <Container> */}
       <Box
         sx={{
           display: 'flex',
@@ -52,7 +58,10 @@ function Navbar() {
         }}
       >
         <Link href="/">
-          <Logo />
+        {
+          pathname === "/news" ? <LogoWhite /> :
+        
+          <Logo />}
         </Link>
         <Box
           sx={{
@@ -74,7 +83,7 @@ function Navbar() {
                       color:
                         activeId === item.id
                           ? '#7248F7'
-                          : 'rgba(17, 17, 17, 1)',
+                          : pathname === "/news" ? "white" : "rgba(17, 17, 17, 1)",
                       cursor: 'pointer',
                       transition: 'transform 0.1s ease-in-out',
                       fontWeight: 500,
@@ -101,7 +110,7 @@ function Navbar() {
                       color:
                         activeId === item.id
                           ? '#7248F7'
-                          : 'rgba(17, 17, 17, 1)',
+                          : pathname === "/news" ? "white" : "rgba(17, 17, 17, 1)",
                       cursor: 'pointer',
                       transition: 'transform 0.1s ease-in-out',
                       fontWeight: 500,
@@ -135,11 +144,12 @@ function Navbar() {
               <DarkmodeIcon isActive={isActive === 'dark'} />{' '}
             </Box>
           </Box>
-          <SearchIcon />
+          <SearchIcon  />
           <ProfileIcon />
         </Box>
       </Box>
-    </Container>
+    {/* </Container> */}
+    </Box>
   );
 }
 
