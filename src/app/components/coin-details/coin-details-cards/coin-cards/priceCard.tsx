@@ -11,7 +11,14 @@ const PriceCard = ({ coinDetails }: any) => {
           ? `#Rank ${coinDetails?.statistics?.rank}  🥉`
           : `#Rank ${coinDetails?.statistics?.rank}`;
 
-  console.log(coinDetails);
+  const getPercentColor = (val: any) => {
+    if (!val) return;
+    if (!val.toLocaleString().includes('-')) {
+      return { color: 'rgb(1, 200, 119)' };
+    } else {
+      return { color: 'rgb(245, 109, 109)' };
+    }
+  };
   return (
     <>
       <Box
@@ -94,10 +101,12 @@ const PriceCard = ({ coinDetails }: any) => {
               sx={{
                 fontSize: '14px',
                 fontWeight: '600',
-                background: 'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)',
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',
                 color: 'transparent',
+                ...getPercentColor(
+                  coinDetails?.statistics?.priceChangePercentage1h,
+                ),
               }}
             >
               {coinDetails?.statistics?.priceChangePercentage1h
