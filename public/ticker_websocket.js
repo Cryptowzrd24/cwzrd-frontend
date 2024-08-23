@@ -1,12 +1,11 @@
 const ws = new WebSocket('wss://backend.cwzrd.co.uk/ws/data/');
 
 ws.addEventListener('open', () => {
-  console.log('WebSocket connection opened falsdjflasjfl lkjasflk');
+  console.log('WebSocket connection opened');
 });
 
 ws.addEventListener('message', (event) => {
   const message = JSON.parse(event.data);
-
   if (message.d && message.id) {
     const coinId = message.id;
     const newPrice = message.p;
@@ -16,6 +15,7 @@ ws.addEventListener('message', (event) => {
     const percentChangeElement = document.getElementById(
       `percent-change-${coinId}`,
     );
+
 
     if (priceElement) {
       priceElement.textContent = `${priceElement.textContent.split(' ')[0]} $${newPrice.toFixed(2)}`;
