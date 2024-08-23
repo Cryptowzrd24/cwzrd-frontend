@@ -158,7 +158,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
               }}
             >
               <Typography
-                id={`banner-price-${coinDetails.coin_id}`}
+                id={`banner-price-${coinDetails?.coin_id}`}
                 variant="body1"
                 sx={{
                   fontSize: '24px',
@@ -170,7 +170,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                 ${priceNumberFormatDigits(coinDetails?.quote?.price)}
               </Typography>
               <Typography
-                id={`banner-price-change-${coinDetails.coin_id}`}
+                id={`banner-price-change-${coinDetails?.coin_id}`}
                 variant="body1"
                 sx={{
                   fontSize: '16px',
