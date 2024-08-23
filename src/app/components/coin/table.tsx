@@ -126,11 +126,17 @@ const Table = () => {
   const mapCoinData = (message: any, existingRow: any) => ({
     ...existingRow,
     percent_change_1h:
-      message.p1h !== null ? message.p1h : existingRow.percent_change_1h,
+      message.p1h !== null
+        ? message.p1h.toFixed(2)
+        : existingRow.percent_change_1h,
     percent_change_24h:
-      message.p24h !== null ? message.p24h : existingRow.percent_change_24h,
+      message.p24h !== null
+        ? message.p24h.toFixed(2)
+        : existingRow.percent_change_24h,
     percent_change_7d:
-      message.p7d !== null ? message.p7d : existingRow.percent_change_7d,
+      message.p7d !== null
+        ? message.p7d.toFixed(2)
+        : existingRow.percent_change_7d,
     market_cap: message.mc !== null ? message.mc : existingRow.market_cap,
     new_price: message.p !== null ? message.p : existingRow.price,
   });
