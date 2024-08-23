@@ -5,7 +5,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import CarouselImage1 from '../../../../../../public/images/news-letter/carousel1.png';
-import PeopleImage from "../../../../../../public/images/news-letter/people.png"
+import PeopleImage from '../../../../../../public/images/news-letter/people.png';
 import Image from 'next/image';
 
 const content = [
@@ -82,14 +82,12 @@ const NewsCarouselBig = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      marginTop={"10px"}
-    //   marginBlock={'100px'}
+      marginTop={'10px'}
+      //   marginBlock={'100px'}
     >
       <Box
         component="img"
-        src={
-          currentIndex == 0 ? CarouselImage1.src : content[currentIndex].image
-        }
+        src={CarouselImage1.src}
         alt={`Carousel image ${currentIndex + 1}`}
         width="100%"
         height="800px"
@@ -117,10 +115,23 @@ const NewsCarouselBig = () => {
             backdropFilter: 'blur(10px)',
           }}
           key={'123'}
-          label={<Box sx={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-            <Image src={PeopleImage.src} height={15} width={15} alt='people watching image' /> 
-            {'374,039'}
-          </Box>}
+          label={
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Image
+                src={PeopleImage.src}
+                height={15}
+                width={15}
+                alt="people watching image"
+              />
+              {'374,039'}
+            </Box>
+          }
           color="primary"
           size="small"
         />

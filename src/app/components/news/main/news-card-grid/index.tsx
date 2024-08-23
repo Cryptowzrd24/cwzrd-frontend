@@ -9,67 +9,80 @@ const newsData = [
   {
     image: img1,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img2,
     title: "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin",
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img3,
-    title: "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange",
-    description: "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of",
+    title:
+      "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange",
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of",
   },
   {
     image: img1,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img2,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img3,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img1,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img2,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img3,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img1,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img2,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img3,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
-    description: 'NASA\'s Drew Feusted and Ricky Arnold are to spend more than six hours outside of...',
+    description:
+      "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   // Add 11 more objects with different data
 ];
 
-const NewsGrid = ({height}:any) => {
+const NewsGrid = ({ height }: any) => {
   return (
     <Box sx={{ overflowY: 'scroll', height: height }}>
       <Grid container spacing={2}>

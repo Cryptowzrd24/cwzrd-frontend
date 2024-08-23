@@ -1,12 +1,12 @@
-import NewsComponent from '@/app/components/news'
-import React from 'react'
+import NewsComponent from '@/app/components/news';
+import React from 'react';
 
 const News = () => {
   return (
     <>
-    <NewsComponent />
+      <NewsComponent />
     </>
-  )
-}
+  );
+};
 
-export default News
+export default News;

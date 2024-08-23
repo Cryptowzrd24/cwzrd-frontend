@@ -30,21 +30,30 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
           alignItems: 'center',
         }}
       >
-        <Box sx={{position: 'relative',width:"50%"}}>
-
-        <Image
-          src={image}
-          alt="picture"
-          width={100}
-          height={100}
-          style={{
-            objectFit: 'cover',
-            borderRadius: '12px',
-          }}
-        >
-
-        </Image>
-        <Typography variant='body2' sx={{fontWeight:500, fontSize:'10px', color: 'white', position: 'absolute',top:8, left:6}}>2 MINUTES AGO</Typography>
+        <Box sx={{ position: 'relative', width: '50%' }}>
+          <Image
+            src={image}
+            alt="picture"
+            width={100}
+            height={100}
+            style={{
+              objectFit: 'cover',
+              borderRadius: '12px',
+            }}
+          ></Image>
+          <Typography
+            variant="body2"
+            sx={{
+              fontWeight: 500,
+              fontSize: '10px',
+              color: 'white',
+              position: 'absolute',
+              top: 8,
+              left: 6,
+            }}
+          >
+            2 MINUTES AGO
+          </Typography>
         </Box>
         <Stack maxHeight={'100px'}>
           <Typography

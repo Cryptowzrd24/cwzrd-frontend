@@ -12,16 +12,13 @@ const NewsMileStones = () => {
 
   const backgroundVariants = {
     initial: {
-      background:
-        "url('images/news-letter/map.png') no-repeat center/cover",
+      background: "url('images/news-letter/map.png') no-repeat center/cover",
     },
     active: {
-      background:
-        "url('/images/news-letter/map.png') no-repeat center/cover",
+      background: "url('/images/news-letter/map.png') no-repeat center/cover",
     },
     inactive: {
-      background:
-        "url('images/news-letter/map.png') no-repeat center/cover",
+      background: "url('images/news-letter/map.png') no-repeat center/cover",
     },
   };
 
@@ -61,7 +58,7 @@ const NewsMileStones = () => {
         style={{
           padding: '32px 48px 48px 32px',
           height: '390px',
-          maxWidth:"314px",
+          maxWidth: '314px',
           borderRadius: '32px',
           position: 'relative',
           flex: 1,
@@ -106,23 +103,24 @@ const NewsMileStones = () => {
                 letterSpacing: 0.1,
                 maxWidth: '298px',
                 lineHeight: '28px',
-                fontWeight:"700",
+                fontWeight: '700',
               }}
             >
               The largest trading community
             </Typography>
             <Typography
-            //   variant="body1"
+              //   variant="body1"
               sx={{
                 fontSize: '11px',
                 color: 'black',
                 maxWidth: '298px',
-                marginTop:"10px",
+                marginTop: '10px',
                 lineHeight: '15.95px',
-                fontWeight:"400",
+                fontWeight: '400',
               }}
             >
-              Every trade recommendation is managed on your behalf. Our experts are handling all the details to maximize your profits.
+              Every trade recommendation is managed on your behalf. Our experts
+              are handling all the details to maximize your profits.
             </Typography>
           </motion.div>
           {active && (

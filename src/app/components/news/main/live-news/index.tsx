@@ -14,8 +14,9 @@ function LiveNewsExplorer() {
         borderRadius: '16px',
         overflow: 'hidden',
         padding: '16px',
-        background: 'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
-    backdropFilter: 'blur(10px)',
+        background:
+          'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
+        backdropFilter: 'blur(10px)',
       }}
     >
       <Box
@@ -28,10 +29,7 @@ function LiveNewsExplorer() {
           borderBottom: '1px solid #FFFFFF1A',
         }}
       >
-        <Typography
-          variant="subtitle2"
-          sx={{ color: 'black' }}
-        >
+        <Typography variant="subtitle2" sx={{ color: 'black' }}>
           📰 LIVE EXPLORER
         </Typography>
         <Box
@@ -63,7 +61,9 @@ function LiveNewsExplorer() {
           </span>
         </Box>
       </Box>
-      <Divider sx={{width:"100%", marginTop:"-13px",marginBottom:"10px"}} />
+      <Divider
+        sx={{ width: '100%', marginTop: '-13px', marginBottom: '10px' }}
+      />
       <LiveNewsCardList />
     </Box>
   );
