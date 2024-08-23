@@ -348,7 +348,18 @@ const StockChart: React.FC<StockChartProps> = React.memo(
           shadow: false,
           useHTML: true,
           formatter: function (this: any) {
-            console.log(this);
+            const firstCoinIndex =
+              this?.points?.length === 4
+                ? this.points?.[0]
+                : this.points?.[0]?.point?.series?.name === coinSymbol
+                  ? this.points?.[0]
+                  : null;
+            const secondCoinIndex =
+              this?.points?.length === 4
+                ? this.points?.[3]
+                : this.points?.[0]?.point?.series?.name === coinSymbol
+                  ? null
+                  : this.points?.[this?.points?.length - 1];
             const date = Highcharts.dateFormat('%m/%d/%Y', this.x);
             const time = Highcharts.dateFormat('%I:%M:%S %p', this.x);
             const volume = numeral(
@@ -361,11 +372,11 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             const low = priceNumberFormatter(ohlc.low);
             const close = priceNumberFormatter(ohlc.close);
             const price = priceNumberFormatter(this.y);
-            const comparePrice = priceNumberFormatter(this?.points?.[3]?.y);
+            const comparePrice = priceNumberFormatter(secondCoinIndex?.y);
             const priceChangeFirstCoin =
-              this.points?.[0]?.point?.change?.toFixed(2);
+              firstCoinIndex?.point?.change?.toFixed(2);
             const priceChangeSecondCoin =
-              this.points?.[3]?.point?.change?.toFixed(2);
+              secondCoinIndex?.point?.change?.toFixed(2);
 
             const firstPriceChangeColor = priceChangeFirstCoin?.includes('-')
               ? 'rgba(255, 0, 0, 1)'
@@ -428,18 +439,24 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                   </div>
                 </div>
                 `
-                  : `<div style="display: flex; justify-content:space-between; align-items:center; padding-top: 6px; gap:10px">
-                  <div style="display: flex; justify-content:start; align-items:center; gap:8px;">
-                  <div style="width:12px; height: 12px; background-color:rgba(114, 72, 247, 1); border-radius:50%"></div>
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                    Price(${coinSymbol}):
-                  </div>
-                  </div>
-                  <div style="font-size: 13px; font-weight: 500; font-family: 'Sf Pro Display'; color: ${firstPriceChangeColor}">
-                    $${price}(${priceChangeFirstCoin}%)
-                  </div>
-                </div>
-                <div style="display: flex; justify-content:space-between; align-items:center; padding-top: 6px; gap:10px">
+                  : `${
+                      firstCoinIndex
+                        ? `<div style="display: flex; justify-content:space-between; align-items:center; padding-top: 6px; gap:10px">
+                        <div style="display: flex; justify-content:start; align-items:center; gap:8px;">
+                          <div style="width:12px; height: 12px; background-color:rgba(114, 72, 247, 1); border-radius:50%"></div>
+                          <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
+                            Price(${coinSymbol}):
+                          </div>
+                        </div>
+                        <div style="font-size: 13px; font-weight: 500; font-family: 'Sf Pro Display'; color: ${firstPriceChangeColor}">
+                          $${price}(${priceChangeFirstCoin}%)
+                        </div>
+                      </div>`
+                        : ''
+                    }
+              ${
+                secondCoinIndex
+                  ? `<div style="display: flex; justify-content:space-between; align-items:center; padding-top: 6px; gap:10px">
                 <div style="display: flex; justify-content:start; align-items:center; gap:8px;">
                   <div style="width:13px; height: 12px; background-color:#FF775E; border-radius:50%"></div>
                   <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
@@ -449,7 +466,9 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                   <div style="font-size: 13px; font-weight: 500; font-family: 'Sf Pro Display'; color: ${secondPriceChangeColor}">
                     $${comparePrice}(${priceChangeSecondCoin}%)
                   </div>
-                </div>
+                </div>`
+                  : ''
+              }
                 `
             }
               <div style="display: flex; justify-content: space-between; padding-top: 6px; align-items:center;">
