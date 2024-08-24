@@ -7,9 +7,10 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 const content = [
   {
-    title: 'Breaking News: Market Crash',
+    title:
+      '1 Top Cryptocurrency to Buy Before It Soars 1,415% to $1 Million, According to Certain Wall Street Analysts',
     description:
-      'The stock market has experienced a significant downturn today...',
+      "Bitcoin (CRYPTO: BTC) returned 150% over the past year, easily outpacing the U.S. stock market. But Bernstein analysts Gautam Chhugani and Mahika Sapra expect the cryptocurrency to move much higher in the next decade. Their price targets are listed below, along with the implied upside based on Bitcoin's current price of $66,000.",
     tags: ['Economy', 'Finance', 'Breaking'],
     image:
       'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=kSxn3ESFoT0oOqDxaa51uj2VFRLQYSl6gZpwh6ntcP1JkqUaNGXxuK4lUgDPlcvz89mOkDnzPS9Etrm-5RPmOzJVzKz~TMaGL~LvZQJ1bVFd~eR~C6IJteGGCPxv1avz2k1UQlwsxBJlJRBKyHAXmIFftgCFAN4gfy6JS4f~4ewcgpdRgPgLn~AAxhIKH-5eBR~ZdbAHcUw3JpJHpUxS~NdIc5o7aPoK2~fInntgMxoBs8L9ep0KyOpiVM18Wzw20BIawMWXfA82clND9LvmoXwNB1jtg9rZBoUIw~SXWRlnQyjcguA0BocqIxfrlCj4DC-ooxvFIu8BXU-oYks2YQ__',
@@ -70,7 +71,7 @@ const NewsCarousel = () => {
 
   return (
     <Box
-      marginBottom={'50px'}
+      // marginBottom={'50px'}
       color={'white'}
       position="relative"
       width="100%"
@@ -89,7 +90,7 @@ const NewsCarousel = () => {
           objectFit: 'cover',
           borderRadius: '25px',
           zIndex: '-1',
-          opacity: '1',
+          opacity: '0.95',
         }}
       />
 

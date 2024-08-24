@@ -30,6 +30,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
           fontSize: '18px',
           lineHeight: '23.4px',
           paddingInline: '10px',
+          flexShrink: 0,
         }}
         variant="body1"
       >

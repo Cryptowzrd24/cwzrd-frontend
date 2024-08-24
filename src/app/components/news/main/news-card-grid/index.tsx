@@ -14,7 +14,7 @@ const newsData = [
   },
   {
     image: img2,
-    title: "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin",
+    title: "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin Ahead",
     description:
       "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },

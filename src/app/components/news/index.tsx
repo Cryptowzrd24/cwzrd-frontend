@@ -3,7 +3,6 @@ import NewsHeader from './header';
 import { Box, Container, Typography } from '@mui/material';
 import { NewsCategory } from './main/news-categories';
 import NewsCarousel from './main/news-carousel';
-import LiveExplorer from '../news-letter/live-explorer-cards/liveExplorer';
 import NewsGrid from './main/news-card-grid';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import CardImage from '../../../../public/images/news-letter/image-car-news.png';
@@ -15,6 +14,8 @@ import { ArrowRight } from '../../../../public/icons/arrowRight';
 import NewsMileStones from './main/news-miletones';
 import NewsCarouselBig from './main/carouel-big';
 import TrendingNewsCard from './main/trending-news-card';
+import TrendingNewsList from './main/trending-news-list';
+import LiveMarket from './main/live-market';
 
 const NewsComponent = () => {
   return (
@@ -34,15 +35,15 @@ const NewsComponent = () => {
           <NewsGrid height={'360px'} />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '23%' }}>
-          <LiveExplorer />
+          <LiveMarket />
           <LiveNewsExplorer />
         </Box>
       </Box>
-      <Box sx={{ marginBlock: '100px' }}>
+      <Box sx={{ marginBlock: '80px' }}>
         <NewsLetterBanner />
       </Box>
 
-      <Box sx={{ display: 'flex', marginBottom: '100px' }}>
+      <Box sx={{ display: 'flex', marginBottom: '80px' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '75%' }}>
           <NewsGrid height={'900px'} />
         </Box>
@@ -56,7 +57,7 @@ const NewsComponent = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBlock: '20px',
+          marginBlock: '10px',
         }}
       >
         <Typography variant="h2" left={0}>
@@ -92,7 +93,7 @@ const NewsComponent = () => {
         </Box>
       </Box>
 
-      <Box sx={{ display: 'flex', height: '900px', gap: 2 }}>
+      <Box sx={{ display: 'flex', height: '800px', gap: 2 }}>
         <Box sx={{ width: '50%' }}>
           <NewsCarouselBig />
         </Box>
@@ -105,21 +106,26 @@ const NewsComponent = () => {
             flexDirection: 'column',
           }}
         >
-          <TrendingNewsCard
-            image={CardImage}
-            title={"Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"}
-            description={
-              "Users can mint new tokens using the company's new Alloy platform, CrtptoWzrd is helping million."
-            }
-          />
-          <LiveExplorer />
+          <Box sx={{ marginBottom: '20px' }}>
+            <TrendingNewsCard
+              image={CardImage}
+              title={
+                "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
+              }
+              description={
+                "Users can mint new tokens using the company's new Alloy platform, CrtptoWzrd is helping million."
+              }
+            />
+          </Box>
+
+          <TrendingNewsList height="500px" maxCards={4} />
         </Box>
         <Box sx={{ width: '25%' }}>
-          <LiveExplorer />
+          <TrendingNewsList height="300px" maxCards={3} />
           <NewsMileStones />
         </Box>
       </Box>
-      <Box sx={{ marginBlock: '100px' }}>
+      <Box sx={{ marginBlock: '70px' }}>
         <MemberShipBanner />
       </Box>
     </Container>

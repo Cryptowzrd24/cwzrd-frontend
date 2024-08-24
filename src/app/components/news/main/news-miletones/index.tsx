@@ -15,7 +15,7 @@ const NewsMileStones = () => {
       background: "url('images/news-letter/map.png') no-repeat center/cover",
     },
     active: {
-      background: "url('/images/news-letter/map.png') no-repeat center/cover",
+      background: 'white ',
     },
     inactive: {
       background: "url('images/news-letter/map.png') no-repeat center/cover",
@@ -75,7 +75,7 @@ const NewsMileStones = () => {
             fontWeight: '400',
             color: 'black',
             textTransform: 'uppercase',
-            mb: '32px',
+            mb: '25px',
             letterSpacing: '1px',
           }}
         >
@@ -133,7 +133,6 @@ const NewsMileStones = () => {
                 sx={{
                   fontSize: '14px',
                   color: 'black',
-                  mt: '105px',
                   letterSpacing: 0.1,
                   lineHeight: '22px',
                   textAlign: 'start',
@@ -169,12 +168,12 @@ const NewsMileStones = () => {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '8px',
-              background: '#FFFFFF',
+              background: 'rgb(230,99,72)',
               borderRadius: '100px',
               cursor: 'pointer',
             }}
           >
-            <PlusIcon />
+            <PlusIcon active={true} />
           </motion.div>
         </Box>
       </motion.div>
