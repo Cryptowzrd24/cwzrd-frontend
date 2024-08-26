@@ -17,6 +17,7 @@ function LiveNewsExplorer() {
         background:
           'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
         backdropFilter: 'blur(10px)',
+        boxShadow: '0px 4px 28px 0px #0000000D'
       }}
     >
       <Box

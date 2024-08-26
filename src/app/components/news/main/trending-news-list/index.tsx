@@ -67,7 +67,6 @@ function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
               padding: '4px',
               paddingRight: '12px',
               borderRadius: '16px',
-              boxShadow: '0px 4px 28px 0px #0000000D',
               mb: '8px',
             }}
           >

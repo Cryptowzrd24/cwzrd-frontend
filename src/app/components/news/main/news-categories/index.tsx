@@ -32,6 +32,7 @@ export const NewsCategory: React.FC = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
+          gap: 2,
         }}
       >
         {newsData.map((item, index) => (
@@ -47,8 +48,22 @@ export const NewsCategory: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
+                    color: "rgb(101,101,101)",
+                  
                   }
-                : {}
+                : {
+                  color:"rgb(112,112,112)",
+                    ":hover" :{
+                  backgroundColor: 'rgb(239,234,254)',
+                  height: '40px',
+                  width: '90px',
+                  color: '#7248F7',
+                  borderRadius: '30px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor:'pointer',
+                }}
             }
           >
             <Link
@@ -60,7 +75,10 @@ export const NewsCategory: React.FC = () => {
                 fontWeight: 700,
                 paddingInline: '5px',
                 marginInline: '5px',
-                color: `${item.name == 'All News' ? '#7248F7' : 'rgb(101,101,101)'}`,
+                color: `${item.name == 'All News' ? '#7248F7' : 'inherit'}`,
+                ":hover" :{
+                  color: "#7248F7"
+                }
               }}
               href={item.link}
             >

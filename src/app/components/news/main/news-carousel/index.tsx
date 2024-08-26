@@ -71,7 +71,6 @@ const NewsCarousel = () => {
 
   return (
     <Box
-      // marginBottom={'50px'}
       color={'white'}
       position="relative"
       width="100%"

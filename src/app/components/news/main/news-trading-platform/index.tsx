@@ -14,7 +14,7 @@ const NewsTradingPlatform = () => {
         width: '95%',
         height: '440px',
         marginTop: '15px',
-        boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
+        boxShadow: '0px 4px 28px 0px #0000000D',
       }}
     >
       <Image

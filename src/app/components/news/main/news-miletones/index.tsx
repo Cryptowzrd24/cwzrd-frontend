@@ -57,6 +57,7 @@ const NewsMileStones = () => {
       <motion.div
         style={{
           padding: '32px 48px 48px 32px',
+          boxShadow: '0px 4px 28px 0px #0000000D',
           height: '390px',
           maxWidth: '314px',
           borderRadius: '32px',
