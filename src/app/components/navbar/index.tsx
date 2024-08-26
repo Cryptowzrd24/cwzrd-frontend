@@ -26,15 +26,15 @@ function Navbar() {
     // Update favorites from cookies
     const favorites = JSON.parse(
       Cookies.get('favorites') === 'null' ||
-      Cookies.get('favorites') === undefined
+        Cookies.get('favorites') === undefined
         ? '[]'
-        : (Cookies.get('favorites') as string)
+        : (Cookies.get('favorites') as string),
     );
     const mainWatchFavorites = JSON.parse(
       Cookies.get('mainWatchFavorites') === 'null' ||
-      Cookies.get('mainWatchFavorites') === undefined
+        Cookies.get('mainWatchFavorites') === undefined
         ? '[]'
-        : (Cookies.get('mainWatchFavorites') as string)
+        : (Cookies.get('mainWatchFavorites') as string),
     );
     dispatch(updateFavorites(favorites));
     dispatch(setMainWatchFavorites(mainWatchFavorites));
@@ -166,8 +166,8 @@ function Navbar() {
               </Box>
             </Box>
 
-            <SearchIcon color={pathname === '/news' ? "white" : ''} />
-            <ProfileIcon color={pathname === '/news' ? "white" : ''}  />        
+            <SearchIcon color={pathname === '/news' ? 'white' : ''} />
+            <ProfileIcon color={pathname === '/news' ? 'white' : ''} />
           </Box>
         </Box>
       </Container>

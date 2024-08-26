@@ -16,11 +16,11 @@ function TopPicks() {
         borderRadius: '16px',
         overflow: 'hidden',
         padding: '16px',
-        width:'87%',
+        width: '87%',
         background:
           'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
         backdropFilter: 'blur(10px)',
-        boxShadow: '0px 4px 28px 0px #0000000D'
+        boxShadow: '0px 4px 28px 0px #0000000D',
       }}
     >
       <Box

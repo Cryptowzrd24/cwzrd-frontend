@@ -88,7 +88,7 @@ const NewsComponent = () => {
             variant="body2"
             right={0}
           >
-            Read More 
+            Read More
           </Typography>
           <ArrowRight fill="#7248F7" />
         </Box>

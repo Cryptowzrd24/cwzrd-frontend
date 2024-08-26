@@ -33,30 +33,30 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
       <Chip
         label={
           <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                color:"white",
-                fontSize: '14px',
-                fontWeight: '400',
-                lineHeight:'20.8px',
-                background:
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              color: 'white',
+              fontSize: '14px',
+              fontWeight: '400',
+              lineHeight: '20.8px',
+              background:
                 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
               backdropFilter: 'blur(10px)',
               borderRadius: '20px',
-              paddingInline:"5px",
-              paddingBlock:"2px",
-              }}
-            >
-              <Image
-                src={PeopleImage.src}
-                height={15}
-                width={15}
-                alt="people watching image"
-              />
-              {'374,039'}
-            </Box>
+              paddingInline: '5px',
+              paddingBlock: '2px',
+            }}
+          >
+            <Image
+              src={PeopleImage.src}
+              height={15}
+              width={15}
+              alt="people watching image"
+            />
+            {'374,039'}
+          </Box>
         }
         sx={{
           position: 'absolute',

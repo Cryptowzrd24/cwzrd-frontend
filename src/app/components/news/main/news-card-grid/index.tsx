@@ -84,7 +84,7 @@ const newsData = [
 
 const NewsGrid = ({ height, width }: any) => {
   return (
-    <Box sx={{ overflowY: 'scroll', height: height, width:{width} }}>
+    <Box sx={{ overflowY: 'scroll', height: height, width: { width } }}>
       <Grid container spacing={1}>
         {newsData.map((news, index) => (
           <Grid gap={2} item xs={12} sm={6} md={4} key={index}>
