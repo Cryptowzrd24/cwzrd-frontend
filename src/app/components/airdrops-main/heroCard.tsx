@@ -118,7 +118,7 @@ const HeroCard = () => {
             </Box>
             <Typography
               variant="body1"
-              sx={{ fontSize: '16px', fontWeight: '600', }}
+              sx={{ fontSize: '16px', fontWeight: '600' }}
             >
               880
             </Typography>
@@ -141,7 +141,7 @@ const HeroCard = () => {
             </Box>
             <Typography
               variant="body1"
-              sx={{ fontSize: '16px', fontWeight: '600', }}
+              sx={{ fontSize: '16px', fontWeight: '600' }}
             >
               3
             </Typography>
