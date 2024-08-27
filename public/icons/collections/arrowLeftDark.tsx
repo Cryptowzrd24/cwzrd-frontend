@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ArrowLeftDark = () => {
+const ArrowLeftDark = ({ color }: any) => {
   return (
     <svg
       width={24}
@@ -11,7 +11,7 @@ const ArrowLeftDark = () => {
     >
       <path
         d="M14 6L8 12L14 18"
-        stroke="#111111"
+        stroke={color ? color : 'black'}
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"

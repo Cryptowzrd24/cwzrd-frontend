@@ -130,7 +130,7 @@ function LiveMarket() {
       <Divider
         sx={{ width: '100%', marginTop: '-13px', marginBottom: '10px' }}
       />
-      {liveCoinData?.map((item) => (
+      {liveCoinData?.map((item, index) => (
         <>
           <Box
             sx={{
@@ -199,9 +199,9 @@ function LiveMarket() {
                   }}
                 >
                   <Typography
-                    variant="caption"
+                    // variant="caption"
                     sx={{
-                      color: '#111111',
+                      color: 'rgbb(136,136,136)',
                       fontSize: '12px',
                       fontWeight: '400',
                       lineHeight: '15.6px',
@@ -231,9 +231,12 @@ function LiveMarket() {
               data={areachartData}
               color={getGraphColor(20)}
               percent={true}
+              fill="transparent"
             />
           )}
-          <Divider sx={{ width: '100%', marginBottom: '20px' }} />
+          {index !== liveCoinData.length - 1 && (
+            <Divider sx={{ width: '100%', marginBottom: '20px' }} />
+          )}
         </>
       ))}
     </Box>

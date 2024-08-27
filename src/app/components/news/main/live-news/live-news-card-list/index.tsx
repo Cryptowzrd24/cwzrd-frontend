@@ -5,7 +5,7 @@ import LiveNewsCard from './live-news-card';
 
 function LiveNewsCardList() {
   return (
-    <Box sx={{ overflowY: 'scroll', height: '350px' }}>
+    <Box sx={{ overflowY: 'auto', height: '360px' }}>
       {LiveCardData.slice(0, 3).map((card) => (
         <LiveNewsCard
           key={card.id}

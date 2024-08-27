@@ -1,6 +1,6 @@
 import { Box, Button, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-import mask from '../../../../../../public/images/news-letter/mentorship.png';
+import mask from '../../../../../../public/images/news-letter/mentorship-xl.png';
 import React from 'react';
 import { ArrowRight } from '../../../../../../public/icons/arrowRight';
 
@@ -11,7 +11,7 @@ const NewsTradingPlatform = () => {
         padding: '0 0 72px 0',
         backgroundColor: 'rgba(255, 255, 255, 1)',
         borderRadius: '18px',
-        width: '95%',
+        width: '100%',
         height: '440px',
         marginTop: '15px',
         boxShadow: '0px 4px 28px 0px #0000000D',
@@ -20,7 +20,7 @@ const NewsTradingPlatform = () => {
       <Image
         src={mask}
         alt="mask"
-        width={305}
+        width={343}
         height={280}
         style={{
           marginBottom: '20px',
@@ -67,17 +67,39 @@ const NewsTradingPlatform = () => {
           sx={{
             borderRadius: '25px',
             height: '40px',
-            width: '150px',
+            width: '155px',
             background: 'rgb(243,243,243)',
-            fontSize: '12px',
-            fontWeight: '600',
-            lineHeight: '15.6px',
           }}
         >
-          Read More{' '}
-          <span style={{ color: 'black', fill: 'black' }}>
-            <ArrowRight fill="black" />
-          </span>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: '12px',
+                fontWeight: '600',
+                lineHeight: '15.6px',
+                marginRight: '5px',
+              }}
+            >
+              Read More{' '}
+            </Typography>
+            <span
+              style={{
+                color: 'black',
+                fill: 'black',
+                marginTop: '3px',
+                // paddingRight: '15px',
+                // marginLeft: '-5px',
+              }}
+            >
+              <ArrowRight fill="black" />
+            </span>
+          </Box>
         </Button>
       </Stack>
     </Box>

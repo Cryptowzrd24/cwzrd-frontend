@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { Box, IconButton, Typography, Chip } from '@mui/material';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import ArrowLeftDark from '../../../../../../public/icons/collections/arrowLeftDark';
+import ArrowRightDark from '../../../../../../public/icons/collections/arrowRightDark';
 
 const content = [
   {
@@ -18,7 +18,7 @@ const content = [
   {
     title: 'Crypto Boom Continues',
     description:
-      'Cryptocurrencies are on the rise again as investors flock to digital assets...',
+      'Cryptocurrencies are on the rise again as investors flock to digital assets lorem ipsuj sit amet Cryptocurrencies are on the rise again as investors flock to digital assets lorem ipsuj sit amet Cryptocurrencies are on the rise again as investors flock to digital assets lorem ipsuj sit amet ...',
     tags: ['Crypto', 'Investment', 'Trending'],
     image:
       'https://academy.education.investing.com/wp-content/uploads/2022/03/bitcoin-what-is-crypto-scaled.jpg',
@@ -89,27 +89,38 @@ const NewsCarousel = () => {
           objectFit: 'cover',
           borderRadius: '25px',
           zIndex: '-1',
-          opacity: '0.95',
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          width: '100%',
+          height: '370px',
+          background: 'linear-gradient(0deg, #111111 35%, transparent 100%)',
+          borderBottomLeftRadius: '25px',
+          borderBottomRightRadius: '25px',
+          overflow: 'hidden',
         }}
       />
 
-      {/* Overlay for tags */}
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box
           position="absolute"
-          top="50%"
+          top="47%"
           left="20px"
           display="flex"
           gap="8px"
+          paddingInline={'32px'}
           zIndex={1}
         >
           {content[currentIndex].tags.map((tag, index) => (
             <Chip
               sx={{
                 background:
-                  'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+                  'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 2%, rgba(255, 255, 255, 0.2) 100%)',
                 backdropFilter: 'blur(10px)',
-                // border: '1px solid rgba(255, 255, 255, 0.2)',
               }}
               key={index}
               label={tag}
@@ -119,22 +130,33 @@ const NewsCarousel = () => {
           ))}
         </Box>
 
-        {/* Overlay for title and description */}
-        <Box position="absolute" top="60%" left="20px" color="white" zIndex={1}>
+        <Box position="absolute" top="56%" left="20px" color="white" zIndex={1}>
           <Typography
             variant="h4"
-            sx={{ fontWeight: '700', color: 'white', fontSize: '32px' }}
+            sx={{
+              fontWeight: '700 !important',
+              color: 'white',
+              fontSize: '32px  !important',
+              paddingInline: '32px',
+            }}
           >
             {content[currentIndex].title}
           </Typography>
           <Typography
-            variant="body1"
             sx={{
               mt: 1,
               color: 'white',
-              fontSize: '16px',
-              fontWeight: '400',
+              fontSize: '16px !important',
+              fontWeight: '400  !important',
               opacity: '80%',
+              paddingInline: '32px',
+              display: '-webkit-box',
+              overflow: 'hidden',
+              WebkitBoxOrient: 'vertical',
+              WebkitLineClamp: 2,
+              textOverflow: 'ellipsis',
+              whiteSpace: 'normal',
+              maxWidth: 'calc(100% - 48px)',
             }}
           >
             {content[currentIndex].description}
@@ -148,6 +170,7 @@ const NewsCarousel = () => {
             left: '50%',
             transform: 'translateX(-50%)',
             display: 'flex',
+            paddingBlock: '24px',
             gap: '2px',
           }}
         >
@@ -171,6 +194,7 @@ const NewsCarousel = () => {
 
       <Box
         position="absolute"
+        paddingBlock="10px"
         bottom="20px"
         right="30px"
         display="flex"
@@ -184,11 +208,13 @@ const NewsCarousel = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            height: '48px',
+            width: '48px',
           }}
           onClick={handlePrev}
           aria-label="Previous slide"
         >
-          <ArrowBackIosIcon sx={{ color: 'white' }} />
+          <ArrowLeftDark color={'white'} />
         </IconButton>
         <IconButton
           sx={{
@@ -198,22 +224,31 @@ const NewsCarousel = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            height: '48px',
+            width: '48px',
           }}
           onClick={handleNext}
           aria-label="Next slide"
         >
-          <ArrowForwardIosIcon sx={{ color: 'white' }} />
+          <ArrowRightDark color={'white'} />
         </IconButton>
       </Box>
       <Box
         position="absolute"
+        paddingBlock="24px"
         bottom="20px"
         left="20px"
         display="flex"
         gap="8px"
       >
         <Typography
-          sx={{ color: 'white', fontSize: '16px', fontWeight: '500' }}
+          sx={{
+            color: 'white',
+            fontSize: '16px !important',
+            fontWeight: '500 !important',
+            paddingInline: '32px',
+            lineHeight: '20.8px',
+          }}
         >
           19/06/2024 at 03:32 AM | John Smith
         </Typography>

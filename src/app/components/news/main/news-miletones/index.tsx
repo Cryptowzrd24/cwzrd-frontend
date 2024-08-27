@@ -137,6 +137,7 @@ const NewsMileStones = () => {
                   letterSpacing: 0.1,
                   lineHeight: '22px',
                   textAlign: 'start',
+                  marginTop: '25%',
                   marginLeft: '-16px',
                 }}
               >

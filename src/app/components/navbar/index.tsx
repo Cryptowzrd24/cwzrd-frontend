@@ -166,8 +166,8 @@ function Navbar() {
               </Box>
             </Box>
 
-            <SearchIcon color={pathname === '/news' ? 'white' : ''} />
-            <ProfileIcon color={pathname === '/news' ? 'white' : ''} />
+            <SearchIcon color={pathname === '/news' ? 'white' : 'black'} />
+            <ProfileIcon color={pathname === '/news' ? 'white' : 'black'} />
           </Box>
         </Box>
       </Container>

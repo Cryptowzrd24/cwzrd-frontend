@@ -28,11 +28,11 @@ const NewsComponent = () => {
             display: 'flex',
             flexDirection: 'column',
             width: '77%',
-            gap: 4,
+            gap: '18px',
           }}
         >
           <NewsCarousel />
-          <NewsGrid height={'380px'} width={'105%'} />
+          <NewsGrid height={'386px'} width={'105%'} />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '23%' }}>
           <LiveMarket />
@@ -84,6 +84,7 @@ const NewsComponent = () => {
               background: 'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
+              marginRight: '5px',
             }}
             variant="body2"
             right={0}
@@ -94,20 +95,20 @@ const NewsComponent = () => {
         </Box>
       </Box>
 
-      <Box sx={{ display: 'flex', height: '800px', gap: 2 }}>
-        <Box sx={{ width: '50%' }}>
+      <Box sx={{ display: 'flex', height: '800px', gap: 1 }}>
+        <Box sx={{ width: '54%' }}>
           <NewsCarouselBig />
         </Box>
         <Box
           sx={{
-            width: '25%',
+            width: '22%',
             display: 'flex',
             alignItems: 'center',
             jusstifyContent: 'center',
             flexDirection: 'column',
           }}
         >
-          <Box sx={{ marginBottom: '20px' }}>
+          <Box sx={{ marginBottom: '20px', marginRight: '10px' }}>
             <TrendingNewsCard
               image={CardImage}
               title={
@@ -121,7 +122,7 @@ const NewsComponent = () => {
 
           <TrendingNewsList height="500px" maxCards={4} />
         </Box>
-        <Box sx={{ width: '25%' }}>
+        <Box sx={{ width: '22%' }}>
           <TrendingNewsList height="300px" maxCards={3} />
           <NewsMileStones />
         </Box>

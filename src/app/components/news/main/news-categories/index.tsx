@@ -33,6 +33,7 @@ export const NewsCategory: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           gap: 2,
+          marginLeft: '-50px',
         }}
       >
         {newsData.map((item, index) => (
@@ -52,17 +53,6 @@ export const NewsCategory: React.FC = () => {
                   }
                 : {
                     color: 'rgb(112,112,112)',
-                    ':hover': {
-                      backgroundColor: 'rgb(239,234,254)',
-                      height: '40px',
-                      width: '90px',
-                      color: '#7248F7',
-                      borderRadius: '30px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      cursor: 'pointer',
-                    },
                   }
             }
           >
@@ -87,7 +77,16 @@ export const NewsCategory: React.FC = () => {
           </Box>
         ))}
       </Box>
-      <Box>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginRight: '-42px',
+          ':hover': {
+            cursor: 'pointer',
+          },
+        }}
+      >
         <SearchIcon />
       </Box>
     </Container>

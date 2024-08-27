@@ -3,7 +3,7 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts';
 
 const AreaChart = (props: IChartProps) => {
-  const { data, color, isMarker, percent } = props;
+  const { data, color, isMarker, percent, fill } = props;
   const chartRef: any = useRef(null);
 
   const chartOptions: any = {
@@ -11,6 +11,7 @@ const AreaChart = (props: IChartProps) => {
       type: 'area',
       plotBorderWidth: 0,
       plotMarginBottom: 0,
+      backgroundColor: fill || 'transparent',
     },
     xAxis: {
       labels: {

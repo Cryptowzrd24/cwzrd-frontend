@@ -1,12 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { Box, IconButton, Typography, Chip } from '@mui/material';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import CarouselImage1 from '../../../../../../public/images/news-letter/carousel1.png';
 import PeopleImage from '../../../../../../public/images/news-letter/people.png';
 import Image from 'next/image';
+import ArrowLeftDark from '../../../../../../public/icons/collections/arrowLeftDark';
+import ArrowRightDark from '../../../../../../public/icons/collections/arrowRightDark';
 
 const content = [
   {
@@ -103,10 +103,9 @@ const NewsCarouselBig = () => {
         top="0"
         right="0"
         display="flex"
-        marginTop={'30px'}
-        gap="8px"
+        marginTop={'12px'}
         zIndex={1}
-        marginRight={'20px'}
+        marginRight={'12px'}
       >
         <Chip
           sx={{
@@ -121,6 +120,8 @@ const NewsCarouselBig = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
+                paddingInline: '5px',
+                paddingBlock: '5px',
               }}
             >
               <Image
@@ -140,11 +141,12 @@ const NewsCarouselBig = () => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box
           position="absolute"
-          top="60%"
+          top="65%"
           left="20px"
           display="flex"
           gap="8px"
           zIndex={1}
+          paddingInline={'32px'}
         >
           {content[currentIndex].tags.map((tag, index) => (
             <Chip
@@ -161,7 +163,14 @@ const NewsCarouselBig = () => {
           ))}
         </Box>
 
-        <Box position="absolute" top="70%" left="20px" color="white" zIndex={1}>
+        <Box
+          position="absolute"
+          paddingInline={'32px'}
+          top="70%"
+          left="20px"
+          color="white"
+          zIndex={1}
+        >
           <Typography
             variant="h4"
             sx={{ fontWeight: '700', color: 'white', fontSize: '32px' }}
@@ -202,11 +211,12 @@ const NewsCarouselBig = () => {
         <Box
           sx={{
             position: 'absolute',
-            bottom: '30px',
+            bottom: '45px',
             left: '20px',
             display: 'flex',
             gap: '2px',
             zIndex: 1,
+            marginLeft: '32px',
           }}
         >
           {content.map((_, index) => (
@@ -230,8 +240,8 @@ const NewsCarouselBig = () => {
       {/* Navigation buttons positioned at the right bottom */}
       <Box
         position="absolute"
-        bottom="30px"
-        right="20px"
+        bottom="40px"
+        right="45px"
         display="flex"
         gap="8px"
         zIndex={1}
@@ -244,11 +254,13 @@ const NewsCarouselBig = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            height: '48px',
+            width: '48px',
           }}
           onClick={handlePrev}
           aria-label="Previous slide"
         >
-          <ArrowBackIosIcon sx={{ color: 'white' }} />
+          <ArrowLeftDark color={'white'} />
         </IconButton>
         <IconButton
           sx={{
@@ -258,11 +270,13 @@ const NewsCarouselBig = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            height: '48px',
+            width: '48px',
           }}
           onClick={handleNext}
           aria-label="Next slide"
         >
-          <ArrowForwardIosIcon sx={{ color: 'white' }} />
+          <ArrowRightDark color={'white'} />
         </IconButton>
       </Box>
     </Box>

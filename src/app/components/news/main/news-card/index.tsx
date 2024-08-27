@@ -55,11 +55,13 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
         sx={{
           marginInline: '10px',
           width: '90%',
-          height: '80px',
+          height: '50px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'start',
           borderRadius: '12px',
+          // marginInline: '16px',
+          paddingLeft: '16px',
           backgroundColor: 'rgb(243,243,243)',
         }}
       >

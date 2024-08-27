@@ -45,8 +45,8 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
                 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
               backdropFilter: 'blur(10px)',
               borderRadius: '20px',
-              paddingInline: '5px',
-              paddingBlock: '2px',
+              paddingInline: '7px',
+              paddingBlock: '3px',
             }}
           >
             <Image
@@ -61,7 +61,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         sx={{
           position: 'absolute',
           top: 16,
-          right: 18,
+          right: 12,
           fontWeight: 'bold',
         }}
       />

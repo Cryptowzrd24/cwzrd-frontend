@@ -55,11 +55,11 @@ function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
         flexDirection: 'column',
         alignItems: 'start',
         borderRadius: '16px',
-        padding: '16px',
+        padding: '2px',
         overflow: 'hidden',
       }}
     >
-      <Box sx={{ overflowY: 'scroll', height: height }}>
+      <Box sx={{ height: height }}>
         {LiveCardData.slice(0, maxCards).map((card) => (
           <Box
             sx={{
@@ -73,7 +73,8 @@ function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
             <Box
               sx={{
                 display: 'flex',
-                gap: '8px',
+                gap: '16px',
+                width: '90%',
                 flexDirection: 'row',
                 alignItems: 'center',
               }}
@@ -88,7 +89,7 @@ function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
                   borderRadius: '12px',
                 }}
               />
-              <Stack>
+              <Stack sx={{ width: '80%' }}>
                 <Typography
                   sx={{
                     fontSize: '12px',

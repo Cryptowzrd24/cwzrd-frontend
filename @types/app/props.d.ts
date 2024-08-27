@@ -20,6 +20,7 @@ declare global {
     color: string;
     isMarker?: boolean;
     percent?: boolean;
+    fill?: string;
   }
 
   interface IStepProps {
