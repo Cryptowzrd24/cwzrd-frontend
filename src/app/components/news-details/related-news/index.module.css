@@ -1,0 +1,35 @@
+/* Slick Dots and Thumb (Pagination) Styling */
+.slick-dots.slick-thumb {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  bottom: -20px; /* Adjust this value as needed to position dots correctly */
+}
+
+.slick-dots.slick-thumb li {
+  margin: 0 5px; /* Space between dots */
+}
+
+.slick-dots.slick-thumb li button {
+  display: none; /* Hide the default button */
+}
+
+.slick-dots.slick-thumb li div {
+  width: 20px !important; /* Width of the dots */
+  height: 20px !important; /* Height of the dots */
+  border-radius: 50%;
+  background-color: gray; /* Default color for inactive dots */
+  cursor: pointer;
+}
+
+.slick-dots.slick-thumb li.slick-active div {
+  background-color: black; /* Color for active dot */
+}
+
+/* Optional: If you want a subtle transition effect */
+.slick-dots.slick-thumb li div {
+  transition: background-color 0.3s ease;
+}
