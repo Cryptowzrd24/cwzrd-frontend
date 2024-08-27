@@ -3,7 +3,7 @@ import { Box, Stack, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
 const Header = () => {
-  const [activeHeading, setActiveHeading] = useState('');
+  const [activeHeading, setActiveHeading] = useState('all');
 
   const handleHeadingClick = (heading: any) => {
     setActiveHeading(heading);
