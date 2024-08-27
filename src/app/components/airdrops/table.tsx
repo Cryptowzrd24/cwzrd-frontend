@@ -51,6 +51,7 @@ const Table = () => {
           rowData={paginatedRowData}
           columnDefs={columnAirDropsDef}
           width="100%"
+          getAirDropMain={true}
         />
       </div>
       <Pagination
