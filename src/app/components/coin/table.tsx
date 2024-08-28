@@ -70,9 +70,13 @@ const Table = () => {
 
   const handleToggleCards = () => {
     setShowCards((prevShowCards) => !prevShowCards);
-    setActiveIcon((prevActiveIcon) =>
-      prevActiveIcon === 'ListIcon' ? 'BoxIcon' : 'ListIcon',
-    );
+    if (showCards) {
+      setPageSize(10);
+      setActiveIcon('ListIcon');
+    } else {
+      setPageSize(12);
+      setActiveIcon('BoxIcon');
+    }
   };
 
   useEffect(() => {
@@ -158,6 +162,8 @@ const Table = () => {
         onToggleView={handleToggleCards}
         activeIcon={activeIcon}
         setPagination={handlePageSizeChange}
+        getCardsPagination={showCards}
+        pageSize={pageSize}
       />
       <div
         style={{

@@ -37,6 +37,7 @@ const HeroCard = () => {
                 fontWeight: '600',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
+                letterSpacing: '-0.5px',
               }}
             >
               Airdrop
@@ -61,6 +62,7 @@ const HeroCard = () => {
                 fontWeight: '600',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
+                letterSpacing: '-0.5px',
               }}
             >
               Confirmed
@@ -85,6 +87,7 @@ const HeroCard = () => {
                 fontWeight: '600',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
+                letterSpacing: '-0.5px',
               }}
             >
               ~ Q2
@@ -115,7 +118,7 @@ const HeroCard = () => {
             </Box>
             <Typography
               variant="body1"
-              sx={{ fontSize: '16px', fontWeight: '600', mt: '6px' }}
+              sx={{ fontSize: '16px', fontWeight: '600' }}
             >
               880
             </Typography>
@@ -130,7 +133,7 @@ const HeroCard = () => {
           >
             <Box
               sx={{
-                mt: '4px',
+                mt: '8px',
                 cursor: 'pointer',
               }}
             >
@@ -138,7 +141,7 @@ const HeroCard = () => {
             </Box>
             <Typography
               variant="body1"
-              sx={{ fontSize: '16px', fontWeight: '600', mb: '4px' }}
+              sx={{ fontSize: '16px', fontWeight: '600' }}
             >
               3
             </Typography>

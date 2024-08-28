@@ -65,21 +65,27 @@ const StepPicture = ({ currentStep }: stepPicture) => {
         }}
       >
         <Stack>
-          <Typography
-            variant="body1"
+          <Box
             sx={{
-              fontSize: '16px',
-              fontWeight: '600',
-              color: 'rgba(1, 200, 119, 1)',
               padding: '6px 12px',
               borderRadius: '8px',
               background: 'rgba(31, 215, 115, 0.1)',
               mb: '16px',
-              maxWidth: { lg: '10%', md: '12%', xl: '8%' },
+              cursor: 'pointer',
+              maxWidth: '7.5%',
             }}
           >
-            Step {currentStep}
-          </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '600',
+                color: 'rgba(1, 200, 119, 1)',
+              }}
+            >
+              Step {currentStep}
+            </Typography>
+          </Box>
           <Typography
             variant="body2"
             sx={{

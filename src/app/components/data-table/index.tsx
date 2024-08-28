@@ -20,6 +20,7 @@ interface DataTableProps {
   priceRefs?: React.MutableRefObject<{ [key: string]: HTMLDivElement | null }>;
   height?: string;
   rowHeight?: number;
+  getAirDropMain?: boolean;
 }
 
 const DataTable = memo(
@@ -34,8 +35,12 @@ const DataTable = memo(
     priceRefs,
     height,
     rowHeight,
+    getAirDropMain = false,
   }: DataTableProps) => {
     const router = useRouter();
+
+    console.log('getAirDropMain:', getAirDropMain);
+
     const modifiedColumnDefs = useMemo(
       () =>
         columnDefs.map((colDef) => {
@@ -125,9 +130,17 @@ const DataTable = memo(
           }}
           {...(typeof getRowId !== 'undefined' ? { getRowId } : {})}
           onRowClicked={(event: any) => {
+            console.log('getAirDropMain value:', getAirDropMain);
+
+            if (getAirDropMain) {
+              console.log('Airdrops Main');
+              router.push('/market/airdrops-main');
+            }
+
             if (event.data.coin_id === undefined) return;
             if (event?.event && event?.event?.target?.src?.includes('Star'))
               return;
+
             router.push(`/market/coin-details/${event.data.coin_id}`);
           }}
         />
