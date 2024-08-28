@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -14,7 +14,20 @@ import Facebook from '../../../../../public/icons/facebook';
 import LinkedIn from '../../../../../public/icons/linkedIn';
 import Mail from '../../../../../public/icons/mail';
 
-function ReadingCard() {
+function ReadingCard({ scrollPosition, sectionHeight }: any) {
+  const [progress, setProgress] = useState(10);
+
+  useEffect(() => {
+    if (sectionHeight > 0) {
+      const baseProgress = 10;
+      const calculatedProgress = Math.min(
+        baseProgress +
+          (scrollPosition / (sectionHeight - window.innerHeight)) * 90,
+        100,
+      );
+      setProgress(calculatedProgress);
+    }
+  }, [scrollPosition, sectionHeight]);
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 6,
     borderRadius: 5,
@@ -24,7 +37,10 @@ function ReadingCard() {
     },
     [`& .${linearProgressClasses.bar}`]: {
       borderRadius: 5,
-      background: 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
+      background:
+        progress === 100
+          ? '#0d9488'
+          : 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
     },
   }));
   return (
@@ -64,7 +80,7 @@ function ReadingCard() {
         to break $70K?
       </Typography>
       <Box sx={{ marginTop: '12px' }}>
-        <BorderLinearProgress variant="determinate" value={10} />
+        <BorderLinearProgress variant="determinate" value={progress} />
       </Box>
       <Box sx={{ display: 'flex', gap: '8px', marginTop: '16px' }}>
         <Twitter />

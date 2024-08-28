@@ -1,19 +1,67 @@
+'use client';
 import { Box } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReadingCard from './reading-card';
 import MarketNewsPanel from './market-news-panel';
 import NewsArticle from './news-article';
 
 function DetailsSection() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [sectionHeight, setSectionHeight] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const updateSectionHeight = () => {
+      if (sectionRef.current) {
+        setSectionHeight(sectionRef.current.scrollHeight);
+      }
+    };
+
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const sectionTop =
+          sectionRef.current.getBoundingClientRect().top + window.scrollY;
+        const scrolled = window.scrollY - sectionTop;
+        setScrollPosition(scrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateSectionHeight);
+
+    updateSectionHeight();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateSectionHeight);
+    };
+  }, []);
+
+  console.log(scrollPosition);
   return (
-    <Box sx={{ display: 'flex', gap: '30px', justifyContent: 'space-between' }}>
-      <Box sx={{ flex: 0.5 }}>
-        <ReadingCard />
+    <Box
+      ref={sectionRef}
+      sx={{ display: 'flex', gap: '30px', justifyContent: 'space-between' }}
+    >
+      <Box
+        sx={{
+          flex: 0.5,
+          position: 'sticky',
+          top: '20px',
+          height: '241px',
+        }}
+      >
+        <ReadingCard
+          scrollPosition={scrollPosition}
+          sectionHeight={sectionHeight}
+        />
       </Box>
       <Box sx={{ flex: 2 }}>
         <NewsArticle />
       </Box>
-      <Box sx={{ flex: 0.5 }}>
+      <Box
+        sx={{ flex: 0.5, position: 'sticky', top: '20px', height: '1325px' }}
+      >
         <MarketNewsPanel />
       </Box>
     </Box>

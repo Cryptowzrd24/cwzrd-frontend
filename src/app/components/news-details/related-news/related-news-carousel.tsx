@@ -6,7 +6,6 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import styles from './index.module.css';
 
-// Custom Arrow components
 const PreviousArrow = ({ onClick }: any) => (
   <IconButton
     onClick={onClick}
@@ -59,10 +58,10 @@ const NextArrow = ({ onClick }: any) => (
 
 const RelatedNewsCarousel = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 1, // Show one slide at a time
+    slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
     prevArrow: <PreviousArrow onClick={() => {}} />,
@@ -83,9 +82,9 @@ const RelatedNewsCarousel = () => {
     customPaging: (i: any) => (
       <div
         className={`${styles.slickDot} ${i === 0 ? styles.slickActiveDot : ''}`}
-      />
+      ></div>
     ),
-    dotsClass: `${styles.slickDots}`,
+    dotsClass: 'slick-dots slick-thumb',
   };
 
   const renderCards = (startIndex: number) => {
