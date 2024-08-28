@@ -39,9 +39,13 @@ const HighestVolumeCoinsTable = () => {
   };
   const handleToggleCards = () => {
     setShowCards((prevShowCards) => !prevShowCards);
-    setActiveIcon((prevActiveIcon) =>
-      prevActiveIcon === 'ListIcon' ? 'BoxIcon' : 'ListIcon',
-    );
+    if (showCards) {
+      setPageSize(10);
+      setActiveIcon('ListIcon');
+    } else {
+      setPageSize(12);
+      setActiveIcon('BoxIcon');
+    }
   };
   const handlePageSizeChange = (newPageSize: number) => {
     setPageSize(newPageSize);
@@ -83,6 +87,8 @@ const HighestVolumeCoinsTable = () => {
         activeIcon={activeIcon}
         setPagination={handlePageSizeChange}
         filter={true}
+        pageSize={pageSize}
+        getCardsPagination={showCards}
       />
       <div
         style={{

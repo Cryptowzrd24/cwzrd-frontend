@@ -19,7 +19,6 @@ const Table = () => {
   const [pageSize, setPageSize] = useState<number>(10);
   const [activeIcon, setActiveIcon] = useState('ListIcon');
   const [rowData, setRowData] = useState([]);
-  const [cardData] = useState([]);
   const columnChainsDef = useColumnChainsDefs(columnsChain);
 
   const { data: chainData } = useFetchChainDataQuery({
@@ -60,9 +59,13 @@ const Table = () => {
 
   const handleToggleCards = () => {
     setShowCards((prevShowCards) => !prevShowCards);
-    setActiveIcon((prevActiveIcon) =>
-      prevActiveIcon === 'ListIcon' ? 'BoxIcon' : 'ListIcon',
-    );
+    if (showCards) {
+      setPageSize(10);
+      setActiveIcon('ListIcon');
+    } else {
+      setPageSize(12);
+      setActiveIcon('BoxIcon');
+    }
   };
 
   useEffect(() => {
@@ -94,6 +97,8 @@ const Table = () => {
         onToggleView={handleToggleCards}
         activeIcon={activeIcon}
         setPagination={handlePageSizeChange}
+        getCardsPagination={showCards}
+        pageSize={pageSize}
       />
       <div
         style={{
@@ -103,7 +108,7 @@ const Table = () => {
       >
         {showCards ? (
           <Box sx={{ borderTop: '1px solid #1111111A ', mt: '0px', ml: '0px' }}>
-            <CardContent cardsData={cardData} />
+            <CardContent cardsData={rowData} />
           </Box>
         ) : (
           <DataTable

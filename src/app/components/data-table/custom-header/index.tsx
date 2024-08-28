@@ -40,6 +40,8 @@ interface CustomHeaderProps {
   onToggleView?: () => void;
   activeIcon?: string;
   setPagination?: (pageNumber: number) => void;
+  getCardsPagination?: boolean;
+  pageSize?: number;
 }
 
 type FilterKey = keyof typeof Filters;
@@ -80,14 +82,20 @@ export const CustomHeader = ({
   onToggleView = () => {},
   activeIcon = 'ListIcon',
   setPagination = () => {},
+  getCardsPagination = false,
+  pageSize,
 }: CustomHeaderProps) => {
   const [volumeValue, setVolumeValue] = useState('24h');
   const [platforms, setPlatforms] = useState([]);
 
   const pathname = usePathname();
   const dispatch = useDispatch();
-  const [pageSize, setPageSize] = useState(10);
-  const options = [10, 20, 50, 100];
+  const options = getCardsPagination ? [12, 24, 48, 96] : [10, 20, 50, 100];
+  const [localPageSize, setLocalPageSize] = useState(pageSize);
+  useEffect(() => {
+    setLocalPageSize(pageSize);
+  }, [pageSize]);
+
   const volumes = ['24h', '7d', '30d'];
   const filterItem = useSelector((state: any) => state.filters);
   const filterCount = useSelector(
@@ -123,6 +131,12 @@ export const CustomHeader = ({
 
   const isPathNameMatching = checkPathname(pathname);
 
+  const handleChange = (event: any) => {
+    const newPageSize = event.target.value;
+    setLocalPageSize(newPageSize);
+    setPagination(newPageSize);
+  };
+
   useEffect(() => {
     if (platforms && platforms.length > 0) return;
     const fetchPlatforms = async () => {
@@ -139,10 +153,6 @@ export const CustomHeader = ({
 
     fetchPlatforms();
   }, []);
-
-  const handleChange = (event: any) => {
-    setPageSize(event.target.value);
-  };
 
   const handleSearchActiveToggle = () => {
     setSearchActive(!searchActive);
@@ -303,7 +313,6 @@ export const CustomHeader = ({
 
     setHasNonNullFilter(checkNonNullFilters());
   }, [filterItem]);
-
   return (
     <Box sx={styles.container}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -334,7 +343,8 @@ export const CustomHeader = ({
             sx={stylesPage.select(getSelectClass(pageSize))}
             labelId="pagination-select-label"
             id="pagination-select"
-            value={pageSize}
+            // value={pageSize}
+            value={localPageSize}
             onChange={handleChange}
             disableUnderline
             IconComponent={(props) => (
@@ -426,9 +436,10 @@ export const CustomHeader = ({
                           ? 'rgba(114, 72, 247, 0.1)'
                           : 'white',
                     }}
-                    onClick={
-                      activeIcon === 'ListIcon' ? () => {} : onToggleView
-                    }
+                    // onClick={
+                    //   activeIcon === 'ListIcon' ? () => {} : onToggleView
+                    // }
+                    onClick={() => onToggleView()}
                   >
                     <ListIcon
                       color={activeIcon === 'ListIcon' ? '#7248F7' : '#111111'}
@@ -444,7 +455,8 @@ export const CustomHeader = ({
                           ? 'rgba(114, 72, 247, 0.1)'
                           : 'white',
                     }}
-                    onClick={activeIcon === 'BoxIcon' ? () => {} : onToggleView}
+                    // onClick={activeIcon === 'BoxIcon' ? () => {} : onToggleView}
+                    onClick={() => onToggleView()}
                   >
                     <BoxIcon
                       color={activeIcon === 'BoxIcon' ? '#7248F7' : '#111111'}

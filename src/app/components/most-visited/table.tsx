@@ -44,9 +44,13 @@ const Table = () => {
 
   const handleToggleCards = () => {
     setShowCards((prevShowCards) => !prevShowCards);
-    setActiveIcon((prevActiveIcon) =>
-      prevActiveIcon === 'ListIcon' ? 'BoxIcon' : 'ListIcon',
-    );
+    if (showCards) {
+      setPageSize(10);
+      setActiveIcon('ListIcon');
+    } else {
+      setPageSize(12);
+      setActiveIcon('BoxIcon');
+    }
   };
   useEffect(() => {
     if (data && data.data) {
@@ -80,6 +84,8 @@ const Table = () => {
         activeIcon={activeIcon}
         setPagination={handlePageSizeChange}
         filter={true}
+        pageSize={pageSize}
+        getCardsPagination={showCards}
       />
       <div
         style={{
