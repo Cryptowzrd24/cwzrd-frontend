@@ -108,7 +108,7 @@ const NewsCarousel = () => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box
           position="absolute"
-          top="47%"
+          top="50%"
           left="20px"
           display="flex"
           gap="8px"
@@ -130,7 +130,7 @@ const NewsCarousel = () => {
           ))}
         </Box>
 
-        <Box position="absolute" top="56%" left="20px" color="white" zIndex={1}>
+        <Box position="absolute" top="57%" left="20px" color="white" zIndex={1}>
           <Typography
             variant="h4"
             sx={{

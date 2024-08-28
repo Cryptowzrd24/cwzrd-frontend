@@ -21,7 +21,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
         marginBottom: '5px',
         width: '290px',
         borderRadius: '16px',
-        padding: '8px',
+        // padding: '8px',
         boxShadow: '0px 4px 28px 0px #0000000D',
       }}
     >

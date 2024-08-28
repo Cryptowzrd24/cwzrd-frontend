@@ -101,14 +101,14 @@ const NewsComponent = () => {
         </Box>
         <Box
           sx={{
-            width: '22%',
+            width: '21%',
             display: 'flex',
             alignItems: 'center',
             jusstifyContent: 'center',
             flexDirection: 'column',
           }}
         >
-          <Box sx={{ marginBottom: '20px', marginRight: '10px' }}>
+          <Box sx={{ marginBottom: '20px' }}>
             <TrendingNewsCard
               image={CardImage}
               title={

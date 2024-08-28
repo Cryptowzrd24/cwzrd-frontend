@@ -56,6 +56,7 @@ const NewsTradingPlatform = () => {
             textAlign: 'center',
             color: 'rgba(17, 17, 17, 0.8)',
             lineHeight: '14.7px',
+            fontFamily: 'Sf Pro Regular',
           }}
         >
           We are fully committed to your success in every aspect of your

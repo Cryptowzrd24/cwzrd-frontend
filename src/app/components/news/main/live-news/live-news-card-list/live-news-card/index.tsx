@@ -7,7 +7,7 @@ interface LiveNewsCardProps {
   id: string;
   title: string;
   desc: string;
-  image: string;
+  image?: any;
 }
 
 function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
@@ -16,7 +16,7 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
       sx={{
         background: '#fff',
         padding: '4px',
-        paddingRight: '12px',
+        // paddingRight: '12px',
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
         mb: '8px',
@@ -32,9 +32,9 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
       >
         <Box sx={{ position: 'relative', width: '50%' }}>
           <Image
-            src={image}
+            src={image?.src}
             alt="picture"
-            width={100}
+            width={130}
             height={100}
             style={{
               objectFit: 'cover',
@@ -62,6 +62,7 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
               fontWeight: '700',
               lineHeight: '15.6px',
               marginBottom: '2px',
+              maxWidth: '70%',
             }}
           >
             {title}
@@ -73,9 +74,12 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
               fontSize: '10px',
               fontWeight: '400',
               lineHeight: '13px',
-              // whiteSpace: 'nowrap',
-              overflow: 'hidden',
               textOverflow: 'ellipsis',
+              overflow: 'hidden',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              letterSpacing: '0.6px',
             }}
           >
             {desc}
