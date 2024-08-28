@@ -3,7 +3,7 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts';
 
 const AreaChart = (props: IChartProps) => {
-  const { data, color, isMarker, percent } = props;
+  const { data, color, isMarker, percent, fill, className } = props;
   const chartRef: any = useRef(null);
 
   const chartOptions: any = {
@@ -11,6 +11,8 @@ const AreaChart = (props: IChartProps) => {
       type: 'area',
       plotBorderWidth: 0,
       plotMarginBottom: 0,
+      backgroundColor: fill || 'transparent',
+      // height: 200,
     },
     xAxis: {
       labels: {
@@ -144,7 +146,7 @@ const AreaChart = (props: IChartProps) => {
   };
 
   useEffect(() => {
-    if (chartRef.current) {
+    if (chartRef.current && className !== '') {
       chartRef.current?.chart.setSize(undefined, 100);
       const innerDiv = chartRef.current.container.current.querySelector('div');
       if (innerDiv) {
@@ -160,6 +162,7 @@ const AreaChart = (props: IChartProps) => {
   return (
     <div style={{ width: '100%' }}>
       <HighchartsReact
+        className={className || ''}
         ref={chartRef}
         highcharts={Highcharts}
         options={chartOptions}

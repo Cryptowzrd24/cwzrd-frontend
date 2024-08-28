@@ -1,24 +1,24 @@
 import React from 'react';
 
-function SearchIcon() {
+function SearchIcon({ color,height,width }: any) {
   return (
     <svg
-      width={20}
-      height={20}
+      width={width || 20}
+      height={height || 20}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M14.6667 25.3333C20.5577 25.3333 25.3333 20.5577 25.3333 14.6667C25.3333 8.77563 20.5577 4 14.6667 4C8.77563 4 4 8.77563 4 14.6667C4 20.5577 8.77563 25.3333 14.6667 25.3333Z"
-        stroke="#111111"
+        stroke={color ? color : 'black'}
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M27.9992 28.0002L22.1992 22.2002"
-        stroke="#111111"
+        stroke={color ? color : 'black'}
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"

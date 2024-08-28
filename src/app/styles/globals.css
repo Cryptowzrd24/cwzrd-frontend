@@ -175,6 +175,9 @@ body {
 .highcharts-pivot {
   display: none;
 }
+.highcharts-xaxis{
+  display: none;
+}
 
 .highcharts-legend-item .highcharts-graph {
   stroke-width: 12px !important; /* Change the stroke-width as desired */
