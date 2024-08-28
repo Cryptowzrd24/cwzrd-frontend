@@ -59,7 +59,7 @@ function DetailsSection() {
         <NewsArticle />
       </Box>
       <Box
-        sx={{ flex: 0.5, position: 'sticky', top: '20px', height: '1325px' }}
+        sx={{ flex: 0.5, position: 'sticky', top: '20px', height: '1380px' }}
       >
         <MarketNewsPanel />
       </Box>

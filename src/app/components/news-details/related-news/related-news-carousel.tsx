@@ -13,7 +13,7 @@ const PreviousArrow = ({ onClick }: any) => (
     sx={{
       cursor: 'pointer',
       position: 'absolute',
-      top: '103%',
+      top: '107%',
       left: '25px',
       width: '48px',
       height: '48px',
@@ -40,7 +40,7 @@ const NextArrow = ({ onClick }: any) => (
     sx={{
       cursor: 'pointer',
       position: 'absolute',
-      top: '103%',
+      top: '107%',
       right: '25px',
       width: '48px',
       height: '48px',

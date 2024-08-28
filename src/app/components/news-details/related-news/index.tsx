@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 import RelatedNewsCarousel from './related-news-carousel';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import RelatedNewsCards from './related-news-cards';
 
 function RelatedNews() {
   return (
@@ -60,6 +61,7 @@ function RelatedNews() {
         </Typography>
       </Box>
       <Box sx={{ mt: '24px' }}>
+        <RelatedNewsCards />
         <RelatedNewsCarousel />
       </Box>
     </Box>

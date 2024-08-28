@@ -16,7 +16,7 @@ const NewsDetails = () => {
         <Box sx={{ mt: '24px' }}>
           <DetailsSection />
         </Box>
-        <Box sx={{ mt: '48px' }}>
+        <Box sx={{ mt: '88px' }}>
           <RelatedNews />
         </Box>
         <Box sx={{ mt: '88px', mb: '48px' }}>

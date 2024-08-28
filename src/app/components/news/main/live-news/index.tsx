@@ -3,7 +3,7 @@ import RightRed from '../../../../../../public/icons/News-Letter/rightRed';
 import { Box, Divider, Typography } from '@mui/material';
 import LiveNewsCardList from './live-news-card-list';
 
-function LiveNewsExplorer() {
+function LiveNewsExplorer({ isPageDetails }: { isPageDetails?: boolean }) {
   return (
     <Box
       sx={{
@@ -74,7 +74,7 @@ function LiveNewsExplorer() {
       <Divider
         sx={{ width: '100%', marginTop: '-13px', marginBottom: '10px' }}
       />
-      <LiveNewsCardList />
+      <LiveNewsCardList isPageDetails={isPageDetails} />
     </Box>
   );
 }

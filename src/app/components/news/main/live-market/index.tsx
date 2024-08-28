@@ -44,6 +44,30 @@ const liveCoinData = [
     percent: '+4.11',
     image: Xrp,
   },
+  {
+    id: '5',
+    name: 'Ethereum',
+    symbol: 'ETH',
+    price: '123,710.68',
+    percent: '+4.11',
+    image: Ethereum,
+  },
+  {
+    id: '6',
+    name: 'Tether',
+    symbol: 'USDT',
+    price: '123,710.68',
+    percent: '-0.12',
+    image: Tether,
+  },
+  {
+    id: '7',
+    name: 'Ethereum',
+    symbol: 'ETH',
+    price: '123,710.68',
+    percent: '+4.11',
+    image: Ethereum,
+  },
 ];
 
 const areachartData = [
@@ -66,7 +90,7 @@ const areachartData = [
   { x: 17, y: 7 },
 ];
 
-function LiveMarket() {
+function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
   return (
     <Box
       sx={{
@@ -132,117 +156,120 @@ function LiveMarket() {
       <Divider
         sx={{ width: '100%', marginTop: '-13px', marginBottom: '10px' }}
       />
-      {liveCoinData?.map((item, index) => (
-        <>
-          <Box
-            sx={{
-              paddingRight: '12px',
-              borderRadius: '16px',
-              mb: '8px',
-              // paddingBlock:'8px',
-            }}
-          >
+      {liveCoinData
+        ?.slice(0, isPageDetails ? liveCoinData.length : 3)
+        .map((item, index) => (
+          <>
             <Box
               sx={{
-                display: 'flex',
-                gap: '8px',
-                flexDirection: 'row',
-                alignItems: 'center',
+                paddingRight: '12px',
+                borderRadius: '16px',
+                mb: '8px',
+                // paddingBlock:'8px',
               }}
             >
-              <Box sx={{ position: 'relative', width: '50%' }}>
-                <Image
-                  src={item?.image.src}
-                  alt="picture"
-                  width={32}
-                  height={32}
-                  style={{
-                    objectFit: 'cover',
-                    borderRadius: '12px',
-                  }}
-                ></Image>
-              </Box>
-              <Stack maxHeight={'100px'}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    width: '220px',
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: '14px',
-                      fontWeight: '500',
-                      lineHeight: '18.2px',
-                      marginBottom: '2px',
+              <Box
+                sx={{
+                  display: 'flex',
+                  gap: '8px',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}
+              >
+                <Box sx={{ position: 'relative', width: '50%' }}>
+                  <Image
+                    src={item?.image.src}
+                    alt="picture"
+                    width={32}
+                    height={32}
+                    style={{
+                      objectFit: 'cover',
+                      borderRadius: '12px',
                     }}
-                  >
-                    {item?.name}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: '14px',
-                      fontWeight: '500',
-                      lineHeight: '18.2px',
-                      marginBottom: '2px',
-                    }}
-                  >
-                    {'$' + item?.price}
-                  </Typography>
+                  ></Image>
                 </Box>
+                <Stack maxHeight={'100px'}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      width: '220px',
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: '14px',
+                        fontWeight: '500',
+                        lineHeight: '18.2px',
+                        marginBottom: '2px',
+                      }}
+                    >
+                      {item?.name}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: '14px',
+                        fontWeight: '500',
+                        lineHeight: '18.2px',
+                        marginBottom: '2px',
+                      }}
+                    >
+                      {'$' + item?.price}
+                    </Typography>
+                  </Box>
 
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    width: '220px',
-                  }}
-                >
-                  <Typography
-                    // variant="caption"
+                  <Box
                     sx={{
-                      color: 'rgb(101,101,101)',
-                      fontSize: '12px',
-                      fontWeight: '400',
-                      lineHeight: '15.6px',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      width: '220px',
                     }}
                   >
-                    {item?.symbol}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: '14px',
-                      fontWeight: '500',
-                      lineHeight: '18.2px',
-                      marginBottom: '2px',
-                      color: item?.percent.includes('+')
-                        ? 'rgb(61,194,136)'
-                        : 'rgb(243,57,57)',
-                    }}
-                  >
-                    {item?.percent + ' '}%
-                  </Typography>
-                </Box>
-              </Stack>
+                    <Typography
+                      // variant="caption"
+                      sx={{
+                        color: 'rgb(101,101,101)',
+                        fontSize: '12px',
+                        fontWeight: '400',
+                        lineHeight: '15.6px',
+                      }}
+                    >
+                      {item?.symbol}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: '14px',
+                        fontWeight: '500',
+                        lineHeight: '18.2px',
+                        marginBottom: '2px',
+                        color: item?.percent.includes('+')
+                          ? 'rgb(61,194,136)'
+                          : 'rgb(243,57,57)',
+                      }}
+                    >
+                      {item?.percent + ' '}%
+                    </Typography>
+                  </Box>
+                </Stack>
+              </Box>
             </Box>
-          </Box>
-          {item?.id === '1' && (
-            <AreaChart
-              className={'highcharts-container'}
-              data={areachartData}
-              color={getGraphColor(20)}
-              percent={true}
-              fill="transparent"
-            />
-          )}
-          {index !== liveCoinData.length - 1 && (
-            <Divider sx={{ width: '100%', marginBottom: '20px' }} />
-          )}
-        </>
-      ))}
+            {item?.id === '1' && (
+              <AreaChart
+                className={'highcharts-container'}
+                data={areachartData}
+                color={getGraphColor(20)}
+                percent={true}
+                fill="transparent"
+              />
+            )}
+            {index !==
+              liveCoinData?.slice(0, isPageDetails ? liveCoinData.length : 3)
+                .length -
+                1 && <Divider sx={{ width: '100%', marginBottom: '20px' }} />}
+          </>
+        ))}
     </Box>
   );
 }

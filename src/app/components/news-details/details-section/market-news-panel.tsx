@@ -1,5 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
+import LiveMarket from '../../news/main/live-market';
+import LiveNewsExplorer from '../../news/main/live-news';
 
 function MarketNewsPanel() {
   return (
@@ -13,7 +15,7 @@ function MarketNewsPanel() {
     >
       <Box
         sx={{
-          width: '300px',
+          // width: '300px',
           background:
             'linear-gradient(to right, rgba(254, 231, 226, 1), rgba(254, 231, 226, 0) 60px);',
           boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
@@ -50,14 +52,11 @@ function MarketNewsPanel() {
       <Box
         sx={{
           width: '300px',
-          height: '1190px',
-          background:
-            'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px);',
-          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-          borderRadius: '16px',
-          padding: '12px 16px',
         }}
-      ></Box>
+      >
+        <LiveMarket isPageDetails={true} />
+        <LiveNewsExplorer isPageDetails={true} />
+      </Box>
     </Box>
   );
 }
