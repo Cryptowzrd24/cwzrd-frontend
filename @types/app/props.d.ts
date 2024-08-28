@@ -21,6 +21,7 @@ declare global {
     isMarker?: boolean;
     percent?: boolean;
     fill?: string;
+    className?: string;
   }
 
   interface IStepProps {

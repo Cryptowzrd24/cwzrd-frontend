@@ -22,9 +22,10 @@
     font-variant: normal;
     font-display: block;
 }
+
 @font-face {
-    font-family: 'Sf Pro Regular';
-    src: url('SFPRODISPLAYREGULAR.OTF');
+    font-family: 'Sf Pro Text';
+    src: url('SFPROTEXTREGULAR.OTF');
     font-weight: 400;
     font-variant: normal;
     font-display: block;

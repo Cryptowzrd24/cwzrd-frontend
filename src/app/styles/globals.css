@@ -175,3 +175,6 @@ body {
 .highcharts-pivot {
   display: none;
 }
+.highcharts-xaxis{
+  display: none;
+}

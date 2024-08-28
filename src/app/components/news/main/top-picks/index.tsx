@@ -16,11 +16,8 @@ function TopPicks() {
         borderRadius: '16px',
         overflow: 'hidden',
         padding: '16px',
-        width: '87%',
-        background:
-          'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
-        backdropFilter: 'blur(10px)',
-        boxShadow: '0px 4px 28px 0px #0000000D',
+        boxShadow: '2px 4px 28px 0px #0000000D',
+        marginBottom: '24px',
       }}
     >
       <Box
@@ -33,7 +30,15 @@ function TopPicks() {
           borderBottom: '1px solid #FFFFFF1A',
         }}
       >
-        <Typography variant="subtitle2" sx={{ color: 'black' }}>
+        <Typography
+          variant="subtitle2"
+          sx={{
+            color: 'black',
+            fontSize: '16px',
+            fontWeight: '700',
+            lineHeight: '20.8px',
+          }}
+        >
           ⭐️ Picks for you
         </Typography>
         <Box
@@ -43,6 +48,7 @@ function TopPicks() {
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
+            marginInline: '10px',
           }}
         >
           <Typography
@@ -92,7 +98,11 @@ function TopPicks() {
             alt={'image'}
             height={80}
             width={70}
-            style={{ borderRadius: '8px', marginLeft: '20px' }}
+            style={{
+              borderRadius: '8px',
+              marginLeft: '20px',
+              paddingInline: '10px',
+            }}
           />
         </Box>
         <Typography
@@ -126,7 +136,11 @@ function TopPicks() {
             alt={'image'}
             height={80}
             width={70}
-            style={{ borderRadius: '8px', marginLeft: '20px' }}
+            style={{
+              borderRadius: '8px',
+              marginLeft: '20px',
+              paddingInline: '10px',
+            }}
           />
         </Box>
         <Typography

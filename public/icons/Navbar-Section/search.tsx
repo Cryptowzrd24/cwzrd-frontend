@@ -1,10 +1,10 @@
 import React from 'react';
 
-function SearchIcon({ color }: any) {
+function SearchIcon({ color,height,width }: any) {
   return (
     <svg
-      width={20}
-      height={20}
+      width={width || 20}
+      height={height || 20}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

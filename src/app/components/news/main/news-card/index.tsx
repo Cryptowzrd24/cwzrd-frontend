@@ -19,20 +19,21 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
         alignItems: 'center',
         justifyContent: 'center',
         height: '350px',
-        marginBottom: '5px',
-        width: '290px',
+        marginBottom: '16px',
+        width: '309px',
         borderRadius: '16px',
         // padding: '8px',
         boxShadow: '0px 4px 28px 0px #0000000D',
       }}
     >
-      <Image alt="news" src={image.src} width={280} height={180} />
+      <Image alt="news" src={image.src} width={293} height={180} />
       <Typography
         sx={{
           fontWeight: '700',
           fontSize: '18px',
           lineHeight: '23.4px',
           paddingInline: '10px',
+          marginInline: '8px',
           flexShrink: 0,
         }}
         variant="body1"
@@ -46,6 +47,12 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
           fontSize: '13px',
           lineHeight: '19px',
           paddingInline: '10px',
+          marginInline: '8px',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          display: '-webkit-box',
+          WebkitLineClamp: 1,
+          WebkitBoxOrient: 'vertical',
         }}
         variant="body2"
       >
@@ -54,20 +61,24 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
       </Typography>
       <Box
         sx={{
-          marginInline: '10px',
-          width: '90%',
-          height: '50px',
+          marginInline: '12px',
+          width: '88%',
+          height: '38px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'start',
-          borderRadius: '12px',
-          // marginInline: '16px',
+          borderRadius: '8px',
           paddingLeft: '16px',
           backgroundColor: 'rgb(243,243,243)',
         }}
       >
         <Typography
-          sx={{ fontWeight: '500', fontSize: '11px', lineHeight: '14.3px' }}
+          sx={{
+            fontWeight: '500',
+            fontSize: '11px',
+            lineHeight: '14.3px',
+            paddingInline: '2px',
+          }}
         >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
       </Box>
     </Box>

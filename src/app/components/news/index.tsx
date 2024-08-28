@@ -28,18 +28,24 @@ const NewsComponent = () => {
             display: 'flex',
             flexDirection: 'column',
             width: '77%',
-            gap: '18px',
+            gap: '4px',
           }}
         >
           <NewsCarousel />
           <NewsGrid height={'392px'} width={'105%'} />
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'column', width: '23%' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '23%',
+          }}
+        >
           <LiveMarket />
           <LiveNewsExplorer />
         </Box>
       </Box>
-      <Box sx={{ marginBlock: '80px' }}>
+      <Box sx={{ marginTop: '54px', marginBottom: '80px' }}>
         <NewsLetterBanner />
       </Box>
 
@@ -115,7 +121,7 @@ const NewsComponent = () => {
                 "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
               }
               description={
-                "Users can mint new tokens using the company's new Alloy platform, CrtptoWzrd is helping million."
+                "Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ard.."
               }
             />
           </Box>

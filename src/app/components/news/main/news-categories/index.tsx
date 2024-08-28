@@ -21,7 +21,7 @@ export const NewsCategory: React.FC = () => {
         marginBlock: '30px',
         alignItems: 'center',
         backgroundColor: 'white',
-        borderRadius: '18px',
+        borderRadius: '24px',
         height: '72px',
         maxWidth: '100% !important',
         boxShadow: '0px 4px 28px 0px #0000000D',
@@ -82,12 +82,13 @@ export const NewsCategory: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           marginRight: '-42px',
+
           ':hover': {
             cursor: 'pointer',
           },
         }}
       >
-        <SearchIcon />
+        <SearchIcon height={32} width={32} />
       </Box>
     </Container>
   );

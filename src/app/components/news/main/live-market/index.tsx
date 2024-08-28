@@ -9,6 +9,7 @@ import Xrp from '../../../../../../public/images/coin-details/xrp.png';
 import Image from 'next/image';
 import AreaChart from '@/app/components/elements/areaGraphCard.element';
 import { getGraphColor } from '@/app/helpers/functions';
+import './graph-style.scss';
 
 const liveCoinData = [
   {
@@ -75,17 +76,18 @@ function LiveMarket() {
         alignItems: 'start',
         borderRadius: '16px',
         overflow: 'hidden',
-        paddingInline: '16px',
+        paddingInline: '20px',
         marginBottom: '20px',
         background:
           'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
         backdropFilter: 'blur(10px)',
         boxShadow: '0px 4px 28px 0px #0000000D',
+        paddingBlock: '6px',
       }}
     >
       <Box
         sx={{
-          paddingTop: '12px',
+          paddingTop: '6px',
           display: 'flex',
           mb: '12px',
           marginTop: '12px',
@@ -137,6 +139,7 @@ function LiveMarket() {
               paddingRight: '12px',
               borderRadius: '16px',
               mb: '8px',
+              // paddingBlock:'8px',
             }}
           >
             <Box
@@ -201,7 +204,7 @@ function LiveMarket() {
                   <Typography
                     // variant="caption"
                     sx={{
-                      color: 'rgbb(136,136,136)',
+                      color: 'rgb(101,101,101)',
                       fontSize: '12px',
                       fontWeight: '400',
                       lineHeight: '15.6px',
@@ -228,6 +231,7 @@ function LiveMarket() {
           </Box>
           {item?.id === '1' && (
             <AreaChart
+              className={'highcharts-container'}
               data={areachartData}
               color={getGraphColor(20)}
               percent={true}

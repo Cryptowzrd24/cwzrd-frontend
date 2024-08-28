@@ -22,8 +22,8 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '350px',
-        width: '290px',
+        // height: '350px',
+        width: '300px',
         borderRadius: '16px',
         padding: '8px',
         gap: 1,
@@ -75,6 +75,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           fontSize: '18px',
           lineHeight: '23.4px',
           paddingInline: '10px',
+          marginTop: '0px',
         }}
         variant="body1"
       >
@@ -83,10 +84,17 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
       </Typography>
       <Typography
         sx={{
-          fontWeight: '400',
-          fontSize: '13px',
-          lineHeight: '19px',
-          paddingInline: '10px',
+          fontWeight: '400 !important',
+          fontSize: '13px !important',
+          lineHeight: '18.85px !important',
+          paddingInline: '9px !important',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          display: '-webkit-box',
+          WebkitLineClamp: '3 !important',
+          WebkitBoxOrient: 'vertical',
+          height: '100%',
+          width: '300px',
         }}
         variant="body2"
       >
@@ -95,13 +103,15 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
       </Typography>
       <Box
         sx={{
-          marginInline: '10px',
+          // marginInline: '10px',
+          marginTop: '10px',
           width: '90%',
-          height: '80px',
+          height: '18px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'start',
           borderRadius: '12px',
+          // marginBottom: '24px',
         }}
       >
         <Typography

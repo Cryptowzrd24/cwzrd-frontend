@@ -11,9 +11,7 @@ const NewsTradingPlatform = () => {
         padding: '0 0 72px 0',
         backgroundColor: 'rgba(255, 255, 255, 1)',
         borderRadius: '18px',
-        width: '100%',
         height: '440px',
-        marginTop: '15px',
         boxShadow: '0px 4px 28px 0px #0000000D',
       }}
     >
@@ -33,7 +31,7 @@ const NewsTradingPlatform = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          width: '95%',
+          // width: '95%',
           margin: 'auto',
           gap: 2,
         }}
@@ -56,7 +54,7 @@ const NewsTradingPlatform = () => {
             textAlign: 'center',
             color: 'rgba(17, 17, 17, 0.8)',
             lineHeight: '14.7px',
-            fontFamily: 'Sf Pro Regular',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           We are fully committed to your success in every aspect of your

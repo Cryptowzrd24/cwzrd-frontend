@@ -30,7 +30,16 @@ function LiveNewsExplorer() {
           borderBottom: '1px solid #FFFFFF1A',
         }}
       >
-        <Typography variant="subtitle2" sx={{ color: 'black' }}>
+        <Typography
+          variant="subtitle2"
+          sx={{
+            color: 'black',
+            fontWeight: '700',
+            fontSize: '12px',
+            lineHeight: '15.6px',
+            letterSpacing: '10%',
+          }}
+        >
           📰 LIVE EXPLORER
         </Typography>
         <Box
