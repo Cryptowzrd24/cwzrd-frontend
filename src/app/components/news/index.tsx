@@ -32,7 +32,7 @@ const NewsComponent = () => {
           }}
         >
           <NewsCarousel />
-          <NewsGrid height={'386px'} width={'105%'} />
+          <NewsGrid height={'392px'} width={'105%'} />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '23%' }}>
           <LiveMarket />

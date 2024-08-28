@@ -13,6 +13,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
     <Box
       sx={{
         gap: 1,
+        paddingBlock: '10px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
