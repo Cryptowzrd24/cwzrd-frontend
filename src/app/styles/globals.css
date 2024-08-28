@@ -194,3 +194,7 @@ body {
   opacity: 1;
   color: rgba(17, 17, 17, 1);
 }
+
+.slick-dots {
+  bottom: -35px !important;
+}

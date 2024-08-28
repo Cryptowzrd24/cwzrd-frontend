@@ -13,6 +13,7 @@ import Twitter from '../../../../../public/icons/twitter';
 import Facebook from '../../../../../public/icons/facebook';
 import LinkedIn from '../../../../../public/icons/linkedIn';
 import Mail from '../../../../../public/icons/mail';
+import CheckMark from '../../../../../public/check-mark.svg';
 
 function ReadingCard({ scrollPosition, sectionHeight }: any) {
   const [progress, setProgress] = useState(10);
@@ -28,9 +29,11 @@ function ReadingCard({ scrollPosition, sectionHeight }: any) {
       setProgress(calculatedProgress);
     }
   }, [scrollPosition, sectionHeight]);
+
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 6,
     borderRadius: 5,
+    flex: '0 0 90%',
     [`&.${linearProgressClasses.colorPrimary}`]: {
       backgroundColor:
         theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
@@ -43,6 +46,7 @@ function ReadingCard({ scrollPosition, sectionHeight }: any) {
           : 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
     },
   }));
+
   return (
     <Box sx={{ width: '190px' }}>
       <Typography
@@ -79,8 +83,18 @@ function ReadingCard({ scrollPosition, sectionHeight }: any) {
         Bitcoin whale accumulation reaches pre-2020 bull run levels — Is BTC set
         to break $70K?
       </Typography>
-      <Box sx={{ marginTop: '12px' }}>
+      <Box
+        sx={{
+          marginTop: '12px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+        }}
+      >
         <BorderLinearProgress variant="determinate" value={progress} />
+        {progress === 100 && (
+          <Image src={CheckMark} alt="img" style={{ marginBottom: '3px' }} />
+        )}
       </Box>
       <Box sx={{ display: 'flex', gap: '8px', marginTop: '16px' }}>
         <Twitter />

@@ -37,7 +37,6 @@ function DetailsSection() {
     };
   }, []);
 
-  console.log(scrollPosition);
   return (
     <Box
       ref={sectionRef}

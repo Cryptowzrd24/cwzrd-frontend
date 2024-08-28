@@ -3,7 +3,14 @@ import React from 'react';
 
 function MarketNewsPanel() {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '16px',
+        marginLeft: '-25px',
+      }}
+    >
       <Box
         sx={{
           width: '300px',

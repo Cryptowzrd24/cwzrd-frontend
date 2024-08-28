@@ -11,6 +11,7 @@ const PreviousArrow = ({ onClick }: any) => (
   <IconButton
     onClick={onClick}
     sx={{
+      cursor: 'pointer',
       position: 'absolute',
       top: '103%',
       left: '25px',
@@ -26,7 +27,8 @@ const PreviousArrow = ({ onClick }: any) => (
   >
     <ArrowBackIosNewIcon
       sx={{
-        fontSize: '14px',
+        fontSize: '20px',
+        color: 'rgba(17, 17, 17, 1)',
       }}
     />
   </IconButton>
@@ -36,6 +38,7 @@ const NextArrow = ({ onClick }: any) => (
   <IconButton
     onClick={onClick}
     sx={{
+      cursor: 'pointer',
       position: 'absolute',
       top: '103%',
       right: '25px',
@@ -51,7 +54,8 @@ const NextArrow = ({ onClick }: any) => (
   >
     <ArrowForwardIosIcon
       sx={{
-        fontSize: '14px',
+        fontSize: '20px',
+        color: 'rgba(17, 17, 17, 1)',
       }}
     />
   </IconButton>
@@ -62,7 +66,7 @@ const RelatedNewsCarousel = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 5,
     slidesToScroll: 1,
     arrows: true,
     prevArrow: <PreviousArrow onClick={() => {}} />,
@@ -70,133 +74,52 @@ const RelatedNewsCarousel = () => {
     dotsClass: 'slick-dots slick-thumb',
   };
 
-  const renderCards = (startIndex: number) => {
-    const cards = [];
-    for (let i = startIndex; i < startIndex + 4; i++) {
-      cards.push(
+  const renderCards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((elem) => {
+    return (
+      <Box
+        key={elem}
+        sx={{
+          width: '25%',
+          padding: '10px',
+          boxSizing: 'border-box',
+        }}
+      >
         <Box
-          key={i}
           sx={{
-            width: '25%', // 4 cards per row
-            padding: '10px',
-            boxSizing: 'border-box',
+            background: '#fff',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            height: '100%',
           }}
         >
-          <Box
-            sx={{
-              background: '#fff',
-              borderRadius: '8px',
-              overflow: 'hidden',
-              height: '100%',
-            }}
-          >
-            <img
-              src="https://via.placeholder.com/300x150"
-              alt="News"
-              style={{ width: '100%', height: 'auto' }}
-            />
-            <Box sx={{ padding: '10px' }}>
-              <h4>News Title {i + 1}</h4>
-              <p>News description goes here...</p>
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  fontSize: '12px',
-                  color: '#888',
-                }}
-              >
-                <span>06/06/2023</span>
-                <span>John Smith</span>
-              </Box>
+          <img
+            src="https://via.placeholder.com/300x150"
+            alt="News"
+            style={{ width: '100%', height: 'auto' }}
+          />
+          <Box sx={{ padding: '10px' }}>
+            <h4>News Title {1 + 1}</h4>
+            <p>News description goes here...</p>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                fontSize: '12px',
+                color: '#888',
+              }}
+            >
+              <span>06/06/2023</span>
+              <span>John Smith</span>
             </Box>
           </Box>
-        </Box>,
-      );
-    }
-    return cards;
-  };
+        </Box>
+      </Box>
+    );
+  });
 
   return (
     <Box sx={{ padding: '20px', position: 'relative' }}>
-      <Slider {...settings}>
-        <Box
-          key={1}
-          sx={{
-            width: '25%', // 4 cards per row
-            padding: '10px',
-            boxSizing: 'border-box',
-          }}
-        >
-          <Box
-            sx={{
-              background: '#fff',
-              borderRadius: '8px',
-              overflow: 'hidden',
-              height: '100%',
-            }}
-          >
-            <img
-              src="https://via.placeholder.com/300x150"
-              alt="News"
-              style={{ width: '100%', height: 'auto' }}
-            />
-            <Box sx={{ padding: '10px' }}>
-              <h4>News Title {1 + 1}</h4>
-              <p>News description goes here...</p>
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  fontSize: '12px',
-                  color: '#888',
-                }}
-              >
-                <span>06/06/2023</span>
-                <span>John Smith</span>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-        <Box
-          key={2}
-          sx={{
-            width: '25%', // 4 cards per row
-            padding: '10px',
-            boxSizing: 'border-box',
-          }}
-        >
-          <Box
-            sx={{
-              background: '#fff',
-              borderRadius: '8px',
-              overflow: 'hidden',
-              height: '100%',
-            }}
-          >
-            <img
-              src="https://via.placeholder.com/300x150"
-              alt="News"
-              style={{ width: '100%', height: 'auto' }}
-            />
-            <Box sx={{ padding: '10px' }}>
-              <h4>News Title {2 + 1}</h4>
-              <p>News description goes here...</p>
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  fontSize: '12px',
-                  color: '#888',
-                }}
-              >
-                <span>06/06/2023</span>
-                <span>John Smith</span>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-      </Slider>
+      <Slider {...settings}>{renderCards}</Slider>
     </Box>
   );
 };
