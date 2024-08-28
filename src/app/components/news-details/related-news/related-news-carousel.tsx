@@ -4,7 +4,8 @@ import { Box, IconButton } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-import styles from './index.module.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const PreviousArrow = ({ onClick }: any) => (
   <IconButton
@@ -66,24 +67,6 @@ const RelatedNewsCarousel = () => {
     arrows: true,
     prevArrow: <PreviousArrow onClick={() => {}} />,
     nextArrow: <NextArrow onClick={() => {}} />,
-    appendDots: (dots: any) => (
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '-30px',
-          display: 'flex',
-          justifyContent: 'center',
-          width: '100%',
-        }}
-      >
-        <ul style={{ margin: '0px' }}> {dots} </ul>
-      </div>
-    ),
-    customPaging: (i: any) => (
-      <div
-        className={`${styles.slickDot} ${i === 0 ? styles.slickActiveDot : ''}`}
-      ></div>
-    ),
     dotsClass: 'slick-dots slick-thumb',
   };
 
@@ -137,16 +120,82 @@ const RelatedNewsCarousel = () => {
   return (
     <Box sx={{ padding: '20px', position: 'relative' }}>
       <Slider {...settings}>
-        {/* Each slide will contain 8 cards arranged in 2 rows of 4 cards each */}
-        <Box>
-          <Box sx={{ display: 'flex' }}>
-            {renderCards(0)} {/* First 4 cards in the first row */}
-          </Box>
-          <Box sx={{ display: 'flex' }}>
-            {renderCards(4)} {/* Next 4 cards in the second row */}
+        <Box
+          key={1}
+          sx={{
+            width: '25%', // 4 cards per row
+            padding: '10px',
+            boxSizing: 'border-box',
+          }}
+        >
+          <Box
+            sx={{
+              background: '#fff',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              height: '100%',
+            }}
+          >
+            <img
+              src="https://via.placeholder.com/300x150"
+              alt="News"
+              style={{ width: '100%', height: 'auto' }}
+            />
+            <Box sx={{ padding: '10px' }}>
+              <h4>News Title {1 + 1}</h4>
+              <p>News description goes here...</p>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  fontSize: '12px',
+                  color: '#888',
+                }}
+              >
+                <span>06/06/2023</span>
+                <span>John Smith</span>
+              </Box>
+            </Box>
           </Box>
         </Box>
-        {/* Add more slides as needed */}
+        <Box
+          key={2}
+          sx={{
+            width: '25%', // 4 cards per row
+            padding: '10px',
+            boxSizing: 'border-box',
+          }}
+        >
+          <Box
+            sx={{
+              background: '#fff',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              height: '100%',
+            }}
+          >
+            <img
+              src="https://via.placeholder.com/300x150"
+              alt="News"
+              style={{ width: '100%', height: 'auto' }}
+            />
+            <Box sx={{ padding: '10px' }}>
+              <h4>News Title {2 + 1}</h4>
+              <p>News description goes here...</p>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  fontSize: '12px',
+                  color: '#888',
+                }}
+              >
+                <span>06/06/2023</span>
+                <span>John Smith</span>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Slider>
     </Box>
   );
