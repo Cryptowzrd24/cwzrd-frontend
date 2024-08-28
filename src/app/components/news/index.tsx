@@ -32,7 +32,7 @@ const NewsComponent = () => {
           }}
         >
           <NewsCarousel />
-          <NewsGrid height={'392px'} width={'105%'} />
+          <NewsGrid height={'377px'} width={'103%'} />
         </Box>
         <Box
           sx={{
@@ -51,7 +51,7 @@ const NewsComponent = () => {
 
       <Box sx={{ display: 'flex', marginBottom: '80px' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '75%' }}>
-          <NewsGrid height={'900px'} />
+          <NewsGrid height={'913px'} width={'99%'} />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '25%' }}>
           <TopPicks />
@@ -63,7 +63,7 @@ const NewsComponent = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBlock: '10px',
+          marginBottom: '24px',
         }}
       >
         <Typography variant="h2" left={0}>
@@ -78,11 +78,15 @@ const NewsComponent = () => {
             News
           </span>{' '}
         </Typography>
+
         <Box
           sx={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
+            // position: 'absolute',
+            // right: '300px',
+            marginRight: '35px',
           }}
         >
           <Typography
@@ -93,7 +97,7 @@ const NewsComponent = () => {
               marginRight: '5px',
             }}
             variant="body2"
-            right={0}
+            right={1}
           >
             Read More
           </Typography>
@@ -101,20 +105,20 @@ const NewsComponent = () => {
         </Box>
       </Box>
 
-      <Box sx={{ display: 'flex', height: '800px', gap: 1 }}>
-        <Box sx={{ width: '54%' }}>
+      <Box sx={{ display: 'flex', gap: 2.2, maxHeight: '850px' }}>
+        <Box sx={{ width: '51%' }}>
           <NewsCarouselBig />
         </Box>
         <Box
           sx={{
-            width: '21%',
+            width: '22%',
             display: 'flex',
             alignItems: 'center',
             jusstifyContent: 'center',
             flexDirection: 'column',
           }}
         >
-          <Box sx={{ marginBottom: '20px' }}>
+          <Box sx={{ marginBottom: '24px' }}>
             <TrendingNewsCard
               image={CardImage}
               title={
@@ -126,14 +130,14 @@ const NewsComponent = () => {
             />
           </Box>
 
-          <TrendingNewsList height="500px" maxCards={4} />
+          <TrendingNewsList height="450px" maxCards={4} />
         </Box>
-        <Box sx={{ width: '22%' }}>
+        <Box sx={{ width: '24%' }}>
           <TrendingNewsList height="300px" maxCards={3} />
           <NewsMileStones />
         </Box>
       </Box>
-      <Box sx={{ marginBlock: '70px' }}>
+      <Box sx={{ marginBlock: '80px' }}>
         <MemberShipBanner />
       </Box>
     </Container>

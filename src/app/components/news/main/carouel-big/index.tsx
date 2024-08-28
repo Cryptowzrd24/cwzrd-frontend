@@ -3,16 +3,17 @@ import React, { useEffect, useState } from 'react';
 import { Box, IconButton, Typography, Chip } from '@mui/material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import CarouselImage1 from '../../../../../../public/images/news-letter/carousel1.png';
-import PeopleImage from '../../../../../../public/images/news-letter/people.png';
+import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
 import ArrowLeftDark from '../../../../../../public/icons/collections/arrowLeftDark';
 import ArrowRightDark from '../../../../../../public/icons/collections/arrowRightDark';
 
 const content = [
   {
-    title: 'Breaking News: Market Crash',
+    title:
+      'Italy to Increase Surveillance of Crypto Market With Fines as High as 5M Euros: Reuters',
     description:
-      'The stock market has experienced a significant downturn today...',
+      'That will include high fines for those who manipulate the crypto asset market as part of a wider scheme to beef up surveillance of risks tied to the sector, Reuters reported, citing a draft decree it reviewed.',
     tags: ['Economy', 'Finance', 'Breaking'],
     image: CarouselImage1,
   },
@@ -74,7 +75,6 @@ const NewsCarouselBig = () => {
 
   return (
     <Box
-      marginBottom={'50px'}
       color={'white'}
       position="relative"
       width="100%"
@@ -82,15 +82,13 @@ const NewsCarouselBig = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      marginTop={'10px'}
-      //   marginBlock={'100px'}
     >
       <Box
         component="img"
         src={CarouselImage1.src}
         alt={`Carousel image ${currentIndex + 1}`}
         width="100%"
-        height="800px"
+        height="100%"
         sx={{
           objectFit: 'cover',
           borderRadius: '25px',
@@ -142,7 +140,7 @@ const NewsCarouselBig = () => {
         <Box
           position="absolute"
           top="65%"
-          left="20px"
+          left="0"
           display="flex"
           gap="8px"
           zIndex={1}
@@ -167,13 +165,19 @@ const NewsCarouselBig = () => {
           position="absolute"
           paddingInline={'32px'}
           top="70%"
-          left="20px"
+          left="0"
           color="white"
           zIndex={1}
         >
           <Typography
             variant="h4"
-            sx={{ fontWeight: '700', color: 'white', fontSize: '32px' }}
+            sx={{
+              fontWeight: '700',
+              color: 'white',
+              fontSize: '24px',
+              lineHeight: '28.8px',
+              letterSpacing: '1%',
+            }}
           >
             {content[currentIndex].title}
           </Typography>
@@ -184,6 +188,7 @@ const NewsCarouselBig = () => {
               color: 'white',
               fontSize: '16px',
               fontWeight: '400',
+              lineHeight: '24px',
               opacity: '80%',
               display: '-webkit-box',
               overflow: 'hidden',
@@ -194,7 +199,7 @@ const NewsCarouselBig = () => {
           >
             {content[currentIndex].description}
           </Typography>
-          <Box marginTop={'50px'} display="flex" gap="8px">
+          <Box marginTop={'24px'} marginBottom={'8px'} display="flex" gap="8px">
             <Typography
               sx={{
                 color: 'white',
@@ -212,7 +217,7 @@ const NewsCarouselBig = () => {
           sx={{
             position: 'absolute',
             bottom: '45px',
-            left: '20px',
+            left: '0',
             display: 'flex',
             gap: '2px',
             zIndex: 1,
@@ -237,7 +242,6 @@ const NewsCarouselBig = () => {
         </Box>
       </Box>
 
-      {/* Navigation buttons positioned at the right bottom */}
       <Box
         position="absolute"
         bottom="40px"

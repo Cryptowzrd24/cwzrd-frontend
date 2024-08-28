@@ -31,9 +31,9 @@ const NewsTradingPlatform = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          // width: '95%',
           margin: 'auto',
           gap: 2,
+          paddingInline: '12px',
         }}
       >
         <Typography

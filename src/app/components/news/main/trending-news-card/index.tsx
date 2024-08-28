@@ -1,5 +1,5 @@
 import { Box, Chip, Typography } from '@mui/material';
-import PeopleImage from '../../../../../../public/images/news-letter/people.png';
+import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
 import React from 'react';
 
@@ -21,13 +21,8 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        // height: '350px',
-        width: '300px',
-        borderRadius: '16px',
-        padding: '8px',
-        gap: 1,
-        overflow: 'hidden',
+        width: '100%',
+        borderRadius: '12px',
       }}
     >
       <Chip
@@ -47,6 +42,8 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
               borderRadius: '20px',
               paddingInline: '7px',
               paddingBlock: '3px',
+              marginTop: '12px',
+              marginRight: '12px',
             }}
           >
             <Image
@@ -60,22 +57,22 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         }
         sx={{
           position: 'absolute',
-          top: 16,
-          right: 12,
+          top: 0,
+          right: 0,
           fontWeight: 'bold',
+          backgroundColor: 'transparent',
         }}
       />
-
       <Box>
-        <Image alt="news" src={image.src} width={280} height={180} />
+        <Image alt="news" src={image.src} width={300} height={180} />
       </Box>
       <Typography
         sx={{
           fontWeight: '700',
           fontSize: '18px',
           lineHeight: '23.4px',
-          paddingInline: '10px',
-          marginTop: '0px',
+          marginTop: '16px',
+          letterSpacing: '2%',
         }}
         variant="body1"
       >
@@ -87,41 +84,28 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           fontWeight: '400 !important',
           fontSize: '13px !important',
           lineHeight: '18.85px !important',
-          paddingInline: '9px !important',
+          marginTop: '8px',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           display: '-webkit-box',
           WebkitLineClamp: '3 !important',
           WebkitBoxOrient: 'vertical',
-          height: '100%',
-          width: '300px',
         }}
         variant="body2"
       >
         {description ||
           "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."}
       </Typography>
-      <Box
+      <Typography
         sx={{
-          // marginInline: '10px',
-          marginTop: '10px',
-          width: '90%',
-          height: '18px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'start',
-          borderRadius: '12px',
-          // marginBottom: '24px',
+          fontWeight: '500',
+          fontSize: '14px',
+          lineHeight: '18.2px',
+          marginTop: '16px',
+          alignSelf: 'flex-start',
+          paddingLeft: '0px',
         }}
-      >
-        <Typography
-          sx={{
-            fontWeight: '500',
-            fontSize: '14px',
-            lineHeight: '18.2px',
-          }}
-        >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
-      </Box>
+      >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
     </Box>
   );
 };

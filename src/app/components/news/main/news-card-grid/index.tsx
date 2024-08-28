@@ -14,14 +14,13 @@ const newsData = [
   },
   {
     image: img2,
-    title: "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin Ahead",
+    title: "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin",
     description:
       "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
   },
   {
     image: img3,
-    title:
-      "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange",
+    title: "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock",
     description:
       "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of",
   },
@@ -92,7 +91,7 @@ const NewsGrid = ({ height, width }: any) => {
         scrollbarWidth: 'none',
       }}
     >
-      <Grid container spacing={1}>
+      <Grid container>
         {newsData.map((news, index) => (
           <Grid gap={2} item xs={12} sm={6} md={4} key={index}>
             <NewsCard

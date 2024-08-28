@@ -109,7 +109,7 @@ const NewsCarousel = () => {
         <Box
           position="absolute"
           top="50%"
-          left="20px"
+          left={0}
           display="flex"
           gap="8px"
           paddingInline={'32px'}
@@ -130,7 +130,20 @@ const NewsCarousel = () => {
           ))}
         </Box>
 
-        <Box position="absolute" top="57%" left="20px" color="white" zIndex={1}>
+        <Box
+          position="absolute"
+          top="57%"
+          left="0"
+          width="100%"
+          color="white"
+          zIndex={1}
+          paddingInline="32px"
+          sx={{
+            boxSizing: 'border-box',
+            padding: 0,
+            margin: 0,
+          }}
+        >
           <Typography
             variant="h4"
             sx={{
@@ -237,9 +250,9 @@ const NewsCarousel = () => {
         position="absolute"
         paddingBlock="24px"
         bottom="20px"
-        left="20px"
         display="flex"
         gap="8px"
+        left={0}
       >
         <Typography
           sx={{

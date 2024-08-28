@@ -55,25 +55,25 @@ function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
         flexDirection: 'column',
         alignItems: 'start',
         borderRadius: '16px',
-        padding: '2px',
+        marginLeft: '20px',
         overflow: 'hidden',
       }}
     >
-      <Box sx={{ height: height }}>
+      <Box sx={{ minHeight: height }}>
         {LiveCardData.slice(0, maxCards).map((card) => (
           <Box
             sx={{
               background: '#fff',
-              padding: '4px',
+              // padding: '4px',
               paddingRight: '12px',
               borderRadius: '16px',
-              mb: '8px',
+              mb: '16px',
             }}
           >
             <Box
               sx={{
                 display: 'flex',
-                gap: '16px',
+                // gap: '16px',
                 width: '90%',
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -82,19 +82,25 @@ function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
               <Image
                 src={card.image.src}
                 alt="picture"
-                width={100}
-                height={80}
+                width={120}
+                height={95}
                 style={{
                   objectFit: 'cover',
                   borderRadius: '12px',
                 }}
               />
-              <Stack sx={{ width: '80%' }}>
+              <Stack
+                sx={{
+                  width: '100%',
+                  marginLeft: '16px',
+                  paddingRight: '14px',
+                }}
+              >
                 <Typography
                   sx={{
-                    fontSize: '12px',
+                    fontSize: '14px',
                     fontWeight: '700',
-                    lineHeight: '15.6px',
+                    lineHeight: '18.6px',
                     marginBottom: '2px',
                     display: '-webkit-box',
                     WebkitLineClamp: 3,
@@ -109,14 +115,16 @@ function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
                   variant="caption"
                   sx={{
                     color: 'rgba(17, 17, 17, 0.8)',
-                    fontSize: '10px',
+                    fontSize: '11px',
                     fontWeight: '400',
-                    lineHeight: '13px',
+                    lineHeight: '14.3px',
                     display: '-webkit-box',
                     WebkitLineClamp: 1,
                     WebkitBoxOrient: 'vertical',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
+                    marginTop: '4px',
+                    minWidth: '164px',
                   }}
                 >
                   {card.desc}
