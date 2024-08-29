@@ -74,7 +74,7 @@ function TopPicks() {
       <Divider
         sx={{ width: '100%', marginTop: '-13px', marginBottom: '10px' }}
       />
-      <Box sx={{}}>
+      <Box sx={{ paddingInline: '10px' }}>
         <Box
           sx={{
             display: 'flex',
@@ -96,11 +96,11 @@ function TopPicks() {
           <Image
             src={rect1.src}
             alt={'image'}
-            height={80}
-            width={70}
+            height={100}
+            width={90}
             style={{
               borderRadius: '8px',
-              marginLeft: '20px',
+              marginLeft: '10px',
               paddingInline: '10px',
             }}
           />
@@ -108,7 +108,7 @@ function TopPicks() {
         <Typography
           sx={{ fontWeight: 500, fontSize: '11px', lineHeight: '14.3px' }}
         >
-          {'06/06/2023 at 00:06 AM | John Smith'}
+          06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
         </Typography>
         <Divider
           sx={{ width: '100%', marginTop: '10px', marginBottom: '10px' }}
@@ -129,16 +129,17 @@ function TopPicks() {
               lineHeight: '23.4px',
             }}
           >
-            VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock
+            VanEck's Spot<br></br> Bitcoin ETF Goes<br></br> Live on Australia's
+            Biggest Stock
           </Typography>
           <Image
             src={rect2.src}
             alt={'image'}
-            height={80}
-            width={70}
+            height={100}
+            width={90}
             style={{
               borderRadius: '8px',
-              marginLeft: '20px',
+              marginLeft: '10px',
               paddingInline: '10px',
             }}
           />
@@ -146,7 +147,7 @@ function TopPicks() {
         <Typography
           sx={{ fontWeight: 500, fontSize: '11px', lineHeight: '14.3px' }}
         >
-          {'06/06/2023 at 00:06 AM | John Smith'}
+          06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
         </Typography>
         <Divider sx={{ width: '100%', marginTop: '10px' }} />
       </Box>
