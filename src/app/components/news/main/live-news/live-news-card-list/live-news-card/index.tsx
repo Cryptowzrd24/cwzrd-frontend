@@ -16,10 +16,10 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
       sx={{
         background: '#fff',
         padding: '4px',
-        // paddingRight: '12px',
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
         mb: '8px',
+        width: '95%',
       }}
     >
       <Box
