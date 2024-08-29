@@ -7,12 +7,14 @@ interface TrendingNewsCardProps {
   image: any;
   title: string;
   description: string;
+  isDetailPage?: boolean;
 }
 
 const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
   image,
   title,
   description,
+  isDetailPage,
 }) => {
   return (
     <Box
@@ -43,7 +45,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
               paddingInline: '7px',
               paddingBlock: '3px',
               marginTop: '12px',
-              marginRight: '12px',
+              marginRight: !isDetailPage ? '12px' : '0',
             }}
           >
             <Image
@@ -64,7 +66,12 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         }}
       />
       <Box>
-        <Image alt="news" src={image.src} width={300} height={180} />
+        <Image
+          alt="news"
+          src={image.src}
+          width={isDetailPage ? 245 : 300}
+          height={180}
+        />
       </Box>
       <Typography
         sx={{
@@ -73,6 +80,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           lineHeight: '23.4px',
           marginTop: '16px',
           letterSpacing: '2%',
+          width: isDetailPage ? '245px' : '100%',
         }}
         variant="body1"
       >
@@ -90,6 +98,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           display: '-webkit-box',
           WebkitLineClamp: '3 !important',
           WebkitBoxOrient: 'vertical',
+          width: isDetailPage ? '245px' : '100%',
         }}
         variant="body2"
       >
@@ -99,11 +108,12 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
       <Typography
         sx={{
           fontWeight: '500',
-          fontSize: '14px',
+          fontSize: !isDetailPage ? '14px' : '12px',
           lineHeight: '18.2px',
           marginTop: '16px',
           alignSelf: 'flex-start',
-          paddingLeft: '0px',
+          paddingLeft: !isDetailPage ? '0px' : '8px',
+          width: isDetailPage ? '245px' : '100%',
         }}
       >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
     </Box>

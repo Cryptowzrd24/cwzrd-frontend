@@ -4,8 +4,11 @@ import { Box, IconButton } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
+import CardImage from '../../../../../public/images/news-letter/image-car-news.png';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import TrendingNewsCard from '../../news/main/trending-news-card';
 
 const PreviousArrow = ({ onClick }: any) => (
   <IconButton
@@ -13,8 +16,8 @@ const PreviousArrow = ({ onClick }: any) => (
     sx={{
       cursor: 'pointer',
       position: 'absolute',
-      top: '107%',
-      left: '25px',
+      top: '110%',
+      left: '10px',
       width: '48px',
       height: '48px',
       transform: 'translateY(-50%)',
@@ -40,8 +43,8 @@ const NextArrow = ({ onClick }: any) => (
     sx={{
       cursor: 'pointer',
       position: 'absolute',
-      top: '107%',
-      right: '25px',
+      top: '110%',
+      right: '10px',
       width: '48px',
       height: '48px',
       transform: 'translateY(-50%)',
@@ -80,39 +83,20 @@ const RelatedNewsCarousel = () => {
         key={elem}
         sx={{
           width: '25%',
-          padding: '10px',
+          padding: '0 5px',
           boxSizing: 'border-box',
         }}
       >
-        <Box
-          sx={{
-            background: '#fff',
-            borderRadius: '8px',
-            overflow: 'hidden',
-            height: '100%',
-          }}
-        >
-          <img
-            src="https://via.placeholder.com/300x150"
-            alt="News"
-            style={{ width: '100%', height: 'auto' }}
-          />
-          <Box sx={{ padding: '10px' }}>
-            <h4>News Title {1 + 1}</h4>
-            <p>News description goes here...</p>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                fontSize: '12px',
-                color: '#888',
-              }}
-            >
-              <span>06/06/2023</span>
-              <span>John Smith</span>
-            </Box>
-          </Box>
-        </Box>
+        <TrendingNewsCard
+          image={CardImage}
+          title={
+            'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip'
+          }
+          description={
+            "Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ard.."
+          }
+          isDetailPage={true}
+        />
       </Box>
     );
   });
