@@ -102,7 +102,7 @@ const RelatedNewsCarousel = () => {
   });
 
   return (
-    <Box sx={{ padding: '20px', position: 'relative' }}>
+    <Box sx={{ padding: '20px 0', position: 'relative' }}>
       <Slider {...settings}>{renderCards}</Slider>
     </Box>
   );
