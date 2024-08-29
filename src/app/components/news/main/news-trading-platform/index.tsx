@@ -19,11 +19,12 @@ const NewsTradingPlatform = () => {
         src={mask}
         alt="mask"
         width={343}
-        height={280}
+        height={0}
         style={{
           marginBottom: '20px',
           overflow: 'hidden',
           borderRadius: '18px',
+          height: 'auto',
         }}
       />
       <Stack
@@ -38,7 +39,12 @@ const NewsTradingPlatform = () => {
       >
         <Typography
           variant="h1"
-          sx={{ fontSize: '18px', lineHeight: '23.4px', fontWeight: '700' }}
+          sx={{
+            fontSize: '18px',
+            lineHeight: '23.4px',
+            fontWeight: '700',
+            letterSpacing: '2px',
+          }}
         >
           Dedicated Professional <br></br>
           <span style={{ textAlign: 'center', paddingInline: '22%' }}>

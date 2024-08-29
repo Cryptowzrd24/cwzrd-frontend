@@ -44,9 +44,14 @@ export const LiveCardData: LiveCardProps[] = [
 interface TrendingNewsListPropss {
   height: string;
   maxCards?: number;
+  marginLeft?: string;
 }
 
-function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
+function TrendingNewsList({
+  height,
+  maxCards,
+  marginLeft,
+}: TrendingNewsListPropss) {
   return (
     <Box
       sx={{
@@ -55,7 +60,7 @@ function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
         flexDirection: 'column',
         alignItems: 'start',
         borderRadius: '16px',
-        marginLeft: '20px',
+        marginLeft: marginLeft || '20px',
         overflow: 'hidden',
       }}
     >

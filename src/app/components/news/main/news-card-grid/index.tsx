@@ -91,7 +91,7 @@ const NewsGrid = ({ height, width }: any) => {
         scrollbarWidth: 'none',
       }}
     >
-      <Grid container>
+      <Grid container rowGap={2}>
         {newsData.map((news, index) => (
           <Grid gap={2} item xs={12} sm={6} md={4} key={index}>
             <NewsCard

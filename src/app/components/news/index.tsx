@@ -84,8 +84,6 @@ const NewsComponent = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-start',
-            // position: 'absolute',
-            // right: '300px',
             marginRight: '35px',
           }}
         >
@@ -130,10 +128,10 @@ const NewsComponent = () => {
             />
           </Box>
 
-          <TrendingNewsList height="450px" maxCards={4} />
+          <TrendingNewsList height="450px" maxCards={4} marginLeft="24px" />
         </Box>
         <Box sx={{ width: '24%' }}>
-          <TrendingNewsList height="300px" maxCards={3} />
+          <TrendingNewsList height="300px" maxCards={3} marginLeft="0px" />
           <NewsMileStones />
         </Box>
       </Box>
