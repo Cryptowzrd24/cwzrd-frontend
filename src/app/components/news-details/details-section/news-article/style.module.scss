@@ -1,0 +1,54 @@
+.bannerBox {
+    position: relative;
+    background-image: url('/images/banner/banner1.png');
+    background-position: center center;
+    background-size: cover;
+    padding: 32px;
+    border-radius: 24px;
+    width: 740px;
+    height: 120px;
+  }
+  
+  .bannerBox2 {
+    position: relative;
+    background-image: url('/images/banner/banner2.png');
+    background-position: center center;
+    background-size: cover;
+    padding: 56px 75px;
+    border-radius: 32px;
+  }
+  
+  .bannerBox img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .bannerText {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+  }
+  
+  .input {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16.9px;
+    color: rgba(17, 17, 17, 0.8);
+    outline: none;
+    border: none;
+    font-family: 'Sf Pro Display';
+    width: 70%;
+    letter-spacing: -0.7px;
+  
+    &::placeholder {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(17, 17, 17, 0.8);
+      letter-spacing: -0.7px;
+    font-family: 'Sf Pro Display';
+
+    }
+  }
+  
