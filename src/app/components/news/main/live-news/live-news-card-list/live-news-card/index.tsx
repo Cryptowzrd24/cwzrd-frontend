@@ -19,7 +19,7 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
         mb: '8px',
-        width:'95%'
+        width: '95%',
       }}
     >
       <Box
