@@ -5,8 +5,8 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import CarouselImage1 from '../../../../../../public/images/news-letter/carousel1.png';
 import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
-import ArrowRightDark from '../../../../../../public/icons/collections/arrowRightDark';
-import ArrowLeftDark from '../../../../../../public/icons/collections/arrowLeftDark';
+import ArrowLeftDark from '../../../../../../../public/icons/collections/arrowLeftDark';
+import ArrowRightDark from '../../../../../../../public/icons/collections/arrowRightDark';
 
 const content = [
   {
@@ -51,7 +51,7 @@ const content = [
   },
 ];
 
-const NewsCarouselBig = ({ height, hideButtons }: any) => {
+const NewsCarouselBig = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -78,7 +78,7 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
       color={'white'}
       position="relative"
       width="100%"
-      height={{ xs: '300px', sm: '400px', md: height ? height : '800px' }}
+      height={{ xs: '300px', sm: '400px', md: '800px' }}
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -139,7 +139,7 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box
           position="absolute"
-          top={hideButtons ? '60%' : '65%'}
+          top="65%"
           left="0"
           display="flex"
           gap="8px"
@@ -164,41 +164,22 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
         <Box
           position="absolute"
           paddingInline={'32px'}
-          top={hideButtons ? '65%' : '70%'}
+          top="70%"
           left="0"
           color="white"
           zIndex={1}
         >
           <Typography
             variant="h4"
-            sx={
-              hideButtons
-                ? {
-                    mt: '16px',
-                    color: 'white',
-                    fontSize: '32px',
-                    fontWeight: '700',
-                    letterSpacing: '1px',
-                    lineHeight: '38.4px',
-                    opacity: '80%',
-                    display: '-webkit-box',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                  }
-                : {
-                    fontWeight: '700',
-                    color: 'white',
-                    fontSize: '24px',
-                    lineHeight: '28.8px',
-                    letterSpacing: '1%',
-                  }
-            }
+            sx={{
+              fontWeight: '700',
+              color: 'white',
+              fontSize: '24px',
+              lineHeight: '28.8px',
+              letterSpacing: '1%',
+            }}
           >
-            {hideButtons
-              ? '1 Top Cryptocurrency to Buy Before It Soars 1,415% to $1 Million, According to Certain Wall Street Analysts'
-              : content[currentIndex].title}
+            {content[currentIndex].title}
           </Typography>
           <Typography
             variant="body1"
@@ -216,9 +197,7 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
               WebkitBoxOrient: 'vertical',
             }}
           >
-            {hideButtons
-              ? "Bitcoin (CRYPTO: BTC) returned 150% over the past year, easily outpacing the U.S. stock market. But Bernstein analysts Gautam Chhugani and Mahika Sapra expect the cryptocurrency to move much higher in the next decade. Their price targets are listed below, along with the implied upside based on Bitcoin's current price of $66,000."
-              : content[currentIndex].description}
+            {content[currentIndex].description}
           </Typography>
           <Box marginTop={'24px'} marginBottom={'8px'} display="flex" gap="8px">
             <Typography
@@ -233,83 +212,77 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
             </Typography>
           </Box>
         </Box>
-        {hideButtons === true ? (
-          <></>
-        ) : (
-          <Box
-            sx={{
-              position: 'absolute',
-              bottom: '45px',
-              left: '0',
-              display: 'flex',
-              gap: '2px',
-              zIndex: 1,
-              marginLeft: '32px',
-            }}
-          >
-            {content.map((_, index) => (
-              <IconButton
-                sx={{ height: '10px', width: '10px' }}
-                key={index}
-                onClick={() => handleDotClick(index)}
-                aria-label={`Go to slide ${index + 1}`}
-              >
-                <FiberManualRecordIcon
-                  sx={{
-                    color: currentIndex === index ? 'white' : 'gray',
-                    height: '15px',
-                  }}
-                />
-              </IconButton>
-            ))}
-          </Box>
-        )}
-      </Box>
-      {hideButtons === true ? (
-        <></>
-      ) : (
+
         <Box
-          position="absolute"
-          bottom="40px"
-          right="45px"
-          display="flex"
-          gap="8px"
-          zIndex={1}
+          sx={{
+            position: 'absolute',
+            bottom: '45px',
+            left: '0',
+            display: 'flex',
+            gap: '2px',
+            zIndex: 1,
+            marginLeft: '32px',
+          }}
         >
-          <IconButton
-            sx={{
-              background:
-                'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
-              backdropFilter: 'blur(10px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '48px',
-              width: '48px',
-            }}
-            onClick={handlePrev}
-            aria-label="Previous slide"
-          >
-            <ArrowLeftDark color={'white'} />
-          </IconButton>
-          <IconButton
-            sx={{
-              background:
-                'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
-              backdropFilter: 'blur(10px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '48px',
-              width: '48px',
-            }}
-            onClick={handleNext}
-            aria-label="Next slide"
-          >
-            <ArrowRightDark color={'white'} />
-          </IconButton>
+          {content.map((_, index) => (
+            <IconButton
+              sx={{ height: '10px', width: '10px' }}
+              key={index}
+              onClick={() => handleDotClick(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            >
+              <FiberManualRecordIcon
+                sx={{
+                  color: currentIndex === index ? 'white' : 'gray',
+                  height: '15px',
+                }}
+              />
+            </IconButton>
+          ))}
         </Box>
-      )}
+      </Box>
+
+      <Box
+        position="absolute"
+        bottom="40px"
+        right="45px"
+        display="flex"
+        gap="8px"
+        zIndex={1}
+      >
+        <IconButton
+          sx={{
+            background:
+              'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+            backdropFilter: 'blur(10px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '48px',
+            width: '48px',
+          }}
+          onClick={handlePrev}
+          aria-label="Previous slide"
+        >
+          <ArrowLeftDark color={'white'} />
+        </IconButton>
+        <IconButton
+          sx={{
+            background:
+              'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+            backdropFilter: 'blur(10px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '48px',
+            width: '48px',
+          }}
+          onClick={handleNext}
+          aria-label="Next slide"
+        >
+          <ArrowRightDark color={'white'} />
+        </IconButton>
+      </Box>
     </Box>
   );
 };

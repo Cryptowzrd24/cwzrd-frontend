@@ -2,10 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { Box, IconButton, Typography, Chip } from '@mui/material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import ArrowLeftDark from '../../../../../../public/icons/collections/arrowLeftDark';
-import ArrowRightDark from '../../../../../../public/icons/collections/arrowRightDark';
-import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
-import Image from 'next/image';
+import ArrowLeftDark from '../../../../../../../public/icons/collections/arrowLeftDark';
+import ArrowRightDark from '../../../../../../../public/icons/collections/arrowRightDark';
 
 const content = [
   {
@@ -50,7 +48,7 @@ const content = [
       'https://academy.education.investing.com/wp-content/uploads/2022/03/bitcoin-what-is-crypto-scaled.jpg',
   },
 ];
-const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
+const NewsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -106,42 +104,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           overflow: 'hidden',
         }}
       />
-      {showAudience && (
-        <Chip
-          sx={{
-            position: 'absolute',
-            top: '24px',
-            right: '26px',
-            backgroundColor: '#000000 30%',
-            backdropFilter: 'blur(10px)',
-            boxShadow: '1px',
-          }}
-          label={
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                paddingInline: '5px',
-                paddingBlock: '5px',
-                color: 'white',
-                fontWeight: 600,
-                fontSize: '16px',
-                lineHeight: '20.8px',
-                letterSpacing: '-1px',
-              }}
-            >
-              <Image
-                src={PeopleImage.src}
-                height={15}
-                width={15}
-                alt="people watching image"
-              />
-              {'374,039'}
-            </Box>
-          }
-        />
-      )}
+
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box
           position="absolute"
@@ -242,49 +205,47 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
         </Box>
       </Box>
 
-      {!isDetailPage && (
-        <Box
-          position="absolute"
-          paddingBlock="10px"
-          bottom="20px"
-          right="30px"
-          display="flex"
-          gap="8px"
+      <Box
+        position="absolute"
+        paddingBlock="10px"
+        bottom="20px"
+        right="30px"
+        display="flex"
+        gap="8px"
+      >
+        <IconButton
+          sx={{
+            background:
+              'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+            backdropFilter: 'blur(10px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '48px',
+            width: '48px',
+          }}
+          onClick={handlePrev}
+          aria-label="Previous slide"
         >
-          <IconButton
-            sx={{
-              background:
-                'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
-              backdropFilter: 'blur(10px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '48px',
-              width: '48px',
-            }}
-            onClick={handlePrev}
-            aria-label="Previous slide"
-          >
-            <ArrowLeftDark color={'white'} />
-          </IconButton>
-          <IconButton
-            sx={{
-              background:
-                'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
-              backdropFilter: 'blur(10px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '48px',
-              width: '48px',
-            }}
-            onClick={handleNext}
-            aria-label="Next slide"
-          >
-            <ArrowRightDark color={'white'} />
-          </IconButton>
-        </Box>
-      )}
+          <ArrowLeftDark color={'white'} />
+        </IconButton>
+        <IconButton
+          sx={{
+            background:
+              'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+            backdropFilter: 'blur(10px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '48px',
+            width: '48px',
+          }}
+          onClick={handleNext}
+          aria-label="Next slide"
+        >
+          <ArrowRightDark color={'white'} />
+        </IconButton>
+      </Box>
       <Box
         position="absolute"
         paddingBlock="24px"

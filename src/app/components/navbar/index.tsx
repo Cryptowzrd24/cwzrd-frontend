@@ -62,7 +62,11 @@ function Navbar() {
           }}
         >
           <Link href="/">
-            {pathname === '/news' || pathname.includes("/news/") ? <LogoWhite /> : <Logo />}
+            {pathname === '/news' || pathname.includes('/news/') ? (
+              <LogoWhite />
+            ) : (
+              <Logo />
+            )}
           </Link>
           <Box
             sx={{
@@ -75,7 +79,7 @@ function Navbar() {
           >
             {NavbarData.map((item) => (
               <Box key={item.id}>
-                {pathname === '/news' || pathname.includes("/news/") ? (
+                {pathname === '/news' || pathname.includes('/news/') ? (
                   <Link
                     href={`/${item.name.toLowerCase()}`}
                     style={{
