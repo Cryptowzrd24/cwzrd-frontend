@@ -1,7 +1,5 @@
 import React from 'react';
-import NewsHeader from './header';
-import { Box, Container, Typography } from '@mui/material';
-import { NewsCategory } from './main/news-categories';
+import { Box, Typography } from '@mui/material';
 import NewsCarousel from './main/news-carousel';
 import NewsGrid from './main/news-card-grid';
 import NewsLetterBanner from '../banners/newsLetterBanner';
@@ -19,9 +17,7 @@ import LiveMarket from './main/live-market';
 
 const NewsComponent = () => {
   return (
-    <Container maxWidth="xl">
-      <NewsHeader />
-      <NewsCategory />
+    <>
       <Box sx={{ display: 'flex', gap: 4 }}>
         <Box
           sx={{
@@ -138,7 +134,7 @@ const NewsComponent = () => {
       <Box sx={{ marginBlock: '80px' }}>
         <MemberShipBanner />
       </Box>
-    </Container>
+    </>
   );
 };
 

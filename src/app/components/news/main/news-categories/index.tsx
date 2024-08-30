@@ -6,7 +6,7 @@ const newsData = [
   { name: 'AI', id: 2, link: '/news' },
   { name: 'B2B', id: 3, link: '/news' },
   { name: 'Bitcoin', id: 4, link: '/news' },
-  { name: 'Cryptocurrency', id: 5, link: '/news' },
+  { name: 'Cryptocurrency', id: 5, link: '/news/crypto' },
   { name: 'De-Fi', id: 6, link: '/news' },
   { name: 'Exchanges', id: 7, link: '/news' },
   { name: 'Featured', id: 8, link: '/news' },

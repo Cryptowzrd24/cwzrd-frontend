@@ -157,7 +157,7 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
         sx={{ width: '100%', marginTop: '-13px', marginBottom: '10px' }}
       />
       {liveCoinData
-        ?.slice(0, isPageDetails ? liveCoinData.length : 3)
+        ?.slice(0, isPageDetails ? liveCoinData.length : 4)
         .map((item, index) => (
           <>
             <Box
@@ -265,7 +265,7 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
               />
             )}
             {index !==
-              liveCoinData?.slice(0, isPageDetails ? liveCoinData.length : 3)
+              liveCoinData?.slice(0, isPageDetails ? liveCoinData.length : 4)
                 .length -
                 1 && <Divider sx={{ width: '100%', marginBottom: '20px' }} />}
           </>
