@@ -10,7 +10,7 @@ const NewsDetails = () => {
   return (
     <>
       <Container maxWidth="xl">
-        <Box sx={{ mt: '64px' }}>
+        <Box sx={{ mt: '32px' }}>
           <BreadCrumb />
         </Box>
         <Box sx={{ mt: '24px' }}>

@@ -22,7 +22,7 @@ function NewsQuote({ quote }: any) {
           lineHeight: '23.4px',
           letterSpacing: '1.35px',
           marginTop: '5px',
-          width: '671px',
+          width: '700px',
         }}
       >
         {`"${quote}"`}

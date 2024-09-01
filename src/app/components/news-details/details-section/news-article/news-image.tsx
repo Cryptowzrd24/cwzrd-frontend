@@ -7,7 +7,6 @@ function NewsImage({ image, subheadingText }: any) {
     <Box>
       <Box
         sx={{
-          width: '740px',
           height: '400px',
           borderRadius: '16px',
           overflow: 'hidden',
@@ -16,12 +15,12 @@ function NewsImage({ image, subheadingText }: any) {
         <Image
           src={image}
           alt="img"
-          width={740}
-          height={400}
+          width={795}
+          height={430}
           style={{
             objectFit: 'cover',
             objectPosition: 'center',
-            transform: 'scale(1.1)',
+            // transform: 'scale(1.1)',
           }}
         />
       </Box>
@@ -33,7 +32,6 @@ function NewsImage({ image, subheadingText }: any) {
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           marginTop: '16px',
-          width: '740px',
         }}
       >
         {subheadingText}

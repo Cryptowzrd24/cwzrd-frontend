@@ -50,6 +50,7 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
               position: 'absolute',
               top: 8,
               left: 6,
+              letterSpacing: '1.5px',
             }}
           >
             2 MINUTES AGO

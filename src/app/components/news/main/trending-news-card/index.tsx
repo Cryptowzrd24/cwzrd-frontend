@@ -42,7 +42,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
               backdropFilter: 'blur(10px)',
               borderRadius: '20px',
               marginTop: '12px',
-              marginRight: !isDetailPage ? '12px' : '0',
+              marginRight: !isDetailPage ? '12px' : '8px',
               width: '103px',
               fontSize: '16px',
               fontWeight: '600',
@@ -72,8 +72,8 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         <Image
           alt="news"
           src={image.src}
-          width={isDetailPage ? 245 : 300}
-          height={180}
+          width={isDetailPage ? 264 : 300}
+          height={isDetailPage ? 158 : 180}
         />
       </Box>
       <Typography
@@ -83,7 +83,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           lineHeight: '23.4px',
           marginTop: '16px',
           letterSpacing: '2%',
-          width: isDetailPage ? '245px' : '100%',
+          width: isDetailPage ? '264px' : '100%',
         }}
         variant="body1"
       >
@@ -101,7 +101,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           display: '-webkit-box',
           WebkitLineClamp: '3 !important',
           WebkitBoxOrient: 'vertical',
-          width: isDetailPage ? '245px' : '100%',
+          width: isDetailPage ? '264px' : '100%',
         }}
         variant="body2"
       >
@@ -115,8 +115,8 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           lineHeight: '18.2px',
           marginTop: '16px',
           alignSelf: 'flex-start',
-          paddingLeft: !isDetailPage ? '0px' : '8px',
-          width: isDetailPage ? '245px' : '100%',
+          paddingLeft: 0,
+          width: isDetailPage ? '264px' : '100%',
         }}
       >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
     </Box>

@@ -55,7 +55,7 @@ function ReadingCard({ scrollPosition, sectionHeight }: any) {
           fontWeight: 700,
           fontSize: '18px',
           lineHeight: '23.4px',
-          letterSpacing: '2%',
+          letterSpacing: '0.8px',
         }}
       >
         Reading Now

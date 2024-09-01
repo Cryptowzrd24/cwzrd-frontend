@@ -12,7 +12,7 @@ function RelatedNews() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '0 40px 0 15px',
+          padding: '0 10px 0 8px',
         }}
       >
         <Typography
@@ -36,29 +36,35 @@ function RelatedNews() {
             News
           </span>
         </Typography>
-        <Typography
+        <Box
           sx={{
-            background: 'linear-gradient(90deg, #7248F7 70.78%, #BF48F7 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontSize: '14px',
-            lineHeight: '18.2px',
-            fontWeight: 600,
-            fontFamily: 'Sf Pro Display',
-            cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             gap: '11px',
+            cursor: 'pointer',
           }}
         >
-          Read More
+          <Typography
+            sx={{
+              background:
+                'linear-gradient(90deg, #7248F7 70.78%, #BF48F7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              fontSize: '14px',
+              lineHeight: '18.2px',
+              fontWeight: 600,
+              fontFamily: 'Sf Pro Display',
+            }}
+          >
+            Read More
+          </Typography>
           <ArrowForwardIosIcon
             sx={{
               fontSize: '14px',
               color: '#7248F7',
             }}
           />
-        </Typography>
+        </Box>
       </Box>
       <Box sx={{ mt: '24px' }}>
         <RelatedNewsCards />

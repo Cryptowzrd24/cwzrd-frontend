@@ -3,7 +3,7 @@ import React from 'react';
 
 function NewsHeading() {
   return (
-    <Box sx={{ width: '740px' }}>
+    <Box>
       <Typography
         sx={{
           fontWeight: 700,
