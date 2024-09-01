@@ -24,7 +24,6 @@ const NewsCard: React.FC<NewsCardProps> = ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: allNews ? '279px' : '350px',
         width: allNews ? '328px' : '309px',
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
@@ -33,32 +32,26 @@ const NewsCard: React.FC<NewsCardProps> = ({
       <Image
         alt="news"
         src={image.src}
-        width={allNews ? 312 : 500}
-        height={allNews ? 150 : 500}
-        style={allNews ? {} : { width: '100%', height: 'auto' }}
+        width={312}
+        height={0}
+        style={{
+          width: '100%',
+          height: '150px',
+          objectFit: 'cover',
+          borderRadius: '12px',
+        }}
       />
       <Box sx={{ padding: '4px', paddingTop: '16px' }}>
         <Box>
           <Typography
-            sx={
-              allNews
-                ? {
-                    fontWeight: '700',
-                    fontSize: '14px',
-                    lineHeight: '18.2px',
-                    marginInline: '16px',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }
-                : {
-                    fontWeight: '700',
-                    fontSize: '18px',
-                    lineHeight: '23.4px',
-                    marginInline: '8px',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }
-            }
+            sx={{
+              fontWeight: '700',
+              fontSize: '18px',
+              lineHeight: '23.4px',
+              marginInline: '8px',
+              display: 'flex',
+              alignItems: 'center',
+            }}
             variant="body1"
           >
             {title ||

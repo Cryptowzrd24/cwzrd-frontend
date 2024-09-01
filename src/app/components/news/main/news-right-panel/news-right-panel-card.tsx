@@ -30,7 +30,7 @@ function NewsRightPanelCard({ cardData }: CardDataProps) {
     >
       <Box
         sx={{
-          width: '140px',
+          minWidth: '140px',
           height: '94px',
           borderRadius: '12px',
           overflow: 'hidden',
@@ -43,7 +43,7 @@ function NewsRightPanelCard({ cardData }: CardDataProps) {
           display: 'flex',
           flexDirection: 'column',
           gap: '4px',
-          width: '238px',
+          width: '100%',
         }}
       >
         <Typography
@@ -53,6 +53,7 @@ function NewsRightPanelCard({ cardData }: CardDataProps) {
             fontSize: '14px',
             lineHeight: '18.2px',
             color: 'rgba(17, 17, 17, 1)',
+            width: '90%',
           }}
         >
           {cardData?.title}

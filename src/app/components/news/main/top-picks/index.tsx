@@ -74,7 +74,7 @@ function TopPicks({ showAll }: any) {
         </Box>
       </Box>
       <Divider sx={{ width: '100%', marginTop: '-13px' }} />
-      <Box sx={{ marginBlock: '15px', width: '100%' }}>
+      <Box sx={{ marginBlock: '14.4px', width: '100%' }}>
         <Box
           sx={{
             display: 'flex',
@@ -115,9 +115,9 @@ function TopPicks({ showAll }: any) {
           06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
         </Typography>
       </Box>
-      <Divider sx={{ width: '100%', marginTop: '10px' }} />
+      <Divider sx={{ width: '100%' }} />
 
-      <Box sx={{ marginBlock: '15px', width: '100%' }}>
+      <Box sx={{ marginBlock: '14.4px', width: '100%' }}>
         <Box
           sx={{
             display: 'flex',
@@ -159,10 +159,10 @@ function TopPicks({ showAll }: any) {
           06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
         </Typography>
       </Box>
-      <Divider sx={{ width: '100%', marginTop: '10px' }} />
+      <Divider sx={{ width: '100%' }} />
       {showAll && (
         <>
-          <Box sx={{ marginBlock: '15px', width: '100%' }}>
+          <Box sx={{ marginBlock: '14.4px', width: '100%' }}>
             <Box
               sx={{
                 display: 'flex',
@@ -204,9 +204,9 @@ function TopPicks({ showAll }: any) {
               06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
             </Typography>
           </Box>
-          <Divider sx={{ width: '100%', marginTop: '10px' }} />
+          <Divider sx={{ width: '100%' }} />
 
-          <Box sx={{ marginBlock: '15px', width: '100%' }}>
+          <Box sx={{ marginBlock: '14.4px', width: '100%' }}>
             <Box
               sx={{
                 display: 'flex',
@@ -248,7 +248,7 @@ function TopPicks({ showAll }: any) {
               06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
             </Typography>
           </Box>
-          {/* <Divider sx={{ width: '100%', marginTop: '10px' }} /> */}
+          {/* <Divider sx={{ width: '100%', }} /> */}
         </>
       )}
     </Box>

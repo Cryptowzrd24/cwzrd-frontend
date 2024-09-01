@@ -36,10 +36,9 @@ const TagCard: React.FC<TagCardProps> = ({
         sx={{
           borderRadius: '12px',
           minHeight: '338px',
-          width: width ? parseInt(width.split('p')[0]) - 24 + 'px' : '600px',
+          width: 'calc(100% - 32px)',
           overflow: 'hidden',
           marginTop: '16px',
-          marginInline: '16px',
         }}
       >
         <Box
@@ -56,6 +55,8 @@ const TagCard: React.FC<TagCardProps> = ({
               background:
                 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
               backdropFilter: 'blur(10px)',
+              width: '103px',
+              height: '33px',
             }}
             key={'123'}
             label={
@@ -64,14 +65,15 @@ const TagCard: React.FC<TagCardProps> = ({
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  paddingInline: '5px',
-                  paddingBlock: '5px',
+                  gap: '4.5px',
+                  fontSize: '16px',
+                  fontWeight: '600',
                 }}
               >
                 <Image
                   src={PeopleImage.src}
-                  height={15}
-                  width={15}
+                  height={12}
+                  width={12}
                   alt="people watching image"
                 />
                 {'374,039'}
@@ -83,7 +85,7 @@ const TagCard: React.FC<TagCardProps> = ({
         </Box>
 
         <Image
-          style={{ height: '380px', width: '100%', borderRadius: '12px' }}
+          style={{ height: 'auto', width: '100%', borderRadius: '12px' }}
           alt="news"
           src={image.src}
           width={516}

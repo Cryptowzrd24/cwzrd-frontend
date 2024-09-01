@@ -56,6 +56,8 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
               backgroundColor: 'transparent',
               // 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
               backdropFilter: 'blur(20px)',
+              width: '103px',
+              height: '33px',
             }}
             key={'123'}
             label={
@@ -64,14 +66,15 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  paddingInline: '5px',
-                  paddingBlock: '5px',
+                  gap: '4.5px',
+                  fontSize: '16px',
+                  fontWeight: '600',
                 }}
               >
                 <Image
                   src={PeopleImage.src}
-                  height={15}
-                  width={15}
+                  height={12}
+                  width={12}
                   alt="people watching image"
                 />
                 374,039
@@ -87,6 +90,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
             height: height ? '300px' : '380px',
             width: width ? '300px' : '100%',
             borderRadius: '12px',
+            objectFit: 'cover',
           }}
           alt="news"
           src={image.src}

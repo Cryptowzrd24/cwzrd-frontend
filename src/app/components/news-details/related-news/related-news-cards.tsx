@@ -39,11 +39,10 @@ function RelatedNewsCards() {
   return (
     <Box
       sx={{
-        height: '392px',
         width: '100%',
         scrollbarWidth: 'none',
         display: 'flex',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
       }}
     >
       {newsData.map((news) => (

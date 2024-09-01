@@ -73,7 +73,11 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           alt="news"
           src={image.src}
           width={isDetailPage ? 264 : 300}
-          height={isDetailPage ? 158 : 180}
+          height={isDetailPage ? 183 : 180}
+          style={{
+            objectFit: 'cover',
+            borderRadius: '12px',
+          }}
         />
       </Box>
       <Typography

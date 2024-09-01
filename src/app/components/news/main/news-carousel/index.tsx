@@ -115,6 +115,8 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
             backgroundColor: '#000000 30%',
             backdropFilter: 'blur(10px)',
             boxShadow: '1px',
+            width: '95px',
+            height: '33px',
           }}
           label={
             <Box
@@ -122,19 +124,18 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                paddingInline: '5px',
-                paddingBlock: '5px',
                 color: 'white',
                 fontWeight: 600,
                 fontSize: '16px',
                 lineHeight: '20.8px',
                 letterSpacing: '-1px',
+                gap: '4.5px',
               }}
             >
               <Image
                 src={PeopleImage.src}
-                height={15}
-                width={15}
+                height={12}
+                width={12}
                 alt="people watching image"
               />
               {'374,039'}
@@ -149,7 +150,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           left={0}
           display="flex"
           gap="8px"
-          paddingInline={'32px'}
+          paddingInline={'48px'}
           zIndex={1}
         >
           {content[currentIndex].tags.map((tag, index) => (
@@ -174,7 +175,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           width="100%"
           color="white"
           zIndex={1}
-          paddingInline="32px"
+          paddingInline="48px"
           sx={{
             boxSizing: 'border-box',
             padding: 0,
@@ -187,7 +188,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
               fontWeight: '700 !important',
               color: 'white',
               fontSize: '32px  !important',
-              paddingInline: '32px',
+              paddingInline: '48px',
             }}
           >
             {content[currentIndex].title}
@@ -199,7 +200,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
               fontSize: '16px !important',
               fontWeight: '400  !important',
               opacity: '80%',
-              paddingInline: '32px',
+              paddingInline: '48px',
               display: '-webkit-box',
               overflow: 'hidden',
               WebkitBoxOrient: 'vertical',
@@ -216,7 +217,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
         <Box
           sx={{
             position: 'absolute',
-            bottom: '20px',
+            bottom: '16px',
             left: '50%',
             transform: 'translateX(-50%)',
             display: 'flex',
@@ -246,8 +247,8 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
         <Box
           position="absolute"
           paddingBlock="10px"
-          bottom="20px"
-          right="30px"
+          bottom="16px"
+          right="54px"
           display="flex"
           gap="8px"
         >
@@ -288,7 +289,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
       <Box
         position="absolute"
         paddingBlock="24px"
-        bottom="20px"
+        bottom="16px"
         display="flex"
         gap="8px"
         left={0}
@@ -298,7 +299,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
             color: 'white',
             fontSize: '16px !important',
             fontWeight: '500 !important',
-            paddingInline: '32px',
+            paddingInline: '48px',
             lineHeight: '20.8px',
           }}
         >
