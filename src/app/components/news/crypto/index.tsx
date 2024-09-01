@@ -1,19 +1,19 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import NewsCarousel from './main/news-carousel';
-import NewsGrid from './main/news-card-grid';
-import NewsLetterBanner from '../banners/newsLetterBanner';
+import NewsCarousel from '../components/main/news-carousel';
+import NewsGrid from '../components/main/news-card-grid';
+import NewsLetterBanner from '../../banners/newsLetterBanner';
 import CardImage from '../../../../public/images/news-letter/image-car-news.png';
-import MemberShipBanner from '../banners/memberShipBanner';
-import LiveNewsExplorer from './main/live-news';
-import NewsTradingPlatform from './main/news-trading-platform';
-import TopPicks from './main/top-picks';
-import { ArrowRight } from '../../../../public/icons/arrowRight';
-import NewsMileStones from './main/news-miletones';
-import NewsCarouselBig from './main/carouel-big';
-import TrendingNewsCard from './main/trending-news-card';
-import TrendingNewsList from './main/trending-news-list';
-import LiveMarket from './main/live-market';
+import MemberShipBanner from '../../banners/memberShipBanner';
+import LiveNewsExplorer from '../components/main/live-news';
+import NewsTradingPlatform from '../components/main/news-trading-platform';
+import TopPicks from '../components/main/top-picks';
+import { ArrowRight } from '../../../../../public/icons/arrowRight';
+import NewsMileStones from '../components/main/news-miletones';
+import NewsCarouselBig from '../components/main/carouel-big';
+import TrendingNewsCard from '../components/main/trending-news-card';
+import TrendingNewsList from '../components/main/trending-news-list';
+import LiveMarket from '../components/main/live-market';
 
 const NewsComponent = () => {
   return (
@@ -89,9 +89,6 @@ const NewsComponent = () => {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               marginRight: '5px',
-              fontWeight: '600',
-              fontSize: '14px',
-              lineHeight: '18.2px',
             }}
             variant="body2"
             right={1}

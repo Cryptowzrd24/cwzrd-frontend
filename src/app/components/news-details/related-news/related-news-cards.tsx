@@ -22,8 +22,7 @@ const newsData = [
   },
   {
     image: img3,
-    title:
-      "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange",
+    title: "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock ",
     description:
       "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of",
   },

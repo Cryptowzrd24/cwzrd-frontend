@@ -6,9 +6,15 @@ interface NewsCardProps {
   image: any;
   title: string;
   description: string;
+  allNews?: any;
 }
 
-const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
+const NewsCard: React.FC<NewsCardProps> = ({
+  image,
+  title,
+  description,
+  allNews,
+}) => {
   return (
     <Box
       sx={{
@@ -18,8 +24,8 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '350px',
-        width: '309px',
+        height: allNews ? '279px' : '350px',
+        width: allNews ? '328px' : '309px',
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
       }}
@@ -27,21 +33,32 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
       <Image
         alt="news"
         src={image.src}
-        width={500}
-        height={500}
-        style={{ width: '100%', height: 'auto' }}
+        width={allNews ? 312 : 500}
+        height={allNews ? 150 : 500}
+        style={allNews ? {} : { width: '100%', height: 'auto' }}
       />
       <Box sx={{ padding: '4px', paddingTop: '16px' }}>
         <Box>
           <Typography
-            sx={{
-              fontWeight: '700',
-              fontSize: '18px',
-              lineHeight: '23.4px',
-              marginInline: '8px',
-              display: 'flex',
-              alignItems: 'center',
-            }}
+            sx={
+              allNews
+                ? {
+                    fontWeight: '700',
+                    fontSize: '14px',
+                    lineHeight: '18.2px',
+                    marginInline: '16px',
+                    display: 'flex',
+                    alignItems: 'center',
+                  }
+                : {
+                    fontWeight: '700',
+                    fontSize: '18px',
+                    lineHeight: '23.4px',
+                    marginInline: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                  }
+            }
             variant="body1"
           >
             {title ||
@@ -49,18 +66,33 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, description }) => {
           </Typography>
 
           <Typography
-            sx={{
-              fontWeight: '400',
-              fontSize: '13px',
-              lineHeight: '19px',
-              marginTop: '4px',
-              marginInline: '8px',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-            }}
+            sx={
+              allNews
+                ? {
+                    fontWeight: '400',
+                    fontSize: '11px',
+                    lineHeight: '14.3px',
+                    marginTop: '4px',
+                    marginInline: '16px',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 1,
+                    WebkitBoxOrient: 'vertical',
+                  }
+                : {
+                    fontWeight: '400',
+                    fontSize: '13px',
+                    lineHeight: '19px',
+                    marginTop: '4px',
+                    marginInline: '8px',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                  }
+            }
             variant="body2"
           >
             {description ||

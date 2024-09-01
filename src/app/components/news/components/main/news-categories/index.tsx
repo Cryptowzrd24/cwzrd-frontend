@@ -1,5 +1,5 @@
 import { Box, Container, Link } from '@mui/material';
-import SearchIcon from '../../../../../../public/icons/Navbar-Section/search';
+import SearchIcon from '../../../../../../../public/icons/Navbar-Section/search';
 
 const newsData = [
   { name: 'All News', id: 1, link: '/news' },

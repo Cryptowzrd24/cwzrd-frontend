@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import RightRed from '../../../../../../public/icons/News-Letter/rightRed';
+import RightRed from '../../../../../../../public/icons/News-Letter/rightRed';
 import { Box, Divider, Stack, Typography } from '@mui/material';
 import Bitcoin from '../../../../../../public/images/coin-details/bitcoin.png';
 import Ethereum from '../../../../../../public/images/coin-details/ether.png';
