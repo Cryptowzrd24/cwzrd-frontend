@@ -110,6 +110,7 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
             background:
               'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
             backdropFilter: 'blur(10px)',
+            height: '33px',
           }}
           key={'123'}
           label={
@@ -118,14 +119,17 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                paddingInline: '5px',
-                paddingBlock: '5px',
+                gap: '4.5px',
+                fontSize: '16px',
+                lineHeight: '20.8px',
+                width: '87px',
+                fontWeight: '600',
               }}
             >
               <Image
                 src={PeopleImage.src}
-                height={15}
-                width={15}
+                height={12}
+                width={12}
                 alt="people watching image"
               />
               {'374,039'}
@@ -271,7 +275,7 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
         <Box
           position="absolute"
           bottom="40px"
-          right="45px"
+          right="32px"
           display="flex"
           gap="8px"
           zIndex={1}

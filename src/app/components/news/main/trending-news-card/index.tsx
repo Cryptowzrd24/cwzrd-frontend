@@ -35,23 +35,25 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
               justifyContent: 'center',
               alignItems: 'center',
               color: 'white',
-              fontSize: '14px',
-              fontWeight: '400',
+
               lineHeight: '20.8px',
               background:
                 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
               backdropFilter: 'blur(10px)',
               borderRadius: '20px',
-              paddingInline: '7px',
-              paddingBlock: '3px',
               marginTop: '12px',
               marginRight: !isDetailPage ? '12px' : '0',
+              width: '103px',
+              fontSize: '16px',
+              fontWeight: '600',
+              gap: '4.5px',
+              height: '33px',
             }}
           >
             <Image
               src={PeopleImage.src}
-              height={15}
-              width={15}
+              height={12}
+              width={12}
               alt="people watching image"
             />
             {'374,039'}
@@ -60,9 +62,10 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         sx={{
           position: 'absolute',
           top: 0,
-          right: 0,
+          right: '-12px',
           fontWeight: 'bold',
           backgroundColor: 'transparent',
+          height: '33px',
         }}
       />
       <Box>

@@ -39,8 +39,8 @@ const LiveCardData: any[] = [
 
 function LiveNewsCardList({ isPageDetails }: { isPageDetails?: boolean }) {
   return (
-    <Box sx={{ overflowY: 'auto', height: isPageDetails ? '560px' : '360px' }}>
-      {LiveCardData.slice(0, isPageDetails ? LiveCardData.length : 3).map(
+    <Box sx={{ overflowY: 'auto', height: isPageDetails ? '560px' : '375px' }}>
+      {LiveCardData.slice(0, isPageDetails ? LiveCardData.length : 4).map(
         (card) => (
           <LiveNewsCard
             key={card.id}

@@ -118,7 +118,9 @@ const NewsCard: React.FC<NewsCardProps> = ({
               lineHeight: '14.3px',
               paddingInline: '16px',
             }}
-          >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
+          >
+            06/06/2023 at 00:06 AM &nbsp;&nbsp;|&nbsp;&nbsp; John Smith
+          </Typography>
         </Box>
       </Box>
     </Box>

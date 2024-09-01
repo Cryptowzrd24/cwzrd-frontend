@@ -8,10 +8,9 @@ const NewsTradingPlatform = () => {
   return (
     <Box
       sx={{
-        padding: '0 0 72px 0',
+        padding: '0 0 24px 0',
         backgroundColor: 'rgba(255, 255, 255, 1)',
         borderRadius: '18px',
-        height: '440px',
         boxShadow: '0px 4px 28px 0px #0000000D',
       }}
     >
@@ -33,7 +32,7 @@ const NewsTradingPlatform = () => {
           justifyContent: 'center',
           alignItems: 'center',
           margin: 'auto',
-          gap: 2,
+          gap: '12px',
           paddingInline: '12px',
         }}
       >
@@ -43,13 +42,12 @@ const NewsTradingPlatform = () => {
             fontSize: '18px',
             lineHeight: '23.4px',
             fontWeight: '700',
-            letterSpacing: '2px',
+            textAlign: 'center',
+            letterSpacing: '1.2px',
           }}
         >
           Dedicated Professional <br></br>
-          <span style={{ textAlign: 'center', paddingInline: '22%' }}>
-            Mentorship
-          </span>
+          Mentorship
         </Typography>
 
         <Typography
@@ -59,7 +57,7 @@ const NewsTradingPlatform = () => {
             fontWeight: '400',
             textAlign: 'center',
             color: 'rgba(17, 17, 17, 0.8)',
-            lineHeight: '14.7px',
+            lineHeight: '17.4px',
             fontFamily: 'Sf Pro Text',
           }}
         >
@@ -95,11 +93,7 @@ const NewsTradingPlatform = () => {
             </Typography>
             <span
               style={{
-                color: 'black',
-                fill: 'black',
-                marginTop: '3px',
-                // paddingRight: '15px',
-                // marginLeft: '-5px',
+                marginTop: '6px',
               }}
             >
               <ArrowRight fill="black" />

@@ -62,6 +62,7 @@ function LiveNewsExplorer({ isPageDetails }: { isPageDetails?: boolean }) {
               fontWeight: '600',
               mb: '3px',
               letterSpacing: 'normal',
+              fontSize: '14px',
             }}
           >
             See All

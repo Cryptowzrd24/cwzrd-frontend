@@ -9,13 +9,12 @@ function TopPicks({ showAll }: any) {
   return (
     <Box
       sx={{
-        color: 'white',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'start',
         borderRadius: '16px',
         overflow: 'hidden',
-        paddingInline: '16px',
+        paddingInline: '20px',
         paddingTop: '20px',
         paddingBottom: showAll ? '' : '14px',
         boxShadow: '2px 4px 28px 0px #0000000D',
@@ -25,10 +24,10 @@ function TopPicks({ showAll }: any) {
       <Box
         sx={{
           display: 'flex',
-          mb: '12px',
+          mb: '15px',
           justifyContent: 'space-between',
           width: '100%',
-          paddingBottom: '12px',
+          paddingBottom: '15px',
           borderBottom: '1px solid #FFFFFF1A',
         }}
       >
@@ -39,6 +38,7 @@ function TopPicks({ showAll }: any) {
             fontSize: '16px',
             fontWeight: '700',
             lineHeight: '20.8px',
+            letterSpacing: '0.7px',
           }}
         >
           ⭐️ Picks for you
@@ -50,7 +50,6 @@ function TopPicks({ showAll }: any) {
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
-            marginInline: '10px',
           }}
         >
           <Typography
@@ -64,6 +63,7 @@ function TopPicks({ showAll }: any) {
               fontWeight: '600',
               mb: '3px',
               letterSpacing: 'normal',
+              fontSize: '14px',
             }}
           >
             See All
@@ -74,189 +74,183 @@ function TopPicks({ showAll }: any) {
         </Box>
       </Box>
       <Divider sx={{ width: '100%', marginTop: '-13px' }} />
-      <Box sx={{ paddingInline: '10px' }}>
-        <Box sx={{ marginBlock: '15px' }}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              // height: '120px',
-            }}
-          >
-            <Typography
-              sx={{
-                width: '178px',
-                fontWeight: '700',
-                fontSize: '18px',
-                lineHeight: '23.4px',
-              }}
-            >
-              Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip
-            </Typography>
-            <Image
-              src={rect1.src}
-              alt={'image'}
-              height={showAll ? 80 : 100}
-              width={showAll ? 70 : 90}
-              style={{
-                borderRadius: '8px',
-                marginLeft: '10px',
-                paddingInline: '10px',
-              }}
-            />
-          </Box>
+      <Box sx={{ marginBlock: '15px', width: '100%' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            // height: '120px',
+          }}
+        >
           <Typography
             sx={{
-              fontWeight: 500,
-              fontSize: '11px',
-              lineHeight: '14.3px',
-              marginTop: '10px',
+              width: '178px',
+              fontWeight: '700',
+              fontSize: '18px',
+              lineHeight: '23.4px',
             }}
           >
-            06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
+            Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip
           </Typography>
-        </Box>
-        <Divider sx={{ width: '100%', marginTop: '10px' }} />
-
-        <Box sx={{ marginBlock: '15px' }}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              // height: '120px',
+          <Image
+            src={rect1.src}
+            alt={'image'}
+            height={showAll ? 80 : 100}
+            width={showAll ? 70 : 90}
+            style={{
+              borderRadius: '8px',
+              marginLeft: '10px',
             }}
-          >
-            <Typography
-              sx={{
-                width: '178px',
-                fontWeight: '700',
-                fontSize: '18px',
-                lineHeight: '23.4px',
-              }}
-            >
-              VanEck's Spot<br></br> Bitcoin ETF Goes<br></br> Live on
-              Australia's Biggest Stock
-            </Typography>
-            <Image
-              src={rect2.src}
-              alt={'image'}
-              height={showAll ? 80 : 100}
-              width={showAll ? 70 : 90}
-              style={{
-                borderRadius: '8px',
-                marginLeft: '10px',
-                paddingInline: '10px',
-              }}
-            />
-          </Box>
-          <Typography
-            sx={{
-              fontWeight: 500,
-              fontSize: '11px',
-              lineHeight: '14.3px',
-              marginTop: '10px',
-            }}
-          >
-            06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
-          </Typography>
+          />
         </Box>
-        <Divider sx={{ width: '100%', marginTop: '10px' }} />
-        {showAll && (
-          <>
-            <Box sx={{ marginBlock: '15px' }}>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  // height: '120px',
-                }}
-              >
-                <Typography
-                  sx={{
-                    width: '178px',
-                    fontWeight: '700',
-                    fontSize: '18px',
-                    lineHeight: '23.4px',
-                  }}
-                >
-                  Dogecoin Long Liquidations Surge Past $60 Million Amid Market
-                  Dip
-                </Typography>
-                <Image
-                  src={rect1.src}
-                  alt={'image'}
-                  height={showAll ? 80 : 100}
-                  width={showAll ? 70 : 90}
-                  style={{
-                    borderRadius: '8px',
-                    marginLeft: '10px',
-                    paddingInline: '10px',
-                  }}
-                />
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: '11px',
-                  lineHeight: '14.3px',
-                  marginTop: '10px',
-                }}
-              >
-                06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
-              </Typography>
-            </Box>
-            <Divider sx={{ width: '100%', marginTop: '10px' }} />
-
-            <Box sx={{ marginBlock: '15px' }}>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  // height: '120px',
-                }}
-              >
-                <Typography
-                  sx={{
-                    width: '178px',
-                    fontWeight: '700',
-                    fontSize: '18px',
-                    lineHeight: '23.4px',
-                  }}
-                >
-                  VanEck's Spot<br></br> Bitcoin ETF Goes<br></br> Live on
-                  Australia's Biggest Stock
-                </Typography>
-                <Image
-                  src={rect2.src}
-                  alt={'image'}
-                  height={showAll ? 80 : 100}
-                  width={showAll ? 70 : 90}
-                  style={{
-                    borderRadius: '8px',
-                    marginLeft: '10px',
-                    paddingInline: '10px',
-                  }}
-                />
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: '11px',
-                  lineHeight: '14.3px',
-                  marginTop: '10px',
-                }}
-              >
-                06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
-              </Typography>
-            </Box>
-            {/* <Divider sx={{ width: '100%', marginTop: '10px' }} /> */}
-          </>
-        )}
+        <Typography
+          sx={{
+            fontWeight: 500,
+            fontSize: '11px',
+            lineHeight: '14.3px',
+            marginTop: '10px',
+          }}
+        >
+          06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
+        </Typography>
       </Box>
+      <Divider sx={{ width: '100%', marginTop: '10px' }} />
+
+      <Box sx={{ marginBlock: '15px', width: '100%' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            // height: '120px',
+          }}
+        >
+          <Typography
+            sx={{
+              width: '178px',
+              fontWeight: '700',
+              fontSize: '18px',
+              lineHeight: '23.4px',
+            }}
+          >
+            VanEck's Spot<br></br> Bitcoin ETF Goes<br></br> Live on Australia's
+            Biggest Stock
+          </Typography>
+          <Image
+            src={rect2.src}
+            alt={'image'}
+            height={showAll ? 80 : 100}
+            width={showAll ? 70 : 90}
+            style={{
+              borderRadius: '8px',
+              marginLeft: '10px',
+            }}
+          />
+        </Box>
+        <Typography
+          sx={{
+            fontWeight: 500,
+            fontSize: '11px',
+            lineHeight: '14.3px',
+            marginTop: '10px',
+          }}
+        >
+          06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
+        </Typography>
+      </Box>
+      <Divider sx={{ width: '100%', marginTop: '10px' }} />
+      {showAll && (
+        <>
+          <Box sx={{ marginBlock: '15px', width: '100%' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                // height: '120px',
+              }}
+            >
+              <Typography
+                sx={{
+                  width: '178px',
+                  fontWeight: '700',
+                  fontSize: '18px',
+                  lineHeight: '23.4px',
+                }}
+              >
+                Dogecoin Long Liquidations Surge Past $60 Million Amid Market
+                Dip
+              </Typography>
+              <Image
+                src={rect1.src}
+                alt={'image'}
+                height={showAll ? 80 : 100}
+                width={showAll ? 70 : 90}
+                style={{
+                  borderRadius: '8px',
+                  marginLeft: '10px',
+                }}
+              />
+            </Box>
+            <Typography
+              sx={{
+                fontWeight: 500,
+                fontSize: '11px',
+                lineHeight: '14.3px',
+                marginTop: '10px',
+              }}
+            >
+              06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
+            </Typography>
+          </Box>
+          <Divider sx={{ width: '100%', marginTop: '10px' }} />
+
+          <Box sx={{ marginBlock: '15px', width: '100%' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                // height: '120px',
+              }}
+            >
+              <Typography
+                sx={{
+                  width: '178px',
+                  fontWeight: '700',
+                  fontSize: '18px',
+                  lineHeight: '23.4px',
+                }}
+              >
+                VanEck's Spot<br></br> Bitcoin ETF Goes<br></br> Live on
+                Australia's Biggest Stock
+              </Typography>
+              <Image
+                src={rect2.src}
+                alt={'image'}
+                height={showAll ? 80 : 100}
+                width={showAll ? 70 : 90}
+                style={{
+                  borderRadius: '8px',
+                  marginLeft: '10px',
+                }}
+              />
+            </Box>
+            <Typography
+              sx={{
+                fontWeight: 500,
+                fontSize: '11px',
+                lineHeight: '14.3px',
+                marginTop: '10px',
+              }}
+            >
+              06/06/2023 at 00:06 AM &nbsp; | &nbsp; John Smith
+            </Typography>
+          </Box>
+          {/* <Divider sx={{ width: '100%', marginTop: '10px' }} /> */}
+        </>
+      )}
     </Box>
   );
 }

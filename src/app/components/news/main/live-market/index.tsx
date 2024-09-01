@@ -144,6 +144,7 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
               fontWeight: '600',
               mb: '3px',
               letterSpacing: 'normal',
+              fontSize: '14px',
             }}
           >
             See All
@@ -162,10 +163,9 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
           <>
             <Box
               sx={{
-                paddingRight: '12px',
+                width: '100%',
                 borderRadius: '16px',
                 mb: '8px',
-                // paddingBlock:'8px',
               }}
             >
               <Box
@@ -176,7 +176,7 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
                   alignItems: 'center',
                 }}
               >
-                <Box sx={{ position: 'relative', width: '50%' }}>
+                <Box sx={{ position: 'relative' }}>
                   <Image
                     src={item?.image.src}
                     alt="picture"
@@ -188,13 +188,12 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
                     }}
                   ></Image>
                 </Box>
-                <Stack maxHeight={'100px'}>
+                <Stack maxHeight={'100px'} style={{ flex: 1, width: '100%' }}>
                   <Box
                     sx={{
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      width: '220px',
                     }}
                   >
                     <Typography
@@ -224,7 +223,6 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      width: '220px',
                     }}
                   >
                     <Typography
@@ -267,7 +265,15 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
             {index !==
               liveCoinData?.slice(0, isPageDetails ? liveCoinData.length : 4)
                 .length -
-                1 && <Divider sx={{ width: '100%', marginBottom: '20px' }} />}
+                1 && (
+              <Divider
+                sx={{
+                  width: '100%',
+                  marginBottom: '20px',
+                  borderColor: item?.id === '1' ? 'transparent' : '#1111110D',
+                }}
+              />
+            )}
           </>
         ))}
     </Box>

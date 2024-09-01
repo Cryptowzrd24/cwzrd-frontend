@@ -24,7 +24,7 @@ const NewsComponent = () => {
             display: 'flex',
             flexDirection: 'column',
             width: '77%',
-            gap: '4px',
+            gap: '16px',
           }}
         >
           <NewsCarousel />
@@ -47,7 +47,7 @@ const NewsComponent = () => {
 
       <Box sx={{ display: 'flex', marginBottom: '80px' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '75%' }}>
-          <NewsGrid height={'913px'} width={'99%'} />
+          <NewsGrid height={'920px'} width={'99%'} />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '25%' }}>
           <TopPicks />
@@ -80,7 +80,7 @@ const NewsComponent = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-start',
-            marginRight: '35px',
+            marginRight: '12px',
           }}
         >
           <Typography
@@ -127,7 +127,7 @@ const NewsComponent = () => {
             />
           </Box>
 
-          <TrendingNewsList height="450px" maxCards={4} marginLeft="24px" />
+          <TrendingNewsList height="450px" maxCards={4} marginLeft="8px" />
         </Box>
         <Box sx={{ width: '24%' }}>
           <TrendingNewsList height="300px" maxCards={3} marginLeft="0px" />

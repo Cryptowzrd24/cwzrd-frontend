@@ -12,13 +12,13 @@ const NewsMileStones = () => {
 
   const backgroundVariants = {
     initial: {
-      background: "url('images/news-letter/map.png') no-repeat center/cover",
+      background: "url('/images/news-letter/map.png') no-repeat center/cover",
     },
     active: {
       background: 'white ',
     },
     inactive: {
-      background: "url('images/news-letter/map.png') no-repeat center/cover",
+      background: "url('/images/news-letter/map.png') no-repeat center/cover",
     },
   };
 
@@ -72,11 +72,11 @@ const NewsMileStones = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: '16px',
+            fontSize: '11px',
             fontWeight: '400',
             color: 'black',
             textTransform: 'uppercase',
-            mb: '25px',
+            mb: '17px',
             letterSpacing: '1px',
           }}
         >

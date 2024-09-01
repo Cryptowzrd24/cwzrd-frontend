@@ -69,7 +69,6 @@ function TrendingNewsList({
           <Box
             sx={{
               background: '#fff',
-              // padding: '4px',
               paddingRight: '12px',
               borderRadius: '16px',
               mb: '16px',
@@ -78,8 +77,6 @@ function TrendingNewsList({
             <Box
               sx={{
                 display: 'flex',
-                // gap: '16px',
-                width: '90%',
                 flexDirection: 'row',
                 alignItems: 'center',
               }}
@@ -98,7 +95,6 @@ function TrendingNewsList({
                 sx={{
                   width: '100%',
                   marginLeft: '16px',
-                  paddingRight: '14px',
                 }}
               >
                 <Typography
