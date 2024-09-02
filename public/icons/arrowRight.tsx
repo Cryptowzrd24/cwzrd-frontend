@@ -1,4 +1,4 @@
-export const ArrowRight = () => {
+export const ArrowRight = ({fill}:any) => {
   return (
     <svg
       width="16"
@@ -9,7 +9,7 @@ export const ArrowRight = () => {
     >
       <path
         d="M6 12L10 8L6 4"
-        stroke="rgba(255, 255, 255, 1)"
+        stroke={fill || "none"}
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
