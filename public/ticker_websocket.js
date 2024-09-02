@@ -44,13 +44,13 @@ const toggleMoreButton = document.getElementById('toggleMore');
 const toggleLessButton = document.getElementById('toggleLess');
 const additionalContent = document.getElementById('additionalContent');
 
-toggleMoreButton.addEventListener('click', () => {
+toggleMoreButton?.addEventListener('click', () => {
   additionalContent.style.display = 'block';
   toggleMoreButton.style.display = 'none';
   toggleLessButton.style.display = 'inline-block';
 });
 
-toggleLessButton.addEventListener('click', () => {
+toggleLessButton?.addEventListener('click', () => {
   additionalContent.style.display = 'none';
   toggleLessButton.style.display = 'none';
   toggleMoreButton.style.display = 'inline-block';
