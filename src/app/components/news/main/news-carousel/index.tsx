@@ -15,7 +15,7 @@ const content = [
       "Bitcoin (CRYPTO: BTC) returned 150% over the past year, easily outpacing the U.S. stock market. But Bernstein analysts Gautam Chhugani and Mahika Sapra expect the cryptocurrency to move much higher in the next decade. Their price targets are listed below, along with the implied upside based on Bitcoin's current price of $66,000.",
     tags: ['Economy', 'Finance', 'Breaking'],
     image:
-      'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=kSxn3ESFoT0oOqDxaa51uj2VFRLQYSl6gZpwh6ntcP1JkqUaNGXxuK4lUgDPlcvz89mOkDnzPS9Etrm-5RPmOzJVzKz~TMaGL~LvZQJ1bVFd~eR~C6IJteGGCPxv1avz2k1UQlwsxBJlJRBKyHAXmIFftgCFAN4gfy6JS4f~4ewcgpdRgPgLn~AAxhIKH-5eBR~ZdbAHcUw3JpJHpUxS~NdIc5o7aPoK2~fInntgMxoBs8L9ep0KyOpiVM18Wzw20BIawMWXfA82clND9LvmoXwNB1jtg9rZBoUIw~SXWRlnQyjcguA0BocqIxfrlCj4DC-ooxvFIu8BXU-oYks2YQ__',
+      'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Smx1Gc7zbyX57SWc54aKcBnyC8w~C34oIXNtyNpBFDljRXsN9I1I7K98NFikyzN3x3Jp5P7CSu2nvY2etHLjrPe32v94TCXvsJrETD15mqwn6GsteG2V3mdYzPByXAdjfibniD89lQHBkU~v1UwYU9-kl8~oy2hhbCIS1-fqns3G0p~wFM6BV~rBd0lJM1bDHhrANk41j1D8TRsT2uww30Ba7jUyu49hYLTM8Hr7Qexz0vKHpt8VgbQnDQPEq2qlzVeVJtcTWLMDKkRdczjrnHV4PnISZcnw~Dxe0174JUc-db5q08mCZIiuovFgJXx6WOrdxfnv5MsD-28M85-cXg__',
   },
   {
     title: 'Crypto Boom Continues',

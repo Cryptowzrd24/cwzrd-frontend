@@ -41,13 +41,12 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
                 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
               backdropFilter: 'blur(10px)',
               borderRadius: '20px',
-              marginTop: '12px',
+              marginTop: '18px',
               marginRight: !isDetailPage ? '12px' : '8px',
-              width: '103px',
+              padding: '6px 14px 6px 12px',
               fontSize: '16px',
               fontWeight: '600',
               gap: '4.5px',
-              height: '33px',
             }}
           >
             <Image
