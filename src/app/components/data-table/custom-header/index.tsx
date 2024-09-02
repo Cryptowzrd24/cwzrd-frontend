@@ -343,7 +343,7 @@ export const CustomHeader = ({
             sx={stylesPage.select(getSelectClass(pageSize))}
             labelId="pagination-select-label"
             id="pagination-select"
-            // value={pageSize}
+            //value={pageSize}
             value={localPageSize}
             onChange={handleChange}
             disableUnderline
