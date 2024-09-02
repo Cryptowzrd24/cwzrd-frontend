@@ -1,11 +1,12 @@
 import NewsDetails from '@/app/components/news-details';
+import { Container } from '@mui/material';
 import React from 'react';
 
 const page = () => {
   return (
-    <div>
+    <Container maxWidth="xl">
       <NewsDetails />
-    </div>
+    </Container>
   );
 };
 
