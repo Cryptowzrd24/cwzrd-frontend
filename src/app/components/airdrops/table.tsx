@@ -39,6 +39,7 @@ const Table = () => {
         search={search}
         setSearch={handleSetSearch}
         setPagination={handlePagination}
+        pageSize={pageSize}
       />
       <div
         style={{

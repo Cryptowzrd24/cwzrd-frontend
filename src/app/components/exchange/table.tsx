@@ -94,6 +94,7 @@ const Table = () => {
         onToggleView={handleToggleCards}
         activeIcon={activeIcon}
         setPagination={handlePageSizeChange}
+        pageSize={pageSize}
       />
       <div
         style={{
