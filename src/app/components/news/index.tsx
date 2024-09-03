@@ -47,7 +47,7 @@ const NewsComponent = () => {
 
       <Box sx={{ display: 'flex', marginBottom: '80px' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '75%' }}>
-          <NewsGrid height={'920px'} width={'99%'} />
+          <NewsGrid height={'893px'} width={'99%'} />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '25%' }}>
           <TopPicks />

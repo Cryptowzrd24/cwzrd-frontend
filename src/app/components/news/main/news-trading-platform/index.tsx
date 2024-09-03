@@ -43,7 +43,7 @@ const NewsTradingPlatform = () => {
             lineHeight: '23.4px',
             fontWeight: '700',
             textAlign: 'center',
-            letterSpacing: '1.2px',
+            letterSpacing: '0.5px',
           }}
         >
           Dedicated Professional <br></br>

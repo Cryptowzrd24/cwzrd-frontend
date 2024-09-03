@@ -74,8 +74,8 @@ const Converter = ({ coinDetails }: any) => {
             >
               {coinDetails?.about_coin?.symbol}/USD:
             </span>{' '}
-            Convert Bitcoin ({coinDetails?.about_coin?.symbol}) to United States
-            Dollar (USD)
+            Convert {coinDetails?.name} ({coinDetails?.about_coin?.symbol}) to
+            United States Dollar (USD)
           </Typography>
           <Typography
             variant="body1"

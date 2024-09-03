@@ -254,9 +254,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
         >
           <IconButton
             sx={{
-              background:
-                'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
-              backdropFilter: 'blur(10px)',
+              background: '#FFFFFF1A',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -270,9 +268,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           </IconButton>
           <IconButton
             sx={{
-              background:
-                'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
-              backdropFilter: 'blur(10px)',
+              background: '#FFFFFF1A',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

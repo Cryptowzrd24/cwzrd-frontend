@@ -35,7 +35,7 @@ function LiveNewsExplorer({ isPageDetails }: { isPageDetails?: boolean }) {
           sx={{
             color: 'black',
             fontWeight: '700',
-            fontSize: '12px',
+            fontSize: '14px',
             lineHeight: '15.6px',
             letterSpacing: '10%',
           }}
