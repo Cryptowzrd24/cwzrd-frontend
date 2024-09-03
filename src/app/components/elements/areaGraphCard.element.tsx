@@ -1,10 +1,71 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts';
+import { debounce } from 'lodash';
 
 const AreaChart = (props: IChartProps) => {
-  const { data, color, isMarker, percent, fill, className } = props;
+  const { data, color, isMarker, percent, fill, className, isLiveMarket, id } =
+    props;
   const chartRef: any = useRef(null);
+
+  const getDate = (timestamp: string) =>
+    new Date(parseInt(timestamp, 10) * 1000).getTime();
+
+  const liveMarketChartData = useMemo(() => {
+    const result: any[] = [];
+    if (isLiveMarket && data && data.data && data.data.points) {
+      let count = 0;
+      for (const timestamp in data.data.points) {
+        if (data.data.points.hasOwnProperty(timestamp)) {
+          if (count >= 100) break;
+          const point = data.data.points[timestamp];
+          result.push([getDate(timestamp), point.v[0]]);
+          count++;
+        }
+      }
+    }
+    return result;
+  }, [data, isLiveMarket]);
+
+  const debouncedUpdateChart = debounce(() => {
+    if (chartRef.current) {
+      chartRef.current.chart.update({
+        series: [
+          {
+            data: isLiveMarket ? liveMarketChartData : data,
+          },
+        ],
+      });
+    }
+  }, 300);
+
+  useEffect(() => {
+    if (chartRef.current) {
+      chartRef.current.chart.update({
+        series: [
+          {
+            data: isLiveMarket ? liveMarketChartData : data,
+          },
+        ],
+      });
+    }
+
+    debouncedUpdateChart();
+    return () => debouncedUpdateChart.cancel();
+  }, [id, liveMarketChartData]);
+
+  useEffect(() => {
+    if (chartRef.current && className !== '') {
+      chartRef.current?.chart.setSize(undefined, 100);
+      const innerDiv = chartRef.current.container.current.querySelector('div');
+      if (innerDiv) {
+        innerDiv.style.height = 'auto';
+        innerDiv.style.width = '100% !important';
+      }
+      const xAxisElement = chartRef.current.chart.xAxis[0].axisGroup;
+      xAxisElement?.destroy();
+    }
+  }, []);
 
   const chartOptions: any = {
     chart: {
@@ -12,7 +73,6 @@ const AreaChart = (props: IChartProps) => {
       plotBorderWidth: 0,
       plotMarginBottom: 0,
       backgroundColor: fill || 'transparent',
-      // height: 200,
     },
     xAxis: {
       labels: {
@@ -56,10 +116,7 @@ const AreaChart = (props: IChartProps) => {
         threshold: null,
         fillColor: {
           linearGradient: { x1: 0, x2: 0, y1: 1, y2: 0 },
-          stops: [
-            [0, `rgba(${color}, 0.1)`],
-            // [1, `rgba( ${color}, 1)`],
-          ],
+          stops: [[0, `rgba(${color}, 0.1)`]],
         },
         marker: {
           enabled: isMarker ? true : false,
@@ -81,7 +138,6 @@ const AreaChart = (props: IChartProps) => {
         },
       },
     ],
-
     tooltip: {
       useHTML: true,
       backgroundColor: 'transparent',
@@ -105,7 +161,7 @@ const AreaChart = (props: IChartProps) => {
            font-size: 14px; 
            font-weight: 300;
            color: #111111;">
-            ${percent ? '' : '$'}${yValue}${percent ? '%' : 'm'}
+            ${percent ? '' : '$'}${yValue}${percent ? '%' : isLiveMarket ? '' : 'm'}
           </div>`;
       },
       valueDecimals: 2,
@@ -144,20 +200,6 @@ const AreaChart = (props: IChartProps) => {
       outside: false,
     },
   };
-
-  useEffect(() => {
-    if (chartRef.current && className !== '') {
-      chartRef.current?.chart.setSize(undefined, 100);
-      const innerDiv = chartRef.current.container.current.querySelector('div');
-      if (innerDiv) {
-        innerDiv.style.height = 'auto';
-        innerDiv.style.width = '100% !important';
-        // innerDiv.style.marginTop = '35px';
-      }
-      const xAxisElement = chartRef.current.chart.xAxis[0].axisGroup;
-      xAxisElement?.destroy();
-    }
-  }, []);
 
   return (
     <div style={{ width: '100%' }}>
