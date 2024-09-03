@@ -30,7 +30,7 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
           alignItems: 'center',
         }}
       >
-        <Box sx={{ position: 'relative', width: '50%' }}>
+        <Box sx={{ position: 'relative' }}>
           <Image
             src={image?.src}
             alt="picture"
@@ -63,7 +63,6 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
               fontWeight: '700',
               lineHeight: '15.6px',
               marginBottom: '2px',
-              maxWidth: '70%',
             }}
           >
             {title}

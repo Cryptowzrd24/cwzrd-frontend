@@ -67,6 +67,7 @@ function GlobalNews() {
         // width: '300px',
         height: '626px',
         overflow: 'auto',
+        overflowX: 'hidden',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         borderRadius: '16px',

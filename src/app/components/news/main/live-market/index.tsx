@@ -44,7 +44,7 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
         backdropFilter: 'blur(10px)',
         boxShadow: '0px 4px 28px 0px #0000000D',
         paddingBlock: '6px',
-        maxHeight: '609px',
+        height: isPageDetails ? '608px' : undefined,
       }}
     >
       <Box
