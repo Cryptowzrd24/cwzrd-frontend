@@ -32,9 +32,19 @@ export const coinDetailsApi = createApi({
         };
       },
     }),
+    fetchLiveMarketCoinData: builder.query({
+      query: () => {
+        const url = `detail/related/`;
+        return {
+          url,
+          method: 'GET',
+        };
+      },
+    }),
   }),
 });
 export const {
   useFetchCoinDetailsDataQuery,
   useFetchCoinDetailsGraphDataQuery,
+  useFetchLiveMarketCoinDataQuery,
 } = coinDetailsApi;

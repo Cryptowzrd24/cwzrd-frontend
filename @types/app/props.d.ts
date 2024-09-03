@@ -16,12 +16,14 @@ declare global {
   }
 
   interface IChartProps {
-    data: { x: string | number; y: string | number }[];
+    data: { x: string | number; y: string | number }[] | any;
     color: string;
     isMarker?: boolean;
     percent?: boolean;
     fill?: string;
     className?: string;
+    isLiveMarket?: boolean;
+    id?: number | false;
   }
 
   interface IStepProps {
