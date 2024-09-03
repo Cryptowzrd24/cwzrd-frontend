@@ -5,7 +5,7 @@ import { ArrowRight } from '../../../../../../public/icons/arrowRight';
 
 function NewsBanner() {
   return (
-    <Box className={styles.bannerBox}>
+    <Box className={styles.bannerBox3}>
       <Box>
         <Stack
           sx={{
@@ -61,7 +61,7 @@ function NewsBanner() {
             <Box sx={{ display: 'flex' }}>
               <Button
                 variant="contained"
-                endIcon={<ArrowRight />}
+                endIcon={<ArrowRight fill={'rgba(255, 255, 255, 1)'} />}
                 sx={{
                   background:
                     'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)',
