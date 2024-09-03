@@ -49,7 +49,7 @@ const BarChart = (props: IChartProps) => {
     series: [
       {
         name: '',
-        data: data.map((d) => d.y),
+        data: data.map((d: any) => d.y),
         lineWidth: 1,
         color: `rgb( ${color})`,
         fillOpacity: 1,
