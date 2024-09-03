@@ -63,7 +63,6 @@ function GlobalNewsCards({ cardData }: any) {
         marginTop: '15px',
         width: '100%',
         display: 'flex',
-        gap: '15px',
         justifyContent: 'center',
       }}
     >

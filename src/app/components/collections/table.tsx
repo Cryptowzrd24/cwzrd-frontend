@@ -32,7 +32,11 @@ const Table = () => {
 
   return (
     <div className="data-table-wrapper">
-      <CustomHeader search={search} setSearch={handleSetSearch} />
+      <CustomHeader
+        search={search}
+        setSearch={handleSetSearch}
+        pageSize={pageSize}
+      />
       <div
         style={{
           display: 'flex',

@@ -20,7 +20,7 @@ function NewsImage({ image, subheadingText }: any) {
           style={{
             objectFit: 'cover',
             objectPosition: 'center',
-            // transform: 'scale(1.1)',
+            transform: 'scale(1.1)',
           }}
         />
       </Box>

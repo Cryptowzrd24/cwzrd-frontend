@@ -184,7 +184,7 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
                     fontWeight: '700',
                     letterSpacing: '1px',
                     lineHeight: '38.4px',
-                    opacity: '80%',
+                    opacity: '100%',
                     display: '-webkit-box',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',

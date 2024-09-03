@@ -76,6 +76,7 @@ const Table = () => {
         setPagination={handlePageSizeChange}
         setVolume={handleVolumeSizeChange}
         volume={time_period}
+        pageSize={pageSize}
       />
       <div
         style={{

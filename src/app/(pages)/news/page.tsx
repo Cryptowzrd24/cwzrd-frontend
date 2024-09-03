@@ -110,7 +110,7 @@ const News = () => {
             description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
             image={TagCardImage}
           />
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <NewsCard
               allNews={true}
               image={CardImage}
@@ -209,7 +209,7 @@ const News = () => {
         </Box>
 
         <Box sx={{ display: 'flex', gap: 3 }}>
-          <Box>
+          <Box sx={{ marginTop: '-16px' }}>
             <VerticalTagCard
               height={'300px'}
               width={'300px'}
@@ -219,7 +219,7 @@ const News = () => {
             />
           </Box>
           <TagCard
-            height={'626px'}
+            height={'638px'}
             width={'730px'}
             title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
             description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
@@ -338,7 +338,7 @@ const News = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-start',
-            marginRight: '35px',
+            marginRight: '11px',
           }}
         >
           <Typography
@@ -395,7 +395,7 @@ const News = () => {
             />
           </Box>
 
-          <TrendingNewsList height="450px" maxCards={4} marginLeft="24px" />
+          <TrendingNewsList height="450px" maxCards={4} marginLeft="10px" />
         </Box>
         <Box sx={{ width: '24%' }}>
           <TrendingNewsList height="300px" maxCards={3} marginLeft="0px" />
