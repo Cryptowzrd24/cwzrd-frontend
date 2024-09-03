@@ -11,7 +11,6 @@ import NewsMileStones from '@/app/components/news/main/news-miletones';
 import NewsCarouselBig from '@/app/components/news/main/carouel-big';
 import TagCardImage from '../../../../public/images/tagCard.png';
 import VerticalCardImage from '../../../../public/images/verticalCardImage.png';
-import { ArrowRight } from '../../../../public/icons/arrowRight';
 import CardImage from '../../../../public/images/news-letter/image-car-news.png';
 import NewsCarousel from '@/app/components/news/main/news-carousel';
 import NewsRightPanel from '@/app/components/news/main/news-right-panel';
@@ -22,6 +21,7 @@ import LiveMarket from '@/app/components/news/main/live-market';
 import MostRead from '@/app/components/news/main/most-read';
 import VerticalTagCard from '@/app/components/news/main/vertical-tag-card';
 import GlobalNews from '@/app/components/news/main/global-news';
+import { ReadMoreIcon } from '../../../../public/icons/readMoreIcon';
 
 const News = () => {
   return (
@@ -65,9 +65,11 @@ const News = () => {
 
         <Box
           sx={{
+            position: 'absolute',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-start',
+            right: 170,
           }}
         >
           <Typography
@@ -84,7 +86,17 @@ const News = () => {
           >
             Read More
           </Typography>
-          <ArrowRight fill="#7248F7" />
+          <Box
+            sx={{
+              ml: '10px',
+              mr: '-7px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <ReadMoreIcon />
+          </Box>
         </Box>
       </Box>
 
@@ -102,12 +114,14 @@ const News = () => {
             <NewsCard
               allNews={true}
               image={CardImage}
+              showChips={true}
               title="Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip"
               description="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
             />
             <NewsCard
               allNews={true}
               image={CardImage}
+              showChips={true}
               title="Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip"
               description="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
             />
@@ -181,7 +195,16 @@ const News = () => {
             >
               Read More
             </Typography>
-            <ArrowRight fill="#7248F7" />
+            <Box
+              sx={{
+                ml: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <ReadMoreIcon />
+            </Box>
           </Box>
         </Box>
 
@@ -267,7 +290,16 @@ const News = () => {
             >
               Read More
             </Typography>
-            <ArrowRight fill="#7248F7" />
+            <Box
+              sx={{
+                ml: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <ReadMoreIcon />
+            </Box>
           </Box>
         </Box>
 
@@ -277,7 +309,7 @@ const News = () => {
       </>
       <>
         <RelatedNewsCards />
-        <RelatedNewsCarousel />
+        <RelatedNewsCarousel descriptionLines={1} />
       </>
       <Box
         sx={{
@@ -324,7 +356,17 @@ const News = () => {
           >
             Read More
           </Typography>
-          <ArrowRight fill="#7248F7" />
+          <Box
+            sx={{
+              ml: '10px',
+              mr: '3px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <ReadMoreIcon />
+          </Box>
         </Box>
       </Box>
 
@@ -405,7 +447,17 @@ const News = () => {
           >
             Read More
           </Typography>
-          <ArrowRight fill="#7248F7" />
+          <Box
+            sx={{
+              ml: '7px',
+              mr: '10px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <ReadMoreIcon />
+          </Box>
         </Box>
       </Box>
 
@@ -416,7 +468,7 @@ const News = () => {
             <GlobalNews />
           </Box>
         </Box>
-        <RelatedNewsCarousel />
+        <RelatedNewsCarousel descriptionLines={1} />
       </>
       <Box sx={{ marginTop: '110px', marginBottom: '80px' }}>
         <MemberShipBanner />

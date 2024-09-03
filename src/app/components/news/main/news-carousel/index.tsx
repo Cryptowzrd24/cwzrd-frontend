@@ -15,7 +15,7 @@ const content = [
       "Bitcoin (CRYPTO: BTC) returned 150% over the past year, easily outpacing the U.S. stock market. But Bernstein analysts Gautam Chhugani and Mahika Sapra expect the cryptocurrency to move much higher in the next decade. Their price targets are listed below, along with the implied upside based on Bitcoin's current price of $66,000.",
     tags: ['Economy', 'Finance', 'Breaking'],
     image:
-      'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=kSxn3ESFoT0oOqDxaa51uj2VFRLQYSl6gZpwh6ntcP1JkqUaNGXxuK4lUgDPlcvz89mOkDnzPS9Etrm-5RPmOzJVzKz~TMaGL~LvZQJ1bVFd~eR~C6IJteGGCPxv1avz2k1UQlwsxBJlJRBKyHAXmIFftgCFAN4gfy6JS4f~4ewcgpdRgPgLn~AAxhIKH-5eBR~ZdbAHcUw3JpJHpUxS~NdIc5o7aPoK2~fInntgMxoBs8L9ep0KyOpiVM18Wzw20BIawMWXfA82clND9LvmoXwNB1jtg9rZBoUIw~SXWRlnQyjcguA0BocqIxfrlCj4DC-ooxvFIu8BXU-oYks2YQ__',
+      'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Smx1Gc7zbyX57SWc54aKcBnyC8w~C34oIXNtyNpBFDljRXsN9I1I7K98NFikyzN3x3Jp5P7CSu2nvY2etHLjrPe32v94TCXvsJrETD15mqwn6GsteG2V3mdYzPByXAdjfibniD89lQHBkU~v1UwYU9-kl8~oy2hhbCIS1-fqns3G0p~wFM6BV~rBd0lJM1bDHhrANk41j1D8TRsT2uww30Ba7jUyu49hYLTM8Hr7Qexz0vKHpt8VgbQnDQPEq2qlzVeVJtcTWLMDKkRdczjrnHV4PnISZcnw~Dxe0174JUc-db5q08mCZIiuovFgJXx6WOrdxfnv5MsD-28M85-cXg__',
   },
   {
     title: 'Crypto Boom Continues',
@@ -99,7 +99,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           bottom: 0,
           left: 0,
           width: '100%',
-          height: '370px',
+          height: '100%',
           background: 'linear-gradient(0deg, #111111 35%, transparent 100%)',
           borderBottomLeftRadius: '25px',
           borderBottomRightRadius: '25px',
@@ -150,7 +150,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           left={0}
           display="flex"
           gap="8px"
-          paddingInline={'48px'}
+          paddingInline={'32px'}
           zIndex={1}
         >
           {content[currentIndex].tags.map((tag, index) => (
@@ -175,7 +175,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           width="100%"
           color="white"
           zIndex={1}
-          paddingInline="48px"
+          paddingInline="32px"
           sx={{
             boxSizing: 'border-box',
             padding: 0,
@@ -188,7 +188,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
               fontWeight: '700 !important',
               color: 'white',
               fontSize: '32px  !important',
-              paddingInline: '48px',
+              paddingInline: '32px',
             }}
           >
             {content[currentIndex].title}
@@ -200,7 +200,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
               fontSize: '16px !important',
               fontWeight: '400  !important',
               opacity: '80%',
-              paddingInline: '48px',
+              paddingInline: '32px',
               display: '-webkit-box',
               overflow: 'hidden',
               WebkitBoxOrient: 'vertical',
@@ -299,7 +299,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
             color: 'white',
             fontSize: '16px !important',
             fontWeight: '500 !important',
-            paddingInline: '48px',
+            paddingInline: '32px',
             lineHeight: '20.8px',
           }}
         >

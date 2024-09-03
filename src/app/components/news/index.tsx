@@ -8,12 +8,12 @@ import MemberShipBanner from '../banners/memberShipBanner';
 import LiveNewsExplorer from './main/live-news';
 import NewsTradingPlatform from './main/news-trading-platform';
 import TopPicks from './main/top-picks';
-import { ArrowRight } from '../../../../public/icons/arrowRight';
 import NewsMileStones from './main/news-miletones';
 import NewsCarouselBig from './main/carouel-big';
 import TrendingNewsCard from './main/trending-news-card';
 import TrendingNewsList from './main/trending-news-list';
 import LiveMarket from './main/live-market';
+import { ReadMoreIcon } from '../../../../public/icons/readMoreIcon';
 
 const NewsComponent = () => {
   return (
@@ -98,7 +98,17 @@ const NewsComponent = () => {
           >
             Read More
           </Typography>
-          <ArrowRight fill="#7248F7" />
+          <Box
+            sx={{
+              ml: '10px',
+              mr: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <ReadMoreIcon />
+          </Box>
         </Box>
       </Box>
 

@@ -8,6 +8,7 @@ interface TrendingNewsCardProps {
   title: string;
   description: string;
   isDetailPage?: boolean;
+  descriptionLines?: number;
 }
 
 const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
@@ -15,6 +16,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
   title,
   description,
   isDetailPage,
+  descriptionLines,
 }) => {
   return (
     <Box
@@ -37,9 +39,8 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
               color: 'white',
 
               lineHeight: '20.8px',
-              background:
-                'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
-              backdropFilter: 'blur(10px)',
+              background: 'rgba(255, 255, 255, 0.1)',
+              // backdropFilter: 'blur(10px)',
               borderRadius: '20px',
               marginTop: '12px',
               marginRight: !isDetailPage ? '12px' : '8px',
@@ -103,7 +104,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           display: '-webkit-box',
-          WebkitLineClamp: '3 !important',
+          WebkitLineClamp: `${descriptionLines ? descriptionLines : 3}`,
           WebkitBoxOrient: 'vertical',
           width: isDetailPage ? '264px' : '100%',
         }}

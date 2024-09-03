@@ -16,6 +16,7 @@ function MostRead() {
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         padding: '24px 20px 24px 20px',
         overflow: 'auto',
+        scrollbarWidth: 'none',
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
