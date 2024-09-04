@@ -108,6 +108,7 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
         boxShadow: '0px 4px 28px 0px #0000000D',
         paddingBlock: '6px',
       }}
+      className="live-market"
     >
       <Box
         sx={{
