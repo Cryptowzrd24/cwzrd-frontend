@@ -57,6 +57,7 @@ const DefiTable = () => {
 
   useEffect(() => {
     if (data && data.data) {
+      if (data.data.length >= currentPage * pageSize) setCurrentPage(1);
       const startIndex = (currentPage - 1) * pageSize + 1;
       const res = data.data.map((item: any, index: number) => ({
         id: item.id,

@@ -29,7 +29,7 @@ function LiveExplorer() {
       >
         <Typography
           variant="subtitle2"
-          sx={{ color: 'rgba(255, 255, 255, 1)' }}
+          sx={{ color: 'rgba(255, 255, 255, 1)', fontSize: '14px' }}
         >
           📰 LIVE EXPLORER
         </Typography>

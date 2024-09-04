@@ -35,7 +35,6 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
         flexDirection: 'column',
         alignItems: 'start',
         borderRadius: '16px',
-        overflow: 'scroll',
         overflowX: 'hidden',
         paddingInline: '20px',
         marginBottom: '20px',
@@ -59,7 +58,10 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
           borderBottom: '1px solid #FFFFFF1A',
         }}
       >
-        <Typography variant="subtitle2" sx={{ color: 'black' }}>
+        <Typography
+          variant="subtitle2"
+          sx={{ color: 'black', fontSize: '14px' }}
+        >
           🚀 LIVE MARKET
         </Typography>
         <Box

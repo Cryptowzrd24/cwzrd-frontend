@@ -30,7 +30,7 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
         textTransform: 'uppercase',
       }}
     >
-      🚀 BTC Historical Price
+      🚀 {coinDetails?.about_coin?.symbol} Historical Price
     </Typography>
     <Box
       sx={{
@@ -216,7 +216,7 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
           lineHeight: '13px',
         }}
       >
-        How do you feel about BTC today?
+        How do you feel about {coinDetails?.about_coin?.symbol} today?
       </Typography>
       <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
         <Box

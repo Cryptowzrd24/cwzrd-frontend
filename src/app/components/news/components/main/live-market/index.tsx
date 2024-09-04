@@ -121,7 +121,10 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
           borderBottom: '1px solid #FFFFFF1A',
         }}
       >
-        <Typography variant="subtitle2" sx={{ color: 'black' }}>
+        <Typography
+          variant="subtitle2"
+          sx={{ color: 'black', fontSize: '14px' }}
+        >
           🚀 LIVE MARKET
         </Typography>
         <Box

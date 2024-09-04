@@ -290,7 +290,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                     Market Cap
                   </Typography>
                   <Typography
-                    id={`banner-market-cap-${coinDetails.coin_id}`}
+                    id={`banner-market-cap-${coinDetails?.coin_id}`}
                     variant="body2"
                     sx={{
                       fontSize: '16px',
