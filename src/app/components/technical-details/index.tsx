@@ -1,18 +1,19 @@
 'use client';
 import { Box } from '@mui/material';
 import React from 'react';
-import BreadCrumb from './breadcrumb';
-import DetailsSection from './details-section';
-import RelatedNews from './related-news';
-import MemberShipBanner from '../banners/memberShipBanner';
-import NewsArticle from './details-section/news-article';
 
-const NewsDetails = () => {
+import MemberShipBanner from '../banners/memberShipBanner';
+import BreadCrumb from '../news-details/breadcrumb';
+import DetailsSection from '../news-details/details-section';
+import RelatedNews from '../news-details/related-news';
+import TechnicalArticle from './technical-article';
+
+const TechnicalDetails = () => {
   return (
     <>
       <Box sx={{ mt: '32px' }}>
         <BreadCrumb
-          origin={'News'}
+          origin={'Technicals'}
           description={
             'Bitcoin whale accumulation reaches pre-2020 bull run levels — Is BTC set to break $70K?'
           }
@@ -20,11 +21,11 @@ const NewsDetails = () => {
       </Box>
       <Box sx={{ mt: '24px' }}>
         <DetailsSection
-          ChildComponent={NewsArticle}
-          isTechnicalDetail={false}
+          ChildComponent={TechnicalArticle}
+          isTechnicalDetail={true}
         />
       </Box>
-      <Box sx={{ mt: '88px' }}>
+      <Box sx={{ mt: '48px' }}>
         <RelatedNews />
       </Box>
       <Box sx={{ mt: '88px', mb: '48px' }}>
@@ -34,4 +35,4 @@ const NewsDetails = () => {
   );
 };
 
-export default NewsDetails;
+export default TechnicalDetails;

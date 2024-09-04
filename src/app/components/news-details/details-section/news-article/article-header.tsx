@@ -2,7 +2,15 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 import Clock from '../../../../../../public/icons/clock';
 
-function ArticleHeader() {
+function ArticleHeader({
+  coinName,
+  date,
+  readTime,
+}: {
+  coinName: string;
+  date: string;
+  readTime: string;
+}) {
   return (
     <Box
       sx={{
@@ -32,7 +40,7 @@ function ArticleHeader() {
             lineHeight: '15.6px',
           }}
         >
-          BITCOIN
+          {coinName}
         </Typography>
       </Box>
       <Typography
@@ -45,7 +53,7 @@ function ArticleHeader() {
           lineHeight: '15.6px',
         }}
       >
-        APRIL 25, 2024
+        {date}
       </Typography>
       <Box
         sx={{
@@ -65,7 +73,7 @@ function ArticleHeader() {
             lineHeight: '15.6px',
           }}
         >
-          5 MIN READ
+          {readTime}
         </Typography>
       </Box>
     </Box>
