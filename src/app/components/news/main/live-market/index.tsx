@@ -48,6 +48,7 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
         paddingBlock: '6px',
         height: isPageDetails ? '608px' : '438px',
       }}
+      className="live-market"
     >
       <Box
         sx={{
@@ -227,7 +228,6 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
                 </AccordionSummary>
                 <AccordionDetails sx={{ padding: '0 10px' }}>
                   <AreaChart
-                    className={'highcharts-container'}
                     data={item?.chart_data}
                     color={getGraphColor(item?.percent_change_24h)}
                     percent={false}
