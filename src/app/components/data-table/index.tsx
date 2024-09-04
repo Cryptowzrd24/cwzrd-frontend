@@ -39,8 +39,6 @@ const DataTable = memo(
   }: DataTableProps) => {
     const router = useRouter();
 
-    console.log('getAirDropMain:', getAirDropMain);
-
     const modifiedColumnDefs = useMemo(
       () =>
         columnDefs.map((colDef) => {

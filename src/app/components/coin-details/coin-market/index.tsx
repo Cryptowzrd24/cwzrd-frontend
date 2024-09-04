@@ -44,6 +44,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
     setCurrentPage(value);
   };
   const handleClick = (button: any) => {
+    setCurrentPage(1);
     setActive(button);
   };
 
@@ -66,7 +67,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
   useEffect(() => {
     if (data && data.data && active === 'Spot') {
       const startIndex = (currentPage - 1) * pageSize + 1;
-      const res = data.data.marketPairs.map((item: any, index: number) => ({
+      const res = data?.data?.marketPairs?.map((item: any, index: number) => ({
         id: item.rank,
         coin_id: item.exchangeId,
         exchange: item.exchangeName,
@@ -86,7 +87,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
     }
     if (data && data.data && active === 'Perpetual') {
       const startIndex = (currentPage - 1) * pageSize + 1;
-      const res = data.data.marketPairs.map((item: any, index: number) => ({
+      const res = data?.data?.marketPairs?.map((item: any, index: number) => ({
         id: item.rank,
         coin_id: item.exchangeId,
         exchange: item.exchangeName,
@@ -106,7 +107,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
     }
     if (data && data.data && active === 'Futures') {
       const startIndex = (currentPage - 1) * pageSize + 1;
-      const res = data.data.marketPairs.map((item: any, index: number) => ({
+      const res = data?.data?.marketPairs?.map((item: any, index: number) => ({
         id: item.rank,
         coin_id: item.exchangeId,
         exchange: item.exchangeName,

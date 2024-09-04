@@ -101,6 +101,9 @@
   border-radius: 15px !important;
   width: 100%;
   box-shadow: none !important;
+  &.bg {
+    background-image: url('../../assets/images//cardImagebg7.png');
+  }
 
   .background_image {
     position: absolute;

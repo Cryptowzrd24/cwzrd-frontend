@@ -5,7 +5,6 @@ import React from 'react';
 import { Button, Card, Stack, Typography } from '@mui/material';
 
 import styles from './index.module.scss';
-import Image from 'next/image';
 import { colorConfig } from '@/app/helpers/config';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CardHeader from './cardHeader.component';
@@ -36,7 +35,6 @@ const Card3 = (props: ICard3Props) => {
     transparentButton,
     bgImage,
     staticTextColor,
-    blendImage,
     bgColor,
     allWhite,
   } = props;
@@ -50,7 +48,6 @@ const Card3 = (props: ICard3Props) => {
   const getBackground = () => {
     if (bgImage) {
       return {
-        backgroundImage: `url(${bgImage.src}) !important`,
         boxShadow:
           '0px 4px 4px 0px #00000040,inset 0 0 0 1000px rgba(0,0,0,.5)',
         backgroundSize: 'cover',
@@ -66,74 +63,13 @@ const Card3 = (props: ICard3Props) => {
   return (
     <div className="card_wrapper defi__trending_card">
       <Card
-        className={styles.coin_content_card_wrapper}
-        style={{ ...getBackground(), position: 'relative' }}
+        className={`${styles.bg} ${styles.coin_content_card_wrapper}`}
+        style={{
+          ...getBackground(),
+          position: 'relative',
+          backgroundImage: `url(${bgImage.src}) !important`,
+        }}
       >
-        {blendImage ? (
-          <Image
-            style={{
-              width: '80px',
-              height: '80px',
-              position: 'absolute',
-              right: '20px',
-              mixBlendMode: 'luminosity',
-              opacity: '0.2',
-              bottom: '45px',
-              backgroundBlendMode: 'multiply' /* Blending mode */,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              borderRadius: '50%',
-            }}
-            alt="image"
-            src={blendImage}
-          />
-        ) : null}
-        {!bgColor ? (
-          <>
-            <div
-              style={{
-                borderColor: '#ab47bc',
-                borderWidth: '50px',
-                borderStyle: 'solid',
-                height: '400px',
-                position: 'absolute',
-                borderRadius: '50%',
-                width: '500px',
-                top: '-217px',
-                right: '-128px',
-                zIndex: 2,
-              }}
-            />
-            <div
-              style={{
-                borderColor: 'pink',
-                borderWidth: '50px',
-                borderStyle: 'solid',
-                height: '400px',
-                position: 'absolute',
-                borderRadius: '50%',
-                width: '500px',
-                top: '-214px',
-                right: '-58px',
-                zIndex: 2,
-              }}
-            />
-          </>
-        ) : null}
-        {/* Overlay */}
-        {bgImage && (
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'rgba(0, 0, 0, 0.6)',
-              zIndex: 1,
-            }}
-          ></div>
-        )}
         <div
           className={styles.header_wrapper}
           style={{ position: 'relative', zIndex: 2 }}

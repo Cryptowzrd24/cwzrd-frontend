@@ -70,8 +70,8 @@ const Table = () => {
 
   useEffect(() => {
     if (chainData && chainData.data) {
+      if (chainData.data.length >= currentPage * pageSize) setCurrentPage(1);
       const startIndex = (currentPage - 1) * pageSize + 1;
-
       const res = chainData.data.map((item: any, index: number) => ({
         id: item.id,
         name: item.name,

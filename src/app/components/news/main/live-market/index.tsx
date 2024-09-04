@@ -35,7 +35,6 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
         flexDirection: 'column',
         alignItems: 'start',
         borderRadius: '16px',
-        overflow: 'scroll',
         overflowX: 'hidden',
         paddingInline: '20px',
         marginBottom: '20px',

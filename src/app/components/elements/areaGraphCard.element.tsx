@@ -116,7 +116,12 @@ const AreaChart = (props: IChartProps) => {
         threshold: null,
         fillColor: {
           linearGradient: { x1: 0, x2: 0, y1: 1, y2: 0 },
-          stops: [[0, `rgba(${color}, 0.1)`]],
+          stops: isLiveMarket
+            ? [
+                [0, `rgba(${color}, 0)`],
+                [100, `rgba(${color}, 0.1)`],
+              ]
+            : [[0, `rgba(${color}, 0.1)`]],
         },
         marker: {
           enabled: isMarker ? true : false,
@@ -151,14 +156,14 @@ const AreaChart = (props: IChartProps) => {
         const yValue = point.y.toFixed(2);
         return `
           <div
-           style="display: flex; align-items: center; justify-content: center; 
+           style="display: flex; align-items: center; justify-content: center;
            width:71px;
            height:20px;
-           background: white; 
-           border-radius: 40px; 
-           padding: 4px 8px; 
+           background: white;
+           border-radius: 40px;
+           padding: 4px 8px;
            box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
-           font-size: 14px; 
+           font-size: 14px;
            font-weight: 300;
            color: #111111;">
             ${percent ? '' : '$'}${yValue}${percent ? '%' : isLiveMarket ? '' : 'm'}
