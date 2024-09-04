@@ -13,6 +13,7 @@ function LiveNewsExplorer({ isPageDetails }: { isPageDetails?: boolean }) {
         alignItems: 'start',
         borderRadius: '16px',
         overflow: 'auto',
+        scrollbarWidth: 'none',
         padding: '16px',
         background:
           'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
