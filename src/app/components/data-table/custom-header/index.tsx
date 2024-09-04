@@ -477,15 +477,17 @@ export const CustomHeader = ({
             transition={{ duration: 0.3 }}
           >
             <Box sx={styles.searchContainer}>
-              <FilterSearchIcon
-                strokeOpacity={search.length > 0 ? '1' : '0.5'}
-              />
-              <input
-                ref={searchInputRef}
-                style={styles.searchInput}
-                placeholder={'Search...'}
-                onChange={(e: any) => setSearch(e.target.value)}
-              />
+              <Box sx={styles.searchBox}>
+                <FilterSearchIcon
+                  strokeOpacity={search.length > 0 ? '1' : '0.5'}
+                />
+                <input
+                  ref={searchInputRef}
+                  style={styles.searchInput}
+                  placeholder={'Search...'}
+                  onChange={(e: any) => setSearch(e.target.value)}
+                />
+              </Box>
               {search !== '' && (
                 <Chip
                   label="Clear Search"

@@ -16,11 +16,11 @@ import Mail from '../../../../../public/icons/mail';
 import CheckMark from '../../../../../public/check-mark.svg';
 
 function ReadingCard({ scrollPosition, sectionHeight }: any) {
-  const [progress, setProgress] = useState(10);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (sectionHeight > 0) {
-      const baseProgress = 10;
+      const baseProgress = 0;
       const calculatedProgress = Math.min(
         baseProgress +
           (scrollPosition / (sectionHeight - window.innerHeight)) * 90,

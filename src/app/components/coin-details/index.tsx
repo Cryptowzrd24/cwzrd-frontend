@@ -64,7 +64,7 @@ const CoinDetails = ({ serverCoindata }: any) => {
           <NewsLetterBanner />
         </Box>
         <Box id="analytics" sx={{ mb: '48px' }}>
-          <BitcoinAnalytics />
+          <BitcoinAnalytics name={coinName} />
         </Box>
         <Box id="historical" sx={{ mb: '48px' }}>
           <CoinAnalytics coinId={coinId} />

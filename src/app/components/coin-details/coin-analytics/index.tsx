@@ -61,6 +61,7 @@ const CoinAnalytics = ({ coinId }: any) => {
   };
 
   const handleClick = (button: any) => {
+    setCurrentPage(1);
     setActive(button);
   };
 

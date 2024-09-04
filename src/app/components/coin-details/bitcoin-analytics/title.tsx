@@ -2,7 +2,7 @@
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
-const Title = () => {
+const Title = ({ name }: { name: string }) => {
   const [active, setActive] = useState('1 Month');
   const handleClick = (button: any) => {
     setActive(button);
@@ -40,7 +40,7 @@ const Title = () => {
               color: 'rgba(17, 17, 17, 1)',
             }}
           >
-            Bitcoin{' '}
+            {name}{' '}
             <span
               style={{
                 backgroundImage:
