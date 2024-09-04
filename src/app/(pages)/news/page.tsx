@@ -65,11 +65,8 @@ const News = () => {
 
         <Box
           sx={{
-            position: 'absolute',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-start',
-            right: 170,
+            marginRight: '15px',
           }}
         >
           <Typography
@@ -82,7 +79,7 @@ const News = () => {
               lineHeight: '18.2px',
             }}
             variant="body2"
-            right={1}
+            // right={1}
           >
             Read More
           </Typography>
