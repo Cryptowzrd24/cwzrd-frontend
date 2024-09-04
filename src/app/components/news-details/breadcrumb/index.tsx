@@ -2,11 +2,16 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 import { ChevronsRight } from '../../../../../public/icons/chevronsRight';
 
-function BreadCrumb() {
+function BreadCrumb({
+  origin,
+  description,
+}: {
+  origin: string;
+  description: string;
+}) {
   return (
     <Box
       sx={{
-        // height: '50px',
         padding: '16px 24px',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
@@ -25,7 +30,7 @@ function BreadCrumb() {
             color: 'rgba(17, 17, 17, 1)',
           }}
         >
-          News
+          {origin}
         </Typography>
         <ChevronsRight />
         <Typography
@@ -37,8 +42,7 @@ function BreadCrumb() {
             color: 'rgba(114, 72, 247, 1)',
           }}
         >
-          Bitcoin whale accumulation reaches pre-2020 bull run levels — Is BTC
-          set to break $70K?
+          {description}
         </Typography>
       </Box>
     </Box>

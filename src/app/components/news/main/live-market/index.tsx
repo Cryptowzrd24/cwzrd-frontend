@@ -18,7 +18,13 @@ import './graph-style.scss';
 import { useFetchLiveMarketCoinDataQuery } from '@/app/redux/coin-details';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 
-function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
+function LiveMarket({
+  isPageDetails,
+  isTechnicalDetail,
+}: {
+  isPageDetails?: boolean;
+  isTechnicalDetail?: boolean;
+}) {
   const { data: liveMarketData, isFetching } = useFetchLiveMarketCoinDataQuery(
     {},
   );
@@ -41,8 +47,9 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
         overflowX: 'hidden',
         paddingInline: '20px',
         marginBottom: '20px',
-        background:
-          'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
+        background: !isTechnicalDetail
+          ? 'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)'
+          : 'linear-gradient(96deg, #DCEDFE 8.44%, #FFF 22.56%, #FFF 64.71%, #FFF 81.98%, #E8E9FF 92.8%)',
         backdropFilter: 'blur(10px)',
         boxShadow: '0px 4px 28px 0px #0000000D',
         paddingBlock: '6px',

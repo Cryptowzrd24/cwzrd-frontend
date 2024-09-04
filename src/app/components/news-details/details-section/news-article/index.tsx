@@ -27,7 +27,11 @@ function NewsArticle() {
 
   return (
     <Box style={{ width: 'calc(100% - 30px)' }}>
-      <ArticleHeader />
+      <ArticleHeader
+        coinName={'BITCOIN'}
+        date={'APRIL 25, 2024'}
+        readTime={'5 MIN READ'}
+      />
       <Box sx={{ marginTop: '16px' }}>
         <NewsHeading />
       </Box>

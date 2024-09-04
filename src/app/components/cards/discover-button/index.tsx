@@ -36,12 +36,13 @@ const DiscoverCardButton = () => {
             lineHeight: '24px',
             letterSpacing: '1px',
             color: 'black',
-            // width: '310px',
+            width: '266px',
+            height: '144px',
           }}
         >
-          On a daily basis we analyze Crypto,<br></br> Forex, and Stock markets,
-          to <br></br>provide you with invaluable insights <br></br> and precise
-          signals, positioning you<br></br> for trading success and profits.
+          On a daily basis we analyze Crypto, Forex, and Stock markets, to
+          provide you with invaluable insights and precise signals, positioning
+          you for trading success and profits.
         </Typography>
         <Button
           sx={{

@@ -3,9 +3,14 @@ import { Box } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import ReadingCard from './reading-card';
 import MarketNewsPanel from './market-news-panel';
-import NewsArticle from './news-article';
 
-function DetailsSection() {
+function DetailsSection({
+  ChildComponent,
+  isTechnicalDetail,
+}: {
+  ChildComponent: React.ElementType;
+  isTechnicalDetail: boolean;
+}) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [sectionHeight, setSectionHeight] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -53,15 +58,16 @@ function DetailsSection() {
         <ReadingCard
           scrollPosition={scrollPosition}
           sectionHeight={sectionHeight}
+          isTechnicalDetail={isTechnicalDetail}
         />
       </Box>
       <Box sx={{ flex: 2 }}>
-        <NewsArticle />
+        <ChildComponent />
       </Box>
       <Box
         sx={{ flex: 0.5, position: 'sticky', top: '20px', height: '1380px' }}
       >
-        <MarketNewsPanel />
+        <MarketNewsPanel isTechnicalDetail={isTechnicalDetail} />
       </Box>
     </Box>
   );

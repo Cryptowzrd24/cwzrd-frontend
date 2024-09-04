@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import ReadingNowImg from '../../../../../public/icons/reading-now.png';
+import TechnicalDetailImg from '../../../../../public/icons/technicalDetailImage.png';
 
 import { styled } from '@mui/material/styles';
 import LinearProgress, {
@@ -15,7 +16,11 @@ import LinkedIn from '../../../../../public/icons/linkedIn';
 import Mail from '../../../../../public/icons/mail';
 import CheckMark from '../../../../../public/check-mark.svg';
 
-function ReadingCard({ scrollPosition, sectionHeight }: any) {
+function ReadingCard({
+  scrollPosition,
+  sectionHeight,
+  isTechnicalDetail,
+}: any) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -67,9 +72,17 @@ function ReadingCard({ scrollPosition, sectionHeight }: any) {
           width: '120px',
           height: '60px',
           marginTop: '16px',
+          border: isTechnicalDetail
+            ? '0.5px solid rgba(114, 72, 247, 1)'
+            : 'none',
         }}
       >
-        <Image src={ReadingNowImg} alt={'img'} width={120} height={60} />
+        <Image
+          src={!isTechnicalDetail ? ReadingNowImg : TechnicalDetailImg}
+          alt={'img'}
+          width={120}
+          height={60}
+        />
       </Box>
       <Typography
         sx={{
@@ -80,8 +93,9 @@ function ReadingCard({ scrollPosition, sectionHeight }: any) {
           marginTop: '12px',
         }}
       >
-        Bitcoin whale accumulation reaches pre-2020 bull run levels — Is BTC set
-        to break $70K?
+        {!isTechnicalDetail
+          ? 'Bitcoin whale accumulation reaches pre-2020 bull run levels — Is BTC set to break $70K?'
+          : 'ETHUSDT Intraday Setup:'}
       </Typography>
       <Box
         sx={{
