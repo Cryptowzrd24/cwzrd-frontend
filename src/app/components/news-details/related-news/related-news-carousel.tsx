@@ -64,7 +64,12 @@ const NextArrow = ({ onClick }: any) => (
   </IconButton>
 );
 
-const RelatedNewsCarousel = () => {
+interface RelatedNewsCarouselProps {
+  descriptionLines?: number;
+}
+const RelatedNewsCarousel = ({
+  descriptionLines,
+}: RelatedNewsCarouselProps) => {
   const settings = {
     dots: true,
     infinite: false,
@@ -88,6 +93,7 @@ const RelatedNewsCarousel = () => {
         }}
       >
         <TrendingNewsCard
+          descriptionLines={descriptionLines || 3}
           image={CardImage}
           title={
             'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip'

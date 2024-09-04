@@ -1,4 +1,5 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Chip, Typography } from '@mui/material';
+import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
 import React from 'react';
 
@@ -7,6 +8,7 @@ interface NewsCardProps {
   title: string;
   description: string;
   allNews?: any;
+  showChips?: any;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({
@@ -14,6 +16,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   title,
   description,
   allNews,
+  showChips,
 }) => {
   return (
     <Box
@@ -29,18 +32,53 @@ const NewsCard: React.FC<NewsCardProps> = ({
         boxShadow: '0px 4px 28px 0px #0000000D',
       }}
     >
-      <Image
-        alt="news"
-        src={image.src}
-        width={312}
-        height={0}
-        style={{
-          width: '100%',
-          height: '150px',
-          objectFit: 'cover',
-          borderRadius: '12px',
-        }}
-      />
+      <Box sx={{ width: '100%', position: 'relative' }}>
+        {showChips === true && (
+          <Chip
+            sx={{
+              position: 'absolute',
+              top: 10,
+              right: 10,
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(15px)',
+              borderRadius: '100px',
+              color: 'white',
+            }}
+            label={
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '4.5px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                }}
+              >
+                <Image
+                  src={PeopleImage.src}
+                  height={12}
+                  width={12}
+                  alt="people watching image"
+                />
+                {'374,039'}
+              </Box>
+            }
+          />
+        )}
+        <Image
+          alt="news"
+          src={image.src}
+          width={312}
+          height={0}
+          style={{
+            width: '100%',
+            height: '150px',
+            objectFit: 'cover',
+            borderRadius: '12px',
+          }}
+        />
+      </Box>
       <Box sx={{ padding: '4px', paddingTop: '16px' }}>
         <Box>
           <Typography
