@@ -150,7 +150,7 @@ const NewsCarousel = () => {
               fontWeight: '700 !important',
               color: 'white',
               fontSize: '32px  !important',
-              paddingInline: '32px',
+              paddingInline: '32px !important',
             }}
           >
             {content[currentIndex].title}

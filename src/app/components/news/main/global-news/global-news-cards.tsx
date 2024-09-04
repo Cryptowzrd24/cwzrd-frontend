@@ -28,7 +28,6 @@ function GlobalNewsCards({ cardData }: any) {
         <Typography
           sx={{
             marginTop: '12px',
-            marginLeft: '4px',
             width: '122px',
             fontFamily: 'Sf Pro Display',
             fontWeight: 700,
@@ -42,13 +41,12 @@ function GlobalNewsCards({ cardData }: any) {
         <Typography
           sx={{
             marginTop: '4px',
-            marginLeft: '11px',
-            width: '130px',
             fontFamily: 'Sf Pro Display',
             fontWeight: 400,
             fontSize: '11px',
             lineHeight: '14.3px',
             color: 'rgba(17, 17, 17, 0.8)',
+            letterSpacing: '-0.3px',
           }}
         >
           {card.subTitle}
@@ -61,7 +59,9 @@ function GlobalNewsCards({ cardData }: any) {
     <Box
       sx={{
         borderTop: '1px solid rgba(17, 17, 17, 0.1)',
+        borderTopWidth: '',
         marginTop: '15px',
+        width: '100%',
         display: 'flex',
         justifyContent: 'center',
       }}

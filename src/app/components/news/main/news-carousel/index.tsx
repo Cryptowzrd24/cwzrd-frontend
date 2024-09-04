@@ -99,7 +99,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           bottom: 0,
           left: 0,
           width: '100%',
-          height: '370px',
+          height: '100%',
           background: 'linear-gradient(0deg, #111111 35%, transparent 100%)',
           borderBottomLeftRadius: '25px',
           borderBottomRightRadius: '25px',
@@ -150,7 +150,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           left={0}
           display="flex"
           gap="8px"
-          paddingInline={'48px'}
+          paddingInline={'32px'}
           zIndex={1}
         >
           {content[currentIndex].tags.map((tag, index) => (
@@ -175,7 +175,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           width="100%"
           color="white"
           zIndex={1}
-          paddingInline="48px"
+          paddingInline="32px"
           sx={{
             boxSizing: 'border-box',
             padding: 0,
@@ -188,7 +188,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
               fontWeight: '700 !important',
               color: 'white',
               fontSize: '32px  !important',
-              paddingInline: '48px',
+              paddingInline: '32px',
             }}
           >
             {content[currentIndex].title}
@@ -200,7 +200,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
               fontSize: '16px !important',
               fontWeight: '400  !important',
               opacity: '80%',
-              paddingInline: '48px',
+              paddingInline: '32px',
               display: '-webkit-box',
               overflow: 'hidden',
               WebkitBoxOrient: 'vertical',
@@ -295,7 +295,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
             color: 'white',
             fontSize: '16px !important',
             fontWeight: '500 !important',
-            paddingInline: '48px',
+            paddingInline: '32px',
             lineHeight: '20.8px',
           }}
         >
