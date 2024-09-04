@@ -25,7 +25,7 @@ const useColumnCompactMostVisitedDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 180,
+            width: 160,
           };
         case 'new_price':
           return {
@@ -38,7 +38,7 @@ const useColumnCompactMostVisitedDefs = (columns: any) => {
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 80,
+            width: 100,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
