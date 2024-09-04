@@ -2,8 +2,13 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 import LiveMarket from '../../news/main/live-market';
 import LiveNewsExplorer from '../../news/main/live-news';
+import DiscoverCardButton from '../../cards/discover-button';
 
-function MarketNewsPanel() {
+function MarketNewsPanel({
+  isTechnicalDetail,
+}: {
+  isTechnicalDetail: boolean;
+}) {
   return (
     <Box
       sx={{
@@ -15,9 +20,9 @@ function MarketNewsPanel() {
     >
       <Box
         sx={{
-          // width: '300px',
-          background:
-            'linear-gradient(to right, rgba(254, 231, 226, 1), rgba(254, 231, 226, 0) 60px);',
+          background: !isTechnicalDetail
+            ? 'linear-gradient(to right, rgba(254, 231, 226, 1), rgba(254, 231, 226, 0) 60px)'
+            : 'linear-gradient(95deg, #CDE8FD 1.68%, #FFF 23.08%)',
           boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           borderRadius: '16px',
           padding: '12px 16px',
@@ -54,8 +59,15 @@ function MarketNewsPanel() {
           width: '300px',
         }}
       >
-        <LiveMarket isPageDetails={true} />
-        <LiveNewsExplorer isPageDetails={true} />
+        <LiveMarket
+          isPageDetails={true}
+          isTechnicalDetail={isTechnicalDetail}
+        />
+        {!isTechnicalDetail ? (
+          <LiveNewsExplorer isPageDetails={true} />
+        ) : (
+          <DiscoverCardButton />
+        )}
       </Box>
     </Box>
   );
