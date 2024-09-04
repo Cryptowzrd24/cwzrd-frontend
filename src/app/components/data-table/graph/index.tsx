@@ -13,8 +13,8 @@ export const GraphComp = (props: any) => {
             height: '100%',
             filter:
               percentChange7d && String(percentChange7d)?.includes('-')
-                ? 'hue-rotate(300deg) saturate(210%) brightness(0.7) contrast(170%)'
-                : 'hue-rotate(85deg) saturate(80%) brightness(0.85)',
+                ? 'brightness(0) saturate(100%) invert(46%) sepia(99%) saturate(379%) hue-rotate(311deg) brightness(100%) contrast(93%)'
+                : 'brightness(0) saturate(100%) invert(68%) sepia(13%) saturate(1609%) hue-rotate(104deg) brightness(97%) contrast(94%)',
           }}
           src={image}
           alt="graph"
