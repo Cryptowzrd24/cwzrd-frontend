@@ -61,4 +61,4 @@ function MarketNewsPanel() {
   );
 }
 
-export default MarketNewsPanel;
+export default React.memo(MarketNewsPanel);

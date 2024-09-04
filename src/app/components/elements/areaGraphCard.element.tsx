@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useMemo } from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts';
 import { debounce } from 'lodash';
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 
 const AreaChart = (props: IChartProps) => {
   const { data, color, isMarker, percent, fill, className, isLiveMarket, id } =
@@ -166,7 +167,7 @@ const AreaChart = (props: IChartProps) => {
            font-size: 14px;
            font-weight: 300;
            color: #111111;">
-            ${percent ? '' : '$'}${yValue}${percent ? '%' : isLiveMarket ? '' : 'm'}
+            ${percent ? '' : '$'}${priceNumberFormatDigits(yValue)}${percent ? '%' : isLiveMarket ? '' : 'm'}
           </div>`;
       },
       valueDecimals: 2,
