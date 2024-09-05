@@ -1,9 +1,9 @@
 import { Box, Divider, Stack, Typography } from '@mui/material';
 import React from 'react';
-import Upload from '../../../../public/icons/nft/upload';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 import StarComponent from './star-component/starComponent';
 import ProgressBar from './progress-bar/progressBar';
+import ShareComponent from './share-component';
 
 const CoinHeroSection = ({ coinDetails }: any) => {
   const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinDetails?.coin_id || 1}.png`;
@@ -133,7 +133,8 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                 cursor: 'pointer',
               }}
             >
-              <Upload />
+              <ShareComponent coinImage={imgId} coinData={coinDetails} />
+              {/* <Upload /> */}
             </Box>
           </Box>
         </Box>
