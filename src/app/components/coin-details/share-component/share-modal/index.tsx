@@ -1,24 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
-import { Box } from '@mui/material';
+import { Box, Popover } from '@mui/material';
 
 const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const [popoverOpen, setPopoverOpen] = useState(false);
+
   const handleClose = () => {
     handleIsOpen(false);
   };
-  console.log('-----', coinDetails);
+
+  const copyToClipboard = (event: React.MouseEvent<HTMLElement>) => {
+    navigator.clipboard
+      .writeText(
+        `http://localhost:3000/market/coin-details/${coinDetails.coin_id}`,
+      )
+      .then(() => {
+        setAnchorEl(event.currentTarget);
+        setPopoverOpen(true);
+
+        setTimeout(() => {
+          setPopoverOpen(false);
+          setAnchorEl(null);
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error('Failed to copy: ', err);
+      });
+  };
+
   return (
     <>
       <React.Fragment>
         <Dialog
-          sx={{ borderRadius: '18px !important' }}
+          PaperProps={{
+            sx: {
+              borderRadius: '16px',
+            },
+          }}
           onClose={handleClose}
-          aria-labelledby="customized-dialog-title"
           open={isOpen}
         >
           <IconButton
@@ -34,20 +59,13 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
             <CloseIcon />
           </IconButton>
           <Box
-            pt={'20px'}
+            pt={'17px'}
             display={'flex'}
             alignItems={'center'}
             justifyContent={'center'}
             overflow={'hidden'}
-            borderRadius={'25px'}
           >
-            <Image
-              style={{ borderRadius: '50px' }}
-              height={80}
-              width={80}
-              alt={'coin image'}
-              src={coinImage}
-            />
+            <Image height={80} width={80} alt={'coin image'} src={coinImage} />
           </Box>
           <DialogContent>
             <Typography
@@ -55,7 +73,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
                 textAlign: 'center',
                 fontSize: '1.5em',
                 marginBlock: '5px',
-                fontWeight: 'bold',
+                lineHeight: '1.5em',
               }}
               variant={'h2'}
             >
@@ -66,7 +84,9 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
                 fontSize: '15px',
                 lineHeight: '24px',
                 marginBottom: '12px',
+                paddingTop: '6px',
                 color: 'rgb(78,91,115)',
+                marginTop: '5px',
                 textAlign: 'center',
               }}
               variant={'body1'}
@@ -95,7 +115,6 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
                 style={{
                   borderRadius: '8px',
                   paddingInline: '10px',
-                  paddingBlock: 'px 16px',
                   outlineStyle: 'none',
                   outline: 'none',
                   fontSize: '14px',
@@ -110,7 +129,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
               ></input>
               <button
                 style={{
-                  height: '38px',
+                  height: '36px',
                   position: 'absolute',
                   right: 31,
                   borderRadius: '10px',
@@ -120,14 +139,42 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
                   color: '#fff',
                   fontSize: '14px',
                   lineHeight: '21px',
-                  paddingInline: '10px',
+                  paddingInline: '12px',
+                  cursor: 'pointer',
                 }}
+                onClick={copyToClipboard}
               >
                 Copy
               </button>
             </Box>
           </DialogContent>
         </Dialog>
+
+        <Popover
+          open={popoverOpen}
+          anchorEl={anchorEl}
+          onClose={() => setPopoverOpen(false)}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+        >
+          <Box
+            sx={{
+              padding: '8px 16px',
+              background: 'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
+              color: 'white',
+              borderRadius: '4px',
+              textAlign: 'center',
+            }}
+          >
+            Link copied to clipboard!
+          </Box>
+        </Popover>
       </React.Fragment>
     </>
   );
