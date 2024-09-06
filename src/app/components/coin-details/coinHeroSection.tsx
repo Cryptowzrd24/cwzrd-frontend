@@ -5,6 +5,9 @@ import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 import StarComponent from './star-component/starComponent';
 import ProgressBar from './progress-bar/progressBar';
 
+import infinityIconWhite from '../../../../public/icons/infinityWhite.svg';
+import Image from 'next/image';
+
 const CoinHeroSection = ({ coinDetails }: any) => {
   const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinDetails?.coin_id || 1}.png`;
 
@@ -275,6 +278,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   gap: '24px',
+                  width: '300px',
                 }}
               >
                 <Stack>
@@ -387,6 +391,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   gap: '24px',
+                  width: '300px',
                 }}
               >
                 <Stack>
@@ -468,7 +473,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                       color: 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                    $
+                    {coinDetails?.about_coin?.symbol}{' '}
                     {priceNumberFormatDigits(
                       coinDetails?.statistics?.circulatingSupply,
                     )}
@@ -516,7 +521,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                       color: 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                    $
+                    {coinDetails?.about_coin?.symbol}{' '}
                     {priceNumberFormatDigits(
                       coinDetails?.statistics?.totalSupply,
                     )}
@@ -552,9 +557,11 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                       color: 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                    {coinDetails?.max_supply
-                      ? `$${priceNumberFormatDigits(coinDetails?.statistics?.maxSupply)}`
-                      : '-'}
+                    {coinDetails?.max_supply ? (
+                      `$${priceNumberFormatDigits(coinDetails?.statistics?.maxSupply)}`
+                    ) : (
+                      <Image src={infinityIconWhite} alt="infinity-icon" />
+                    )}
                   </Typography>
                 </Stack>
               </Box>
