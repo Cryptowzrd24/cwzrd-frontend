@@ -134,7 +134,6 @@ const CoinHeroSection = ({ coinDetails }: any) => {
               }}
             >
               <ShareComponent coinImage={imgId} coinData={coinDetails} />
-              {/* <Upload /> */}
             </Box>
           </Box>
         </Box>

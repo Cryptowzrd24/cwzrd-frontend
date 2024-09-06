@@ -18,7 +18,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
   const copyToClipboard = (event: React.MouseEvent<HTMLElement>) => {
     navigator.clipboard
       .writeText(
-        `http://localhost:3000/market/coin-details/${coinDetails.coin_id}`,
+        `http://localhost:3000/market/coin-details/${coinDetails?.coin_id}`,
       )
       .then(() => {
         setAnchorEl(event.currentTarget);
@@ -91,8 +91,15 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
               }}
               variant={'body1'}
             >
-              The price of <b>{coinDetails?.slug}</b> is $
-              {parseFloat(coinDetails?.statistics?.price).toFixed(2)}!
+              The price of{' '}
+              <b>
+                {coinDetails?.slug.charAt(0).toUpperCase() +
+                  coinDetails?.slug.slice(1)}
+              </b>{' '}
+              is{' '}
+              <span id={`share-coin-${coinDetails?.coin_id}`}>
+                ${parseFloat(coinDetails?.statistics?.price).toFixed(2)}!
+              </span>
             </Typography>
             <Typography
               sx={{
@@ -125,11 +132,11 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
                   border: '0.5px solid lightgray',
                 }}
                 contentEditable={false}
-                value={`http://localhost:3000/market/coin-details/${coinDetails.coin_id}`}
+                value={`http://localhost:3000/market/coin-details/${coinDetails?.coin_id}`}
               ></input>
               <button
                 style={{
-                  height: '36px',
+                  height: '33px',
                   position: 'absolute',
                   right: 31,
                   borderRadius: '10px',
@@ -139,7 +146,8 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
                   color: '#fff',
                   fontSize: '14px',
                   lineHeight: '21px',
-                  paddingInline: '12px',
+                  //   paddingInline: '12px',
+                  padding: '0px 16px',
                   cursor: 'pointer',
                 }}
                 onClick={copyToClipboard}
