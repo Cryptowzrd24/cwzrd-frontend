@@ -153,7 +153,7 @@ const AreaChart = (props: IChartProps) => {
       shadow: false,
       style: {},
       formatter: function () {
-        const point: any = (this as any)?.point;
+        const point: any = (this as any).point;
         const yValue = point.y.toFixed(2);
         return `
           <div
@@ -167,7 +167,7 @@ const AreaChart = (props: IChartProps) => {
            font-size: 14px;
            font-weight: 300;
            color: #111111;">
-            ${percent ? '' : '$'}${priceNumberFormatDigits(yValue)}${percent ? '%' : isLiveMarket ? '' : 'm'}
+            ${percent ? '' : '$'}${isLiveMarket ? priceNumberFormatDigits(yValue) : yValue}${percent ? '%' : isLiveMarket ? '' : 'm'}
           </div>`;
       },
       valueDecimals: 2,

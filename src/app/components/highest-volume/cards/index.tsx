@@ -8,6 +8,7 @@ import second from '../../../../../public/icons/second-rank.png';
 import numeral from 'numeral';
 import third from '../../../../../public/icons/third-rank.png';
 import Graph from './graphCard';
+import Link from 'next/link';
 
 const Card = ({
   title,
@@ -130,260 +131,268 @@ const Card = ({
         width: '100%',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
+        ':hover': {
+          cursor: 'pointer',
+        },
       }}
     >
-      <Box
-        sx={{
-          padding: '16px',
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          borderRadius: '8px',
-        }}
+      <Link
+        style={{ textDecoration: 'none' }}
+        href={`/market/coin-details/${coinId}`}
       >
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            mb: '16px',
+            padding: '16px',
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            borderRadius: '8px',
           }}
         >
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Image
-              src={imgUrl}
-              loader={() => imgUrl}
-              width={40}
-              height={40}
-              style={{
-                borderRadius: '50%',
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: '16px',
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Image
+                src={imgUrl}
+                loader={() => imgUrl}
+                width={40}
+                height={40}
+                style={{
+                  borderRadius: '50%',
+                }}
+                alt="title"
+              />
+              <Stack>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '18px',
+                    fontWeight: '500',
+                    color: 'rgba(255, 255, 255, 1)',
+                  }}
+                >
+                  {title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '12px',
+                    fontWeight: '400',
+                    color: 'rgba(255, 255, 255, 0.6)',
+                  }}
+                >
+                  {symbol}
+                </Typography>
+              </Stack>
+            </Box>
+            <Box
+              sx={{
+                padding: '5px 12px 5px 12px',
+                borderRadius: '24px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                background: 'rgba(255, 255, 255, 1)',
               }}
-              alt="title"
-            />
-            <Stack>
+            >
+              {getRankContent(index)}
+            </Box>
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: '32px',
+                fontWeight: '500',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              ${priceNumberFormatter(price)}
+            </Typography>
+            <Box
+              sx={{
+                borderRadius: '24px',
+                padding: '4px 8px',
+                background: changeColor,
+              }}
+            >
               <Typography
-                variant="body1"
+                variant="body2"
                 sx={{
-                  fontSize: '18px',
-                  fontWeight: '500',
+                  fontSize: '14px',
+                  fontWeight: '700',
                   color: 'rgba(255, 255, 255, 1)',
                 }}
               >
-                {title}
+                {formattedChange} %
               </Typography>
+            </Box>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            mt: '24px',
+            gap: '48px',
+            mb: '-4px',
+            marginLeft: '6px',
+          }}
+        >
+          <Box>
+            <Stack>
               <Typography
                 variant="body1"
                 sx={{
                   fontSize: '12px',
                   fontWeight: '400',
-                  color: 'rgba(255, 255, 255, 0.6)',
+                  color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                {symbol}
+                Market Cap <Shift />
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                ${formattedMarketCap}
+              </Typography>
+            </Stack>
+            <Stack sx={{ mt: '8px' }}>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '12px',
+                  fontWeight: '400',
+                  color: 'rgba(17, 17, 17, 0.4)',
+                }}
+              >
+                Circulation Supply <Shift />
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                {formattedCirculationSupply}
               </Typography>
             </Stack>
           </Box>
-          <Box
-            sx={{
-              padding: '5px 12px 5px 12px',
-              borderRadius: '24px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              background: 'rgba(255, 255, 255, 1)',
-            }}
-          >
-            {getRankContent(index)}
-          </Box>
-        </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <Typography
-            variant="h5"
-            sx={{
-              fontSize: '32px',
-              fontWeight: '500',
-              color: 'rgba(255, 255, 255, 1)',
-            }}
-          >
-            ${priceNumberFormatter(price)}
-          </Typography>
-          <Box
-            sx={{
-              borderRadius: '24px',
-              padding: '4px 8px',
-              background: changeColor,
-            }}
-          >
-            <Typography
-              variant="body2"
-              sx={{
-                fontSize: '14px',
-                fontWeight: '700',
-                color: 'rgba(255, 255, 255, 1)',
-              }}
-            >
-              {formattedChange} %
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          mt: '24px',
-          gap: '48px',
-          mb: '-4px',
-          marginLeft: '6px',
-        }}
-      >
-        <Box>
-          <Stack>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '12px',
-                fontWeight: '400',
-                color: 'rgba(17, 17, 17, 0.4)',
-              }}
-            >
-              Market Cap <Shift />
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '18px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-              }}
-            >
-              ${formattedMarketCap}
-            </Typography>
-          </Stack>
-          <Stack sx={{ mt: '8px' }}>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '12px',
-                fontWeight: '400',
-                color: 'rgba(17, 17, 17, 0.4)',
-              }}
-            >
-              Circulation Supply <Shift />
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '18px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-              }}
-            >
-              {formattedCirculationSupply}
-            </Typography>
-          </Stack>
-        </Box>
-        <Box>
-          <Stack>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '12px',
-                fontWeight: '400',
-                color: 'rgba(17, 17, 17, 0.4)',
-              }}
-            >
-              Volume (24hours) <Shift />
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '18px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-              }}
-            >
-              ${formattedVolume}
-            </Typography>
-          </Stack>
-          <Stack sx={{ mt: '8px' }}>
-            <Typography
-              variant="body2"
-              sx={{
-                fontSize: '12px',
-                fontWeight: '400',
-                color: 'rgba(17, 17, 17, 0.4)',
-              }}
-            >
-              Total Max. Supply <Shift />
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '18px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-              }}
-            >
-              {formattedTotalMaxSupply}
-            </Typography>
-          </Stack>
-        </Box>
-      </Box>
-      <Box sx={{ mt: '24px' }}>
-        <Box
-          sx={{
-            border: '1px solid rgba(17, 17, 17, 0.05)',
-            borderRadius: '12px',
-            overflow: 'hidden',
-          }}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '8px',
-            }}
-          >
-            {['1D', '7D', '1M', '3M'].map((button) => (
-              <Box
-                key={button}
+          <Box>
+            <Stack>
+              <Typography
+                variant="body1"
                 sx={{
-                  padding: '4px 8px',
-                  borderRadius: '24px',
-                  border: '1px solid rgba(17, 17, 17, 0.05)',
-                  cursor: 'pointer',
-                  background: getButtonStyles(button).background,
+                  fontSize: '12px',
+                  fontWeight: '400',
+                  color: 'rgba(17, 17, 17, 0.4)',
                 }}
-                onClick={() => handleButtonClick(button)}
               >
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    color: getButtonStyles(button).color,
-                  }}
-                >
-                  {button}
-                </Typography>
-              </Box>
-            ))}
-          </Box>
-          <Box
-            style={{
-              marginBottom: '-26px',
-            }}
-          >
-            <Graph
-              graphAttr={{ type: 'area', data: areachartData }}
-              change={change}
-            />
+                Volume (24hours) <Shift />
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                ${formattedVolume}
+              </Typography>
+            </Stack>
+            <Stack sx={{ mt: '8px' }}>
+              <Typography
+                variant="body2"
+                sx={{
+                  fontSize: '12px',
+                  fontWeight: '400',
+                  color: 'rgba(17, 17, 17, 0.4)',
+                }}
+              >
+                Total Max. Supply <Shift />
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                {formattedTotalMaxSupply}
+              </Typography>
+            </Stack>
           </Box>
         </Box>
-      </Box>
+        <Box sx={{ mt: '24px' }}>
+          <Box
+            sx={{
+              border: '1px solid rgba(17, 17, 17, 0.05)',
+              borderRadius: '12px',
+              overflow: 'hidden',
+            }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px',
+              }}
+            >
+              {['1D', '7D', '1M', '3M'].map((button) => (
+                <Box
+                  key={button}
+                  sx={{
+                    padding: '4px 8px',
+                    borderRadius: '24px',
+                    border: '1px solid rgba(17, 17, 17, 0.05)',
+                    cursor: 'pointer',
+                    background: getButtonStyles(button).background,
+                  }}
+                  onClick={() => handleButtonClick(button)}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontSize: '14px',
+                      fontWeight: '700',
+                      color: getButtonStyles(button).color,
+                    }}
+                  >
+                    {button}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
+            <Box
+              style={{
+                marginBottom: '-26px',
+              }}
+            >
+              <Graph
+                graphAttr={{ type: 'area', data: areachartData }}
+                change={change}
+              />
+            </Box>
+          </Box>
+        </Box>
+      </Link>
     </Box>
   );
 };

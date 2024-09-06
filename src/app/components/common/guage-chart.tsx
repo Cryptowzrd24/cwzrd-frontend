@@ -139,7 +139,7 @@ const GaugeChart = () => {
             borderWidth: 0,
             useHTML: true,
             format: `<div style="text-align:center;">
-                      <span style="font-size:38px;">{y}</span><br/>
+                      <span style="font-size:36px;">{y}</span><br/>
                       <span style="font-size:14px; letter-spacing:10%;">${classification?.toUpperCase()}</span>
                      </div>`,
           },
