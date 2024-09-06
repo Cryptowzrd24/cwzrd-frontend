@@ -34,9 +34,8 @@ const DiscoverCardButton = () => {
             fontSize: '16px',
             fontWeight: '400',
             lineHeight: '24px',
-            letterSpacing: '1px',
-            color: 'black',
-            width: '266px',
+            letterSpacing: '0.1px',
+            color: 'rgba(17, 17, 17, 0.8)',
             height: '144px',
           }}
         >
