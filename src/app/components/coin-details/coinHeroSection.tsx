@@ -1,9 +1,9 @@
 import { Box, Divider, Stack, Typography } from '@mui/material';
 import React from 'react';
-import Upload from '../../../../public/icons/nft/upload';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 import StarComponent from './star-component/starComponent';
 import ProgressBar from './progress-bar/progressBar';
+import ShareComponent from './share-component';
 
 import infinityIconWhite from '../../../../public/icons/infinityWhite.svg';
 import Image from 'next/image';
@@ -136,7 +136,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                 cursor: 'pointer',
               }}
             >
-              <Upload />
+              <ShareComponent coinImage={imgId} coinData={coinDetails} />
             </Box>
           </Box>
         </Box>
