@@ -328,19 +328,19 @@ const Card = ({
                 Total Max. Supply <Shift />
               </Typography>
               {totalMaxSupply ? (
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '18px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                {formattedTotalMaxSupply}
-              </Typography>
-            ) : (
-              <Image src={infinityIcon} alt="infinty-icon" />
-            )}
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '18px',
+                    fontWeight: '500',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  {formattedTotalMaxSupply}
+                </Typography>
+              ) : (
+                <Image src={infinityIcon} alt="infinty-icon" />
+              )}
             </Stack>
           </Box>
         </Box>
