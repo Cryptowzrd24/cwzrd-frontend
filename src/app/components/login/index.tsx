@@ -1,3 +1,4 @@
+import { login } from '@/app/services';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -5,9 +6,54 @@ import React, { useState } from 'react';
 const Login = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [emailError, setEmailError] = useState<string>('');
+  const [passwordError, setPasswordError] = useState<string>('');
 
-  const handleSubmit = (e: any) => {
+  const handleChange = (field: string, value: string) => {
+    if (field === 'email') {
+      setEmailError('');
+      setEmail(value);
+    } else if (field === 'password') {
+      setPasswordError('');
+      setPassword(value);
+    }
+  };
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password: string) => {
+    // const passwordRegex =
+    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // return passwordRegex.test(password);
+    return password.length > 7;
+  };
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+
+    let valid = true;
+
+    if (!validateEmail(email)) {
+      setEmailError('Please enter a valid email address.');
+      valid = false;
+    } else {
+      setEmailError('');
+    }
+
+    if (!validatePassword(password)) {
+      setPasswordError('Password must be at least 8 characters long');
+      valid = false;
+    } else {
+      setPasswordError('');
+    }
+
+    if (valid) {
+      const response = await login({ email, password });
+      console.log('-----', response);
+    }
   };
 
   return (
@@ -33,17 +79,30 @@ const Login = () => {
           placeholder="Enter your email address..."
           fullWidth
           value={email}
-          onChange={(e) => setEmail(e.currentTarget.value)}
+          name="email"
+          onChange={(e) =>
+            handleChange(e.currentTarget.name, e.currentTarget.value)
+          }
           id="email"
+          error={!!emailError}
+          helperText={emailError}
+          FormHelperTextProps={{
+            sx: {
+              fontSize: '12px',
+              letterSpacing: '0.5px',
+            },
+          }}
           sx={{
             '& .MuiOutlinedInput-root': {
               borderRadius: '12px',
               '&:hover fieldset': {
-                borderColor: '#7248F7',
+                borderColor: emailError ? 'red' : '#7248F7',
               },
               '&.Mui-focused fieldset': {
-                borderColor: '#7248F7',
-                boxShadow: '0 0 5px 2px rgba(114, 72, 247, 0.3)',
+                borderColor: emailError ? 'red' : '#7248F7',
+                boxShadow: emailError
+                  ? '0 0 5px 2px rgba(255, 0, 0, 0.3)'
+                  : '0 0 5px 2px rgba(114, 72, 247, 0.3)',
               },
             },
           }}
@@ -79,18 +138,31 @@ const Login = () => {
           type="password"
           placeholder="Enter your password..."
           value={password}
-          onChange={(e) => setPassword(e.currentTarget.value)}
+          name="password"
+          onChange={(e) =>
+            handleChange(e.currentTarget.name, e.currentTarget.value)
+          }
           fullWidth
           id="password"
+          error={!!passwordError}
+          helperText={passwordError}
+          FormHelperTextProps={{
+            sx: {
+              fontSize: '12px',
+              letterSpacing: '0.5px',
+            },
+          }}
           sx={{
             '& .MuiOutlinedInput-root': {
               borderRadius: '12px',
               '&:hover fieldset': {
-                borderColor: '#7248F7',
+                borderColor: passwordError ? 'red' : '#7248F7',
               },
               '&.Mui-focused fieldset': {
-                borderColor: '#7248F7',
-                boxShadow: '0 0 5px 2px rgba(114, 72, 247, 0.3)',
+                borderColor: passwordError ? 'red' : '#7248F7',
+                boxShadow: passwordError
+                  ? '0 0 5px 2px rgba(255, 0, 0, 0.3)'
+                  : '0 0 5px 2px rgba(114, 72, 247, 0.3)',
               },
             },
           }}
@@ -109,7 +181,6 @@ const Login = () => {
             color: '#fff',
           },
         }}
-        // disabled={email?.length < 5 && password.length < 8}
         onClick={handleSubmit}
         fullWidth
         variant="outlined"

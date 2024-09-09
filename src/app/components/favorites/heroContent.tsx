@@ -76,12 +76,12 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
     const storedEmail = Cookies.get('watchlistEmail');
     if (storedEmail) {
       setEmailStored(storedEmail);
+      setActive(true);
     } else {
       setSearchTerm('');
       setEmailStored('');
       setIsAuthenticated(false);
     }
-    setActive(true);
   };
 
   const handleClose = () => {
