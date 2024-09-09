@@ -28,6 +28,7 @@ import {
   updateSelectedWatchListMain,
   updateSelectedWatchListName,
 } from '@/app/redux/market';
+import AuthModal from './authModal';
 
 const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -44,6 +45,8 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   const [emailExistError, setEmailExistError] = useState('');
   const [anchorEl, setAnchorEl] = useState(null);
   const [watchList, setWatchList] = useState([]);
+
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [reload, setReload] = useState(false);
@@ -76,6 +79,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
     } else {
       setSearchTerm('');
       setEmailStored('');
+      setIsAuthenticated(false);
     }
     setActive(true);
   };
@@ -470,6 +474,12 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           >
             New Watchlist
           </Button>
+          {!isAuthenticated && (
+            <AuthModal
+              isAuthenticated={!isAuthenticated}
+              handleIsAuthenticated={setIsAuthenticated}
+            />
+          )}
           {Cookies.get('watchlistEmail') && (
             <IconButton onClick={handleMoreOptionsClick}>
               <MoreVertIcon />
