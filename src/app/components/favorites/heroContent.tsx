@@ -21,6 +21,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddWatchListModal from './addWatchListModal';
+
 import { useAppDispatch, useAppSelector } from '@/app/redux/store';
 import {
   setMainWatchFavorites,
@@ -74,7 +75,8 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
   const handleClick = () => {
     const storedEmail = Cookies.get('watchlistEmail');
-    if (storedEmail) {
+    const authToken = Cookies.get('authToken');
+    if (storedEmail || authToken) {
       setEmailStored(storedEmail);
       setActive(true);
     } else {
@@ -109,12 +111,12 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
   const handleCreateWatchlist = async () => {
     if (!emailStored) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      if (!emailRegex.test(searchTerm)) {
-        setEmailExistError('Please enter a valid email address.');
-        return;
-      }
+      // if (!emailRegex.test(searchTerm)) {
+      //   setEmailExistError('Please enter a valid email address.');
+      //   return;
+      // }
       try {
         // Call the API to check if the email exists
         const response = await fetch(
@@ -312,6 +314,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
   return (
     <>
+      {/* <ToastContainer> */}
       <Box
         sx={{
           display: 'flex',
@@ -477,7 +480,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           {!isAuthenticated && (
             <AuthModal
               isAuthenticated={!isAuthenticated}
-              handleIsAuthenticated={setIsAuthenticated}
+              setIsAuthenticated={setIsAuthenticated}
             />
           )}
           {Cookies.get('watchlistEmail') && (

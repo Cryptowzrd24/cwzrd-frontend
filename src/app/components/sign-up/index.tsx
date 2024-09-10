@@ -1,15 +1,19 @@
 import { signUp } from '@/app/services';
-import { Box, Button, TextField, Typography } from '@mui/material';
-import Link from 'next/link';
+import { Box, Button, Popover, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import LoadingOverlay from '../loading-overlay';
 
-const SignUp = () => {
+const SignUp = ({ setActiveTab }: any) => {
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const [popoverOpen, setPopoverOpen] = useState(false);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [nameError, setNameError] = useState<string>('');
   const [emailError, setEmailError] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
+  const [alertMessage, setAlertMessage] = useState({ color: '', message: '' });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: any) => {
     if (e.target.name === 'email') {
@@ -30,12 +34,14 @@ const SignUp = () => {
   };
 
   const validateName = (name: string) => {
-    return name.trim().length > 4;
+    return name.trim().length > 2;
   };
 
   const validatePassword = (password: string) => {
+    console.log('pass', password);
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    console.log('is valid', passwordRegex.test(password));
     return passwordRegex.test(password);
   };
 
@@ -52,120 +58,151 @@ const SignUp = () => {
     }
 
     if (!validatePassword(password)) {
-      setPasswordError('Password must be at least 8 characters long');
+      setPasswordError(
+        'Password must be at least 8 characters long, contain at least one lowercase letter, one uppercase letter, one digit, and one special character',
+      );
       valid = false;
     } else {
       setPasswordError('');
     }
 
     if (!validateName(name)) {
-      setNameError('Name cannot be empty');
+      setNameError('Name cannot be less than 3 characters');
       valid = false;
     } else {
       setNameError('');
     }
 
     if (valid) {
+      setLoading(true);
       const response = await signUp({ email, password, name });
-      console.log('-----', response);
+
+      if (response?.message) {
+        setAlertMessage({
+          color: 'green',
+          message:
+            response?.message + ' Please verify your email and then login',
+        });
+        setAnchorEl(e.currentTarget);
+        setPopoverOpen(true);
+
+        setTimeout(() => {
+          setPopoverOpen(false);
+          setAnchorEl(null);
+          setName('');
+          setEmail('');
+          setPassword('');
+          setActiveTab(0);
+        }, 4000);
+      } else if (response?.error) {
+        setAlertMessage({ color: 'red', message: response?.error });
+        setAnchorEl(e.currentTarget);
+        setPopoverOpen(true);
+
+        setTimeout(() => {
+          setPopoverOpen(false);
+          setAnchorEl(null);
+        }, 3000);
+      }
+      setLoading(false);
     }
   };
 
   return (
-    <Box
-      display={'flex'}
-      flexDirection={'column'}
-      justifyContent={'center'}
-      gap={3}
-    >
-      <Box>
-        <Typography
-          sx={{
-            fontSize: '12px',
-            fontWeight: '600',
-            marginBottom: '2px',
-            lineHeight: '26px',
-          }}
-        >
-          Full Name
-        </Typography>
-        <TextField
-          size={'medium'}
-          placeholder="Enter your full name..."
-          fullWidth
-          value={name}
-          name="name"
-          onChange={handleChange}
-          id="email"
-          error={!!nameError}
-          helperText={nameError}
-          FormHelperTextProps={{
-            sx: {
+    <>
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        justifyContent={'center'}
+        gap={3}
+      >
+        <Box>
+          <Typography
+            sx={{
               fontSize: '12px',
-              letterSpacing: '0.5px',
-            },
-          }}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '12px',
-              '&:hover fieldset': {
-                borderColor: nameError ? 'red' : '#7248F7',
+              fontWeight: '600',
+              marginBottom: '2px',
+              lineHeight: '26px',
+            }}
+          >
+            Full Name
+          </Typography>
+          <TextField
+            size={'medium'}
+            placeholder="Enter your full name..."
+            fullWidth
+            value={name}
+            name="name"
+            onChange={handleChange}
+            id="email"
+            error={!!nameError}
+            helperText={nameError}
+            FormHelperTextProps={{
+              sx: {
+                fontSize: '12px',
+                letterSpacing: '0.5px',
               },
-              '&.Mui-focused fieldset': {
-                borderColor: nameError ? 'red' : '#7248F7',
-                boxShadow: nameError
-                  ? '0 0 5px 2px rgba(255, 0, 0, 0.3)'
-                  : '0 0 5px 2px rgba(114, 72, 247, 0.3)',
+            }}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '12px',
+                '&:hover fieldset': {
+                  borderColor: nameError ? 'red' : '#7248F7',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: nameError ? 'red' : '#7248F7',
+                  boxShadow: nameError
+                    ? '0 0 5px 2px rgba(255, 0, 0, 0.3)'
+                    : '0 0 5px 2px rgba(114, 72, 247, 0.3)',
+                },
               },
-            },
-          }}
-        />
-      </Box>
-      <Box>
-        <Typography
-          sx={{
-            fontSize: '12px',
-            fontWeight: '600',
-            marginBottom: '2px',
-            lineHeight: '26px',
-          }}
-        >
-          Email Address
-        </Typography>
-        <TextField
-          size={'medium'}
-          placeholder="Enter your email address..."
-          fullWidth
-          value={email}
-          name="email"
-          onChange={handleChange}
-          id="email"
-          error={!!emailError}
-          helperText={emailError}
-          FormHelperTextProps={{
-            sx: {
+            }}
+          />
+        </Box>
+        <Box>
+          <Typography
+            sx={{
               fontSize: '12px',
-              letterSpacing: '0.5px',
-            },
-          }}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '12px',
-              '&:hover fieldset': {
-                borderColor: emailError ? 'red' : '#7248F7',
+              fontWeight: '600',
+              marginBottom: '2px',
+              lineHeight: '26px',
+            }}
+          >
+            Email Address
+          </Typography>
+          <TextField
+            size={'medium'}
+            placeholder="Enter your email address..."
+            fullWidth
+            value={email}
+            name="email"
+            onChange={handleChange}
+            id="email"
+            error={!!emailError}
+            helperText={emailError}
+            FormHelperTextProps={{
+              sx: {
+                fontSize: '12px',
+                letterSpacing: '0.5px',
               },
-              '&.Mui-focused fieldset': {
-                borderColor: emailError ? 'red' : '#7248F7',
-                boxShadow: emailError
-                  ? '0 0 5px 2px rgba(255, 0, 0, 0.3)'
-                  : '0 0 5px 2px rgba(114, 72, 247, 0.3)',
+            }}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '12px',
+                '&:hover fieldset': {
+                  borderColor: emailError ? 'red' : '#7248F7',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: emailError ? 'red' : '#7248F7',
+                  boxShadow: emailError
+                    ? '0 0 5px 2px rgba(255, 0, 0, 0.3)'
+                    : '0 0 5px 2px rgba(114, 72, 247, 0.3)',
+                },
               },
-            },
-          }}
-        />
-      </Box>
-      <Box>
-        <Box display={'flex'} justifyContent={'space-between'}>
+            }}
+          />
+        </Box>
+        <Box>
           <Typography
             sx={{
               fontSize: '12px',
@@ -176,72 +213,90 @@ const SignUp = () => {
           >
             Password
           </Typography>
-          <Link
-            style={{
-              textDecoration: 'none',
-              fontSize: '12px',
-              fontWeight: '600',
-              marginBottom: '2px',
-              lineHeight: '26px',
-              color: 'rgb(112,121,139)',
+
+          <TextField
+            type="password"
+            placeholder="Enter your password..."
+            value={password}
+            name="password"
+            onChange={handleChange}
+            fullWidth
+            id="password"
+            error={!!passwordError}
+            helperText={passwordError}
+            FormHelperTextProps={{
+              sx: {
+                fontSize: '12px',
+                letterSpacing: '0.5px',
+              },
             }}
-            href="#"
-          >
-            Forgot password?
-          </Link>
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '12px',
+                '&:hover fieldset': {
+                  borderColor: passwordError ? 'red' : '#7248F7',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: passwordError ? 'red' : '#7248F7',
+                  boxShadow: passwordError
+                    ? '0 0 5px 2px rgba(255, 0, 0, 0.3)'
+                    : '0 0 5px 2px rgba(114, 72, 247, 0.3)',
+                },
+              },
+            }}
+          />
         </Box>
-        <TextField
-          type="password"
-          placeholder="Enter your password..."
-          value={password}
-          name="password"
-          onChange={handleChange}
-          fullWidth
-          id="password"
-          error={!!passwordError}
-          helperText={passwordError}
-          FormHelperTextProps={{
-            sx: {
-              fontSize: '12px',
-              letterSpacing: '0.5px',
-            },
-          }}
+        <Button
+          disabled={loading}
           sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '12px',
-              '&:hover fieldset': {
-                borderColor: passwordError ? 'red' : '#7248F7',
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: passwordError ? 'red' : '#7248F7',
-                boxShadow: passwordError
-                  ? '0 0 5px 2px rgba(255, 0, 0, 0.3)'
-                  : '0 0 5px 2px rgba(114, 72, 247, 0.3)',
-              },
-            },
-          }}
-        />
-      </Box>
-      <Button
-        sx={{
-          background: 'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
-          borderRadius: '12px',
-          border: 'none',
-          color: '#fff',
-          height: '50px',
-          '&:hover': {
-            background: 'linear-gradient(90deg, #BF48F7 0%, #7248F7 100%)',
+            background: 'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
+            borderRadius: '12px',
             border: 'none',
             color: '#fff',
-          },
+            height: '50px',
+            '&:hover': {
+              background: 'linear-gradient(90deg, #BF48F7 0%, #7248F7 100%)',
+              border: 'none',
+              color: '#fff',
+            },
+          }}
+          onClick={handleSubmit}
+          fullWidth
+          variant="outlined"
+        >
+          {loading ? (
+            <LoadingOverlay background={'transparent'} color={'white'} />
+          ) : (
+            'Sign Up'
+          )}
+        </Button>
+      </Box>
+      <Popover
+        open={popoverOpen}
+        anchorEl={anchorEl}
+        onClose={() => setPopoverOpen(false)}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
         }}
-        onClick={handleSubmit}
-        fullWidth
-        variant="outlined"
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
       >
-        Sign Up
-      </Button>
-    </Box>
+        <Box
+          sx={{
+            padding: '8px 16px',
+            background: alertMessage?.color,
+            color: 'white',
+            borderRadius: '4px',
+            textAlign: 'center',
+          }}
+        >
+          {alertMessage?.message}
+        </Box>
+      </Popover>
+    </>
   );
 };
 

@@ -22,7 +22,7 @@ export const login = async ({ email, password }: LoginProps) => {
 
     if (!response.ok) {
       const errorResponse = await response.json();
-      throw new Error(errorResponse.message || 'Login failed');
+      throw new Error(errorResponse.error || 'Login failed');
     }
     return await response.json();
   } catch (error) {
@@ -45,7 +45,32 @@ export const signUp = async ({ email, password, name }: SignUpProps) => {
 
     if (!response.ok) {
       const errorResponse = await response.json();
-      throw new Error(errorResponse.message || 'Sign Up failed');
+      throw new Error(errorResponse.error || 'Sign Up failed');
+    }
+    return await response.json();
+  } catch (error) {
+    return { error: (error as Error).message };
+  }
+};
+
+export const forgotPassword = async (email: string) => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/forgot-password/`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      },
+    );
+
+    if (!response.ok) {
+      const errorResponse = await response.json();
+      throw new Error(
+        errorResponse.message || 'Some error occured! Please try again.',
+      );
     }
     return await response.json();
   } catch (error) {

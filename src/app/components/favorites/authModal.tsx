@@ -4,6 +4,7 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box, Tab, Tabs } from '@mui/material';
+import { motion } from 'framer-motion';
 import Login from '../login';
 import SignUp from '../sign-up';
 
@@ -36,7 +37,7 @@ function a11yProps(index: number) {
   };
 }
 
-const AuthModal = ({ isAuthenticated, handleIsAuthenticated }: any) => {
+const AuthModal = ({ isAuthenticated, setIsAuthenticated }: any) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -44,36 +45,41 @@ const AuthModal = ({ isAuthenticated, handleIsAuthenticated }: any) => {
   };
 
   const handleClose = () => {
-    handleIsAuthenticated(false);
+    setIsAuthenticated(true);
   };
 
   return (
-    <>
-      <React.Fragment>
-        <Dialog
-          PaperProps={{
-            sx: {
-              borderRadius: '16px',
-              width: '480px',
-            },
-          }}
-          onClose={handleClose}
-          open={isAuthenticated}
+    <React.Fragment>
+      <Dialog
+        PaperProps={{
+          sx: {
+            borderRadius: '16px',
+            width: '480px',
+          },
+        }}
+        onClose={handleClose}
+        open={isAuthenticated}
+      >
+        <IconButton
+          aria-label="close"
+          onClick={handleClose}
+          sx={(theme) => ({
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: theme.palette.grey[500],
+          })}
         >
-          <IconButton
-            aria-label="close"
-            onClick={handleClose}
-            sx={(theme) => ({
-              position: 'absolute',
-              right: 8,
-              top: 8,
-              color: theme.palette.grey[500],
-            })}
-          >
-            <CloseIcon />
-          </IconButton>
+          <CloseIcon />
+        </IconButton>
 
-          <DialogContent>
+        <DialogContent>
+          <motion.div
+            initial={{ transform: 'scale(0.96)', opacity: '0.5' }}
+            animate={{ transform: 'scale(1)', opacity: '1' }}
+            transition={{ duration: 0.4 }}
+            key={value}
+          >
             <Box sx={{ width: '100%' }}>
               <Box
                 display={'flex'}
@@ -103,6 +109,7 @@ const AuthModal = ({ isAuthenticated, handleIsAuthenticated }: any) => {
                   <Tab
                     label="Log In"
                     {...a11yProps(0)}
+                    disableRipple
                     sx={{
                       textTransform: 'none',
                       fontWeight: '500',
@@ -110,16 +117,19 @@ const AuthModal = ({ isAuthenticated, handleIsAuthenticated }: any) => {
                       '&.Mui-selected': {
                         color: 'black',
                         fontWeight: '700',
+                        letterSpacing: '1px',
                       },
                     }}
                   />
                   <Tab
                     label="Sign Up"
                     {...a11yProps(1)}
+                    disableRipple
                     sx={{
                       textTransform: 'none',
                       fontSize: '22px',
                       fontWeight: '500',
+                      letterSpacing: '1px',
                       '&.Mui-selected': {
                         color: 'black',
                         fontWeight: '700',
@@ -129,16 +139,16 @@ const AuthModal = ({ isAuthenticated, handleIsAuthenticated }: any) => {
                 </Tabs>
               </Box>
               <CustomTabPanel value={value} index={0}>
-                <Login />
+                <Login setIsAuthenticated={setIsAuthenticated} />
               </CustomTabPanel>
               <CustomTabPanel value={value} index={1}>
-                <SignUp />
+                <SignUp setActiveTab={setValue} />
               </CustomTabPanel>
             </Box>
-          </DialogContent>
-        </Dialog>
-      </React.Fragment>
-    </>
+          </motion.div>
+        </DialogContent>
+      </Dialog>
+    </React.Fragment>
   );
 };
 
