@@ -278,7 +278,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   gap: '24px',
-                  width: '300px',
+                  width: '323px',
                 }}
               >
                 <Stack>
@@ -391,7 +391,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   gap: '24px',
-                  width: '300px',
+                  width: '323px',
                 }}
               >
                 <Stack>
