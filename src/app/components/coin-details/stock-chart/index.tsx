@@ -171,6 +171,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
       const compareData: any[] = [];
       const volume: any[] = [];
       const marketcap: any[] = [];
+      const compareMarketcap: any[] = [];
       const candleStickMarketcap: any[] = [];
       const candleStickVolume: any[] = [];
       const coinThreshold = (Object as any).values(points)[0].v[0];
@@ -192,10 +193,10 @@ const StockChart: React.FC<StockChartProps> = React.memo(
           if (comparePoints.hasOwnProperty(timestamp)) {
             const point = comparePoints[timestamp];
             compareData.push([getDate(timestamp), point.v[0]]);
+            compareMarketcap.push([getDate(timestamp), point.v[2]]);
           }
         }
       }
-
       const formattedVolumeData = volume.map(([time, value]) => ({
         x: time,
         y: value,
@@ -209,7 +210,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
 
       if (graphType === 'line') {
         if (compareData.length > 0) {
-          const combinedData = [...marketcap, ...compareData];
+          const combinedData = [...compareMarketcap, ...compareData];
           yMin = Math.min(...combinedData.map((point) => point[1]));
           yMax = Math.max(...combinedData.map((point) => point[1]));
         } else {
@@ -368,7 +369,9 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             const price = priceNumberFormatter(this.y);
             const marketCap = numeral(this.y).format('0.00a');
             const comparePrice = priceNumberFormatter(secondCoinIndex?.y);
-            const compareMarketCap = numeral(this.points[1].y).format('0.00a');
+            const compareMarketCap = numeral(
+              this?.points?.length === 4 ? this.points[2].y : this.points[1].y,
+            ).format('0.00a');
 
             const priceChangeFirstCoin =
               firstCoinIndex?.point?.change?.toFixed(2);
@@ -491,7 +494,9 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 ? candlestickSeries
                 : graphType === 'line' && selectedGraph === 'Market Cap'
                   ? marketcap
-                  : graphType === 'line' && selectedCompareCoinId
+                  : graphType === 'line' &&
+                      selectedCompareCoinId &&
+                      selectedGraph === 'Market Cap'
                     ? data
                     : data,
             color: 'rgba(69, 202, 148, 1)',
@@ -565,7 +570,13 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             id: 'aapl-marketcap',
             name: 'AAPL Marketcap',
             data:
-              graphType === 'candlestick' ? candleStickMarketcap : marketcap,
+              graphType === 'candlestick'
+                ? candleStickMarketcap
+                : graphType === 'line' &&
+                    selectedCompareCoinId &&
+                    selectedGraph === 'Market Cap'
+                  ? compareMarketcap
+                  : marketcap,
             yAxis: 2,
             color: '#F0F2F5',
             fillColor: '#F0F2F5',
