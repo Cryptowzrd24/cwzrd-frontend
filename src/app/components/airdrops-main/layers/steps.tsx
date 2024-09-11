@@ -13,7 +13,7 @@ const Steps = ({ setCurrentStep }: stepProps) => {
     <>
       <Box
         sx={{
-          padding: '20px 24px 32px 24px',
+          padding: '16px 24px 20px 24px',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '16px',
           cursor: 'pointer',
@@ -29,15 +29,17 @@ const Steps = ({ setCurrentStep }: stepProps) => {
               background: 'rgba(31, 215, 115, 0.1)',
               mb: '16px',
               cursor: 'pointer',
-              width: '11%',
+              width: '12%',
             }}
           >
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '600',
                 color: 'rgba(1, 200, 119, 1)',
+                display: 'flex',
+                justifyContent: 'center',
               }}
             >
               Step 1
@@ -46,7 +48,7 @@ const Steps = ({ setCurrentStep }: stepProps) => {
           <Typography
             variant="body2"
             sx={{
-              fontSize: '18px',
+              fontSize: '15px',
               fontWeight: '500',
               color: 'rgba(17, 17, 17, 1)',
             }}
@@ -58,7 +60,7 @@ const Steps = ({ setCurrentStep }: stepProps) => {
       {/* ----------------------------------------------- */}
       <Box
         sx={{
-          padding: '20px 24px 32px 24px',
+          padding: '16px 24px 20px 24px',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '16px',
           mt: '16px',
@@ -81,9 +83,11 @@ const Steps = ({ setCurrentStep }: stepProps) => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '600',
                 color: 'rgba(1, 200, 119, 1)',
+                display: 'flex',
+                justifyContent: 'center',
               }}
             >
               Step 2
@@ -92,7 +96,7 @@ const Steps = ({ setCurrentStep }: stepProps) => {
           <Typography
             variant="body2"
             sx={{
-              fontSize: '18px',
+              fontSize: '15px',
               fontWeight: '500',
               color: 'rgba(17, 17, 17, 1)',
             }}
@@ -104,7 +108,7 @@ const Steps = ({ setCurrentStep }: stepProps) => {
       {/* ---------------------- */}
       <Box
         sx={{
-          padding: '20px 24px 32px 24px',
+          padding: '16px 24px 20px 24px',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '16px',
           mt: '16px',
@@ -127,9 +131,11 @@ const Steps = ({ setCurrentStep }: stepProps) => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '600',
                 color: 'rgba(1, 200, 119, 1)',
+                display: 'flex',
+                justifyContent: 'center',
               }}
             >
               Step 3
@@ -138,7 +144,7 @@ const Steps = ({ setCurrentStep }: stepProps) => {
           <Typography
             variant="body2"
             sx={{
-              fontSize: '18px',
+              fontSize: '15px',
               fontWeight: '500',
               color: 'rgba(17, 17, 17, 1)',
             }}

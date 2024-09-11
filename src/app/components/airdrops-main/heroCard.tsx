@@ -11,7 +11,7 @@ const HeroCard = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '26px 40px',
+          padding: '15px 24px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '16px',
@@ -22,7 +22,7 @@ const HeroCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '13px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 0.6)',
                 mb: '4px',
@@ -33,7 +33,7 @@ const HeroCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '13px',
                 fontWeight: '600',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -47,7 +47,7 @@ const HeroCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '13px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 0.6)',
                 mb: '4px',
@@ -58,7 +58,7 @@ const HeroCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '13px',
                 fontWeight: '600',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -72,7 +72,7 @@ const HeroCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '13px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 0.6)',
                 mb: '4px',
@@ -83,7 +83,7 @@ const HeroCard = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '13px',
                 fontWeight: '600',
                 color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
@@ -118,7 +118,7 @@ const HeroCard = () => {
             </Box>
             <Typography
               variant="body1"
-              sx={{ fontSize: '16px', fontWeight: '600' }}
+              sx={{ fontSize: '13px', fontWeight: '600' }}
             >
               880
             </Typography>
@@ -141,7 +141,7 @@ const HeroCard = () => {
             </Box>
             <Typography
               variant="body1"
-              sx={{ fontSize: '16px', fontWeight: '600' }}
+              sx={{ fontSize: '13px', fontWeight: '600' }}
             >
               3
             </Typography>
