@@ -557,7 +557,7 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                       color: 'rgba(255, 255, 255, 1)',
                     }}
                   >
-                    {coinDetails?.max_supply ? (
+                    {coinDetails?.statistics?.maxSupply ? (
                       `$${priceNumberFormatDigits(coinDetails?.statistics?.maxSupply)}`
                     ) : (
                       <Image src={infinityIconWhite} alt="infinity-icon" />
