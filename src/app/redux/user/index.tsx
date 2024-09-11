@@ -1,7 +1,6 @@
-// src/store/userSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import Cookie from 'js-cookie';
 
-// Define the user data type
 interface UserState {
   email: string;
   name: string;
@@ -10,21 +9,30 @@ interface UserState {
   error: string | null;
 }
 
-// Define the type for the login action payload
 interface LoginPayload {
   email: string;
   name: string;
   token: string;
 }
 
-// Initial state
-const initialState: UserState = {
-  email: '',
-  name: '',
-  token: '',
-  status: 'idle',
-  error: null,
+const getUserFromLocalStorage = (): UserState => {
+  if (false) {
+    const userData = localStorage.getItem('user');
+    const authToken = Cookie.get('authToken');
+    if (userData && authToken) {
+      return JSON.parse(userData as string);
+    }
+  }
+  return {
+    email: '',
+    name: '',
+    token: '',
+    status: 'idle',
+    error: null,
+  };
 };
+
+const initialState: UserState = getUserFromLocalStorage();
 
 const userSlice = createSlice({
   name: 'user',
@@ -39,6 +47,8 @@ const userSlice = createSlice({
       state.email = action.payload.email;
       state.name = action.payload.name;
       state.token = action.payload.token;
+
+      localStorage.setItem('user', JSON.stringify(state));
     },
     loginFailure: (state, action: PayloadAction<string>) => {
       state.status = 'failed';
@@ -48,6 +58,7 @@ const userSlice = createSlice({
       state.email = '';
       state.name = '';
       state.token = '';
+      localStorage.removeItem('user');
     },
   },
 });

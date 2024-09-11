@@ -30,7 +30,7 @@ function StarComponent({ coinId }: any) {
 
   // Use favorites if no watchlistEmail is available, otherwise use mainWatchFavorites based on the page
   const currentFavorites = useMemo(() => {
-    if (!Cookies.get('watchlistEmail')) {
+    if (!Cookies.get('authToken')) {
       return favorites;
     }
     return isFavoritesPage ? favorites : mainWatchFavorites;
@@ -68,7 +68,7 @@ function StarComponent({ coinId }: any) {
         ? currentFavorites.filter((id) => id !== String(coinId))
         : [...currentFavorites, String(coinId)];
 
-      if (!Cookies.get('watchlistEmail') || isFavoritesPage) {
+      if (!Cookies.get('AuthToken') || isFavoritesPage) {
         Cookies.set('favorites', JSON.stringify(newFavorites));
         dispatch(updateFavorites(newFavorites));
         if (selectedWatchListMain) {
@@ -82,10 +82,16 @@ function StarComponent({ coinId }: any) {
 
       setIsLoading(true);
 
-      if (Cookies.get('watchlistEmail')) {
+      if (Cookies.get('authToken')) {
         try {
           const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites?email=${Cookies.get('watchlistEmail')}`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites`,
+            {
+              method: 'GET',
+              headers: {
+                Authorization: `Bearer ${Cookies.get('authToken')}`,
+              },
+            },
           );
           const data = await response.json();
           const mainCollection: any = Object.values(data.collections).find(
@@ -94,7 +100,7 @@ function StarComponent({ coinId }: any) {
 
           if (mainCollection) {
             await addWatchlist({
-              email: Cookies.get('watchlistEmail'),
+              token: Cookies.get('authToken'),
               collection_name:
                 selectedWatchListName !== '' && isFavoritesPage
                   ? selectedWatchListName

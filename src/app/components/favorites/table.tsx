@@ -3,9 +3,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
-import { useFetchFavoritesDataQuery } from '@/app/redux/reducers/data-grid';
+import {
+  useFetchFavoritesDataQuery,
+  useFetchWatchlistQuery,
+} from '@/app/redux/reducers/data-grid';
 import { useSelector } from 'react-redux';
 import { useAppSelector } from '@/app/redux/store';
+import Cookies from 'js-cookie';
 
 const Table = () => {
   const [search] = useState('');
@@ -16,12 +20,22 @@ const Table = () => {
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const filters = useSelector((state: any) => state.filters.filters);
   const { favorites } = useAppSelector((state) => state.market);
+  const { token } = useSelector((state: any) => state.user);
+  const { selectedWatchListName } = useSelector((state: any) => state.market);
+  console.log('selected', selectedWatchListName);
 
   const favoriteIds = favorites ? favorites.join(',') : '';
+  const { data, error } = Cookies.get('authToken')
+    ? useFetchWatchlistQuery({ token })
+    : useFetchFavoritesDataQuery({
+        id: favoriteIds,
+      });
 
-  const { data, error } = useFetchFavoritesDataQuery({
-    id: favoriteIds,
-  });
+  // console.log('dataaa', JSON.stringify(data));
+
+  // const { data, error } = useFetchFavoritesDataQuery({
+  //   id: favoriteIds,
+  // });
 
   const gridApiRef = useRef<any>(null);
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -31,26 +45,62 @@ const Table = () => {
       setRowData([]);
       return;
     }
-    if (data && data.data) {
+
+    if (Cookies.get('authToken') && data && data?.collections) {
       const startIndex = (currentPage - 1) * pageSize + 1;
-      const res = data.data.map((item: any, index: number) => ({
-        id: item.id,
-        coin_id: item.coin_id,
-        name: item.name,
-        new_price: item.quote.price,
-        volume_24h: item.quote.volume_24h,
-        percent_change_1h: item.quote.percent_change_1h,
-        percent_change_24h: item.quote.percent_change_24h,
-        percent_change_7d: item.quote.percent_change_7d,
-        market_cap: item.quote.market_cap,
-        circulating_supply: item.circulating_supply,
-        symbol: item.symbol,
-        max_supply: item.max_supply,
-        index: startIndex + index,
-      }));
+      const res = data?.collections
+        ?.filter(
+          (collection: any) =>
+            collection?.collection_name.toString() == selectedWatchListName,
+        )
+        .flatMap((collection: any) => collection.coins)
+        .map((item: any, index: number) => ({
+          id: item._id,
+          coin_id: item.coin_id,
+          name: item.name,
+          new_price: item.quote.price,
+          volume_24h: item.quote.volume_24h,
+          percent_change_1h: item.quote.percent_change_1h,
+          percent_change_24h: item.quote.percent_change_24h,
+          percent_change_7d: item.quote.percent_change_7d,
+          market_cap: item.quote.market_cap,
+          circulating_supply: item.circulating_supply,
+          symbol: item.symbol,
+          max_supply: item.max_supply,
+          index: startIndex + index,
+        }));
       setRowData(res);
+    } else if (!Cookies.get('authToken')) {
+      if (data) {
+        const startIndex = (currentPage - 1) * pageSize + 1;
+        const res = data?.data?.map((item: any, index: number) => ({
+          id: item._id,
+          coin_id: item.coin_id,
+          name: item.name,
+          new_price: item.quote.price,
+          volume_24h: item.quote.volume_24h,
+          percent_change_1h: item.quote.percent_change_1h,
+          percent_change_24h: item.quote.percent_change_24h,
+          percent_change_7d: item.quote.percent_change_7d,
+          market_cap: item.quote.market_cap,
+          circulating_supply: item.circulating_supply,
+          symbol: item.symbol,
+          max_supply: item.max_supply,
+          index: startIndex + index,
+        }));
+
+        setRowData(res);
+      }
     }
-  }, [data, currentPage, itemStart, pageSize, filters, error]);
+  }, [
+    data,
+    selectedWatchListName,
+    currentPage,
+    itemStart,
+    pageSize,
+    filters,
+    error,
+  ]);
 
   return (
     <>
