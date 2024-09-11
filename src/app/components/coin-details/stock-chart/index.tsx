@@ -311,7 +311,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 return value;
               },
             },
-            height: '80%',
+            height: '90%',
             resize: { enabled: false },
             gridLineWidth: 0.5,
             min: selectedCompareCoinId ? undefined : yMin * 0.999,
@@ -319,8 +319,8 @@ const StockChart: React.FC<StockChartProps> = React.memo(
           },
           {
             labels: { enabled: false, align: 'left' },
-            top: '80%',
-            height: '20%',
+            top: '92%',
+            height: '10%',
             offset: 0,
             gridLineWidth: 0,
           },
@@ -724,7 +724,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
         ref={chartRef}
         style={{
           padding: isFullScreen ? '0' : '0 24px 34px 22px',
-          height: isFullScreen ? '90vh' : '620px',
+          height: isFullScreen ? '90vh' : '610px',
           position: 'relative',
           marginTop: '35px',
         }}
