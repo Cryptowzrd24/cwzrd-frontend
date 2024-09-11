@@ -9,6 +9,7 @@ import numeral from 'numeral';
 import third from '../../../../../public/icons/third-rank.png';
 import Graph from './graphCard';
 import Link from 'next/link';
+import infinityIcon from '../../../../../public/icons/infinity.svg';
 
 const Card = ({
   title,
@@ -326,16 +327,20 @@ const Card = ({
               >
                 Total Max. Supply <Shift />
               </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '18px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                {formattedTotalMaxSupply}
-              </Typography>
+              {totalMaxSupply ? (
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '18px',
+                    fontWeight: '500',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  {formattedTotalMaxSupply}
+                </Typography>
+              ) : (
+                <Image src={infinityIcon} alt="infinty-icon" />
+              )}
             </Stack>
           </Box>
         </Box>

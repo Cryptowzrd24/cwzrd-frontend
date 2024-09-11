@@ -42,7 +42,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
     const [options, setOptions] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const chartComponentRef = useRef<any>(null);
-    const useZones = !selectedCompareCoinId || selectedGraph !== 'Compare with';
+    const useZones = !selectedCompareCoinId;
     const convertToUppercasePeriod = (input: string) => {
       if (input === '24h') return '1D';
       return input.replace(
@@ -142,15 +142,18 @@ const StockChart: React.FC<StockChartProps> = React.memo(
     const graphType =
       selectedFilter === 'candlestick'
         ? 'candlestick'
-        : selectedGraph === 'Compare with'
-          ? selectedCompareCoinId
-            ? 'line'
-            : 'area'
+        : selectedCompareCoinId
+          ? 'line'
           : selectedGraph === 'Market Cap'
             ? 'line'
             : 'area';
 
-    console.log(selectedCompareCoinId);
+    console.log(
+      selectedCompareCoinId,
+      graphType,
+      selectedFilter,
+      candleStickData,
+    );
 
     const getDate = (timestamp: string) =>
       new Date(parseInt(timestamp, 10) * 1000).getTime();
@@ -205,7 +208,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
       let yMin, yMax;
 
       if (graphType === 'line') {
-        if (selectedGraph === 'Compare with' && compareData.length > 0) {
+        if (compareData.length > 0) {
           const combinedData = [...marketcap, ...compareData];
           yMin = Math.min(...combinedData.map((point) => point[1]));
           yMax = Math.max(...combinedData.map((point) => point[1]));
@@ -233,7 +236,6 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             new Date(quote.timeOpen).getTime(),
             quote.quote.marketCap,
           ]);
-
           candleStickVolume.push({
             x: new Date(quote.timeOpen).getTime(),
             y: quote.quote.volume,
@@ -297,7 +299,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
               },
               formatter: function (this: any) {
                 const value = this.value;
-                if (selectedCompareCoinId && selectedGraph === 'Compare with') {
+                if (selectedCompareCoinId) {
                   return `${value.toFixed(2)}%`;
                 }
                 if (value >= 1000000000000)
@@ -309,32 +311,23 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 return value;
               },
             },
-            height: '80%',
+            height: '90%',
             resize: { enabled: false },
             gridLineWidth: 0.5,
-            min:
-              selectedCompareCoinId && selectedGraph === 'Compare with'
-                ? undefined
-                : yMin * 0.999,
-            max:
-              selectedCompareCoinId && selectedGraph === 'Compare with'
-                ? undefined
-                : yMax * 1.001,
+            min: selectedCompareCoinId ? undefined : yMin * 0.999,
+            max: selectedCompareCoinId ? undefined : yMax * 1.001,
           },
           {
             labels: { enabled: false, align: 'left' },
-            top: '80%',
-            height: '20%',
+            top: '92%',
+            height: '10%',
             offset: 0,
             gridLineWidth: 0,
           },
         ],
         plotOptions: {
           series: {
-            compare:
-              selectedCompareCoinId && selectedGraph === 'Compare with'
-                ? 'percent'
-                : '',
+            compare: selectedCompareCoinId ? 'percent' : '',
             states: {
               inactive: {
                 opacity: 1,
@@ -348,6 +341,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
           shadow: false,
           useHTML: true,
           formatter: function (this: any) {
+            console.log('this>>', this);
             const firstCoinIndex =
               this?.points?.length === 4
                 ? this.points?.[0]
@@ -372,7 +366,10 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             const low = priceNumberFormatter(ohlc.low);
             const close = priceNumberFormatter(ohlc.close);
             const price = priceNumberFormatter(this.y);
+            const marketCap = numeral(this.y).format('0.00a');
             const comparePrice = priceNumberFormatter(secondCoinIndex?.y);
+            const compareMarketCap = numeral(this.points[1].y).format('0.00a');
+
             const priceChangeFirstCoin =
               firstCoinIndex?.point?.change?.toFixed(2);
             const priceChangeSecondCoin =
@@ -432,10 +429,10 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                   ? `
                 <div style="display: flex; justify-content: space-between; padding-top: 6px;">
                   <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                    Price
+                    ${graphType === 'line' && selectedGraph === 'Market Cap' ? 'Market Cap' : 'Price'}
                   </div>
-                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
-                    $${price}
+                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase">
+                   $${graphType === 'line' && selectedGraph === 'Market Cap' ? marketCap : price}
                   </div>
                 </div>
                 `
@@ -445,11 +442,11 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                         <div style="display: flex; justify-content:start; align-items:center; gap:8px;">
                           <div style="width:12px; height: 12px; background-color:rgba(114, 72, 247, 1); border-radius:50%"></div>
                           <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                            Price(${coinSymbol}):
+                            ${graphType === 'line' && selectedGraph === 'Market Cap' ? `Market Cap(${coinSymbol}):` : `Price(${coinSymbol}):`}
                           </div>
                         </div>
-                        <div style="font-size: 13px; font-weight: 500; font-family: 'Sf Pro Display'; color: ${firstPriceChangeColor}">
-                          $${price}(${priceChangeFirstCoin}%)
+                        <div style="font-size: 13px; font-weight: 500; font-family: 'Sf Pro Display'; color: ${firstPriceChangeColor}; text-transform: uppercase">
+                          ${graphType === 'line' && selectedGraph === 'Market Cap' ? `$${marketCap}(${priceChangeFirstCoin}%)` : `$${price}(${priceChangeFirstCoin}%)`}
                         </div>
                       </div>`
                         : ''
@@ -460,11 +457,11 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 <div style="display: flex; justify-content:start; align-items:center; gap:8px;">
                   <div style="width:13px; height: 12px; background-color:#FF775E; border-radius:50%"></div>
                   <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                    Price(${compareCoinSymbol}):
+                    ${graphType === 'line' && selectedGraph === 'Market Cap' ? `Market Cap(${compareCoinSymbol}):` : `Price(${compareCoinSymbol}):`}
                   </div>
                 </div>
-                  <div style="font-size: 13px; font-weight: 500; font-family: 'Sf Pro Display'; color: ${secondPriceChangeColor}">
-                    $${comparePrice}(${priceChangeSecondCoin}%)
+                  <div style="font-size: 13px; font-weight: 500; font-family: 'Sf Pro Display'; color: ${secondPriceChangeColor}; text-transform: uppercase">
+                    ${graphType === 'line' && selectedGraph === 'Market Cap' ? `$${compareMarketCap}(${priceChangeSecondCoin}%)` : `$${comparePrice}(${priceChangeSecondCoin}%)`}
                   </div>
                 </div>`
                   : ''
@@ -494,9 +491,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
                 ? candlestickSeries
                 : graphType === 'line' && selectedGraph === 'Market Cap'
                   ? marketcap
-                  : graphType === 'line' &&
-                      selectedGraph === 'Compare with' &&
-                      selectedCompareCoinId
+                  : graphType === 'line' && selectedCompareCoinId
                     ? data
                     : data,
             color: 'rgba(69, 202, 148, 1)',
@@ -587,7 +582,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             },
             showInLegend: false,
           },
-          ...(compareData.length && selectedGraph === 'Compare with'
+          ...(compareData.length
             ? [
                 {
                   type: 'line',
@@ -615,26 +610,25 @@ const StockChart: React.FC<StockChartProps> = React.memo(
               ]
             : []),
         ],
-        legend:
-          selectedGraph === 'Compare with' && selectedCompareCoinId
-            ? {
-                enabled: true,
-                layout: 'horizontal',
-                align: 'center',
-                verticalAlign: 'top',
-                symbolRadius: 120,
-                symbolHeight: 16,
-                symbolWidth: 1,
-                symbolPadding: 10,
-                itemStyle: {
-                  fontSize: '14px',
-                  fontFamily: 'Sf Pro Display',
-                  color: '#111',
-                  fontWeight: 500,
-                },
-                symbol: 'circle',
-              }
-            : { enabled: false },
+        legend: selectedCompareCoinId
+          ? {
+              enabled: true,
+              layout: 'horizontal',
+              align: 'center',
+              verticalAlign: 'top',
+              symbolRadius: 120,
+              symbolHeight: 16,
+              symbolWidth: 1,
+              symbolPadding: 10,
+              itemStyle: {
+                fontSize: '14px',
+                fontFamily: 'Sf Pro Display',
+                color: '#111',
+                fontWeight: 500,
+              },
+              symbol: 'circle',
+            }
+          : { enabled: false },
         navigator: {
           height: 48,
           maskFill: '#EFF3FF75',
@@ -730,7 +724,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
         ref={chartRef}
         style={{
           padding: isFullScreen ? '0' : '0 24px 34px 22px',
-          height: isFullScreen ? '90vh' : '620px',
+          height: isFullScreen ? '90vh' : '610px',
           position: 'relative',
           marginTop: '35px',
         }}
