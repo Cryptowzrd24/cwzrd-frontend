@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
             <Box
               onClick={() => dispatch(hideToggleStats())}
               sx={{
-                padding: '9px 12px',
+                padding: '5px 12px',
                 borderRadius: '72px',
                 fontSize: '10px',
                 fontWeight: '500',
@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
             <Box
               onClick={() => dispatch(showToggleStats())}
               sx={{
-                padding: '9px 12px',
+                padding: '5px 12px',
                 borderRadius: '72px',
                 fontSize: '10px',
                 fontWeight: '500',
@@ -57,7 +57,12 @@ const Hero: React.FC = () => {
               SHOW
             </Box>
           </Box>
-          <Typography variant="body1">Show Stats</Typography>
+          <Typography
+            sx={{ fontSize: '13px', fontWeight: '400' }}
+            variant="body1"
+          >
+            Show Stats
+          </Typography>
         </Box>
       </Box>
     </Stack>
