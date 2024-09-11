@@ -5,19 +5,17 @@ import styles from './index.module.css';
 interface GraphCustomHeaderProps {
   selectedTab: string;
   setSelectedTab: (val: string) => void;
-  selectedFilter: string;
 }
 
 function GraphCustomHeader({
   selectedTab,
   setSelectedTab,
-  selectedFilter,
 }: GraphCustomHeaderProps) {
   const headerOptions = [
     'Price',
     'Market Cap',
-    'TradingView',
-    ...(selectedFilter !== 'candlestick' ? ['Compare with'] : []),
+    // 'TradingView',
+    // ...(selectedFilter !== 'candlestick' ? ['Compare with'] : []),
   ];
 
   const handleTabSelect = (val: string) => {

@@ -5,6 +5,7 @@ const CompareCoin = ({ setSelectedCompareCoinId, compareData }: any) => {
   return (
     <Select
       showSearch
+      allowClear
       style={{
         width: 180,
         height: 40,
