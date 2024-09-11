@@ -6,7 +6,7 @@ import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 import { ArrowRight } from '../../../../public/icons/arrowRight';
 import { priceNumberFormatter } from '@/utils/price-number-formater';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface DataTableProps {
   title?: string;
@@ -38,6 +38,7 @@ const DataTable = memo(
     getAirDropMain = false,
   }: DataTableProps) => {
     const router = useRouter();
+    const pathname = usePathname();
 
     const modifiedColumnDefs = useMemo(
       () =>
@@ -128,7 +129,9 @@ const DataTable = memo(
           }}
           {...(typeof getRowId !== 'undefined' ? { getRowId } : {})}
           onRowClicked={(event: any) => {
-            console.log('getAirDropMain value:', getAirDropMain);
+            if (pathname.includes(`market/coin-details/`)) {
+              return;
+            }
 
             if (getAirDropMain) {
               console.log('Airdrops Main');

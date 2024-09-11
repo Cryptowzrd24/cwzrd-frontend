@@ -34,9 +34,8 @@ const DiscoverCardButton = () => {
             fontSize: '16px',
             fontWeight: '400',
             lineHeight: '24px',
-            letterSpacing: '1px',
-            color: 'black',
-            width: '266px',
+            letterSpacing: '0.1px',
+            color: 'rgba(17, 17, 17, 0.8)',
             height: '144px',
           }}
         >
@@ -47,41 +46,18 @@ const DiscoverCardButton = () => {
         <Button
           sx={{
             borderRadius: '25px',
-            height: '40px',
-            width: '155px',
-            background: 'rgb(243,243,243)',
+            width: '123px',
+            padding: '10px 20px 10px 24px',
+            background: 'rgba(17, 17, 17, 0.1)',
             marginTop: '12px',
+            height: '36px',
+            fontSize: '12px',
+            fontWeight: 600,
+            lineHeight: '15.6px',
+            fontFamily: 'Sf Pro Display',
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: '12px',
-                fontWeight: '600',
-                lineHeight: '15.6px',
-                marginRight: '5px',
-              }}
-            >
-              Read More{' '}
-            </Typography>
-            <span
-              style={{
-                color: 'black',
-                fill: 'black',
-                marginTop: '3px',
-                // paddingRight: '15px',
-                // marginLeft: '-5px',
-              }}
-            >
-              <ArrowRight fill="black" />
-            </span>
-          </Box>
+          Read More <ArrowRight fill="black" />
         </Button>
       </Box>
     </Box>
