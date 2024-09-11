@@ -37,6 +37,11 @@ socketCoinDetailBanner.addEventListener('message', (event) => {
     );
     const marketCapElementCard = document.getElementById(`card-market-cap-${coinId}`);
 
+    const shareTokenPrice = document.getElementById(`share-coin-${coinId}`);
+    if(shareTokenPrice){
+      console.log('running')
+      shareTokenPrice.innerText = `$${priceNumberFormatDigits(newPrice)}`;
+    }
     
     if (priceElement) {
       console.log(priceNumberFormatDigits(newPrice))
