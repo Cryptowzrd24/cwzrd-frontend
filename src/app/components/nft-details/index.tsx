@@ -9,8 +9,24 @@ import NewsLetter from '../news-letter';
 import MemberShipBanner from '../banners/memberShipBanner';
 import Activity from './activity';
 import PriceSales from './price-sales';
+import GraphLayout from './graph/graphLayout';
+import GraphCard from './graph/graphCard';
+import Verified from '../../../../public/icons/verified';
 
 const NftDetails = () => {
+  const cardData = [
+    {
+      id: '1',
+      image: '/images/collections/Rectangle 40918.png',
+      subtitle: 'zafGod.eth',
+      icon: <Verified />,
+      title: 'Dragon Street #47',
+      status: 'Status',
+      statusAction: 'Complete',
+      price: 'Price',
+      amount: '0.000069 ETH',
+    },
+  ];
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
@@ -20,8 +36,22 @@ const NftDetails = () => {
         <Box sx={{ mt: '16px', mb: '16px' }}>
           <NftNavbar />
         </Box>
-        <Box sx={{ mb: '48px' }}>
+        <Box
+          sx={{
+            mb: '48px',
+            display: 'flex',
+            gap: '30px',
+          }}
+        >
+          <GraphLayout coinSymbol={'BTC'} />
           <PriceSales />
+        </Box>
+        <Box sx={{ position: 'absolute', top: '770px', left: '215px' }}>
+          {cardData.map((card) => (
+            <Box key={card.id} sx={{ px: 1 }}>
+              <GraphCard {...card} />
+            </Box>
+          ))}
         </Box>
         <Box sx={{ mb: '48px' }}>
           <Info />

@@ -3,9 +3,9 @@ import { SalesAddresses } from '@/app/components/data-table/sales-data/addresses
 import { SalesItems } from '@/app/components/data-table/sales-data/items';
 import { useMemo } from 'react';
 
-import ValueRenderer from './valueRenderer';
+import ValueRenderer from '../sales-data-grid/valueRenderer';
 
-const useColumnSalesDefs = (columns: any) => {
+const useColumnActivityDefs = (columns: any) => {
   return useMemo(() => {
     return columns.map((col: any) => {
       switch (col.field) {
@@ -22,11 +22,11 @@ const useColumnSalesDefs = (columns: any) => {
             cellRenderer: SalesItems,
             width: 180,
           };
-        case 'rarity':
+        case 'transaction':
           return {
-            field: 'rarity',
-            headerName: 'Rarity',
-            width: 50,
+            field: 'transaction',
+            headerName: 'Transaction Type',
+            width: 160,
           };
 
         case 'addresses':
@@ -62,4 +62,4 @@ const useColumnSalesDefs = (columns: any) => {
   }, [columns]);
 };
 
-export default useColumnSalesDefs;
+export default useColumnActivityDefs;

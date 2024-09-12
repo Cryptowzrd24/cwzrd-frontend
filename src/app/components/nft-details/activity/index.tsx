@@ -1,14 +1,14 @@
 'use client';
-import { columnsSales } from '@/app/constants/columns';
-import useColumnSalesDefs from '@/app/hooks/sales-data-grid/sales';
+import { columnsActivity } from '@/app/constants/columns';
+import useColumnActivityDefs from '@/app/hooks/activity-data-grid/activity';
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import DataTable from '../../data-table';
-import { rowDataSales } from '@/app/constants/row';
+import { rowDataActivity } from '@/app/constants/row';
 import { Pagination } from '../../data-table/pagination';
 
 const Activity = () => {
-  const colDef = useColumnSalesDefs(columnsSales);
+  const colDef = useColumnActivityDefs(columnsActivity);
 
   const pageSize = 10;
   const totalCount = 50;
@@ -67,7 +67,7 @@ const Activity = () => {
         </Box>
       </Box>
       <Box sx={{ mt: '36px' }}>
-        <DataTable rowData={rowDataSales} columnDefs={colDef} />
+        <DataTable rowData={rowDataActivity} columnDefs={colDef} />
         <Pagination
           length={totalCount}
           pageSize={pageSize}
