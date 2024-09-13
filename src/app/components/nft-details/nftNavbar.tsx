@@ -53,7 +53,7 @@ const NftNavbar = () => {
             color:
               activeHeading === heading
                 ? 'rgba(114, 72, 247, 1)'
-                : 'rgba(17, 17, 17, 0.6)',
+                : 'rgba(17, 17, 17, 1)',
             backgroundColor:
               activeHeading === heading
                 ? 'rgba(114, 72, 247, 0.1)'
