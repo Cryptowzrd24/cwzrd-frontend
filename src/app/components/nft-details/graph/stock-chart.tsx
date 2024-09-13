@@ -38,14 +38,14 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
           y: value,
           color: {
             linearGradient: {
-              x1: 0, // Starting point (left)
-              y1: 0, // Starting point (top)
-              x2: 1, // Ending point (right)
-              y2: 0, // Ending point (bottom)
+              x1: 0,
+              y1: 0,
+              x2: 1,
+              y2: 0,
             },
             stops: [
-              [0, '#F7841A'], // Start color (orange)
-              [1, '#F74848'], // End color (red)
+              [0, '#F7841A'],
+              [1, '#F74848'],
             ],
           },
         }));
@@ -57,7 +57,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
           xAxis: [
             {
               labels: {
-                enabled: false,
+                enabled: true,
                 style: {
                   fontSize: '12px',
                   fontFamily: 'Sf Pro Display',
@@ -214,6 +214,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
           ],
           legend: { enabled: false },
           navigator: {
+            enabled: false,
             top: 580,
             height: 28,
             maskFill: 'transparent',

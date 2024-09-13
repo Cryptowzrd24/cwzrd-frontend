@@ -66,7 +66,19 @@ const Activity = () => {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ mt: '36px' }}>
+      <Box
+        sx={{
+          mt: '16px',
+          background: 'rgba(255, 255, 255, 1)',
+          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+          width: '100%',
+          borderRadius: '24px',
+          padding: '20px 24px 20px 24px',
+          '& .ag-header': {
+            borderTop: 'none',
+          },
+        }}
+      >
         <DataTable rowData={rowDataActivity} columnDefs={colDef} />
         <Pagination
           length={totalCount}

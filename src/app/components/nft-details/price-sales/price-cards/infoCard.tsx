@@ -12,7 +12,7 @@ const InfoCard = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
           width: '330px',
-          boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
+          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           borderRadius: '24px',
         }}
       >
@@ -45,7 +45,7 @@ const InfoCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              items
+              Items
             </Typography>
             <Typography
               variant="body1"

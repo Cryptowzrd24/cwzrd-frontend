@@ -7,6 +7,26 @@ const NftNavbar = () => {
 
   const handleHeadingClick = (heading: any) => {
     setActiveHeading(heading);
+    const sectionIdMap: { [key: string]: string } = {
+      Overview: 'overview',
+      About: 'about',
+      News: 'news',
+      Market: 'market',
+      Activity: 'activity',
+      Sales: 'sales',
+    };
+    const sectionId = sectionIdMap[heading];
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const topOffset = -80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset + topOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
   };
 
   const headings = ['Overview', 'About', 'News', 'Sales', 'Market', 'Activity'];

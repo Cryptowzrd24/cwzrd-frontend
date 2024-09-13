@@ -971,6 +971,54 @@ export const rowDataSales = [
     Gas: '0.0006037 ETH',
     ago_1h: '1h Ago',
   },
+  {
+    index: 5,
+    item: '#2701',
+    Rarity: '5205/8875',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0.2699 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+  {
+    index: 6,
+    item: '#2701',
+    Rarity: '5205/8875',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0.2699 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+  {
+    index: 7,
+    item: '#2701',
+    Rarity: '5205/8875',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0.2699 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+  {
+    index: 8,
+    item: '#2701',
+    Rarity: '5205/8875',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0.2699 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
 ];
 export const rowDataActivity = [
   {
@@ -1011,6 +1059,54 @@ export const rowDataActivity = [
   },
   {
     index: 4,
+    item: '#2701',
+    transaction: 'Sale',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0.2699 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+  {
+    index: 5,
+    item: '#2701',
+    transaction: 'Sale',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0.2699 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+  {
+    index: 6,
+    item: '#2701',
+    transaction: 'Sale',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0.2699 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+  {
+    index: 7,
+    item: '#2701',
+    transaction: 'Sale',
+    addresses: {
+      from: '0xef0b31nbIOJ948Ko20A1ks89sSK...',
+      to: '0xef0b31nbIOJ948Ko20A1ks89suysSK...',
+    },
+    Price: '0.2699 ETH',
+    Gas: '0.0006037 ETH',
+    ago_1h: '1h Ago',
+  },
+  {
+    index: 8,
     item: '#2701',
     transaction: 'Sale',
     addresses: {

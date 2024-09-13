@@ -14,7 +14,7 @@ const Thought = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
           width: '330px',
-          boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
+          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           borderRadius: '24px',
           // height: '222px',
         }}
@@ -72,7 +72,7 @@ const Thought = () => {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              gap: '8px',
+              gap: '4px',
               padding: '8px 12px 8px 10px',
               borderRadius: '100px',
               background: 'rgba(114, 72, 247, 1)',
@@ -95,7 +95,7 @@ const Thought = () => {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              gap: '8px',
+              gap: '4px',
               padding: '8px 12px 8px 10px',
               borderRadius: '100px',
               background: 'rgba(255, 255, 255, 1)',
