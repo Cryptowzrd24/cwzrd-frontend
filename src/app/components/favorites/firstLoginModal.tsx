@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
@@ -19,9 +19,11 @@ import {
 const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
   const dispatch = useAppDispatch();
   const [addWatchlist] = useAddWatchlistMutation();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
+    setLoading(true);
     // @ts-expect-error: Cookie might be undefined or invalid JSON
     const favorites = JSON.parse(Cookies?.get('favorites'));
     dispatch(updateSelectedWatchListName('My Favorite Coins'));
@@ -37,11 +39,27 @@ const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
     } catch (error) {
       console.error('Failed to create watchlist:', error);
     }
+    setLoading(false);
   };
 
-  const handleClose = () => {
-    setFirstLogin(false);
-    Cookies.remove('favorites');
+  const handleClose = async (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    setLoading(true);
+    dispatch(updateSelectedWatchListName('My First Coin Watchlist'));
+    dispatch(updateSelectedWatchListMain('My First Coin Watchlist'));
+    try {
+      await addWatchlist({
+        token: Cookies.get('authToken'),
+        collection_name: 'My First Coin Watchlist',
+        main: true,
+        ids: [],
+      }).unwrap();
+      setFirstLogin(false);
+      Cookies.remove('favorites');
+    } catch (error) {
+      console.error('Failed to create watchlist:', error);
+    }
+    setLoading(false);
   };
 
   return (
@@ -160,6 +178,7 @@ const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
               }}
             >
               <Button
+                disabled={loading}
                 sx={{
                   background:
                     'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
@@ -181,6 +200,7 @@ const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
                 Yes, please
               </Button>
               <Button
+                disabled={loading}
                 sx={{
                   borderColor: '#7248F7',
                   borderRadius: '8px',
