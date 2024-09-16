@@ -38,7 +38,7 @@ const useColumnExchangeDefs = (columns: any) => {
           return {
             field: 'trading_volume_24h',
             headerName: 'Trading Volume(24h)',
-            width: 200,
+            width: 165,
             valueFormatter: (p: any) =>
               '$' + Math.round(p.value).toLocaleString(),
           };
@@ -80,7 +80,7 @@ const useColumnExchangeDefs = (columns: any) => {
         case 'last7Days':
           return {
             field: 'last7Days',
-            width: 105,
+            width: 150,
             headerName: 'Last 7 Days',
             cellRenderer: GraphComp,
           };

@@ -7,13 +7,12 @@ import first from '../../../../../public/icons/first-rank.png';
 import second from '../../../../../public/icons/second-rank.png';
 import numeral from 'numeral';
 import third from '../../../../../public/icons/third-rank.png';
-import Graph from './graphCard';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
+
+import Tooltip from '@mui/material/Tooltip';
 
 const ExchangeCard = ({
   title,
-  price,
-  change,
   marketCap,
   circulationSupply,
   volume,
@@ -21,36 +20,26 @@ const ExchangeCard = ({
   symbol,
   coinId,
   index,
+  score,
 }: any) => {
-  const [activeButton, setActiveButton] = useState<string>('');
-
-  const isPositiveChange = change > 0;
+  const isPositiveChange = score > 4.9;
 
   const backgroundImage = isPositiveChange
     ? '/images/spotlight-cards/background1.png'
     : '/images/spotlight-cards/background2.png';
 
   const imgUrl = `https://s2.coinmarketcap.com/static/img/exchanges/64x64/${coinId}.png`;
+  const graphImg = `https://s3.coinmarketcap.com/generated/sparklines/exchanges/web/7d/usd/${coinId}.svg`;
 
-  const areachartData = [
-    { x: 1, y: 5 },
-    { x: 2, y: 10 },
-    { x: 3, y: 15 },
-    { x: 4, y: 8 },
-    { x: 5, y: 1 },
-    { x: 6, y: 6 },
-    { x: 7, y: 2 },
-    { x: 8, y: 3 },
-    { x: 9, y: 9 },
-    { x: 10, y: 7 },
-    { x: 11, y: 1 },
-    { x: 12, y: 12 },
-    { x: 13, y: 2 },
-    { x: 14, y: 5 },
-    { x: 15, y: 1 },
-    { x: 16, y: 15 },
-    { x: 17, y: 7 },
-  ];
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  const handleMouseEnter = (id: string) => {
+    setHoveredId(id);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredId(null);
+  };
 
   const getRankContent = (index: number) => {
     switch (index) {
@@ -76,22 +65,6 @@ const ExchangeCard = ({
   const formattedTotalMaxSupply = numeral(totalMaxSupply)
     .format('0.0a')
     .toUpperCase();
-
-  const handleButtonClick = (button: string) => {
-    setActiveButton(button);
-  };
-
-  const getButtonStyles = (button: string) => {
-    const isActive = activeButton === button;
-    return {
-      background: isActive
-        ? isPositiveChange
-          ? 'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)'
-          : 'linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)'
-        : 'transparent',
-      color: isActive ? 'rgba(255, 255, 255, 1)' : 'rgba(17, 17, 17, 1)',
-    };
-  };
 
   return (
     <Box
@@ -178,7 +151,7 @@ const ExchangeCard = ({
               color: 'rgba(255, 255, 255, 1)',
             }}
           >
-            {priceNumberFormatDigits(price)}
+            {priceNumberFormatDigits(score)}
           </Typography>
         </Box>
       </Box>
@@ -202,7 +175,37 @@ const ExchangeCard = ({
                 color: 'rgba(17, 17, 17, 0.4)',
               }}
             >
-              Liquidity <Shift />
+              Liquidity
+              <Tooltip
+                title="Liquidity refers to how easily and quickly a cryptocurrency can be converted into cash without significantly affecting its price. High liquidity minimizes slippage, ensuring transactions happen closer to the expected price"
+                componentsProps={{
+                  tooltip: {
+                    sx: {
+                      width: '270px',
+                      backgroundColor: 'rgba(255, 255, 255, 1)',
+                      color: 'rgba(17, 17, 17, 0.8)',
+                      fontSize: '12px',
+                      padding: '12px',
+                      borderRadius: '12px',
+                      boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                      fontWeight: 'normal',
+                    },
+                  },
+                }}
+              >
+                <span
+                  style={{
+                    cursor: 'pointer',
+                    width: '8px',
+                    height: '8px',
+                    marginLeft: '5px',
+                  }}
+                  onMouseEnter={() => handleMouseEnter('liquidity')}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Shift hovered={hoveredId === 'liquidity'} />
+                </span>
+              </Tooltip>
             </Typography>
             <Typography
               variant="body1"
@@ -224,7 +227,7 @@ const ExchangeCard = ({
                 color: 'rgba(17, 17, 17, 0.4)',
               }}
             >
-              Num Markets <Shift />
+              Num Markets
             </Typography>
             <Typography
               variant="body1"
@@ -248,7 +251,37 @@ const ExchangeCard = ({
                 color: 'rgba(17, 17, 17, 0.4)',
               }}
             >
-              Spot Vol (24h) <Shift />
+              Spot Vol (24h)
+              <Tooltip
+                title="The Spot Vol (24h) shows the total trading volume of a cryptocurrency on spot markets over the past 24 hours. Higher volumes indicate more active trading, which usually correlates with better liquidity and less price slippage"
+                componentsProps={{
+                  tooltip: {
+                    sx: {
+                      width: '270px',
+                      backgroundColor: 'rgba(255, 255, 255, 1)',
+                      color: 'rgba(17, 17, 17, 0.8)',
+                      fontSize: '12px',
+                      padding: '12px',
+                      borderRadius: '12px',
+                      boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                      fontWeight: 'normal',
+                    },
+                  },
+                }}
+              >
+                <span
+                  style={{
+                    cursor: 'pointer',
+                    width: '8px',
+                    height: '8px',
+                    marginLeft: '5px',
+                  }}
+                  onMouseEnter={() => handleMouseEnter('spotVol')}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Shift hovered={hoveredId === 'spotVol'} />
+                </span>
+              </Tooltip>
             </Typography>
             <Typography
               variant="body1"
@@ -270,7 +303,7 @@ const ExchangeCard = ({
                 color: 'rgba(17, 17, 17, 0.4)',
               }}
             >
-              Total Visits <Shift />
+              Total Visits
             </Typography>
             <Typography
               variant="body1"
@@ -292,7 +325,7 @@ const ExchangeCard = ({
             borderRadius: '12px',
           }}
         >
-          <Box
+          {/* <Box
             sx={{
               display: 'flex',
               alignItems: 'center',
@@ -324,11 +357,24 @@ const ExchangeCard = ({
                 </Typography>
               </Box>
             ))}
-          </Box>
-          <Box>
-            <Graph
-              graphAttr={{ type: 'area', data: areachartData }}
-              change={change}
+          </Box> */}
+          <Box
+            style={{
+              marginBottom: '-10px',
+              padding: '10px',
+            }}
+          >
+            <img
+              style={{
+                width: '100%',
+                height: '100%',
+                filter:
+                  Number(score) < 4.9
+                    ? 'brightness(0) saturate(100%) invert(46%) sepia(99%) saturate(379%) hue-rotate(311deg) brightness(100%) contrast(93%)'
+                    : 'brightness(0) saturate(100%) invert(68%) sepia(13%) saturate(1609%) hue-rotate(104deg) brightness(97%) contrast(94%)',
+              }}
+              src={graphImg}
+              alt="graph"
             />
           </Box>
         </Box>
