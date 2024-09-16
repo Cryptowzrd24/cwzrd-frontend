@@ -1,15 +1,26 @@
+'use client';
 import { login } from '@/app/services';
-import { Box, Button, Popover, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  Popover,
+  TextField,
+  Typography,
+} from '@mui/material';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ForgotPassword from '../forgot-password';
 import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '@/app/redux/user';
 import Cookies from 'js-cookie';
 import LoadingOverlay from '../loading-overlay';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-const Login = ({ setIsAuthenticated }: any) => {
+const Login = ({ setIsAuthenticated, setFirstLogin }: any) => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [email, setEmail] = useState<string>('');
@@ -19,6 +30,7 @@ const Login = ({ setIsAuthenticated }: any) => {
   const [forgotPassword, setForgotPassowrd] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -64,8 +76,27 @@ const Login = ({ setIsAuthenticated }: any) => {
       setLoading(true);
       const response = await login({ email, password });
       if (response?.token) {
-        dispatch(loginSuccess({ email, name: 'Test', token: response?.token }));
+        if (response?.first_attempt) {
+          dispatch(
+            loginSuccess({
+              email,
+              name: 'Test',
+              token: response?.token,
+              isFirstLogin: true,
+            }),
+          );
+          setFirstLogin(true);
+        }
+        dispatch(
+          loginSuccess({
+            email,
+            name: 'Test',
+            token: response?.token,
+            isFirstLogin: false,
+          }),
+        );
         Cookies.set('authToken', response?.token);
+
         setIsAuthenticated(true);
       } else if (response?.error) {
         console.log('Error:', response.error);
@@ -81,6 +112,12 @@ const Login = ({ setIsAuthenticated }: any) => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (Cookies.get('firstLogin')?.length) {
+      setFirstLogin(true);
+    }
+  }, [Cookies.get('firstLogin')]);
 
   return (
     <>
@@ -174,7 +211,24 @@ const Login = ({ setIsAuthenticated }: any) => {
                 </Link>
               </Box>
               <TextField
-                type="password"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={() => setShowPassword(!showPassword)}
+                        edge="end"
+                      >
+                        {showPassword ? (
+                          <VisibilityIcon />
+                        ) : (
+                          <VisibilityOffIcon />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Enter your password..."
                 value={password}
                 name="password"

@@ -37,7 +37,11 @@ function a11yProps(index: number) {
   };
 }
 
-const AuthModal = ({ isAuthenticated, setIsAuthenticated }: any) => {
+const AuthModal = ({
+  isAuthenticated,
+  setIsAuthenticated,
+  setFirstLogin,
+}: any) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -139,7 +143,10 @@ const AuthModal = ({ isAuthenticated, setIsAuthenticated }: any) => {
                 </Tabs>
               </Box>
               <CustomTabPanel value={value} index={0}>
-                <Login setIsAuthenticated={setIsAuthenticated} />
+                <Login
+                  setFirstLogin={setFirstLogin}
+                  setIsAuthenticated={setIsAuthenticated}
+                />
               </CustomTabPanel>
               <CustomTabPanel value={value} index={1}>
                 <SignUp setActiveTab={setValue} />

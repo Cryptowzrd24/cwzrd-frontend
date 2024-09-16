@@ -1,7 +1,17 @@
 import { signUp } from '@/app/services';
-import { Box, Button, Popover, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  Popover,
+  TextField,
+  Typography,
+} from '@mui/material';
 import React, { useState } from 'react';
 import LoadingOverlay from '../loading-overlay';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const SignUp = ({ setActiveTab }: any) => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -14,6 +24,7 @@ const SignUp = ({ setActiveTab }: any) => {
   const [passwordError, setPasswordError] = useState<string>('');
   const [alertMessage, setAlertMessage] = useState({ color: '', message: '' });
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e: any) => {
     if (e.target.name === 'email') {
@@ -28,6 +39,14 @@ const SignUp = ({ setActiveTab }: any) => {
     }
   };
 
+  const validatePassword = (password: string) => {
+    console.log('pass', password);
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    console.log('is valid', passwordRegex.test(password));
+    return passwordRegex.test(password);
+  };
+
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -35,14 +54,6 @@ const SignUp = ({ setActiveTab }: any) => {
 
   const validateName = (name: string) => {
     return name.trim().length > 2;
-  };
-
-  const validatePassword = (password: string) => {
-    console.log('pass', password);
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    console.log('is valid', passwordRegex.test(password));
-    return passwordRegex.test(password);
   };
 
   const handleSubmit = async (e: any) => {
@@ -80,8 +91,7 @@ const SignUp = ({ setActiveTab }: any) => {
       if (response?.message) {
         setAlertMessage({
           color: 'green',
-          message:
-            response?.message + ' Please verify your email and then login',
+          message: response?.message,
         });
         setAnchorEl(e.currentTarget);
         setPopoverOpen(true);
@@ -215,7 +225,20 @@ const SignUp = ({ setActiveTab }: any) => {
           </Typography>
 
           <TextField
-            type="password"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={() => setShowPassword(!showPassword)}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            type={showPassword ? 'text' : 'password'}
             placeholder="Enter your password..."
             value={password}
             name="password"

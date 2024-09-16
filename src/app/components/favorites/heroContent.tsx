@@ -30,21 +30,20 @@ import {
   updateSelectedWatchListName,
 } from '@/app/redux/market';
 import AuthModal from './authModal';
-import { useSelector } from 'react-redux';
+import FirstLoginModal from './firstLoginModal';
 
 const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const [active, setActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  // const [emailStored, setEmailStored] = useState('');
   const [watchlistName, setWatchlistName] = useState('');
+
+  const [firstLogin, setFirstLogin] = useState(false);
 
   const [toastOpen, setToastOpen] = useState(false);
   const [moreOptionsOpen, setMoreOptionsOpen] = useState(false);
-  // const [modalContent, setModalContent] = useState({ title: '', icon: null });
   const [isMainWatchlist, setIsMainWatchlist] = useState(false);
   const [addWatchlist] = useAddWatchlistMutation();
-  // const [emailExistError, setEmailExistError] = useState('');
   const [anchorEl, setAnchorEl] = useState(null);
   const [watchList, setWatchList] = useState([]);
 
@@ -58,7 +57,6 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
   const dispatch = useAppDispatch();
   const { favorites } = useAppSelector((state) => state.market);
-  const { email } = useSelector((state) => state.user);
 
   const handleStarClick = () => {
     setIsMainWatchlist(true);
@@ -125,6 +123,8 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
       setActive(true);
     } catch (error) {
       console.error('Failed to create watchlist:', error);
+    } finally {
+      setActive(false);
     }
   };
 
@@ -135,7 +135,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
     try {
       const response = await fetch(
-        `${baseUrl}/api/favorites/?email=${email}&collection_name=${selectedWatchList.collection_name}`,
+        `${baseUrl}/api/favorites/?collection_name=${selectedWatchList.collection_name}`,
         {
           method: 'DELETE',
           headers: {
@@ -232,37 +232,77 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [dropdownRef]);
-
   useEffect(() => {
     const fetchWatchList = async () => {
-      if (Cookies.get('authToken')) {
+      const authToken = Cookies.get('authToken');
+      if (authToken) {
         try {
           const response = await fetch(`${baseUrl}/api/favorites`, {
             method: 'GET',
             headers: {
-              Authorization: `Bearer ${Cookies.get('authToken')}`,
+              Authorization: `Bearer ${authToken}`,
             },
           });
-          const data = await response.json();
-          const mainCollection: any = Object.values(data.collections).find(
-            (collection: any) => collection?.main === true,
-          );
-          setWatchList(data.collections);
 
-          if (mainCollection && !selectedWatchList.collection_name) {
-            setSelectedWatchList(mainCollection);
-            dispatch(
-              updateSelectedWatchListName(mainCollection?.collection_name),
+          if (response.ok) {
+            const data = await response.json();
+            const mainCollection: any = Object.values(data.collections).find(
+              (collection: any) => collection?.main === true,
             );
-            dispatch(updateSelectedWatchListMain(mainCollection?.main));
+            setWatchList(data.collections);
+
+            if (mainCollection && !selectedWatchList.collection_name) {
+              setSelectedWatchList(mainCollection);
+              dispatch(
+                updateSelectedWatchListName(mainCollection?.collection_name),
+              );
+              dispatch(updateSelectedWatchListMain(mainCollection?.main));
+            }
+          } else {
+            console.error(
+              'Failed to fetch the watchlist:',
+              response.statusText,
+            );
           }
         } catch (error) {
-          console.error('Error checking email:', error);
+          console.error('error:', error);
         }
       }
     };
+
     fetchWatchList();
-  }, [isMainWatchlist, reload, toastOpen]);
+  }, [isMainWatchlist, reload, toastOpen, Cookies.get('authToken')]);
+
+  // useEffect(() => {
+  //   const fetchWatchList = async () => {
+  //     if (Cookies.get('authToken')) {
+  //       try {
+  //         const response = await fetch(`${baseUrl}/api/favorites`, {
+  //           method: 'GET',
+  //           headers: {
+  //             Authorization: `Bearer ${Cookies.get('authToken')}`,
+  //           },
+  //         });
+  //         const data = await response.json();
+  //         const mainCollection: any = Object.values(data.collections).find(
+  //           (collection: any) => collection?.main === true,
+  //         );
+  //         setWatchList(data.collections);
+
+  //         if (mainCollection && !selectedWatchList.collection_name) {
+  //           setSelectedWatchList(mainCollection);
+  //           dispatch(
+  //             updateSelectedWatchListName(mainCollection?.collection_name),
+  //           );
+  //           dispatch(updateSelectedWatchListMain(mainCollection?.main));
+  //         }
+  //       } catch (error) {
+  //         console.error('error:', error);
+  //       }
+  //     }
+  //   };
+  //   fetchWatchList();
+  // }, [isMainWatchlist, reload, toastOpen, Cookies.get('authToken')]);
 
   useEffect(() => {
     if (selectedWatchList.ids) {
@@ -270,7 +310,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
         expires: 365,
       });
       dispatch(updateFavorites(selectedWatchList.ids));
-    } else if (!selectedWatchList?.ids && Cookies.get('watchlistEmail')) {
+    } else if (!selectedWatchList?.ids && Cookies.get('authToken')) {
       Cookies.set('favorites', JSON.stringify([]), {
         expires: 365,
       });
@@ -280,7 +320,12 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
   return (
     <>
-      {/* <ToastContainer> */}
+      {firstLogin && JSON.parse(Cookies.get('favorites')).length && (
+        <FirstLoginModal
+          setFirstLogin={setFirstLogin}
+          firstLogin={firstLogin}
+        />
+      )}
       <Box
         sx={{
           display: 'flex',
@@ -445,6 +490,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           </Button>
           {!isAuthenticated && (
             <AuthModal
+              setFirstLogin={setFirstLogin}
               isAuthenticated={!isAuthenticated}
               setIsAuthenticated={setIsAuthenticated}
             />

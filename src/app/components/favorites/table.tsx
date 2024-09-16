@@ -100,6 +100,7 @@ const Table = () => {
     pageSize,
     filters,
     error,
+    Cookies.get('authToken'),
   ]);
 
   return (

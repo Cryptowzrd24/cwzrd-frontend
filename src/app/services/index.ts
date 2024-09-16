@@ -69,7 +69,58 @@ export const forgotPassword = async (email: string) => {
     if (!response.ok) {
       const errorResponse = await response.json();
       throw new Error(
-        errorResponse.message || 'Some error occured! Please try again.',
+        errorResponse.error || 'Some error occured! Please try again.',
+      );
+    }
+    return await response.json();
+  } catch (error) {
+    return { error: (error as Error).message };
+  }
+};
+
+export const verifyEmail = async (key: string) => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/verify-email/${key}`,
+    );
+
+    if (!response.ok) {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.error || errorResponse.message);
+    }
+    return await response.json();
+  } catch (error) {
+    return { error: (error as Error).message };
+  }
+};
+
+export const resetPassword = async ({
+  password,
+  rePassword,
+  verificationKey,
+}: any) => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/reset-password/`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${decodeURIComponent(verificationKey.trim())}`,
+        },
+        body: JSON.stringify({
+          new_password: password,
+          confirm_password: rePassword,
+        }),
+      },
+    );
+
+    if (!response.ok) {
+      const errorResponse = await response.json();
+      throw new Error(
+        errorResponse.error ||
+          errorResponse.detail ||
+          'Failed to change password! Please try again',
       );
     }
     return await response.json();

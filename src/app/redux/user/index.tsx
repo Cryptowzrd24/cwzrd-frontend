@@ -5,6 +5,7 @@ interface UserState {
   email: string;
   name: string;
   token: string;
+  isFirstLogin: boolean;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }
@@ -13,10 +14,11 @@ interface LoginPayload {
   email: string;
   name: string;
   token: string;
+  isFirstLogin: boolean;
 }
 
 const getUserFromLocalStorage = (): UserState => {
-  if (false) {
+  if (typeof window !== 'undefined') {
     const userData = localStorage.getItem('user');
     const authToken = Cookie.get('authToken');
     if (userData && authToken) {
@@ -27,6 +29,7 @@ const getUserFromLocalStorage = (): UserState => {
     email: '',
     name: '',
     token: '',
+    isFirstLogin: false,
     status: 'idle',
     error: null,
   };
@@ -47,6 +50,7 @@ const userSlice = createSlice({
       state.email = action.payload.email;
       state.name = action.payload.name;
       state.token = action.payload.token;
+      state.isFirstLogin = action.payload.isFirstLogin;
 
       localStorage.setItem('user', JSON.stringify(state));
     },
@@ -58,6 +62,7 @@ const userSlice = createSlice({
       state.email = '';
       state.name = '';
       state.token = '';
+      state.isFirstLogin = false;
       localStorage.removeItem('user');
     },
   },
