@@ -27,7 +27,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
         setTimeout(() => {
           setPopoverOpen(false);
           setAnchorEl(null);
-        }, 2000);
+        }, 3000);
       })
       .catch((err) => {
         console.error('Failed to copy: ', err);
@@ -41,6 +41,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
           PaperProps={{
             sx: {
               borderRadius: '16px',
+              width: '480px',
             },
           }}
           onClose={handleClose}
@@ -176,7 +177,6 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
               padding: '8px 16px',
               background: 'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
               color: 'white',
-              borderRadius: '4px',
               textAlign: 'center',
             }}
           >

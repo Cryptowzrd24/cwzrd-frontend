@@ -69,7 +69,14 @@ const Market = () => {
             </span>{' '}
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            gap: '8px',
+            alignItems: 'center',
+            marginRight: '-45px',
+          }}
+        >
           <Box
             onClick={() => handleClick('24H')}
             sx={{
@@ -78,14 +85,14 @@ const Market = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === '24H' ? '1px solid rgba(114, 72, 247, 1)' : 'none',
             }}
           >
             <Typography
-              variant="body1"
+              // variant="body1"
               sx={{
                 fontSize: '13px',
                 fontWeight: '700',
@@ -103,14 +110,14 @@ const Market = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === '7D' ? '1px solid rgba(114, 72, 247, 1)' : 'none',
             }}
           >
             <Typography
-              variant="body1"
+              // variant="body1"
               sx={{
                 fontSize: '13px',
                 fontWeight: '700',
@@ -128,14 +135,14 @@ const Market = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              background: 'rgba(17, 17, 17, 0.05)',
+              background: 'rgba(114, 72, 247, 0.1)',
               cursor: 'pointer',
               border:
                 active === '30D' ? '1px solid rgba(114, 72, 247, 1)' : 'none',
             }}
           >
             <Typography
-              variant="body1"
+              // variant="body1"
               sx={{
                 fontSize: '13px',
                 fontWeight: '700',
@@ -147,7 +154,19 @@ const Market = () => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ mt: '36px' }}>
+      <Box
+        sx={{
+          mt: '16px',
+          background: 'rgba(255, 255, 255, 1)',
+          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+          width: '100%',
+          borderRadius: '24px',
+          padding: '20px 24px 20px 24px',
+          '& .ag-header': {
+            borderTop: 'none',
+          },
+        }}
+      >
         <DataTable rowData={rowDataMarket} columnDefs={colDef} />
         <Pagination
           length={totalCount}

@@ -41,6 +41,7 @@ const Sales = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          marginRight: '-42px',
         }}
       >
         <Box>
@@ -70,8 +71,7 @@ const Sales = () => {
           variant="body1"
           sx={{
             background: 'rgba(17, 17, 17, 0.05)',
-            // padding: '11px 16px 11px  16px',
-            padding: '10px 12px',
+            padding: '10px 12px 10px 16px',
             fontWeight: '600',
             display: 'flex',
             justifyContent: 'center',
@@ -91,7 +91,19 @@ const Sales = () => {
           <ArrowRightBlack />
         </Typography>
       </Box>
-      <Box sx={{ mt: '36px' }}>
+      <Box
+        sx={{
+          mt: '16px',
+          background: 'rgba(255, 255, 255, 1)',
+          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+          width: '100%',
+          borderRadius: '24px',
+          padding: '20px 24px 20px 24px',
+          '& .ag-header': {
+            borderTop: 'none',
+          },
+        }}
+      >
         <DataTable rowData={rowDataSales} columnDefs={colDef} />
         <Pagination
           length={totalCount}

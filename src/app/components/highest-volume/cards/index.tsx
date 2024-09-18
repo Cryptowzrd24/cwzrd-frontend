@@ -1,5 +1,5 @@
 'use client';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack, Tooltip, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Shift from '../../../../../public/icons/collections/shift';
@@ -7,7 +7,6 @@ import first from '../../../../../public/icons/first-rank.png';
 import second from '../../../../../public/icons/second-rank.png';
 import numeral from 'numeral';
 import third from '../../../../../public/icons/third-rank.png';
-import Graph from './graphCard';
 import Link from 'next/link';
 import infinityIcon from '../../../../../public/icons/infinity.svg';
 
@@ -23,9 +22,7 @@ const Card = ({
   coinId,
   index,
 }: any) => {
-  const [activeButton, setActiveButton] = useState<string>('');
-
-  const isPositiveChange = change > 0;
+  const isPositiveChange = change >= 0;
   const changeColor = isPositiveChange
     ? 'rgba(69, 202, 148, 1)'
     : 'rgba(245, 65, 65, 1)';
@@ -34,27 +31,16 @@ const Card = ({
     : '/images/spotlight-cards/background2.png';
 
   const imgUrl = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinId}.png`;
+  const graphImg = `https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/${coinId}.svg`;
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
-  const areachartData = [
-    { x: 1, y: 5 },
-    { x: 2, y: 10 },
-    { x: 3, y: 15 },
-    { x: 4, y: 8 },
-    { x: 5, y: 1 },
-    { x: 6, y: 6 },
-    { x: 7, y: 2 },
-    { x: 8, y: 3 },
-    { x: 9, y: 9 },
-    { x: 10, y: 7 },
-    { x: 11, y: 1 },
-    { x: 12, y: 12 },
-    { x: 13, y: 2 },
-    { x: 14, y: 5 },
-    { x: 15, y: 1 },
-    { x: 16, y: 15 },
-    { x: 17, y: 7 },
-  ];
+  const handleMouseEnter = (id: string) => {
+    setHoveredId(id);
+  };
 
+  const handleMouseLeave = () => {
+    setHoveredId(null);
+  };
   const getRankContent = (index: number) => {
     switch (index) {
       case 1:
@@ -83,21 +69,6 @@ const Card = ({
     .format('0.0a')
     .toUpperCase();
 
-  const handleButtonClick = (button: string) => {
-    setActiveButton(button);
-  };
-
-  const getButtonStyles = (button: string) => {
-    const isActive = activeButton === button;
-    return {
-      background: isActive
-        ? isPositiveChange
-          ? 'linear-gradient(180deg, #45CA94 0%, #97D14E 100%)'
-          : 'linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)'
-        : 'transparent',
-      color: isActive ? 'rgba(255, 255, 255, 1)' : 'rgba(17, 17, 17, 1)',
-    };
-  };
   const numericChange = Number(change);
 
   // Format the change value
@@ -257,7 +228,38 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                Market Cap <Shift />
+                Market Cap
+                <Tooltip
+                  title="The total market value of a cryptocurrency's circulating supply. It is analogous to the free-float capitalization in the stock market."
+                  componentsProps={{
+                    tooltip: {
+                      sx: {
+                        width: '270px',
+                        backgroundColor: 'rgba(255, 255, 255, 1)',
+                        color: 'rgba(17, 17, 17, 0.8)',
+                        fontSize: '12px',
+                        padding: '12px',
+                        borderRadius: '12px',
+                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                        fontWeight: 'normal',
+                      },
+                    },
+                  }}
+                >
+                  <span
+                    id="1"
+                    style={{
+                      cursor: 'pointer',
+                      width: '8px',
+                      height: '8px',
+                      marginLeft: '5px',
+                    }}
+                    onMouseEnter={() => handleMouseEnter('marketCap')}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Shift hovered={hoveredId === 'marketCap'} />
+                  </span>
+                </Tooltip>
               </Typography>
               <Typography
                 variant="body1"
@@ -279,7 +281,37 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                Circulation Supply <Shift />
+                Circulation Supply
+                <Tooltip
+                  title="The amount of coins that are circulating in the market and are in public hands. It is analogous to the flowing shares in the stock market."
+                  componentsProps={{
+                    tooltip: {
+                      sx: {
+                        width: '270px',
+                        backgroundColor: 'rgba(255, 255, 255, 1)',
+                        color: 'rgba(17, 17, 17, 0.8)',
+                        fontSize: '12px',
+                        padding: '12px',
+                        borderRadius: '12px',
+                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                        fontWeight: 'normal',
+                      },
+                    },
+                  }}
+                >
+                  <span
+                    style={{
+                      cursor: 'pointer',
+                      width: '8px',
+                      height: '8px',
+                      marginLeft: '5px',
+                    }}
+                    onMouseEnter={() => handleMouseEnter('circulationSupply')}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Shift hovered={hoveredId === 'circulationSupply'} />
+                  </span>
+                </Tooltip>
               </Typography>
               <Typography
                 variant="body1"
@@ -303,7 +335,37 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                Volume (24hours) <Shift />
+                Volume (24hours)
+                <Tooltip
+                  title="A measure of how much of a cryptocurrency was traded in the last 24 hours."
+                  componentsProps={{
+                    tooltip: {
+                      sx: {
+                        width: '270px',
+                        backgroundColor: 'rgba(255, 255, 255, 1)',
+                        color: 'rgba(17, 17, 17, 0.8)',
+                        fontSize: '12px',
+                        padding: '12px',
+                        borderRadius: '12px',
+                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                        fontWeight: 'normal',
+                      },
+                    },
+                  }}
+                >
+                  <span
+                    style={{
+                      cursor: 'pointer',
+                      width: '8px',
+                      height: '8px',
+                      marginLeft: '5px',
+                    }}
+                    onMouseEnter={() => handleMouseEnter('volume')}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Shift hovered={hoveredId === 'volume'} />
+                  </span>
+                </Tooltip>
               </Typography>
               <Typography
                 variant="body1"
@@ -325,7 +387,37 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                Total Max. Supply <Shift />
+                Total Max. Supply
+                <Tooltip
+                  title="The Total Max Supply refers to the maximum amount of a cryptocurrency that can ever be created or mined, limiting its total availability"
+                  componentsProps={{
+                    tooltip: {
+                      sx: {
+                        width: '270px',
+                        backgroundColor: 'rgba(255, 255, 255, 1)',
+                        color: 'rgba(17, 17, 17, 0.8)',
+                        fontSize: '12px',
+                        padding: '12px',
+                        borderRadius: '12px',
+                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                        fontWeight: 'normal',
+                      },
+                    },
+                  }}
+                >
+                  <span
+                    style={{
+                      cursor: 'pointer',
+                      width: '8px',
+                      height: '8px',
+                      marginLeft: '5px',
+                    }}
+                    onMouseEnter={() => handleMouseEnter('totalMaxSupply')}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Shift hovered={hoveredId === 'totalMaxSupply'} />
+                  </span>
+                </Tooltip>
               </Typography>
               {totalMaxSupply ? (
                 <Typography
@@ -352,7 +444,7 @@ const Card = ({
               overflow: 'hidden',
             }}
           >
-            <Box
+            {/* <Box
               sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -384,15 +476,24 @@ const Card = ({
                   </Typography>
                 </Box>
               ))}
-            </Box>
+            </Box> */}
             <Box
               style={{
-                marginBottom: '-26px',
+                marginBottom: '-10px',
+                padding: '10px',
               }}
             >
-              <Graph
-                graphAttr={{ type: 'area', data: areachartData }}
-                change={change}
+              <img
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  filter:
+                    change && String(change)?.includes('-')
+                      ? 'brightness(0) saturate(100%) invert(46%) sepia(99%) saturate(379%) hue-rotate(311deg) brightness(100%) contrast(93%)'
+                      : 'brightness(0) saturate(100%) invert(68%) sepia(13%) saturate(1609%) hue-rotate(104deg) brightness(97%) contrast(94%)',
+                }}
+                src={graphImg}
+                alt="graph"
               />
             </Box>
           </Box>

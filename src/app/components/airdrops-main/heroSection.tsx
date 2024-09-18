@@ -14,7 +14,7 @@ const HeroSection = () => {
     <>
       <Box
         sx={{
-          padding: '32px 128px 38px 32px',
+          padding: '24px 32px 14px 32px',
           borderRadius: '32px',
           boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
           height: 'auto',
@@ -44,7 +44,7 @@ const HeroSection = () => {
               <Typography
                 variant="h3"
                 sx={{
-                  fontSize: '32px',
+                  fontSize: '24px',
                   fontWeight: '700',
                   color: 'rgba(17, 17, 17, 1)',
                   mb: '4px',
@@ -53,7 +53,7 @@ const HeroSection = () => {
                 LayerZero{' '}
                 <span
                   style={{
-                    fontSize: '18px',
+                    fontSize: '14px',
                     fontWeight: '500',
                     letterSpacing: '2px',
                   }}
@@ -69,7 +69,7 @@ const HeroSection = () => {
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   fontWeight: '500',
-                  fontSize: '16px',
+                  fontSize: '14px',
                   mb: '16px',
                 }}
               >
@@ -78,7 +78,7 @@ const HeroSection = () => {
               <Box sx={{ display: 'flex', gap: '8px' }}>
                 <Box
                   sx={{
-                    padding: '6px 12px 6px 8px',
+                    padding: '2px 10px',
                     borderRadius: '100px',
                     border: '1px solid rgba(17, 17, 17, 0.1)',
                     display: 'flex',
@@ -99,7 +99,7 @@ const HeroSection = () => {
                 </Box>
                 <Box
                   sx={{
-                    padding: '6px 12px 6px 8px',
+                    padding: '2px 10px',
                     borderRadius: '100px',
                     border: '1px solid rgba(17, 17, 17, 0.1)',
                     display: 'flex',
@@ -117,7 +117,7 @@ const HeroSection = () => {
                 </Box>
                 <Box
                   sx={{
-                    padding: '8px 16px',
+                    padding: '2px 10px',
                     borderRadius: '100px',
                     border: '1px solid rgba(17, 17, 17, 0.1)',
                     display: 'flex',
@@ -132,7 +132,7 @@ const HeroSection = () => {
                   <Typography
                     variant="body1"
                     sx={{
-                      fontSize: '16px',
+                      fontSize: '13px',
                       fontWeight: '500',
                       color: 'rgba(255, 255, 255, 1)',
                     }}
@@ -153,11 +153,11 @@ const HeroSection = () => {
             }}
           >
             <Stack>
-              <Box sx={{ display: 'flex', gap: '2px', mb: '16px' }}>
+              <Box sx={{ display: 'flex', gap: '2px', mb: '24px' }}>
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: '500',
                     color: 'rgba(17, 17, 17, 0.6)',
                     mb: '4px',
@@ -168,7 +168,7 @@ const HeroSection = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: '600',
                     color: 'rgba(17, 17, 17, 1)',
                     mb: '4px',
@@ -180,7 +180,7 @@ const HeroSection = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '16px',
+                  fontSize: '14px',
                   fontWeight: '500',
                   color: 'rgba(17, 17, 17, 0.6)',
                   mb: '4px',
@@ -200,7 +200,7 @@ const HeroSection = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: '600',
                     color: 'rgba(17, 17, 17, 1)',
                     mb: '4px',
@@ -243,7 +243,7 @@ const HeroSection = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: '500',
                     color: 'rgba(17, 17, 17, 0.6)',
                     mb: '4px',
@@ -255,7 +255,7 @@ const HeroSection = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: '600',
                     color: 'rgba(17, 17, 17, 1)',
                     mb: '4px',
@@ -268,7 +268,7 @@ const HeroSection = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: '500',
                     color: 'rgba(17, 17, 17, 0.6)',
                     mb: '4px',
@@ -279,7 +279,7 @@ const HeroSection = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: '600',
                     color: 'rgba(17, 17, 17, 1)',
                   }}

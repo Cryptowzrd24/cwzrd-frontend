@@ -188,7 +188,16 @@ export const columnsSales = [
   { field: 'item' },
   { field: 'Rarity' },
   { field: 'addresses' },
-  { field: 'new_Price' },
+  { field: 'Price' },
+  { field: 'Gas' },
+  { field: 'ago_1h', headerName: '1hAgo' },
+];
+
+export const columnsActivity = [
+  { field: 'item' },
+  { field: 'transaction' },
+  { field: 'addresses' },
+  { field: 'Price' },
   { field: 'Gas' },
   { field: 'ago_1h', headerName: '1hAgo' },
 ];
