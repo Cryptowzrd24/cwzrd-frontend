@@ -3,9 +3,17 @@ import Image from 'next/image';
 import React from 'react';
 import styles from './style.module.scss';
 import Avatar from '../../../../public/images/banner/avatar.png';
-function MemberShipBanner() {
+
+interface MemberShipBannerProps {
+  isNftDetail?: boolean;
+}
+
+function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
   return (
-    <Box className={styles.bannerBox2}>
+    <Box
+      className={styles.bannerBox2}
+      style={isNftDetail ? { width: '1290px' } : {}}
+    >
       <Box>
         <Stack
           sx={{

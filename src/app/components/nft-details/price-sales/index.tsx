@@ -5,7 +5,7 @@ import PriceCards from './price-cards';
 const PriceSales = () => {
   return (
     <>
-      <Box sx={{ mt: '80px', mb: '80px' }}>
+      <Box sx={{ mb: '80px' }}>
         <PriceCards />
       </Box>
     </>
