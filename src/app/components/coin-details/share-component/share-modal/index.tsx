@@ -27,7 +27,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
         setTimeout(() => {
           setPopoverOpen(false);
           setAnchorEl(null);
-        }, 500000);
+        }, 3000);
       })
       .catch((err) => {
         console.error('Failed to copy: ', err);
