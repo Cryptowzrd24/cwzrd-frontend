@@ -13,7 +13,7 @@ const Layers = () => {
       <Box
         sx={{
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          padding: '24px',
+          padding: '20px 24px',
           borderRadius: '24px',
         }}
       >

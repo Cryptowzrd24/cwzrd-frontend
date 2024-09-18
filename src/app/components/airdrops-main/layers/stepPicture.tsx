@@ -17,7 +17,7 @@ const StepPicture = ({ currentStep }: stepPicture) => {
           <span
             style={{
               color: 'rgba(114, 72, 247, 1)',
-              fontSize: '24px',
+              fontSize: '16px',
               fontWeight: '700',
             }}
           >
@@ -34,7 +34,7 @@ const StepPicture = ({ currentStep }: stepPicture) => {
           <span
             style={{
               color: 'rgba(114, 72, 247, 1)',
-              fontSize: '24px',
+              fontSize: '16px',
               fontWeight: '700',
             }}
           >
@@ -59,7 +59,7 @@ const StepPicture = ({ currentStep }: stepPicture) => {
     <>
       <Box
         sx={{
-          padding: '32px',
+          padding: '14px 32px',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '16px',
         }}
@@ -78,9 +78,11 @@ const StepPicture = ({ currentStep }: stepPicture) => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '600',
                 color: 'rgba(1, 200, 119, 1)',
+                display: 'flex',
+                justifyContent: 'center',
               }}
             >
               Step {currentStep}
@@ -89,7 +91,7 @@ const StepPicture = ({ currentStep }: stepPicture) => {
           <Typography
             variant="body2"
             sx={{
-              fontSize: '24px',
+              fontSize: '16px',
               fontWeight: '500',
               color: 'rgba(17, 17, 17, 1)',
               mb: '24px',

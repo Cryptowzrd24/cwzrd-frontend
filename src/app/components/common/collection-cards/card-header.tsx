@@ -27,15 +27,11 @@ function CardHeader({
       <div
         key={opt}
         onClick={() => handleTabSelect(opt)}
-        className={selectedTab === opt ? `${styles.selectedLink}` : ``}
+        className={`${styles.tab} ${
+          selectedTab === opt ? styles.selectedTab : ''
+        }`}
       >
-        <span
-          className={
-            selectedTab === opt
-              ? `${styles.selectedTabText}`
-              : `${styles.headerText}`
-          }
-        >
+        <span className={selectedTab === opt ? styles.selectedText : ''}>
           {opt}
         </span>
       </div>

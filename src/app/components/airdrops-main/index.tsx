@@ -11,24 +11,24 @@ const AirdropsMain = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '60px' }}>
+        <Box sx={{ mt: '48px' }}>
           <HeroSection />
         </Box>
-        <Box sx={{ mt: '40px' }}>
+        <Box sx={{ mt: '25px' }}>
           <HeroCard />
         </Box>
-        <Box sx={{ mt: '40px' }}>
+        <Box sx={{ mt: '20px' }}>
           <Layers />
         </Box>
 
-        <Box sx={{ mt: '120px' }}>
+        <Box sx={{ mt: '48px' }}>
           <NewsLetter />
         </Box>
-        <Box sx={{ mt: '108px' }}>
+        <Box sx={{ mt: '48px' }}>
           <Technicals />
         </Box>
 
-        <Box sx={{ mt: '160px', mb: '120px' }}>
+        <Box sx={{ mt: '48px', mb: '120px' }}>
           <MemberShipBanner />
         </Box>
       </Container>
