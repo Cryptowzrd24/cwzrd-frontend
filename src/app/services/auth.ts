@@ -81,7 +81,7 @@ export const forgotPassword = async (email: string) => {
 export const verifyEmail = async (key: string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/verify-email/${key}`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/verify-email/${key}`,
     );
 
     if (!response.ok) {
@@ -101,7 +101,7 @@ export const resetPassword = async ({
 }: any) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/reset-password/`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/reset-password/`,
       {
         method: 'POST',
         headers: {
