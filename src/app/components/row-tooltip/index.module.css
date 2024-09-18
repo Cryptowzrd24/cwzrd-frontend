@@ -1,5 +1,5 @@
 .row-tooltip{
-    width: 270px;
+    min-width: 270px;
     height: 105px;
     border-radius: 12px;
     padding: 2px 12px;
@@ -23,6 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
   }
   
   .row-tooltip-max-supply{

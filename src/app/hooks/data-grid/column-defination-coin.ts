@@ -41,7 +41,7 @@ const useColumnCoinDefs = (columns: any) => {
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 100,
+            width: 90,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
@@ -61,14 +61,14 @@ const useColumnCoinDefs = (columns: any) => {
           return {
             field: 'volume_24h',
             headerComponent: HeaderComponent,
-            width: 170,
+            width: 165,
             cellRenderer: VolumeComponent,
           };
         case 'circulating_supply':
           return {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
-            width: 165,
+            width: 195,
             cellRenderer: CirculatingSupply,
             tooltipComponent: RowTooltip,
             tooltipValueGetter: (params: any) =>
