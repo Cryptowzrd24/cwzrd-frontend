@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import marketReducer from './market/index';
+import userReducer from './user/index';
 
 import { dataGridApi } from './reducers/data-grid';
 import filterReducer from './reducers/filters';
@@ -10,6 +11,7 @@ export const makeStore = () => {
   return configureStore({
     reducer: {
       market: marketReducer,
+      user: userReducer,
       [dataGridApi.reducerPath]: dataGridApi.reducer,
       [coinDetailsApi.reducerPath]: coinDetailsApi.reducer,
       filters: filterReducer,

@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 
-const LoadingOverlay = () => (
+const LoadingOverlay = ({ background, color }: any) => (
   <Box
     sx={{
       display: 'flex',
@@ -10,10 +10,10 @@ const LoadingOverlay = () => (
       alignItems: 'center',
       height: '100%',
       width: '100%',
-      background: 'rgba(0, 0, 0, 0.8)',
+      background: background ? background : 'rgba(0, 0, 0, 0.8)',
     }}
   >
-    <CircularProgress />
+    <CircularProgress sx={color ? { color: color } : {}} />
   </Box>
 );
 

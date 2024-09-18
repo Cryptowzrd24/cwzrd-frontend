@@ -59,7 +59,7 @@ export const ID = (props: CustomCellRendererProps) => {
 
   // Use favorites if no watchlistEmail is available, otherwise use mainWatchFavorites based on the page
   const currentFavorites = useMemo(() => {
-    if (!Cookies.get('watchlistEmail')) {
+    if (!Cookies.get('authToken')) {
       return favorites;
     }
     return isFavoritesPage ? favorites : mainWatchFavorites;
@@ -73,13 +73,13 @@ export const ID = (props: CustomCellRendererProps) => {
   const handleClick = useCallback(
     async (event: React.MouseEvent) => {
       event.stopPropagation();
-
+      const token = Cookies.get('authToken');
       const isFavorite = currentFavorites.includes(String(coinId));
       const newFavorites = isFavorite
         ? currentFavorites.filter((id) => id !== String(coinId))
         : [...currentFavorites, String(coinId)];
 
-      if (!Cookies.get('watchlistEmail') || isFavoritesPage) {
+      if (!token || isFavoritesPage) {
         Cookies.set('favorites', JSON.stringify(newFavorites));
         dispatch(updateFavorites(newFavorites));
         if (selectedWatchListMain) {
@@ -93,10 +93,15 @@ export const ID = (props: CustomCellRendererProps) => {
 
       setIsLoading(true);
 
-      if (Cookies.get('watchlistEmail')) {
+      if (token) {
         try {
           const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites?email=${Cookies.get('watchlistEmail')}`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            },
           );
           const data = await response.json();
           const mainCollection: any = Object.values(data.collections).find(
@@ -105,7 +110,7 @@ export const ID = (props: CustomCellRendererProps) => {
 
           if (mainCollection) {
             await addWatchlist({
-              email: Cookies.get('watchlistEmail'),
+              token: token,
               collection_name:
                 selectedWatchListName !== '' && isFavoritesPage
                   ? selectedWatchListName
