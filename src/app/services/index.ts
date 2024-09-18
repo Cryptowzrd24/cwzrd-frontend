@@ -10,7 +10,7 @@ interface SignUpProps extends LoginProps {
 export const login = async ({ email, password }: LoginProps) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/login/`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/login/`,
       {
         method: 'POST',
         headers: {
@@ -33,7 +33,7 @@ export const login = async ({ email, password }: LoginProps) => {
 export const signUp = async ({ email, password, name }: SignUpProps) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/register/`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/register/`,
       {
         method: 'POST',
         headers: {
@@ -56,7 +56,7 @@ export const signUp = async ({ email, password, name }: SignUpProps) => {
 export const forgotPassword = async (email: string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/forgot-password/`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/forgot-password/`,
       {
         method: 'POST',
         headers: {
@@ -81,7 +81,7 @@ export const forgotPassword = async (email: string) => {
 export const verifyEmail = async (key: string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/verify-email/${key}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/verify-email/${key}`,
     );
 
     if (!response.ok) {
@@ -101,7 +101,7 @@ export const resetPassword = async ({
 }: any) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/reset-password/`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/reset-password/`,
       {
         method: 'POST',
         headers: {
