@@ -8,21 +8,20 @@ import second from '../../../../../public/icons/second-rank.png';
 import numeral from 'numeral';
 import third from '../../../../../public/icons/third-rank.png';
 import Link from 'next/link';
-import infinityIcon from '../../../../../public/icons/infinity.svg';
 
 const Card = ({
   title,
-  price,
-  change,
-  marketCap,
-  circulationSupply,
-  volume,
-  totalMaxSupply,
+  marketCapChain,
+  marketCapTvl,
+  percentChange1D,
+  percentChange1M,
+  percentChange1W,
+  protocols,
   symbol,
   coinId,
   index,
 }: any) => {
-  const isPositiveChange = change >= 0;
+  const isPositiveChange = percentChange1D >= 0;
   const changeColor = isPositiveChange
     ? 'rgba(69, 202, 148, 1)'
     : 'rgba(245, 65, 65, 1)';
@@ -32,6 +31,7 @@ const Card = ({
 
   const imgUrl = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinId}.png`;
   const graphImg = `https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/${coinId}.svg`;
+
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   const handleMouseEnter = (id: string) => {
@@ -41,6 +41,7 @@ const Card = ({
   const handleMouseLeave = () => {
     setHoveredId(null);
   };
+
   const getRankContent = (index: number) => {
     switch (index) {
       case 1:
@@ -60,40 +61,32 @@ const Card = ({
         );
     }
   };
-  const formattedMarketCap = numeral(marketCap).format('0.0a').toUpperCase();
-  const formattedVolume = numeral(volume).format('0.0a').toUpperCase();
-  const formattedCirculationSupply = numeral(circulationSupply)
+  const formattedMarketCapChain = numeral(marketCapChain)
     .format('0.0a')
     .toUpperCase();
-  const formattedTotalMaxSupply = numeral(totalMaxSupply)
-    .format('0.0a')
-    .toUpperCase();
+  const marketCapTvlVal = numeral(marketCapTvl).format('0.0a').toUpperCase();
+  //   const formattedCirculationSupply = numeral(circulationSupply)
+  //     .format('0.0a')
+  //     .toUpperCase();
+  //   const formattedTotalMaxSupply = numeral(totalMaxSupply)
+  //     .format('0.0a')
+  //     .toUpperCase();
 
-  const numericChange = Number(change);
+  const numericChange = Number(percentChange1D);
 
   // Format the change value
   const formattedChange = isPositiveChange
     ? `+${numericChange.toFixed(2)}`
     : numericChange.toFixed(2);
 
-  const priceNumberFormatter = (price: any) => {
-    const priceNumber = Number(price);
+  const formattedChange1M = isPositiveChange
+    ? `+${Number(percentChange1M).toFixed(2)}`
+    : Number(percentChange1M).toFixed(2);
 
-    if (priceNumber === 0) {
-      return '0';
-    }
+  const formattedChange1W = isPositiveChange
+    ? `+${Number(percentChange1W).toFixed(2)}`
+    : Number(percentChange1W).toFixed(2);
 
-    if (priceNumber < 0.1) {
-      // Format with 10 decimal places
-      return priceNumber.toFixed(10);
-    }
-
-    // Format with 2 decimal places
-    const formattedPrice = priceNumber.toFixed(2);
-    const parts = formattedPrice.split('.');
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ','); // Apply comma to the integer part only
-    return parts.join('.');
-  };
   return (
     <Box
       sx={{
@@ -186,7 +179,7 @@ const Card = ({
                 color: 'rgba(255, 255, 255, 1)',
               }}
             >
-              ${priceNumberFormatter(price)}
+              {protocols}
             </Typography>
             <Box
               sx={{
@@ -228,9 +221,9 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                Market Cap
+                Market Cap Chain
                 <Tooltip
-                  title="The total market value of a cryptocurrency's circulating supply. It is analogous to the free-float capitalization in the stock market."
+                  title="Market Cap Chain represents the total value of a blockchain's native token in circulation, serving as an indicator of the blockchain's size and impact​"
                   componentsProps={{
                     tooltip: {
                       sx: {
@@ -247,17 +240,16 @@ const Card = ({
                   }}
                 >
                   <span
-                    id="1"
                     style={{
                       cursor: 'pointer',
                       width: '8px',
                       height: '8px',
                       marginLeft: '5px',
                     }}
-                    onMouseEnter={() => handleMouseEnter('marketCap')}
+                    onMouseEnter={() => handleMouseEnter('marketCapChain')}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <Shift hovered={hoveredId === 'marketCap'} />
+                    <Shift hovered={hoveredId === 'marketCapChain'} />
                   </span>
                 </Tooltip>
               </Typography>
@@ -269,7 +261,7 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 1)',
                 }}
               >
-                ${formattedMarketCap}
+                ${formattedMarketCapChain}
               </Typography>
             </Stack>
             <Stack sx={{ mt: '8px' }}>
@@ -281,9 +273,9 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                Circulation Supply
+                Tvl
                 <Tooltip
-                  title="The amount of coins that are circulating in the market and are in public hands. It is analogous to the flowing shares in the stock market."
+                  title="TVL (Total Value Locked) represents the total value of assets currently locked in a DeFi protocol, reflecting its overall liquidity and user engagement​"
                   componentsProps={{
                     tooltip: {
                       sx: {
@@ -306,10 +298,10 @@ const Card = ({
                       height: '8px',
                       marginLeft: '5px',
                     }}
-                    onMouseEnter={() => handleMouseEnter('circulationSupply')}
+                    onMouseEnter={() => handleMouseEnter('tvl')}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <Shift hovered={hoveredId === 'circulationSupply'} />
+                    <Shift hovered={hoveredId === 'tvl'} />
                   </span>
                 </Tooltip>
               </Typography>
@@ -321,7 +313,7 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 1)',
                 }}
               >
-                {formattedCirculationSupply}
+                ${marketCapTvlVal}
               </Typography>
             </Stack>
           </Box>
@@ -335,9 +327,9 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                Volume (24hours)
+                Percent Change 1 Month
                 <Tooltip
-                  title="A measure of how much of a cryptocurrency was traded in the last 24 hours."
+                  title="Value of percentage change in one month"
                   componentsProps={{
                     tooltip: {
                       sx: {
@@ -360,10 +352,10 @@ const Card = ({
                       height: '8px',
                       marginLeft: '5px',
                     }}
-                    onMouseEnter={() => handleMouseEnter('volume')}
+                    onMouseEnter={() => handleMouseEnter('percentChange1M')}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <Shift hovered={hoveredId === 'volume'} />
+                    <Shift hovered={hoveredId === 'percentChange1M'} />
                   </span>
                 </Tooltip>
               </Typography>
@@ -372,10 +364,13 @@ const Card = ({
                 sx={{
                   fontSize: '18px',
                   fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
+                  color:
+                    percentChange1M > 0
+                      ? 'rgba(69, 202, 148, 1)'
+                      : 'rgba(245, 65, 65, 1)',
                 }}
               >
-                ${formattedVolume}
+                {formattedChange1M}
               </Typography>
             </Stack>
             <Stack sx={{ mt: '8px' }}>
@@ -387,9 +382,9 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                Total Max. Supply
+                Percent Change 1 Week
                 <Tooltip
-                  title="The Total Max Supply refers to the maximum amount of a cryptocurrency that can ever be created or mined, limiting its total availability"
+                  title="Value of percentage change in one week"
                   componentsProps={{
                     tooltip: {
                       sx: {
@@ -412,27 +407,26 @@ const Card = ({
                       height: '8px',
                       marginLeft: '5px',
                     }}
-                    onMouseEnter={() => handleMouseEnter('totalMaxSupply')}
+                    onMouseEnter={() => handleMouseEnter('percentChange1W')}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <Shift hovered={hoveredId === 'totalMaxSupply'} />
+                    <Shift hovered={hoveredId === 'percentChange1W'} />
                   </span>
                 </Tooltip>
               </Typography>
-              {totalMaxSupply ? (
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: '18px',
-                    fontWeight: '500',
-                    color: 'rgba(17, 17, 17, 1)',
-                  }}
-                >
-                  {formattedTotalMaxSupply}
-                </Typography>
-              ) : (
-                <Image src={infinityIcon} alt="infinty-icon" />
-              )}
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  color:
+                    percentChange1W > 0
+                      ? 'rgba(69, 202, 148, 1)'
+                      : 'rgba(245, 65, 65, 1)',
+                }}
+              >
+                {formattedChange1W}
+              </Typography>
             </Stack>
           </Box>
         </Box>
@@ -444,39 +438,6 @@ const Card = ({
               overflow: 'hidden',
             }}
           >
-            {/* <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px',
-              }}
-            >
-              {['1D', '7D', '1M', '3M'].map((button) => (
-                <Box
-                  key={button}
-                  sx={{
-                    padding: '4px 8px',
-                    borderRadius: '24px',
-                    border: '1px solid rgba(17, 17, 17, 0.05)',
-                    cursor: 'pointer',
-                    background: getButtonStyles(button).background,
-                  }}
-                  onClick={() => handleButtonClick(button)}
-                >
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      fontSize: '14px',
-                      fontWeight: '700',
-                      color: getButtonStyles(button).color,
-                    }}
-                  >
-                    {button}
-                  </Typography>
-                </Box>
-              ))}
-            </Box> */}
             <Box
               style={{
                 marginBottom: '-10px',
@@ -488,7 +449,7 @@ const Card = ({
                   width: '100%',
                   height: '100%',
                   filter:
-                    change && String(change)?.includes('-')
+                    percentChange1D && String(percentChange1D)?.includes('-')
                       ? 'brightness(0) saturate(100%) invert(46%) sepia(99%) saturate(379%) hue-rotate(311deg) brightness(100%) contrast(93%)'
                       : 'brightness(0) saturate(100%) invert(68%) sepia(13%) saturate(1609%) hue-rotate(104deg) brightness(97%) contrast(94%)',
                 }}

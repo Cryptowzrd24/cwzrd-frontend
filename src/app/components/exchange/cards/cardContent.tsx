@@ -29,7 +29,7 @@ const ExchangeCardContent = ({ cardsData }: CardContentProps) => {
           <Grid item xs={12} sm={6} md={4} key={card.id}>
             <Card
               title={card.exchange}
-              price={card.score}
+              score={card.score}
               marketCap={card.average_liquidity}
               circulationSupply={card.markets}
               volume={card.trading_volume_24h}
