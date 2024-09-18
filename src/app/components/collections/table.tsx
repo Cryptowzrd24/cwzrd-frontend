@@ -3,7 +3,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { CustomHeader } from '@/app/components/data-table/custom-header';
 import DataTable from '@/app/components/data-table';
 import { columnsCollections } from '@/app/constants/columns';
-import { rowDataCollections } from '@/app/constants/row';
 import useColumnCollectionsDefs from '@/app/hooks/data-grid/column-defination-collections';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { getNftList } from '@/app/services/collections';
@@ -13,6 +12,7 @@ const Table = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowData, setRowData] = useState<any>([]);
   const [pageSize, setPageSize] = useState(10);
+  const [count, setCount] = useState(1);
 
   const extractNftData = (data: any) => {
     return data.map((nft: any, index: number) => ({
@@ -40,14 +40,15 @@ const Table = () => {
   };
 
   const fetchData = async () => {
-    const data = await getNftList(currentPage, pageSize);
+    const data = await getNftList(count, pageSize);
     const nftData = await extractNftData(data?.results);
+    setCount(Math.ceil(data?.count / pageSize));
     setRowData(nftData);
   };
   useEffect(() => {
     fetchData();
     console.log('page', pageSize);
-  }, [currentPage, pageSize]);
+  }, [currentPage, count, pageSize]);
 
   const columnCollectionsDef = useColumnCollectionsDefs(columnsCollections);
 
@@ -89,7 +90,7 @@ const Table = () => {
         />
       </div>
       <Pagination
-        length={rowDataCollections.length}
+        length={count}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}
