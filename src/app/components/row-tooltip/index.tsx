@@ -37,7 +37,11 @@ export const RowTooltip = (props: CustomTooltipParams) => {
           <div className={styles['row-tooltip-circulating-supply']}>
             <p>Circulating Supply</p>
             <p className="text-light">
-              {priceNumberFormatter(props.data?.circulating_supply)}{' '}
+              {
+                priceNumberFormatter(props.data?.circulating_supply)?.split(
+                  '.',
+                )[0]
+              }{' '}
               {props.data?.symbol}
             </p>
           </div>
