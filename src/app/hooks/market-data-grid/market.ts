@@ -27,7 +27,7 @@ const useColumnMarketDefs = (columns: any) => {
           return {
             field: 'distribution_7d',
             headerName: '7D Distribution',
-            width: 250,
+            width: 270,
             valueFormatter: (p: any) => {
               const value = p.value;
               return value + '%';
@@ -37,7 +37,7 @@ const useColumnMarketDefs = (columns: any) => {
           return {
             field: 'distribution_24h',
             headerName: '24h Distribution',
-            width: 250,
+            width: 270,
             valueFormatter: (p: any) => {
               const value = p.value;
               return value + '%';
@@ -47,7 +47,7 @@ const useColumnMarketDefs = (columns: any) => {
           return {
             field: 'distribution_30d',
             headerName: '30d Distribution',
-            width: 250,
+            width: 270,
             valueFormatter: (p: any) => {
               const value = p.value;
               return value + '%';
@@ -58,7 +58,7 @@ const useColumnMarketDefs = (columns: any) => {
           return {
             field: 'royalty',
             headerName: 'Royalty',
-            width: 195,
+            width: 250,
             valueFormatter: (p: any) => {
               const value = p.value;
 
@@ -72,7 +72,7 @@ const useColumnMarketDefs = (columns: any) => {
         case 'service_fee':
           return {
             field: 'service_fee',
-            width: 195,
+            width: 225,
             headerName: 'Service Fee',
             valueFormatter: (p: any) => {
               const value = p.value;

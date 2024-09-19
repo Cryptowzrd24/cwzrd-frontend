@@ -3,7 +3,7 @@ import React from 'react';
 
 async function fetchNftDetailData() {
   const res = await fetch(
-    `https://f9d7-39-58-105-184.ngrok-free.app/api/nft/basic/?platformAlias=polygon&contract=0xa28640d322019217ecd27ebf90cd27b1978c6038`,
+    `https://1f98-182-188-106-153.ngrok-free.app/api/nft/basic/?platformAlias=polygon&contract=0xa28640d322019217ecd27ebf90cd27b1978c6038`,
     {
       next: { revalidate: 60 },
     },

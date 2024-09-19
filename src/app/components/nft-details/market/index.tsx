@@ -7,7 +7,7 @@ import DataTable from '../../data-table';
 import { Pagination } from '../../data-table/pagination';
 import { scrollToTop } from '@/utils/scroll-to-top';
 
-const Market = () => {
+const Market = ({ serverNftData }: any) => {
   const pageSize = 10;
   const totalCount = 1;
 
@@ -46,7 +46,7 @@ const Market = () => {
 
   useEffect(() => {
     fetch(
-      `https://f9d7-39-58-105-184.ngrok-free.app/api/nft/distributions?platformAlias=polygon&contract=0xa28640d322019217ecd27ebf90cd27b1978c6038&period=${period}`,
+      `https://1f98-182-188-106-153.ngrok-free.app/nft/distributions?platformAlias=polygon&contract=0xa28640d322019217ecd27ebf90cd27b1978c6038&period=${period}`,
       {
         method: 'GET',
       },
@@ -115,7 +115,7 @@ const Market = () => {
               color: 'rgba(17, 17, 17, 1)',
             }}
           >
-            Persona{' '}
+            {serverNftData?.name}{' '}
             <span
               style={{
                 backgroundImage:
@@ -223,6 +223,9 @@ const Market = () => {
           padding: '20px 24px 20px 24px',
           '& .ag-header': {
             borderTop: 'none',
+          },
+          '& .ag-theme-material .ag-row ': {
+            width: '1400px',
           },
         }}
       >

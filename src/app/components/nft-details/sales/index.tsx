@@ -2,18 +2,18 @@
 import { columnsSales } from '@/app/constants/columns';
 import useColumnSalesDefs from '@/app/hooks/sales-data-grid/sales';
 import { Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DataTable from '../../data-table';
-import { rowDataSales } from '@/app/constants/row';
 import { Pagination } from '../../data-table/pagination';
 import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
 
-const Sales = () => {
+const Sales = ({ serverNftData }: any) => {
   const colDef = useColumnSalesDefs(columnsSales);
   const pageSize = 10;
   const totalCount = 50;
 
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [rowData, setRowData] = useState([]);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -21,6 +21,40 @@ const Sales = () => {
   ) => {
     setCurrentPage(value);
   };
+
+  useEffect(() => {
+    fetch('https://1f98-182-188-106-153.ngrok-free.app/api/nft/activities/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        platformAlias: 'polygon',
+        contract: '0xa28640d322019217ecd27ebf90cd27b1978c6038',
+        pageSize: pageSize,
+        txType: 'sale',
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.data.length >= currentPage * pageSize) setCurrentPage(1);
+        const startIndex = (currentPage - 1) * pageSize + 1;
+        const res = data.data.activities.map((item: any, index: number) => ({
+          item: item?.tokenId,
+          transaction: item?.txType,
+          addresses: { from: item?.receive, to: item?.send },
+          Price: item?.tradePrice,
+          gas: item?.gas,
+          ago_1h: new Date(item?.timestamp * 1000).toISOString().split('.')[0],
+          logo: item?.nftImage,
+          tradeSymbol: item?.tradeSymbol,
+          index: startIndex + index,
+        }));
+        setRowData(res);
+      })
+      .catch((error) => console.error('Error:', error));
+  }, []);
+
   return (
     <>
       <Typography
@@ -53,7 +87,7 @@ const Sales = () => {
               color: 'rgba(17, 17, 17, 1)',
             }}
           >
-            Persona{' '}
+            {serverNftData?.name}{' '}
             <span
               style={{
                 backgroundImage:
@@ -102,9 +136,16 @@ const Sales = () => {
           '& .ag-header': {
             borderTop: 'none',
           },
+          '& .ag-header-cell:last-child .ag-header-cell-label': {
+            justifyContent: 'flex-start',
+            textAlign: 'left',
+          },
+          '& .ag-theme-material .ag-row ': {
+            width: '1400px',
+          },
         }}
       >
-        <DataTable rowData={rowDataSales} columnDefs={colDef} />
+        <DataTable rowData={rowData} columnDefs={colDef} />
         <Pagination
           length={totalCount}
           pageSize={pageSize}

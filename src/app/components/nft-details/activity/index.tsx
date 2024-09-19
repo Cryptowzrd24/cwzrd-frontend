@@ -4,13 +4,11 @@ import useColumnActivityDefs from '@/app/hooks/activity-data-grid/activity';
 import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import DataTable from '../../data-table';
-import { rowDataActivity } from '@/app/constants/row';
 import { Pagination } from '../../data-table/pagination';
 
-const Activity = () => {
+const Activity = ({ serverNftData }: any) => {
   const colDef = useColumnActivityDefs(columnsActivity);
   const [rowData, setRowData] = useState([]);
-  console.log(rowData);
 
   const pageSize = 10;
   const totalCount = 50;
@@ -25,7 +23,7 @@ const Activity = () => {
   };
 
   useEffect(() => {
-    fetch('https://f9d7-39-58-105-184.ngrok-free.app/api/nft/activities/', {
+    fetch('https://1f98-182-188-106-153.ngrok-free.app/api/nft/activities/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,19 +38,16 @@ const Activity = () => {
       .then((data) => {
         if (data.data.length >= currentPage * pageSize) setCurrentPage(1);
         const startIndex = (currentPage - 1) * pageSize + 1;
-        const res = data.data.map((item: any, index: number) => ({
-          id: item.id,
-          coin_id: item.coin_id,
-          name: item.name,
-          new_price: item?.quote?.price,
-          volume_24h: item?.quote?.volume_24h,
-          percent_change_1h: item?.quote?.percent_change_1h,
-          percent_change_24h: item?.quote?.percent_change_24h,
-          percent_change_7d: item?.quote?.percent_change_7d,
-          market_cap: item?.quote?.market_cap,
-          circulating_supply: item.circulating_supply,
-          symbol: item.symbol,
-          max_supply: item.max_supply,
+        console.log(data.data.activities);
+        const res = data.data.activities.map((item: any, index: number) => ({
+          item: item?.tokenId,
+          transaction: item?.txType,
+          addresses: { from: item?.receive, to: item?.send },
+          Price: item?.tradePrice,
+          gas: item?.gas,
+          ago_1h: new Date(item?.timestamp * 1000).toISOString().split('.')[0],
+          logo: item?.nftImage,
+          tradeSymbol: item?.tradeSymbol,
           index: startIndex + index,
         }));
         setRowData(res);
@@ -90,7 +85,7 @@ const Activity = () => {
               color: 'rgba(17, 17, 17, 1)',
             }}
           >
-            Persona{' '}
+            {serverNftData?.name}{' '}
             <span
               style={{
                 backgroundImage:
@@ -115,9 +110,16 @@ const Activity = () => {
           '& .ag-header': {
             borderTop: 'none',
           },
+          '& .ag-header-cell:last-child .ag-header-cell-label': {
+            justifyContent: 'flex-start',
+            textAlign: 'left',
+          },
+          '& .ag-theme-material .ag-row ': {
+            width: '1400px',
+          },
         }}
       >
-        <DataTable rowData={rowDataActivity} columnDefs={colDef} />
+        <DataTable rowData={rowData} columnDefs={colDef} />
         <Pagination
           length={totalCount}
           pageSize={pageSize}

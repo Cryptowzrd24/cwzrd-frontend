@@ -66,13 +66,13 @@ const NftDetails = ({ serverNftData }: any) => {
           <NewsLetter />
         </Box>
         <Box id="sales" sx={{ mt: '48px' }}>
-          <Sales />
+          <Sales serverNftData={serverNftData} />
         </Box>
         <Box id="market" sx={{ mt: '48px' }}>
-          <Market />
+          <Market serverNftData={serverNftData} />
         </Box>
         <Box id="activity" sx={{ mt: '48px' }}>
-          <Activity />
+          <Activity serverNftData={serverNftData} />
         </Box>
         <Box sx={{ mt: '48px', mb: '48px' }}>
           <MemberShipBanner isNftDetail={true} />
