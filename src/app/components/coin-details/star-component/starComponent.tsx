@@ -12,7 +12,6 @@ import { setMainWatchFavorites, updateFavorites } from '@/app/redux/market';
 
 function StarComponent({ coinId }: any) {
   const [isLoading, setIsLoading] = useState(false);
-
   const {
     favorites,
     selectedWatchListName,
@@ -169,11 +168,12 @@ function StarComponent({ coinId }: any) {
           }
 
           Cookies.set('mainWatchFavorites', JSON.stringify(newFavorites));
-          dispatch(setMainWatchFavorites(newFavorites));
           dispatch(updateFavorites(newFavorites));
+          dispatch(setMainWatchFavorites(newFavorites));
         } else {
           Cookies.set('favorites', JSON.stringify(newFavorites));
           dispatch(updateFavorites(newFavorites));
+
           if (selectedWatchListMain) {
             Cookies.set('mainWatchFavorites', JSON.stringify(newFavorites));
             dispatch(setMainWatchFavorites(newFavorites));

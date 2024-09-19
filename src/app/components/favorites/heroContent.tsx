@@ -271,7 +271,14 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
     };
 
     fetchWatchList();
-  }, [isMainWatchlist, reload, toastOpen, Cookies.get('authToken')]);
+  }, [
+    isMainWatchlist,
+    reload,
+    toastOpen,
+    Cookies.get('authToken'),
+    firstLogin,
+    favorites,
+  ]);
 
   // useEffect(() => {
   //   const fetchWatchList = async () => {
