@@ -18,7 +18,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
   const copyToClipboard = (event: React.MouseEvent<HTMLElement>) => {
     navigator.clipboard
       .writeText(
-        `http://localhost:3000/market/coin-details/${coinDetails?.coin_id}`,
+        `${window.location.protocol + '//' + window.location.host}/market/coin-details/${coinDetails?.coin_id}`,
       )
       .then(() => {
         setAnchorEl(event.currentTarget);
@@ -135,7 +135,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
                   fontFamily: 'SF Pro Display',
                 }}
                 contentEditable={false}
-                value={`http://localhost:3000/market/coin-details/${coinDetails?.coin_id}`}
+                value={`${window.location.protocol + '//' + window.location.host}/market/coin-details/${coinDetails?.coin_id}`}
               ></input>
               <button
                 style={{
