@@ -55,7 +55,7 @@ function TechnicalContent() {
           display: 'flex',
           alignItems: 'center',
           gap: '5px',
-          marginTop: '46px',
+          marginTop: '26px',
         }}
       >
         <Typography

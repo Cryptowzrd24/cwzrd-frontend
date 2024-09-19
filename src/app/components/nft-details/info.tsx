@@ -22,8 +22,8 @@ const Info = () => {
               fontWeight: '400',
               color: 'rgba(17, 17, 17, 1)',
               letterSpacing: '2px',
-              ml: '8px',
               lineHeight: '20.8px',
+              mb: '4px',
             }}
           >
             INFO
@@ -34,7 +34,6 @@ const Info = () => {
               fontSize: '40px',
               fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
-              mb: '24px',
             }}
           >
             About{' '}
@@ -50,24 +49,25 @@ const Info = () => {
               Persona
             </span>{' '}
           </Typography>
-          <Box sx={{ mb: '24px' }}>
+          <Box sx={{ mt: '24px' }}>
             <Typography
-              variant="body1"
               sx={{
                 fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
-                mb: '4px',
+                mb: '8px',
+                fontFamily: 'Sf Pro Display',
               }}
             >
               What is Persona?
             </Typography>
             <Typography
-              variant="body1"
               sx={{
                 fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
+                lineHeight: '18.85px',
+                fontFamily: 'Sf Pro Display',
               }}
             >
               Persona is a groundbreaking avatar collection at the heart of the
@@ -82,24 +82,25 @@ const Info = () => {
           </Box>
 
           {/* --------------------- */}
-          <Box sx={{ mb: '16px' }}>
+          <Box sx={{ mt: '16px' }}>
             <Typography
-              variant="body1"
               sx={{
                 fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
-                mb: '4px',
+                mb: '8px',
+                fontFamily: 'Sf Pro Display',
               }}
             >
               What is Timefall Valley?
             </Typography>
             <Typography
-              variant="body1"
               sx={{
                 fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
+                lineHeight: '18.85px',
+                fontFamily: 'Sf Pro Display',
               }}
             >
               Timefall Valley is a small city that has always remained isolated
@@ -112,24 +113,25 @@ const Info = () => {
             </Typography>
           </Box>
           {/* ---------------------------------- */}
-          <Box sx={{ mb: '16px' }}>
+          <Box sx={{ mt: '16px' }}>
             <Typography
-              variant="body1"
               sx={{
                 fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
-                mb: '4px',
+                mb: '8px',
+                fontFamily: 'Sf Pro Display',
               }}
             >
               Where to buy Persona NFT?
             </Typography>
             <Typography
-              variant="body1"
               sx={{
                 fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
+                lineHeight: '18.85px',
+                fontFamily: 'Sf Pro Display',
               }}
             >
               You can buy and sell Persona (PRSN) on LooksRare, X2Y2, OpenSea,
@@ -137,48 +139,50 @@ const Info = () => {
             </Typography>
           </Box>
           {/* ------------------------------ */}
-          <Box sx={{ mb: '16px' }}>
+          <Box sx={{ mt: '16px' }}>
             <Typography
-              variant="body1"
               sx={{
                 fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
-                mb: '4px',
+                mb: '8px',
+                fontFamily: 'Sf Pro Display',
               }}
             >
               How many Persona NFTs are there?
             </Typography>
             <Typography
-              variant="body1"
               sx={{
                 fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
+                lineHeight: '18.85px',
+                fontFamily: 'Sf Pro Display',
               }}
             >
               There is a total of 8,875 unique NFTs in the Persona collection.{' '}
             </Typography>
           </Box>
           {/* ------------------------------- */}
-          <Box sx={{ mb: '24px' }}>
+          <Box sx={{ mt: '16px' }}>
             <Typography
-              variant="body1"
               sx={{
                 fontSize: '18px',
                 fontWeight: '500',
                 color: 'rgba(17, 17, 17, 1)',
-                mb: '4px',
+                mb: '8px',
+                fontFamily: 'Sf Pro Display',
               }}
             >
               How many holders are collecting the Persona NFT?{' '}
             </Typography>
             <Typography
-              variant="body1"
               sx={{
                 fontSize: '13px',
                 fontWeight: '400',
                 color: 'rgba(17, 17, 17, 0.8)',
+                lineHeight: '18.85px',
+                fontFamily: 'Sf Pro Display',
               }}
             >
               There is a total 3,335 unique addresses that are holding the PRSN
@@ -191,6 +195,7 @@ const Info = () => {
               alignItems: 'center',
               gap: '4px',
               cursor: 'pointer',
+              mt: '24px',
             }}
           >
             <Typography

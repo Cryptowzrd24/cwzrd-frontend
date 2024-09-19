@@ -21,6 +21,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddWatchListModal from './addWatchListModal';
+
 import { useAppDispatch, useAppSelector } from '@/app/redux/store';
 import {
   setMainWatchFavorites,
@@ -28,22 +29,25 @@ import {
   updateSelectedWatchListMain,
   updateSelectedWatchListName,
 } from '@/app/redux/market';
+import AuthModal from './authModal';
+import FirstLoginModal from './firstLoginModal';
 
 const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const [active, setActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [emailStored, setEmailStored] = useState('');
   const [watchlistName, setWatchlistName] = useState('');
+
+  const [firstLogin, setFirstLogin] = useState(false);
 
   const [toastOpen, setToastOpen] = useState(false);
   const [moreOptionsOpen, setMoreOptionsOpen] = useState(false);
-  // const [modalContent, setModalContent] = useState({ title: '', icon: null });
   const [isMainWatchlist, setIsMainWatchlist] = useState(false);
   const [addWatchlist] = useAddWatchlistMutation();
-  const [emailExistError, setEmailExistError] = useState('');
   const [anchorEl, setAnchorEl] = useState(null);
   const [watchList, setWatchList] = useState([]);
+
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [reload, setReload] = useState(false);
@@ -70,14 +74,16 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   };
 
   const handleClick = () => {
-    const storedEmail = Cookies.get('watchlistEmail');
-    if (storedEmail) {
-      setEmailStored(storedEmail);
+    const authToken = Cookies.get('authToken');
+    if (authToken) {
+      // setEmailStored(storedEmail);
+      setActive(true);
+      setIsAuthenticated(true);
     } else {
       setSearchTerm('');
-      setEmailStored('');
+      // setEmailStored('');
+      setIsAuthenticated(false);
     }
-    setActive(true);
   };
 
   const handleClose = () => {
@@ -101,64 +107,24 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
     }
   };
 
-  const coinIdsArray = favorites.map((id: any) => id.toString());
+  // const coinIdsArray = favorites.map((id: any) => id.toString());
 
   const handleCreateWatchlist = async () => {
-    if (!emailStored) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailRegex.test(searchTerm)) {
-        setEmailExistError('Please enter a valid email address.');
-        return;
-      }
-      try {
-        // Call the API to check if the email exists
-        const response = await fetch(
-          `${baseUrl}/api/favorites/check-email?email=${searchTerm}`,
-        );
-
-        if (response.status === 404 && !Cookies.get('watchlistEmail')) {
-          // If the email does not exist, store it in cookies and proceed
-          Cookies.set('watchlistEmail', searchTerm, { expires: 365 });
-          try {
-            await addWatchlist({
-              email: searchTerm,
-              collection_name: 'My Favorite Coins',
-              main: true,
-              ids: coinIdsArray,
-            }).unwrap();
-            setReload(true);
-          } catch (error) {
-            console.error('Failed to create watchlist:', error);
-          }
-          setEmailStored(searchTerm);
-          setSearchTerm('');
-          setActive(false);
-        } else if (response.status === 200) {
-          // Handle the case where the email is found
-          setEmailExistError('Email already exists. Try another email');
-          console.log('Email already exists.');
-        } else {
-          console.log(`Unexpected response: ${response.status}`);
-        }
-      } catch (error) {
-        console.error('Error checking email:', error);
-      }
-    } else {
-      try {
-        await addWatchlist({
-          email: emailStored,
-          collection_name: watchlistName,
-          main: false,
-          ids: [],
-        }).unwrap();
-        setToastOpen(true);
-        setSearchTerm('');
-        setWatchlistName('');
-        setActive(false);
-      } catch (error) {
-        console.error('Failed to create watchlist:', error);
-      }
+    try {
+      await addWatchlist({
+        token: Cookies.get('authToken'),
+        collection_name: watchlistName,
+        main: false,
+        ids: [],
+      }).unwrap();
+      setToastOpen(true);
+      setSearchTerm('');
+      setWatchlistName('');
+      setActive(true);
+    } catch (error) {
+      console.error('Failed to create watchlist:', error);
+    } finally {
+      setActive(false);
     }
   };
 
@@ -169,9 +135,12 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
     try {
       const response = await fetch(
-        `${baseUrl}/api/favorites/?email=${Cookies.get('watchlistEmail')}&collection_name=${selectedWatchList.collection_name}`,
+        `${baseUrl}/api/favorites/?collection_name=${selectedWatchList.collection_name}`,
         {
           method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${Cookies.get('authToken')}`,
+          },
         },
       );
 
@@ -191,7 +160,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   const handleAddMainWatchList = async () => {
     try {
       await addWatchlist({
-        email: Cookies.get('watchlistEmail'),
+        token: Cookies.get('authToken'),
         collection_name: selectedWatchList?.collection_name,
         main: true,
         ids: favorites,
@@ -263,34 +232,77 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [dropdownRef]);
-
   useEffect(() => {
     const fetchWatchList = async () => {
-      if (Cookies.get('watchlistEmail')) {
+      const authToken = Cookies.get('authToken');
+      if (authToken) {
         try {
-          const response = await fetch(
-            `${baseUrl}/api/favorites?email=${Cookies.get('watchlistEmail')}`,
-          );
-          const data = await response.json();
-          const mainCollection: any = Object.values(data.collections).find(
-            (collection: any) => collection?.main === true,
-          );
-          setWatchList(data.collections);
+          const response = await fetch(`${baseUrl}/api/favorites`, {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          });
 
-          if (mainCollection && !selectedWatchList.collection_name) {
-            setSelectedWatchList(mainCollection);
-            dispatch(
-              updateSelectedWatchListName(mainCollection?.collection_name),
+          if (response.ok) {
+            const data = await response.json();
+            const mainCollection: any = Object.values(data.collections).find(
+              (collection: any) => collection?.main === true,
             );
-            dispatch(updateSelectedWatchListMain(mainCollection?.main));
+            setWatchList(data.collections);
+
+            if (mainCollection && !selectedWatchList.collection_name) {
+              setSelectedWatchList(mainCollection);
+              dispatch(
+                updateSelectedWatchListName(mainCollection?.collection_name),
+              );
+              dispatch(updateSelectedWatchListMain(mainCollection?.main));
+            }
+          } else {
+            console.error(
+              'Failed to fetch the watchlist:',
+              response.statusText,
+            );
           }
         } catch (error) {
-          console.error('Error checking email:', error);
+          console.error('error:', error);
         }
       }
     };
+
     fetchWatchList();
-  }, [isMainWatchlist, reload, toastOpen]);
+  }, [isMainWatchlist, reload, toastOpen, Cookies.get('authToken')]);
+
+  // useEffect(() => {
+  //   const fetchWatchList = async () => {
+  //     if (Cookies.get('authToken')) {
+  //       try {
+  //         const response = await fetch(`${baseUrl}/api/favorites`, {
+  //           method: 'GET',
+  //           headers: {
+  //             Authorization: `Bearer ${Cookies.get('authToken')}`,
+  //           },
+  //         });
+  //         const data = await response.json();
+  //         const mainCollection: any = Object.values(data.collections).find(
+  //           (collection: any) => collection?.main === true,
+  //         );
+  //         setWatchList(data.collections);
+
+  //         if (mainCollection && !selectedWatchList.collection_name) {
+  //           setSelectedWatchList(mainCollection);
+  //           dispatch(
+  //             updateSelectedWatchListName(mainCollection?.collection_name),
+  //           );
+  //           dispatch(updateSelectedWatchListMain(mainCollection?.main));
+  //         }
+  //       } catch (error) {
+  //         console.error('error:', error);
+  //       }
+  //     }
+  //   };
+  //   fetchWatchList();
+  // }, [isMainWatchlist, reload, toastOpen, Cookies.get('authToken')]);
 
   useEffect(() => {
     if (selectedWatchList.ids) {
@@ -298,7 +310,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
         expires: 365,
       });
       dispatch(updateFavorites(selectedWatchList.ids));
-    } else if (!selectedWatchList?.ids && Cookies.get('watchlistEmail')) {
+    } else if (!selectedWatchList?.ids && Cookies.get('authToken')) {
       Cookies.set('favorites', JSON.stringify([]), {
         expires: 365,
       });
@@ -308,6 +320,12 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
   return (
     <>
+      {firstLogin && JSON.parse(Cookies.get('favorites')).length && (
+        <FirstLoginModal
+          setFirstLogin={setFirstLogin}
+          firstLogin={firstLogin}
+        />
+      )}
       <Box
         sx={{
           display: 'flex',
@@ -315,7 +333,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           alignItems: 'center',
         }}
       >
-        {!Cookies.get('watchlistEmail') && (
+        {!Cookies.get('authToken') && (
           <Typography
             variant="h1"
             sx={{ maxWidth: '960px', marginTop: '-5px' }}
@@ -333,7 +351,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           </Typography>
         )}
         {/* watchList dropdwon */}
-        {Cookies.get('watchlistEmail') && (
+        {Cookies.get('authToken') && (
           <div ref={dropdownRef}>
             <Button
               aria-controls="watchlist-menu"
@@ -470,7 +488,14 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           >
             New Watchlist
           </Button>
-          {Cookies.get('watchlistEmail') && (
+          {!isAuthenticated && (
+            <AuthModal
+              setFirstLogin={setFirstLogin}
+              isAuthenticated={!isAuthenticated}
+              setIsAuthenticated={setIsAuthenticated}
+            />
+          )}
+          {Cookies.get('authToken') && (
             <IconButton onClick={handleMoreOptionsClick}>
               <MoreVertIcon />
             </IconButton>
@@ -480,12 +505,12 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
       <AddWatchListModal
         active={active}
         handleClose={handleClose}
-        emailStored={emailStored}
+        // emailStored={emailStored}
         watchlistName={watchlistName}
         handleWatchlistNameChange={handleWatchlistNameChange}
         handleSearchChange={handleSearchChange}
         searchTerm={searchTerm}
-        emailExistError={emailExistError}
+        // emailExistError={emailExistError}
         handleCreateWatchlist={handleCreateWatchlist}
       />
       <Menu
@@ -591,9 +616,10 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           severity="success"
           sx={{ width: '100%' }}
         >
-          {emailStored
-            ? 'Watchlist Created Successfully'
-            : `Email ${searchTerm} has been stored in the cookie.`}
+          {/* {emailStored */}
+          {/* ?  */}
+          Watchlist Created Successfully
+          {/* : `Email ${searchTerm} has been stored in the cookie.`} */}
         </Alert>
       </Snackbar>
     </>

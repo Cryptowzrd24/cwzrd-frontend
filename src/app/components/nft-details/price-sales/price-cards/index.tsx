@@ -2,6 +2,7 @@ import React from 'react';
 import InfoCard from './infoCard';
 import LinksCard from './linksCard';
 import { Box } from '@mui/material';
+import Thought from './thoght';
 
 const PriceCards = () => {
   return (
@@ -11,6 +12,9 @@ const PriceCards = () => {
       </Box>
       <Box sx={{ mb: '12px' }}>
         <LinksCard />
+      </Box>
+      <Box sx={{ mb: '12px' }}>
+        <Thought />
       </Box>
     </>
   );

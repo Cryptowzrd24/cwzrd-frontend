@@ -4,12 +4,6 @@ import React, { useState } from 'react';
 
 const CoinNavbar = () => {
   const [activeHeading, setActiveHeading] = useState('Overview');
-  // const [currencies, setCurrencies] = useState<any>({
-  //   Buy: '',
-  //   Exchange: '',
-  //   Gaming: '',
-  //   Earn: '',
-  // });
 
   const handleHeadingClick = (heading: any) => {
     setActiveHeading(heading);

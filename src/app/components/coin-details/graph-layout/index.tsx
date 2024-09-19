@@ -117,7 +117,7 @@ function GraphLayout({ coinSymbol }: any) {
               fontFamily: 'Sf Pro Display',
               fontWeight: 600,
               lineHeight: '18.2px',
-              padding: '14px 44px 14px 18px',
+              padding: '14px 18px',
             }}
             startIcon={<TradingViewIcon />}
           >

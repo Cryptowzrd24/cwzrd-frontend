@@ -9,9 +9,9 @@ const LinksCard = () => {
         backgroundImage: "url('/images/nft/trending.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
-        maxWidth: '282px',
-        width: '100%',
-        boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
+        width: '330px',
+        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+        borderRadius: '16px',
       }}
     >
       <Stack>

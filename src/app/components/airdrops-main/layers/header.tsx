@@ -21,7 +21,7 @@ const Header = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '24px',
+          padding: '0 24px',
           paddingBottom: '24px',
           borderBottom: '1px solid rgba(17, 17, 17, 0.1)',
         }}
@@ -30,7 +30,7 @@ const Header = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '24px',
+              fontSize: '16px',
               fontWeight: '700',
               mb: '8px',
               color: 'rgba(17, 17, 17, 1)',
@@ -41,7 +41,7 @@ const Header = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '16px',
+              fontSize: '13px',
               fontWeight: '400',
               color: 'rgba(17, 17, 17, 0.8)',
             }}

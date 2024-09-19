@@ -13,9 +13,11 @@ export const SalesAddresses = () => {
               color: 'rgba(17, 17, 17, 0.8)',
               fontSize: '13px',
               fontWeight: '400',
+              display: 'flex',
+              gap: '15px',
+              alignItems: 'center',
             }}
           >
-            From:
             <span
               style={{
                 color: 'rgba(17, 17, 17, 1)',
@@ -23,11 +25,20 @@ export const SalesAddresses = () => {
                 fontWeight: '600',
               }}
             >
-              0xef0b31nbIOJ948Ko20A1ks89sSK...
+              <span
+                style={{
+                  color: 'rgba(17, 17, 17, 0.8)',
+                  fontSize: '13px',
+                  fontWeight: '400',
+                }}
+              >
+                From:{' '}
+              </span>
+              0xef0b31nbIOJ948Ko20A1ks89suysSK
             </span>
             <span style={{ cursor: 'pointer' }}>
               <CopyIcon />
-            </span>
+            </span>{' '}
           </Typography>
         </Box>
         <Box>
@@ -37,9 +48,11 @@ export const SalesAddresses = () => {
               color: 'rgba(17, 17, 17, 0.8)',
               fontSize: '13px',
               fontWeight: '400',
+              display: 'flex',
+              gap: '30px',
+              alignItems: 'center',
             }}
           >
-            To:
             <span
               style={{
                 color: 'rgba(17, 17, 17, 1)',
@@ -47,7 +60,16 @@ export const SalesAddresses = () => {
                 fontWeight: '600',
               }}
             >
-              0xef0b31nbIOJ948Ko20A1ks89suysSK...
+              <span
+                style={{
+                  color: 'rgba(17, 17, 17, 0.8)',
+                  fontSize: '13px',
+                  fontWeight: '400',
+                }}
+              >
+                To:{' '}
+              </span>
+              0xef0b31nbIOJ948Ko20A1ks89suysSK
             </span>
             <span style={{ cursor: 'pointer' }}>
               <CopyIcon />

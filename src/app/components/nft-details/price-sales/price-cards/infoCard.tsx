@@ -11,9 +11,8 @@ const InfoCard = () => {
           backgroundImage: "url('/images/nft/trending.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
-          maxWidth: '282px',
-          width: '100%',
-          boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
+          width: '330px',
+          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           borderRadius: '24px',
         }}
       >
@@ -46,7 +45,7 @@ const InfoCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              items
+              Items
             </Typography>
             <Typography
               variant="body1"
@@ -93,7 +92,7 @@ const InfoCard = () => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              mb: '10px',
+              mt: '10px',
             }}
           >
             <Typography
@@ -122,7 +121,7 @@ const InfoCard = () => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              mb: '10px',
+              mt: '10px',
             }}
           >
             <Typography
@@ -154,7 +153,7 @@ const InfoCard = () => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              mb: '10px',
+              mt: '10px',
             }}
           >
             <Typography
@@ -183,6 +182,7 @@ const InfoCard = () => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
+              mt: '10px',
             }}
           >
             <Typography
@@ -211,7 +211,7 @@ const InfoCard = () => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              mb: '10px',
+              mt: '10px',
             }}
           >
             <Typography

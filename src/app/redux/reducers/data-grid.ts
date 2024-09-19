@@ -155,12 +155,12 @@ export const dataGridApi = createApi({
     }),
     addWatchlist: builder.mutation({
       query: ({
-        email,
+        token,
         collection_name,
         main,
         ids,
       }: {
-        email: string | undefined;
+        token: string | undefined;
         collection_name: string;
         main: boolean;
         ids: string[];
@@ -168,7 +168,24 @@ export const dataGridApi = createApi({
         return {
           url: `/api/favorites/`,
           method: 'POST',
-          body: { email, collection_name, main, ids },
+          body: { collection_name, main, ids },
+          headers: {
+            Authorization: token ? `Bearer ${token}` : undefined,
+            'Content-Type': 'application/json',
+          },
+        };
+      },
+    }),
+    fetchWatchlist: builder.query({
+      query: ({ token }: { token: string | undefined }) => {
+        console.log('mutation called');
+        return {
+          url: `/api/favorites/`,
+          method: 'GET',
+          headers: {
+            Authorization: token ? `Bearer ${token}` : undefined,
+            'Content-Type': 'application/json',
+          },
         };
       },
     }),
@@ -193,4 +210,5 @@ export const {
   useFetchCategoriesDataQuery,
   useFetchCoinsListQuery,
   useAddWatchlistMutation,
+  useFetchWatchlistQuery,
 } = dataGridApi;

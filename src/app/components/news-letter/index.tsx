@@ -49,6 +49,7 @@ function NewsLetter() {
               color: 'rgba(17, 17, 17, 0.8)',
               maxWidth: '630px',
               lineHeight: '30px',
+              marginRight: '45px',
             }}
           >
             {' '}
