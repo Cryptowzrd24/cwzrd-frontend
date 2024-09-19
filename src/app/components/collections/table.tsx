@@ -9,10 +9,10 @@ import { getNftList } from '@/app/services/collections';
 
 const Table = () => {
   const [search, setSearch] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [rowData, setRowData] = useState<any>([]);
   const [pageSize, setPageSize] = useState(10);
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(10);
 
   const extractNftData = (data: any) => {
     return data.map((nft: any, index: number) => ({
@@ -35,14 +35,15 @@ const Table = () => {
       },
       assets: nft.assets?.toLocaleString() || 'N/A',
       owners: nft.owners?.toLocaleString() || 'N/A',
-      owners_percent: `${(nft.ownerAssetsPercentage ?? 0).toFixed(2)} %`,
+      owners_percent: `${(nft.ownerAssetsPercentage ?? 0).toFixed(2)}`,
     }));
   };
 
   const fetchData = async () => {
-    const data = await getNftList(count, pageSize);
+    const data = await getNftList(currentPage, pageSize);
     const nftData = await extractNftData(data?.results);
-    setCount(Math.ceil(data?.count / pageSize));
+    // setCount(Math.ceil(data?.count / pageSize));
+    setCount(data?.count);
     setRowData(nftData);
   };
   useEffect(() => {
@@ -60,7 +61,7 @@ const Table = () => {
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
-    setCurrentPage(value);
+    setCurrentPage(value - 1);
   };
 
   // const paginatedRowData = rowDataCollections.slice(
@@ -92,7 +93,7 @@ const Table = () => {
       <Pagination
         length={count}
         pageSize={pageSize}
-        currentPage={currentPage}
+        currentPage={currentPage + 1}
         onPageChange={handlePageChange}
       />
     </div>

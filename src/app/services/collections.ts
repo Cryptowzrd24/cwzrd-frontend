@@ -1,7 +1,7 @@
 export const getNftList = async (page: number, offset: number) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/nft/list/?limit=${offset}&offset=10&page=${page}&page_size=50`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/nft/list/?limit=${offset}&offset=${page}`,
       {
         method: 'GET',
         headers: {
