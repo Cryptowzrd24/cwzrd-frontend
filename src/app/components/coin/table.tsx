@@ -25,6 +25,7 @@ const Table = () => {
   const columnCoinsDef = useColumnCoinDefs(columnsCoin);
   const [activeIcon, setActiveIcon] = useState('ListIcon');
   const filters = useSelector((state: any) => state.filters.filters);
+  const favorites = useSelector((state: any) => state.market);
 
   const queryParams = constructQueryParams(filters as Filters);
   const { data } = useFetchCoinDataQuery({
@@ -100,7 +101,7 @@ const Table = () => {
       }));
       setRowData(res);
     }
-  }, [data, currentPage, itemStart, pageSize, filters]);
+  }, [data, currentPage, itemStart, pageSize, filters, favorites]);
 
   const updateRowData = (updatedRow: any) => {
     const previousPrice = previousPrices.current[updatedRow.coin_id];

@@ -40,10 +40,9 @@ const SignUp = ({ setActiveTab }: any) => {
   };
 
   const validatePassword = (password: string) => {
-    console.log('pass', password);
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    console.log('is valid', passwordRegex.test(password));
+
     return passwordRegex.test(password);
   };
 
@@ -305,6 +304,13 @@ const SignUp = ({ setActiveTab }: any) => {
         transformOrigin={{
           vertical: 'top',
           horizontal: 'center',
+        }}
+        sx={{
+          '& .MuiPaper-root': {
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
+            padding: 0,
+          },
         }}
       >
         <Box

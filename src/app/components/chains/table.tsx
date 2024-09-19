@@ -67,7 +67,7 @@ const Table = () => {
       setActiveIcon('BoxIcon');
     }
   };
-
+  console.log(chainData);
   useEffect(() => {
     if (chainData && chainData.data) {
       if (chainData.data.length >= currentPage * pageSize) setCurrentPage(1);
@@ -84,6 +84,7 @@ const Table = () => {
         market_cap_chain: item.mcapTvlRatio,
         index: startIndex + index,
         coin_id: item.cryptoId,
+        market_cap: item.mcap,
       }));
       setRowData(res);
     }

@@ -22,7 +22,6 @@ const Table = () => {
   const { favorites } = useAppSelector((state) => state.market);
   const { token } = useSelector((state: any) => state.user);
   const { selectedWatchListName } = useSelector((state: any) => state.market);
-  console.log('selected', selectedWatchListName);
 
   const favoriteIds = favorites ? favorites.join(',') : '';
   const { data, error } = Cookies.get('authToken')
@@ -30,8 +29,6 @@ const Table = () => {
     : useFetchFavoritesDataQuery({
         id: favoriteIds,
       });
-
-  // console.log('dataaa', JSON.stringify(data));
 
   // const { data, error } = useFetchFavoritesDataQuery({
   //   id: favoriteIds,
@@ -95,6 +92,7 @@ const Table = () => {
   }, [
     data,
     selectedWatchListName,
+    favorites.length,
     currentPage,
     itemStart,
     pageSize,
