@@ -4,14 +4,14 @@ import LinksCard from './linksCard';
 import { Box } from '@mui/material';
 import Thought from './thoght';
 
-const PriceCards = () => {
+const PriceCards = ({ serverNftData }: any) => {
   return (
     <>
       <Box sx={{ mb: '12px' }}>
-        <InfoCard />
+        <InfoCard serverNftData={serverNftData} />
       </Box>
       <Box sx={{ mb: '12px' }}>
-        <LinksCard />
+        <LinksCard serverNftData={serverNftData} />
       </Box>
       <Box sx={{ mb: '12px' }}>
         <Thought />

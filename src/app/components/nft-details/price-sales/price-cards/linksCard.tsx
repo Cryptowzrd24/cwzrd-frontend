@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 
-const LinksCard = () => {
+const LinksCard = ({ serverNftData }: any) => {
   return (
     <Box
       sx={{
@@ -46,6 +46,10 @@ const LinksCard = () => {
             Website
           </Typography>
           <Box
+            component="a"
+            href={serverNftData?.website}
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
               padding: '6px 10px',
               borderRadius: '8px',
@@ -55,16 +59,29 @@ const LinksCard = () => {
               alignItems: 'center',
             }}
           >
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '11px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-              }}
-            >
-              Persona
-            </Typography>
+            {serverNftData?.website && serverNftData?.website !== '' ? (
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '11px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                Website
+              </Typography>
+            ) : (
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '11px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                --
+              </Typography>
+            )}
           </Box>
         </Box>
         <Box
@@ -86,52 +103,43 @@ const LinksCard = () => {
             Market Links
           </Typography>
           <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
-            <Box
-              sx={{
-                padding: '6px 10px',
-                borderRadius: '8px',
-                background: 'rgba(17, 17, 17, 0.05)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Typography
-                variant="body1"
+            {serverNftData?.marketPlaces?.map((item: any, index: number) => (
+              <Box
+                key={index}
+                component="a"
+                href={item?.jump_url}
+                target="_blank"
+                rel="noopener noreferrer"
                 sx={{
-                  fontSize: '11px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
+                  padding: '7px 12px',
+                  borderRadius: '8px',
+                  background: '#EFEEF2',
+                  transition: 'all 0.3s ',
+                  ':hover': {
+                    background: '#dddce1',
+                  },
+                  textDecoration: 'none',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}
               >
-                Opensea
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                padding: '6px 10px',
-                borderRadius: '8px',
-                background: 'rgba(17, 17, 17, 0.05)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '11px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
-                }}
-              >
-                LooksRare
-              </Typography>
-            </Box>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '11px',
+                    fontWeight: '500',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  {item?.name}
+                </Typography>
+              </Box>
+            ))}
           </Box>
         </Box>
         {/* -------------------------------------------------------------- */}
-        <Box
+        {/* <Box
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
@@ -184,7 +192,7 @@ const LinksCard = () => {
               </Typography>
             </Box>
           </Box>
-        </Box>
+        </Box> */}
         {/* --------------------------------------------------------------------- */}
         <Box
           sx={{
@@ -204,48 +212,83 @@ const LinksCard = () => {
             Socials
           </Typography>
           <Box sx={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
-            <Box
-              sx={{
-                padding: '6px 10px',
-                borderRadius: '8px',
-                background: 'rgba(17, 17, 17, 0.05)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Typography
-                variant="body1"
+            {serverNftData?.twitter && (
+              <Box
+                component="a"
+                href={serverNftData?.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
                 sx={{
-                  fontSize: '11px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
+                  padding: '6px 10px',
+                  borderRadius: '8px',
+                  background: 'rgba(17, 17, 17, 0.05)',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}
               >
-                Twitter
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                padding: '6px 10px',
-                borderRadius: '8px',
-                background: 'rgba(17, 17, 17, 0.05)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Typography
-                variant="body1"
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '11px',
+                    fontWeight: '500',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  Twitter
+                </Typography>
+              </Box>
+            )}
+            {serverNftData?.discord && (
+              <Box
+                component="a"
+                href={serverNftData?.discord}
+                target="_blank"
+                rel="noopener noreferrer"
                 sx={{
-                  fontSize: '11px',
-                  fontWeight: '500',
-                  color: 'rgba(17, 17, 17, 1)',
+                  padding: '6px 10px',
+                  borderRadius: '8px',
+                  background: 'rgba(17, 17, 17, 0.05)',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}
               >
-                Discord
-              </Typography>
-            </Box>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '11px',
+                    fontWeight: '500',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  Discord
+                </Typography>
+              </Box>
+            )}
+            {!serverNftData?.discord && !serverNftData?.twitter && (
+              <Box
+                sx={{
+                  padding: '6px 10px',
+                  borderRadius: '8px',
+                  background: 'rgba(17, 17, 17, 0.05)',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '11px',
+                    fontWeight: '500',
+                    color: 'rgba(17, 17, 17, 1)',
+                  }}
+                >
+                  --
+                </Typography>
+              </Box>
+            )}
           </Box>
         </Box>
       </Stack>

@@ -205,7 +205,9 @@ export const columnsActivity = [
 export const columnsMarket = [
   { field: 'index', headerName: '#' },
   { field: 'market_place', headerName: 'Market Place' },
-  { field: 'distribution_7d', headerName: '7D Distribution' },
+  { field: 'distribution_7d' },
+  { field: 'distribution_24h' },
+  { field: 'distribution_30d' },
   { field: 'royalty' },
   { field: 'service_fee', headerName: 'Service Fee' },
   { field: 'floor_price', headerName: 'Floor Price' },

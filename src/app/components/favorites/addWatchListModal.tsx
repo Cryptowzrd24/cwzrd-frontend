@@ -10,12 +10,12 @@ import CloseIcon from '@mui/icons-material/Close';
 const AddWatchListModal = ({
   active,
   handleClose,
-  emailStored,
+  // emailStored,
   watchlistName,
   handleWatchlistNameChange,
-  handleSearchChange,
-  searchTerm,
-  emailExistError,
+  // handleSearchChange,
+  // searchTerm,
+  // emailExistError,
   handleCreateWatchlist,
 }: any) => {
   return (
@@ -51,14 +51,12 @@ const AddWatchListModal = ({
             variant="body1"
             component="h2"
             sx={{
-              fontSize: emailStored ? '24px' : '16px',
+              fontSize: '24px',
               fontWeight: 'bold',
               lineHeight: '34px',
             }}
           >
-            {emailStored
-              ? 'Create New Watchlist'
-              : 'Enter Email to Create Watchlist'}
+            Create New Watchlist
           </Typography>
           <IconButton
             onClick={handleClose}
@@ -79,12 +77,10 @@ const AddWatchListModal = ({
         </Box>
         <TextField
           color="secondary"
-          placeholder={emailStored ? 'Watchlist Name' : 'Watchlist Email'}
-          value={emailStored ? watchlistName : searchTerm}
-          onChange={
-            emailStored ? handleWatchlistNameChange : handleSearchChange
-          }
-          inputProps={{ maxLength: emailStored ? 32 : 50, color: '#674CFB' }}
+          placeholder={'Watchlist Name'}
+          value={watchlistName}
+          onChange={handleWatchlistNameChange}
+          inputProps={{ maxLength: 32, color: '#674CFB' }}
           variant="outlined"
           size="small"
           fullWidth
@@ -116,7 +112,7 @@ const AddWatchListModal = ({
           }}
         />
 
-        {emailStored && (
+        {/* {emailStored && (
           <Typography
             variant="caption"
             sx={{
@@ -128,8 +124,8 @@ const AddWatchListModal = ({
           >
             {`${watchlistName.length}/32`}
           </Typography>
-        )}
-        <Typography
+        )} */}
+        {/* <Typography
           variant="caption"
           sx={{
             color: 'red',
@@ -138,7 +134,7 @@ const AddWatchListModal = ({
           }}
         >
           {emailExistError}
-        </Typography>
+        </Typography> */}
 
         <Button
           variant="contained"
@@ -150,12 +146,9 @@ const AddWatchListModal = ({
           }}
           fullWidth
           onClick={handleCreateWatchlist}
-          disabled={
-            (emailStored && watchlistName.trim().length === 0) ||
-            searchTerm.length > 32
-          }
+          disabled={watchlistName.trim().length === 0}
         >
-          {emailStored ? 'Create' : 'Confirm Email'}
+          Create
         </Button>
       </Box>
     </Modal>

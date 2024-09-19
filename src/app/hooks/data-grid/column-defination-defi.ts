@@ -43,7 +43,7 @@ const useColumnDefiDefs = (columns: any) => {
           return {
             field: col.field,
             headerName: col.headerName,
-            width: 100,
+            width: 90,
             cellStyle: (p: any) => getPercentStyle(p.value),
             valueFormatter: (p: any) => {
               const value = p.value;
@@ -70,7 +70,7 @@ const useColumnDefiDefs = (columns: any) => {
           return {
             field: 'circulating_supply',
             headerComponent: HeaderComponent,
-            width: 165,
+            width: 195,
             cellRenderer: CirculatingSupply,
             tooltipComponent: RowTooltip,
             tooltipValueGetter: (params: any) =>

@@ -1,8 +1,40 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
-import blur from '../../../../../../public/images/nft/blur.png';
-import Image from 'next/image';
-const InfoCard = () => {
+
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
+const InfoCard = ({ serverNftData }: any) => {
+  function checkRoyaltyAndFindMax(marketPlaces: any) {
+    const royaltyValues = [];
+
+    // Iterate through each marketplace object and gather royalty values along with their logos
+    for (const marketplace of marketPlaces) {
+      if (marketplace.hasOwnProperty('royalty')) {
+        royaltyValues.push({
+          royalty: marketplace.royalty,
+          logo: marketplace.logo,
+        });
+      }
+    }
+
+    if (royaltyValues.length === 0) {
+      return {
+        royalty: false,
+        logo: marketPlaces[0].logo,
+      };
+    }
+
+    if (royaltyValues.length === 1) {
+      return royaltyValues[0];
+    }
+
+    const highestRoyaltyObject = royaltyValues.reduce((max, current) => {
+      return current.royalty > max.royalty ? current : max;
+    });
+
+    return highestRoyaltyObject; // Return the object with the highest royalty and logo
+  }
+  const royalty = checkRoyaltyAndFindMax(serverNftData?.marketPlaces);
+  const royalityImg = royalty.logo;
   return (
     <>
       <Box
@@ -55,7 +87,7 @@ const InfoCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              10,000
+              {priceNumberFormatDigits(serverNftData?.totalItems)}
             </Typography>
           </Box>
           <Box
@@ -84,7 +116,7 @@ const InfoCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              5,353
+              {priceNumberFormatDigits(serverNftData?.totalOwners)}
             </Typography>
           </Box>
           <Box
@@ -113,7 +145,8 @@ const InfoCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              1,886,173.ETH
+              {priceNumberFormatDigits(serverNftData?.totalVolume)}{' '}
+              {serverNftData?.floorPriceToken}
             </Typography>
           </Box>
           <Box
@@ -135,7 +168,16 @@ const InfoCard = () => {
               Royalty
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Image src={blur} alt="blur" width={20} height={20} />
+              <Box
+                sx={{
+                  width: '20px',
+                  height: '20px',
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                }}
+              >
+                <img src={royalityImg} alt="blur" width={20} height={20} />
+              </Box>
               <Typography
                 variant="body1"
                 sx={{
@@ -144,7 +186,7 @@ const InfoCard = () => {
                   color: 'rgba(17, 17, 17, 1)',
                 }}
               >
-                0.5%
+                {royalty.royalty ? `${royalty.royalty}` : '--'}
               </Typography>
             </Box>
           </Box>
@@ -174,7 +216,8 @@ const InfoCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              11.97.ETH
+              {priceNumberFormatDigits(serverNftData?.floorPrice)}{' '}
+              {serverNftData?.floorPriceToken}
             </Typography>
           </Box>
           <Box
@@ -203,7 +246,8 @@ const InfoCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              11.75 ETH
+              {priceNumberFormatDigits(serverNftData?.avgPrice24h)}{' '}
+              {serverNftData?.floorPriceToken}
             </Typography>
           </Box>
           <Box
@@ -232,7 +276,7 @@ const InfoCard = () => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              30
+              {priceNumberFormatDigits(serverNftData?.sales24h)}
             </Typography>
           </Box>
         </Stack>

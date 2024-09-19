@@ -13,7 +13,7 @@ import GraphLayout from './graph/graphLayout';
 import GraphCard from './graph/graphCard';
 import Verified from '../../../../public/icons/verified';
 
-const NftDetails = () => {
+const NftDetails = ({ serverNftData }: any) => {
   const cardData = [
     {
       id: '1',
@@ -31,7 +31,7 @@ const NftDetails = () => {
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
         <Box id="hero" sx={{ mt: '48px' }}>
-          <HeroSection />
+          <HeroSection serverNftData={serverNftData} />
         </Box>
         <Box id="overview" sx={{ mt: '16px', mb: '16px' }}>
           <NftNavbar />
@@ -44,7 +44,7 @@ const NftDetails = () => {
           }}
         >
           <GraphLayout coinSymbol={'BTC'} />
-          <PriceSales />
+          <PriceSales serverNftData={serverNftData} />
         </Box>
         <Box
           sx={{

@@ -7,7 +7,7 @@ import { columnsChain } from '@/app/constants/columns';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchChainDataQuery } from '@/app/redux/reducers/data-grid';
 import { Box } from '@mui/material';
-import CardContent from '../highest-volume/cards/cardContent';
+import CardContent from './cards/cardContent';
 import { scrollToTop } from '@/utils/scroll-to-top';
 import debounce from 'debounce';
 
