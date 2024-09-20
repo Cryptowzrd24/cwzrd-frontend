@@ -1,6 +1,8 @@
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
-const StarIcon = () => {
+const StarIcon = ({ color }: any) => {
+    const pathname = usePathname()
   return (
     <>
       <svg
@@ -12,8 +14,8 @@ const StarIcon = () => {
       >
         <path
           d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z"
-          fill="none"
-          stroke="black"
+          fill={pathname.includes('/favorites') ? color : 'none'}
+          stroke={color ? color : 'black'}
           stroke-linejoin="round"
           stroke-width="27"
         />
