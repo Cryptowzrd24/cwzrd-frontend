@@ -2,8 +2,11 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
-// import { priceNumberFormatter } from '../../data-table/price';
-// import numeral from 'numeral';
+import {
+  useFetchNftScatterDataQuery,
+  useFetchNftTrendingDataQuery,
+} from '@/app/redux/nft-details';
+import { priceNumberFormatter } from '../../data-table/price';
 
 interface StockChartProps {
   volumeValue: string;
@@ -14,41 +17,74 @@ interface StockChartProps {
 }
 
 const StockChartNft: React.FC<StockChartProps> = React.memo(
-  ({ isFullScreen, chartRef, setIsFullScreen, coinSymbol }) => {
+  ({ isFullScreen, chartRef, setIsFullScreen, coinSymbol, volumeValue }) => {
     const [options, setOptions] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [isDataAvailable, setIsDataAvailable] = useState(false);
     const chartComponentRef = useRef<any>(null);
     const useZones = 2;
     const graphType = 'area';
+
+    const periodTime =
+      volumeValue === '1h'
+        ? 1
+        : volumeValue === '24h'
+          ? 2
+          : volumeValue === '7d'
+            ? 3
+            : 4;
+
+    const { data: nftTrendingData } = useFetchNftTrendingDataQuery({
+      period: periodTime,
+    });
+    const { data: nftScatterData } = useFetchNftScatterDataQuery({
+      period: periodTime,
+    });
+
+    const formatChartData = (data: any) => {
+      // Area graph data for price
+      const priceData = data.map((item: any) => ({
+        x: parseInt(item.timestamp),
+        y: item.averagePrice,
+        sales: item.sales, // additional data: sales
+      }));
+
+      // Column graph data for volume
+      const volumeData = data.map((item: any) => ({
+        x: parseInt(item.timestamp), // x-axis: timestamp
+        y: item.volume,
+        sales: item.sales,
+        color: {
+          linearGradient: {
+            x1: 0,
+            y1: 0,
+            x2: 1,
+            y2: 0,
+          },
+          stops: [
+            [0, '#F7841A'],
+            [1, '#F74848'],
+          ],
+        },
+      }));
+
+      return { priceData, volumeData };
+    };
 
     const fetchChartData = useCallback(async () => {
       setIsLoading(true);
 
       try {
         // Fetching data from Highcharts' demo API
-        const data = await fetch(
-          'https://demo-live-data.highcharts.com/aapl-c.json',
-        ).then((response) => response.json());
-
-        const reducedData = data.slice(0, 100);
+        const apiData = nftTrendingData?.data || [];
+        const { priceData, volumeData } = formatChartData(apiData);
+        if (priceData.length === 0) {
+          setIsDataAvailable(false);
+        } else {
+          setIsDataAvailable(true);
+        }
         // Formatting volume data (if needed)
         // const volumeThreshold = Math.max(...reducedData.map((d: any) => d[1]));
-        const formattedVolumeData = reducedData.map(([time, value]: any) => ({
-          x: time,
-          y: value,
-          color: {
-            linearGradient: {
-              x1: 0,
-              y1: 0,
-              x2: 1,
-              y2: 0,
-            },
-            stops: [
-              [0, '#F7841A'],
-              [1, '#F74848'],
-            ],
-          },
-        }));
 
         // Setting chart options
         setOptions({
@@ -79,9 +115,6 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                 },
                 formatter: function (this: any) {
                   const value = this.value;
-                  //   if (selectedCompareCoinId) {
-                  //     return `${value.toFixed(2)}%`;
-                  //   }
                   if (value >= 1000000000000)
                     return (value / 1000000000000).toFixed(1) + 'T';
                   if (value >= 1000000000)
@@ -122,8 +155,8 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
             formatter: function (this: any) {
               const date = Highcharts.dateFormat('%m/%d/%Y', this.x);
               const time = Highcharts.dateFormat('%I:%M:%S %p', this.x);
-              //   const volume = numeral(data[this.point.index][1]).format('0.00a');
-              //   const price = priceNumberFormatter(this.y);
+              const volume = this.points[1]?.y;
+              const sales = this?.point?.options?.sales;
 
               return `
               <div style="padding: 16px; border-radius: 8px; background: white; box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 220px; max-height: 128px;">
@@ -137,7 +170,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                     Price
                   </div>
                   <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase">
-                   0.2495 ETH
+                   ${priceNumberFormatter(this.y)} ${apiData[0]?.nativeCurrencySymbol}
                   </div>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding-top: 6px; align-items:center;">
@@ -145,7 +178,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                 <div style="width:8px; height: 8px; background-color:rgba(247, 132, 26, 1); border-radius:50%"></div>
                   <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">Volume</div>
                 </div>
-                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase;">1.88 ETH</div>
+                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase;">${priceNumberFormatter(volume)} ${apiData[0]?.nativeCurrencySymbol}</div>
                 </div>
 
                    <div style="display: flex; justify-content: space-between; padding-top: 6px;">
@@ -154,7 +187,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                     Sales Count
                   </div>
                   <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase">
-                   3
+                   ${sales}
                   </div>
                 </div>
 
@@ -168,7 +201,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
             {
               type: graphType,
               name: coinSymbol,
-              data: reducedData,
+              data: priceData,
               color: 'rgba(69, 202, 148, 1)',
               fillColor: {
                 linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
@@ -201,7 +234,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
             {
               type: 'column',
               name: 'Volume',
-              data: formattedVolumeData,
+              data: volumeData,
               borderRadius: 0,
               borderWidth: 1,
               borderColor: 'rgba(230, 230, 230, 1)',
@@ -260,7 +293,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
         console.error('Error fetching chart data:', error);
         setIsLoading(false);
       }
-    }, [coinSymbol]);
+    }, [coinSymbol, nftTrendingData, nftScatterData]);
 
     useEffect(() => {
       fetchChartData();
@@ -334,13 +367,47 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
             </div>
           </div>
         )}
-        <HighchartsReact
-          highcharts={Highcharts}
-          constructorType={'stockChart'}
-          options={options}
-          containerProps={{ style: { height: '100%' } }}
-          ref={chartComponentRef}
-        />
+        {!isLoading && !isDataAvailable && (
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: 'rgba(255, 255, 255, 0.8)',
+              zIndex: 10,
+              marginTop: '50px',
+            }}
+          >
+            <div
+              style={{
+                fontSize: '18px',
+                fontWeight: 'bold',
+                color: 'rgba(17, 17, 17, 0.8)',
+                marginBottom: '10px',
+              }}
+            >
+              No data found
+            </div>
+            <div style={{ fontSize: '14px', color: 'gray' }}>
+              There is no data to display for the selected period.
+            </div>
+          </div>
+        )}
+        {!isLoading && isDataAvailable && (
+          <HighchartsReact
+            highcharts={Highcharts}
+            constructorType={'stockChart'}
+            options={options}
+            containerProps={{ style: { height: '100%' } }}
+            ref={chartComponentRef}
+          />
+        )}
       </div>
     );
   },

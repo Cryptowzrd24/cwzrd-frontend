@@ -4,26 +4,20 @@ import useColumnActivityDefs from '@/app/hooks/activity-data-grid/activity';
 import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import DataTable from '../../data-table';
-import { Pagination } from '../../data-table/pagination';
+// import { Pagination } from '../../data-table/pagination';
+import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
 
 const Activity = ({ serverNftData }: any) => {
   const colDef = useColumnActivityDefs(columnsActivity);
-  const [rowData, setRowData] = useState([]);
+  const [rowData, setRowData] = useState<any>([]);
+  const [nextToken, setNextToken] = useState(null);
 
   const pageSize = 10;
-  const totalCount = 50;
 
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    value: number,
-  ) => {
-    setCurrentPage(value);
-  };
-
-  useEffect(() => {
-    fetch('https://1f98-182-188-106-153.ngrok-free.app/api/nft/activities/', {
+  const fetchData = () => {
+    fetch('https://backend.cwzrd.co.uk/api/nft/activities/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,13 +26,14 @@ const Activity = ({ serverNftData }: any) => {
         platformAlias: 'polygon',
         contract: '0xa28640d322019217ecd27ebf90cd27b1978c6038',
         pageSize: pageSize,
+        next: nextToken ? nextToken : null,
       }),
     })
       .then((response) => response.json())
       .then((data) => {
         if (data.data.length >= currentPage * pageSize) setCurrentPage(1);
         const startIndex = (currentPage - 1) * pageSize + 1;
-        console.log(data.data.activities);
+        console.log('running');
         const res = data.data.activities.map((item: any, index: number) => ({
           item: item?.tokenId,
           transaction: item?.txType,
@@ -50,9 +45,20 @@ const Activity = ({ serverNftData }: any) => {
           tradeSymbol: item?.tradeSymbol,
           index: startIndex + index,
         }));
-        setRowData(res);
+        setNextToken(data.data.next);
+        setRowData((prevRowData: any) => {
+          const combinedData = [...prevRowData, ...res];
+          const uniqueData = Array.from(
+            new Map(combinedData.map((item) => [item.item, item])).values(),
+          );
+          return uniqueData;
+        });
       })
       .catch((error) => console.error('Error:', error));
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
   return (
     <>
@@ -120,12 +126,35 @@ const Activity = ({ serverNftData }: any) => {
         }}
       >
         <DataTable rowData={rowData} columnDefs={colDef} />
-        <Pagination
-          length={totalCount}
-          pageSize={pageSize}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-        />{' '}
+      </Box>
+      <Box
+        onClick={fetchData}
+        sx={{ display: 'flex', justifyContent: 'center', marginTop: '15px' }}
+      >
+        <Typography
+          variant="body1"
+          sx={{
+            width: '10%',
+            background: 'rgba(17, 17, 17, 0.05)',
+            padding: '10px 12px 10px 16px',
+            fontWeight: '600',
+            display: 'flex',
+            justifyContent: 'center',
+            fontSize: '14px',
+            alignItems: 'center',
+            gap: '4px',
+            borderRadius: '56px',
+            cursor: 'pointer',
+            transition: 'background 0.3s ease',
+            lineHeight: 1,
+            ':hover': {
+              background: 'rgba(17, 17, 17, 0.2)',
+            },
+          }}
+        >
+          View More
+          <ArrowRightBlack />
+        </Typography>
       </Box>
     </>
   );

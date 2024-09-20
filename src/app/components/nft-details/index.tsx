@@ -55,7 +55,7 @@ const NftDetails = ({ serverNftData }: any) => {
         >
           {cardData.map((card) => (
             <Box key={card.id} sx={{ px: 1 }}>
-              <GraphCard {...card} />
+              <GraphCard serverNftData={serverNftData} {...card} />
             </Box>
           ))}
         </Box>

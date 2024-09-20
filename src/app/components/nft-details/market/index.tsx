@@ -46,7 +46,7 @@ const Market = ({ serverNftData }: any) => {
 
   useEffect(() => {
     fetch(
-      `https://1f98-182-188-106-153.ngrok-free.app/nft/distributions?platformAlias=polygon&contract=0xa28640d322019217ecd27ebf90cd27b1978c6038&period=${period}`,
+      `https://backend.cwzrd.co.uk/api/nft/distributions?platformAlias=polygon&contract=0xa28640d322019217ecd27ebf90cd27b1978c6038&period=${period}`,
       {
         method: 'GET',
       },
@@ -223,6 +223,13 @@ const Market = ({ serverNftData }: any) => {
           padding: '20px 24px 20px 24px',
           '& .ag-header': {
             borderTop: 'none',
+          },
+          '& .ag-header-cell:last-child .ag-header-cell-label': {
+            justifyContent: 'flex-start',
+            textAlign: 'left',
+          },
+          '& .ag-cell:last-child': {
+            textAlign: 'start',
           },
           '& .ag-theme-material .ag-row ': {
             width: '1400px',

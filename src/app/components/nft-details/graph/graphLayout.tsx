@@ -8,7 +8,7 @@ function GraphLayout({ coinSymbol }: any) {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
-  const [volumeValue, setVolumeValue] = useState('1D');
+  const [volumeValue, setVolumeValue] = useState('1h');
 
   const handleFullScreen = () => {
     if (chartRef.current) {

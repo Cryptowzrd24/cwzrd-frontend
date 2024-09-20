@@ -30,7 +30,7 @@ const useColumnMarketDefs = (columns: any) => {
             width: 270,
             valueFormatter: (p: any) => {
               const value = p.value;
-              return value + '%';
+              return value !== undefined ? value + '%' : '--';
             },
           };
         case 'distribution_24h':
@@ -40,7 +40,7 @@ const useColumnMarketDefs = (columns: any) => {
             width: 270,
             valueFormatter: (p: any) => {
               const value = p.value;
-              return value + '%';
+              return value !== undefined ? value + '%' : '--';
             },
           };
         case 'distribution_30d':
@@ -50,7 +50,7 @@ const useColumnMarketDefs = (columns: any) => {
             width: 270,
             valueFormatter: (p: any) => {
               const value = p.value;
-              return value + '%';
+              return value !== undefined ? value + '%' : '--';
             },
           };
 
@@ -58,7 +58,7 @@ const useColumnMarketDefs = (columns: any) => {
           return {
             field: 'royalty',
             headerName: 'Royalty',
-            width: 250,
+            width: 270,
             valueFormatter: (p: any) => {
               const value = p.value;
 
@@ -72,7 +72,7 @@ const useColumnMarketDefs = (columns: any) => {
         case 'service_fee':
           return {
             field: 'service_fee',
-            width: 225,
+            width: 270,
             headerName: 'Service Fee',
             valueFormatter: (p: any) => {
               const value = p.value;

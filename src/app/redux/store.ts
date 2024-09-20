@@ -6,6 +6,7 @@ import { dataGridApi } from './reducers/data-grid';
 import filterReducer from './reducers/filters';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { coinDetailsApi } from './coin-details';
+import { nftDetailsApi } from './nft-details';
 
 export const makeStore = () => {
   return configureStore({
@@ -14,12 +15,14 @@ export const makeStore = () => {
       user: userReducer,
       [dataGridApi.reducerPath]: dataGridApi.reducer,
       [coinDetailsApi.reducerPath]: coinDetailsApi.reducer,
+      [nftDetailsApi.reducerPath]: nftDetailsApi.reducer,
       filters: filterReducer,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware()
         .concat(dataGridApi.middleware)
-        .concat(coinDetailsApi.middleware),
+        .concat(coinDetailsApi.middleware)
+        .concat(nftDetailsApi.middleware),
   });
 };
 

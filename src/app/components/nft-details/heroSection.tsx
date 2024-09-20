@@ -1,9 +1,9 @@
 'use client';
 import { Box, LinearProgress, Stack, styled, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import Star from '../../../../public/icons/nft/star';
-import Upload from '../../../../public/icons/nft/upload';
+// import Star from '../../../../public/icons/nft/star';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
+import ShareComponent from '../coin-details/share-component';
 const HeroSection = ({ serverNftData }: any) => {
   const [progress, setProgress] = useState(55);
   const imageUrl = serverNftData?.logo;
@@ -23,6 +23,14 @@ const HeroSection = ({ serverNftData }: any) => {
       backgroundColor: 'rgba(230, 230, 230, 1)',
     },
   }));
+
+  const coinData = {
+    coin_id: 'polydog',
+    slug: serverNftData?.name,
+    statistics: {
+      price: serverNftData?.avgPrice24h,
+    },
+  };
   return (
     <>
       <Box
@@ -84,7 +92,7 @@ const HeroSection = ({ serverNftData }: any) => {
             </Stack>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Box
+            {/* <Box
               sx={{
                 borderRadius: '8px',
                 padding: '8px',
@@ -96,7 +104,7 @@ const HeroSection = ({ serverNftData }: any) => {
               }}
             >
               <Star />
-            </Box>
+            </Box> */}
             <Box
               sx={{
                 borderRadius: '8px',
@@ -108,7 +116,12 @@ const HeroSection = ({ serverNftData }: any) => {
                 cursor: 'pointer',
               }}
             >
-              <Upload />
+              {/* <Upload /> */}
+              <ShareComponent
+                coinData={coinData}
+                coinImage={serverNftData?.logo}
+                isNftDetails={true}
+              />
             </Box>
           </Box>
         </Box>
@@ -155,7 +168,7 @@ const HeroSection = ({ serverNftData }: any) => {
                   lineHeight: 1,
                 }}
               >
-                +7,37%{' '}
+                {/* +7,37%{' '} */}
               </Typography>
             </Box>
             <Box sx={{ mb: '8px', width: '100%' }} onClick={handleClick}>
