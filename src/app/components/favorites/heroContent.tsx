@@ -327,11 +327,15 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
   return (
     <>
-      {firstLogin && JSON.parse(Cookies.get('favorites')).length && (
-        <FirstLoginModal
-          setFirstLogin={setFirstLogin}
-          firstLogin={firstLogin}
-        />
+      {Cookies.get('favorites') ? (
+        firstLogin && (
+          <FirstLoginModal
+            setFirstLogin={setFirstLogin}
+            firstLogin={firstLogin}
+          />
+        )
+      ) : (
+        <></>
       )}
       <Box
         sx={{
