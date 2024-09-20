@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useEffect, useState } from 'react';
 import Logo from '../../../../public/icons/logo';
 import { NavbarData } from './data';
@@ -15,6 +14,7 @@ import Cookies from 'js-cookie';
 import LogoWhite from '../../../../public/icons/logoWhite';
 import './index.scss';
 import { usePathname } from 'next/navigation';
+import StarIcon from '../../../../public/icons/Navbar-Section/starIcon';
 
 function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -155,7 +155,7 @@ function Navbar() {
             ))}
           </Box>
 
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
             <Box
               sx={{
                 border: '1px solid rgba(17, 17, 17, 0.1)',
@@ -181,6 +181,11 @@ function Navbar() {
                   : 'black'
               }
             />
+
+            <Link style={{ textDecoration: 'none' }} href="/market/favorites">
+              <StarIcon />
+            </Link>
+
             <ProfileIcon
               color={
                 pathname === '/news' || pathname.includes('/news/')
