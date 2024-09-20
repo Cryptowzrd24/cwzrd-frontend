@@ -99,7 +99,6 @@ const Login = ({ setIsAuthenticated, setFirstLogin }: any) => {
 
         setIsAuthenticated(true);
       } else if (response?.error) {
-        console.log('Error:', response.error);
         setErrorMessage(response?.error);
         setAnchorEl(e.currentTarget);
         setPopoverOpen(true);
@@ -299,6 +298,13 @@ const Login = ({ setIsAuthenticated, setFirstLogin }: any) => {
         transformOrigin={{
           vertical: 'top',
           horizontal: 'center',
+        }}
+        sx={{
+          '& .MuiPaper-root': {
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
+            padding: 0,
+          },
         }}
       >
         <Box

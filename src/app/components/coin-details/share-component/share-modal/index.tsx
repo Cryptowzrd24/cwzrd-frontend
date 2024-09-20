@@ -32,8 +32,8 @@ const ShareModal = ({
     navigator.clipboard
       .writeText(
         isNftDetails
-          ? `http://localhost:3000/market/nft-details/${coinDetails?.coin_id}`
-          : `http://localhost:3000/market/coin-details/${coinDetails?.coin_id}`,
+          ? `${window.location.protocol + '//' + window.location.host}/market/nft-details/${coinDetails?.coin_id}`
+          : `${window.location.protocol + '//' + window.location.host}/market/coin-details/${coinDetails?.coin_id}`,
       )
       .then(() => {
         setAnchorEl(event.currentTarget);
@@ -159,8 +159,8 @@ const ShareModal = ({
                 contentEditable={false}
                 value={
                   isNftDetails
-                    ? `http://localhost:3000/market/nft-details/${coinDetails?.coin_id}`
-                    : `http://localhost:3000/market/coin-details/${coinDetails?.coin_id}`
+                    ? `${window.location.protocol + '//' + window.location.host}/market/nft-details/${coinDetails?.coin_id}`
+                    : `${window.location.protocol + '//' + window.location.host}/market/coin-details/${coinDetails?.coin_id}`
                 }
               ></input>
               <button

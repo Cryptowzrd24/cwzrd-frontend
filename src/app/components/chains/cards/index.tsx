@@ -11,7 +11,6 @@ import Link from 'next/link';
 
 const Card = ({
   title,
-  marketCapChain,
   marketCapTvl,
   percentChange1D,
   percentChange1M,
@@ -20,6 +19,7 @@ const Card = ({
   symbol,
   coinId,
   index,
+  marketCap,
 }: any) => {
   const isPositiveChange = percentChange1D >= 0;
   const changeColor = isPositiveChange
@@ -61,16 +61,10 @@ const Card = ({
         );
     }
   };
-  const formattedMarketCapChain = numeral(marketCapChain)
+  const formattedMarketCapChain = numeral(marketCap)
     .format('0.0a')
     .toUpperCase();
   const marketCapTvlVal = numeral(marketCapTvl).format('0.0a').toUpperCase();
-  //   const formattedCirculationSupply = numeral(circulationSupply)
-  //     .format('0.0a')
-  //     .toUpperCase();
-  //   const formattedTotalMaxSupply = numeral(totalMaxSupply)
-  //     .format('0.0a')
-  //     .toUpperCase();
 
   const numericChange = Number(percentChange1D);
 
@@ -221,7 +215,7 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                Market Cap Chain
+                Market Cap
                 <Tooltip
                   title="Market Cap Chain represents the total value of a blockchain's native token in circulation, serving as an indicator of the blockchain's size and impact​"
                   componentsProps={{
@@ -235,6 +229,7 @@ const Card = ({
                         borderRadius: '12px',
                         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
                         fontWeight: 'normal',
+                        lineHeight: '17.6px',
                       },
                     },
                   }}
@@ -273,7 +268,7 @@ const Card = ({
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
               >
-                Tvl
+                TVL
                 <Tooltip
                   title="TVL (Total Value Locked) represents the total value of assets currently locked in a DeFi protocol, reflecting its overall liquidity and user engagement​"
                   componentsProps={{
@@ -287,6 +282,7 @@ const Card = ({
                         borderRadius: '12px',
                         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
                         fontWeight: 'normal',
+                        lineHeight: '17.6px',
                       },
                     },
                   }}
@@ -320,61 +316,6 @@ const Card = ({
           <Box>
             <Stack>
               <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: 'rgba(17, 17, 17, 0.4)',
-                }}
-              >
-                Percent Change 1 Month
-                <Tooltip
-                  title="Value of percentage change in one month"
-                  componentsProps={{
-                    tooltip: {
-                      sx: {
-                        width: '270px',
-                        backgroundColor: 'rgba(255, 255, 255, 1)',
-                        color: 'rgba(17, 17, 17, 0.8)',
-                        fontSize: '12px',
-                        padding: '12px',
-                        borderRadius: '12px',
-                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-                        fontWeight: 'normal',
-                      },
-                    },
-                  }}
-                >
-                  <span
-                    style={{
-                      cursor: 'pointer',
-                      width: '8px',
-                      height: '8px',
-                      marginLeft: '5px',
-                    }}
-                    onMouseEnter={() => handleMouseEnter('percentChange1M')}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <Shift hovered={hoveredId === 'percentChange1M'} />
-                  </span>
-                </Tooltip>
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '18px',
-                  fontWeight: '500',
-                  color:
-                    percentChange1M > 0
-                      ? 'rgba(69, 202, 148, 1)'
-                      : 'rgba(245, 65, 65, 1)',
-                }}
-              >
-                {formattedChange1M}
-              </Typography>
-            </Stack>
-            <Stack sx={{ mt: '8px' }}>
-              <Typography
                 variant="body2"
                 sx={{
                   fontSize: '12px',
@@ -396,6 +337,7 @@ const Card = ({
                         borderRadius: '12px',
                         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
                         fontWeight: 'normal',
+                        lineHeight: '17.6px',
                       },
                     },
                   }}
@@ -419,13 +361,65 @@ const Card = ({
                 sx={{
                   fontSize: '18px',
                   fontWeight: '500',
-                  color:
-                    percentChange1W > 0
-                      ? 'rgba(69, 202, 148, 1)'
-                      : 'rgba(245, 65, 65, 1)',
+                  color: 'rgba(17, 17, 17, 1)',
                 }}
               >
-                {formattedChange1W}
+                {formattedChange1W.includes('-') ? '' : '+'}
+                {formattedChange1W}%
+              </Typography>
+            </Stack>
+            <Stack sx={{ mt: '8px' }}>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '12px',
+                  fontWeight: '400',
+                  color: 'rgba(17, 17, 17, 0.4)',
+                }}
+              >
+                Percent Change 1 Month
+                <Tooltip
+                  title="Value of percentage change in one month"
+                  componentsProps={{
+                    tooltip: {
+                      sx: {
+                        width: '270px',
+                        backgroundColor: 'rgba(255, 255, 255, 1)',
+                        color: 'rgba(17, 17, 17, 0.8)',
+                        fontSize: '12px',
+                        padding: '12px',
+                        borderRadius: '12px',
+                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                        fontWeight: 'normal',
+                        lineHeight: '17.6px',
+                      },
+                    },
+                  }}
+                >
+                  <span
+                    style={{
+                      cursor: 'pointer',
+                      width: '8px',
+                      height: '8px',
+                      marginLeft: '5px',
+                    }}
+                    onMouseEnter={() => handleMouseEnter('percentChange1M')}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Shift hovered={hoveredId === 'percentChange1M'} />
+                  </span>
+                </Tooltip>
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  color: 'rgba(17, 17, 17, 1)',
+                }}
+              >
+                {formattedChange1M.includes('-') ? '' : '+'}
+                {formattedChange1M}%
               </Typography>
             </Stack>
           </Box>

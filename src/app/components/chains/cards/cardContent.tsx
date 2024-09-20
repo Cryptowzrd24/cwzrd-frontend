@@ -14,7 +14,8 @@ type CardData = {
   protocols: string;
   coin_id: string;
   index: number;
-  tvl: number[];
+  tvl: string;
+  market_cap: string;
 };
 
 interface CardContentProps {
@@ -30,13 +31,14 @@ const CardContent = ({ cardsData }: CardContentProps) => {
             <Card
               title={card.name}
               marketCapChain={card.market_cap_chain}
-              marketCapTvl={card.market_cap_tvl}
+              marketCapTvl={card.tvl}
               percentChange1D={card.percent_change_1D}
               percentChange1M={card.percent_change_1M}
               percentChange1W={card.percent_change_1W}
               protocols={card.protocols}
               coinId={card.coin_id}
               index={card.index}
+              marketCap={card.market_cap}
             />
           </Grid>
         ))}
