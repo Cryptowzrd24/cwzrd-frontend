@@ -1,18 +1,21 @@
 'use client';
 import { Box, LinearProgress, Stack, styled, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 // import Star from '../../../../public/icons/nft/star';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 import ShareComponent from '../coin-details/share-component';
 const HeroSection = ({ serverNftData }: any) => {
-  const [progress, setProgress] = useState(55);
+  // const [progress, setProgress] = useState(55);
   const imageUrl = serverNftData?.logo;
-  const handleClick = (event: any) => {
-    const box = event.currentTarget;
-    const clickX = event.clientX - box.getBoundingClientRect().left;
-    const newValue = (clickX / box.clientWidth) * 100;
-    setProgress(newValue);
-  };
+  // const handleClick = (event: any) => {
+  //   const box = event.currentTarget;
+  //   const clickX = event.clientX - box.getBoundingClientRect().left;
+  //   const newValue = (clickX / box.clientWidth) * 100;
+  //   setProgress(newValue);
+  // };
+
+  const progressVal =
+    (serverNftData?.volume24h / serverNftData?.totalVolume) * 100;
 
   const CustomLinearProgress = styled(LinearProgress)(({}) => ({
     height: '10px !important',
@@ -171,8 +174,8 @@ const HeroSection = ({ serverNftData }: any) => {
                 {/* +7,37%{' '} */}
               </Typography>
             </Box>
-            <Box sx={{ mb: '8px', width: '100%' }} onClick={handleClick}>
-              <CustomLinearProgress variant="determinate" value={progress} />
+            <Box sx={{ mb: '8px', width: '100%' }}>
+              <CustomLinearProgress variant="determinate" value={progressVal} />
             </Box>
             <Box
               sx={{
