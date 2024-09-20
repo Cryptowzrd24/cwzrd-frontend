@@ -6,6 +6,7 @@ import useColumnMarketDefs from '@/app/hooks/market-data-grid/market';
 import DataTable from '../../data-table';
 import { Pagination } from '../../data-table/pagination';
 import { scrollToTop } from '@/utils/scroll-to-top';
+import { usePathname } from 'next/navigation';
 
 const Market = ({ serverNftData }: any) => {
   const pageSize = 10;
@@ -14,6 +15,9 @@ const Market = ({ serverNftData }: any) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [rowData, setRowData] = useState([]);
   const [itemStart, setItemStart] = useState(1);
+  const pathname = usePathname();
+  const contractId = pathname.split('/')[3];
+  const platformAlias = pathname.split('/')[4];
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -46,7 +50,7 @@ const Market = ({ serverNftData }: any) => {
 
   useEffect(() => {
     fetch(
-      `https://backend.cwzrd.co.uk/api/nft/distributions?platformAlias=polygon&contract=0xa28640d322019217ecd27ebf90cd27b1978c6038&period=${period}`,
+      `https://backend.cwzrd.co.uk/api/nft/distributions?platformAlias=${platformAlias}&contract=${contractId}&period=${period}`,
       {
         method: 'GET',
       },

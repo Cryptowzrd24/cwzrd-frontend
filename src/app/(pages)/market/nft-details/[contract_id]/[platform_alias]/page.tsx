@@ -1,9 +1,9 @@
 import NftDetails from '@/app/components/nft-details';
 import React from 'react';
 
-async function fetchNftDetailData() {
+async function fetchNftDetailData(id: any, platformAlias: any) {
   const res = await fetch(
-    `https://backend.cwzrd.co.uk/api/nft/basic/?platformAlias=polygon&contract=0xa28640d322019217ecd27ebf90cd27b1978c6038`,
+    `https://backend.cwzrd.co.uk/api/nft/basic/?platformAlias=${platformAlias}&contract=${id}`,
     {
       next: { revalidate: 60 },
     },
@@ -12,11 +12,14 @@ async function fetchNftDetailData() {
   return data?.data;
 }
 
-const page = async () => {
+const page = async (params: any) => {
   // if (!params?.coin_id) {
   //   throw new Error('coin_id is missing');
   // }
-  const serverNftData = await fetchNftDetailData();
+  const serverNftData = await fetchNftDetailData(
+    params.params.contract_id,
+    params.params.platform_alias,
+  );
   return (
     <div>
       <NftDetails serverNftData={serverNftData} />

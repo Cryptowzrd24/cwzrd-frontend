@@ -6,11 +6,15 @@ import React, { useEffect, useState } from 'react';
 import DataTable from '../../data-table';
 // import { Pagination } from '../../data-table/pagination';
 import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
+import { usePathname } from 'next/navigation';
 
 const Activity = ({ serverNftData }: any) => {
   const colDef = useColumnActivityDefs(columnsActivity);
   const [rowData, setRowData] = useState<any>([]);
   const [nextToken, setNextToken] = useState(null);
+  const pathname = usePathname();
+  const contractId = pathname.split('/')[3];
+  const platformAlias = pathname.split('/')[4];
 
   const pageSize = 10;
 
@@ -23,8 +27,8 @@ const Activity = ({ serverNftData }: any) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        platformAlias: 'polygon',
-        contract: '0xa28640d322019217ecd27ebf90cd27b1978c6038',
+        platformAlias: platformAlias,
+        contract: contractId,
         pageSize: pageSize,
         next: nextToken ? nextToken : null,
       }),

@@ -5,10 +5,14 @@ import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import DataTable from '../../data-table';
 import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
+import { usePathname } from 'next/navigation';
 
 const Sales = ({ serverNftData }: any) => {
   const colDef = useColumnSalesDefs(columnsSales);
   const pageSize = 10;
+  const pathname = usePathname();
+  const contractId = pathname.split('/')[3];
+  const platformAlias = pathname.split('/')[4];
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [rowData, setRowData] = useState<any>([]);
@@ -21,8 +25,8 @@ const Sales = ({ serverNftData }: any) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        platformAlias: 'polygon',
-        contract: '0xa28640d322019217ecd27ebf90cd27b1978c6038',
+        platformAlias: platformAlias,
+        contract: contractId,
         pageSize: pageSize,
         txType: 'sale',
         next: nextToken ? nextToken : null,
