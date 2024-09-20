@@ -14,6 +14,7 @@ import Image from 'next/image';
 import {
   updateSelectedWatchListName,
   updateSelectedWatchListMain,
+  updateFavorites,
 } from '../../redux/market/index';
 
 const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
@@ -25,9 +26,10 @@ const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
     event.preventDefault();
     setLoading(true);
     // @ts-expect-error: Cookie might be undefined or invalid JSON
-    const favorites = JSON.parse(Cookies?.get('favorites'));
+    const favorites = JSON?.parse(Cookies?.get('favorites')) || [];
     dispatch(updateSelectedWatchListName('My Favorite Coins'));
     dispatch(updateSelectedWatchListMain('My Favorite Coins'));
+    dispatch(updateFavorites(favorites));
     try {
       await addWatchlist({
         token: Cookies.get('authToken'),
@@ -47,6 +49,7 @@ const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
     setLoading(true);
     dispatch(updateSelectedWatchListName('My First Coin Watchlist'));
     dispatch(updateSelectedWatchListMain('My First Coin Watchlist'));
+    dispatch(updateFavorites([]));
     try {
       await addWatchlist({
         token: Cookies.get('authToken'),

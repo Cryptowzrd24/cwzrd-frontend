@@ -18,7 +18,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
   const copyToClipboard = (event: React.MouseEvent<HTMLElement>) => {
     navigator.clipboard
       .writeText(
-        `http://localhost:3000/market/coin-details/${coinDetails?.coin_id}`,
+        `${window.location.protocol + '//' + window.location.host}/market/coin-details/${coinDetails?.coin_id}`,
       )
       .then(() => {
         setAnchorEl(event.currentTarget);
@@ -42,6 +42,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
             sx: {
               borderRadius: '16px',
               width: '480px',
+              fontFamily: 'SF Pro Display',
             },
           }}
           onClose={handleClose}
@@ -131,9 +132,10 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
                   width: '100%',
                   height: '40px',
                   border: '0.5px solid lightgray',
+                  fontFamily: 'SF Pro Display',
                 }}
                 contentEditable={false}
-                value={`http://localhost:3000/market/coin-details/${coinDetails?.coin_id}`}
+                value={`${window.location.protocol + '//' + window.location.host}/market/coin-details/${coinDetails?.coin_id}`}
               ></input>
               <button
                 style={{
@@ -147,7 +149,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
                   color: '#fff',
                   fontSize: '14px',
                   lineHeight: '21px',
-                  //   paddingInline: '12px',
+                  fontFamily: 'SF Pro Display',
                   padding: '0px 16px',
                   cursor: 'pointer',
                 }}
@@ -171,6 +173,13 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
             vertical: 'top',
             horizontal: 'center',
           }}
+          sx={{
+            '& .MuiPaper-root': {
+              backgroundColor: 'transparent',
+              boxShadow: 'none',
+              padding: 0,
+            },
+          }}
         >
           <Box
             sx={{
@@ -178,6 +187,7 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
               background: 'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
               color: 'white',
               textAlign: 'center',
+              borderRadius: '8px',
             }}
           >
             Link copied to clipboard!
