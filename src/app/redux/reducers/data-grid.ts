@@ -178,7 +178,6 @@ export const dataGridApi = createApi({
     }),
     fetchWatchlist: builder.query({
       query: ({ token }: { token: string | undefined }) => {
-        console.log('mutation called');
         return {
           url: `/api/favorites/`,
           method: 'GET',

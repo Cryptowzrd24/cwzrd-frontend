@@ -4,12 +4,19 @@ import useColumnCoinDefs from '@/app/hooks/data-grid/column-defination-coin';
 import DataTable from '@/app/components/data-table';
 import { columnsCoin } from '@/app/constants/columns';
 import {
+  useAddWatchlistMutation,
   useFetchFavoritesDataQuery,
   useFetchWatchlistQuery,
 } from '@/app/redux/reducers/data-grid';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useAppSelector } from '@/app/redux/store';
+
 import Cookies from 'js-cookie';
+import {
+  updateFavorites,
+  updateSelectedWatchListMain,
+  updateSelectedWatchListName,
+} from '@/app/redux/market';
 
 const Table = () => {
   const [search] = useState('');
@@ -22,6 +29,7 @@ const Table = () => {
   const { favorites } = useAppSelector((state) => state.market);
   const { token } = useSelector((state: any) => state.user);
   const { selectedWatchListName } = useSelector((state: any) => state.market);
+  const [addWatchlist] = useAddWatchlistMutation();
 
   const favoriteIds = favorites ? favorites.join(',') : '';
   const { data, error } = Cookies.get('authToken')
@@ -30,6 +38,8 @@ const Table = () => {
         id: favoriteIds,
       });
 
+  const dispatch = useDispatch();
+
   // const { data, error } = useFetchFavoritesDataQuery({
   //   id: favoriteIds,
   // });
@@ -37,8 +47,42 @@ const Table = () => {
   const gridApiRef = useRef<any>(null);
   const priceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
+  const createWatchList = async () => {
+    try {
+      dispatch(updateSelectedWatchListMain('My Favorite Coins'));
+      dispatch(updateSelectedWatchListName('My Favorite Coins'));
+      dispatch(updateFavorites([]));
+      await addWatchlist({
+        token: Cookies.get('authToken'),
+        collection_name: 'My First Coin Watchlist',
+        main: true,
+        ids: [],
+      }).unwrap();
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
   useEffect(() => {
-    if ((error as any)?.status === 400) {
+    if (error) {
+      Cookies.get('authToken') && !Cookies.get('favorites')
+        ? createWatchList()
+        : '';
+    }
+  }, [
+    data,
+    selectedWatchListName,
+    favorites.length,
+    currentPage,
+    itemStart,
+    pageSize,
+    filters,
+    error,
+    Cookies.get('authToken'),
+  ]);
+
+  useEffect(() => {
+    if ((error as any)?.status === 400 || !Cookies.get('favorites')) {
       setRowData([]);
       return;
     }
