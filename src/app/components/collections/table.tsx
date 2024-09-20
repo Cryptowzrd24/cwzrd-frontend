@@ -20,22 +20,29 @@ const Table = () => {
       index: index + 1,
       name: nft.name || '',
       volume_24: {
-        amount: nft.oneDay?.volume?.toLocaleString() || 'N/A',
-        percent: `${(nft.oneDay?.volumeChangePercentage ?? 0).toFixed(2)} %`,
+        amount:
+          nft.oneDay?.volume?.toLocaleString() + ' ' + nft.floorPriceToken ||
+          'N/A',
+        percent: `${(nft.oneDay?.volumeChangePercentage ?? 0).toFixed(2)}%`,
       },
-      market_cap: nft.marketCapUsd?.toLocaleString() || 'N/A',
-      floor_price: nft.floorPriceUsd?.toFixed(2) || 'N/A',
+      market_cap:
+        nft.marketCapUsd?.toLocaleString() + ' ' + nft.floorPriceToken || 'N/A',
+      floor_price:
+        nft.floorPriceUsd?.toFixed(2) + ' ' + nft.floorPriceToken || 'N/A',
       avg_price: {
         amount: `${nft.oneDay?.averagePrice?.toLocaleString() || 'N/A'} ${nft.floorPriceToken || ''}`,
-        percent: `${(nft.oneDay?.averagePriceChangePercentage ?? 0).toFixed(2)} %`,
+        percent: `${(nft.oneDay?.averagePriceChangePercentage ?? 0).toFixed(2)}%`,
       },
       sales: {
-        amount: nft.oneDay?.sales?.toLocaleString() || 'N/A',
-        percent: `${(nft.oneDay?.salesChangePercentage ?? 0).toFixed(2)} %`,
+        amount:
+          nft.oneDay?.sales?.toLocaleString() + ' ' + nft.floorPriceToken ||
+          'N/A',
+        percent: `${(nft.oneDay?.salesChangePercentage ?? 0).toFixed(2)}%`,
       },
       assets: nft.assets?.toLocaleString() || 'N/A',
       owners: nft.owners?.toLocaleString() || 'N/A',
       owners_percent: `${(nft.ownerAssetsPercentage ?? 0).toFixed(2)}`,
+      symbol: nft.floorPriceToken,
     }));
   };
 
@@ -48,7 +55,6 @@ const Table = () => {
   };
   useEffect(() => {
     fetchData();
-    console.log('page', pageSize);
   }, [currentPage, count, pageSize]);
 
   const columnCollectionsDef = useColumnCollectionsDefs(columnsCollections);
