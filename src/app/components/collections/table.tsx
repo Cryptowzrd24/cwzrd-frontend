@@ -15,9 +15,10 @@ const Table = () => {
   const [count, setCount] = useState(10);
 
   const extractNftData = (data: any) => {
-    return data.map((nft: any, index: number) => ({
+    const startIndex = currentPage * pageSize + 1;
+    return data?.map((nft: any, index: number) => ({
       logo: nft.logo,
-      index: index + 1,
+      index: startIndex + index,
       name: nft.name || '',
       volume_24: {
         amount:
