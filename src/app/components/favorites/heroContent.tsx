@@ -357,7 +357,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
             </span>{' '}
           </Typography>
         )}
-        {/* watchList dropdwon */}
+
         {Cookies.get('authToken') && (
           <div ref={dropdownRef}>
             <Button
