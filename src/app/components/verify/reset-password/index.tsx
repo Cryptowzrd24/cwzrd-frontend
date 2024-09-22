@@ -295,7 +295,11 @@ const PasswordResetModal = ({ verificationKey }: any) => {
                 variant="outlined"
               >
                 {loading ? (
-                  <LoadingOverlay background={'transparent'} color={'white'} />
+                  <LoadingOverlay
+                    size={'25px'}
+                    background={'transparent'}
+                    color={'white'}
+                  />
                 ) : (
                   'Reset Password'
                 )}

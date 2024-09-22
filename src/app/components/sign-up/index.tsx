@@ -287,7 +287,11 @@ const SignUp = ({ setActiveTab }: any) => {
           variant="outlined"
         >
           {loading ? (
-            <LoadingOverlay background={'transparent'} color={'white'} />
+            <LoadingOverlay
+              size={'25px'}
+              background={'transparent'}
+              color={'white'}
+            />
           ) : (
             'Sign Up'
           )}
