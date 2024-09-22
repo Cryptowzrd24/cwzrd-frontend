@@ -10,6 +10,7 @@ export const Volume24 = (props: any) => {
         }}
         className={styles['container__percent']}
       >
+        {props.value.percent.includes('-') ? '' : '+'}
         {props.value.percent}
       </div>
     </div>

@@ -33,14 +33,14 @@ const useColumnCollectionsDefs = (columns: any) => {
           return {
             field: 'market_cap',
             headerName: 'Est. Market Cap',
-            valueFormatter: (props: any) => `${props.value} ETH`,
+            valueFormatter: (props: any) => `${props.value}`,
             width: 155,
           };
         case 'floor_price':
           return {
             field: 'floor_price',
             headerName: 'Floor Price',
-            valueFormatter: (props: any) => `${props.value} ETH`,
+            valueFormatter: (props: any) => `${props.value}`,
             width: 135,
           };
         case 'avg_price':
@@ -74,7 +74,7 @@ const useColumnCollectionsDefs = (columns: any) => {
             field: 'owners_percent',
             headerName: 'Owners%',
             width: 105,
-            valueFormatter: (props: any) => `${props.value} %`,
+            valueFormatter: (props: any) => `${props.value}%`,
           };
         default:
           return col;
