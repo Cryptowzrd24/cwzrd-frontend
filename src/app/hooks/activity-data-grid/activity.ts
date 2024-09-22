@@ -4,6 +4,7 @@ import { SalesItems } from '@/app/components/data-table/sales-data/items';
 import { useMemo } from 'react';
 
 import ValueRenderer from '../sales-data-grid/valueRenderer';
+import { DateAdded } from '@/app/components/data-table/date-component';
 
 const useColumnActivityDefs = (columns: any) => {
   return useMemo(() => {
@@ -33,26 +34,26 @@ const useColumnActivityDefs = (columns: any) => {
           return {
             field: 'addresses',
             cellRenderer: SalesAddresses,
-            width: 385,
+            width: 485,
           };
         case 'Price':
           return {
             field: 'Price',
             headerName: 'Price',
             cellRenderer: ValueRenderer,
-            width: 165,
+            width: 205,
           };
         case 'gas':
           return {
             field: 'gas',
             cellRenderer: ValueRenderer,
-            width: 115,
+            width: 205,
           };
         case 'ago_1h':
           return {
             field: 'ago_1h',
-            headerName: '1hAgo',
-
+            headerName: 'Date',
+            cellRenderer: DateAdded,
             width: 115,
           };
         default:

@@ -1,29 +1,92 @@
 'use client';
 import { Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { columnsMarket } from '@/app/constants/columns';
 import useColumnMarketDefs from '@/app/hooks/market-data-grid/market';
-import { rowDataMarket } from '@/app/constants/row';
 import DataTable from '../../data-table';
 import { Pagination } from '../../data-table/pagination';
+import { scrollToTop } from '@/utils/scroll-to-top';
+import { usePathname } from 'next/navigation';
 
-const Market = () => {
-  const colDef = useColumnMarketDefs(columnsMarket);
+const Market = ({ serverNftData }: any) => {
   const pageSize = 10;
-  const totalCount = 50;
+  const totalCount = 1;
 
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [rowData, setRowData] = useState([]);
+  const [itemStart, setItemStart] = useState(1);
+  const pathname = usePathname();
+  const contractId = pathname.split('/')[3];
+  const platformAlias = pathname.split('/')[4];
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
     setCurrentPage(value);
+    setItemStart((value - 1) * pageSize + 1);
+    scrollToTop();
+  };
+  const getFilteredColumns = () => {
+    return columnsMarket.filter((col) => {
+      if (col.field === 'distribution_24h' && active === '24H') return true;
+      if (col.field === 'distribution_7d' && active === '7D') return true;
+      if (col.field === 'distribution_30d' && active === '30D') return true;
+      return (
+        col.field !== 'distribution_24h' &&
+        col.field !== 'distribution_7d' &&
+        col.field !== 'distribution_30d'
+      );
+    });
   };
   const [active, setActive] = useState('24H');
+  const colDef = useColumnMarketDefs(getFilteredColumns());
+
   const handleClick = (button: any) => {
     setActive(button);
   };
+
+  const period = active === '24H' ? 2 : active === '7D' ? 3 : 4;
+
+  useEffect(() => {
+    fetch(
+      `https://backend.cwzrd.co.uk/api/nft/distributions?platformAlias=${platformAlias}&contract=${contractId}&period=${period}`,
+      {
+        method: 'GET',
+      },
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.data.length >= currentPage * pageSize) setCurrentPage(1);
+        const startIndex = (currentPage - 1) * pageSize + 1;
+        const res = data.data.map((item: any, index: number) => {
+          // Create the base object
+          const result: any = {
+            id: item?.id,
+            logo: item?.logo,
+            market_place: item?.marketplace,
+            volume: item?.quote?.volume,
+            service_fee: item?.serviceFee,
+            trade_symbol: item?.tradeSymbol,
+            floor_price: item?.floorPrice,
+            royalty: item?.royalty,
+            index: startIndex + index,
+          };
+
+          if (active === '24H') {
+            result['distribution_24h'] = item?.percentage;
+          } else if (active === '7D') {
+            result['distribution_7d'] = item?.percentage;
+          } else {
+            result['distribution_30d'] = item?.percentage;
+          }
+
+          return result;
+        });
+        setRowData(res);
+      })
+      .catch((error) => console.error('Error:', error));
+  }, [itemStart, active]);
 
   return (
     <>
@@ -56,7 +119,7 @@ const Market = () => {
               color: 'rgba(17, 17, 17, 1)',
             }}
           >
-            Persona{' '}
+            {serverNftData?.name}{' '}
             <span
               style={{
                 backgroundImage:
@@ -165,9 +228,19 @@ const Market = () => {
           '& .ag-header': {
             borderTop: 'none',
           },
+          '& .ag-header-cell:last-child .ag-header-cell-label': {
+            justifyContent: 'flex-start',
+            textAlign: 'left',
+          },
+          '& .ag-cell:last-child': {
+            textAlign: 'start',
+          },
+          '& .ag-theme-material .ag-row ': {
+            width: '1400px',
+          },
         }}
       >
-        <DataTable rowData={rowDataMarket} columnDefs={colDef} />
+        <DataTable key={active} rowData={rowData} columnDefs={colDef} />
         <Pagination
           length={totalCount}
           pageSize={pageSize}

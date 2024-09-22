@@ -4,7 +4,17 @@ import Upload from '../../../../../public/icons/nft/upload';
 import React, { useState } from 'react';
 import ShareModal from './share-modal';
 
-const ShareComponent = ({ coinData, coinImage }: any) => {
+interface ShareComponentProp {
+  coinData: any;
+  coinImage: any;
+  isNftDetails?: boolean;
+}
+
+const ShareComponent = ({
+  coinData,
+  coinImage,
+  isNftDetails,
+}: ShareComponentProp) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleClick = (value: boolean) => {
@@ -23,6 +33,7 @@ const ShareComponent = ({ coinData, coinImage }: any) => {
           coinDetails={coinData}
           isOpen={modalOpen}
           handleIsOpen={handleClick}
+          isNftDetails={isNftDetails}
         />
       )}
     </>

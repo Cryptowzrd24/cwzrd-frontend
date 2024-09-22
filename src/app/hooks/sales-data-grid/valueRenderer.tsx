@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box } from '@mui/material';
+import { CustomCellRendererProps } from 'ag-grid-react';
 
-function ValueRenderer(props: any) {
+function ValueRenderer(props: CustomCellRendererProps) {
   return (
     <Box
       sx={{
@@ -11,7 +12,8 @@ function ValueRenderer(props: any) {
         color: 'rgba(17, 17, 17, 0.8)',
       }}
     >
-      {props.value}
+      {props?.colDef?.field === 'gas' ? props?.value.toFixed(6) : props?.value}{' '}
+      {props?.data?.tradeSymbol}
     </Box>
   );
 }

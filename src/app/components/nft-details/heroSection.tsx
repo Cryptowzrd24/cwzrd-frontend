@@ -1,18 +1,21 @@
 'use client';
 import { Box, LinearProgress, Stack, styled, Typography } from '@mui/material';
-import Image from 'next/image';
-import React, { useState } from 'react';
-import persona from '../../../../public/images/nft/persona.png';
-import Star from '../../../../public/icons/nft/star';
-import Upload from '../../../../public/icons/nft/upload';
-const HeroSection = () => {
-  const [progress, setProgress] = useState(55);
-  const handleClick = (event: any) => {
-    const box = event.currentTarget;
-    const clickX = event.clientX - box.getBoundingClientRect().left;
-    const newValue = (clickX / box.clientWidth) * 100;
-    setProgress(newValue);
-  };
+import React from 'react';
+// import Star from '../../../../public/icons/nft/star';
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
+import ShareComponent from '../coin-details/share-component';
+const HeroSection = ({ serverNftData }: any) => {
+  // const [progress, setProgress] = useState(55);
+  const imageUrl = serverNftData?.logo;
+  // const handleClick = (event: any) => {
+  //   const box = event.currentTarget;
+  //   const clickX = event.clientX - box.getBoundingClientRect().left;
+  //   const newValue = (clickX / box.clientWidth) * 100;
+  //   setProgress(newValue);
+  // };
+
+  const progressVal =
+    (serverNftData?.volume24h / serverNftData?.totalVolume) * 100;
 
   const CustomLinearProgress = styled(LinearProgress)(({}) => ({
     height: '10px !important',
@@ -23,6 +26,14 @@ const HeroSection = () => {
       backgroundColor: 'rgba(230, 230, 230, 1)',
     },
   }));
+
+  const coinData = {
+    coin_id: 'polydog',
+    slug: serverNftData?.name,
+    statistics: {
+      price: serverNftData?.avgPrice24h,
+    },
+  };
   return (
     <>
       <Box
@@ -49,8 +60,15 @@ const HeroSection = () => {
               gap: '8px',
             }}
           >
-            <Box>
-              <Image src={persona} alt="persona" width={48} height={48} />
+            <Box
+              sx={{
+                width: '48px',
+                height: '48px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+              }}
+            >
+              <img src={imageUrl} alt="persona" width={48} height={48} />
             </Box>
             <Stack>
               <Typography
@@ -62,7 +80,7 @@ const HeroSection = () => {
                   lineHeight: 1,
                 }}
               >
-                Persona
+                {serverNftData?.name}
               </Typography>
               <Typography
                 variant="body1"
@@ -72,12 +90,12 @@ const HeroSection = () => {
                   color: 'rgba(255, 255, 255, 1)',
                 }}
               >
-                Ethereum
+                {serverNftData?.blockChain}
               </Typography>
             </Stack>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Box
+            {/* <Box
               sx={{
                 borderRadius: '8px',
                 padding: '8px',
@@ -89,7 +107,7 @@ const HeroSection = () => {
               }}
             >
               <Star />
-            </Box>
+            </Box> */}
             <Box
               sx={{
                 borderRadius: '8px',
@@ -101,7 +119,12 @@ const HeroSection = () => {
                 cursor: 'pointer',
               }}
             >
-              <Upload />
+              {/* <Upload /> */}
+              <ShareComponent
+                coinData={coinData}
+                coinImage={serverNftData?.logo}
+                isNftDetails={true}
+              />
             </Box>
           </Box>
         </Box>
@@ -136,7 +159,8 @@ const HeroSection = () => {
                   lineHeight: 1,
                 }}
               >
-                3.89 ETH
+                {priceNumberFormatDigits(serverNftData?.avgPrice24h)}{' '}
+                {serverNftData?.floorPriceToken}
               </Typography>
               <Typography
                 variant="body1"
@@ -147,11 +171,11 @@ const HeroSection = () => {
                   lineHeight: 1,
                 }}
               >
-                +7,37%{' '}
+                {/* +7,37%{' '} */}
               </Typography>
             </Box>
-            <Box sx={{ mb: '8px', width: '100%' }} onClick={handleClick}>
-              <CustomLinearProgress variant="determinate" value={progress} />
+            <Box sx={{ mb: '8px', width: '100%' }}>
+              <CustomLinearProgress variant="determinate" value={progressVal} />
             </Box>
             <Box
               sx={{
@@ -178,7 +202,8 @@ const HeroSection = () => {
                   color: 'rgba(255, 255, 255, 1)',
                 }}
               >
-                324.89 ETH
+                {priceNumberFormatDigits(serverNftData?.volume24h)}{' '}
+                {serverNftData?.floorPriceToken}
               </Typography>
             </Box>
           </Stack>
@@ -205,7 +230,7 @@ const HeroSection = () => {
                     color: 'rgba(255, 255, 255, 1)',
                   }}
                 >
-                  10,000
+                  {priceNumberFormatDigits(serverNftData?.totalItems)}
                 </Typography>
               </Box>
               <Box>
@@ -227,7 +252,8 @@ const HeroSection = () => {
                     color: 'rgba(255, 255, 255, 1)',
                   }}
                 >
-                  11.98 ETH
+                  {priceNumberFormatDigits(serverNftData?.floorPrice)}{' '}
+                  {serverNftData?.floorPriceToken}
                 </Typography>
               </Box>
             </Stack>
@@ -254,7 +280,8 @@ const HeroSection = () => {
                     color: 'rgba(255, 255, 255, 1)',
                   }}
                 >
-                  352.89 ETH
+                  {priceNumberFormatDigits(serverNftData?.volume24h)}{' '}
+                  {serverNftData?.floorPriceToken}
                 </Typography>
               </Box>
               <Box>
@@ -276,7 +303,7 @@ const HeroSection = () => {
                     color: 'rgba(255, 255, 255, 1)',
                   }}
                 >
-                  30
+                  {serverNftData?.sales24h}
                 </Typography>
               </Box>
             </Stack>
@@ -303,7 +330,8 @@ const HeroSection = () => {
                     color: 'rgba(255, 255, 255, 1)',
                   }}
                 >
-                  1,886,172.4 ETH
+                  {priceNumberFormatDigits(serverNftData?.totalVolume)}{' '}
+                  {serverNftData?.floorPriceToken}
                 </Typography>
               </Box>
               <Box>
@@ -325,7 +353,8 @@ const HeroSection = () => {
                     color: 'rgba(255, 255, 255, 1)',
                   }}
                 >
-                  11.97 ETH{' '}
+                  {priceNumberFormatDigits(serverNftData?.floorPrice)}{' '}
+                  {serverNftData?.floorPriceToken}
                 </Typography>
               </Box>
             </Stack>
