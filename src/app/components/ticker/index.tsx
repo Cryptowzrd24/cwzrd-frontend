@@ -13,7 +13,7 @@ async function fetchTickerData() {
     symbol: item.symbol,
     new_price: item.quote?.price,
     percent_change_24h: item.quote?.percent_change_24h,
-    icon: `https://s2.coinmarketcap.com/static/img/coins/64x64/${item.coin_id}.png`,
+    icon: `https://backend.cwzrd.co.uk/api/coin-image/?id=${item.coin_id}`,
   }));
 }
 

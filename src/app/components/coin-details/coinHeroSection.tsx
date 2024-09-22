@@ -9,7 +9,7 @@ import infinityIconWhite from '../../../../public/icons/infinityWhite.svg';
 import Image from 'next/image';
 
 const CoinHeroSection = ({ coinDetails }: any) => {
-  const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinDetails?.coin_id || 1}.png`;
+  const imgId = `https://backend.cwzrd.co.uk/api/coin-image/?id=${coinDetails?.coin_id || 1}`;
 
   const showRank =
     coinDetails?.statistics?.rank === 1
