@@ -1,12 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { Box, Stack, Typography } from '@mui/material';
-import { cardDetails } from './data';
+// import { cardDetails } from './data';
 interface cardProps {
   id: string;
+  cardDetails: any;
 }
-const CollectionCard = ({ id }: cardProps) => {
-  const cardData = cardDetails.find((card) => card.id === id);
+const CollectionCard = ({ id, cardDetails }: cardProps) => {
+  const cardData = cardDetails.find((card: any) => card.id === id);
 
   if (!cardData) {
     return <Typography variant="h6">Card not found</Typography>;
