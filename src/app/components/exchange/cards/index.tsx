@@ -28,7 +28,7 @@ const ExchangeCard = ({
     ? '/images/spotlight-cards/background1.png'
     : '/images/spotlight-cards/background2.png';
 
-  const imgUrl = `https://s2.coinmarketcap.com/static/img/exchanges/64x64/${coinId}.png`;
+  const imgUrl = `https://backend.cwzrd.co.uk/api/coin-image/?id=${coinId}`;
   const graphImg = `https://s3.coinmarketcap.com/generated/sparklines/exchanges/web/7d/usd/${coinId}.svg`;
 
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -323,7 +323,7 @@ const ExchangeCard = ({
       <Box sx={{ mt: '24px' }}>
         <Box
           sx={{
-            border: '1px solid rgba(17, 17, 17, 0.05)',
+            borderTop: '1px solid rgba(17, 17, 17, 0.05)',
             borderRadius: '12px',
           }}
         >
@@ -364,6 +364,8 @@ const ExchangeCard = ({
             style={{
               marginBottom: '-10px',
               padding: '10px',
+              background:
+                'repeating-linear-gradient(to bottom, #ffffff, #ffffff 25px, rgba(17, 17, 17, 0.05) 26px, rgba(17, 17, 17, 0.05) 26px, #ffffff 27px  )',
             }}
           >
             <img

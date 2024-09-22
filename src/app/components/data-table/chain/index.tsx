@@ -20,7 +20,7 @@ export const ChainComp = (props: CustomCellRendererProps) => {
   useEffect(() => {
     getRandomChainIcon();
   }, []);
-  const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${props.data.platform_id || 1}.png`;
+  const imgId = `https://backend.cwzrd.co.uk/api/coin-image/?id=${props.data.platform_id || 1}`;
   return (
     <div className={styles['chain-component']}>
       <Image

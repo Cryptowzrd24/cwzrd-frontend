@@ -4,6 +4,7 @@ import React from 'react';
 // import Star from '../../../../public/icons/nft/star';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 import ShareComponent from '../coin-details/share-component';
+import { usePathname } from 'next/navigation';
 const HeroSection = ({ serverNftData }: any) => {
   // const [progress, setProgress] = useState(55);
   const imageUrl = serverNftData?.logo;
@@ -13,6 +14,10 @@ const HeroSection = ({ serverNftData }: any) => {
   //   const newValue = (clickX / box.clientWidth) * 100;
   //   setProgress(newValue);
   // };
+
+  const pathname = usePathname();
+  const contractId = pathname.split('/')[3];
+  const platformAlias = pathname.split('/')[4];
 
   const progressVal =
     (serverNftData?.volume24h / serverNftData?.totalVolume) * 100;
@@ -28,7 +33,7 @@ const HeroSection = ({ serverNftData }: any) => {
   }));
 
   const coinData = {
-    coin_id: 'polydog',
+    coin_id: `${contractId}/${platformAlias}`,
     slug: serverNftData?.name,
     statistics: {
       price: serverNftData?.avgPrice24h,
@@ -242,7 +247,7 @@ const HeroSection = ({ serverNftData }: any) => {
                     color: 'rgba(255, 255, 255, 1)',
                   }}
                 >
-                  Floor Price
+                  Total Owners
                 </Typography>
                 <Typography
                   variant="body2"
@@ -252,8 +257,7 @@ const HeroSection = ({ serverNftData }: any) => {
                     color: 'rgba(255, 255, 255, 1)',
                   }}
                 >
-                  {priceNumberFormatDigits(serverNftData?.floorPrice)}{' '}
-                  {serverNftData?.floorPriceToken}
+                  {serverNftData?.totalOwners ?? '-'}
                 </Typography>
               </Box>
             </Stack>

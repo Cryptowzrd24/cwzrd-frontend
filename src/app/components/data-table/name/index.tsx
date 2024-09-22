@@ -7,7 +7,7 @@ import { Tooltip } from '@mui/material';
 export const CurrencyNameComponent = (props: CustomCellRendererProps) => {
   const imgId =
     props?.data?.logo ||
-    `https://s2.coinmarketcap.com/static/img/coins/64x64/${props.data.coin_id || 1}.png`;
+    `https://backend.cwzrd.co.uk/api/coin-image/?id=${props.data.coin_id || 1}`;
 
   const getDisplayName = (name: any) => {
     return name.length > 13 ? name.slice(0, 13) + '...' : name;

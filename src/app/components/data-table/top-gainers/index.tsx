@@ -27,7 +27,7 @@ export const TopGainers = ({ data }: { data: any }) => {
             style={{
               borderRadius: '50%',
             }}
-            src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${id ?? 1}.png`}
+            src={`https://backend.cwzrd.co.uk/api/coin-image/?id=${id ?? 1}`}
             alt=""
           />
         </Link>

@@ -29,7 +29,7 @@ const Card = ({
     ? '/images/spotlight-cards/background1.png'
     : '/images/spotlight-cards/background2.png';
 
-  const imgUrl = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinId}.png`;
+  const imgUrl = `https://backend.cwzrd.co.uk/api/coin-image/?id=${coinId}`;
   const graphImg = `https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/${coinId}.svg`;
 
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -427,7 +427,7 @@ const Card = ({
         <Box sx={{ mt: '24px' }}>
           <Box
             sx={{
-              border: '1px solid rgba(17, 17, 17, 0.05)',
+              borderTop: '1px solid rgba(17, 17, 17, 0.05)',
               borderRadius: '12px',
               overflow: 'hidden',
             }}
@@ -436,6 +436,8 @@ const Card = ({
               style={{
                 marginBottom: '-10px',
                 padding: '10px',
+                background:
+                  'repeating-linear-gradient(to bottom, #ffffff, #ffffff 25px, rgba(17, 17, 17, 0.05) 26px, rgba(17, 17, 17, 0.05) 26px, #ffffff 27px  )',
               }}
             >
               <img
