@@ -8,7 +8,7 @@ export const ExchangeNameComponent = (props: CustomCellRendererProps) => {
     return name.length > 13 ? name.slice(0, 13) + '...' : name;
   };
 
-  const imgId = `https://s2.coinmarketcap.com/static/img/exchanges/64x64/${props.data.ex_id || 1}.png`;
+  const imgId = `https://backend.cwzrd.co.uk/api/exchange-image/?id=${props.data.ex_id || 1}`;
 
   return (
     <div className={styles['exchange-comp']}>

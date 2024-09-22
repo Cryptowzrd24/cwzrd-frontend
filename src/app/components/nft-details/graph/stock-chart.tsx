@@ -7,6 +7,7 @@ import {
   useFetchNftTrendingDataQuery,
 } from '@/app/redux/nft-details';
 import { priceNumberFormatter } from '../../data-table/price';
+import { usePathname } from 'next/navigation';
 
 interface StockChartProps {
   volumeValue: string;
@@ -24,6 +25,9 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
     const chartComponentRef = useRef<any>(null);
     const useZones = 2;
     const graphType = 'area';
+    const pathname = usePathname();
+    const contractId = pathname.split('/')[3];
+    const platformAlias = pathname.split('/')[4];
 
     const periodTime =
       volumeValue === '1h'
@@ -36,17 +40,24 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
 
     const { data: nftTrendingData } = useFetchNftTrendingDataQuery({
       period: periodTime,
+      contract_id: contractId,
+      alias: platformAlias,
     });
     const { data: nftScatterData } = useFetchNftScatterDataQuery({
       period: periodTime,
+      contract_id: contractId,
+      alias: platformAlias,
     });
 
     const formatChartData = (data: any) => {
-      // Area graph data for price
+      // Area graph data for price with conditional marker based on sales count
       const priceData = data.map((item: any) => ({
         x: parseInt(item.timestamp),
         y: item.averagePrice,
         sales: item.sales, // additional data: sales
+        marker: {
+          enabled: item.sales > 0, // Enable marker only if sales count is greater than 0
+        },
       }));
 
       // Column graph data for volume
@@ -83,8 +94,17 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
         } else {
           setIsDataAvailable(true);
         }
-        // Formatting volume data (if needed)
-        // const volumeThreshold = Math.max(...reducedData.map((d: any) => d[1]));
+
+        // Extract y values (price) from priceData
+        const priceValues = priceData.map((item: any) => item.y);
+
+        // Calculate min and max prices
+        const minPrice = Math.min(...priceValues);
+        const maxPrice = Math.max(...priceValues);
+
+        // Set yMin and yMax with some padding
+        const yMin = minPrice * 0.999;
+        const yMax = maxPrice * 1.001;
 
         // Setting chart options
         setOptions({
@@ -128,6 +148,8 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
               height: '90%',
               resize: { enabled: false },
               gridLineWidth: 0.5,
+              min: yMin * 0.999,
+              max: yMax * 1.001,
             },
             {
               labels: { enabled: false, align: 'left' },
@@ -139,7 +161,6 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
           ],
           plotOptions: {
             series: {
-              //   compare: selectedCompareCoinId ? 'percent' : '',
               states: {
                 inactive: {
                   opacity: 1,
@@ -180,7 +201,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                 </div>
                   <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase;">${priceNumberFormatter(volume)} ${apiData[0]?.nativeCurrencySymbol}</div>
                 </div>
-
+    
                    <div style="display: flex; justify-content: space-between; padding-top: 6px;">
                   <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4); display:flex; gap:4px;align-items:center;">
                    <div style="width:8px; height: 8px; background-color:rgba(114, 72, 247, 1); border-radius:50%"></div>
@@ -190,7 +211,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                    ${sales}
                   </div>
                 </div>
-
+    
               </div>
             `;
             },

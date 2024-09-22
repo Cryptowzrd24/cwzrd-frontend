@@ -12,7 +12,7 @@ const Converter = ({ coinDetails }: any) => {
   const [bitcoinAmount, setBitcoinAmount] = useState(1);
   const [convertedVal, setConvertedVal] = useState(coinDetails?.quote?.price);
 
-  const imgId = `https://s2.coinmarketcap.com/static/img/coins/64x64/${coinDetails?.coin_id || 1}.png`;
+  const imgId = `https://backend.cwzrd.co.uk/api/coin-image/?id=${coinDetails?.coin_id || 1}`;
 
   const handleCurrencyChange = (event: any) => {
     setCurrency(event.target.value);

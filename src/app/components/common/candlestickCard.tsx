@@ -24,7 +24,7 @@ const CandlestickCard = (props: IMarketCapCardProps) => {
             }}
           >
             <img
-              src={'https://s2.coinmarketcap.com/static/img/coins/32x32/1.png'}
+              src={'https://backend.cwzrd.co.uk/api/coin-image/?id=1'}
               style={{
                 width: '12px',
                 height: '12px',

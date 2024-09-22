@@ -9,7 +9,6 @@ const NftNavbar = () => {
     setActiveHeading(heading);
     const sectionIdMap: { [key: string]: string } = {
       Overview: 'overview',
-      About: 'about',
       News: 'news',
       Market: 'market',
       Activity: 'activity',
@@ -29,7 +28,7 @@ const NftNavbar = () => {
     }
   };
 
-  const headings = ['Overview', 'About', 'News', 'Sales', 'Market', 'Activity'];
+  const headings = ['Overview', 'News', 'Sales', 'Market', 'Activity'];
 
   return (
     <Box

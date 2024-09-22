@@ -153,7 +153,7 @@ function LiveMarket({
                     >
                       <Box sx={{ position: 'relative' }}>
                         <img
-                          src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${item.id}.png`}
+                          src={`https://backend.cwzrd.co.uk/api/coin-image/?id=${item.id}`}
                           alt="picture"
                           width={32}
                           height={32}
