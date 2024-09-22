@@ -2,11 +2,11 @@ import { Box } from '@mui/material';
 import React from 'react';
 import PriceCards from './price-cards';
 
-const PriceSales = () => {
+const PriceSales = ({ serverNftData }: any) => {
   return (
     <>
       <Box sx={{ mb: '80px' }}>
-        <PriceCards />
+        <PriceCards serverNftData={serverNftData} />
       </Box>
     </>
   );

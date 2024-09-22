@@ -77,11 +77,11 @@ const useColumnExchangeDefs = (columns: any) => {
             width: 155,
             cellRenderer: FiatSupported,
           };
-        case 'last7Days':
+        case 'volume':
           return {
-            field: 'last7Days',
+            field: 'volume',
             width: 150,
-            headerName: 'Last 7 Days',
+            headerName: 'Volume (7d)',
             cellRenderer: GraphComp,
           };
         default:

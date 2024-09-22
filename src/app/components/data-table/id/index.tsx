@@ -14,6 +14,7 @@ import thirdRank from '../../../../../public/icons/third-rank.png';
 import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
 import { useAppDispatch, useAppSelector } from '@/app/redux/store';
 import { setMainWatchFavorites, updateFavorites } from '@/app/redux/market';
+import { usePathname } from 'next/navigation';
 
 const rankImages: any = {
   1: firstRank,
@@ -40,6 +41,7 @@ const displayIndex = (index: any) => {
 export const ID = (props: CustomCellRendererProps) => {
   const { index, coin_id: coinId } = props.data;
   const [isLoading, setIsLoading] = React.useState(false);
+  const pathname = usePathname();
 
   const {
     favorites,
@@ -138,17 +140,21 @@ export const ID = (props: CustomCellRendererProps) => {
 
   return (
     <div className={styles['index-comp-main']}>
-      <div onClick={handleClick} data-is-star="true">
-        {isLoading ? (
-          <div className={styles['loader']}></div>
-        ) : (
-          <Image
-            className={!isSelected ? styles['star-image'] : ''}
-            src={isSelected ? selectedStar : unselectedStar}
-            alt=""
-          />
-        )}
-      </div>
+      {pathname.includes('/collections') ? (
+        <></>
+      ) : (
+        <div onClick={handleClick} data-is-star="true">
+          {isLoading ? (
+            <div className={styles['loader']}></div>
+          ) : (
+            <Image
+              className={!isSelected ? styles['star-image'] : ''}
+              src={isSelected ? selectedStar : unselectedStar}
+              alt=""
+            />
+          )}
+        </div>
+      )}
       {displayIndex(index)}
     </div>
   );

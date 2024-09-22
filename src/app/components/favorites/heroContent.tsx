@@ -325,14 +325,20 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
     }
   }, [selectedWatchList]);
 
-  return (
-    <>
-      {firstLogin && JSON.parse(Cookies.get('favorites')).length && (
+  const renderFirstLogin = () => {
+    if (JSON.parse(Cookies.get('favorites')).length > 0 && firstLogin) {
+      return (
         <FirstLoginModal
           setFirstLogin={setFirstLogin}
           firstLogin={firstLogin}
         />
-      )}
+      );
+    }
+  };
+
+  return (
+    <>
+      {Cookies.get('favorites') && renderFirstLogin()}
       <Box
         sx={{
           display: 'flex',
@@ -357,7 +363,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
             </span>{' '}
           </Typography>
         )}
-        {/* watchList dropdwon */}
+
         {Cookies.get('authToken') && (
           <div ref={dropdownRef}>
             <Button

@@ -50,6 +50,7 @@ const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
     dispatch(updateSelectedWatchListName('My First Coin Watchlist'));
     dispatch(updateSelectedWatchListMain('My First Coin Watchlist'));
     dispatch(updateFavorites([]));
+    Cookies.remove('favorites');
     try {
       await addWatchlist({
         token: Cookies.get('authToken'),
@@ -58,7 +59,6 @@ const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
         ids: [],
       }).unwrap();
       setFirstLogin(false);
-      Cookies.remove('favorites');
     } catch (error) {
       console.error('Failed to create watchlist:', error);
     }

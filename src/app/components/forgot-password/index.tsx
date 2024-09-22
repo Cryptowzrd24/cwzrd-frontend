@@ -176,7 +176,11 @@ const ForgotPassword = ({ setForgotPassowrd }: any) => {
           variant="outlined"
         >
           {loading ? (
-            <LoadingOverlay background={'transparent'} color={'white'} />
+            <LoadingOverlay
+              size={'25px'}
+              background={'transparent'}
+              color={'white'}
+            />
           ) : (
             'Send Instructions'
           )}

@@ -2,25 +2,68 @@
 import { columnsSales } from '@/app/constants/columns';
 import useColumnSalesDefs from '@/app/hooks/sales-data-grid/sales';
 import { Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DataTable from '../../data-table';
-import { rowDataSales } from '@/app/constants/row';
-import { Pagination } from '../../data-table/pagination';
 import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
+import { usePathname } from 'next/navigation';
 
-const Sales = () => {
+const Sales = ({ serverNftData }: any) => {
   const colDef = useColumnSalesDefs(columnsSales);
   const pageSize = 10;
-  const totalCount = 50;
+  const pathname = usePathname();
+  const contractId = pathname.split('/')[3];
+  const platformAlias = pathname.split('/')[4];
 
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [rowData, setRowData] = useState<any>([]);
+  const [nextToken, setNextToken] = useState(null);
 
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    value: number,
-  ) => {
-    setCurrentPage(value);
+  const fetchData = () => {
+    fetch('https://backend.cwzrd.co.uk/api/nft/activities/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        platformAlias: platformAlias,
+        contract: contractId,
+        pageSize: pageSize,
+        txType: 'sale',
+        next: nextToken ? nextToken : null,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.data.length >= currentPage * pageSize) setCurrentPage(1);
+        const startIndex = (currentPage - 1) * pageSize + 1;
+        console.log(data.data.activities);
+        const res = data.data.activities.map((item: any, index: number) => ({
+          item: item?.tokenId,
+          transaction: item?.txType,
+          addresses: { from: item?.receive, to: item?.send },
+          Price: item?.tradePrice,
+          gas: item?.gas,
+          ago_1h: new Date(item?.timestamp * 1000).toISOString().split('.')[0],
+          logo: item?.nftImage,
+          tradeSymbol: item?.tradeSymbol,
+          index: startIndex + index,
+        }));
+        setNextToken(data.data.next);
+        setRowData((prevRowData: any) => {
+          const combinedData = [...prevRowData, ...res];
+          const uniqueData = Array.from(
+            new Map(combinedData.map((item) => [item.item, item])).values(),
+          );
+          return uniqueData;
+        });
+      })
+      .catch((error) => console.error('Error:', error));
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
       <Typography
@@ -53,7 +96,7 @@ const Sales = () => {
               color: 'rgba(17, 17, 17, 1)',
             }}
           >
-            Persona{' '}
+            {serverNftData?.name}{' '}
             <span
               style={{
                 backgroundImage:
@@ -67,7 +110,7 @@ const Sales = () => {
           </Typography>
         </Box>
 
-        <Typography
+        {/* <Typography
           variant="body1"
           sx={{
             background: 'rgba(17, 17, 17, 0.05)',
@@ -89,7 +132,7 @@ const Sales = () => {
         >
           View More
           <ArrowRightBlack />
-        </Typography>
+        </Typography> */}
       </Box>
       <Box
         sx={{
@@ -102,15 +145,45 @@ const Sales = () => {
           '& .ag-header': {
             borderTop: 'none',
           },
+          '& .ag-header-cell:last-child .ag-header-cell-label': {
+            justifyContent: 'flex-start',
+            textAlign: 'left',
+          },
+          '& .ag-theme-material .ag-row ': {
+            width: '1400px',
+          },
         }}
       >
-        <DataTable rowData={rowDataSales} columnDefs={colDef} />
-        <Pagination
-          length={totalCount}
-          pageSize={pageSize}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-        />{' '}
+        <DataTable rowData={rowData} columnDefs={colDef} />
+      </Box>
+      <Box
+        onClick={fetchData}
+        sx={{ display: 'flex', justifyContent: 'center', marginTop: '15px' }}
+      >
+        <Typography
+          variant="body1"
+          sx={{
+            width: '10%',
+            background: 'rgba(17, 17, 17, 0.05)',
+            padding: '10px 12px 10px 16px',
+            fontWeight: '600',
+            display: 'flex',
+            justifyContent: 'center',
+            fontSize: '14px',
+            alignItems: 'center',
+            gap: '4px',
+            borderRadius: '56px',
+            cursor: 'pointer',
+            transition: 'background 0.3s ease',
+            lineHeight: 1,
+            ':hover': {
+              background: 'rgba(17, 17, 17, 0.2)',
+            },
+          }}
+        >
+          View More
+          <ArrowRightBlack />
+        </Typography>
       </Box>
     </>
   );

@@ -1,13 +1,20 @@
 import { Box, Typography } from '@mui/material';
-import Image from 'next/image';
 import React from 'react';
-import blur from '../../../../../../public/images/nft/blur.png';
-const MarketPlace = () => {
+const MarketPlace = (props: any) => {
   return (
     <Box
       sx={{ display: 'flex', alignItems: 'center', gap: '10px', mt: '14px' }}
     >
-      <Image src={blur} alt="elipse" width={32} height={32} />
+      <Box
+        sx={{
+          width: '32px',
+          height: '32px',
+          borderRadius: '50%',
+          overflow: 'hidden',
+        }}
+      >
+        <img src={props?.data?.logo} alt="elipse" width={32} height={32} />
+      </Box>
       <Typography
         variant="body1"
         sx={{
@@ -16,7 +23,7 @@ const MarketPlace = () => {
           color: 'rgba(17, 17, 17, 1)',
         }}
       >
-        Blur
+        {props.value}
       </Typography>
     </Box>
   );

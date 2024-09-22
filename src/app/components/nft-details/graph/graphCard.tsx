@@ -1,3 +1,4 @@
+import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 interface CardProps {
@@ -10,9 +11,26 @@ interface CardProps {
   statusAction: string;
   price: string;
   amount: string;
+  serverNftData?: any;
 }
 
-const GraphCard: React.FC<CardProps> = ({ image, price }) => {
+const GraphCard: React.FC<CardProps> = ({ image, price, serverNftData }) => {
+  function formatTimestamp(dataTimestamp: string) {
+    const date = new Date(parseInt(dataTimestamp, 10));
+
+    const formattedDate = date.toLocaleString('en-US', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
+    });
+
+    return formattedDate;
+  }
+  const formattedDate = formatTimestamp(serverNftData?.dataTimestamp);
   return (
     <>
       <Box
@@ -51,7 +69,7 @@ const GraphCard: React.FC<CardProps> = ({ image, price }) => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              04/14/2024
+              {formattedDate?.split(',')[0]?.trim()}
             </Typography>
             <Typography
               sx={{
@@ -60,7 +78,7 @@ const GraphCard: React.FC<CardProps> = ({ image, price }) => {
                 color: 'rgba(17, 17, 17, 1)',
               }}
             >
-              12:00:00 PM
+              {formattedDate?.split(',')[1]?.trim()}
             </Typography>
           </Box>
 
@@ -121,7 +139,8 @@ const GraphCard: React.FC<CardProps> = ({ image, price }) => {
                   color: 'rgba(17, 17, 17, 1)',
                 }}
               >
-                0.3475 ETH
+                {priceNumberFormatDigits(serverNftData?.avgPrice24h)}{' '}
+                {serverNftData?.floorPriceToken}
               </Typography>
             </Stack>
           </Box>

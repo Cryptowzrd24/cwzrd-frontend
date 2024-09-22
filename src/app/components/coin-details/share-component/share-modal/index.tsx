@@ -4,10 +4,23 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
 import { Box, Popover } from '@mui/material';
 
-const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
+interface ShareModalProp {
+  coinDetails: any;
+  coinImage: any;
+  isNftDetails?: boolean;
+  isOpen: any;
+  handleIsOpen: any;
+}
+
+const ShareModal = ({
+  coinImage,
+  coinDetails,
+  isOpen,
+  handleIsOpen,
+  isNftDetails,
+}: ShareModalProp) => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [popoverOpen, setPopoverOpen] = useState(false);
 
@@ -18,7 +31,9 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
   const copyToClipboard = (event: React.MouseEvent<HTMLElement>) => {
     navigator.clipboard
       .writeText(
-        `${window.location.protocol + '//' + window.location.host}/market/coin-details/${coinDetails?.coin_id}`,
+        isNftDetails
+          ? `${window.location.protocol + '//' + window.location.host}/market/nft-details/${coinDetails?.coin_id}`
+          : `${window.location.protocol + '//' + window.location.host}/market/coin-details/${coinDetails?.coin_id}`,
       )
       .then(() => {
         setAnchorEl(event.currentTarget);
@@ -66,8 +81,15 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
             alignItems={'center'}
             justifyContent={'center'}
             overflow={'hidden'}
+            borderRadius={'50%'}
           >
-            <Image height={80} width={80} alt={'coin image'} src={coinImage} />
+            <img
+              style={{ borderRadius: '50%' }}
+              height={80}
+              width={80}
+              alt={'coin image'}
+              src={coinImage}
+            />
           </Box>
           <DialogContent>
             <Typography
@@ -135,7 +157,11 @@ const ShareModal = ({ coinImage, coinDetails, isOpen, handleIsOpen }: any) => {
                   fontFamily: 'SF Pro Display',
                 }}
                 contentEditable={false}
-                value={`${window.location.protocol + '//' + window.location.host}/market/coin-details/${coinDetails?.coin_id}`}
+                value={
+                  isNftDetails
+                    ? `${window.location.protocol + '//' + window.location.host}/market/nft-details/${coinDetails?.coin_id}`
+                    : `${window.location.protocol + '//' + window.location.host}/market/coin-details/${coinDetails?.coin_id}`
+                }
               ></input>
               <button
                 style={{

@@ -27,27 +27,73 @@ const useColumnMarketDefs = (columns: any) => {
           return {
             field: 'distribution_7d',
             headerName: '7D Distribution',
-            width: 250,
+            width: 270,
+            valueFormatter: (p: any) => {
+              const value = p.value;
+              return value !== undefined ? value + '%' : '--';
+            },
+          };
+        case 'distribution_24h':
+          return {
+            field: 'distribution_24h',
+            headerName: '24h Distribution',
+            width: 270,
+            valueFormatter: (p: any) => {
+              const value = p.value;
+              return value !== undefined ? value + '%' : '--';
+            },
+          };
+        case 'distribution_30d':
+          return {
+            field: 'distribution_30d',
+            headerName: '30d Distribution',
+            width: 270,
+            valueFormatter: (p: any) => {
+              const value = p.value;
+              return value !== undefined ? value + '%' : '--';
+            },
           };
 
         case 'royalty':
           return {
             field: 'royalty',
             headerName: 'Royalty',
+            width: 270,
+            valueFormatter: (p: any) => {
+              const value = p.value;
 
-            width: 195,
+              if (value !== undefined && value !== null) {
+                return value;
+              } else {
+                return '--';
+              }
+            },
           };
         case 'service_fee':
           return {
             field: 'service_fee',
-            width: 195,
+            width: 270,
             headerName: 'Service Fee',
+            valueFormatter: (p: any) => {
+              const value = p.value;
+
+              return value + '%';
+            },
           };
         case 'floor_price':
           return {
             field: 'floor_price',
             width: 175,
             headerName: 'Floor Price',
+            valueFormatter: (p: any) => {
+              const value = p.value;
+
+              if (value !== undefined && value !== null) {
+                return value + ' ' + p.data.trade_symbol;
+              } else {
+                return '--';
+              }
+            },
           };
 
         default:
