@@ -13,20 +13,20 @@ const useColumnCollectionsDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 70,
+            width: 40,
           };
         case 'name':
           return {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 210,
+            width: 200,
           };
         case 'volume_24':
           return {
             field: 'volume_24',
             headerName: 'Volume (24h)',
-            width: 145,
+            width: 175,
             cellRenderer: Volume24,
           };
         case 'market_cap':
@@ -34,7 +34,7 @@ const useColumnCollectionsDefs = (columns: any) => {
             field: 'market_cap',
             headerName: 'Est. Market Cap',
             valueFormatter: (props: any) => `${props.value}`,
-            width: 155,
+            width: 175,
           };
         case 'floor_price':
           return {

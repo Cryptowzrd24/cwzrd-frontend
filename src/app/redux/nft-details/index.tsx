@@ -15,8 +15,8 @@ export const nftDetailsApi = createApi({
 
   endpoints: (builder) => ({
     fetchNftTrendingData: builder.query({
-      query: ({ period }) => {
-        const url = `/api/nft/trending?platformAlias=polygon&contract=0xa28640d322019217ecd27ebf90cd27b1978c6038&period=${period}`;
+      query: ({ period, alias, contract_id }) => {
+        const url = `/api/nft/trending?platformAlias=${alias}&contract=${contract_id}&period=${period}`;
         return {
           url,
           method: 'GET',
@@ -24,8 +24,8 @@ export const nftDetailsApi = createApi({
       },
     }),
     fetchNftScatterData: builder.query({
-      query: ({ period }) => {
-        const url = `/api/nft/scatter?platformAlias=polygon&contract=0xa28640d322019217ecd27ebf90cd27b1978c6038&period=${period}`;
+      query: ({ period, alias, contract_id }) => {
+        const url = `/api/nft/scatter?platformAlias=${alias}&contract=${contract_id}&period=${period}`;
         return {
           url,
           method: 'GET',

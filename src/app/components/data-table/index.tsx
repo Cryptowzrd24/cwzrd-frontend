@@ -129,8 +129,17 @@ const DataTable = memo(
           }}
           {...(typeof getRowId !== 'undefined' ? { getRowId } : {})}
           onRowClicked={(event: any) => {
-            if (pathname.includes(`market/coin-details/`)) {
+            if (
+              pathname.includes(`market/coin-details/`) ||
+              pathname.includes(`market/nft-details`)
+            ) {
               return;
+            }
+
+            if (event?.data?.contract_id && event?.data?.alias) {
+              router.push(
+                `/market/nft-details/${event?.data?.contract_id}/${event?.data?.alias}`,
+              );
             }
 
             if (getAirDropMain) {

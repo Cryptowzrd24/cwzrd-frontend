@@ -6,6 +6,7 @@ import { columnsCollections } from '@/app/constants/columns';
 import useColumnCollectionsDefs from '@/app/hooks/data-grid/column-defination-collections';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { getNftList } from '@/app/services/collections';
+import { priceNumberFormatter } from '@/utils/price-number-formater';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -22,28 +23,34 @@ const Table = () => {
       name: nft.name || '',
       volume_24: {
         amount:
-          nft.oneDay?.volume?.toLocaleString() + ' ' + nft.floorPriceToken ||
-          'N/A',
-        percent: `${(nft.oneDay?.volumeChangePercentage ?? 0).toFixed(2)}%`,
+          priceNumberFormatter(nft.oneDay?.volume).toLocaleString() +
+            ' ' +
+            nft.floorPriceToken || '-',
+        percent: `${nft.oneDay?.volumeChangePercentage ? (nft.oneDay?.volumeChangePercentage ?? 0).toFixed(2) + '%' : '-'}`,
       },
       market_cap:
-        nft.marketCapUsd?.toLocaleString() + ' ' + nft.floorPriceToken || 'N/A',
+        priceNumberFormatter(nft.marketCapUsd)?.toLocaleString() +
+          ' ' +
+          nft.floorPriceToken || '-',
       floor_price:
-        nft.floorPriceUsd?.toFixed(2) + ' ' + nft.floorPriceToken || 'N/A',
+        priceNumberFormatter(nft.floorPriceUsd) + ' ' + nft.floorPriceToken ||
+        '-',
       avg_price: {
-        amount: `${nft.oneDay?.averagePrice?.toLocaleString() || 'N/A'} ${nft.floorPriceToken || ''}`,
-        percent: `${(nft.oneDay?.averagePriceChangePercentage ?? 0).toFixed(2)}%`,
+        amount: `${priceNumberFormatter(nft.oneDay?.averagePrice)?.toLocaleString() || '-'} ${nft.floorPriceToken || ''}`,
+        percent: `${nft.oneDay?.averagePriceChangePercentage ? (nft.oneDay?.averagePriceChangePercentage ?? 0).toFixed(2) + '%' : '-'}`,
       },
       sales: {
         amount:
           nft.oneDay?.sales?.toLocaleString() + ' ' + nft.floorPriceToken ||
-          'N/A',
-        percent: `${(nft.oneDay?.salesChangePercentage ?? 0).toFixed(2)}%`,
+          '-',
+        percent: `${nft.oneDay?.salesChangePercentage ? (nft.oneDay?.salesChangePercentage ?? 0).toFixed(2) + '%' : '-'}`,
       },
-      assets: nft.assets?.toLocaleString() || 'N/A',
-      owners: nft.owners?.toLocaleString() || 'N/A',
+      assets: nft.assets?.toLocaleString() || '-',
+      owners: nft.owners?.toLocaleString() || '-',
       owners_percent: `${(nft.ownerAssetsPercentage ?? 0).toFixed(2)}`,
       symbol: nft.floorPriceToken,
+      contract_id: nft.contractAddress,
+      alias: nft.platformAlias,
     }));
   };
 
