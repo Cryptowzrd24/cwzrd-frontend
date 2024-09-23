@@ -16,10 +16,13 @@ import {
   updateSelectedWatchListMain,
   updateFavorites,
 } from '../../redux/market/index';
+import { useSelector } from 'react-redux';
+import { setFirstLoginToFalse } from '@/app/redux/user';
 
-const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
+const FirstLoginModal = () => {
   const dispatch = useAppDispatch();
   const [addWatchlist] = useAddWatchlistMutation();
+  const { isFirstLogin } = useSelector((state: any) => state.user);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
@@ -37,7 +40,7 @@ const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
         main: true,
         ids: favorites,
       }).unwrap();
-      setFirstLogin(false);
+      dispatch(setFirstLoginToFalse());
     } catch (error) {
       console.error('Failed to create watchlist:', error);
     }
@@ -58,7 +61,7 @@ const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
         main: true,
         ids: [],
       }).unwrap();
-      setFirstLogin(false);
+      dispatch(setFirstLoginToFalse());
     } catch (error) {
       console.error('Failed to create watchlist:', error);
     }
@@ -75,7 +78,7 @@ const FirstLoginModal = ({ firstLogin, setFirstLogin }: any) => {
           },
         }}
         onClose={handleClose}
-        open={firstLogin}
+        open={isFirstLogin}
       >
         <IconButton
           aria-label="close"

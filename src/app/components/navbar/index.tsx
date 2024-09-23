@@ -15,7 +15,7 @@ import {
   Typography,
 } from '@mui/material';
 import Link from 'next/link';
-import { useAppDispatch, useAppSelector } from '@/app/redux/store';
+import { useAppDispatch } from '@/app/redux/store';
 import {
   setMainWatchFavorites,
   updateFavorites,
@@ -39,20 +39,16 @@ function Navbar() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const pathname = usePathname();
-  const { token, name } = useSelector((state: any) => state.user);
+  const { token, name, isFirstLogin } = useSelector((state: any) => state.user);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [showAuthModal, setShowAuthModal] = useState(false);
   const open = Boolean(anchorEl);
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [firstLogin, setFirstLogin] = useState(false);
-  const { favorites } = useAppSelector((state: any) => state.market);
+  // const { favorites } = useAppSelector((state: any) => state.market);
   const [addWatchlist] = useAddWatchlistMutation();
 
   const handleOpenAuth = () => {
-    const authToken = Cookies.get('authToken');
-    if (authToken) {
-      setIsAuthenticated(true);
-    } else {
-      setIsAuthenticated(false);
+    if (!token?.length) {
+      setShowAuthModal(true);
     }
   };
   useEffect(() => {
@@ -113,7 +109,7 @@ function Navbar() {
     };
 
     fetchWatchList();
-  }, [token, firstLogin, favorites]);
+  }, [token, !isFirstLogin]);
 
   const handleAuthClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -158,11 +154,12 @@ function Navbar() {
   }, []);
 
   const renderFirstLogin = () => {
-    if (JSON.parse(Cookies.get('favorites') as any).length > 0 && firstLogin) {
+    // @ts-expect-error: may be undefined
+    if (Cookies?.get('favorites')?.length > 0 && isFirstLogin) {
       return (
         <FirstLoginModal
-          setFirstLogin={setFirstLogin}
-          firstLogin={firstLogin}
+        // setFirstLogin={setFirstLogin}
+        // firstLogin={firstLogin}
         />
       );
     }
@@ -170,12 +167,11 @@ function Navbar() {
 
   return (
     <>
-      {Cookies.get('favorites') && renderFirstLogin()}
-      {!isAuthenticated && (
+      {renderFirstLogin()}
+      {showAuthModal && (
         <AuthModal
-          setFirstLogin={setFirstLogin}
-          isAuthenticated={!isAuthenticated}
-          setIsAuthenticated={setIsAuthenticated}
+          setShowAuthModal={setShowAuthModal}
+          showAuthModal={showAuthModal}
         />
       )}
       <Box
