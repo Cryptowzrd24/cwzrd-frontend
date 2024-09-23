@@ -60,10 +60,10 @@ const TradeManagement = () => {
     <>
       <motion.div
         style={{
-          padding: '32px 48px 48px 32px',
-          width: '100%',
-          height: '390px',
-          borderRadius: '32px',
+          padding: '24px',
+          maxWidth: '307.5px',
+          height: '352px',
+          borderRadius: '24px',
           flex: 1,
           position: 'relative',
           transition: 'all 0.325s linear',
@@ -76,11 +76,12 @@ const TradeManagement = () => {
           variant="body1"
           component={motion.div}
           sx={{
-            fontSize: '16px',
+            fontSize: '12px',
             fontWeight: '400',
             textTransform: 'uppercase',
             mb: '32px',
             letterSpacing: '1px',
+            lineHeight: '15.6px',
           }}
           variants={textVariants}
         >
@@ -106,14 +107,14 @@ const TradeManagement = () => {
             animate={active ? 'active' : 'inactive'}
           >
             <Typography
-              variant="h1"
               sx={{
-                fontSize: '40px',
+                fontSize: '30px',
                 color: 'rgba(255, 255, 255, 1)',
                 mt: '32px',
                 letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
+                maxWidth: '223.5px',
+                lineHeight: '33px',
+                fontWeight: 700,
               }}
             >
               Sit back as our experts handle trades, <br />
@@ -137,7 +138,7 @@ const TradeManagement = () => {
             >
               <Typography
                 sx={{
-                  fontSize: '14px',
+                  fontSize: '12px',
                   color: 'rgba(0, 0, 0, 1)',
                   mt: '125px',
                   letterSpacing: 0.1,

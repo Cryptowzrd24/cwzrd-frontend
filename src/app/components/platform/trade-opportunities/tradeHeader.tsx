@@ -16,10 +16,11 @@ const TradeHeader = () => {
       <Typography
         variant="body1"
         sx={{
-          fontSize: '18px',
+          fontSize: '14px',
           fontWeight: '500',
           textTransform: 'uppercase',
           letterSpacing: 2,
+          lineHeight: '18.2px',
           mb: '8px',
         }}
       >
@@ -27,7 +28,7 @@ const TradeHeader = () => {
       </Typography>
       <Typography
         variant="h1"
-        sx={{ fontSize: '72px', lineHeight: '72px', mb: '12px' }}
+        sx={{ fontSize: '32px', lineHeight: '38.4px', mb: '12px' }}
       >
         <span
           style={{
@@ -45,11 +46,12 @@ const TradeHeader = () => {
       <Typography
         variant="body1"
         sx={{
-          fontSize: '20px',
+          width: '800px',
+          fontSize: '14px',
           fontWeight: '400',
           mb: '36px',
           textAlign: 'center',
-          lineHeight: '30px',
+          lineHeight: '21px',
           color: 'rgba(17, 17, 17, 0.8)',
         }}
       >
