@@ -53,7 +53,7 @@ function LiveMarket({
         backdropFilter: 'blur(10px)',
         boxShadow: '0px 4px 28px 0px #0000000D',
         paddingBlock: '6px',
-        height: isPageDetails ? '608px' : '438px',
+        height: isPageDetails ? '472px' : '438px',
       }}
       className="live-market"
     >
@@ -109,7 +109,7 @@ function LiveMarket({
       />
       {!isFetching ? (
         liveMarketData
-          ?.slice(0, isPageDetails ? 6 : 4)
+          ?.slice(0, isPageDetails ? 5 : 4)
           .map((item: any, index: any) => (
             <>
               <Accordion
@@ -134,7 +134,11 @@ function LiveMarket({
                 <AccordionSummary
                   aria-controls={`panel${item.id}-content`}
                   id={`panel${item.id}-header`}
-                  sx={{ height: '61px', padding: '0 16px 0 5px' }}
+                  sx={{
+                    // height: '61px',
+                    padding: '0 16px 0 5px',
+                    maxHeight: '42px',
+                  }}
                 >
                   <Box
                     sx={{
@@ -245,7 +249,7 @@ function LiveMarket({
                 </AccordionDetails>
               </Accordion>
               {index !==
-                liveMarketData?.slice(0, isPageDetails ? 6 : 4).length - 1 && (
+                liveMarketData?.slice(0, isPageDetails ? 5 : 4).length - 1 && (
                 <Divider
                   sx={{
                     width: '100%',

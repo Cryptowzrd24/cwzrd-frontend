@@ -34,7 +34,7 @@ function ArticleHeader({
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             fontWeight: 500,
-            fontSize: '12px',
+            fontSize: '10px',
             letterSpacing: '1px',
             fontFamily: 'Sf Pro Display',
             lineHeight: '15.6px',
@@ -47,7 +47,7 @@ function ArticleHeader({
         sx={{
           color: 'rgba(17, 17, 17, 1)',
           fontWeight: 500,
-          fontSize: '12px',
+          fontSize: '10px',
           letterSpacing: '1.5px',
           fontFamily: 'Sf Pro Display',
           lineHeight: '15.6px',
@@ -67,7 +67,7 @@ function ArticleHeader({
           sx={{
             color: 'rgba(17, 17, 17, 1)',
             fontWeight: 500,
-            fontSize: '12px',
+            fontSize: '10px',
             letterSpacing: '1.5px',
             fontFamily: 'Sf Pro Display',
             lineHeight: '15.6px',
