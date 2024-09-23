@@ -7,39 +7,42 @@ const Portfolio = () => {
     <>
       <Box
         sx={{
-          padding: '48px 64px 0 0',
+          // padding: '48px 64px 0 0',
+          width: '967.5px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           display: 'flex',
           alignItems: 'center',
-          borderRadius: '32px',
+          borderRadius: '24px',
           gap: '30px',
         }}
       >
-        <PortfolioCard />
-        <Box sx={{}}>
+        <Box sx={{ paddingTop: '36px' }}>
+          <PortfolioCard />
+        </Box>
+        <Box sx={{ paddingBlock: '114px' }}>
           <Typography
-            variant="h1"
             sx={{
-              fontSize: '56px',
+              fontSize: '30px',
               fontWeight: '600',
-              lineHeight: '61.6px',
+              lineHeight: '33px',
               color: 'rgba(17, 17, 17, 1)',
               mb: '16px',
-              maxWidth: '500px',
+              width: '375px',
               letterSpacing: '-1px',
+              fontFamily: 'Sf Pro Display',
             }}
           >
             Portfolio Investing for long term growth
           </Typography>
           <Typography
-            variant="body1"
             sx={{
-              fontSize: '20px',
+              fontSize: '15px',
               fontWeight: '400',
-              lineHeight: '30px',
+              lineHeight: '22.5px',
               color: 'rgba(17, 17, 17, 0.8)',
-              maxWidth: '500px',
+              width: '375px',
+              fontFamily: 'Sf Pro Display',
             }}
           >
             Manage and track your investments with ease using our personal

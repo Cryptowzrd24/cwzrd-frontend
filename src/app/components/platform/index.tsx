@@ -85,10 +85,10 @@ const Platform = () => {
         <Box sx={{ mb: '30px' }}>
           <ExaminationPart />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'center' }}>
           <Coverage />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'center' }}>
           <Portfolio />
         </Box>
         <Box sx={{ mb: '30px' }}>
