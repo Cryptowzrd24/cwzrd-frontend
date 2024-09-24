@@ -143,8 +143,8 @@ const MileStones = () => {
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '24px',
-            bottom: '28px',
+            right: '9.25px',
+            bottom: '13.75px',
           }}
         >
           <motion.div
@@ -157,7 +157,7 @@ const MileStones = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '8px',
+              padding: '6px',
               background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',

@@ -89,14 +89,14 @@ const TradeManagement = () => {
         </Typography>
         <Box
           sx={{
-            paddingLeft: '32px',
+            paddingLeft: '26px',
           }}
         >
           <motion.img
             src={'/images/platform/trade-header.png'}
             alt="trade"
-            width={80}
-            height={80}
+            width={60}
+            height={60}
             variants={imgAndTextVariants}
             initial="initial"
             animate={active ? 'active' : 'inactive'}
@@ -110,7 +110,7 @@ const TradeManagement = () => {
               sx={{
                 fontSize: '30px',
                 color: 'rgba(255, 255, 255, 1)',
-                mt: '32px',
+                mt: '27.5px',
                 letterSpacing: 0.1,
                 maxWidth: '223.5px',
                 lineHeight: '33px',
@@ -160,8 +160,8 @@ const TradeManagement = () => {
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '24px',
-            bottom: '24px',
+            right: '8.75px',
+            bottom: '13.5px',
             transition: 'all 0.5s ease-in-out',
             transform: active ? 'rotate(45deg)' : '',
           }}
@@ -171,7 +171,7 @@ const TradeManagement = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '8px',
+              padding: '6px',
               background: active ? '#000' : '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',

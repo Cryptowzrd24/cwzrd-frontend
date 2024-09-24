@@ -7,14 +7,13 @@ const Portfolio = () => {
     <>
       <Box
         sx={{
-          // padding: '48px 64px 0 0',
           width: '967.5px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           display: 'flex',
           alignItems: 'center',
           borderRadius: '24px',
-          gap: '30px',
+          gap: '40px',
         }}
       >
         <Box sx={{ paddingTop: '36px' }}>

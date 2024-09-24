@@ -17,7 +17,13 @@ const CommunityCard = () => {
           width: '319px',
         }}
       >
-        <Image src={comments} alt="deliver" width={318} height={135} />
+        <Image
+          src={comments}
+          alt="deliver"
+          width={318}
+          height={135}
+          style={{ marginTop: '7px' }}
+        />
         <Box
           sx={{
             paddingRight: '24px',
@@ -28,14 +34,14 @@ const CommunityCard = () => {
           }}
         >
           <Typography
-            variant="body1"
+            // variant="body1"
             sx={{
               fontSize: '14px',
               fontWeight: '500',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '18.2px',
               letterSpacing: '1px',
-              mt: '4px',
+              mt: '23px',
             }}
           >
             Community Success
@@ -46,7 +52,7 @@ const CommunityCard = () => {
               fontSize: '12px',
               fontWeight: '400',
               color: 'rgba(255, 255, 255, 0.8)',
-              lineHeight: '18px',
+              lineHeight: '20px',
               mt: '4px',
               width: '266.25px',
             }}
