@@ -62,7 +62,7 @@ function LiveMarket({
           paddingTop: '6px',
           display: 'flex',
           mb: '12px',
-          marginTop: '12px',
+          marginTop: '10px',
           justifyContent: 'space-between',
           width: '100%',
           paddingBottom: '12px',
@@ -70,10 +70,15 @@ function LiveMarket({
         }}
       >
         <Typography
-          variant="subtitle2"
-          sx={{ color: 'black', fontSize: '14px' }}
+          sx={{
+            color: 'rgba(17, 17, 17, 1)',
+            fontSize: '14px',
+            fontWeight: '600',
+            lineHeight: '18.2px',
+            fontFamily: 'Sf Pro Display',
+          }}
         >
-          🚀 LIVE MARKET
+          🚀 Live Market
         </Typography>
         <Box
           sx={{

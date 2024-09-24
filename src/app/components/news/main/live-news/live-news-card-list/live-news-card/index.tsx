@@ -28,6 +28,7 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
           gap: '8px',
           flexDirection: 'row',
           alignItems: 'center',
+          width: '268px',
         }}
       >
         <Box sx={{ position: 'relative' }}>
@@ -63,6 +64,8 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
               fontWeight: '700',
               lineHeight: '15.6px',
               marginBottom: '2px',
+              marginRight: '5px',
+              textWrap: 'balance',
             }}
           >
             {title}
@@ -80,6 +83,7 @@ function LiveNewsCard({ title, desc, image }: LiveNewsCardProps) {
               WebkitLineClamp: 2,
               WebkitBoxOrient: 'vertical',
               letterSpacing: '0.6px',
+              marginRight: '5px',
             }}
           >
             {desc}
