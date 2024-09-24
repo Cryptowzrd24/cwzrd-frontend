@@ -16,12 +16,7 @@ import {
 } from '@mui/material';
 import Link from 'next/link';
 import { useAppDispatch } from '@/app/redux/store';
-import {
-  setMainWatchFavorites,
-  updateFavorites,
-  updateSelectedWatchListMain,
-  updateSelectedWatchListName,
-} from '@/app/redux/market';
+import { setMainWatchFavorites, updateFavorites } from '@/app/redux/market';
 import Cookies from 'js-cookie';
 import LogoWhite from '../../../../public/icons/logoWhite';
 import './index.scss';
@@ -31,7 +26,7 @@ import { useSelector } from 'react-redux';
 import { logout } from '@/app/redux/user';
 import AuthModal from '../favorites/authModal';
 import FirstLoginModal from '../favorites/firstLoginModal';
-import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
+// import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
 
 function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -44,7 +39,7 @@ function Navbar() {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const open = Boolean(anchorEl);
   // const { favorites } = useAppSelector((state: any) => state.market);
-  const [addWatchlist] = useAddWatchlistMutation();
+  // const [addWatchlist] = useAddWatchlistMutation();
 
   const handleOpenAuth = () => {
     if (!token?.length) {
@@ -62,54 +57,54 @@ function Navbar() {
     }
   }, [dispatch]);
 
-  useEffect(() => {
-    const fetchWatchList = async () => {
-      const authToken = Cookies.get('authToken');
-      if (authToken) {
-        try {
-          const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites`,
-            {
-              method: 'GET',
-              headers: {
-                Authorization: `Bearer ${authToken}`,
-              },
-            },
-          );
-          if (response.ok) {
-            const data = await response.json();
-            const mainCollection: any = Object.values(data.collections).find(
-              (collection: any) => collection?.main === true,
-            );
+  // useEffect(() => {
+  //   const fetchWatchList = async () => {
+  //     const authToken = Cookies.get('authToken');
+  //     if (authToken) {
+  //       try {
+  //         const response = await fetch(
+  //           `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites`,
+  //           {
+  //             method: 'GET',
+  //             headers: {
+  //               Authorization: `Bearer ${authToken}`,
+  //             },
+  //           },
+  //         );
+  //         if (response.ok) {
+  //           const data = await response.json();
+  //           const mainCollection: any = Object.values(data.collections).find(
+  //             (collection: any) => collection?.main === true,
+  //           );
 
-            if (mainCollection) {
-              dispatch(
-                updateSelectedWatchListName(mainCollection?.collection_name),
-              );
-              dispatch(updateSelectedWatchListMain(mainCollection?.main));
-            }
-          }
-          if (response.statusText == 'Not Found') {
-            await addWatchlist({
-              token: token,
-              collection_name: 'My First Coin Watchlist',
-              main: true,
-              ids: [],
-            });
+  //           if (mainCollection) {
+  //             dispatch(
+  //               updateSelectedWatchListName(mainCollection?.collection_name),
+  //             );
+  //             dispatch(updateSelectedWatchListMain(mainCollection?.main));
+  //           }
+  //         }
+  //         if (response.statusText == 'Not Found') {
+  //           await addWatchlist({
+  //             token: token,
+  //             collection_name: 'My First Coin Watchlist',
+  //             main: true,
+  //             ids: [],
+  //           });
 
-            dispatch(updateFavorites([]));
-            dispatch(updateSelectedWatchListName('My First Coin Watchlist'));
-            dispatch(updateSelectedWatchListMain('My First Coin Watchlist'));
-            Cookies.remove('favorites');
-          }
-        } catch (error) {
-          console.error('error:', error);
-        }
-      }
-    };
+  //           dispatch(updateFavorites([]));
+  //           dispatch(updateSelectedWatchListName('My First Coin Watchlist'));
+  //           dispatch(updateSelectedWatchListMain('My First Coin Watchlist'));
+  //           Cookies.remove('favorites');
+  //         }
+  //       } catch (error) {
+  //         console.error('error:', error);
+  //       }
+  //     }
+  //   };
 
-    fetchWatchList();
-  }, [token, !isFirstLogin]);
+  //   fetchWatchList();
+  // }, [token, !isFirstLogin]);
 
   const handleAuthClick = (event: any) => {
     setAnchorEl(event.currentTarget);

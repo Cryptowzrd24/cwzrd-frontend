@@ -49,6 +49,7 @@ const FirstLoginModal = () => {
 
   const handleClose = async (event: React.SyntheticEvent) => {
     event.preventDefault();
+    console.log('===123456===');
     setLoading(true);
     dispatch(updateSelectedWatchListName('My First Coin Watchlist'));
     dispatch(updateSelectedWatchListMain('My First Coin Watchlist'));
