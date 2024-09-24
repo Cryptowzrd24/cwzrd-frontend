@@ -75,7 +75,7 @@ const PlatformHeader = () => {
               width: '100%',
               background: 'rgba(255, 255, 255, 1)',
               boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-              mb: '36px',
+              // mb: '36px',
             }}
           >
             <Image

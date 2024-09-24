@@ -34,7 +34,7 @@ const FrequentlyAskedQuestion = () => {
       <Box
         sx={{
           display: 'flex',
-          gap: '56px',
+          gap: '16px',
           justifyContent: 'center',
           width: '100%',
         }}

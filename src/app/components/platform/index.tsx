@@ -19,7 +19,9 @@ import CoverageCards from './coverage-cards';
 import Image from 'next/image';
 import FrequentlyAskedQuestion from './frequently-question';
 import ProgressCards from './progress-cards';
-import header from '../../../../public/images/platform/header.png';
+// import header from '../../../../public/images/platform/header.png';
+import platformHeader from '../../../../public/images/platform/platformHeaderImg.png';
+
 import Macbook from '../../../../public/images/platform/MacBook.png';
 
 import Forex from './forex-cryptocurrencies';
@@ -41,7 +43,7 @@ const Platform = () => {
         </Box>
       </Container>
       <Image
-        src={header}
+        src={platformHeader}
         alt="header"
         style={{ maxWidth: '100%', height: 'auto' }}
       />
