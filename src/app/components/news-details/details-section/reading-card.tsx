@@ -71,7 +71,7 @@ function ReadingCard({
           overflow: 'hidden',
           width: '120px',
           height: '80px',
-          marginTop: '16px',
+          marginTop: '12px',
           border: isTechnicalDetail
             ? '0.5px solid rgba(114, 72, 247, 1)'
             : 'none',

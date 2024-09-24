@@ -26,7 +26,7 @@ function NewsArticle() {
   const subheadingTextTwo = `Factors like an anticipated interest rate cut and increased institutional buying could lead to more upward momentum for Bitcoin, according to Bitfinex analysts:`;
 
   return (
-    <Box style={{ width: 'calc(100% - 30px)' }}>
+    <Box style={{ width: '770px' }}>
       <ArticleHeader
         coinName={'BITCOIN'}
         date={'APRIL 25, 2024'}
