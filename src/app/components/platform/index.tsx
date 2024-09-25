@@ -6,7 +6,7 @@ import TradingPlatform from './trading';
 import Feature from './feature';
 import PlatformCards from './platform-cards';
 import TradeOpportunities from './trade-opportunities';
-import MemberShipBanner from '../banners/memberShipBanner';
+import MemberShipBannerLarge from '../banners/memberShipBanner';
 import RealWins from './real-wins';
 import Education from './education';
 import ExaminationPart from './examination';
@@ -23,6 +23,7 @@ import header from '../../../../public/images/platform/header.png';
 import Macbook from '../../../../public/images/platform/MacBook.png';
 
 import Forex from './forex-cryptocurrencies';
+import MemberShipBanner from './membership-banner';
 
 const Platform = () => {
   useEffect(() => {
@@ -45,46 +46,62 @@ const Platform = () => {
         style={{ maxWidth: '100%', height: 'auto' }}
       />
       <Container maxWidth="xl">
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mb: '24px' }}>
           <TradeOpportunities />
         </Box>
-        <Box sx={{ mb: '64px' }}>
+        <Box
+          sx={{
+            mb: '64px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <RealWins />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box
+          sx={{
+            mt: '100px',
+            mb: '30px',
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
           <TradingPlatform />
         </Box>
         <Box sx={{ mb: '30px' }}>
           <PlatformCards />
         </Box>
-        <Box sx={{ mb: '64px' }}>
+        <Box sx={{ mb: '100px', display: 'flex', justifyContent: 'center' }}>
           <MemberShipBanner />
         </Box>
         <Box sx={{ mb: '30px' }}>
           <Feature />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mt: '100px', mb: '30px' }}>
           <Education />
         </Box>
         <Box sx={{ mb: '30px' }}>
           <ExaminationPart />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'center' }}>
           <Coverage />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'center' }}>
           <Portfolio />
         </Box>
         <Box sx={{ mb: '30px' }}>
           <ProgressCards />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'center' }}>
           <JoinedPeople />
         </Box>
       </Container>
       <Box
         sx={{
-          mb: '30px',
+          mt: '100px',
+          // mb: '30px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -103,20 +120,26 @@ const Platform = () => {
         />
       </Box>
       <Container maxWidth="xl">
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mt: '100px' }}>
           <PersonalCalendar />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box
+          sx={{
+            mt: '24px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <RealTimeMarketData />
         </Box>
-        <Box sx={{ mb: '64px' }}>
+        <Box sx={{ mt: '24px' }}>
           <CoverageCards />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mt: '100px' }}>
           <FrequentlyAskedQuestion />
         </Box>
-        <Box sx={{ mb: '30px' }}>
-          <MemberShipBanner />
+        <Box sx={{ mt: '100px', mb: '24px' }}>
+          <MemberShipBannerLarge />
         </Box>
       </Container>
     </>

@@ -59,10 +59,10 @@ const MileStones = () => {
     <>
       <motion.div
         style={{
-          padding: '32px 48px 48px 32px',
-          width: '100%',
-          height: '390px',
-          borderRadius: '32px',
+          padding: '24px',
+          maxWidth: '307.5px',
+          height: '352px',
+          borderRadius: '24px',
           position: 'relative',
           flex: 1,
           transition: 'all 0.325s linear',
@@ -72,25 +72,25 @@ const MileStones = () => {
         variants={backgroundVariants}
       >
         <Typography
-          variant="body1"
           sx={{
-            fontSize: '16px',
+            fontSize: '12px',
             fontWeight: '400',
             color: 'rgba(255, 255, 255, 1)',
             textTransform: 'uppercase',
-            mb: '32px',
+            mb: '10px',
             letterSpacing: '1px',
+            lineHeight: '15.6px',
           }}
         >
           Milestones
         </Typography>
         <Box
           sx={{
-            paddingLeft: '16px',
+            paddingLeft: '26px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: 'center',
+            alignItems: 'start',
           }}
         >
           <motion.div
@@ -99,14 +99,14 @@ const MileStones = () => {
             animate={active ? 'active' : 'inactive'}
           >
             <Typography
-              variant="h1"
               sx={{
-                fontSize: '40px',
+                fontSize: '30px',
                 color: 'rgba(255, 255, 255, 1)',
                 mt: '32px',
                 letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
+                maxWidth: '184.5px',
+                lineHeight: '33px',
+                fontWeight: 700,
               }}
             >
               The Smallest trading community
@@ -120,7 +120,7 @@ const MileStones = () => {
             >
               <Typography
                 sx={{
-                  fontSize: '14px',
+                  fontSize: '12px',
                   color: 'rgba(255, 255, 255, 1)',
                   mt: '105px',
                   letterSpacing: 0.1,
@@ -143,8 +143,8 @@ const MileStones = () => {
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '24px',
-            bottom: '28px',
+            right: '9.25px',
+            bottom: '13.75px',
           }}
         >
           <motion.div
@@ -157,7 +157,7 @@ const MileStones = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '8px',
+              padding: '6px',
               background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',

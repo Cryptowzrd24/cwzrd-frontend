@@ -54,11 +54,10 @@ const ExaminationCard = () => {
     <>
       <motion.div
         style={{
-          padding: '32px 56px 80px 32px',
-          maxWidth: '23.5%',
-          width: '100%',
-          height: '358px',
-          borderRadius: '32px',
+          // padding: '24px 42px 60px 24px',
+          width: '307.5px',
+          height: '352.75px',
+          borderRadius: '24px',
           position: 'relative',
           transition: 'all 0.325s linear',
         }}
@@ -67,14 +66,15 @@ const ExaminationCard = () => {
         variants={backgroundVariants}
       >
         <Typography
-          variant="body1"
           sx={{
-            fontSize: '16px',
+            fontSize: '12px',
             fontWeight: '400',
             color: 'rgba(255, 255, 255, 1)',
             textTransform: 'uppercase',
-            mb: '32px',
+            mb: '18px',
             letterSpacing: '1px',
+            lineHeight: '15.6px',
+            padding: '24px 0 0 24px',
           }}
         >
           Examinations
@@ -85,13 +85,14 @@ const ExaminationCard = () => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
+            paddingBottom: '60px',
           }}
         >
           <motion.img
             src={'/images/platform/exam.png'}
             alt="daily coverage"
-            width={100}
-            height={100}
+            width={75}
+            height={75}
             variants={imgAndTextVariants}
             initial="initial"
             animate={active ? 'active' : 'inactive'}
@@ -103,14 +104,16 @@ const ExaminationCard = () => {
             animate={active ? 'active' : 'inactive'}
           >
             <Typography
-              variant="h1"
               sx={{
-                fontSize: '40px',
+                fontSize: '30px',
                 color: 'rgba(255, 255, 255, 1)',
-                mt: '37px',
+                mt: '27px',
                 letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
+                width: '223.5px',
+                lineHeight: '33px',
+                fontWeight: 700,
+                fontFamily: 'Sf Pro Display',
+                paddingLeft: '18px',
               }}
             >
               Featuring with 450 questions spread across 47 exams.
@@ -125,13 +128,14 @@ const ExaminationCard = () => {
             >
               <Typography
                 sx={{
-                  fontSize: '14px',
+                  fontSize: '12px',
                   color: 'rgba(255, 255, 255, 1)',
-                  mt: '90px',
+                  mt: '82px',
                   letterSpacing: 0.1,
-                  lineHeight: '22px',
+                  lineHeight: '20px',
                   textAlign: 'start',
-                  marginLeft: '-24px',
+                  marginLeft: '-34px',
+                  paddingLeft: '24px',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -147,8 +151,8 @@ const ExaminationCard = () => {
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '24px',
-            bottom: '28px',
+            right: '14px',
+            bottom: '15px',
             transform: active ? 'rotate(45deg)' : '',
             transition: 'transform 0.5s ease-in-out',
           }}
@@ -158,7 +162,7 @@ const ExaminationCard = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '8px',
+              padding: '6px',
               background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',

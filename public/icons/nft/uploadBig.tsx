@@ -5,8 +5,8 @@ const UploadBig = () => {
     <>
       {/* Hello world */}
       <svg
-        width={27}
-        height={27}
+        width={20.54}
+        height={20.54}
         viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

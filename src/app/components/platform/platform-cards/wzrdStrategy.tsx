@@ -9,26 +9,24 @@ const WzrdStrategy = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          padding: '32px 48px 48px 48px',
-          width: '100%',
-          height: '390px',
-          borderRadius: '32px',
+          padding: '24px',
+          maxWidth: '307.5px',
+          height: '352px',
+          borderRadius: '24px',
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'flex-end',
           flex: 1,
         }}
       >
-        <Box>
+        <Box sx={{ paddingLeft: '12px', marginTop: '253px' }}>
           <Stack>
             <Typography
-              variant="body1"
               sx={{
-                fontSize: '18px',
+                fontSize: '14px',
                 color: 'rgba(255, 255, 255, 1)',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
-                lineHeight: '23.4px',
+                lineHeight: '18.2px',
                 fontWeight: '500',
                 mb: '8px',
               }}
@@ -36,14 +34,13 @@ const WzrdStrategy = () => {
               The WZRD Strategy
             </Typography>
             <Typography
-              variant="body1"
               sx={{
-                fontSize: '18px',
+                fontSize: '12px',
                 color: 'rgba(255, 255, 255, 0.8)',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
                 fontWeight: '400',
-                lineHeight: '27px',
+                lineHeight: '18px',
               }}
             >
               Master trading with our essential guides and lessons, covering our

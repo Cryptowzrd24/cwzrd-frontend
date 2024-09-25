@@ -56,12 +56,12 @@ const ExportCard = () => {
     <>
       <motion.div
         style={{
-          padding: '32px 56px 32px 32px',
-          maxWidth: '23.5%',
-          borderRadius: '32px',
+          // padding: '32px 56px 32px 32px',
+          // maxWidth: '23.5%',
+          borderRadius: '24px',
           position: 'relative',
-          height: '528px',
-          width: '100%',
+          height: '443.5px',
+          width: '307.5px',
           transition: 'all 0.325s linear',
         }}
         initial="initial"
@@ -69,24 +69,26 @@ const ExportCard = () => {
         variants={backgroundVariants}
       >
         <Typography
-          variant="body1"
           sx={{
-            fontSize: '16px',
+            fontSize: '12px',
             fontWeight: '400',
             color: 'rgba(255, 255, 255, 1)',
             textTransform: 'uppercase',
-            mb: '24px',
+            mb: '18px',
             letterSpacing: '1px',
+            lineHeight: '15.6px',
+            paddingLeft: '24px',
+            paddingTop: '24px',
           }}
         >
           Easy to export notes
         </Typography>
-        <Box sx={{ paddingLeft: '24px' }}>
+        <Box sx={{ paddingLeft: '42px' }}>
           <motion.img
             src={'/images/platform/export.png'}
             alt="export notes"
-            width={100}
-            height={100}
+            width={75}
+            height={75}
             variants={imgAndTextVariants}
             initial="initial"
             animate={active ? 'active' : 'inactive'}
@@ -97,14 +99,14 @@ const ExportCard = () => {
             animate={active ? 'active' : 'inactive'}
           >
             <Typography
-              variant="h1"
               sx={{
-                fontSize: '40px',
+                fontSize: '30px',
                 color: 'rgba(255, 255, 255, 1)',
-                mt: '74px',
+                mt: '55.5px',
                 letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
+                maxWidth: '223.5px',
+                lineHeight: '33px',
+                fontWeight: 700,
               }}
             >
               Easily export your saved notes into a downloadable PDF
@@ -119,13 +121,15 @@ const ExportCard = () => {
             >
               <Typography
                 sx={{
-                  fontSize: '14px',
+                  fontSize: '12px',
                   color: 'rgba(255, 255, 255, 1)',
-                  mt: '184px',
+                  mt: '134px',
                   letterSpacing: 0.1,
                   lineHeight: '22px',
                   textAlign: 'start',
                   marginLeft: '-24px',
+                  paddingRight: '10px',
+                  textWrap: 'balance',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -141,8 +145,8 @@ const ExportCard = () => {
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '24px',
-            bottom: '28px',
+            right: '11px',
+            bottom: '11.8px',
           }}
         >
           <motion.div
@@ -155,7 +159,7 @@ const ExportCard = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '8px',
+              padding: '6px',
               background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',

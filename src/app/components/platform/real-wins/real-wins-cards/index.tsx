@@ -10,7 +10,7 @@ const RealWinsCard = () => {
       <Box
         sx={{
           display: 'flex',
-          gap: '42px',
+          gap: '12px',
           alignItems: 'center',
           maxWidth: '670px',
           height: '368px',
@@ -18,7 +18,7 @@ const RealWinsCard = () => {
       >
         <Stack>
           <DeliverCard />
-          <Box sx={{ mt: '20px' }}>
+          <Box sx={{ mt: '12px' }}>
             <TradeSignalCard />
           </Box>
         </Stack>

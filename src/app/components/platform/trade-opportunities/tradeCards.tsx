@@ -4,7 +4,9 @@ import graph from '../../../../../public/images/platform/trade-graph.png';
 import Image from 'next/image';
 const TradeCards = () => {
   return (
-    <Box sx={{ display: 'flex', gap: '30px', flex: 1 }}>
+    <Box
+      sx={{ display: 'flex', gap: '30px', flex: 1, justifyContent: 'center' }}
+    >
       <Box
         sx={{
           paddingLeft: '32px',
@@ -12,7 +14,8 @@ const TradeCards = () => {
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '32px',
-          width: '41.2%',
+          // width: '41.2%',
+          width: '390px',
         }}
       >
         <Image
@@ -26,12 +29,12 @@ const TradeCards = () => {
         />
         <Stack sx={{ maxWidth: '440px', paddingLeft: '8px' }}>
           <Typography
-            variant="body1"
             sx={{
-              fontSize: '18px',
-              fontWeight: '500',
+              fontSize: '13px',
+              fontWeight: '600',
               color: 'rgba(17, 17, 17, 1)',
-              lineHeight: '23.4px',
+              lineHeight: '16.9px',
+              letterSpacing: '1px',
               mb: '8px',
               mt: '32px',
             }}
@@ -39,12 +42,11 @@ const TradeCards = () => {
             Daily WZRD Intraday Setup Calls
           </Typography>
           <Typography
-            variant="body1"
             sx={{
-              fontSize: '18px',
+              fontSize: '12px',
               fontWeight: '400',
               color: 'rgba(17, 17, 17, 0.8)',
-              lineHeight: '27px',
+              lineHeight: '18px',
             }}
           >
             Detailed trade plans for assets we're monitoring & trading, with
@@ -62,16 +64,17 @@ const TradeCards = () => {
           borderRadius: '32px',
           position: 'relative',
           // maxWidth: '740px',
-          width: '58.7%',
+          width: '555px',
         }}
       >
         <Typography
           variant="h1"
           sx={{
-            fontSize: '40px',
+            fontSize: '24px',
             color: 'rgba(255, 255, 255, 1)',
-            lineHeight: '44px',
+            lineHeight: '26.44px',
             mb: '8px',
+            fontFamily: 'Sf Pro Display',
           }}
         >
           Trade Signals
@@ -79,11 +82,11 @@ const TradeCards = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: '18px',
+            fontSize: '12px',
             color: 'rgba(255, 255, 255, 0.8)',
-            width: '274px',
+            width: '206px',
             fontWeight: '400',
-            lineHeight: '27px',
+            lineHeight: '18px',
           }}
         >
           We provide both the Crypto and FX signals with Entry Prices, Take

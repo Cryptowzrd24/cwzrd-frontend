@@ -49,14 +49,14 @@ const ProfitableCard = () => {
     <>
       <motion.div
         style={{
-          padding: '48px 40px 71px 40px',
-          borderRadius: '32px',
+          // padding: '42px 30px 53.25px 30px',
+          borderRadius: '24px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'column',
-          maxWidth: '380px',
-          height: '228px',
+          width: '307.5px',
+          height: '310.5px',
           position: 'relative',
           transition: 'all 0.325s linear',
         }}
@@ -67,7 +67,7 @@ const ProfitableCard = () => {
         <motion.img
           src={'/images/platform/vector.png'}
           alt="vector"
-          width={160}
+          width={135}
           variants={imgAndTextVariants}
           initial="initial"
           animate={active ? 'active' : 'inactive'}
@@ -78,14 +78,15 @@ const ProfitableCard = () => {
           animate={active ? 'active' : 'inactive'}
         >
           <Typography
-            variant="h1"
             sx={{
-              fontSize: '40px',
+              fontSize: '30px',
               fontWeight: '700',
               color: 'rgba(255, 255, 255, 1)',
               textAlign: 'center',
-              lineHeight: '44px',
+              lineHeight: '33px',
               marginTop: '24px',
+              marginBottom: '22px',
+              fontFamily: 'Sf Pro Display',
             }}
           >
             Profitable Opportunities
@@ -104,6 +105,7 @@ const ProfitableCard = () => {
                 textAlign: 'start',
                 lineHeight: '22px',
                 marginTop: '24px',
+                paddingInline: '30px',
               }}
             >
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -119,8 +121,8 @@ const ProfitableCard = () => {
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '20px',
-            bottom: '20px',
+            right: '10px',
+            bottom: '10px',
             transform: active ? 'rotate(45deg)' : '',
             transition: '0.3s ease-in-out',
           }}
@@ -130,7 +132,7 @@ const ProfitableCard = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '8px',
+              padding: '6px',
               background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',
