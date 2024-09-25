@@ -27,9 +27,9 @@ function NewsImage({ image, subheadingText }: any) {
       <Typography
         sx={{
           fontWeight: 400,
-          fontSize: '16px',
+          fontSize: '20px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: '24px',
+          lineHeight: '29px',
           color: 'rgba(17, 17, 17, 0.8)',
           marginTop: '16px',
         }}

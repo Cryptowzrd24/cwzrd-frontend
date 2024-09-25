@@ -32,16 +32,16 @@ function LiveNewsExplorer({ isPageDetails }: { isPageDetails?: boolean }) {
         }}
       >
         <Typography
-          variant="subtitle2"
           sx={{
             color: 'black',
-            fontWeight: '700',
+            fontWeight: '600',
             fontSize: '14px',
-            lineHeight: '15.6px',
-            letterSpacing: '10%',
+            lineHeight: '18.2px',
+            fontFamily: 'Sf Pro Display',
+            // letterSpacing: '10%',
           }}
         >
-          📰 LIVE EXPLORER
+          📰 Live Explorer
         </Typography>
         <Box
           sx={{
@@ -53,7 +53,6 @@ function LiveNewsExplorer({ isPageDetails }: { isPageDetails?: boolean }) {
           }}
         >
           <Typography
-            variant="subtitle2"
             sx={{
               background:
                 'linear-gradient(to left, rgba(247, 132, 26, 1), rgba(247, 72, 72, 1))',
@@ -64,6 +63,7 @@ function LiveNewsExplorer({ isPageDetails }: { isPageDetails?: boolean }) {
               mb: '3px',
               letterSpacing: 'normal',
               fontSize: '14px',
+              lineHeight: '18.2px',
             }}
           >
             See All

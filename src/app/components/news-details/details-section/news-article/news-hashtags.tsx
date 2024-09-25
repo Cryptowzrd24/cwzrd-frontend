@@ -42,7 +42,7 @@ function NewsHashtags() {
       sx={{
         borderTop: '1px solid rgba(17, 17, 17, 0.1)',
         borderBottom: '1px solid rgba(17, 17, 17, 0.1)',
-        padding: '16px 0',
+        padding: '12px 0',
         display: 'flex',
         gap: '12px',
       }}

@@ -37,19 +37,16 @@ function a11yProps(index: number) {
   };
 }
 
-const AuthModal = ({
-  isAuthenticated,
-  setIsAuthenticated,
-  setFirstLogin,
-}: any) => {
+const AuthModal = ({ setShowAuthModal, showAuthModal }: any) => {
   const [value, setValue] = React.useState(0);
+  // const { token, isFirstLogin } = useSelector((state: any) => state.user);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   const handleClose = () => {
-    setIsAuthenticated(true);
+    setShowAuthModal(false);
   };
 
   return (
@@ -62,7 +59,7 @@ const AuthModal = ({
           },
         }}
         onClose={handleClose}
-        open={isAuthenticated}
+        open={showAuthModal}
       >
         <IconButton
           aria-label="close"
@@ -144,8 +141,8 @@ const AuthModal = ({
               </Box>
               <CustomTabPanel value={value} index={0}>
                 <Login
-                  setFirstLogin={setFirstLogin}
-                  setIsAuthenticated={setIsAuthenticated}
+                  setShowAuthModal={setShowAuthModal}
+                  showAuthModal={showAuthModal}
                 />
               </CustomTabPanel>
               <CustomTabPanel value={value} index={1}>
