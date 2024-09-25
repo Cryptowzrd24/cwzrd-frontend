@@ -59,14 +59,24 @@ function MarketNewsPanel({
           width: '300px',
         }}
       >
-        <LiveMarket
-          isPageDetails={true}
-          isTechnicalDetail={isTechnicalDetail}
-        />
+        {isTechnicalDetail && (
+          <LiveMarket
+            isPageDetails={true}
+            isTechnicalDetail={isTechnicalDetail}
+          />
+        )}
         {!isTechnicalDetail ? (
           <LiveNewsExplorer isPageDetails={true} />
         ) : (
           <DiscoverCardButton />
+        )}
+        {!isTechnicalDetail && (
+          <Box sx={{ marginTop: '20px' }}>
+            <LiveMarket
+              isPageDetails={true}
+              isTechnicalDetail={isTechnicalDetail}
+            />
+          </Box>
         )}
       </Box>
     </Box>
