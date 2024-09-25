@@ -9,39 +9,38 @@ const RealTimeMarketData = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          padding: '0px 0 0 64px',
+          // padding: '0px 0 0 48px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          justifyContent: 'space-between',
-          borderRadius: '32px',
+          // justifyContent: 'space-between',
+          borderRadius: '24px',
+          width: '967.5px',
         }}
       >
-        <Stack>
+        <Stack sx={{ paddingLeft: '48px', paddingBlock: '103.25px' }}>
           <Typography
-            variant="h1"
             sx={{
-              maxWidth: '590px',
-              fontSize: '56px',
+              maxWidth: '417.75px',
+              fontSize: '36px',
               fontWeight: '600',
-              lineHeight: '61.6px',
+              lineHeight: '39.6px',
               backgroundImage:
                 ' linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               mb: '16px',
               letterSpacing: '-2px',
+              fontFamily: 'Sf Pro Display',
             }}
           >
             Visualize Real-Time Market Data Instantly
           </Typography>
           <Typography
-            variant="body1"
             sx={{
-              maxWidth: '600px',
-
-              fontSize: '18px',
+              maxWidth: '417.75px',
+              fontSize: '12px',
               fontWeight: '400',
-              lineHeight: '27px',
+              lineHeight: '18px',
               letterSpacing: '-0.5px',
               color: 'rgba(17, 17, 17, 0.8)',
             }}
@@ -56,10 +55,11 @@ const RealTimeMarketData = () => {
           alt="macbook"
           loading="lazy"
           style={{
-            borderBottomRightRadius: '32px',
-            marginTop: '80px',
-            width: '592px',
-            height: 'auto',
+            borderBottomRightRadius: '24px',
+            marginTop: '60px',
+            width: '466.19px',
+            height: '302.12px',
+            marginLeft: '36px',
           }}
         />
       </Box>

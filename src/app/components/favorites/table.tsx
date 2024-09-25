@@ -32,7 +32,8 @@ const Table = () => {
   const [addWatchlist] = useAddWatchlistMutation();
 
   const favoriteIds = favorites ? favorites.join(',') : '';
-  const { data, error } = Cookies.get('authToken')
+
+  const { data, error } = token?.length
     ? useFetchWatchlistQuery({ token })
     : useFetchFavoritesDataQuery({
         id: favoriteIds,

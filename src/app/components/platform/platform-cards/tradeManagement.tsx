@@ -60,10 +60,10 @@ const TradeManagement = () => {
     <>
       <motion.div
         style={{
-          padding: '32px 48px 48px 32px',
-          width: '100%',
-          height: '390px',
-          borderRadius: '32px',
+          padding: '24px',
+          maxWidth: '307.5px',
+          height: '352px',
+          borderRadius: '24px',
           flex: 1,
           position: 'relative',
           transition: 'all 0.325s linear',
@@ -76,11 +76,12 @@ const TradeManagement = () => {
           variant="body1"
           component={motion.div}
           sx={{
-            fontSize: '16px',
+            fontSize: '12px',
             fontWeight: '400',
             textTransform: 'uppercase',
             mb: '32px',
             letterSpacing: '1px',
+            lineHeight: '15.6px',
           }}
           variants={textVariants}
         >
@@ -88,14 +89,14 @@ const TradeManagement = () => {
         </Typography>
         <Box
           sx={{
-            paddingLeft: '32px',
+            paddingLeft: '26px',
           }}
         >
           <motion.img
             src={'/images/platform/trade-header.png'}
             alt="trade"
-            width={80}
-            height={80}
+            width={60}
+            height={60}
             variants={imgAndTextVariants}
             initial="initial"
             animate={active ? 'active' : 'inactive'}
@@ -106,14 +107,14 @@ const TradeManagement = () => {
             animate={active ? 'active' : 'inactive'}
           >
             <Typography
-              variant="h1"
               sx={{
-                fontSize: '40px',
+                fontSize: '30px',
                 color: 'rgba(255, 255, 255, 1)',
-                mt: '32px',
+                mt: '27.5px',
                 letterSpacing: 0.1,
-                maxWidth: '298px',
-                lineHeight: '44px',
+                maxWidth: '223.5px',
+                lineHeight: '33px',
+                fontWeight: 700,
               }}
             >
               Sit back as our experts handle trades, <br />
@@ -137,7 +138,7 @@ const TradeManagement = () => {
             >
               <Typography
                 sx={{
-                  fontSize: '14px',
+                  fontSize: '12px',
                   color: 'rgba(0, 0, 0, 1)',
                   mt: '125px',
                   letterSpacing: 0.1,
@@ -159,8 +160,8 @@ const TradeManagement = () => {
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '24px',
-            bottom: '24px',
+            right: '8.75px',
+            bottom: '13.5px',
             transition: 'all 0.5s ease-in-out',
             transform: active ? 'rotate(45deg)' : '',
           }}
@@ -170,7 +171,7 @@ const TradeManagement = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '8px',
+              padding: '6px',
               background: active ? '#000' : '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',

@@ -8,36 +8,61 @@ const JoinedPeople = () => {
     <>
       <Box
         sx={{
-          padding: '24px 48px',
-          borderRadius: '32px',
+          // padding: '24px 48px',
+          borderRadius: '24px',
           backgroundImage:
             'linear-gradient(116.74deg, #634DFD -4.07%, #7E44F1 100.68%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: 56,
+          height: 62,
+          width: '967.5px',
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-          <Image src={join} alt="join" width={252} />
-          <Typography variant="h1" sx={{ color: 'rgba(255, 255, 255, 1)' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '32px',
+            paddingBlock: '10px',
+            paddingLeft: '36px',
+          }}
+        >
+          <Image src={join} alt="join" width={189} height={42} />
+          <Typography
+            sx={{
+              color: 'rgba(255, 255, 255, 1)',
+              fontSize: '18px',
+              lineHeight: '21.6px',
+              fontFamily: 'Sf Pro Display',
+              fontWeight: 700,
+            }}
+          >
             10,700+ people already joined us
           </Typography>
         </Box>
-        <Box>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            paddingBlock: '10px',
+            paddingRight: '36px',
+          }}
+        >
           <Typography
-            variant="body1"
             sx={{
-              fontSize: '24px',
+              fontSize: '18px',
               fontWeight: '500',
               color: 'rgba(255, 255, 255, 1)',
               display: 'flex',
               alignItems: 'center',
               cursor: 'pointer',
+              lineHeight: '23.4px',
+              fontFamily: 'Sf Pro Display',
             }}
           >
             Become a member
-            <span style={{ marginTop: '8px', marginLeft: '4px' }}>
+            <span style={{ marginTop: '6px', marginLeft: '4px' }}>
               <ArrowRight />
             </span>
           </Typography>

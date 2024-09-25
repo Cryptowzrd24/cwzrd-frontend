@@ -20,10 +20,11 @@ const PlatformHeader = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '18px',
+              fontSize: '14px',
               fontWeight: '500',
               textTransform: 'uppercase',
               letterSpacing: 2,
+              lineHeight: '18.2px',
               mb: '8px',
             }}
           >
@@ -31,7 +32,7 @@ const PlatformHeader = () => {
           </Typography>
           <Typography
             variant="h1"
-            sx={{ fontSize: '72px', lineHeight: '72px', mb: '12px' }}
+            sx={{ fontSize: '40px', lineHeight: '44px', mb: '12px' }}
           >
             Discover Our
             <span
@@ -50,12 +51,13 @@ const PlatformHeader = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '20px',
+              fontSize: '14px',
               fontWeight: '400',
               mb: '24px',
               textAlign: 'center',
               color: '#111111CC',
-              lineHeight: '30px',
+              lineHeight: '21px',
+              width: '800px',
             }}
           >
             On a daily basis we analyze Crypto, Forex, and Stock markets, to
@@ -65,11 +67,11 @@ const PlatformHeader = () => {
           <Box
             sx={{
               display: 'flex',
-              gap: '12px',
+              gap: '8px',
               alignItems: 'center',
-              padding: '12px 24px 12px 12px',
+              padding: '8px 16px 8px 8px',
               borderRadius: '32px',
-              maxWidth: '455px',
+              maxWidth: '272px',
               width: '100%',
               background: 'rgba(255, 255, 255, 1)',
               boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
@@ -78,18 +80,18 @@ const PlatformHeader = () => {
           >
             <Image
               src={memo}
-              width={160}
+              width={84}
               alt="Join the Cryptowzrd Community Today!"
             />
 
             <Typography
               variant="h5"
-              sx={{ fontSize: '16px', fontWeight: '700', lineHeight: '19.2px' }}
+              sx={{ fontSize: '10px', fontWeight: '700', lineHeight: '19.2px' }}
             >
               10,700+{' '}
               <span
                 style={{
-                  fontSize: '16px',
+                  fontSize: '10px',
                   fontWeight: '400',
                   lineHeight: '19.2px',
                 }}

@@ -10,32 +10,38 @@ const WizardLibrary = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          borderRadius: '32px',
+          borderRadius: '24px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          // maxWidth: '850px',
-          maxWidth: '67.4%',
-          width: '100%',
-          padding: '62px 0 38px 64px',
+          width: '637.5px',
+          height: '352.5px',
         }}
       >
-        <Stack gap={1} sx={{ maxWidth: '422px' }}>
+        <Stack
+          gap={1}
+          sx={{
+            paddingLeft: '48px',
+            paddingTop: '68.75px',
+            paddingBottom: '68.75px',
+          }}
+        >
           <Typography
-            variant="h1"
             sx={{
-              fontSize: '48px',
-              lineHeight: '57.6px',
+              fontSize: '36px',
+              lineHeight: '43.2px',
               color: 'rgba(17, 17, 17, 1)',
+              fontWeight: 700,
+              fontFamily: 'Sf Pro Display',
+              textWrap: 'balance',
             }}
           >
-            WZRD Library, packed with <br /> 26 books
+            WZRD Library, packed with 26 books
           </Typography>
           <Typography
-            variant="body1"
             sx={{
               fontWeight: '400px',
-              fontSize: '18px',
-              lineHeight: '27px',
+              fontSize: '13.5px',
+              lineHeight: '20.25px',
               color: 'rgba(17, 17, 17, 0.8)',
             }}
           >
@@ -48,6 +54,7 @@ const WizardLibrary = () => {
           src={mask}
           alt="mask"
           width={421}
+          height={278.48}
           style={{ borderRadius: 'none' }}
         />
       </Box>

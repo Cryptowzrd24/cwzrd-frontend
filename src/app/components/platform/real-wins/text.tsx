@@ -9,11 +9,12 @@ const Text = () => {
         <Typography
           variant="h1"
           sx={{
-            fontSize: '56px',
+            fontSize: '32px',
             fontWeight: '600',
-            lineHeight: '61.1px',
+            lineHeight: '35.2px',
             mb: '8px',
             color: 'rgba(17, 17, 17, 1)',
+            textWrap: 'balance',
           }}
         >
           Real Wins from Our Community
@@ -21,24 +22,24 @@ const Text = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: '18px',
+            fontSize: '12px',
             fontWeight: '400',
-            lineHeight: '27px',
+            lineHeight: '18px',
             color: 'rgba(17, 17, 17, 0.8)',
-            maxWidth: '464px',
+            width: '342px',
           }}
         >
           See real wins and success stories from traders who have used our
           platform to achieve their financial goals.
         </Typography>
-        <Box sx={{ mt: '56px' }}>
+        <Box sx={{ mt: '42px' }}>
           <Typography
             variant="body1"
             sx={{
-              fontSize: '18px',
+              fontSize: '13.5px',
               fontWeight: '500',
               color: 'rgba(114, 72, 247, 1)',
-              lineHeight: '23.4px',
+              lineHeight: '17.55px',
               display: 'flex',
               alignItems: 'center',
               cursor: 'pointer',

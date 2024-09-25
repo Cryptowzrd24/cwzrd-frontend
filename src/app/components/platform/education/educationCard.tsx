@@ -62,13 +62,12 @@ const EducationCard = () => {
             ? `url('/images/platform/community.png')`
             : '',
 
-          padding: '48px 32px 56px 14px',
-          borderRadius: '32px',
-          maxWidth: '67.4%',
-          width: '100%',
+          // padding: '0px 0px 32px 0px',
+          borderRadius: '24px',
+          width: '637.5px',
           position: 'relative',
           transition: 'all 0.325s linear',
-          height: '628px',
+          height: '693.75px',
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -77,13 +76,15 @@ const EducationCard = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: '16px',
+            paddingTop: '36px',
+            fontSize: '12px',
             fontWeight: '400',
             color: 'rgba(255, 255, 255, 1)',
             letterSpacing: '2px',
             textTransform: 'uppercase',
             textAlign: 'center',
             mb: '8px',
+            lineHeight: '15.6px',
           }}
         >
           Education
@@ -96,7 +97,7 @@ const EducationCard = () => {
           >
             <Typography
               sx={{
-                fontSize: '16px',
+                fontSize: '14px',
                 color: 'rgba(255, 255, 255, 1)',
                 letterSpacing: 0.1,
                 lineHeight: '24px',
@@ -121,14 +122,14 @@ const EducationCard = () => {
           <Typography
             variant="h1"
             sx={{
-              fontSize: '48px',
+              fontSize: '36px',
               fontWeight: '700',
               color: 'rgba(255, 255, 255, 1)',
-              lineHeight: '57.6px',
+              lineHeight: '43.2px',
               textAlign: 'center',
               mb: '32px',
               maxWidth: '690px',
-              width: '100%',
+              width: '517.5px',
               margin: 'auto',
             }}
           >
@@ -148,7 +149,7 @@ const EducationCard = () => {
               alignItems: 'center',
               gap: '8px',
               width: '100%',
-              mb: '78px',
+              mb: '42px',
             }}
           >
             <Box
@@ -161,7 +162,7 @@ const EducationCard = () => {
             >
               <Box
                 sx={{
-                  padding: '8px 12px 8px 8px',
+                  padding: '6px 9px 6px 6px',
                   borderRadius: '100px',
                   background: 'rgba(255, 255, 255, 1)',
                   border: '0.5px solid rgba(17, 17, 17, 0.1)',
@@ -174,8 +175,10 @@ const EducationCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '14px',
+                    fontSize: '10.5px',
                     fontWeight: '700',
+                    lineHeight: '13.65px',
+                    fontFamily: 'Sf Pro Display',
                     color: 'rgba(17, 17, 17, 1)',
                   }}
                 >
@@ -184,7 +187,7 @@ const EducationCard = () => {
               </Box>
               <Box
                 sx={{
-                  padding: '8px 12px 8px 8px',
+                  padding: '6px 9px 6px 6px',
                   borderRadius: '100px',
                   background: 'rgba(255, 255, 255, 1)',
                   border: '0.5px solid rgba(17, 17, 17, 0.1)',
@@ -198,7 +201,9 @@ const EducationCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '14px',
+                    fontSize: '10.5px',
+                    lineHeight: '13.65px',
+                    fontFamily: 'Sf Pro Display',
                     fontWeight: '700',
                     color: 'rgba(17, 17, 17, 1)',
                   }}
@@ -217,7 +222,7 @@ const EducationCard = () => {
             >
               <Box
                 sx={{
-                  padding: '8px 12px 8px 8px',
+                  padding: '6px 9px 6px 6px',
                   borderRadius: '100px',
                   background: 'rgba(255, 255, 255, 1)',
                   border: '0.5px solid rgba(17, 17, 17, 0.1)',
@@ -231,7 +236,9 @@ const EducationCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '14px',
+                    fontSize: '10.5px',
+                    lineHeight: '13.65px',
+                    fontFamily: 'Sf Pro Display',
                     fontWeight: '700',
                     color: 'rgba(17, 17, 17, 1)',
                   }}
@@ -241,7 +248,7 @@ const EducationCard = () => {
               </Box>
               <Box
                 sx={{
-                  padding: '8px 12px 8px 8px',
+                  padding: '6px 9px 6px 6px',
                   borderRadius: '100px',
                   background: 'rgba(255, 255, 255, 1)',
                   border: '0.5px solid rgba(17, 17, 17, 0.1)',
@@ -255,7 +262,9 @@ const EducationCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '14px',
+                    fontSize: '10.5px',
+                    lineHeight: '13.65px',
+                    fontFamily: 'Sf Pro Display',
                     fontWeight: '700',
                     color: 'rgba(17, 17, 17, 1)',
                   }}
@@ -265,7 +274,7 @@ const EducationCard = () => {
               </Box>
               <Box
                 sx={{
-                  padding: '8px 12px 8px 8px',
+                  padding: '6px 9px 6px 6px',
                   borderRadius: '100px',
                   background: 'rgba(255, 255, 255, 1)',
                   border: '0.5px solid rgba(17, 17, 17, 0.1)',
@@ -279,7 +288,9 @@ const EducationCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '14px',
+                    fontSize: '10.5px',
+                    lineHeight: '13.65px',
+                    fontFamily: 'Sf Pro Display',
                     fontWeight: '700',
                     color: 'rgba(17, 17, 17, 1)',
                   }}
@@ -306,8 +317,8 @@ const EducationCard = () => {
             <Image
               src={macbook}
               alt="macbook"
-              width={496}
-              style={{ height: '310px' }}
+              width={590}
+              style={{ height: '359px' }}
             />
           </Box>
         </motion.div>
@@ -317,8 +328,8 @@ const EducationCard = () => {
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '24px',
-            bottom: '28px',
+            right: '14px',
+            bottom: '17px',
           }}
         >
           <motion.div
@@ -331,7 +342,7 @@ const EducationCard = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '8px',
+              padding: '6px',
               background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',

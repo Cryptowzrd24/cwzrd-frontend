@@ -7,28 +7,35 @@ const RiskCalculator = () => {
     <>
       <Box
         sx={{
-          // padding: '48px 24px 34px 24px',
-          padding: '28px 16px 28px 16px',
-          borderRadius: '32px',
+          // padding: '36px',
+          borderRadius: '24px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          maxWidth: '415px',
-          height: '305px',
+          width: '307.5px',
+          height: '352.5px',
         }}
       >
-        <Box sx={{ paddingLeft: '24px', paddingRight: '24px' }}>
+        <Box sx={{ padding: '36px 36px 0 36px' }}>
           <Typography
             variant="body1"
             sx={{
-              fontSize: '16px',
+              fontSize: '12px',
               fontWeight: '400',
               letterSpacing: '1px',
+              lineHeight: '15.6px',
               mb: '8px',
             }}
           >
             RISK CALCULATOR
           </Typography>
-          <Typography variant="h1" sx={{ mb: '24px' }}>
+          <Typography
+            sx={{
+              mb: '24px',
+              fontSize: '24px',
+              fontWeight: 700,
+              lineHeight: '28.8px',
+            }}
+          >
             Make Data-Driven Investment Choices{' '}
           </Typography>
         </Box>
@@ -36,10 +43,11 @@ const RiskCalculator = () => {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
+            marginTop: '40.75px',
+            marginBottom: '25.4px',
           }}
         >
-          <Image src={macbook} alt="macbook" width={309} />
+          <Image src={macbook} alt="macbook" width={279.4} height={170.21} />
         </Box>
       </Box>
     </>

@@ -61,17 +61,16 @@ const PersonalCalendar = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          gap: '30px',
+          justifyContent: 'center',
+          gap: '24px',
           width: '100%',
         }}
       >
         <motion.div
           style={{
-            padding: '77px 68px 0px 94px',
-            borderRadius: '32px',
-            maxWidth: '67.4%',
-            width: '100%',
-            height: '514px',
+            borderRadius: '24px',
+            width: '637.5px',
+            height: '443.25px',
             boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             position: 'relative',
             transition: 'all 0.325s linear',
@@ -84,15 +83,33 @@ const PersonalCalendar = () => {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-between',
+              gap: '53.82px',
             }}
           >
             <motion.div
               variants={imgAndTextVariants}
               initial="initial"
               animate={active ? 'active' : 'inactive'}
+              style={{
+                overflow: 'hidden',
+                width: '292.18px',
+                height: '442.98px',
+                position: 'relative',
+              }}
             >
-              <Image src={iphone} alt="iphone" width={292} height={514} />
+              <Image
+                src={iphone}
+                alt="iphone"
+                width={219.18}
+                height={447.98}
+                style={{
+                  paddingLeft: '70.5px',
+                  marginTop: '57.75px',
+                  position: 'absolute',
+                  left: '0',
+                  top: '0',
+                }}
+              />
             </motion.div>
 
             {active && (
@@ -103,13 +120,13 @@ const PersonalCalendar = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: '16px',
+                    fontSize: '14px',
                     color: 'rgba(255, 255, 255, 1)',
                     mt: '185px',
                     letterSpacing: 0.1,
                     lineHeight: '26px',
                     textAlign: 'start',
-                    marginLeft: '-24px',
+                    marginLeft: '28px',
                     maxWidth: '690px',
                   }}
                 >
@@ -122,32 +139,31 @@ const PersonalCalendar = () => {
               </motion.div>
             )}
 
-            <Stack>
+            <Stack sx={{ paddingTop: '126.75px', paddingBottom: '79.75px' }}>
               <motion.div
                 variants={imgAndTextVariants}
                 initial="initial"
                 animate={active ? 'active' : 'inactive'}
               >
                 <Typography
-                  variant="h1"
                   sx={{
-                    fontSize: '48px',
+                    fontSize: '36px',
                     fontWeight: '700',
-                    lineHeight: '57.6px',
+                    lineHeight: '43.2px',
                     color: 'rgba(17, 17, 17, 1)',
-                    maxWidth: '324px',
-                    mb: '64px',
+                    maxWidth: '243px',
+                    mb: '48.75px',
+                    textWrap: 'balance',
                   }}
                 >
                   Personal Calendar: Keep Track of Everything
                 </Typography>
 
                 <Typography
-                  variant="body1"
                   sx={{
-                    fontSize: '16px',
+                    fontSize: '12px',
                     fontWeight: '400',
-                    lineHeight: '20.8px',
+                    lineHeight: '15.6px',
                     color: 'rgba(17, 17, 17, 1)',
                     textTransform: 'uppercase',
                     letterSpacing: '1px',
@@ -162,8 +178,8 @@ const PersonalCalendar = () => {
                 display: 'flex',
                 justifyContent: 'end',
                 position: 'absolute',
-                right: '24px',
-                bottom: '28px',
+                right: '23.5px',
+                bottom: '16.28px',
               }}
             >
               <motion.div
@@ -176,7 +192,7 @@ const PersonalCalendar = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  padding: '8px',
+                  padding: '6px',
                   background: '#FFFFFF',
                   borderRadius: '100px',
                   cursor: 'pointer',

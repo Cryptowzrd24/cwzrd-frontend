@@ -9,7 +9,8 @@ const ProgressCards = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          gap: '30px',
+          justifyContent: 'center',
+          gap: '22px',
         }}
       >
         <ProgressCard
