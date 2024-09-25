@@ -34,7 +34,6 @@ const TradeCards = () => {
               fontWeight: '600',
               color: 'rgba(17, 17, 17, 1)',
               lineHeight: '16.9px',
-              letterSpacing: '1px',
               mb: '8px',
               mt: '32px',
             }}

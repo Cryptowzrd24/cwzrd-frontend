@@ -17,6 +17,7 @@ const TradeOpportunities = () => {
             borderRadius: '56px',
             // width: '168px',
             // mb: '64px',
+            marginTop: '32px',
           }}
         >
           <Typography
