@@ -18,19 +18,19 @@ const MemberCard = () => {
           width: '967.5px',
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <Image
             src={join}
             alt="join"
-            width={48}
-            height={48}
+            width={36}
+            height={36}
             style={{ paddingBlock: '10px', paddingLeft: '36px' }}
           />
           <Typography
             sx={{
               color: 'rgba(255, 255, 255, 1)',
               fontSize: '18px',
-              fontWeight: 700,
+              fontWeight: 600,
               lineHeight: '21.6px',
               fontFamily: 'Sf Pro Display',
             }}

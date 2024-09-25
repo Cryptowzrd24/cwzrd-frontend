@@ -22,7 +22,8 @@ import ProgressCards from './progress-cards';
 // import header from '../../../../public/images/platform/header.png';
 import platformHeader from '../../../../public/images/platform/platformHeaderImg.png';
 
-import Macbook from '../../../../public/images/platform/MacBook.png';
+// import Macbook from '../../../../public/images/platform/MacBook.png';
+import forexImg from '../../../../public/images/platform/forexImg.png';
 
 import Forex from './forex-cryptocurrencies';
 import MemberShipBanner from './membership-banner';
@@ -112,7 +113,7 @@ const Platform = () => {
       >
         <Forex />
         <Image
-          src={Macbook}
+          src={forexImg}
           alt="macbook"
           style={{
             flex: 1,
