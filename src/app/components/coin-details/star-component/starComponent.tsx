@@ -128,7 +128,6 @@ function StarComponent({ coinId }: any) {
   const handleClick = useCallback(
     async (event: React.MouseEvent) => {
       event.stopPropagation();
-
       const isFavorite = currentFavorites.includes(String(coinId));
       const newFavorites = isFavorite
         ? currentFavorites.filter((id) => id !== String(coinId))
