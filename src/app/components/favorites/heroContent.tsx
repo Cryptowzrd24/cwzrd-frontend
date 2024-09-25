@@ -322,6 +322,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   }, [selectedWatchList]);
 
   const renderFirstLogin = () => {
+    //@ts-expect-error: undefiend cookies
     if (JSON.parse(Cookies.get('favorites')).length > 0 && isFirstLogin) {
       return <FirstLoginModal />;
     }
