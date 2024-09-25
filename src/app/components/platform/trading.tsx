@@ -13,10 +13,10 @@ const TradingPlatform = () => {
             'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          marginLeft: '-900px',
+          marginLeft: '-860px',
           mb: '16px',
           width: 'min-content',
-          lineHeight: '32px',
+          // lineHeight: '32px',
         }}
       >
         Trading

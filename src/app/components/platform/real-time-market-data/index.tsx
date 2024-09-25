@@ -41,7 +41,6 @@ const RealTimeMarketData = () => {
               fontSize: '12px',
               fontWeight: '400',
               lineHeight: '18px',
-              letterSpacing: '-0.5px',
               color: 'rgba(17, 17, 17, 0.8)',
             }}
           >
