@@ -39,7 +39,7 @@ function CoinNewsDescription() {
           color: 'rgba(17, 17, 17, 0.8)',
           lineHeight: '29px',
           letterSpacing: '0.7px',
-          marginTop: '20px',
+          marginTop: '36px',
         }}
       >
         Referencing the chart below, the Bitfinex analysts wrote:

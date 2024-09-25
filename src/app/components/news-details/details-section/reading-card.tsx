@@ -110,7 +110,7 @@ function ReadingCard({
           <Image src={CheckMark} alt="img" style={{ marginBottom: '3px' }} />
         )}
       </Box>
-      <Box sx={{ display: 'flex', gap: '8px', marginTop: '16px' }}>
+      <Box sx={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
         <Twitter />
         <Facebook />
         <LinkedIn />

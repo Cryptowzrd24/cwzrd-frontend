@@ -17,13 +17,13 @@ function ArticleHeader({
         display: 'flex',
         justifyContent: 'start',
         alignItems: 'center',
-        gap: '16px',
+        gap: '12px',
       }}
     >
       <Box
         sx={{
           borderRadius: '100px',
-          padding: '6px 12px',
+          padding: '5px 12px',
           background:
             'linear-gradient(180deg, rgba(114, 72, 247, 0.1) 0%, rgba(191, 72, 247, 0.1) 100%)',
         }}
@@ -37,7 +37,7 @@ function ArticleHeader({
             fontSize: '10px',
             letterSpacing: '1px',
             fontFamily: 'Sf Pro Display',
-            lineHeight: '15.6px',
+            lineHeight: '13px',
           }}
         >
           {coinName}
