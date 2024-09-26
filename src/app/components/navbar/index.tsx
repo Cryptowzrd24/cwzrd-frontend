@@ -171,7 +171,11 @@ function Navbar() {
       )}
       <Box
         className={
-          pathname === '/news' || pathname.includes('/news/') ? 'headerbg' : ''
+          pathname === '/news' || pathname.includes('/news/')
+            ? 'headerbg'
+            : pathname === '/technicals' || pathname.includes('/technicals/')
+              ? 'headerbgTechnicals'
+              : ''
         }
       >
         <Container maxWidth="xl">
@@ -180,10 +184,14 @@ function Navbar() {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
+              marginTop: '8px',
             }}
           >
             <Link href="/">
-              {pathname === '/news' || pathname.includes('/news/') ? (
+              {pathname === '/news' ||
+              pathname === '/technicals' ||
+              pathname.includes('/technicals/') ||
+              pathname.includes('/news/') ? (
                 <LogoWhite />
               ) : (
                 <Logo />
@@ -200,7 +208,10 @@ function Navbar() {
             >
               {NavbarData.map((item) => (
                 <Box key={item.id}>
-                  {pathname === '/news' || pathname.includes('/news/') ? (
+                  {pathname === '/news' ||
+                  pathname === '/technicals' ||
+                  pathname.includes('/technicals/') ||
+                  pathname.includes('/news/') ? (
                     <Link
                       href={`/${item.name.toLowerCase()}`}
                       style={{
@@ -300,7 +311,9 @@ function Navbar() {
 
               <SearchIcon
                 color={
-                  pathname === '/news' || pathname.includes('/news/')
+                  pathname === '/news' ||
+                  pathname.includes('/news/') ||
+                  pathname.includes('technicals')
                     ? 'white'
                     : 'black'
                 }
@@ -313,7 +326,9 @@ function Navbar() {
                       ? 'rgb(243,143,56)'
                       : pathname.includes('/news')
                         ? 'white'
-                        : 'black'
+                        : pathname.includes('/technicals')
+                          ? 'white'
+                          : 'black'
                   }
                 />
               </Link>
@@ -361,7 +376,10 @@ function Navbar() {
                 >
                   <ProfileIcon
                     color={
-                      pathname === '/news' || pathname.includes('/news/')
+                      pathname === '/news' ||
+                      pathname === '/technicals' ||
+                      pathname.includes('/technicals/') ||
+                      pathname.includes('/news/')
                         ? 'white'
                         : 'black'
                     }

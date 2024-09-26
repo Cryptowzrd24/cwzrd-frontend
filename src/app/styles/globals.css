@@ -199,5 +199,10 @@ body {
 }
 
 .slick-dots {
-  bottom: -47px !important;
+  bottom: -27px !important;
+}
+
+.slick-list {
+  height: 297px !important;
+  padding-block: 20px !important;
 }
