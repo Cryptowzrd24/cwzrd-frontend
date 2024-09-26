@@ -9,7 +9,7 @@ const Forex = () => {
     <>
       <Box
         style={{
-          marginLeft: (width - 1376) / 2,
+          marginLeft: (width - 976) / 2,
         }}
       >
         <Typography

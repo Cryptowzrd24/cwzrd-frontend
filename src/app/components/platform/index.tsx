@@ -85,16 +85,16 @@ const Platform = () => {
         <Box sx={{ mt: '100px', mb: '30px' }}>
           <Education />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mb: '24px' }}>
           <ExaminationPart />
         </Box>
-        <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ mb: '24px', display: 'flex', justifyContent: 'center' }}>
           <Coverage />
         </Box>
-        <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ mb: '24px', display: 'flex', justifyContent: 'center' }}>
           <Portfolio />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mb: '24px' }}>
           <ProgressCards />
         </Box>
         <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'center' }}>
