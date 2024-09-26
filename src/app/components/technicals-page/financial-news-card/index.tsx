@@ -2,8 +2,13 @@ import { Box } from '@mui/material';
 import React from 'react';
 import NewsCard from './newsCard';
 
-function FinancialNewsCardList() {
-  const renderCards = [1, 2, 3, 4, 5].map((item) => {
+interface FinancialNewsCardListProps {
+  isRenderFour?: boolean;
+}
+
+function FinancialNewsCardList({ isRenderFour }: FinancialNewsCardListProps) {
+  const numberOfCards = isRenderFour ? [1, 2, 3, 4] : [1, 2, 3, 4, 5];
+  const renderCards = numberOfCards.map((item) => {
     return (
       <Box sx={{ marginBottom: '8px' }} key={item}>
         <NewsCard />

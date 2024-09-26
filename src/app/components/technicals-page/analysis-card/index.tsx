@@ -6,14 +6,20 @@ import techGraph from '../../../../../public/images/technicals-page/techPageGrap
 import bitcoinImg from '../../../../../public/images/coin-details/bitcoin.png';
 import CommentsLikes from '../comments-likes';
 
-function AnalysisCard() {
+interface NewsCardProps {
+  isThird?: boolean;
+}
+
+function AnalysisCard({ isThird }: NewsCardProps) {
   return (
     <Box
       sx={{
-        width: '516px',
+        width: !isThird ? '516px' : '468px',
+        height: isThird ? '402px' : undefined,
         borderRadius: '16px',
-        background:
-          'radial-gradient(83.94% 66.65% at 16.06% 44.55%, rgba(77, 200, 253, 0.05) 43.91%, rgba(77, 200, 253, 0.1) 100%)',
+        background: !isThird
+          ? 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, rgba(77, 200, 253, 0.05) 43.91%, rgba(77, 200, 253, 0.1) 100%)'
+          : 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, #FFFFFF 43.91%, #F5F1FF 100%)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         paddingInline: '16px',
         marginBottom: '20px',
@@ -36,8 +42,19 @@ function AnalysisCard() {
       >
         <Image src={bitcoinImg} alt="analysis card" width={32} height={32} />
       </Box>
-      <Box sx={{ width: '516px', height: '277px', marginTop: '-24px' }}>
-        <Image src={techGraph} alt="analysis card" width={516} height={277} />
+      <Box
+        sx={{
+          width: isThird ? '466px' : '516px',
+          height: isThird ? '174px' : '277px',
+          marginTop: '-24px',
+        }}
+      >
+        <Image
+          src={techGraph}
+          alt="analysis card"
+          width={isThird ? 466 : 516}
+          height={isThird ? 174 : 277}
+        />
       </Box>
       <Box sx={{ marginTop: '16px' }}>
         <Typography
@@ -60,7 +77,7 @@ function AnalysisCard() {
             lineHeight: '23.4px',
             fontFamily: 'Sf Pro Display',
             marginTop: '12px',
-            width: '500px',
+            width: isThird ? '377px' : '500px',
             marginLeft: '12px',
             letterSpacing: '0.3px',
             color: 'rgba(17, 17, 17, 1)',
@@ -75,7 +92,7 @@ function AnalysisCard() {
             lineHeight: '18px',
             fontFamily: 'Sf Pro Display',
             marginTop: '8px',
-            width: '500px',
+            width: isThird ? '377px' : '500px',
             marginLeft: '12px',
             color: 'rgba(17, 17, 17, 0.8)',
           }}
@@ -85,7 +102,11 @@ function AnalysisCard() {
         </Typography>
       </Box>
       <Box
-        sx={{ marginTop: '12px', marginLeft: '12px', paddingBottom: '20px' }}
+        sx={{
+          marginTop: isThird ? '20px' : '12px',
+          marginLeft: '12px',
+          paddingBottom: '20px',
+        }}
       >
         <CommentsLikes />
       </Box>

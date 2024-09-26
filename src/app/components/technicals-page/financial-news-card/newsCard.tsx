@@ -9,7 +9,7 @@ function NewsCard() {
   return (
     <Box
       sx={{
-        width: '390px',
+        width: '402px',
         padding: '8px',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',

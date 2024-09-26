@@ -17,7 +17,7 @@ const PreviousArrow = ({ onClick }: any) => (
       cursor: 'pointer',
       position: 'absolute',
       top: '104%',
-      left: '15px',
+      left: '6px',
       width: '40px',
       height: '40px',
       transform: 'translateY(-50%)',

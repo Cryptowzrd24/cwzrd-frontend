@@ -1,6 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Logo from '../../../../public/icons/logo';
+import LogoPurpleHat from '../../../../public/icons/logoPurpleHat';
+
 import { NavbarData } from './data';
 import LightmodeIcon from '../../../../public/icons/Navbar-Section/lightmode';
 import DarkmodeIcon from '../../../../public/icons/Navbar-Section/darkmode';
@@ -188,11 +190,11 @@ function Navbar() {
             }}
           >
             <Link href="/">
-              {pathname === '/news' ||
-              pathname === '/technicals' ||
-              pathname.includes('/technicals/') ||
-              pathname.includes('/news/') ? (
+              {pathname === '/news' || pathname.includes('/news/') ? (
                 <LogoWhite />
+              ) : pathname === '/technicals' ||
+                pathname.includes('/technicals/') ? (
+                <LogoPurpleHat />
               ) : (
                 <Logo />
               )}

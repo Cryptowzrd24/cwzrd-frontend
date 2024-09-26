@@ -4,6 +4,8 @@ import React from 'react';
 
 import bitcoinImg from '../../../../../public/images/coin-details/bitcoin.png';
 import bannerGraph from '../../../../../public/images/technicals-page/techBannerGraph.png';
+import bannerBg from '../../../../../public/images/technicals-page/techBannerBgImg.jpeg';
+
 import { ReadMoreIcon } from '../../../../../public/icons/readMoreIcon';
 
 function TechnicalsBanner() {
@@ -11,7 +13,9 @@ function TechnicalsBanner() {
     <Box
       sx={{
         height: '84px',
-        background: 'orange',
+        backgroundImage: `url(${bannerBg.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         borderRadius: '24px',
         display: 'flex',
         alignItems: 'center',

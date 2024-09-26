@@ -4,6 +4,7 @@ import AnalysisCard from './analysis-card';
 import FinancialNewsCardList from './financial-news-card';
 import FinancialNewsCarousel from './financial-news-carousel';
 import TechnicalsBanner from './technicals-banner';
+import NewsLetterBanner from '../banners/newsLetterBanner';
 
 function TechnicalsPage() {
   return (
@@ -78,9 +79,54 @@ function TechnicalsPage() {
       <Box sx={{ mb: '120px' }}>
         <FinancialNewsCarousel />
       </Box>
-      <Box>
+      <Box
+        sx={{ display: 'flex', justifyContent: 'center', marginTop: '-50px' }}
+      >
         <TechnicalsBanner />
       </Box>
+      {/* //second sec// */}
+      <Box>
+        <Box sx={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
+          <AnalysisCard />
+          <FinancialNewsCardList />
+          <Box
+            sx={{
+              width: '400px',
+              height: '507px',
+              background: 'white',
+              boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+            }}
+          >
+            Render Card here
+          </Box>
+        </Box>
+        <Box sx={{ mb: '120px' }}>
+          <FinancialNewsCarousel />
+        </Box>
+        <Box
+          sx={{ display: 'flex', justifyContent: 'center', marginTop: '-50px' }}
+        >
+          <TechnicalsBanner />
+        </Box>
+      </Box>
+
+      {/* //second sec// */}
+
+      {/* //third sec// */}
+      <Box>
+        <Box sx={{ display: 'flex', gap: '15px', marginTop: '24px' }}>
+          <AnalysisCard isThird={true} />
+          <FinancialNewsCardList isRenderFour={true} />
+          <FinancialNewsCardList isRenderFour={true} />
+        </Box>
+        <Box sx={{ mb: '120px' }}>
+          <FinancialNewsCarousel />
+        </Box>
+        <Box sx={{ marginTop: '-42px' }}>
+          <NewsLetterBanner />
+        </Box>
+      </Box>
+      {/* //third sec// */}
     </>
   );
 }
