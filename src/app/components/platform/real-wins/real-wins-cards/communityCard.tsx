@@ -11,25 +11,18 @@ const CommunityCard = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          padding: '24px 0 24px 24px',
+          padding: '24px 0 23.75px 24px',
           borderRadius: '24px',
           height: '276px',
-          width: '319px',
+          width: '295px',
+          overflow: 'hidden',
         }}
       >
-        <Image
-          src={comments}
-          alt="deliver"
-          width={318}
-          height={135}
-          style={{ marginTop: '7px' }}
-        />
+        <Image src={comments} alt="deliver" width={308} height={114.75} />
         <Box
           sx={{
-            paddingRight: '24px',
-            maxWidth: '366px',
-            width: '100%',
-            mt: '18px',
+            paddingRight: '24.75px',
+            mt: 'auto',
             paddingLeft: '6px',
           }}
         >
@@ -40,8 +33,7 @@ const CommunityCard = () => {
               fontWeight: '500',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '18.2px',
-              letterSpacing: '1px',
-              mt: '23px',
+              mt: '16.75px',
             }}
           >
             Community Success
@@ -52,9 +44,8 @@ const CommunityCard = () => {
               fontSize: '12px',
               fontWeight: '400',
               color: 'rgba(255, 255, 255, 0.8)',
-              lineHeight: '20px',
-              mt: '4px',
-              width: '266.25px',
+              lineHeight: '16px',
+              mt: '3px',
             }}
           >
             You will stay updated with the market in real-time, receive calls

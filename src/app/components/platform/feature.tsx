@@ -61,7 +61,7 @@ const Feature = () => {
           tracker tool, providing valuable insights into your trading activity
           and performance over time.
         </Typography>
-        <Image src={feature} alt="feature" width={863} />
+        <Image src={feature} alt="feature" width={1079} />
       </Stack>
     </>
   );

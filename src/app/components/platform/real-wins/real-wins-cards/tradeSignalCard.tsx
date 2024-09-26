@@ -9,7 +9,7 @@ const TradeSignalCard = () => {
           backgroundImage:
             ' linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)',
           borderRadius: '24px',
-          width: '172.5px',
+          width: '136.5px',
           // height: '156px',
         }}
       >
@@ -22,7 +22,7 @@ const TradeSignalCard = () => {
               lineHeight: '13px',
               letterSpacing: '2px',
               maxWidth: '165px',
-              mb: '48px',
+              mb: '36px',
               textTransform: 'uppercase',
             }}
           >
@@ -36,7 +36,6 @@ const TradeSignalCard = () => {
               lineHeight: '52.8px',
               letterSpacing: '1px',
               maxWidth: '165px',
-              marginTop: '20px',
             }}
           >
             95%
