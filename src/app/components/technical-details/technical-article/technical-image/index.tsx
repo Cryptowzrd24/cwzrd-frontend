@@ -25,11 +25,11 @@ function TechnicalImage() {
       <Typography
         sx={{
           fontWeight: 400,
-          fontSize: '20px',
+          fontSize: '18.5px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: '29px',
+          lineHeight: '27px',
           color: 'rgba(17, 17, 17, 0.8)',
-          marginTop: '16px',
+          marginTop: '12px',
         }}
       >
         Bitcoin accumulation by large holders has reached levels not seen since

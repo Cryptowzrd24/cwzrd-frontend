@@ -19,11 +19,11 @@ function TechnincalHeading() {
       <Typography
         sx={{
           fontWeight: 400,
-          fontSize: '20px',
+          fontSize: '18.5px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: '29px',
+          lineHeight: '27px',
           color: 'rgba(17, 17, 17, 0.8)',
-          marginTop: '8px',
+          marginTop: '6px',
         }}
       >
         Bitcoin’s short-term holder realized price rose to $63,729, suggesting a

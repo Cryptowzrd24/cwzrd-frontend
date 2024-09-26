@@ -69,9 +69,12 @@ const AuthModal = ({ setShowAuthModal, showAuthModal }: any) => {
             right: 8,
             top: 8,
             color: theme.palette.grey[500],
+            cursor: 'cursor',
+            zIndex: 9999,
           })}
+          size="medium"
         >
-          <CloseIcon />
+          <CloseIcon fontSize="inherit" />
         </IconButton>
 
         <DialogContent>
