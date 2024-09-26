@@ -17,7 +17,7 @@ function NewsArticle() {
         run. This accumulation, now at its highest in the last two months, has
         led to a new historical high in their Bitcoin balance.`;
 
-  const quoteTwo = `Looking forward, several factors could potentially reignite Bitcoin’s upward trajectory. These include an increase in average daily ETF buying activity, a reduction in selling pressure from long-term holders, and a rise in liquidity, which could be triggered by the anticipated rate cut.`;
+  const quoteTwo = `Looking forward, several factors could potentially reignite Bitcoin’s upward trajectory. These include an increase in daily ETF buying activity, a reduction in selling pressure from long-term holders, and a rise in liquidity, which could be triggered by the anticipated rate cut.`;
 
   const subheadingTextOne = `Bitcoin accumulation by large holders has reached levels not seen since
         before the 2020 bull market. Could it propel Bitcoin’s price to a
@@ -32,25 +32,25 @@ function NewsArticle() {
         date={'APRIL 25, 2024'}
         readTime={'5 MIN READ'}
       />
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <NewsHeading />
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <NewsImage image={NewsImg} subheadingText={subheadingTextOne} />
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <CoinNewsDescription />
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <NewsQuote quote={quoteOne} />
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <NewsImage image={NewsImg2} subheadingText={subheadingTextTwo} />
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <NewsQuote quote={quoteTwo} />
       </Box>
-      <Box sx={{ marginTop: '24px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <NewsHashtags />
       </Box>
       <Box sx={{ marginTop: '24px' }}>
