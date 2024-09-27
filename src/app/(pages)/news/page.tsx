@@ -150,7 +150,7 @@ const News = () => {
           }}
         >
           <Box sx={{ width: '300px' }}>
-            <LiveMarket isPageDetails={true} />
+            <LiveMarket isNewsDetails={true} />
           </Box>
           <TagCard
             height={'540px'}

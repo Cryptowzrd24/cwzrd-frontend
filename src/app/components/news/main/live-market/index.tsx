@@ -21,9 +21,11 @@ import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 function LiveMarket({
   isPageDetails,
   isTechnicalDetail,
+  isNewsDetails,
 }: {
   isPageDetails?: boolean;
   isTechnicalDetail?: boolean;
+  isNewsDetails?: boolean;
 }) {
   const { data: liveMarketData, isFetching } = useFetchLiveMarketCoinDataQuery(
     {},
@@ -53,7 +55,7 @@ function LiveMarket({
         backdropFilter: 'blur(10px)',
         boxShadow: '0px 4px 28px 0px #0000000D',
         paddingBlock: '6px',
-        height: isPageDetails ? '472px' : '438px',
+        height: isNewsDetails ? '545px' : isPageDetails ? '472px' : '438px',
       }}
       className="live-market"
     >
