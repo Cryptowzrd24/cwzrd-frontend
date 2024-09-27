@@ -18,16 +18,22 @@ import {
 } from '@mui/material';
 import Link from 'next/link';
 import { useAppDispatch } from '@/app/redux/store';
-import { setMainWatchFavorites, updateFavorites } from '@/app/redux/market';
+import {
+  setMainWatchFavorites,
+  updateFavorites,
+  updateSelectedWatchListMain,
+  updateSelectedWatchListName,
+} from '@/app/redux/market';
 import Cookies from 'js-cookie';
 import LogoWhite from '../../../../public/icons/logoWhite';
 import './index.scss';
 import { usePathname, useRouter } from 'next/navigation';
 import StarIcon from '../../../../public/icons/Navbar-Section/starIcon';
 import { useSelector } from 'react-redux';
-import { logout } from '@/app/redux/user';
+import { logout, setFirstLoginToFalse } from '@/app/redux/user';
 import AuthModal from '../favorites/authModal';
 import FirstLoginModal from '../favorites/firstLoginModal';
+import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
 // import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
 
 function Navbar() {
@@ -40,6 +46,8 @@ function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const open = Boolean(anchorEl);
+
+  const [addWatchlist] = useAddWatchlistMutation();
   // const { favorites } = useAppSelector((state: any) => state.market);
   // const [addWatchlist] = useAddWatchlistMutation();
 
@@ -150,21 +158,48 @@ function Navbar() {
     });
   }, []);
 
+  const createFirstWatchList = async () => {
+    if (
+      !Cookies.get('favorites') ||
+      (Cookies.get('favorites') && //@ts-expect-error: expect undefined cookies
+        JSON.parse(Cookies.get('favorites'))?.length < 1)
+    ) {
+      try {
+        await addWatchlist({
+          token: Cookies.get('authToken'),
+          collection_name: 'My First Coin Watchlist',
+          main: true,
+          ids: [],
+        }).unwrap();
+        dispatch(updateSelectedWatchListMain('My Favorite Coins'));
+        dispatch(updateSelectedWatchListName('My Favorite Coins'));
+        dispatch(updateFavorites([]));
+        dispatch(setFirstLoginToFalse());
+      } catch (error) {
+        console.log('error', error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const favorites = Cookies.get('favorites');
+    if (isFirstLogin) {
+      if (!favorites || JSON.parse(favorites)?.length < 1) {
+        createFirstWatchList();
+      }
+    }
+  }, [isFirstLogin]);
+
   const renderFirstLogin = () => {
-    // @ts-expect-error: may be undefined
-    if (Cookies?.get('favorites')?.length > 0 && isFirstLogin) {
-      return (
-        <FirstLoginModal
-        // setFirstLogin={setFirstLogin}
-        // firstLogin={firstLogin}
-        />
-      );
+    //@ts-expect-error: undefiend cookies
+    if (JSON.parse(Cookies.get('favorites')).length > 0 && isFirstLogin) {
+      return <FirstLoginModal />;
     }
   };
 
   return (
     <>
-      {renderFirstLogin()}
+      {Cookies.get('favorites') && renderFirstLogin()}
       {showAuthModal && (
         <AuthModal
           setShowAuthModal={setShowAuthModal}
@@ -336,6 +371,49 @@ function Navbar() {
               </Link>
 
               {token ? (
+                // <>
+                //   <Button
+                //     sx={{
+                //       width: '0px',
+                //       height: '30px',
+                //     }}
+                //     onClick={handleAuthClick}
+                //   >
+                //     <Typography
+                //       sx={{
+                //         color: pathname.includes('news') ? 'white' : 'black',
+                //         fontSize: '18px',
+                //         paddingBlock: '5px',
+                //       }}
+                //     >
+                //       {name.length > 5 ? `${name.slice(0, 5)}...` : name}
+                //     </Typography>
+                //   </Button>
+                //   <Menu
+                //     anchorEl={anchorEl}
+                //     open={open}
+                //     onClose={handleClose}
+                //     slotProps={{
+                //       paper: {
+                //         style: {
+                //           border: '1px solid lightgray',
+                //           paddingInline: '10px',
+                //           marginBottom: '30px',
+                //         },
+                //       },
+                //     }}
+                //   >
+                //     <MenuItem
+                //       sx={{
+                //         paddingInline: '10px',
+                //         color: 'black',
+                //       }}
+                //       onClick={handleLogout}
+                //     >
+                //       Logout
+                //     </MenuItem>
+                //   </Menu>
+                // </>
                 <>
                   <Button
                     sx={{
@@ -344,7 +422,15 @@ function Navbar() {
                     }}
                     onClick={handleAuthClick}
                   >
-                    {name}
+                    <Typography
+                      sx={{
+                        color: pathname.includes('news') ? 'white' : 'black',
+                        fontSize: '18px',
+                        paddingBlock: '5px',
+                      }}
+                    >
+                      {name.length > 5 ? `${name.slice(0, 5)}...` : name}
+                    </Typography>
                   </Button>
                   <Menu
                     anchorEl={anchorEl}
@@ -364,10 +450,24 @@ function Navbar() {
                       sx={{
                         paddingInline: '10px',
                         color: 'black',
+                        '&:hover': {
+                          color: 'red',
+                        },
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center',
                       }}
                       onClick={handleLogout}
                     >
-                      Logout
+                      <Box
+                        sx={{
+                          ':hover': {
+                            color: 'red',
+                          },
+                        }}
+                      >
+                        Logout
+                      </Box>
                     </MenuItem>
                   </Menu>
                 </>

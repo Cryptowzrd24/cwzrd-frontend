@@ -10,11 +10,11 @@ const DeliverCard = () => {
           padding: '15px 15.75px 15px 18px',
           background: 'rgba(17, 17, 17, 1)',
           borderRadius: '16px',
-          width: '172.5px',
+          width: '139.5px',
           // height: '101px',
         }}
       >
-        <Image src={deliver} alt="deliver" width={48} height={48} />
+        <Image src={deliver} alt="deliver" width={36} height={36} />
         <Typography
           variant="body1"
           sx={{
@@ -22,8 +22,8 @@ const DeliverCard = () => {
             fontWeight: '500',
             color: 'rgba(255, 255, 255, 1)',
             lineHeight: '15.6px',
-            letterSpacing: '1px',
-            width: '138px',
+            letterSpacing: '0.8px',
+            width: '110px',
             mt: '4px',
             fontFamily: 'Sf Pro Display',
           }}

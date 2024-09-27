@@ -17,6 +17,7 @@ import {
   updateSelectedWatchListMain,
   updateSelectedWatchListName,
 } from '@/app/redux/market';
+import { setFirstLoginToFalse } from '@/app/redux/user';
 
 const Table = () => {
   const [search] = useState('');
@@ -59,6 +60,7 @@ const Table = () => {
         main: true,
         ids: [],
       }).unwrap();
+      dispatch(setFirstLoginToFalse());
     } catch (error) {
       console.log('error', error);
     }

@@ -71,6 +71,7 @@ const VerifyEmailModal = ({ verificationKey }: any) => {
                 color: 'rgb(107,118,138)',
                 overflowWrap: 'break-word',
                 lineHeight: '25px',
+                letterSpacing: '1px',
               }}
             >
               {/* @ts-expect-error: isSucces may not have error */}
@@ -107,7 +108,7 @@ const VerifyEmailModal = ({ verificationKey }: any) => {
               }}
               href="/market/coin"
             >
-              <ArrowBackIosNewIcon />{' '}
+              <ArrowBackIosNewIcon fontSize="small" />{' '}
               <Typography sx={{ color: 'white', marginInline: '5px' }}>
                 Go back
               </Typography>

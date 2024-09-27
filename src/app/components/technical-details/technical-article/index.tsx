@@ -21,27 +21,27 @@ function TechnicalArticle() {
         date={'APRIL 25, 2024'}
         readTime={'5 MIN READ'}
       />
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <TechnincalHeading />
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <TechnicalImage />
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <CoinNewsDescription />
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <NewsQuote quote={quoteOne} />
       </Box>
       <Box>
         <Typography
           sx={{
             fontWeight: 400,
-            fontSize: '20px',
+            fontSize: '18.5px',
             fontFamily: 'Sf Pro Display',
-            lineHeight: '29px',
+            lineHeight: '27px',
             color: 'rgba(17, 17, 17, 0.8)',
-            marginTop: '16px',
+            marginTop: '12px',
           }}
         >
           Factors like an anticipated interest rate cut and increased
@@ -49,10 +49,10 @@ function TechnicalArticle() {
           according to Bitfinex analysts:
         </Typography>
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <NewsQuote quote={quoteTwo} />
       </Box>
-      <Box sx={{ marginTop: '24px' }}>
+      <Box sx={{ marginTop: '12px' }}>
         <NewsHashtags />
       </Box>
       <Box sx={{ marginTop: '24px' }}>
