@@ -10,7 +10,7 @@ function CarouselCard() {
         background: '#FFFFFF',
         boxShadow: '0px 4px 28px 0px #0000000D ',
         padding: '20px 12px',
-        width: '1106px',
+        width: '85%',
       }}
     >
       <Box sx={{ marginLeft: '8px' }}>
