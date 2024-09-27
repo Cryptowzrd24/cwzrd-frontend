@@ -14,7 +14,7 @@ function FinancialNewsCardVertical() {
         height: '274px',
         padding: '8px',
         background: 'rgba(255, 255, 255, 1)',
-        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+        boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
         borderRadius: '16px',
         display: 'flex',
         flexDirection: 'column',

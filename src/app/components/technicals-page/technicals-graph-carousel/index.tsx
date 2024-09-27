@@ -7,8 +7,8 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import FinancialNewsCardVertical from '../financial-news-card-vertical';
 import Slider from 'react-slick';
+import CarouselCard from './carousel-card';
 
 const PreviousArrow = ({ onClick }: any) => (
   <IconButton
@@ -16,8 +16,8 @@ const PreviousArrow = ({ onClick }: any) => (
     sx={{
       cursor: 'pointer',
       position: 'absolute',
-      top: '104%',
-      left: '6px',
+      top: '52%',
+      left: '11px',
       width: '40px',
       height: '40px',
       transform: 'translateY(-50%)',
@@ -43,8 +43,8 @@ const NextArrow = ({ onClick }: any) => (
     sx={{
       cursor: 'pointer',
       position: 'absolute',
-      top: '104%',
-      right: '0px',
+      top: '52%',
+      right: '11px',
       width: '40px',
       height: '40px',
       transform: 'translateY(-50%)',
@@ -64,12 +64,12 @@ const NextArrow = ({ onClick }: any) => (
   </IconButton>
 );
 
-const FinancialNewsCarousel = () => {
+const TechnicalGraphCarousel = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
     prevArrow: <PreviousArrow onClick={() => {}} />,
@@ -82,11 +82,11 @@ const FinancialNewsCarousel = () => {
       <Box
         key={elem}
         sx={{
-          paddingLeft: '10px',
-          boxSizing: 'border-box',
+          display: 'flex !important',
+          justifyContent: 'center',
         }}
       >
-        <FinancialNewsCardVertical />
+        <CarouselCard />
       </Box>
     );
   });
@@ -98,4 +98,4 @@ const FinancialNewsCarousel = () => {
   );
 };
 
-export default FinancialNewsCarousel;
+export default TechnicalGraphCarousel;

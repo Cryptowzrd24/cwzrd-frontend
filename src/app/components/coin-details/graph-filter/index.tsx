@@ -14,7 +14,7 @@ interface GraphFilterProps {
   volumeValue: string;
   setVolumeValue: (val: string) => void;
   handleFullScreen: () => void;
-  selectedTab: string;
+  selectedTab?: string;
 }
 
 const stylesPage = {

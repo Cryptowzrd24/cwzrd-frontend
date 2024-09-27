@@ -5,16 +5,30 @@ import FinancialNewsCardList from './financial-news-card';
 import FinancialNewsCarousel from './financial-news-carousel';
 import TechnicalsBanner from './technicals-banner';
 import NewsLetterBanner from '../banners/newsLetterBanner';
+import TechnicalGraphCarousel from './technicals-graph-carousel';
+
+import bitcoinImg from '../../../../public/images/coin-details/bitcoin.png';
+import etheriumImg from '../../../../public/images/coin-details/ether.png';
+import TechnicalsGraph from './technicals-graph';
 
 function TechnicalsPage() {
   return (
     <>
+      <Box>
+        <Box>
+          <TechnicalsGraph />
+        </Box>
+        <Box sx={{ position: 'relative', top: '-110px' }}>
+          <TechnicalGraphCarousel />
+        </Box>
+      </Box>
       <Box
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '21.5px',
+          marginTop: '-90px',
         }}
       >
         <Typography
@@ -82,7 +96,11 @@ function TechnicalsPage() {
       <Box
         sx={{ display: 'flex', justifyContent: 'center', marginTop: '-50px' }}
       >
-        <TechnicalsBanner />
+        <TechnicalsBanner
+          bgColor="brown"
+          coinName="Bitcoin"
+          coinImg={bitcoinImg}
+        />
       </Box>
       {/* //second sec// */}
       <Box>
@@ -106,7 +124,11 @@ function TechnicalsPage() {
         <Box
           sx={{ display: 'flex', justifyContent: 'center', marginTop: '-50px' }}
         >
-          <TechnicalsBanner />
+          <TechnicalsBanner
+            bgColor="blue"
+            coinName="Etherium"
+            coinImg={etheriumImg}
+          />
         </Box>
       </Box>
 

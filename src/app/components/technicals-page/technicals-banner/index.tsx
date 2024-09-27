@@ -2,18 +2,43 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
-import bitcoinImg from '../../../../../public/images/coin-details/bitcoin.png';
 import bannerGraph from '../../../../../public/images/technicals-page/techBannerGraph.png';
 import bannerBg from '../../../../../public/images/technicals-page/techBannerBgImg.jpeg';
+import bannerBgBrown from '../../../../../public/images/technicals-page/techBannerImgBrown.png';
+import bannerBgSkyBlue from '../../../../../public/images/technicals-page/techBannerImgSkyBlue.png';
+import bannerBgGreen from '../../../../../public/images/technicals-page/techBannerImgGreen.png';
+import bannerBgPurple from '../../../../../public/images/technicals-page/techBannerImgPurple.png';
 
 import { ReadMoreIcon } from '../../../../../public/icons/readMoreIcon';
 
-function TechnicalsBanner() {
+type BgColor = 'purple' | 'brown' | 'blue' | 'green';
+interface TechnicalsBannerProps {
+  bgColor: BgColor;
+  coinName: string;
+  coinImg: any;
+}
+
+function TechnicalsBanner({
+  bgColor,
+  coinName,
+  coinImg,
+}: TechnicalsBannerProps) {
+  const background =
+    bgColor === 'blue'
+      ? bannerBgSkyBlue
+      : bgColor === 'green'
+        ? bannerBgGreen
+        : bgColor === 'brown'
+          ? bannerBgBrown
+          : bgColor === 'purple'
+            ? bannerBgPurple
+            : bannerBg;
+
   return (
     <Box
       sx={{
         height: '84px',
-        backgroundImage: `url(${bannerBg.src})`,
+        backgroundImage: `url(${background.src})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         borderRadius: '24px',
@@ -35,6 +60,7 @@ function TechnicalsBanner() {
             display: 'flex',
             alignItems: 'center',
             gap: '12px',
+            width: '254px',
           }}
         >
           <Box
@@ -49,12 +75,7 @@ function TechnicalsBanner() {
               alignItems: 'center',
             }}
           >
-            <Image
-              src={bitcoinImg}
-              alt="analysis card"
-              width={32}
-              height={32}
-            />
+            <Image src={coinImg} alt="analysis card" width={32} height={32} />
           </Box>
           <Typography
             sx={{
@@ -65,10 +86,10 @@ function TechnicalsBanner() {
               lineHeight: '23.4px',
             }}
           >
-            Bitcoin Live Analysis
+            {coinName} Live Analysis
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '46px' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
           <Box>
             <Typography
               sx={{
