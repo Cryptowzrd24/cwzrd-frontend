@@ -26,20 +26,19 @@ import { ReadMoreIcon } from '../../../../public/icons/readMoreIcon';
 const News = () => {
   return (
     <>
-      <>
-        <NewsCarousel showAudience={true} />
-      </>
-      <Box sx={{ display: 'flex', gap: 2, marginTop: '48px' }}>
-        <TopPicks showAll={true} />
+      <>{/* <NewsCarousel showAudience={true} /> */}</>
+      <Box sx={{ display: 'flex', gap: 2, marginTop: '18px' }}>
         <TagCard
           title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
-          description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
+          description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ardoino said. CoinDesk Flash give more money to the investors"
           image={TagCardImage}
         />
-        <NewsRightPanel />
+        <NewsRightPanel isMainPage={true} />
+        <MostRead />
+        {/* <TopPicks showAll={true} /> */}
       </Box>
-      <Box sx={{ marginTop: '-28px' }}>
-        <RelatedNewsCarousel />
+      <Box sx={{ marginTop: '-16px' }}>
+        <RelatedNewsCarousel descriptionLines={1} showSlider={true} />
       </Box>
       <Box
         sx={{
@@ -47,10 +46,19 @@ const News = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '24px',
-          marginTop: '84px',
+          marginTop: '10px',
         }}
       >
-        <Typography variant="h2" left={0}>
+        <Typography
+          sx={{
+            fontSize: '32px',
+            fontWeight: '700',
+            lineHeight: '38.4px',
+            letterSpacing: '1px',
+          }}
+          variant="h2"
+          left={0}
+        >
           Trending in{' '}
           <span
             style={{
@@ -66,7 +74,7 @@ const News = () => {
         <Box
           sx={{
             display: 'flex',
-            marginRight: '15px',
+            marginRight: '30px',
           }}
         >
           <Typography
@@ -78,7 +86,6 @@ const News = () => {
               fontSize: '14px',
               lineHeight: '18.2px',
             }}
-            variant="body2"
             // right={1}
           >
             Read More
@@ -99,52 +106,67 @@ const News = () => {
 
       <>
         {/* ///defi */}
-        <Box sx={{ display: 'flex', gap: 2 }}>
+        <NewsCarousel showAudience={true} isMainPage={true} />
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 2,
+            marginTop: '22px',
+            marginLeft: '5px',
+          }}
+        >
           <TagCard
-            height={'620px'}
-            width={'570px'}
+            height={'520px'}
+            width={'560px'}
             title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
             description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
             image={TagCardImage}
           />
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.8 }}>
             <NewsCard
               allNews={true}
               image={CardImage}
               showChips={true}
-              title="Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip"
-              description="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
+              title="Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
+              description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for"
             />
             <NewsCard
               allNews={true}
               image={CardImage}
               showChips={true}
-              title="Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip"
-              description="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
+              title="Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
+              description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for"
             />
           </Box>
 
-          <NewsRightPanel isDetailPage={true} />
+          <NewsRightPanel isMainPage={true} />
         </Box>
       </>
 
       <>
-        <Box sx={{ display: 'flex', marginTop: '32px', gap: 3 }}>
+        <Box
+          sx={{
+            marginLeft: '5px',
+            display: 'flex',
+            marginTop: '12px',
+            gap: '16px',
+          }}
+        >
           <Box sx={{ width: '300px' }}>
             <LiveMarket isPageDetails={true} />
           </Box>
           <TagCard
-            height={'622px'}
+            height={'540px'}
             width={'680px'}
             title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
             description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
             image={TagCardImage}
           />
-          <MostRead />
+          <TopPicks showAll={true} />
         </Box>
       </>
 
-      <Box sx={{ marginTop: '80px' }}>
+      <Box sx={{ marginTop: '24px' }}>
         <NewsLetterBanner />
       </Box>
 
@@ -154,8 +176,8 @@ const News = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            marginBottom: '24px',
-            marginTop: '80px',
+            marginBottom: '16px',
+            marginTop: '24px',
           }}
         >
           <Typography variant="h2" left={0}>
@@ -206,10 +228,10 @@ const News = () => {
         </Box>
 
         <Box sx={{ display: 'flex', gap: 3 }}>
-          <Box sx={{ marginTop: '-16px' }}>
+          <Box>
             <VerticalTagCard
               height={'300px'}
-              width={'300px'}
+              width={'437px'}
               title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
               description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
               image={VerticalCardImage}
@@ -460,14 +482,14 @@ const News = () => {
 
       <>
         <Box sx={{ display: 'flex', gap: 2 }}>
-          <NewsCarouselBig height={'680px'} />
+          <NewsCarouselBig isDetailPage={true} height={'440px'} />
           <Box maxWidth={'300px'}>
             <GlobalNews />
           </Box>
         </Box>
         <RelatedNewsCarousel descriptionLines={1} />
       </>
-      <Box sx={{ marginTop: '110px', marginBottom: '80px' }}>
+      <Box sx={{ marginBlock: '24px' }}>
         <MemberShipBanner />
       </Box>
     </>

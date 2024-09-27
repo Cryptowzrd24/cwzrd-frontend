@@ -46,14 +46,14 @@ function LiveMarket({
         borderRadius: '16px',
         overflowX: 'hidden',
         paddingInline: '20px',
-        marginBottom: '20px',
+        // marginBlock: '12px',
         background: !isTechnicalDetail
           ? 'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)'
           : 'linear-gradient(96deg, #DCEDFE 8.44%, #FFF 22.56%, #FFF 64.71%, #FFF 81.98%, #E8E9FF 92.8%)',
         backdropFilter: 'blur(10px)',
         boxShadow: '0px 4px 28px 0px #0000000D',
-        paddingBlock: '6px',
-        height: isPageDetails ? '608px' : '438px',
+        // paddingBlock: '6px',
+        height: isPageDetails ? '540px' : '438px',
       }}
       className="live-market"
     >
@@ -61,11 +61,11 @@ function LiveMarket({
         sx={{
           paddingTop: '6px',
           display: 'flex',
-          mb: '12px',
-          marginTop: '12px',
+          // mb: '12px',
+          marginBlock: '14px',
           justifyContent: 'space-between',
           width: '100%',
-          paddingBottom: '12px',
+          // paddingBottom: '12px',
           borderBottom: '1px solid #FFFFFF1A',
         }}
       >
@@ -104,14 +104,12 @@ function LiveMarket({
           </span>
         </Box>
       </Box>
-      <Divider
-        sx={{ width: '100%', marginTop: '-13px', marginBottom: '10px' }}
-      />
+      <Divider sx={{ width: '100%' }} />
       {!isFetching ? (
         liveMarketData
           ?.slice(0, isPageDetails ? 6 : 4)
           .map((item: any, index: any) => (
-            <>
+            <Box paddingTop={'8px'}>
               <Accordion
                 expanded={expanded === item.id}
                 onChange={handleChange(item.id)}
@@ -233,7 +231,7 @@ function LiveMarket({
                     </Box>
                   </Box>
                 </AccordionSummary>
-                <AccordionDetails sx={{ padding: '0 10px' }}>
+                <AccordionDetails sx={{ padding: '0 ' }}>
                   <AreaChart
                     data={item?.chart_data}
                     color={getGraphColor(item?.percent_change_24h)}
@@ -249,12 +247,12 @@ function LiveMarket({
                 <Divider
                   sx={{
                     width: '100%',
-                    marginBottom: '20px',
+                    // marginBottom: '20px',
                     borderColor: '#1111110D',
                   }}
                 />
               )}
-            </>
+            </Box>
           ))
       ) : (
         <Box

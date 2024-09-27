@@ -66,6 +66,7 @@ function GlobalNews() {
       sx={{
         // width: '300px',
         height: '626px',
+        width: '300px',
         overflow: 'auto',
         scrollbarWidth: 'none',
         background: 'rgba(255, 255, 255, 1)',
@@ -77,14 +78,14 @@ function GlobalNews() {
       <Typography
         sx={{
           color: 'rgba(17, 17, 17, 1)',
-          fontWeight: 700,
-          fontSize: '16px',
+          fontWeight: 600,
+          fontSize: '14px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: '20.8px',
-          textAlign: 'center',
+          lineHeight: '18.2px',
+          textAlign: 'start',
         }}
       >
-        🌎 Catch up on today’s global news
+        🌎 Catch up on today's global news
       </Typography>
       {renderGlobalNewsCard}
     </Box>

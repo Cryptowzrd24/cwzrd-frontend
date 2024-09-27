@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { Box, IconButton } from '@mui/material';
+import { Box, fabClasses, IconButton } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -66,20 +66,22 @@ const NextArrow = ({ onClick }: any) => (
 
 interface RelatedNewsCarouselProps {
   descriptionLines?: number;
+  showSlider?: boolean;
 }
 const RelatedNewsCarousel = ({
   descriptionLines,
+  showSlider,
 }: RelatedNewsCarouselProps) => {
   const settings = {
-    dots: true,
+    dots: !showSlider ? true : fabClasses,
     infinite: false,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
-    arrows: true,
-    prevArrow: <PreviousArrow onClick={() => {}} />,
-    nextArrow: <NextArrow onClick={() => {}} />,
-    dotsClass: 'slick-dots slick-thumb',
+    arrows: !showSlider ? true : false,
+    prevArrow: !showSlider ? <PreviousArrow onClick={() => {}} /> : null,
+    nextArrow: !showSlider ? <NextArrow onClick={() => {}} /> : null,
+    dotsClass: !showSlider ? 'slick-dots slick-thumb' : null,
   };
 
   const renderCards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((elem) => {
@@ -109,6 +111,7 @@ const RelatedNewsCarousel = ({
 
   return (
     <Box sx={{ padding: '20px 0', position: 'relative' }}>
+      {/* @ts-expect-error TS2322: Type '{}' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<HTMLDivElement> & { children?: ReactNode; }'. */}
       <Slider {...settings}>{renderCards}</Slider>
     </Box>
   );

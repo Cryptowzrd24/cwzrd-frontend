@@ -45,7 +45,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
         <Box
           position="absolute"
           top="1"
-          right={'0'}
+          right="1"
           display="flex"
           marginTop={'12px'}
           zIndex={1}
@@ -74,7 +74,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
                 <Image
                   src={PeopleImage.src}
                   height={12}
-                  width={12}
+                  width={300}
                   alt="people watching image"
                 />
                 374,039
@@ -90,7 +90,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
             height: height ? '300px' : '380px',
             width: width ? '300px' : '100%',
             borderRadius: '12px',
-            objectFit: 'cover',
+            // objectFit: 'cover',
           }}
           alt="news"
           src={image.src}

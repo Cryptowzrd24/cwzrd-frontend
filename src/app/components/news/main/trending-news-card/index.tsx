@@ -42,9 +42,9 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
               background: 'rgba(255, 255, 255, 0.1)',
               // backdropFilter: 'blur(10px)',
               borderRadius: '20px',
-              marginTop: '18px',
-              marginRight: !isDetailPage ? '12px' : '8px',
-              padding: '6px 14px 6px 12px',
+              marginTop: '6px',
+              marginRight: !isDetailPage ? '12px' : '10px',
+              padding: '4px 8px 4px 8px',
               fontSize: '16px',
               fontWeight: '600',
               gap: '4.5px',
@@ -56,7 +56,16 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
               width={12}
               alt="people watching image"
             />
-            {'374,039'}
+            <Typography
+              sx={{
+                fontWeight: '400',
+                fontSize: '12px',
+                lineHeight: '15.6px',
+                color: 'white',
+              }}
+            >
+              374,039
+            </Typography>
           </Box>
         }
         sx={{
@@ -73,7 +82,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           alt="news"
           src={image.src}
           width={isDetailPage ? 264 : 300}
-          height={isDetailPage ? 183 : 180}
+          height={isDetailPage ? 130 : 180}
           style={{
             objectFit: 'cover',
             borderRadius: '12px',
@@ -83,10 +92,10 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
       <Typography
         sx={{
           fontWeight: '700',
-          fontSize: '18px',
-          lineHeight: '23.4px',
+          fontSize: '14px',
+          lineHeight: '18.2px',
           marginTop: '16px',
-          letterSpacing: '2%',
+          letterSpacing: '0.6px',
           width: isDetailPage ? '264px' : '100%',
         }}
         variant="body1"
@@ -99,7 +108,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           fontWeight: '400 !important',
           fontSize: '13px !important',
           lineHeight: '18.85px !important',
-          marginTop: '8px',
+          marginTop: '4px',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           display: '-webkit-box',
@@ -115,9 +124,9 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
       <Typography
         sx={{
           fontWeight: '500',
-          fontSize: !isDetailPage ? '14px' : '12px',
-          lineHeight: '18.2px',
-          marginTop: '16px',
+          fontSize: !isDetailPage ? '14px' : '10px',
+          lineHeight: '13px',
+          marginTop: '8px',
           alignSelf: 'flex-start',
           paddingLeft: 0,
           width: isDetailPage ? '264px' : '100%',

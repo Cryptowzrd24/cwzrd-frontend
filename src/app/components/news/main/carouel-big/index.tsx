@@ -11,14 +11,15 @@ import ArrowLeftDark from '../../../../../../public/icons/collections/arrowLeftD
 const content = [
   {
     title:
-      'Italy to Increase Surveillance of Crypto Market With Fines as High as 5M Euros: Reuters',
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
     description:
       'That will include high fines for those who manipulate the crypto asset market as part of a wider scheme to beef up surveillance of risks tied to the sector, Reuters reported, citing a draft decree it reviewed.',
     tags: ['Economy', 'Finance', 'Breaking'],
     image: CarouselImage1,
   },
   {
-    title: 'Crypto Boom Continues',
+    title:
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
     description:
       'Cryptocurrencies are on the rise again as investors flock to digital assets...',
     tags: ['Crypto', 'Investment', 'Trending'],
@@ -26,7 +27,8 @@ const content = [
       'https://academy.education.investing.com/wp-content/uploads/2022/03/bitcoin-what-is-crypto-scaled.jpg',
   },
   {
-    title: 'Breaking News: Market Crash',
+    title:
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
     description:
       'The stock market has experienced a significant downturn today...',
     tags: ['Economy', 'Finance', 'Breaking'],
@@ -34,7 +36,8 @@ const content = [
       'https://img.freepik.com/free-vector/cryptocurrency-bitcoin-golden-coin-background_1017-31505.jpg',
   },
   {
-    title: 'Crypto Boom Continues',
+    title:
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
     description:
       'Cryptocurrencies are on the rise again as investors flock to digital assets...',
     tags: ['Crypto', 'Investment', 'Trending'],
@@ -42,7 +45,8 @@ const content = [
       'https://www.imf.org/-/media/Images/IMF/Blog/Migrated/BLOG-2099x600-Crypto-da-kuk-iStock-by-Getty-Images-iStock-1317587887.ashx',
   },
   {
-    title: 'Breaking News: Market Crash',
+    title:
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet sequi velit aspernatur sit quo nihil quibusdam, eius quis consequatur quod illo repudiandae iure magni libero, atque illum laudantium impedit nostrum! Tempore deleniti voluptatum voluptate atque minus sequi, exercitationem quia rem veniam maiores, ut eius esse ab eum quasi tempora repellendus animi, omnis molestias eaque! Atque porro velit dolorem sunt veniam!',
     tags: ['Economy', 'Finance', 'Breaking'],
@@ -51,7 +55,7 @@ const content = [
   },
 ];
 
-const NewsCarouselBig = ({ height, hideButtons }: any) => {
+const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -143,12 +147,12 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box
           position="absolute"
-          top={hideButtons ? '60%' : '65%'}
+          top={hideButtons ? '60%' : isDetailPage ? '45%' : '65%'}
           left="0"
           display="flex"
           gap="8px"
           zIndex={1}
-          paddingInline={'32px'}
+          paddingInline={'24px'}
         >
           {content[currentIndex].tags.map((tag, index) => (
             <Chip
@@ -167,8 +171,8 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
 
         <Box
           position="absolute"
-          paddingInline={'32px'}
-          top={hideButtons ? '65%' : '70%'}
+          paddingInline={'24px'}
+          top={hideButtons ? '65%' : isDetailPage ? '53%' : '70%'}
           left="0"
           color="white"
           zIndex={1}
@@ -191,13 +195,26 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
                     WebkitLineClamp: 2,
                     WebkitBoxOrient: 'vertical',
                   }
-                : {
-                    fontWeight: '700',
-                    color: 'white',
-                    fontSize: '24px',
-                    lineHeight: '28.8px',
-                    letterSpacing: '1%',
-                  }
+                : isDetailPage
+                  ? {
+                      fontWeight: '700',
+                      color: 'white',
+                      fontSize: '20px',
+                      lineHeight: '26px',
+                      letterSpacing: '1px',
+                      display: '-webkit-box',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
+                    }
+                  : {
+                      fontWeight: '700',
+                      color: 'white',
+                      fontSize: '24px',
+                      lineHeight: '28.8px',
+                      letterSpacing: '1%',
+                    }
             }
           >
             {hideButtons
@@ -206,31 +223,46 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
           </Typography>
           <Typography
             variant="body1"
-            sx={{
-              mt: 1,
-              color: 'white',
-              fontSize: '16px',
-              fontWeight: '400',
-              lineHeight: '24px',
-              opacity: '80%',
-              display: '-webkit-box',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-            }}
+            sx={
+              isDetailPage
+                ? {
+                    mt: '4px',
+                    fontSize: '13px',
+                    fontWeight: '400',
+                    lineHeight: '18.85px',
+                    color: 'rgba(255,255,255,0.8)',
+                    display: '-webkit-box',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                  }
+                : {
+                    mt: 1,
+                    color: 'white',
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    lineHeight: '24px',
+                    opacity: '80%',
+                    display: '-webkit-box',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                  }
+            }
           >
             {hideButtons
               ? "Bitcoin (CRYPTO: BTC) returned 150% over the past year, easily outpacing the U.S. stock market. But Bernstein analysts Gautam Chhugani and Mahika Sapra expect the cryptocurrency to move much higher in the next decade. Their price targets are listed below, along with the implied upside based on Bitcoin's current price of $66,000."
               : content[currentIndex].description}
           </Typography>
-          <Box marginTop={'24px'} marginBottom={'8px'} display="flex" gap="8px">
+          <Box marginTop={'8px'} marginBottom={'8px'} display="flex" gap="8px">
             <Typography
               sx={{
                 color: 'white',
-                fontSize: '16px',
+                fontSize: '12px',
                 fontWeight: '500',
-                lineHeight: '20.8px',
+                lineHeight: '15.6px',
               }}
             >
               19/06/2024 at 03:32 AM | John Smith
