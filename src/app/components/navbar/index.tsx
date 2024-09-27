@@ -15,7 +15,7 @@ import {
   Typography,
 } from '@mui/material';
 import Link from 'next/link';
-import { useAppDispatch, useAppSelector } from '@/app/redux/store';
+import { useAppDispatch } from '@/app/redux/store';
 import {
   setMainWatchFavorites,
   updateFavorites,
@@ -28,10 +28,11 @@ import './index.scss';
 import { usePathname, useRouter } from 'next/navigation';
 import StarIcon from '../../../../public/icons/Navbar-Section/starIcon';
 import { useSelector } from 'react-redux';
-import { logout } from '@/app/redux/user';
+import { logout, setFirstLoginToFalse } from '@/app/redux/user';
 import AuthModal from '../favorites/authModal';
 import FirstLoginModal from '../favorites/firstLoginModal';
 import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
+// import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
 
 function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -39,20 +40,18 @@ function Navbar() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const pathname = usePathname();
-  const { token, name } = useSelector((state: any) => state.user);
+  const { token, name, isFirstLogin } = useSelector((state: any) => state.user);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [showAuthModal, setShowAuthModal] = useState(false);
   const open = Boolean(anchorEl);
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [firstLogin, setFirstLogin] = useState(false);
-  const { favorites } = useAppSelector((state: any) => state.market);
+
   const [addWatchlist] = useAddWatchlistMutation();
+  // const { favorites } = useAppSelector((state: any) => state.market);
+  // const [addWatchlist] = useAddWatchlistMutation();
 
   const handleOpenAuth = () => {
-    const authToken = Cookies.get('authToken');
-    if (authToken) {
-      setIsAuthenticated(true);
-    } else {
-      setIsAuthenticated(false);
+    if (!token?.length) {
+      setShowAuthModal(true);
     }
   };
   useEffect(() => {
@@ -66,54 +65,54 @@ function Navbar() {
     }
   }, [dispatch]);
 
-  useEffect(() => {
-    const fetchWatchList = async () => {
-      const authToken = Cookies.get('authToken');
-      if (authToken) {
-        try {
-          const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites`,
-            {
-              method: 'GET',
-              headers: {
-                Authorization: `Bearer ${authToken}`,
-              },
-            },
-          );
-          if (response.ok) {
-            const data = await response.json();
-            const mainCollection: any = Object.values(data.collections).find(
-              (collection: any) => collection?.main === true,
-            );
+  // useEffect(() => {
+  //   const fetchWatchList = async () => {
+  //     const authToken = Cookies.get('authToken');
+  //     if (authToken) {
+  //       try {
+  //         const response = await fetch(
+  //           `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites`,
+  //           {
+  //             method: 'GET',
+  //             headers: {
+  //               Authorization: `Bearer ${authToken}`,
+  //             },
+  //           },
+  //         );
+  //         if (response.ok) {
+  //           const data = await response.json();
+  //           const mainCollection: any = Object.values(data.collections).find(
+  //             (collection: any) => collection?.main === true,
+  //           );
 
-            if (mainCollection) {
-              dispatch(
-                updateSelectedWatchListName(mainCollection?.collection_name),
-              );
-              dispatch(updateSelectedWatchListMain(mainCollection?.main));
-            }
-          }
-          if (response.statusText == 'Not Found') {
-            await addWatchlist({
-              token: token,
-              collection_name: 'My First Coin Watchlist',
-              main: true,
-              ids: [],
-            });
+  //           if (mainCollection) {
+  //             dispatch(
+  //               updateSelectedWatchListName(mainCollection?.collection_name),
+  //             );
+  //             dispatch(updateSelectedWatchListMain(mainCollection?.main));
+  //           }
+  //         }
+  //         if (response.statusText == 'Not Found') {
+  //           await addWatchlist({
+  //             token: token,
+  //             collection_name: 'My First Coin Watchlist',
+  //             main: true,
+  //             ids: [],
+  //           });
 
-            dispatch(updateFavorites([]));
-            dispatch(updateSelectedWatchListName('My First Coin Watchlist'));
-            dispatch(updateSelectedWatchListMain('My First Coin Watchlist'));
-            Cookies.remove('favorites');
-          }
-        } catch (error) {
-          console.error('error:', error);
-        }
-      }
-    };
+  //           dispatch(updateFavorites([]));
+  //           dispatch(updateSelectedWatchListName('My First Coin Watchlist'));
+  //           dispatch(updateSelectedWatchListMain('My First Coin Watchlist'));
+  //           Cookies.remove('favorites');
+  //         }
+  //       } catch (error) {
+  //         console.error('error:', error);
+  //       }
+  //     }
+  //   };
 
-    fetchWatchList();
-  }, [token, firstLogin, favorites]);
+  //   fetchWatchList();
+  // }, [token, !isFirstLogin]);
 
   const handleAuthClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -157,25 +156,52 @@ function Navbar() {
     });
   }, []);
 
+  const createFirstWatchList = async () => {
+    if (
+      !Cookies.get('favorites') ||
+      (Cookies.get('favorites') && //@ts-expect-error: expect undefined cookies
+        JSON.parse(Cookies.get('favorites'))?.length < 1)
+    ) {
+      try {
+        await addWatchlist({
+          token: Cookies.get('authToken'),
+          collection_name: 'My First Coin Watchlist',
+          main: true,
+          ids: [],
+        }).unwrap();
+        dispatch(updateSelectedWatchListMain('My Favorite Coins'));
+        dispatch(updateSelectedWatchListName('My Favorite Coins'));
+        dispatch(updateFavorites([]));
+        dispatch(setFirstLoginToFalse());
+      } catch (error) {
+        console.log('error', error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const favorites = Cookies.get('favorites');
+    if (isFirstLogin) {
+      if (!favorites || JSON.parse(favorites)?.length < 1) {
+        createFirstWatchList();
+      }
+    }
+  }, [isFirstLogin]);
+
   const renderFirstLogin = () => {
-    if (JSON.parse(Cookies.get('favorites') as any).length > 0 && firstLogin) {
-      return (
-        <FirstLoginModal
-          setFirstLogin={setFirstLogin}
-          firstLogin={firstLogin}
-        />
-      );
+    //@ts-expect-error: undefiend cookies
+    if (JSON.parse(Cookies.get('favorites')).length > 0 && isFirstLogin) {
+      return <FirstLoginModal />;
     }
   };
 
   return (
     <>
       {Cookies.get('favorites') && renderFirstLogin()}
-      {!isAuthenticated && (
+      {showAuthModal && (
         <AuthModal
-          setFirstLogin={setFirstLogin}
-          isAuthenticated={!isAuthenticated}
-          setIsAuthenticated={setIsAuthenticated}
+          setShowAuthModal={setShowAuthModal}
+          showAuthModal={showAuthModal}
         />
       )}
       <Box
@@ -328,6 +354,49 @@ function Navbar() {
               </Link>
 
               {token ? (
+                // <>
+                //   <Button
+                //     sx={{
+                //       width: '0px',
+                //       height: '30px',
+                //     }}
+                //     onClick={handleAuthClick}
+                //   >
+                //     <Typography
+                //       sx={{
+                //         color: pathname.includes('news') ? 'white' : 'black',
+                //         fontSize: '18px',
+                //         paddingBlock: '5px',
+                //       }}
+                //     >
+                //       {name.length > 5 ? `${name.slice(0, 5)}...` : name}
+                //     </Typography>
+                //   </Button>
+                //   <Menu
+                //     anchorEl={anchorEl}
+                //     open={open}
+                //     onClose={handleClose}
+                //     slotProps={{
+                //       paper: {
+                //         style: {
+                //           border: '1px solid lightgray',
+                //           paddingInline: '10px',
+                //           marginBottom: '30px',
+                //         },
+                //       },
+                //     }}
+                //   >
+                //     <MenuItem
+                //       sx={{
+                //         paddingInline: '10px',
+                //         color: 'black',
+                //       }}
+                //       onClick={handleLogout}
+                //     >
+                //       Logout
+                //     </MenuItem>
+                //   </Menu>
+                // </>
                 <>
                   <Button
                     sx={{
@@ -336,7 +405,15 @@ function Navbar() {
                     }}
                     onClick={handleAuthClick}
                   >
-                    {name}
+                    <Typography
+                      sx={{
+                        color: pathname.includes('news') ? 'white' : 'black',
+                        fontSize: '18px',
+                        paddingBlock: '5px',
+                      }}
+                    >
+                      {name.length > 5 ? `${name.slice(0, 5)}...` : name}
+                    </Typography>
                   </Button>
                   <Menu
                     anchorEl={anchorEl}
@@ -356,10 +433,24 @@ function Navbar() {
                       sx={{
                         paddingInline: '10px',
                         color: 'black',
+                        '&:hover': {
+                          color: 'red',
+                        },
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center',
                       }}
                       onClick={handleLogout}
                     >
-                      Logout
+                      <Box
+                        sx={{
+                          ':hover': {
+                            color: 'red',
+                          },
+                        }}
+                      >
+                        Logout
+                      </Box>
                     </MenuItem>
                   </Menu>
                 </>

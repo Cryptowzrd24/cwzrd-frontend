@@ -11,8 +11,8 @@ const PlatformCards = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '30px',
+          justifyContent: 'center',
+          gap: '12px',
         }}
       >
         <TradeManagement />

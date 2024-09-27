@@ -7,25 +7,25 @@ const DeliverCard = () => {
     <>
       <Box
         sx={{
-          padding: '20px 21px 20px 24px',
+          padding: '15px 15.75px 15px 18px',
           background: 'rgba(17, 17, 17, 1)',
           borderRadius: '16px',
-          maxWidth: '186px',
-          width: '100%',
-          height: '98px',
+          width: '139.5px',
+          // height: '101px',
         }}
       >
-        <Image src={deliver} alt="deliver" width={48} height={48} />
+        <Image src={deliver} alt="deliver" width={36} height={36} />
         <Typography
           variant="body1"
           sx={{
-            fontSize: '18px',
+            fontSize: '12px',
             fontWeight: '500',
             color: 'rgba(255, 255, 255, 1)',
-            lineHeight: '23.4px',
-            letterSpacing: '1px',
-            maxWidth: '165px',
+            lineHeight: '15.6px',
+            letterSpacing: '0.8px',
+            width: '110px',
             mt: '4px',
+            fontFamily: 'Sf Pro Display',
           }}
         >
           Delivering profits for 4+ years

@@ -9,41 +9,43 @@ const CommunityCard = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          padding: '32px',
-          maxWidth: '100%',
-          borderRadius: '32px',
+          width: '307.5px',
+          height: '352.5px',
+          borderRadius: '24px',
           display: 'flex',
           justifyContent: 'flex-start',
-          alignItems: 'flex-end',
-          height: 'auto',
         }}
       >
         <Box>
-          <Stack>
+          <Stack
+            sx={{
+              widht: '259.5px',
+              paddingInline: '24px',
+              paddingTop: '232.47px',
+              paddingBottom: '24.03px',
+            }}
+          >
             <Typography
-              variant="body1"
               sx={{
-                fontSize: '18px',
+                fontSize: '14px',
                 color: 'rgba(255, 255, 255, 1)',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
-                lineHeight: '44px',
+                lineHeight: '18.2px',
                 fontWeight: '500',
-                mb: '8px',
+                fontFamily: 'Sf Pro Display',
+                mb: '6px',
               }}
             >
               Open community chat
             </Typography>
             <Typography
-              variant="body1"
               sx={{
-                fontSize: '18px',
+                fontSize: '12px',
                 color: 'rgba(255, 255, 255, 0.8)',
-                letterSpacing: -0.5,
-                // maxWidth: '298px',
                 fontWeight: '400',
-                lineHeight: '27px',
-                textAlign: 'justify',
+                lineHeight: '18px',
+                opacity: '0.8',
               }}
             >
               Every trade recommendation is managed on your behalf. You can sit

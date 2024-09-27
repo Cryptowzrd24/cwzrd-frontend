@@ -23,7 +23,7 @@ function BreadCrumb({
       <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <Typography
           sx={{
-            fontSize: '14px',
+            fontSize: '13px',
             fontWeight: 500,
             fontFamily: 'Sf Pro Display',
             lineHeight: '18.2px',
@@ -35,7 +35,7 @@ function BreadCrumb({
         <ChevronsRight />
         <Typography
           sx={{
-            fontSize: '14px',
+            fontSize: '13px',
             fontWeight: 500,
             fontFamily: 'Sf Pro Display',
             lineHeight: '18.2px',

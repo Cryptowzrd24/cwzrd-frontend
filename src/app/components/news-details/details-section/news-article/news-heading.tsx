@@ -7,10 +7,10 @@ function NewsHeading() {
       <Typography
         sx={{
           fontWeight: 700,
-          fontSize: '32px',
+          fontSize: '24px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: '38.4px',
-          letterSpacing: '1.32px',
+          lineHeight: '28.8px',
+          letterSpacing: '1px',
           color: 'rgba(17, 17, 17, 1)',
         }}
       >
@@ -20,9 +20,9 @@ function NewsHeading() {
       <Typography
         sx={{
           fontWeight: 400,
-          fontSize: '16px',
+          fontSize: '18.5px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: '24px',
+          lineHeight: '27px',
           color: 'rgba(17, 17, 17, 0.8)',
           marginTop: '8px',
         }}

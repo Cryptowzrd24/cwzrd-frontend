@@ -59,10 +59,10 @@ const DailyCoverageCard = () => {
     <>
       <motion.div
         style={{
-          padding: '32px 56px 80px 32px',
-          maxWidth: '100%',
-          height: 'auto',
-          borderRadius: '32px',
+          // padding: '32px 56px 80px 32px',
+          width: '307.5px',
+          height: '354.25px',
+          borderRadius: '24px',
           position: 'relative',
           transition: 'all 0.325s linear',
         }}
@@ -71,21 +71,23 @@ const DailyCoverageCard = () => {
         variants={backgroundVariants}
       >
         <Typography
-          variant="body1"
           sx={{
-            fontSize: '16px',
+            fontSize: '12px',
             fontWeight: '400',
             color: 'rgba(255, 255, 255, 1)',
             textTransform: 'uppercase',
-            mb: '32px',
+            mb: '26.25px',
             letterSpacing: '1px',
+            lineHeight: '15.6px',
+            paddingLeft: '24px',
+            paddingTop: '24px',
           }}
         >
           Daily Coverage
         </Typography>
         <Box
           sx={{
-            paddingLeft: '24px',
+            widht: '243px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -95,8 +97,8 @@ const DailyCoverageCard = () => {
           <motion.img
             src={'/images/platform/daily-coverage.png'}
             alt="daily coverage"
-            width={150}
-            height={150}
+            width={112.5}
+            height={112.5}
             variants={imgAndTextVariants}
             initial="initial"
             animate={active ? 'active' : 'inactive'}
@@ -108,16 +110,18 @@ const DailyCoverageCard = () => {
             animate={active ? 'active' : 'inactive'}
           >
             <Typography
-              variant="h1"
               sx={{
-                fontSize: '32px',
+                width: '226.5px',
+                fontSize: '24px',
                 color: 'rgba(255, 255, 255, 1)',
-                mt: '35px',
+                mt: '26.25px',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
-                lineHeight: '38.4px',
+                lineHeight: '28.8px',
                 textAlign: 'center',
                 fontWeight: '700',
+                paddingInline: '40.5px',
+                textWrap: 'balance',
               }}
             >
               Daily Coverage on over 25 Cryptocurrencies
@@ -131,13 +135,13 @@ const DailyCoverageCard = () => {
             >
               <Typography
                 sx={{
-                  fontSize: '14px',
+                  fontSize: '12px',
                   color: 'rgba(255, 255, 255, 1)',
-                  mt: '110px',
+                  mt: '70px',
                   letterSpacing: 0.1,
-                  lineHeight: '22px',
+                  lineHeight: '20px',
                   textAlign: 'start',
-                  marginLeft: '-24px',
+                  marginLeft: '14px',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -153,8 +157,8 @@ const DailyCoverageCard = () => {
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '24px',
-            bottom: '28px',
+            right: '7.5px',
+            bottom: '9.03px',
           }}
         >
           <motion.div
@@ -167,7 +171,7 @@ const DailyCoverageCard = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '8px',
+              padding: '6px',
               background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',

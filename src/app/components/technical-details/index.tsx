@@ -25,7 +25,7 @@ const TechnicalDetails = () => {
           isTechnicalDetail={true}
         />
       </Box>
-      <Box sx={{ mt: '48px' }}>
+      <Box sx={{ mt: '108px' }}>
         <RelatedNews />
       </Box>
       <Box sx={{ mt: '88px', mb: '48px' }}>

@@ -31,6 +31,7 @@ import {
 } from '@/app/redux/market';
 import AuthModal from './authModal';
 import FirstLoginModal from './firstLoginModal';
+import { useSelector } from 'react-redux';
 
 const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -38,7 +39,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [watchlistName, setWatchlistName] = useState('');
 
-  const [firstLogin, setFirstLogin] = useState(false);
+  // const [firstLogin, setFirstLogin] = useState(false);
 
   const [toastOpen, setToastOpen] = useState(false);
   const [moreOptionsOpen, setMoreOptionsOpen] = useState(false);
@@ -46,8 +47,9 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   const [addWatchlist] = useAddWatchlistMutation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [watchList, setWatchList] = useState([]);
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  // const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [reload, setReload] = useState(false);
@@ -57,6 +59,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
 
   const dispatch = useAppDispatch();
   const { favorites } = useAppSelector((state) => state.market);
+  const { isFirstLogin, token } = useSelector((state: any) => state.user);
 
   const handleStarClick = () => {
     setIsMainWatchlist(true);
@@ -74,15 +77,15 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   };
 
   const handleClick = () => {
-    const authToken = Cookies.get('authToken');
-    if (authToken) {
+    if (token?.length) {
       // setEmailStored(storedEmail);
       setActive(true);
-      setIsAuthenticated(true);
+      // setIsAuthenticated(true);
     } else {
+      setShowAuthModal(true);
       setSearchTerm('');
       // setEmailStored('');
-      setIsAuthenticated(false);
+      // setIsAuthenticated(false);
     }
   };
 
@@ -271,14 +274,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
     };
 
     fetchWatchList();
-  }, [
-    isMainWatchlist,
-    reload,
-    toastOpen,
-    Cookies.get('authToken'),
-    firstLogin,
-    favorites,
-  ]);
+  }, [isMainWatchlist, reload, toastOpen, token, favorites]);
 
   // useEffect(() => {
   //   const fetchWatchList = async () => {
@@ -326,13 +322,9 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   }, [selectedWatchList]);
 
   const renderFirstLogin = () => {
-    if (JSON.parse(Cookies.get('favorites')).length > 0 && firstLogin) {
-      return (
-        <FirstLoginModal
-          setFirstLogin={setFirstLogin}
-          firstLogin={firstLogin}
-        />
-      );
+    //@ts-expect-error: undefiend cookies
+    if (JSON.parse(Cookies.get('favorites')).length > 0 && isFirstLogin) {
+      return <FirstLoginModal />;
     }
   };
 
@@ -346,7 +338,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           alignItems: 'center',
         }}
       >
-        {!Cookies.get('authToken') && (
+        {!token?.length && (
           <Typography
             variant="h1"
             sx={{ maxWidth: '960px', marginTop: '-5px' }}
@@ -364,7 +356,7 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           </Typography>
         )}
 
-        {Cookies.get('authToken') && (
+        {token?.length && (
           <div ref={dropdownRef}>
             <Button
               aria-controls="watchlist-menu"
@@ -501,14 +493,13 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
           >
             New Watchlist
           </Button>
-          {!isAuthenticated && (
+          {showAuthModal && (
             <AuthModal
-              setFirstLogin={setFirstLogin}
-              isAuthenticated={!isAuthenticated}
-              setIsAuthenticated={setIsAuthenticated}
+              setShowAuthModal={setShowAuthModal}
+              showAuthModal={showAuthModal}
             />
           )}
-          {Cookies.get('authToken') && (
+          {token?.length && (
             <IconButton onClick={handleMoreOptionsClick}>
               <MoreVertIcon />
             </IconButton>

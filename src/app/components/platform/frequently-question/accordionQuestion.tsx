@@ -19,19 +19,19 @@ export default function AccordionQuestion({ title, summary }: accordionData) {
   };
 
   return (
-    <div style={{ marginBottom: '16px', maxWidth: '90%' }}>
+    <div style={{ marginBottom: '8px', maxWidth: '90%' }}>
       <Accordion
         expanded={expanded}
         onChange={handleChange}
         sx={{
-          padding: '32px',
-          borderRadius: '24px',
+          padding: '17px 20px 17px 20px',
+          borderRadius: '16px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          width: '100%',
-
+          width: '437px',
+          height: 'auto',
           '&:last-of-type': {
-            borderRadius: '24px',
+            borderRadius: '16px',
           },
         }}
       >
@@ -57,11 +57,14 @@ export default function AccordionQuestion({ title, summary }: accordionData) {
             padding: 0,
             cursor: 'pointer',
             userSelect: 'none',
-            minHeight: '48px',
+            minHeight: '24px',
             transition:
               'min-height 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)',
+            '& .MuiAccordionSummary-content': {
+              margin: '0 !important',
+            },
             '&.Mui-expanded': {
-              minHeight: '48px',
+              minHeight: '24px',
               '& > .MuiAccordionSummary-content': {
                 margin: '0',
               },
@@ -73,10 +76,11 @@ export default function AccordionQuestion({ title, summary }: accordionData) {
         >
           <Typography
             sx={{
-              fontSize: '24px',
+              fontSize: '16px',
               fontWeight: '500',
               color: 'rgba(17, 17, 17, 1)',
-              lineHeight: '26.4px',
+              lineHeight: '20.4px',
+              fontFamily: 'Sf Pro Display',
             }}
           >
             {title}
@@ -95,10 +99,11 @@ export default function AccordionQuestion({ title, summary }: accordionData) {
         >
           <Typography
             sx={{
-              fontSize: '16px',
+              fontSize: '13px',
               fontWeight: '400',
               color: 'rgba(17, 17, 17, 0.8)',
-              lineHeight: '24px',
+              lineHeight: '18.85px',
+              fontFamily: 'Sf Pro Display',
             }}
           >
             {summary}

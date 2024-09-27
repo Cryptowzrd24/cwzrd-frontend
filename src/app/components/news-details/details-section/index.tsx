@@ -45,7 +45,7 @@ function DetailsSection({
   return (
     <Box
       ref={sectionRef}
-      sx={{ display: 'flex', gap: '30px', justifyContent: 'space-between' }}
+      sx={{ display: 'flex', justifyContent: 'space-between' }}
     >
       <Box
         sx={{

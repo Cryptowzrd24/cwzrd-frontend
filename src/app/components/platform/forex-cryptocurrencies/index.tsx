@@ -9,15 +9,14 @@ const Forex = () => {
     <>
       <Box
         style={{
-          marginLeft: (width - 1376) / 2,
+          marginLeft: (width - 976) / 2,
         }}
       >
         <Typography
-          variant="h1"
           sx={{
             fontWeight: '600',
-            fontSize: '56px',
-            lineHeight: '61.6px',
+            fontSize: '32px',
+            lineHeight: '38.4px',
             color: 'rgba(17, 17, 17, 1)',
             maxWidth: '590px',
             minWidth: '590px',
@@ -27,11 +26,10 @@ const Forex = () => {
           Daily Technical Analysis on Cryptocurrencies and Forex
         </Typography>
         <Typography
-          variant="body1"
           sx={{
             fontWeight: '400',
-            fontSize: '20px',
-            lineHeight: '30px',
+            fontSize: '16px',
+            lineHeight: '24px',
             color: 'rgba(17, 17, 17, 0.8)',
             maxWidth: '590px',
           }}

@@ -17,6 +17,7 @@ import {
   updateSelectedWatchListMain,
   updateSelectedWatchListName,
 } from '@/app/redux/market';
+import { setFirstLoginToFalse } from '@/app/redux/user';
 
 const Table = () => {
   const [search] = useState('');
@@ -32,7 +33,8 @@ const Table = () => {
   const [addWatchlist] = useAddWatchlistMutation();
 
   const favoriteIds = favorites ? favorites.join(',') : '';
-  const { data, error } = Cookies.get('authToken')
+
+  const { data, error } = token?.length
     ? useFetchWatchlistQuery({ token })
     : useFetchFavoritesDataQuery({
         id: favoriteIds,
@@ -58,6 +60,7 @@ const Table = () => {
         main: true,
         ids: [],
       }).unwrap();
+      dispatch(setFirstLoginToFalse());
     } catch (error) {
       console.log('error', error);
     }

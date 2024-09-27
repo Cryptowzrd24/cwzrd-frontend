@@ -58,7 +58,7 @@ function ReadingCard({
         sx={{
           fontFamily: 'Sf Pro Display',
           fontWeight: 700,
-          fontSize: '18px',
+          fontSize: '14px',
           lineHeight: '23.4px',
           letterSpacing: '0.8px',
         }}
@@ -70,8 +70,8 @@ function ReadingCard({
           borderRadius: '10px',
           overflow: 'hidden',
           width: '120px',
-          height: '60px',
-          marginTop: '16px',
+          height: '80px',
+          marginTop: '12px',
           border: isTechnicalDetail
             ? '0.5px solid rgba(114, 72, 247, 1)'
             : 'none',
@@ -81,14 +81,14 @@ function ReadingCard({
           src={!isTechnicalDetail ? ReadingNowImg : TechnicalDetailImg}
           alt={'img'}
           width={120}
-          height={60}
+          height={80}
         />
       </Box>
       <Typography
         sx={{
           fontFamily: 'Sf Pro Display',
           fontWeight: 700,
-          fontSize: '14px',
+          fontSize: '12px',
           lineHeight: '18.2px',
           marginTop: '12px',
         }}
@@ -110,7 +110,7 @@ function ReadingCard({
           <Image src={CheckMark} alt="img" style={{ marginBottom: '3px' }} />
         )}
       </Box>
-      <Box sx={{ display: 'flex', gap: '8px', marginTop: '16px' }}>
+      <Box sx={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
         <Twitter />
         <Facebook />
         <LinkedIn />

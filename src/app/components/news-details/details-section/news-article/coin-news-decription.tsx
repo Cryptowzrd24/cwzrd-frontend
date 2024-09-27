@@ -6,11 +6,11 @@ function CoinNewsDescription() {
     <Box>
       <Typography
         sx={{
-          fontSize: '24px',
+          fontSize: '18.5px',
           fontWeight: 700,
           fontFamily: 'Sf Pro Display',
           color: 'rgba(17, 17, 17, 1)',
-          lineHeight: '28.8px',
+          lineHeight: '26px',
           letterSpacing: '1.24px',
         }}
       >
@@ -18,11 +18,11 @@ function CoinNewsDescription() {
       </Typography>
       <Typography
         sx={{
-          fontSize: '16px',
+          fontSize: '18.5px',
           fontWeight: 400,
           fontFamily: 'Sf Pro Display',
           color: 'rgba(17, 17, 17, 0.8)',
-          lineHeight: '24px',
+          lineHeight: '27px',
           letterSpacing: '0.7px',
           marginTop: '8px',
         }}
@@ -33,13 +33,13 @@ function CoinNewsDescription() {
       </Typography>
       <Typography
         sx={{
-          fontSize: '16px',
+          fontSize: '18.5px',
           fontWeight: 400,
           fontFamily: 'Sf Pro Display',
           color: 'rgba(17, 17, 17, 0.8)',
-          lineHeight: '24px',
+          lineHeight: '27px',
           letterSpacing: '0.7px',
-          marginTop: '20px',
+          marginTop: '36px',
         }}
       >
         Referencing the chart below, the Bitfinex analysts wrote:

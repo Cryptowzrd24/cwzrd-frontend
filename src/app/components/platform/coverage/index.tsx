@@ -1,47 +1,49 @@
 import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
-import coverage from '../../../../../public/images/platform/coverage.png';
+// import coverage from '../../../../../public/images/platform/coverage.png';
+import coverageTwo from '../../../../../public/images/platform/coverageTwo.png';
+
 const Coverage = () => {
   return (
     <>
       <Box
         sx={{
-          padding: '61px 88px',
-          borderRadius: '32px',
+          // padding: '45.75px 66px 45.75px 66px',
+          borderRadius: '24px',
           display: 'flex',
-          gap: '48px',
+          gap: '36px',
           alignItems: 'center',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
+          width: '967px',
         }}
       >
-        <Box>
-          <Image src={coverage} alt="coverage" width={130} />
+        <Box sx={{ paddingBlock: '31.75px', paddingLeft: '66px' }}>
+          <Image src={coverageTwo} alt="coverage" width={97.5} height={97.5} />
         </Box>
         <Box>
           <Stack>
             <Typography
-              variant="h1"
               sx={{
                 backgroundImage:
                   ' linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                fontSize: '40px',
+                fontSize: '30px',
                 mb: '8px',
-                lineHeight: '44px',
+                lineHeight: '33px',
+                fontWeight: 700,
               }}
             >
               Stay Updated with 24/7 Coverage
             </Typography>
             <Typography
-              variant="body1"
               sx={{
                 fontWeight: '400',
-                maxWidth: '930px',
-                lineHeight: '27px',
-                fontSize: '18px',
+                maxWidth: '697.5px',
+                lineHeight: '20.25px',
+                fontSize: '13.5px',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
             >

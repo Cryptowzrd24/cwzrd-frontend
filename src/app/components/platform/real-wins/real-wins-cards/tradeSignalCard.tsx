@@ -5,37 +5,35 @@ const TradeSignalCard = () => {
     <>
       <Box
         sx={{
-          padding: '24px',
+          padding: '18px',
           backgroundImage:
             ' linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)',
           borderRadius: '24px',
-          maxWidth: '183px',
-          width: '100%',
+          width: '136.5px',
+          // height: '156px',
         }}
       >
         <Stack>
           <Typography
-            variant="body1"
             sx={{
-              fontSize: '14px',
+              fontSize: '10px',
               fontWeight: '400',
               color: 'rgba(255, 255, 255, 1)',
-              lineHeight: '20.8px',
+              lineHeight: '13px',
               letterSpacing: '2px',
               maxWidth: '165px',
-              mb: '48px',
+              mb: '36px',
               textTransform: 'uppercase',
             }}
           >
             Trade Signals{' '}
           </Typography>
           <Typography
-            variant="h1"
             sx={{
-              fontSize: '64px',
+              fontSize: '48px',
               fontWeight: '500',
               color: 'rgba(255, 255, 255, 1)',
-              lineHeight: '70.4px',
+              lineHeight: '52.8px',
               letterSpacing: '1px',
               maxWidth: '165px',
             }}
@@ -45,10 +43,10 @@ const TradeSignalCard = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '18px',
+              fontSize: '13.5px',
               fontWeight: '500',
               color: '#FFFFFFCC',
-              lineHeight: '23.4px',
+              lineHeight: '17.55px',
               letterSpacing: '1px',
               maxWidth: '165px',
             }}

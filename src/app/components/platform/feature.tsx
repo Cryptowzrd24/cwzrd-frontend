@@ -18,10 +18,11 @@ const Feature = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: '18px',
+            fontSize: '14px',
             fontWeight: '500',
             textTransform: 'uppercase',
             letterSpacing: 2,
+            lineHeight: '18.2px',
             mb: '8px',
           }}
         >
@@ -29,7 +30,7 @@ const Feature = () => {
         </Typography>
         <Typography
           variant="h1"
-          sx={{ fontSize: '72px', lineHeight: '72px', mb: '12px' }}
+          sx={{ fontSize: '32px', lineHeight: '38.4px', mb: '12px' }}
         >
           Our Platform
           <span
@@ -47,12 +48,12 @@ const Feature = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: '20px',
+            fontSize: '14px',
             fontWeight: '400',
             mb: '36px',
             textAlign: 'center',
-            maxWidth: '860px',
-            lineHeight: '30px',
+            maxWidth: '850px',
+            lineHeight: '21px',
             color: 'rgba(17, 17, 17, 0.8)',
           }}
         >
@@ -60,7 +61,7 @@ const Feature = () => {
           tracker tool, providing valuable insights into your trading activity
           and performance over time.
         </Typography>
-        <Image src={feature} alt="feature" width={1415} />
+        <Image src={feature} alt="feature" width={1079} />
       </Stack>
     </>
   );
