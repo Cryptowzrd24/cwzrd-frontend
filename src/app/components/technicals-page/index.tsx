@@ -10,6 +10,8 @@ import TechnicalGraphCarousel from './technicals-graph-carousel';
 import bitcoinImg from '../../../../public/images/coin-details/bitcoin.png';
 import etheriumImg from '../../../../public/images/coin-details/ether.png';
 import TechnicalsGraph from './technicals-graph';
+import PicksForPanel from './picks-for-card';
+// import LiveNewsExplorer from '../../../app/components/news/components/main/live-news';
 
 function TechnicalsPage() {
   return (
@@ -55,7 +57,7 @@ function TechnicalsPage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-start',
-            marginRight: '12px',
+            marginRight: '38px',
           }}
         >
           <Typography
@@ -81,13 +83,16 @@ function TechnicalsPage() {
         <FinancialNewsCardList />
         <Box
           sx={{
-            width: '400px',
-            height: '507px',
-            background: 'white',
-            boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+            width: '368px',
+            backgroundImage: `url('/images/news-letter/card-background1.png')`,
+            backgroundSize: '100% 100%',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            borderRadius: '16px',
+            height: '505px',
           }}
         >
-          Render Card here
+          <PicksForPanel />
         </Box>
       </Box>
       <Box sx={{ mb: '120px' }}>
