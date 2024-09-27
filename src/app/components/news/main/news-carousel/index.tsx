@@ -67,15 +67,17 @@ const NewsCarousel = ({ showAudience, isDetailPage, isMainPage }: any) => {
     setCurrentIndex(index);
   };
   useEffect(() => {
-    const interval = setInterval(handleNext, 30000);
-    return () => clearInterval(interval);
+    if (!isDetailPage) {
+      const interval = setInterval(handleNext, 30000);
+      return () => clearInterval(interval);
+    }
   }, []);
 
   return (
     <Box
       color={'white'}
       position="relative"
-      width="99%"
+      width="100%"
       height={
         isMainPage
           ? { xs: '180px', sm: '250px', md: '370px' }
@@ -231,33 +233,35 @@ const NewsCarousel = ({ showAudience, isDetailPage, isMainPage }: any) => {
           </Typography>
         </Box>
 
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: '16px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            paddingBlock: '24px',
-            gap: isMainPage ? '0px' : '2px',
-          }}
-        >
-          {content.map((_, index) => (
-            <IconButton
-              sx={{ height: '10px', width: '10px' }}
-              key={index}
-              onClick={() => handleDotClick(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            >
-              <FiberManualRecordIcon
-                sx={{
-                  color: currentIndex === index ? 'white' : 'gray',
-                  height: isMainPage ? '11px' : '15px',
-                }}
-              />
-            </IconButton>
-          ))}
-        </Box>
+        {!isDetailPage && (
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: '16px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              paddingBlock: '24px',
+              gap: isMainPage ? '0px' : '2px',
+            }}
+          >
+            {content.map((_, index) => (
+              <IconButton
+                sx={{ height: '10px', width: '10px' }}
+                key={index}
+                onClick={() => handleDotClick(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              >
+                <FiberManualRecordIcon
+                  sx={{
+                    color: currentIndex === index ? 'white' : 'gray',
+                    height: isMainPage ? '11px' : '15px',
+                  }}
+                />
+              </IconButton>
+            ))}
+          </Box>
+        )}
       </Box>
 
       {!isDetailPage && (
@@ -311,7 +315,7 @@ const NewsCarousel = ({ showAudience, isDetailPage, isMainPage }: any) => {
           sx={{
             color: 'white',
             fontSize: isMainPage ? '14px' : '16px !important',
-            fontWeight: '500 !important',
+            fontWeight: '400 !important',
             paddingInline: isMainPage ? '48px' : '32px',
             lineHeight: isMainPage ? '18.2px' : '20.8px',
           }}

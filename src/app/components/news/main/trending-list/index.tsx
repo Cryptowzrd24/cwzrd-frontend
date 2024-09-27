@@ -3,16 +3,15 @@ import PeopleImage from '../../../../../../public/images/news-letter/people.svg'
 import Image from 'next/image';
 import React from 'react';
 
-interface TrendingNewsCardProps {
+interface TrendingCardProps {
   image: any;
   title: string;
   description: string;
   isDetailPage?: boolean;
   descriptionLines?: number;
-  isMainPage?: boolean;
 }
 
-const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
+const TrendingList: React.FC<TrendingCardProps> = ({
   image,
   title,
   description,
@@ -81,12 +80,9 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
       <Box>
         <Image
           alt="news"
-          src={
-            image ||
-            'https://s3-alpha-sig.figma.com/img/e7a2/1b9d/8dee851bf60c683f94041035849f3dca?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BvgpfnvcAL~zhHG6Oowu1t3HZRwEfXSfH4khOf-3eUB2Uyv8r2u6bU3BVqFllyBCHOsEQjlzxCVobCT8yE8iIhbf1aiqtfUWPypscZYHrLgXrmv32wfptJ7uz5GLSfUhMF9vsPhm3zsby0HqdX2cJHa3H3B7BN-V3dXG8mdmWZoJQwdr8zC7FIAMqPwebOoEbeseY6Q2MK3MeT30CSYde3CmG094wS2f1NI~sSfi~~RCnM~1SyWDv~WX7KL6jhRuxWFBY7IztH-8kgOOyvvP6ESbtWKVmPi07YdpqiFIFtk4MDesUsyThfs6129AmKfVhyVjfY7WY~mBVNAYWuXr5Q__'
-          }
+          src={image.src}
           width={isDetailPage ? 264 : 300}
-          height={isDetailPage ? 130 : 180}
+          height={isDetailPage ? 130 : 160}
           style={{
             objectFit: 'cover',
             borderRadius: '12px',
@@ -143,4 +139,4 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
   );
 };
 
-export default TrendingNewsCard;
+export default TrendingList;

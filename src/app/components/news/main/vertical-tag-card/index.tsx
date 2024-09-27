@@ -35,17 +35,15 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
       <Box
         sx={{
           borderRadius: '12px',
-          minHeight: height ? '300px' : '338px',
+          height: height ? '200px' : '338px',
           width: width ? '300px' : '516px',
           overflow: 'hidden',
-          marginTop: '16px',
-          marginInline: '16px',
         }}
       >
         <Box
           position="absolute"
           top="1"
-          right="1"
+          right={'0'}
           display="flex"
           marginTop={'12px'}
           zIndex={1}
@@ -53,11 +51,9 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
         >
           <Chip
             sx={{
-              backgroundColor: 'transparent',
-              // 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
-              backdropFilter: 'blur(20px)',
-              width: '103px',
-              height: '33px',
+              background:
+                'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+              backdropFilter: 'blur(10px)',
             }}
             key={'123'}
             label={
@@ -67,17 +63,29 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
                   justifyContent: 'center',
                   alignItems: 'center',
                   gap: '4.5px',
+                  height: '60px !important',
                   fontSize: '16px',
                   fontWeight: '600',
+                  paddingInline: '3px',
+                  paddingBlock: '4px',
                 }}
               >
                 <Image
                   src={PeopleImage.src}
                   height={12}
-                  width={300}
+                  width={12}
                   alt="people watching image"
                 />
-                374,039
+                <Typography
+                  sx={{
+                    fontWeight: '500',
+                    fontSize: '12px',
+                    lineHeight: '15.6px',
+                    color: 'white',
+                  }}
+                >
+                  374,039
+                </Typography>
               </Box>
             }
             color="primary"
@@ -87,22 +95,27 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
 
         <Image
           style={{
-            height: height ? '300px' : '380px',
+            height: height ? '200px' : '380px',
             width: width ? '300px' : '100%',
             borderRadius: '12px',
             // objectFit: 'cover',
           }}
           alt="news"
-          src={image.src}
+          src={
+            image ||
+            'https://s3-alpha-sig.figma.com/img/e7a2/1b9d/8dee851bf60c683f94041035849f3dca?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BvgpfnvcAL~zhHG6Oowu1t3HZRwEfXSfH4khOf-3eUB2Uyv8r2u6bU3BVqFllyBCHOsEQjlzxCVobCT8yE8iIhbf1aiqtfUWPypscZYHrLgXrmv32wfptJ7uz5GLSfUhMF9vsPhm3zsby0HqdX2cJHa3H3B7BN-V3dXG8mdmWZoJQwdr8zC7FIAMqPwebOoEbeseY6Q2MK3MeT30CSYde3CmG094wS2f1NI~sSfi~~RCnM~1SyWDv~WX7KL6jhRuxWFBY7IztH-8kgOOyvvP6ESbtWKVmPi07YdpqiFIFtk4MDesUsyThfs6129AmKfVhyVjfY7WY~mBVNAYWuXr5Q__'
+          }
           width={516}
           height={0}
         />
       </Box>
-      <Box sx={{ marginBlock: '24px', marginInline: '16px' }}>
+      <Box>
         <Box sx={{ display: 'flex', gap: '8px' }}>
           <Chip
             sx={{
-              padding: '6px 12px 6px 12px',
+              mt: '16px',
+              width: '68px',
+              height: '25px',
               background:
                 'linear-gradient(180deg, rgba(114, 72, 247, 0.1) 0%, rgba(191, 72, 247, 0.1) 100%) !important',
             }}
@@ -111,8 +124,8 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '12px',
-                  lineHeight: '15.6px',
+                  fontSize: '10px',
+                  lineHeight: '13px',
                   // letterSpacing: '1px',
                 }}
               >
@@ -122,7 +135,9 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
           />
           <Chip
             sx={{
-              padding: '6px 12px 6px 12px',
+              mt: '16px',
+              width: '68px',
+              height: '25px',
               background:
                 'linear-gradient(180deg, rgba(114, 72, 247, 0.1) 0%, rgba(191, 72, 247, 0.1) 100%) !important',
             }}
@@ -131,9 +146,9 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '12px',
-                  lineHeight: '15.6px',
-                  letterSpacing: '1px',
+                  fontSize: '10px',
+                  lineHeight: '13px',
+                  // letterSpacing: '1px',
                 }}
               >
                 BITCOIN
@@ -142,7 +157,9 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
           />
           <Chip
             sx={{
-              padding: '6px 12px 6px 12px',
+              mt: '16px',
+              width: '68px',
+              height: '25px',
               background:
                 'linear-gradient(180deg, rgba(114, 72, 247, 0.1) 0%, rgba(191, 72, 247, 0.1) 100%) !important',
             }}
@@ -151,9 +168,9 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '12px',
-                  lineHeight: '15.6px',
-                  letterSpacing: '1px',
+                  fontSize: '10px',
+                  lineHeight: '13px',
+                  // letterSpacing: '1px',
                 }}
               >
                 CRYPTO
@@ -163,55 +180,45 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
         </Box>
         <Typography
           sx={{
-            fontWeight: '700',
-            fontSize: '18px',
-            lineHeight: '23.4px',
+            fontWeight: '500',
+            fontSize: '16px',
+            lineHeight: '20.8px',
             letterSpacing: '1px',
             marginTop: '16px',
-            marginInline: '8px',
           }}
           variant="body1"
         >
           {title ||
-            'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip'}
+            "Crypto 'Secondaries' Prices Jump as Expectations of IPOs Climb"}
         </Typography>
         <Typography
           sx={{
             fontWeight: '400',
-            fontSize: '13px',
-            lineHeight: '18.85px',
-            marginTop: '8px',
-            marginInline: '8px',
+            fontSize: '12px',
+            lineHeight: '17.4px',
             overflow: 'hidden',
-            WebkitLineClamp: 4,
+            marginTop: '8px',
+            WebkitLineClamp: 6,
             WebkitBoxOrient: 'vertical',
             textOverflow: 'ellipsis',
             display: '-webkit-box',
+            color: 'rgba(17,17,17,0.8)',
           }}
           variant="body2"
         >
           {description ||
             "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."}
         </Typography>
-        <Box
+
+        <Typography
           sx={{
             marginTop: '16px',
+            fontWeight: '500',
+            fontSize: '12px',
+            lineHeight: '15.6px',
+            color: 'rgba(17, 17, 17, 1)',
           }}
-        >
-          <Typography
-            sx={{
-              fontWeight: '600',
-              fontSize: '14px',
-              lineHeight: '18.8px',
-              color: 'rgba(17, 17, 17, 1)',
-              display: 'flex',
-              alignSelf: 'flex-start',
-              paddingBlock: '12px',
-              paddingLeft: '10px',
-              alignItems: 'center',
-            }}
-          >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
-        </Box>
+        >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
       </Box>
     </Box>
   );

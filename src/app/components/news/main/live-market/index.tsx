@@ -53,7 +53,7 @@ function LiveMarket({
         backdropFilter: 'blur(10px)',
         boxShadow: '0px 4px 28px 0px #0000000D',
         // paddingBlock: '6px',
-        height: isPageDetails ? '540px' : '438px',
+        height: isPageDetails ? '545px' : '438px',
       }}
       className="live-market"
     >

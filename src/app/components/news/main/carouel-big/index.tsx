@@ -19,9 +19,9 @@ const content = [
   },
   {
     title:
-      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
+      '1 Top Cryptocurrency to Buy Before It Soars 1,415% to $1 Million, According to Certain Wall Street Analysts',
     description:
-      'Cryptocurrencies are on the rise again as investors flock to digital assets...',
+      'Cryptocurrencies are on the rise again as investors flock to digital assets and will help boost up the ecoenomy like no way before. Crypto i on the rise and this digital era of de-fi and cryoto is not going anywhere soon ...',
     tags: ['Crypto', 'Investment', 'Trending'],
     image:
       'https://academy.education.investing.com/wp-content/uploads/2022/03/bitcoin-what-is-crypto-scaled.jpg',
@@ -55,7 +55,13 @@ const content = [
   },
 ];
 
-const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
+const NewsCarouselBig = ({
+  height,
+  hideButtons,
+  isDetailPage,
+  width,
+  latest,
+}: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -81,7 +87,7 @@ const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
     <Box
       color={'white'}
       position="relative"
-      width="100%"
+      width={width ? width : '100%'}
       height={{ xs: '300px', sm: '400px', md: height ? height : '800px' }}
       display="flex"
       justifyContent="center"
@@ -103,18 +109,18 @@ const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
       <Box
         position="absolute"
         top="0"
-        right="0"
+        right={'0'}
         display="flex"
-        marginTop={'12px'}
+        marginTop={'16px'}
         zIndex={1}
-        marginRight={'12px'}
+        marginRight={'16px'}
       >
         <Chip
           sx={{
             background:
-              'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+              'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)',
             backdropFilter: 'blur(10px)',
-            height: '33px',
+            height: '35px',
           }}
           key={'123'}
           label={
@@ -125,18 +131,29 @@ const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
                 alignItems: 'center',
                 gap: '4.5px',
                 fontSize: '16px',
-                lineHeight: '20.8px',
-                width: '87px',
                 fontWeight: '600',
+                paddingInline: '5px',
+                paddingBlock: '8px',
               }}
             >
               <Image
                 src={PeopleImage.src}
-                height={12}
-                width={12}
+                height={15}
+                width={15}
                 alt="people watching image"
               />
-              {'374,039'}
+              <Typography
+                sx={{
+                  fontWeight: '600',
+                  fontSize: '16px',
+                  lineHeight: '20.8px',
+                  color: 'white',
+                  paddingTop: '8px',
+                  paddingBottom: '8px',
+                }}
+              >
+                374,039
+              </Typography>
             </Box>
           }
           color="primary"
@@ -147,7 +164,9 @@ const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box
           position="absolute"
-          top={hideButtons ? '60%' : isDetailPage ? '45%' : '65%'}
+          top={
+            latest ? '43%' : hideButtons ? '60%' : isDetailPage ? '53%' : '65%'
+          }
           left="0"
           display="flex"
           gap="8px"
@@ -158,8 +177,10 @@ const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
             <Chip
               sx={{
                 background:
-                  'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+                  'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)',
                 backdropFilter: 'blur(10px)',
+                height: '28px',
+                paddingInline: '4px',
               }}
               key={index}
               label={tag}
@@ -172,7 +193,9 @@ const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
         <Box
           position="absolute"
           paddingInline={'24px'}
-          top={hideButtons ? '65%' : isDetailPage ? '53%' : '70%'}
+          top={
+            latest ? '52%' : hideButtons ? '65%' : isDetailPage ? '60%' : '70%'
+          }
           left="0"
           color="white"
           zIndex={1}
@@ -197,10 +220,11 @@ const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
                   }
                 : isDetailPage
                   ? {
-                      fontWeight: '700',
+                      fontWeight: '600',
                       color: 'white',
                       fontSize: '20px',
                       lineHeight: '26px',
+                      width: '97%',
                       letterSpacing: '1px',
                       display: '-webkit-box',
                       overflow: 'hidden',
@@ -226,10 +250,11 @@ const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
             sx={
               isDetailPage
                 ? {
-                    mt: '4px',
+                    mt: '6px',
                     fontSize: '13px',
                     fontWeight: '400',
                     lineHeight: '18.85px',
+                    width: '98%',
                     color: 'rgba(255,255,255,0.8)',
                     display: '-webkit-box',
                     overflow: 'hidden',
@@ -256,7 +281,7 @@ const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
               ? "Bitcoin (CRYPTO: BTC) returned 150% over the past year, easily outpacing the U.S. stock market. But Bernstein analysts Gautam Chhugani and Mahika Sapra expect the cryptocurrency to move much higher in the next decade. Their price targets are listed below, along with the implied upside based on Bitcoin's current price of $66,000."
               : content[currentIndex].description}
           </Typography>
-          <Box marginTop={'8px'} marginBottom={'8px'} display="flex" gap="8px">
+          <Box marginTop={'8px'} marginBottom={'16px'} display="flex" gap="8px">
             <Typography
               sx={{
                 color: 'white',
@@ -280,7 +305,7 @@ const NewsCarouselBig = ({ height, hideButtons, isDetailPage }: any) => {
               display: 'flex',
               gap: '2px',
               zIndex: 1,
-              marginLeft: '32px',
+              marginLeft: '24px',
             }}
           >
             {content.map((_, index) => (

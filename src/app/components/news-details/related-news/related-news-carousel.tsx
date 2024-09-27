@@ -18,8 +18,9 @@ const PreviousArrow = ({ onClick }: any) => (
       position: 'absolute',
       top: '110%',
       left: '0px',
-      width: '48px',
-      height: '48px',
+      width: '32px',
+      height: '32px',
+      marginTop: '10px',
       transform: 'translateY(-50%)',
       zIndex: 1,
       background: '#f0f0f0',
@@ -30,7 +31,7 @@ const PreviousArrow = ({ onClick }: any) => (
   >
     <ArrowBackIosNewIcon
       sx={{
-        fontSize: '20px',
+        fontSize: '15px',
         color: 'rgba(17, 17, 17, 1)',
       }}
     />
@@ -45,8 +46,9 @@ const NextArrow = ({ onClick }: any) => (
       position: 'absolute',
       top: '110%',
       right: '0px',
-      width: '48px',
-      height: '48px',
+      width: '32px',
+      height: '32px',
+      marginTop: '10px',
       transform: 'translateY(-50%)',
       zIndex: 1,
       background: '#f0f0f0',
@@ -57,7 +59,7 @@ const NextArrow = ({ onClick }: any) => (
   >
     <ArrowForwardIosIcon
       sx={{
-        fontSize: '20px',
+        fontSize: '15px',
         color: 'rgba(17, 17, 17, 1)',
       }}
     />
@@ -92,6 +94,7 @@ const RelatedNewsCarousel = ({
           width: '25%',
           padding: '0 5px',
           boxSizing: 'border-box',
+          marginBottom: '5px',
         }}
       >
         <TrendingNewsCard

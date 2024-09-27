@@ -29,7 +29,7 @@ const TagCard: React.FC<TagCardProps> = ({
         borderRadius: '12px',
         height: height ? height : '520px',
         width: width ? width : '600px',
-        boxShadow: '2px 4px 28px 0px #0000000D',
+        boxShadow: '0px -6px 30px rgba(0, 0, 0, 0.07)',
         paddingBottom: '2px',
       }}
     >
