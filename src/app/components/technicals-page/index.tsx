@@ -18,7 +18,7 @@ function TechnicalsPage() {
         <Box>
           <TechnicalsGraph />
         </Box>
-        <Box sx={{ position: 'relative', top: '-110px' }}>
+        <Box sx={{ position: 'relative', top: '-150px' }}>
           <TechnicalGraphCarousel />
         </Box>
       </Box>
@@ -28,7 +28,7 @@ function TechnicalsPage() {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '21.5px',
-          marginTop: '-90px',
+          marginTop: '-110px',
         }}
       >
         <Typography
