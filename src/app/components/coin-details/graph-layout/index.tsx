@@ -33,7 +33,6 @@ function GraphLayout({ coinSymbol }: any) {
 
   const compareCoinSymbol = foundCoin ? foundCoin.symbol : '';
 
-  console.log(selectedFilter);
   const handleFullScreen = () => {
     if (chartRef.current) {
       if (document.fullscreenElement) {

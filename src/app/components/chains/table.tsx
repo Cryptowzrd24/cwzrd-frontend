@@ -67,7 +67,6 @@ const Table = () => {
       setActiveIcon('BoxIcon');
     }
   };
-  console.log(chainData);
   useEffect(() => {
     if (chainData && chainData.data) {
       if (chainData.data.length >= currentPage * pageSize) setCurrentPage(1);

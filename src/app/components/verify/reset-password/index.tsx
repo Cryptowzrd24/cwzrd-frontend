@@ -15,6 +15,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import LoadingOverlay from '../../loading-overlay';
 import { resetPassword } from '@/app/services';
+import { useRouter } from 'next/navigation';
 
 const PasswordResetModal = ({ verificationKey }: any) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,6 +30,8 @@ const PasswordResetModal = ({ verificationKey }: any) => {
   const [message, setMessage] = useState('');
   const [color, setColor] = useState('');
 
+  const router = useRouter();
+
   const handleChange = (e: any) => {
     if (e.target.name === 'password') {
       setPasswordError('');
@@ -40,10 +43,8 @@ const PasswordResetModal = ({ verificationKey }: any) => {
   };
 
   const validatePassword = (password: string) => {
-    console.log('pass', password);
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    console.log('is valid', passwordRegex.test(password));
     return passwordRegex.test(password);
   };
 
@@ -96,6 +97,7 @@ const PasswordResetModal = ({ verificationKey }: any) => {
           setColor('');
           setPassword('');
           setRePassword('');
+          router.push('/market/coin');
         }, 3000);
       } else if (response?.error) {
         setColor('red');

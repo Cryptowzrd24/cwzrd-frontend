@@ -20,6 +20,7 @@ const Table = () => {
     return data?.map((nft: any, index: number) => ({
       logo: nft.logo,
       index: startIndex + index,
+
       name: nft.name || '',
       volume_24: {
         amount:
