@@ -25,7 +25,6 @@ import {
   updateSelectedWatchListName,
 } from '@/app/redux/market';
 import Cookies from 'js-cookie';
-import LogoWhite from '../../../../public/icons/logoWhite';
 import './index.scss';
 import { usePathname, useRouter } from 'next/navigation';
 import StarIcon from '../../../../public/icons/Navbar-Section/starIcon';
@@ -225,10 +224,7 @@ function Navbar() {
             }}
           >
             <Link href="/">
-              {pathname === '/news' || pathname.includes('/news/') ? (
-                <LogoWhite />
-              ) : pathname === '/technicals' ||
-                pathname.includes('/technicals/') ? (
+              {pathname.includes('/news') || pathname === '/technicals' ? (
                 <LogoPurpleHat />
               ) : (
                 <Logo />

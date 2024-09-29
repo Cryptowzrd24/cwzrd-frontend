@@ -8,21 +8,25 @@ import CommentsLikes from '../comments-likes';
 
 interface NewsCardProps {
   isThird?: boolean;
+  image?: any;
+  isFourth?: boolean;
 }
 
-function AnalysisCard({ isThird }: NewsCardProps) {
+function AnalysisCard({ isThird, image, isFourth }: NewsCardProps) {
   return (
     <Box
       sx={{
-        width: !isThird ? '516px' : '468px',
+        width: isFourth ? '680px' : !isThird ? '516px' : '468px',
         height: isThird ? '402px' : undefined,
         borderRadius: '16px',
-        background: !isThird
-          ? 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, rgba(77, 200, 253, 0.05) 43.91%, rgba(77, 200, 253, 0.1) 100%)'
-          : 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, #FFFFFF 43.91%, #F5F1FF 100%)',
+        background: isFourth
+          ? 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, rgba(114, 72, 247, 0.14) 43.91%, rgba(191, 72, 247, 0.08) 100%)'
+          : !isThird
+            ? 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, rgba(77, 200, 253, 0.05) 43.91%, rgba(77, 200, 253, 0.1) 100%)'
+            : 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, #FFFFFF 43.91%, #F5F1FF 100%)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         paddingInline: '16px',
-        marginBottom: '20px',
+        marginBottom: isFourth ? '24px' : '20px',
       }}
     >
       <Box
@@ -40,23 +44,28 @@ function AnalysisCard({ isThird }: NewsCardProps) {
           left: '-10px',
         }}
       >
-        <Image src={bitcoinImg} alt="analysis card" width={32} height={32} />
+        <Image
+          src={image || bitcoinImg}
+          alt="analysis card"
+          width={32}
+          height={32}
+        />
       </Box>
       <Box
         sx={{
-          width: isThird ? '466px' : '516px',
-          height: isThird ? '174px' : '277px',
+          width: isFourth ? '680px' : isThird ? '466px' : '516px',
+          height: isFourth ? '375px' : isThird ? '174px' : '277px',
           marginTop: '-24px',
         }}
       >
         <Image
           src={techGraph}
           alt="analysis card"
-          width={isThird ? 466 : 516}
-          height={isThird ? 174 : 277}
+          width={isFourth ? 680 : isThird ? 466 : 516}
+          height={isFourth ? 375 : isThird ? 174 : 277}
         />
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: isFourth ? '24px' : '16px' }}>
         <Typography
           sx={{
             fontSize: '12px',
@@ -77,28 +86,47 @@ function AnalysisCard({ isThird }: NewsCardProps) {
             lineHeight: '23.4px',
             fontFamily: 'Sf Pro Display',
             marginTop: '12px',
-            width: isThird ? '377px' : '500px',
+            width: isFourth ? '596px' : isThird ? '377px' : '500px',
             marginLeft: '12px',
-            letterSpacing: '0.3px',
+            letterSpacing: isFourth ? '0.8px' : '0.3px',
             color: 'rgba(17, 17, 17, 1)',
           }}
         >
           BITCOIN POTENTIAL $4k Target On Potential Major BEARISH FLAT
         </Typography>
         <Typography
-          sx={{
-            fontSize: '12px',
-            fontWeight: 400,
-            lineHeight: '18px',
-            fontFamily: 'Sf Pro Display',
-            marginTop: '8px',
-            width: isThird ? '377px' : '500px',
-            marginLeft: '12px',
-            color: 'rgba(17, 17, 17, 0.8)',
-          }}
+          sx={
+            isFourth
+              ? {
+                  fontSize: '12px',
+                  fontWeight: 400,
+                  lineHeight: '18px',
+                  fontFamily: 'Sf Pro Display',
+                  marginTop: '8px',
+                  width: '596px',
+                  marginLeft: '12px',
+                  color: 'rgba(17, 17, 17, 0.8)',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical',
+                  textOverflow: 'ellipsis',
+                  display: '-webkit-box',
+                  overflow: 'hidden',
+                }
+              : {
+                  fontSize: '12px',
+                  fontWeight: 400,
+                  lineHeight: '18px',
+                  fontFamily: 'Sf Pro Display',
+                  marginTop: '8px',
+                  width: isThird ? '377px' : '500px',
+                  marginLeft: '12px',
+                  color: 'rgba(17, 17, 17, 0.8)',
+                }
+          }
         >
-          This sort of pattern would certainly shock the herd. A potential Wave
-          B suckers Rally galore .Then SNAP...
+          Ethereum price (ETHUSD) continues to fluctuate near 3361.31$ level,
+          while stochastic attempts to gain the positive momentum, waiting for
+          motivating for the price to resume the expected bullish trend for ...
         </Typography>
       </Box>
       <Box

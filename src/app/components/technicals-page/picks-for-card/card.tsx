@@ -12,15 +12,16 @@ function Card() {
         display: 'flex',
         alignItems: 'center',
         marginInline: '12px',
-        paddingBottom: '22px',
+        // paddingBottom: '22px',
+        paddingBottom: '21px',
         justifyContent: 'space-between',
-        width: '340px',
+        width: '330px',
         borderTop: '1px solid rgba(255, 255, 255, 0.1)',
       }}
     >
       <Box
         sx={{
-          width: '206px',
+          // width: '206px',
           height: '70px',
           marginTop: '12px',
           marginLeft: '10px',
@@ -33,9 +34,11 @@ function Card() {
             fontFamily: 'Sf Pro Display',
             color: 'rgba(255, 255, 255, 1)',
             lineHeight: '15.6px',
+            letterSpacing: '0.6px',
+            width: '240px',
           }}
         >
-          Ethereum price (ETHUSD) forecast update
+          Ethereum price (ETHUSD) forecast<br></br> update
         </Typography>
         <Box sx={{ marginTop: '12px', marginBottom: '22px' }}>
           <CommentsLikes shouldWhite={true} />

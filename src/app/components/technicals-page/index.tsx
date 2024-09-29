@@ -6,12 +6,21 @@ import FinancialNewsCarousel from './financial-news-carousel';
 import TechnicalsBanner from './technicals-banner';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import TechnicalGraphCarousel from './technicals-graph-carousel';
-
 import bitcoinImg from '../../../../public/images/coin-details/bitcoin.png';
 import etheriumImg from '../../../../public/images/coin-details/ether.png';
+import xrpImg from '../../../../public/images/coin-details/xrp-coin.png';
+import litecoinImg from '../../../../public/images/coin-details/lite-coin.png';
 import TechnicalsGraph from './technicals-graph';
 import PicksForPanel from './picks-for-card';
-// import LiveNewsExplorer from '../../../app/components/news/components/main/live-news';
+import GraphDetailsCard from './graph-detail-card';
+import FinancialCard from './financial-card';
+import NewsCard from './financial-news-card/newsCard';
+import FinancialCarBig from './financial-card-big';
+import MentorshipCard from './mentorship-card';
+import chainLinkImg from '../../../../public/images/coin-details/chain-link.png';
+import MemberShipBanner from '../banners/memberShipBanner';
+import FinancialRight from './financial-right';
+import RightCard from './card-right';
 
 function TechnicalsPage() {
   return (
@@ -114,13 +123,14 @@ function TechnicalsPage() {
           <FinancialNewsCardList />
           <Box
             sx={{
-              width: '400px',
+              width: '360px',
               height: '507px',
               background: 'white',
               boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+              borderRadius: '24px',
             }}
           >
-            Render Card here
+            <RightCard />
           </Box>
         </Box>
         <Box sx={{ mb: '120px' }}>
@@ -154,6 +164,77 @@ function TechnicalsPage() {
         </Box>
       </Box>
       {/* //third sec// */}
+      <Box sx={{ marginBlock: '24px' }}>
+        <TechnicalsBanner
+          bgColor="purple"
+          coinName="Litecoin"
+          coinImg={litecoinImg}
+        />
+      </Box>
+
+      <Box sx={{ display: 'flex', gap: 2 }}>
+        <Box>
+          <GraphDetailsCard />
+          <Box sx={{ display: 'flex', gap: 1, marginTop: '12px' }}>
+            <FinancialCard />
+            <FinancialCard />
+            <FinancialCard />
+            <FinancialCard />
+          </Box>
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+          <NewsCard isShort={true} />
+          <NewsCard isShort={true} />
+          <NewsCard isShort={true} />
+          <NewsCard isShort={true} />
+          <NewsCard isShort={true} />
+          <NewsCard isShort={true} />
+        </Box>
+      </Box>
+      <Box sx={{ marginBlock: '24px' }}>
+        <TechnicalsBanner bgColor="green" coinName="XRP" coinImg={xrpImg} />
+      </Box>
+      <Box sx={{ display: 'flex', gap: 2 }}>
+        <AnalysisCard isFourth={true} image={xrpImg} />
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+          <FinancialCarBig image={xrpImg} />
+          <NewsCard image={xrpImg} isShort={true} />
+          <NewsCard image={xrpImg} isShort={true} />
+          <NewsCard image={xrpImg} isShort={true} />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+          <NewsCard image={xrpImg} isShort={true} />
+          <NewsCard image={xrpImg} isShort={true} />
+          <MentorshipCard />
+        </Box>
+      </Box>
+      <Box sx={{ marginBottom: '24px' }}>
+        <TechnicalsBanner
+          bgColor="green"
+          coinName="Chainlink"
+          coinImg={chainLinkImg}
+        />
+      </Box>
+
+      <Box sx={{ marginBlock: '24px', display: 'flex' }}>
+        <Box sx={{ display: 'flex', gap: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <FinancialRight />
+          </Box>
+          <Box>
+            <GraphDetailsCard isInverted={true} image={chainLinkImg} />
+            <Box sx={{ display: 'flex', gap: 1, marginTop: '12px' }}>
+              <FinancialCard image={chainLinkImg} />
+              <FinancialCard image={chainLinkImg} />
+              <FinancialCard image={chainLinkImg} />
+              <FinancialCard image={chainLinkImg} />
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      <Box sx={{ marginBottom: '24px' }}>
+        <MemberShipBanner />
+      </Box>
     </>
   );
 }

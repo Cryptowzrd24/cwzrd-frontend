@@ -4,19 +4,36 @@ import React from 'react';
 
 import techGraph from '../../../../../public/images/technicals-page/techPageGraph.png';
 import bitcoinImg from '../../../../../public/images/coin-details/bitcoin.png';
+import litecoinImg from '../../../../../public/images/coin-details/lite-coin.png';
 
-function NewsCard() {
+interface NewsCardProps {
+  isShort?: boolean;
+  image?: any;
+}
+function NewsCard({ isShort, image }: NewsCardProps) {
   return (
     <Box
-      sx={{
-        width: '402px',
-        padding: '8px',
-        background: 'rgba(255, 255, 255, 1)',
-        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-        borderRadius: '16px',
-        display: 'flex',
-        gap: '12px',
-      }}
+      sx={
+        isShort
+          ? {
+              width: '300px',
+              padding: '8px',
+              background: 'rgba(255, 255, 255, 1)',
+              boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+              borderRadius: '16px',
+              display: 'flex',
+              gap: '2px',
+            }
+          : {
+              width: '402px',
+              padding: '8px',
+              background: 'rgba(255, 255, 255, 1)',
+              boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+              borderRadius: '16px',
+              display: 'flex',
+              gap: '12px',
+            }
+      }
     >
       <Box>
         <Box
@@ -30,12 +47,12 @@ function NewsCard() {
             justifyContent: 'center',
             alignItems: 'center',
             position: 'relative',
-            top: '-2px',
-            left: '-2px',
+            top: !isShort ? '-2px' : '',
+            left: !isShort ? '-2px' : '',
           }}
         >
           <Image
-            src={bitcoinImg}
+            src={image ? image : isShort ? litecoinImg : bitcoinImg}
             alt="analysis card"
             width={17.45}
             height={17.45}
@@ -45,13 +62,20 @@ function NewsCard() {
           <Image src={techGraph} alt="analysis card" width={140} height={75} />
         </Box>
       </Box>
-      <Box sx={{ paddingBlock: '6.5px', marginTop: '6px' }}>
+      <Box
+        sx={
+          isShort
+            ? { marginTop: '6px', paddingLeft: '12px', paddingRight: '22px' }
+            : { paddingBlock: '6.5px', marginTop: '6px' }
+        }
+      >
         <Typography
           sx={{
             fontWeight: 700,
             fontSize: '12px',
             fontFamily: 'Sf Pro Display',
-            width: '242px',
+            width: isShort ? '132px' : '242px',
+            lineHeight: isShort ? '15px' : '',
           }}
         >
           The EURUSD price needs new positive momentum
@@ -61,7 +85,7 @@ function NewsCard() {
             fontWeight: 400,
             fontSize: '10px',
             fontFamily: 'Sf Pro Display',
-            width: '242px',
+            width: isShort ? '132px' : '242px',
             lineHeight: '13px',
             color: 'rgba(17, 17, 17, 0.8)',
             marginTop: '4px',

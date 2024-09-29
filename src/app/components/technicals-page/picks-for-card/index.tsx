@@ -16,6 +16,9 @@ function PicksForPanel() {
         flexDirection: 'column',
         alignItems: 'start',
         borderRadius: '16px',
+        paddingTop: '12px',
+        // width: '300px',
+
         overflowY: 'scroll',
         maxHeight: '472px',
         '&::-webkit-scrollbar': {
