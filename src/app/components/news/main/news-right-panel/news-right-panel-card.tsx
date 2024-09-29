@@ -31,12 +31,12 @@ function NewsRightPanelCard({ cardData }: CardDataProps) {
       <Box
         sx={{
           minWidth: '140px',
-          height: '94px',
+          height: '80px',
           borderRadius: '12px',
           overflow: 'hidden',
         }}
       >
-        <Image src={cardData.img} alt="image" width={140} height={94} />
+        <Image src={cardData.img} alt="image" width={140} height={84} />
       </Box>
       <Box
         sx={{
@@ -50,8 +50,8 @@ function NewsRightPanelCard({ cardData }: CardDataProps) {
           sx={{
             fontFamily: 'Sf Pro Display',
             fontWeight: 700,
-            fontSize: '14px',
-            lineHeight: '18.2px',
+            fontSize: '12px',
+            lineHeight: '15.6px',
             color: 'rgba(17, 17, 17, 1)',
             width: '90%',
           }}

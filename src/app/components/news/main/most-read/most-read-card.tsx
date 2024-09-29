@@ -5,54 +5,55 @@ function MostReadCard() {
   return (
     <Box
       sx={{
-        height: '133px',
+        height: '80px',
         borderTop: '1px solid rgba(17, 17, 17, 0.1)',
-        marginTop: '15px',
+        marginTop: '12px',
+        paddingBottom: '10px',
       }}
     >
-      <Box sx={{ paddingTop: '15px' }}>
+      <Box sx={{ padding: '12px' }}>
         <Typography
           sx={{
             width: '244px',
             fontWeight: 700,
-            fontSize: '18px',
-            lineHeight: '23.4px',
-            letterSpacing: '1.35px',
+            fontSize: '14px',
+            lineHeight: '18.2px',
+            letterSpacing: '0.7px',
             fontFamily: 'Sf Pro Display',
-            paddingInline: '10px',
+            // paddingInline: '10px',
           }}
         >
           Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin
         </Typography>
         <Typography
           sx={{
-            width: '254px',
+            width: '290px',
             color: 'rgba(17, 17, 17, 0.8)',
             fontWeight: 400,
-            fontSize: '13px',
-            lineHeight: '18.85px',
+            fontSize: '12px',
+            lineHeight: '17.4px',
             fontFamily: 'Sf Pro Display',
-            paddingInline: '10px',
-            marginTop: '4px',
+            // paddingInline: '10px',
+            marginTop: '6px',
           }}
         >
-          NASA's Drew Feusted and Ricky Arnold...
+          NASA's Drew Feusted and Ricky Arnold are the...
         </Typography>
         <Box
           sx={{
             display: 'flex',
             alignItems: 'center',
-            marginTop: '12px',
-            paddingInline: '10px',
+            marginTop: '8px',
+            // paddingInline: '10px',
             gap: '8px',
           }}
         >
           <Typography
             sx={{
               fontFamily: 'Sf Pro Display',
-              fontSize: '11px',
-              fontWeight: 600,
-              lineHeight: '14.3px',
+              fontSize: '10px',
+              fontWeight: 500,
+              lineHeight: '13px',
               color: 'rgba(17, 17, 17, 1)',
             }}
           >
@@ -70,9 +71,9 @@ function MostReadCard() {
           <Typography
             sx={{
               fontFamily: 'Sf Pro Display',
-              fontSize: '11px',
-              fontWeight: 600,
-              lineHeight: '14.3px',
+              fontSize: '10px',
+              fontWeight: 500,
+              lineHeight: '13px',
               color: 'rgba(17, 17, 17, 1)',
             }}
           >

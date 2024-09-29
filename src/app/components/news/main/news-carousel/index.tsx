@@ -10,12 +10,12 @@ import Image from 'next/image';
 const content = [
   {
     title:
-      '1 Top Cryptocurrency to Buy Before It Soars 1,415% to $1 Million, According to Certain Wall Street Analysts',
+      '1 Top Cryptocurrency to Buy Before It Soars 1,415% to $1 Million, According to Certain Wall Street Expert Analysts',
     description:
       "Bitcoin (CRYPTO: BTC) returned 150% over the past year, easily outpacing the U.S. stock market. But Bernstein analysts Gautam Chhugani and Mahika Sapra expect the cryptocurrency to move much higher in the next decade. Their price targets are listed below, along with the implied upside based on Bitcoin's current price of $66,000.",
     tags: ['Economy', 'Finance', 'Breaking'],
     image:
-      'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Smx1Gc7zbyX57SWc54aKcBnyC8w~C34oIXNtyNpBFDljRXsN9I1I7K98NFikyzN3x3Jp5P7CSu2nvY2etHLjrPe32v94TCXvsJrETD15mqwn6GsteG2V3mdYzPByXAdjfibniD89lQHBkU~v1UwYU9-kl8~oy2hhbCIS1-fqns3G0p~wFM6BV~rBd0lJM1bDHhrANk41j1D8TRsT2uww30Ba7jUyu49hYLTM8Hr7Qexz0vKHpt8VgbQnDQPEq2qlzVeVJtcTWLMDKkRdczjrnHV4PnISZcnw~Dxe0174JUc-db5q08mCZIiuovFgJXx6WOrdxfnv5MsD-28M85-cXg__',
+      'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MRHH4kxGfZBi-Af87wUE-0W95X~hJMtqGwSY3ucVTbjLZqVffe7-2u-Svy0tULjRHkJV5~s0k00CMMjSPUOwkqgjs5pBZDcP~qeULNEzbSRZuMLUUx-YnVLZIMAIzmtYlnzQlb1FN3pfL6AFQJS7D9qGtYGNkWYmBkbDZE6vmcgd1BHXzvo58vIQC4OJ~qMOFlFPTjiiyl2DprNeNCUji8K4qzWBNd39Z8UiKsEjb0ScR5kqJX5TpieU97EZfZe9hcLsZvCV0Z-X~5m6gVW-yy6NIE5Igxr2j2gjsbg9b3MY7m5HH3F4GzHb72VH1nIzK6uwp6LzBM9kH7lK5KKMbw__',
   },
   {
     title: 'Crypto Boom Continues',
@@ -23,7 +23,7 @@ const content = [
       'Cryptocurrencies are on the rise again as investors flock to digital assets lorem ipsuj sit amet Cryptocurrencies are on the rise again as investors flock to digital assets lorem ipsuj sit amet Cryptocurrencies are on the rise again as investors flock to digital assets lorem ipsuj sit amet ...',
     tags: ['Crypto', 'Investment', 'Trending'],
     image:
-      'https://academy.education.investing.com/wp-content/uploads/2022/03/bitcoin-what-is-crypto-scaled.jpg',
+      'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MRHH4kxGfZBi-Af87wUE-0W95X~hJMtqGwSY3ucVTbjLZqVffe7-2u-Svy0tULjRHkJV5~s0k00CMMjSPUOwkqgjs5pBZDcP~qeULNEzbSRZuMLUUx-YnVLZIMAIzmtYlnzQlb1FN3pfL6AFQJS7D9qGtYGNkWYmBkbDZE6vmcgd1BHXzvo58vIQC4OJ~qMOFlFPTjiiyl2DprNeNCUji8K4qzWBNd39Z8UiKsEjb0ScR5kqJX5TpieU97EZfZe9hcLsZvCV0Z-X~5m6gVW-yy6NIE5Igxr2j2gjsbg9b3MY7m5HH3F4GzHb72VH1nIzK6uwp6LzBM9kH7lK5KKMbw__',
   },
   {
     title: 'Breaking News: Market Crash',
@@ -31,7 +31,7 @@ const content = [
       'The stock market has experienced a significant downturn today...',
     tags: ['Economy', 'Finance', 'Breaking'],
     image:
-      'https://img.freepik.com/free-vector/cryptocurrency-bitcoin-golden-coin-background_1017-31505.jpg',
+      'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MRHH4kxGfZBi-Af87wUE-0W95X~hJMtqGwSY3ucVTbjLZqVffe7-2u-Svy0tULjRHkJV5~s0k00CMMjSPUOwkqgjs5pBZDcP~qeULNEzbSRZuMLUUx-YnVLZIMAIzmtYlnzQlb1FN3pfL6AFQJS7D9qGtYGNkWYmBkbDZE6vmcgd1BHXzvo58vIQC4OJ~qMOFlFPTjiiyl2DprNeNCUji8K4qzWBNd39Z8UiKsEjb0ScR5kqJX5TpieU97EZfZe9hcLsZvCV0Z-X~5m6gVW-yy6NIE5Igxr2j2gjsbg9b3MY7m5HH3F4GzHb72VH1nIzK6uwp6LzBM9kH7lK5KKMbw__',
   },
   {
     title: 'Crypto Boom Continues',
@@ -39,7 +39,7 @@ const content = [
       'Cryptocurrencies are on the rise again as investors flock to digital assets...',
     tags: ['Crypto', 'Investment', 'Trending'],
     image:
-      'https://www.imf.org/-/media/Images/IMF/Blog/Migrated/BLOG-2099x600-Crypto-da-kuk-iStock-by-Getty-Images-iStock-1317587887.ashx',
+      'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MRHH4kxGfZBi-Af87wUE-0W95X~hJMtqGwSY3ucVTbjLZqVffe7-2u-Svy0tULjRHkJV5~s0k00CMMjSPUOwkqgjs5pBZDcP~qeULNEzbSRZuMLUUx-YnVLZIMAIzmtYlnzQlb1FN3pfL6AFQJS7D9qGtYGNkWYmBkbDZE6vmcgd1BHXzvo58vIQC4OJ~qMOFlFPTjiiyl2DprNeNCUji8K4qzWBNd39Z8UiKsEjb0ScR5kqJX5TpieU97EZfZe9hcLsZvCV0Z-X~5m6gVW-yy6NIE5Igxr2j2gjsbg9b3MY7m5HH3F4GzHb72VH1nIzK6uwp6LzBM9kH7lK5KKMbw__',
   },
   {
     title: 'Breaking News: Market Crash',
@@ -47,10 +47,10 @@ const content = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet sequi velit aspernatur sit quo nihil quibusdam, eius quis consequatur quod illo repudiandae iure magni libero, atque illum laudantium impedit nostrum! Tempore deleniti voluptatum voluptate atque minus sequi, exercitationem quia rem veniam maiores, ut eius esse ab eum quasi tempora repellendus animi, omnis molestias eaque! Atque porro velit dolorem sunt veniam!',
     tags: ['Economy', 'Finance', 'Breaking'],
     image:
-      'https://academy.education.investing.com/wp-content/uploads/2022/03/bitcoin-what-is-crypto-scaled.jpg',
+      'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MRHH4kxGfZBi-Af87wUE-0W95X~hJMtqGwSY3ucVTbjLZqVffe7-2u-Svy0tULjRHkJV5~s0k00CMMjSPUOwkqgjs5pBZDcP~qeULNEzbSRZuMLUUx-YnVLZIMAIzmtYlnzQlb1FN3pfL6AFQJS7D9qGtYGNkWYmBkbDZE6vmcgd1BHXzvo58vIQC4OJ~qMOFlFPTjiiyl2DprNeNCUji8K4qzWBNd39Z8UiKsEjb0ScR5kqJX5TpieU97EZfZe9hcLsZvCV0Z-X~5m6gVW-yy6NIE5Igxr2j2gjsbg9b3MY7m5HH3F4GzHb72VH1nIzK6uwp6LzBM9kH7lK5KKMbw__',
   },
 ];
-const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
+const NewsCarousel = ({ showAudience, isDetailPage, isMainPage }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -67,8 +67,10 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
     setCurrentIndex(index);
   };
   useEffect(() => {
-    const interval = setInterval(handleNext, 30000);
-    return () => clearInterval(interval);
+    if (!isDetailPage) {
+      const interval = setInterval(handleNext, 30000);
+      return () => clearInterval(interval);
+    }
   }, []);
 
   return (
@@ -76,7 +78,11 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
       color={'white'}
       position="relative"
       width="100%"
-      height={{ xs: '300px', sm: '400px', md: '480px' }}
+      height={
+        isMainPage
+          ? { xs: '180px', sm: '250px', md: '370px' }
+          : { xs: '300px', sm: '400px', md: '480px' }
+      }
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -115,7 +121,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
             backgroundColor: '#000000 30%',
             backdropFilter: 'blur(10px)',
             boxShadow: '1px',
-            width: '95px',
+            width: '103px',
             height: '33px',
           }}
           label={
@@ -150,7 +156,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           left={0}
           display="flex"
           gap="8px"
-          paddingInline={'32px'}
+          paddingInline={isMainPage ? '48px' : '32px'}
           zIndex={1}
         >
           {content[currentIndex].tags.map((tag, index) => (
@@ -159,6 +165,8 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
                 background:
                   'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 2%, rgba(255, 255, 255, 0.2) 100%)',
                 backdropFilter: 'blur(10px)',
+                paddingInline: '4px',
+                height: '28px',
               }}
               key={index}
               label={tag}
@@ -175,7 +183,7 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
           width="100%"
           color="white"
           zIndex={1}
-          paddingInline="32px"
+          paddingInline={isMainPage ? '48px' : '32px'}
           sx={{
             boxSizing: 'border-box',
             padding: 0,
@@ -184,12 +192,23 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
         >
           <Typography
             variant="h4"
-            sx={{
-              fontWeight: '700 !important',
-              color: 'white',
-              fontSize: '32px  !important',
-              paddingInline: '32px',
-            }}
+            sx={
+              isMainPage
+                ? {
+                    fontWeight: '700 !important',
+                    color: 'white',
+                    lineHeight: '28.8px',
+                    fontSize: '24px  !important',
+                    paddingInline: '48px',
+                    marginTop: '8px',
+                  }
+                : {
+                    fontWeight: '700 !important',
+                    color: 'white',
+                    fontSize: '32px  !important',
+                    paddingInline: '32px',
+                  }
+            }
           >
             {content[currentIndex].title}
           </Typography>
@@ -197,50 +216,53 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
             sx={{
               mt: 1,
               color: 'white',
-              fontSize: '16px !important',
+              fontSize: '14px !important',
+              lineHeight: '21px',
               fontWeight: '400  !important',
               opacity: '80%',
-              paddingInline: '32px',
+              paddingInline: isMainPage ? '48px' : '32px',
               display: '-webkit-box',
               overflow: 'hidden',
               WebkitBoxOrient: 'vertical',
               WebkitLineClamp: 2,
               textOverflow: 'ellipsis',
               whiteSpace: 'normal',
-              maxWidth: 'calc(100% - 48px)',
+              maxWidth: isMainPage ? '87% ' : 'calc(100% - 48px)',
             }}
           >
             {content[currentIndex].description}
           </Typography>
         </Box>
 
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: '16px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            paddingBlock: '24px',
-            gap: '2px',
-          }}
-        >
-          {content.map((_, index) => (
-            <IconButton
-              sx={{ height: '10px', width: '10px' }}
-              key={index}
-              onClick={() => handleDotClick(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            >
-              <FiberManualRecordIcon
-                sx={{
-                  color: currentIndex === index ? 'white' : 'gray',
-                  height: '15px',
-                }}
-              />
-            </IconButton>
-          ))}
-        </Box>
+        {!isDetailPage && (
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: '16px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              paddingBlock: '24px',
+              gap: isMainPage ? '0px' : '2px',
+            }}
+          >
+            {content.map((_, index) => (
+              <IconButton
+                sx={{ height: '10px', width: '10px' }}
+                key={index}
+                onClick={() => handleDotClick(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              >
+                <FiberManualRecordIcon
+                  sx={{
+                    color: currentIndex === index ? 'white' : 'gray',
+                    height: isMainPage ? '11px' : '15px',
+                  }}
+                />
+              </IconButton>
+            ))}
+          </Box>
+        )}
       </Box>
 
       {!isDetailPage && (
@@ -258,8 +280,8 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              height: '48px',
-              width: '48px',
+              height: isMainPage ? '40px' : '48px',
+              width: isMainPage ? '40px' : '48px',
             }}
             onClick={handlePrev}
             aria-label="Previous slide"
@@ -272,8 +294,8 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              height: '48px',
-              width: '48px',
+              height: isMainPage ? '40px' : '48px',
+              width: isMainPage ? '40px' : '48px',
             }}
             onClick={handleNext}
             aria-label="Next slide"
@@ -293,13 +315,13 @@ const NewsCarousel = ({ showAudience, isDetailPage }: any) => {
         <Typography
           sx={{
             color: 'white',
-            fontSize: '16px !important',
-            fontWeight: '500 !important',
-            paddingInline: '32px',
-            lineHeight: '20.8px',
+            fontSize: isMainPage ? '14px' : '16px !important',
+            fontWeight: '400 !important',
+            paddingInline: isMainPage ? '48px' : '32px',
+            lineHeight: isMainPage ? '18.2px' : '20.8px',
           }}
         >
-          19/06/2024 at 03:32 AM | John Smith
+          19/06/2024 at 03:32 AM &nbsp;&nbsp;|&nbsp;&nbsp; John Smith
         </Typography>
       </Box>
     </Box>

@@ -116,7 +116,7 @@ function NewsLetterBanner() {
               borderRadius: '100px',
               maxWidth: '470px',
               width: '100%',
-              marginTop: '24px',
+              marginTop: '16px',
               background: 'rgba(255, 255, 255, 1)',
               padding: '4px 4px 4px 24px',
             }}
@@ -163,7 +163,7 @@ function NewsLetterBanner() {
           </Box>
         </Stack>
       </Box>
-      {emailError?.length && (
+      {emailError && (
         <Typography
           sx={{ marginLeft: '20px', marginTop: '10px', color: 'white' }}
         >

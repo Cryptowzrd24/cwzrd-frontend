@@ -11,22 +11,24 @@ import ArrowLeftDark from '../../../../../../public/icons/collections/arrowLeftD
 const content = [
   {
     title:
-      'Italy to Increase Surveillance of Crypto Market With Fines as High as 5M Euros: Reuters',
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
     description:
       'That will include high fines for those who manipulate the crypto asset market as part of a wider scheme to beef up surveillance of risks tied to the sector, Reuters reported, citing a draft decree it reviewed.',
     tags: ['Economy', 'Finance', 'Breaking'],
     image: CarouselImage1,
   },
   {
-    title: 'Crypto Boom Continues',
+    title:
+      '1 Top Cryptocurrency to Buy Before It Soars 1,415% to $1 Million, According to Certain Wall Street Analysts',
     description:
-      'Cryptocurrencies are on the rise again as investors flock to digital assets...',
+      'Cryptocurrencies are on the rise again as investors flock to digital assets and will help boost up the ecoenomy like no way before. Crypto i on the rise and this digital era of de-fi and cryoto is not going anywhere soon ...',
     tags: ['Crypto', 'Investment', 'Trending'],
     image:
       'https://academy.education.investing.com/wp-content/uploads/2022/03/bitcoin-what-is-crypto-scaled.jpg',
   },
   {
-    title: 'Breaking News: Market Crash',
+    title:
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
     description:
       'The stock market has experienced a significant downturn today...',
     tags: ['Economy', 'Finance', 'Breaking'],
@@ -34,7 +36,8 @@ const content = [
       'https://img.freepik.com/free-vector/cryptocurrency-bitcoin-golden-coin-background_1017-31505.jpg',
   },
   {
-    title: 'Crypto Boom Continues',
+    title:
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
     description:
       'Cryptocurrencies are on the rise again as investors flock to digital assets...',
     tags: ['Crypto', 'Investment', 'Trending'],
@@ -42,7 +45,8 @@ const content = [
       'https://www.imf.org/-/media/Images/IMF/Blog/Migrated/BLOG-2099x600-Crypto-da-kuk-iStock-by-Getty-Images-iStock-1317587887.ashx',
   },
   {
-    title: 'Breaking News: Market Crash',
+    title:
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet sequi velit aspernatur sit quo nihil quibusdam, eius quis consequatur quod illo repudiandae iure magni libero, atque illum laudantium impedit nostrum! Tempore deleniti voluptatum voluptate atque minus sequi, exercitationem quia rem veniam maiores, ut eius esse ab eum quasi tempora repellendus animi, omnis molestias eaque! Atque porro velit dolorem sunt veniam!',
     tags: ['Economy', 'Finance', 'Breaking'],
@@ -51,7 +55,13 @@ const content = [
   },
 ];
 
-const NewsCarouselBig = ({ height, hideButtons }: any) => {
+const NewsCarouselBig = ({
+  height,
+  hideButtons,
+  isDetailPage,
+  width,
+  latest,
+}: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -77,7 +87,7 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
     <Box
       color={'white'}
       position="relative"
-      width="100%"
+      width={width ? width : '100%'}
       height={{ xs: '300px', sm: '400px', md: height ? height : '800px' }}
       display="flex"
       justifyContent="center"
@@ -99,18 +109,18 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
       <Box
         position="absolute"
         top="0"
-        right="0"
+        right={'0'}
         display="flex"
-        marginTop={'12px'}
+        marginTop={'16px'}
         zIndex={1}
-        marginRight={'12px'}
+        marginRight={'16px'}
       >
         <Chip
           sx={{
             background:
-              'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+              'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)',
             backdropFilter: 'blur(10px)',
-            height: '33px',
+            height: '35px',
           }}
           key={'123'}
           label={
@@ -121,18 +131,29 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
                 alignItems: 'center',
                 gap: '4.5px',
                 fontSize: '16px',
-                lineHeight: '20.8px',
-                width: '87px',
                 fontWeight: '600',
+                paddingInline: '5px',
+                paddingBlock: '8px',
               }}
             >
               <Image
                 src={PeopleImage.src}
-                height={12}
-                width={12}
+                height={15}
+                width={15}
                 alt="people watching image"
               />
-              {'374,039'}
+              <Typography
+                sx={{
+                  fontWeight: '600',
+                  fontSize: '16px',
+                  lineHeight: '20.8px',
+                  color: 'white',
+                  paddingTop: '8px',
+                  paddingBottom: '8px',
+                }}
+              >
+                374,039
+              </Typography>
             </Box>
           }
           color="primary"
@@ -143,19 +164,23 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box
           position="absolute"
-          top={hideButtons ? '60%' : '65%'}
+          top={
+            latest ? '43%' : hideButtons ? '60%' : isDetailPage ? '53%' : '65%'
+          }
           left="0"
           display="flex"
           gap="8px"
           zIndex={1}
-          paddingInline={'32px'}
+          paddingInline={'24px'}
         >
           {content[currentIndex].tags.map((tag, index) => (
             <Chip
               sx={{
                 background:
-                  'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+                  'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)',
                 backdropFilter: 'blur(10px)',
+                height: '28px',
+                paddingInline: '4px',
               }}
               key={index}
               label={tag}
@@ -167,8 +192,10 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
 
         <Box
           position="absolute"
-          paddingInline={'32px'}
-          top={hideButtons ? '65%' : '70%'}
+          paddingInline={'24px'}
+          top={
+            latest ? '52%' : hideButtons ? '65%' : isDetailPage ? '60%' : '70%'
+          }
           left="0"
           color="white"
           zIndex={1}
@@ -191,13 +218,27 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
                     WebkitLineClamp: 2,
                     WebkitBoxOrient: 'vertical',
                   }
-                : {
-                    fontWeight: '700',
-                    color: 'white',
-                    fontSize: '24px',
-                    lineHeight: '28.8px',
-                    letterSpacing: '1%',
-                  }
+                : isDetailPage
+                  ? {
+                      fontWeight: '600',
+                      color: 'white',
+                      fontSize: '20px',
+                      lineHeight: '26px',
+                      width: '97%',
+                      letterSpacing: '1px',
+                      display: '-webkit-box',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
+                    }
+                  : {
+                      fontWeight: '700',
+                      color: 'white',
+                      fontSize: '24px',
+                      lineHeight: '28.8px',
+                      letterSpacing: '1%',
+                    }
             }
           >
             {hideButtons
@@ -206,31 +247,47 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
           </Typography>
           <Typography
             variant="body1"
-            sx={{
-              mt: 1,
-              color: 'white',
-              fontSize: '16px',
-              fontWeight: '400',
-              lineHeight: '24px',
-              opacity: '80%',
-              display: '-webkit-box',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-            }}
+            sx={
+              isDetailPage
+                ? {
+                    mt: '6px',
+                    fontSize: '13px',
+                    fontWeight: '400',
+                    lineHeight: '18.85px',
+                    width: '98%',
+                    color: 'rgba(255,255,255,0.8)',
+                    display: '-webkit-box',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                  }
+                : {
+                    mt: 1,
+                    color: 'white',
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    lineHeight: '24px',
+                    opacity: '80%',
+                    display: '-webkit-box',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                  }
+            }
           >
             {hideButtons
               ? "Bitcoin (CRYPTO: BTC) returned 150% over the past year, easily outpacing the U.S. stock market. But Bernstein analysts Gautam Chhugani and Mahika Sapra expect the cryptocurrency to move much higher in the next decade. Their price targets are listed below, along with the implied upside based on Bitcoin's current price of $66,000."
               : content[currentIndex].description}
           </Typography>
-          <Box marginTop={'24px'} marginBottom={'8px'} display="flex" gap="8px">
+          <Box marginTop={'8px'} marginBottom={'16px'} display="flex" gap="8px">
             <Typography
               sx={{
                 color: 'white',
-                fontSize: '16px',
+                fontSize: '12px',
                 fontWeight: '500',
-                lineHeight: '20.8px',
+                lineHeight: '15.6px',
               }}
             >
               19/06/2024 at 03:32 AM | John Smith
@@ -248,7 +305,7 @@ const NewsCarouselBig = ({ height, hideButtons }: any) => {
               display: 'flex',
               gap: '2px',
               zIndex: 1,
-              marginLeft: '32px',
+              marginLeft: '24px',
             }}
           >
             {content.map((_, index) => (

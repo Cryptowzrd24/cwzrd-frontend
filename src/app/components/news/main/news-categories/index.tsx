@@ -18,7 +18,7 @@ export const NewsCategory: React.FC = () => {
     <Container
       sx={{
         display: 'flex',
-        marginBlock: '30px',
+        marginBlock: '16px 24px',
         alignItems: 'center',
         backgroundColor: 'white',
         borderRadius: '24px',

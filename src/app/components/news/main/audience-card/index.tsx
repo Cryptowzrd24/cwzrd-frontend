@@ -3,24 +3,13 @@ import PeopleImage from '../../../../../../public/images/news-letter/people.svg'
 import Image from 'next/image';
 import React from 'react';
 
-interface TrendingNewsCardProps {
-  image: any;
-  title: string;
-  description: string;
-  isDetailPage?: boolean;
-  descriptionLines?: number;
-  isMainPage?: boolean;
-  smallHeight?: boolean;
-}
-
-const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
+const AudienceCard = ({
   image,
   title,
   description,
   isDetailPage,
   descriptionLines,
-  smallHeight,
-}) => {
+}: any) => {
   return (
     <Box
       sx={{
@@ -28,8 +17,11 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '100%',
+        width: '320px',
         borderRadius: '12px',
+        padding: '8px',
+        background: 'rgba(255, 255, 255, 1)',
+        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
       }}
     >
       <Chip
@@ -40,7 +32,6 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
               justifyContent: 'center',
               alignItems: 'center',
               color: 'white',
-
               lineHeight: '20.8px',
               background: 'rgba(255, 255, 255, 0.1)',
               // backdropFilter: 'blur(10px)',
@@ -73,8 +64,8 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         }
         sx={{
           position: 'absolute',
-          top: 0,
-          right: '-12px',
+          top: 10,
+          right: '-4px',
           fontWeight: 'bold',
           backgroundColor: 'transparent',
           height: '33px',
@@ -83,19 +74,16 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
       <Box>
         <Image
           alt="news"
-          src={
-            image ||
-            'https://s3-alpha-sig.figma.com/img/e7a2/1b9d/8dee851bf60c683f94041035849f3dca?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BvgpfnvcAL~zhHG6Oowu1t3HZRwEfXSfH4khOf-3eUB2Uyv8r2u6bU3BVqFllyBCHOsEQjlzxCVobCT8yE8iIhbf1aiqtfUWPypscZYHrLgXrmv32wfptJ7uz5GLSfUhMF9vsPhm3zsby0HqdX2cJHa3H3B7BN-V3dXG8mdmWZoJQwdr8zC7FIAMqPwebOoEbeseY6Q2MK3MeT30CSYde3CmG094wS2f1NI~sSfi~~RCnM~1SyWDv~WX7KL6jhRuxWFBY7IztH-8kgOOyvvP6ESbtWKVmPi07YdpqiFIFtk4MDesUsyThfs6129AmKfVhyVjfY7WY~mBVNAYWuXr5Q__'
-          }
-          width={isDetailPage ? 264 : 300}
-          height={isDetailPage ? 130 : smallHeight ? 150 : 180}
+          src={image.src}
+          width={isDetailPage ? 264 : 320}
+          height={isDetailPage ? 130 : 160}
           style={{
             objectFit: 'cover',
             borderRadius: '12px',
           }}
         />
       </Box>
-      <Box sx={{ paddingInline: '4px', marginTop: '8px' }}>
+      <Box sx={{ paddingInline: '9px', marginTop: '8px' }}>
         <Typography
           sx={{
             fontWeight: '700',
@@ -128,23 +116,31 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           {description ||
             "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."}
         </Typography>
+      </Box>
+      <Box
+        sx={{
+          marginTop: '8px',
+          marginBottom: '2px',
+          width: '100%',
+        }}
+      >
         <Typography
           sx={{
             fontWeight: '500',
-            fontSize: !isDetailPage ? '10px' : '10px',
+            fontSize: '10px',
             lineHeight: '13px',
-            marginTop: '8px',
+            backgroundColor: 'rgb(243,243,243)',
+            borderRadius: '8px',
+            display: 'flex',
             alignSelf: 'flex-start',
-            color: 'rgba(17,17,17,1)',
-            paddingLeft: 0,
-            width: isDetailPage ? '264px' : '100%',
+            paddingBlock: '6px',
+            paddingLeft: '12px',
+            alignItems: 'center',
           }}
-        >
-          06/06/2023 at 00:06 AM &nbsp;&nbsp;|&nbsp;&nbsp; John Smith
-        </Typography>
+        >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
       </Box>
     </Box>
   );
 };
 
-export default TrendingNewsCard;
+export default AudienceCard;
