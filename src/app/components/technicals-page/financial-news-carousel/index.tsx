@@ -64,7 +64,7 @@ const NextArrow = ({ onClick }: any) => (
   </IconButton>
 );
 
-const FinancialNewsCarousel = () => {
+const FinancialNewsCarousel = ({ noBackground = false }) => {
   const settings = {
     dots: true,
     infinite: false,
@@ -86,7 +86,7 @@ const FinancialNewsCarousel = () => {
           boxSizing: 'border-box',
         }}
       >
-        <FinancialNewsCardVertical />
+        <FinancialNewsCardVertical noBackground={noBackground} />
       </Box>
     );
   });

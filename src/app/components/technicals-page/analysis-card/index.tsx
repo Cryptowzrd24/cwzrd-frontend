@@ -10,9 +10,10 @@ interface NewsCardProps {
   isThird?: boolean;
   image?: any;
   isFourth?: boolean;
+  isFirst?: boolean;
 }
 
-function AnalysisCard({ isThird, image, isFourth }: NewsCardProps) {
+function AnalysisCard({ isThird, image, isFourth, isFirst }: NewsCardProps) {
   return (
     <Box
       sx={{
@@ -26,7 +27,7 @@ function AnalysisCard({ isThird, image, isFourth }: NewsCardProps) {
             : 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, #FFFFFF 43.91%, #F5F1FF 100%)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         paddingInline: '16px',
-        marginBottom: isFourth ? '24px' : '20px',
+        marginBottom: isFourth ? '24px' : isFirst ? '0px' : '0px',
       }}
     >
       <Box
@@ -86,7 +87,7 @@ function AnalysisCard({ isThird, image, isFourth }: NewsCardProps) {
             lineHeight: '23.4px',
             fontFamily: 'Sf Pro Display',
             marginTop: '12px',
-            width: isFourth ? '596px' : isThird ? '377px' : '500px',
+            width: isFourth ? '596px' : isThird ? '100%' : '500px',
             marginLeft: '12px',
             letterSpacing: isFourth ? '0.8px' : '0.3px',
             color: 'rgba(17, 17, 17, 1)',
@@ -118,15 +119,14 @@ function AnalysisCard({ isThird, image, isFourth }: NewsCardProps) {
                   lineHeight: '18px',
                   fontFamily: 'Sf Pro Display',
                   marginTop: '8px',
-                  width: isThird ? '377px' : '500px',
+                  width: isThird ? '100%' : '500px',
                   marginLeft: '12px',
                   color: 'rgba(17, 17, 17, 0.8)',
                 }
           }
         >
           Ethereum price (ETHUSD) continues to fluctuate near 3361.31$ level,
-          while stochastic attempts to gain the positive momentum, waiting for
-          motivating for the price to resume the expected bullish trend for ...
+          while stochastic attempts to gain the positive momentum...
         </Typography>
       </Box>
       <Box

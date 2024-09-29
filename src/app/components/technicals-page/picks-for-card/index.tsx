@@ -16,11 +16,8 @@ function PicksForPanel() {
         flexDirection: 'column',
         alignItems: 'start',
         borderRadius: '16px',
-        paddingTop: '12px',
-        // width: '300px',
-
+        overflowX: 'hidden',
         overflowY: 'scroll',
-        maxHeight: '472px',
         '&::-webkit-scrollbar': {
           display: 'none',
         },
@@ -79,7 +76,7 @@ function PicksForPanel() {
           </span>
         </Box>
       </Box>
-      <Box>{renderCards}</Box>
+      <Box sx={{ width: '100%' }}>{renderCards}</Box>
     </Box>
   );
 }

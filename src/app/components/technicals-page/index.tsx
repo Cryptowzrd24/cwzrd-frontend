@@ -88,7 +88,7 @@ function TechnicalsPage() {
         </Box>
       </Box>
       <Box sx={{ display: 'flex', gap: '16px' }}>
-        <AnalysisCard />
+        <AnalysisCard isFirst={true} />
         <FinancialNewsCardList />
         <Box
           sx={{
@@ -119,7 +119,7 @@ function TechnicalsPage() {
       {/* //second sec// */}
       <Box>
         <Box sx={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
-          <AnalysisCard />
+          <AnalysisCard isFirst={true} />
           <FinancialNewsCardList />
           <Box
             sx={{
@@ -157,7 +157,7 @@ function TechnicalsPage() {
           <FinancialNewsCardList isRenderFour={true} />
         </Box>
         <Box sx={{ mb: '120px' }}>
-          <FinancialNewsCarousel />
+          <FinancialNewsCarousel noBackground={true} />
         </Box>
         <Box sx={{ marginTop: '-42px' }}>
           <NewsLetterBanner />

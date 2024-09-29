@@ -44,6 +44,7 @@ function TechnicalsBanner({
         borderRadius: '24px',
         display: 'flex',
         alignItems: 'center',
+        width: '100%',
       }}
     >
       <Box
@@ -80,10 +81,11 @@ function TechnicalsBanner({
           <Typography
             sx={{
               fontSize: '18px',
-              fontWeight: 700,
+              fontWeight: 600,
               fontFamily: 'Sf Pro Display',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '23.4px',
+              whiteSpace: 'nowrap',
             }}
           >
             {coinName} Live Analysis
@@ -107,7 +109,7 @@ function TechnicalsBanner({
                 marginTop: '2px',
                 fontSize: '16px',
                 lineHeight: '20.8px',
-                fontWeight: 700,
+                fontWeight: 600,
                 fontFamily: 'Sf Pro Display',
                 color: 'rgba(255, 255, 255, 1)',
               }}
@@ -132,7 +134,7 @@ function TechnicalsBanner({
                 marginTop: '2px',
                 fontSize: '16px',
                 lineHeight: '20.8px',
-                fontWeight: 600,
+                fontWeight: 500,
                 fontFamily: 'Sf Pro Display',
                 color: 'rgba(76, 254, 182, 1)',
               }}
@@ -157,7 +159,7 @@ function TechnicalsBanner({
                 marginTop: '2px',
                 fontSize: '16px',
                 lineHeight: '20.8px',
-                fontWeight: 600,
+                fontWeight: 500,
                 fontFamily: 'Sf Pro Display',
                 color: 'rgba(245, 109, 109, 1)',
               }}
@@ -182,7 +184,7 @@ function TechnicalsBanner({
                 marginTop: '2px',
                 fontSize: '16px',
                 lineHeight: '20.8px',
-                fontWeight: 600,
+                fontWeight: 500,
                 fontFamily: 'Sf Pro Display',
                 color: 'rgba(76, 254, 182, 1)',
               }}
@@ -207,7 +209,7 @@ function TechnicalsBanner({
                 marginTop: '2px',
                 fontSize: '16px',
                 lineHeight: '20.8px',
-                fontWeight: 700,
+                fontWeight: 600,
                 fontFamily: 'Sf Pro Display',
                 color: 'rgba(255, 255, 255, 1)',
               }}
@@ -234,7 +236,7 @@ function TechnicalsBanner({
       </Box>
       <Box
         sx={{
-          marginLeft: '84px',
+          marginLeft: 'auto',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-start',

@@ -12,10 +12,9 @@ function Card() {
         display: 'flex',
         alignItems: 'center',
         marginInline: '12px',
-        // paddingBottom: '22px',
         paddingBottom: '21px',
         justifyContent: 'space-between',
-        width: '330px',
+        width: 'auto',
         borderTop: '1px solid rgba(255, 255, 255, 0.1)',
       }}
     >
@@ -24,7 +23,7 @@ function Card() {
           // width: '206px',
           height: '70px',
           marginTop: '12px',
-          marginLeft: '10px',
+          // marginLeft: '10px',
         }}
       >
         <Typography
@@ -38,7 +37,7 @@ function Card() {
             width: '240px',
           }}
         >
-          Ethereum price (ETHUSD) forecast<br></br> update
+          Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
         </Typography>
         <Box sx={{ marginTop: '12px', marginBottom: '22px' }}>
           <CommentsLikes shouldWhite={true} />

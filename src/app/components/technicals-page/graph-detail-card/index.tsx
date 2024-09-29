@@ -94,7 +94,7 @@ const GraphDetailsCard = ({ image, isInverted }: GraphDetailsCardProps) => {
                     position: 'absolute',
                     // top: 1,
                     // right: 1,
-                    right: 10,
+                    right: 25,
                     top: 6,
                     width: '44px',
                     height: '44px',
@@ -115,7 +115,17 @@ const GraphDetailsCard = ({ image, isInverted }: GraphDetailsCardProps) => {
             />
           </Box>
         </Box>
-        <Image src={GraphCard.src} alt="card" height={300} width={650} />
+        <img
+          src={GraphCard.src}
+          alt="card"
+          style={{
+            width: '576px',
+            height: '100%',
+            borderRadius: '12px',
+            objectFit: 'cover',
+            objectPosition: 'center center',
+          }}
+        />
       </Box>
     </Box>
   );

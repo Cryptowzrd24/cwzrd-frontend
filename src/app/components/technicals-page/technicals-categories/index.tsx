@@ -31,7 +31,6 @@ export const TechnicalsCategory: React.FC = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          gap: 2,
           marginLeft: '-50px',
         }}
       >
@@ -63,8 +62,8 @@ export const TechnicalsCategory: React.FC = () => {
                 textAlign: 'center',
                 fontSize: '14px',
                 fontWeight: 700,
-                paddingInline: '5px',
-                marginInline: '5px',
+                paddingInline: '8px',
+                marginInline: '8px',
                 color: `${item.name == 'All Analysis' ? 'rgba(114, 72, 247, 1)' : 'inherit'}`,
                 ':hover': {
                   color: 'rgba(114, 72, 247, 1)',

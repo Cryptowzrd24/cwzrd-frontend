@@ -34,8 +34,8 @@ function CommentsLikes({ shouldWhite }: { shouldWhite?: boolean }) {
         <Image
           src={shouldWhite ? CommentIconWhite : CommentIcon}
           alt={'comment icon'}
-          width={16.8}
-          height={16.8}
+          width={19.2}
+          height={19.2}
           color="white"
         />
         <Typography
@@ -54,7 +54,6 @@ function CommentsLikes({ shouldWhite }: { shouldWhite?: boolean }) {
         sx={{
           padding: '5.6px 9.8px 5.6px 8.4px',
           borderRadius: '70px',
-          width: '32.6px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -63,7 +62,7 @@ function CommentsLikes({ shouldWhite }: { shouldWhite?: boolean }) {
             'linear-gradient(116.74deg, rgba(34, 200, 51, 0.1) -4.07%, rgba(34, 200, 51, 0.1) 100.68%)',
         }}
       >
-        <Image src={LikesIcon} alt={'like icon'} width={16.8} height={16.8} />
+        <Image src={LikesIcon} alt={'like icon'} width={19.2} height={19.2} />
         <Typography
           sx={{
             fontSize: '9.8px',

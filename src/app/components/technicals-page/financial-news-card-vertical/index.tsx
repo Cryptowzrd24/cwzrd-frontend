@@ -6,15 +6,17 @@ import techGraph from '../../../../../public/images/technicals-page/techPageGrap
 import bitcoinImg from '../../../../../public/images/coin-details/bitcoin.png';
 import CommentsLikes from '../comments-likes';
 
-function FinancialNewsCardVertical() {
+function FinancialNewsCardVertical({ noBackground = false }) {
   return (
     <Box
       sx={{
         width: '243.6px',
         height: '274px',
         padding: '8px',
-        background: 'rgba(255, 255, 255, 1)',
-        boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
+        background: noBackground ? 'transparent' : 'rgba(255, 255, 255, 1)',
+        boxShadow: noBackground
+          ? 'none'
+          : '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
         borderRadius: '16px',
         display: 'flex',
         flexDirection: 'column',
@@ -55,20 +57,28 @@ function FinancialNewsCardVertical() {
             width={235.6}
             height={132}
             style={{
-              boxShadow: '0px 0px 12px 0px rgba(114, 72, 247, 0.1) inset',
-              borderRadius: '12px',
+              boxShadow: noBackground
+                ? 'none'
+                : '0px 0px 12px 0px rgba(114, 72, 247, 0.1) inset',
+              borderRadius: noBackground ? '0px' : '12px',
             }}
           />
         </Box>
       </Box>
-      <Box sx={{ marginTop: '8px', paddingInline: '8px', marginLeft: '6px' }}>
+      <Box
+        sx={{
+          marginTop: '8px',
+          paddingInline: noBackground ? '0px' : '8px',
+          marginLeft: noBackground ? '0px' : '6px',
+        }}
+      >
         <Typography
           sx={{
             fontWeight: 700,
             fontSize: '14px',
             lineHeight: '18.2px',
             fontFamily: 'Sf Pro Display',
-            width: '219.6px',
+            width: noBackground ? 'auto' : '219.6px',
           }}
         >
           The EURJPY takes advantage of the support line stability
@@ -78,7 +88,7 @@ function FinancialNewsCardVertical() {
             fontWeight: 400,
             fontSize: '12px',
             fontFamily: 'Sf Pro Display',
-            width: '219.6px',
+            width: noBackground ? 'auto' : '219.6px',
             lineHeight: '17.4px',
             color: 'rgba(17, 17, 17, 0.8)',
             marginTop: '4px',

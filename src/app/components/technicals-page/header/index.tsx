@@ -19,12 +19,13 @@ const TechnicalsHeader = () => {
       </Typography>
       <Typography
         sx={{
-          fontSize: '24px',
-          fontWeight: 500,
+          fontSize: '32px',
+          fontWeight: 700,
           lineHeight: '26.4px',
           fontFamily: 'Sf Pro Display',
           letterSpacing: '1px',
           color: 'rgba(255, 255, 255, 1)',
+          marginTop: '2px',
         }}
       >
         Your Guide to Smarter Trading Decisions
@@ -42,8 +43,7 @@ const TechnicalsHeader = () => {
         }}
       >
         Delve into detailed technical analysis and insights to enhance your
-        trading skills. Access charts, indicators, and expert commentary to make
-        informed decisions and stay ahead in the market.
+        trading skills.
       </Typography>
       <Box
         sx={{

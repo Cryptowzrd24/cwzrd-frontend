@@ -33,7 +33,8 @@ const FinancialRight = () => {
         >
           📰 New Update{' '}
           <span style={{ color: 'rgba(17,17,17,0.3)', paddingLeft: '38px' }}>
-            | <span style={{ marginLeft: '8px' }}>🔥</span> Trending
+            | <span style={{ marginLeft: '8px', color: '#111' }}>🔥</span>{' '}
+            Trending
           </span>
         </Typography>
       </Box>
@@ -56,7 +57,7 @@ const FinancialRight = () => {
               letterSpacing: '0.4px',
             }}
           >
-            Ethereum price (ETHUSD) forecast update
+            Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
           </Typography>
           <Typography
             sx={{
@@ -106,7 +107,7 @@ const FinancialRight = () => {
               letterSpacing: '0.4px',
             }}
           >
-            Ethereum price (ETHUSD) forecast update
+            Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
           </Typography>
           <Typography
             sx={{
@@ -156,7 +157,7 @@ const FinancialRight = () => {
               letterSpacing: '0.4px',
             }}
           >
-            Ethereum price (ETHUSD) forecast update
+            Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
           </Typography>
           <Typography
             sx={{
@@ -206,7 +207,7 @@ const FinancialRight = () => {
               letterSpacing: '0.4px',
             }}
           >
-            Ethereum price (ETHUSD) forecast update
+            Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
           </Typography>
           <Typography
             sx={{
@@ -256,7 +257,7 @@ const FinancialRight = () => {
               letterSpacing: '0.4px',
             }}
           >
-            Ethereum price (ETHUSD) forecast update
+            Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
           </Typography>
           <Typography
             sx={{

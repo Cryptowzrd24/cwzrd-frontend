@@ -85,7 +85,7 @@ function NewsCard({ isShort, image }: NewsCardProps) {
             fontWeight: 400,
             fontSize: '10px',
             fontFamily: 'Sf Pro Display',
-            width: isShort ? '132px' : '242px',
+            width: isShort ? '132px' : '100%',
             lineHeight: '13px',
             color: 'rgba(17, 17, 17, 0.8)',
             marginTop: '4px',

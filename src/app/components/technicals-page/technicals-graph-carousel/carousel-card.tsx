@@ -17,7 +17,7 @@ function CarouselCard() {
         <Typography
           sx={{
             fontSize: '12px',
-            fontWeight: 500,
+            fontWeight: 600,
             fontFamily: 'Sf Pro Display',
             lineHeight: '15.6px',
             color: 'rgba(55, 97, 251, 1)',
@@ -45,7 +45,7 @@ function CarouselCard() {
             fontWeight: 400,
             lineHeight: '18.85px',
             fontFamily: 'Sf Pro Display',
-            marginTop: '8px',
+            marginTop: '4px',
             color: 'rgba(17, 17, 17, 0.8)',
           }}
         >
