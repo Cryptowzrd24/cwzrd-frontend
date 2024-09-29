@@ -228,7 +228,42 @@ body {
   filter: brightness(1);
 }
 
-
-.MuiTooltip-tooltip{
+.MuiTooltip-tooltip {
   background-color: transparent !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background: white;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50%;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 12px !important;
+  font-style: 900 !important;
+  color: rgba(17, 17, 17, 1);
+  text-shadow:
+    1px 0 black,
+    -1px 0 black,
+    0 1px black,
+    0 -1px black !important;
+}
+
+.swiper-pagination {
+  top: 40px !important;
+  left: 90% !important;
+  width: max-content !important;
+  height: min-content !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white !important;
+}
+
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
 }

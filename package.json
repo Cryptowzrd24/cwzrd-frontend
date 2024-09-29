@@ -43,7 +43,8 @@
     "sharp": "^0.33.4",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.12",
-    "styled-jsx": "^5.1.6"
+    "styled-jsx": "^5.1.6",
+    "swiper": "^11.1.14"
   },
   "devDependencies": {
     "@types/highcharts": "^7.0.0",
