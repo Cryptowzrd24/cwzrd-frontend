@@ -1,4 +1,8 @@
-export const ReadMoreIcon = () => {
+type ReadMoreIconProps = {
+  isGradient?: boolean;
+};
+
+export const ReadMoreIcon = ({ isGradient }: ReadMoreIconProps) => {
   return (
     <svg
       width="8"
@@ -9,7 +13,8 @@ export const ReadMoreIcon = () => {
     >
       <path
         d="M1.5 11L6.5 6L1.5 1"
-        stroke="url(#paint0_linear_82_1560)"
+        // stroke="url(#paint0_linear_82_1560)"
+        stroke={!isGradient ? 'url(#paint0_linear_82_1560)' : 'white'}
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"

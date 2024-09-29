@@ -1,6 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Logo from '../../../../public/icons/logo';
+import LogoPurpleHat from '../../../../public/icons/logoPurpleHat';
+
 import { NavbarData } from './data';
 import LightmodeIcon from '../../../../public/icons/Navbar-Section/lightmode';
 import DarkmodeIcon from '../../../../public/icons/Navbar-Section/darkmode';
@@ -23,7 +25,6 @@ import {
   updateSelectedWatchListName,
 } from '@/app/redux/market';
 import Cookies from 'js-cookie';
-import LogoWhite from '../../../../public/icons/logoWhite';
 import './index.scss';
 import { usePathname, useRouter } from 'next/navigation';
 import StarIcon from '../../../../public/icons/Navbar-Section/starIcon';
@@ -206,7 +207,11 @@ function Navbar() {
       )}
       <Box
         className={
-          pathname === '/news' || pathname.includes('/news/') ? 'headerbg' : ''
+          pathname === '/news' || pathname.includes('/news/')
+            ? 'headerbg'
+            : pathname === '/technicals' || pathname.includes('/technicals/')
+              ? 'headerbgTechnicals'
+              : ''
         }
       >
         <Container maxWidth="xl">
@@ -215,11 +220,12 @@ function Navbar() {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
+              marginTop: '8px',
             }}
           >
             <Link href="/">
-              {pathname === '/news' || pathname.includes('/news/') ? (
-                <LogoWhite />
+              {pathname.includes('/news') || pathname === '/technicals' ? (
+                <LogoPurpleHat />
               ) : (
                 <Logo />
               )}
@@ -235,7 +241,10 @@ function Navbar() {
             >
               {NavbarData.map((item) => (
                 <Box key={item.id}>
-                  {pathname === '/news' || pathname.includes('/news/') ? (
+                  {pathname === '/news' ||
+                  pathname === '/technicals' ||
+                  pathname.includes('/technicals/') ||
+                  pathname.includes('/news/') ? (
                     <Link
                       href={`/${item.name.toLowerCase()}`}
                       style={{
@@ -335,7 +344,9 @@ function Navbar() {
 
               <SearchIcon
                 color={
-                  pathname === '/news' || pathname.includes('/news/')
+                  pathname === '/news' ||
+                  pathname.includes('/news/') ||
+                  pathname.includes('technicals')
                     ? 'white'
                     : 'black'
                 }
@@ -348,7 +359,9 @@ function Navbar() {
                       ? 'rgb(243,143,56)'
                       : pathname.includes('/news')
                         ? 'white'
-                        : 'black'
+                        : pathname.includes('/technicals')
+                          ? 'white'
+                          : 'black'
                   }
                 />
               </Link>
@@ -461,7 +474,10 @@ function Navbar() {
                 >
                   <ProfileIcon
                     color={
-                      pathname === '/news' || pathname.includes('/news/')
+                      pathname === '/news' ||
+                      pathname === '/technicals' ||
+                      pathname.includes('/technicals/') ||
+                      pathname.includes('/news/')
                         ? 'white'
                         : 'black'
                     }
