@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { Box, IconButton } from '@mui/material';
+import { Box, fabClasses, IconButton } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -18,8 +18,9 @@ const PreviousArrow = ({ onClick }: any) => (
       position: 'absolute',
       top: '110%',
       left: '0px',
-      width: '48px',
-      height: '48px',
+      width: '40px',
+      height: '40px',
+      marginTop: '10px',
       transform: 'translateY(-50%)',
       zIndex: 1,
       background: '#f0f0f0',
@@ -30,7 +31,7 @@ const PreviousArrow = ({ onClick }: any) => (
   >
     <ArrowBackIosNewIcon
       sx={{
-        fontSize: '20px',
+        fontSize: '15px',
         color: 'rgba(17, 17, 17, 1)',
       }}
     />
@@ -45,8 +46,9 @@ const NextArrow = ({ onClick }: any) => (
       position: 'absolute',
       top: '110%',
       right: '0px',
-      width: '48px',
-      height: '48px',
+      width: '40px',
+      height: '40px',
+      marginTop: '10px',
       transform: 'translateY(-50%)',
       zIndex: 1,
       background: '#f0f0f0',
@@ -57,7 +59,7 @@ const NextArrow = ({ onClick }: any) => (
   >
     <ArrowForwardIosIcon
       sx={{
-        fontSize: '20px',
+        fontSize: '15px',
         color: 'rgba(17, 17, 17, 1)',
       }}
     />
@@ -66,20 +68,22 @@ const NextArrow = ({ onClick }: any) => (
 
 interface RelatedNewsCarouselProps {
   descriptionLines?: number;
+  showSlider?: boolean;
 }
 const RelatedNewsCarousel = ({
   descriptionLines,
+  showSlider,
 }: RelatedNewsCarouselProps) => {
   const settings = {
-    dots: true,
+    dots: !showSlider ? true : fabClasses,
     infinite: false,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
-    arrows: true,
-    prevArrow: <PreviousArrow onClick={() => {}} />,
-    nextArrow: <NextArrow onClick={() => {}} />,
-    dotsClass: 'slick-dots slick-thumb',
+    arrows: !showSlider ? true : false,
+    prevArrow: !showSlider ? <PreviousArrow onClick={() => {}} /> : null,
+    nextArrow: !showSlider ? <NextArrow onClick={() => {}} /> : null,
+    dotsClass: !showSlider ? 'slick-dots slick-thumb' : null,
   };
 
   const renderCards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((elem) => {
@@ -90,6 +94,7 @@ const RelatedNewsCarousel = ({
           width: '25%',
           padding: '0 5px',
           boxSizing: 'border-box',
+          marginBottom: '5px',
         }}
       >
         <TrendingNewsCard
@@ -109,6 +114,7 @@ const RelatedNewsCarousel = ({
 
   return (
     <Box sx={{ padding: '20px 0', position: 'relative' }}>
+      {/* @ts-expect-error TS2322: Type '{}' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<HTMLDivElement> & { children?: ReactNode; }'. */}
       <Slider {...settings}>{renderCards}</Slider>
     </Box>
   );

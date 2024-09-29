@@ -8,7 +8,7 @@ function GlobalNewsCards({ cardData }: any) {
       <Box
         key={card.id}
         sx={{
-          marginTop: '15px',
+          marginTop: '12px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -17,18 +17,18 @@ function GlobalNewsCards({ cardData }: any) {
       >
         <Box
           sx={{
-            width: '122px',
-            height: '80px',
+            width: '100%',
+            height: '88px',
             borderRadius: '8px',
             overflow: 'hidden',
           }}
         >
-          <Image src={card.img} alt="image" width={122} height={80} />
+          <Image src={card.img} alt="image" width={142.5} height={88} />
         </Box>
         <Typography
           sx={{
-            marginTop: '12px',
-            width: '122px',
+            marginTop: '8px',
+            width: '100%',
             fontFamily: 'Sf Pro Display',
             fontWeight: 700,
             fontSize: '14px',
@@ -64,6 +64,7 @@ function GlobalNewsCards({ cardData }: any) {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
+        gap: '15px',
       }}
     >
       {renderCards}
