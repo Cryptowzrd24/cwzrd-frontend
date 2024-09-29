@@ -121,7 +121,7 @@ const NewsCarousel = ({ showAudience, isDetailPage, isMainPage }: any) => {
             backgroundColor: '#000000 30%',
             backdropFilter: 'blur(10px)',
             boxShadow: '1px',
-            width: '95px',
+            width: '103px',
             height: '33px',
           }}
           label={
@@ -166,6 +166,7 @@ const NewsCarousel = ({ showAudience, isDetailPage, isMainPage }: any) => {
                   'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 2%, rgba(255, 255, 255, 0.2) 100%)',
                 backdropFilter: 'blur(10px)',
                 paddingInline: '4px',
+                height: '28px',
               }}
               key={index}
               label={tag}
@@ -320,7 +321,7 @@ const NewsCarousel = ({ showAudience, isDetailPage, isMainPage }: any) => {
             lineHeight: isMainPage ? '18.2px' : '20.8px',
           }}
         >
-          19/06/2024 at 03:32 AM | John Smith
+          19/06/2024 at 03:32 AM &nbsp;&nbsp;|&nbsp;&nbsp; John Smith
         </Typography>
       </Box>
     </Box>

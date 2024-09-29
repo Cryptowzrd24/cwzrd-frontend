@@ -144,7 +144,16 @@ const Card = ({ title, image, description }: any) => {
     <>
       <Box sx={{ display: 'flex', gap: '12px' }}>
         <Box sx={{ borderRadius: '8px', overflow: 'hidden' }}>
-          <Image alt="image" height={80} width={130} src={image.src} />
+          <Image
+            style={{
+              objectFit: 'cover',
+              borderRadius: '8px',
+            }}
+            alt="image"
+            height={80}
+            width={130}
+            src={image.src}
+          />
         </Box>
         <Box sx={{ width: '53%' }}>
           <Typography

@@ -174,7 +174,7 @@ const TagCard: React.FC<TagCardProps> = ({
             fontWeight: '700',
             fontSize: '18px',
             lineHeight: '23.4px',
-            letterSpacing: '1px',
+            letterSpacing: '0.7px',
             marginTop: '12px',
             marginInline: '8px',
           }}
@@ -221,7 +221,9 @@ const TagCard: React.FC<TagCardProps> = ({
               paddingLeft: '16px',
               alignItems: 'center',
             }}
-          >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
+          >
+            06/06/2023 at 00:06 AM &nbsp;&nbsp;|&nbsp;&nbsp; John Smith
+          </Typography>
         </Box>
       </Box>
     </Box>

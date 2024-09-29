@@ -21,7 +21,7 @@ function TopPicks({ showAll }: any) {
         boxShadow: '2px 4px 28px 0px #0000000D',
         // marginBottom: '24px',
         width: '305px',
-        height: '517px',
+        height: '514px',
       }}
     >
       <Box
@@ -41,7 +41,7 @@ function TopPicks({ showAll }: any) {
             fontSize: '14px',
             fontWeight: '600',
             lineHeight: '18px',
-            letterSpacing: '0.7px',
+            letterSpacing: '-0.5px',
           }}
         >
           ⭐️ Picks for you

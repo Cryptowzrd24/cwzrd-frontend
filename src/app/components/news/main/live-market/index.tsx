@@ -22,10 +22,12 @@ function LiveMarket({
   isPageDetails,
   isTechnicalDetail,
   isNewsDetails,
+  isNewsPage,
 }: {
   isPageDetails?: boolean;
   isTechnicalDetail?: boolean;
   isNewsDetails?: boolean;
+  isNewsPage?: boolean;
 }) {
   const { data: liveMarketData, isFetching } = useFetchLiveMarketCoinDataQuery(
     {},
@@ -55,7 +57,13 @@ function LiveMarket({
         backdropFilter: 'blur(10px)',
         boxShadow: '0px 4px 28px 0px #0000000D',
         paddingBlock: '6px',
-        height: isNewsDetails ? '545px' : isPageDetails ? '472px' : '438px',
+        height: isNewsDetails
+          ? '545px'
+          : isPageDetails
+            ? '472px'
+            : isNewsPage
+              ? '528px'
+              : '438px',
       }}
       className="live-market"
     >
@@ -114,7 +122,7 @@ function LiveMarket({
       <Divider sx={{ width: '100%' }} />
       {!isFetching ? (
         liveMarketData
-          ?.slice(0, isPageDetails ? 5 : 4)
+          ?.slice(0, isPageDetails ? 5 : isNewsPage ? 7 : 4)
           .map((item: any, index: any) => (
             <Box paddingTop={'8px'}>
               <Accordion
@@ -254,7 +262,9 @@ function LiveMarket({
                 </AccordionDetails>
               </Accordion>
               {index !==
-                liveMarketData?.slice(0, isPageDetails ? 5 : 4).length - 1 && (
+                liveMarketData?.slice(0, isPageDetails ? 5 : isNewsPage ? 7 : 4)
+                  .length -
+                  1 && (
                 <Divider
                   sx={{
                     width: '100%',

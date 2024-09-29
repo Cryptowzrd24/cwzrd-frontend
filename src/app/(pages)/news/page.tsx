@@ -150,7 +150,7 @@ const News = () => {
           }}
         >
           <Box sx={{ width: '300px' }}>
-            <LiveMarket isNewsDetails={true} />
+            <LiveMarket isNewsPage={true} />
           </Box>
           <TagCard
             height={'540px'}
@@ -235,7 +235,7 @@ const News = () => {
             />
           </Box>
           <TagCard
-            height={'540px'}
+            height={'525px'}
             width={'800px'}
             title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
             description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
@@ -255,6 +255,7 @@ const News = () => {
                 descriptionLines={1}
                 description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ardoino said. CoinDesk Flash gives you the power of news that moves markets — be the first to get the latest crypto financial opportunities, trends, and technology insights."
                 image={CardImage}
+                smallHeight={true}
               />
             </Box>
             <Box>
@@ -263,6 +264,7 @@ const News = () => {
                 descriptionLines={1}
                 description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ardoino said. CoinDesk Flash gives you the power of news that moves markets — be the first to get the latest crypto financial opportunities, trends, and technology insights."
                 image={CardImage}
+                smallHeight={true}
               />
             </Box>
           </Box>
@@ -371,7 +373,7 @@ const News = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '18px',
-          marginTop: '48px',
+          marginTop: '60px',
         }}
       >
         <Typography variant="h2" left={0}>

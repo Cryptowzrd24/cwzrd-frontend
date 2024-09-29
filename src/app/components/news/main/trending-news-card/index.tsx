@@ -10,6 +10,7 @@ interface TrendingNewsCardProps {
   isDetailPage?: boolean;
   descriptionLines?: number;
   isMainPage?: boolean;
+  smallHeight?: boolean;
 }
 
 const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
@@ -18,6 +19,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
   description,
   isDetailPage,
   descriptionLines,
+  smallHeight,
 }) => {
   return (
     <Box
@@ -86,7 +88,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             'https://s3-alpha-sig.figma.com/img/e7a2/1b9d/8dee851bf60c683f94041035849f3dca?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BvgpfnvcAL~zhHG6Oowu1t3HZRwEfXSfH4khOf-3eUB2Uyv8r2u6bU3BVqFllyBCHOsEQjlzxCVobCT8yE8iIhbf1aiqtfUWPypscZYHrLgXrmv32wfptJ7uz5GLSfUhMF9vsPhm3zsby0HqdX2cJHa3H3B7BN-V3dXG8mdmWZoJQwdr8zC7FIAMqPwebOoEbeseY6Q2MK3MeT30CSYde3CmG094wS2f1NI~sSfi~~RCnM~1SyWDv~WX7KL6jhRuxWFBY7IztH-8kgOOyvvP6ESbtWKVmPi07YdpqiFIFtk4MDesUsyThfs6129AmKfVhyVjfY7WY~mBVNAYWuXr5Q__'
           }
           width={isDetailPage ? 264 : 300}
-          height={isDetailPage ? 130 : 180}
+          height={isDetailPage ? 130 : smallHeight ? 150 : 180}
           style={{
             objectFit: 'cover',
             borderRadius: '12px',
@@ -137,7 +139,9 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             paddingLeft: 0,
             width: isDetailPage ? '264px' : '100%',
           }}
-        >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
+        >
+          06/06/2023 at 00:06 AM &nbsp;&nbsp;|&nbsp;&nbsp; John Smith
+        </Typography>
       </Box>
     </Box>
   );
