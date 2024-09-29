@@ -97,6 +97,50 @@ const tooltips: any = {
       <p>Will be applied once available.</p>
     </div>
   ),
+  Address_By_Holding: (
+    <div className={styles['tooltip']}>
+      <p>Wallet addresses by amount held in USD.</p>
+      <p>
+        The data is provided by{' '}
+        <Link href={'https://intotheblock.com'}>IntoTheBlock</Link>.
+      </p>
+    </div>
+  ),
+  Whale_Assets: (
+    <div className={styles['tooltip']}>
+      <p>
+        Whales are wallet addresses holding over 1% of the circulating supply.
+      </p>
+      <p>
+        The data is provided by{' '}
+        <Link href={'https://intotheblock.com'}>IntoTheBlock</Link>.
+      </p>
+    </div>
+  ),
+  Address_Ownership: (
+    <div className={styles['tooltip']}>
+      <p>
+        Wallet addresses by the amount of time they have been holding tokens.
+        <br />
+        <br />
+        Traders are addresses that have been holding for less than one month;
+        holders are addresses that have been holding for longer than one year.
+      </p>
+      <p>
+        The data is provided by{' '}
+        <Link href={'https://intotheblock.com'}>IntoTheBlock</Link>.
+      </p>
+    </div>
+  ),
+  Average_Transaction_Fees: (
+    <div className={styles['tooltip']}>
+      <p>The average transaction fee required to use the blockchain.</p>
+      <p>
+        The data is provided by{' '}
+        <Link href={'https://intotheblock.com'}>IntoTheBlock</Link>.
+      </p>
+    </div>
+  ),
 };
 
 export const HeaderTooltip = ({ headerName }: HeaderTooltipProps) => {

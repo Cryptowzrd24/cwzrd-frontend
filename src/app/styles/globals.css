@@ -165,7 +165,6 @@ body {
 
 #coininfo .MuiAccordionSummary-root .MuiAccordionSummary-content p {
   font-size: 16px !important;
-
 }
 
 #coininfo.Mui-expanded {
@@ -203,4 +202,33 @@ body {
 }
 #go-back-btn svg {
   font-size: 0.85rem;
+}
+
+.custom-tooltip {
+  background: none;
+  color: inherit;
+  box-shadow: none;
+  padding: 0;
+}
+
+.custom-tooltip-content {
+  background-color: white;
+  color: black;
+  /* border: 1px solid black; */
+  padding: 10px;
+  border-radius: 4px;
+}
+.info-icon {
+  transition: filter 0.3s ease;
+  cursor: pointer;
+  /* filter: brightness(10); */
+}
+
+.info-icon:hover {
+  filter: brightness(1);
+}
+
+
+.MuiTooltip-tooltip{
+  background-color: transparent !important;
 }
