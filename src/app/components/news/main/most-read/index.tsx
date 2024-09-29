@@ -2,32 +2,39 @@ import { Box, Divider, Typography } from '@mui/material';
 import React from 'react';
 import MostReadCard from './most-read-card';
 
-function MostRead() {
-  const renderCard = [1, 2, 3, 4].map(() => {
+function MostRead({ height }: any) {
+  const renderCard = [1, 2, 3, 4, 5, 6, 7].map(() => {
     return <MostReadCard />;
   });
   return (
     <Box
       sx={{
         width: '300px',
-        height: '574px',
+        height: height ? height : '480px',
         borderRadius: '16px',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-        padding: '24px 20px 24px 20px',
+        padding: '18px 12px 24px 12px',
         overflow: 'auto',
         scrollbarWidth: 'none',
       }}
     >
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '15px',
+        }}
+      >
         <Box>
           <Typography
             sx={{
               color: 'rgba(114, 72, 247, 1)',
               fontFamily: 'Sf Pro Display',
-              fontSize: '16px',
-              fontWeight: 700,
-              lineHeight: '20.8px',
+              fontSize: '14px',
+              fontWeight: 600,
+              lineHeight: '18.2px',
             }}
           >
             📰 Most Read
@@ -43,15 +50,15 @@ function MostRead() {
             borderWidth: '0.5px',
           }}
         />
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
           <Typography>🔥</Typography>
           <Typography
             sx={{
               color: 'rgba(17, 17, 17, 0.3)',
               fontFamily: 'Sf Pro Display',
-              fontSize: '16px',
-              fontWeight: 700,
-              lineHeight: '20.8px',
+              fontSize: '14px',
+              fontWeight: 600,
+              lineHeight: '18.2px',
             }}
           >
             Trending

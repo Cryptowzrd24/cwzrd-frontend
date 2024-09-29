@@ -65,26 +65,27 @@ function GlobalNews() {
     <Box
       sx={{
         // width: '300px',
-        height: '626px',
-        overflow: 'auto',
+        height: '410px',
+        width: '300px',
+        overflow: 'scroll',
         scrollbarWidth: 'none',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         borderRadius: '16px',
-        padding: '24px  20px  24px 20px',
+        padding: '16px  12px  16px 12px',
       }}
     >
       <Typography
         sx={{
           color: 'rgba(17, 17, 17, 1)',
-          fontWeight: 700,
-          fontSize: '16px',
+          fontWeight: 600,
+          fontSize: '14px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: '20.8px',
-          textAlign: 'center',
+          lineHeight: '18.2px',
+          textAlign: 'start',
         }}
       >
-        🌎 Catch up on today’s global news
+        🌎 Catch up on today's global news
       </Typography>
       {renderGlobalNewsCard}
     </Box>

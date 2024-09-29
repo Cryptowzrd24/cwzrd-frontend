@@ -21,24 +21,36 @@ const NewsCard: React.FC<NewsCardProps> = ({
   return (
     <Box
       sx={{
-        padding: '8px',
-        paddingBottom: '12px',
+        // padding: '8px',
+        // paddingBottom: '12px',
+        // paddingBlock: '8px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         width: allNews ? '328px' : '309px',
+        height: allNews ? '252px' : '252px',
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
       }}
     >
-      <Box sx={{ width: '100%', position: 'relative' }}>
+      <Box
+        style={{
+          width: '312px',
+          height: '134px',
+          objectFit: 'cover',
+          borderRadius: '12px',
+          margin: '8px 8px 0px 8px',
+          position: 'relative',
+        }}
+      >
         {showChips === true && (
           <Chip
             sx={{
               position: 'absolute',
-              top: 10,
-              right: 10,
+              top: 12,
+              right: 12,
+              height: '24px',
               backgroundColor: 'rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(15px)',
               borderRadius: '100px',
@@ -61,7 +73,16 @@ const NewsCard: React.FC<NewsCardProps> = ({
                   width={12}
                   alt="people watching image"
                 />
-                {'374,039'}
+                <Typography
+                  sx={{
+                    fontWeight: '500',
+                    fontSize: '12px',
+                    lineHeight: '15.6px',
+                    color: 'white',
+                  }}
+                >
+                  374,039
+                </Typography>
               </Box>
             }
           />
@@ -69,31 +90,32 @@ const NewsCard: React.FC<NewsCardProps> = ({
         <Image
           alt="news"
           src={image.src}
-          width={312}
+          width={100}
           height={0}
           style={{
-            width: '100%',
-            height: '150px',
+            width: '312px',
+            height: '134px',
             objectFit: 'cover',
             borderRadius: '12px',
           }}
         />
       </Box>
-      <Box sx={{ padding: '4px', paddingTop: '16px' }}>
-        <Box>
+      <Box sx={{ padding: '8px 2px 2px 2px' }}>
+        <Box sx={{ paddingInline: '8px' }}>
           <Typography
             sx={{
               fontWeight: '700',
-              fontSize: '18px',
-              lineHeight: '23.4px',
+              fontSize: '14px',
+              lineHeight: '18.2px',
               marginInline: '8px',
+              letterSpacing: '0.5px',
               display: 'flex',
               alignItems: 'center',
             }}
             variant="body1"
           >
             {title ||
-              'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip'}
+              "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"}
           </Typography>
 
           <Typography
@@ -101,10 +123,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
               allNews
                 ? {
                     fontWeight: '400',
-                    fontSize: '11px',
-                    lineHeight: '14.3px',
+                    fontSize: '12px',
+                    lineHeight: '17.4px',
                     marginTop: '4px',
-                    marginInline: '16px',
+                    marginInline: '8px',
+                    color: 'rgba(17,17,17,0.8)',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     display: '-webkit-box',
@@ -133,8 +156,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
 
         <Box
           sx={{
-            marginTop: '10px',
-            height: '38px',
+            margin: '10px 8px 8px 8px',
+            height: '25px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'start',
@@ -147,7 +170,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
               fontWeight: '500',
               fontSize: '11px',
               lineHeight: '14.3px',
-              paddingInline: '16px',
+              paddingBlock: '6px',
+              paddingInline: '10px',
             }}
           >
             06/06/2023 at 00:06 AM &nbsp;&nbsp;|&nbsp;&nbsp; John Smith

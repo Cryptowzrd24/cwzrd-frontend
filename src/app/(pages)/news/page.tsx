@@ -2,7 +2,6 @@
 import NewsLetterBanner from '@/app/components/banners/newsLetterBanner';
 import RelatedNewsCarousel from '../../../app/components/news-details/related-news/related-news-carousel';
 import React from 'react';
-import RelatedNewsCards from '@/app/components/news-details/related-news/related-news-cards';
 import MemberShipBanner from '@/app/components/banners/memberShipBanner';
 import { Box, Typography } from '@mui/material';
 import TrendingNewsCard from '@/app/components/news/main/trending-news-card';
@@ -10,7 +9,6 @@ import TrendingNewsList from '@/app/components/news/main/trending-news-list';
 import NewsMileStones from '@/app/components/news/main/news-miletones';
 import NewsCarouselBig from '@/app/components/news/main/carouel-big';
 import TagCardImage from '../../../../public/images/tagCard.png';
-import VerticalCardImage from '../../../../public/images/verticalCardImage.png';
 import CardImage from '../../../../public/images/news-letter/image-car-news.png';
 import NewsCarousel from '@/app/components/news/main/news-carousel';
 import NewsRightPanel from '@/app/components/news/main/news-right-panel';
@@ -22,24 +20,24 @@ import MostRead from '@/app/components/news/main/most-read';
 import VerticalTagCard from '@/app/components/news/main/vertical-tag-card';
 import GlobalNews from '@/app/components/news/main/global-news';
 import { ReadMoreIcon } from '../../../../public/icons/readMoreIcon';
+import AudienceCard from '@/app/components/news/main/audience-card';
 
 const News = () => {
   return (
     <>
-      <>
-        <NewsCarousel showAudience={true} />
-      </>
-      <Box sx={{ display: 'flex', gap: 2, marginTop: '48px' }}>
-        <TopPicks showAll={true} />
+      <Box
+        sx={{ display: 'flex', gap: 2, paddingTop: '18px', marginTop: '-27px' }}
+      >
         <TagCard
           title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
-          description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
+          description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ardoino said. CoinDesk Flash give more money to the investors"
           image={TagCardImage}
         />
-        <NewsRightPanel />
+        <NewsRightPanel isMainPage={true} />
+        <MostRead />
       </Box>
-      <Box sx={{ marginTop: '-28px' }}>
-        <RelatedNewsCarousel />
+      <Box sx={{ marginTop: '-16px' }}>
+        <RelatedNewsCarousel descriptionLines={1} showSlider={true} />
       </Box>
       <Box
         sx={{
@@ -47,10 +45,19 @@ const News = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '24px',
-          marginTop: '84px',
+          marginTop: '10px',
         }}
       >
-        <Typography variant="h2" left={0}>
+        <Typography
+          sx={{
+            fontSize: '32px',
+            fontWeight: '700',
+            lineHeight: '38.4px',
+            letterSpacing: '1px',
+          }}
+          variant="h2"
+          left={0}
+        >
           Trending in{' '}
           <span
             style={{
@@ -66,7 +73,7 @@ const News = () => {
         <Box
           sx={{
             display: 'flex',
-            marginRight: '15px',
+            marginRight: '30px',
           }}
         >
           <Typography
@@ -78,8 +85,6 @@ const News = () => {
               fontSize: '14px',
               lineHeight: '18.2px',
             }}
-            variant="body2"
-            // right={1}
           >
             Read More
           </Typography>
@@ -98,53 +103,67 @@ const News = () => {
       </Box>
 
       <>
-        {/* ///defi */}
-        <Box sx={{ display: 'flex', gap: 2 }}>
+        <NewsCarousel showAudience={true} isMainPage={true} />
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 2,
+            marginTop: '22px',
+            marginLeft: '5px',
+          }}
+        >
           <TagCard
-            height={'620px'}
-            width={'570px'}
+            height={'520px'}
+            width={'590px'}
             title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
             description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
             image={TagCardImage}
           />
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.8 }}>
             <NewsCard
               allNews={true}
               image={CardImage}
               showChips={true}
-              title="Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip"
-              description="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
+              title="Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
+              description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for"
             />
             <NewsCard
               allNews={true}
               image={CardImage}
               showChips={true}
-              title="Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip"
-              description="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
+              title="Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
+              description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for"
             />
           </Box>
 
-          <NewsRightPanel isDetailPage={true} />
+          <NewsRightPanel isMainPage={true} />
         </Box>
       </>
 
       <>
-        <Box sx={{ display: 'flex', marginTop: '32px', gap: 3 }}>
+        <Box
+          sx={{
+            marginLeft: '5px',
+            display: 'flex',
+            marginTop: '12px',
+            gap: '16px',
+          }}
+        >
           <Box sx={{ width: '300px' }}>
-            <LiveMarket isPageDetails={true} />
+            <LiveMarket isNewsPage={true} />
           </Box>
           <TagCard
-            height={'622px'}
-            width={'680px'}
+            height={'540px'}
+            width={'700px'}
             title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
             description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
             image={TagCardImage}
           />
-          <MostRead />
+          <TopPicks showAll={true} />
         </Box>
       </>
 
-      <Box sx={{ marginTop: '80px' }}>
+      <Box sx={{ marginTop: '24px' }}>
         <NewsLetterBanner />
       </Box>
 
@@ -154,8 +173,8 @@ const News = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            marginBottom: '24px',
-            marginTop: '80px',
+            marginBottom: '16px',
+            marginTop: '24px',
           }}
         >
           <Typography variant="h2" left={0}>
@@ -205,38 +224,47 @@ const News = () => {
           </Box>
         </Box>
 
-        <Box sx={{ display: 'flex', gap: 3 }}>
-          <Box sx={{ marginTop: '-16px' }}>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <Box>
             <VerticalTagCard
-              height={'300px'}
               width={'300px'}
-              title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
-              description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
-              image={VerticalCardImage}
+              height={'550px'}
+              title="Crypto 'Secondaries' Prices Jump as Expectations of IPOs Climb"
+              description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ardoino said. CoinDesk Flash gives you the power of news that moves markets — be the first to get the latest crypto financial opportunities, trends, and technology insights."
+              image={''}
             />
           </Box>
           <TagCard
-            height={'638px'}
-            width={'730px'}
+            height={'525px'}
+            width={'800px'}
             title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
             description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
             image={TagCardImage}
           />
           <Box
-            sx={{ display: 'flex', flexDirection: 'column', maxWidth: '300px' }}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              maxWidth: '300px',
+              gap: '12px',
+            }}
           >
-            <Box minWidth={'300px'} marginBottom={'20px'}>
+            <Box minWidth={'300px'}>
               <TrendingNewsCard
-                title="Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
-                description="Users can mint new tokens using the company'"
+                title="VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange"
+                descriptionLines={1}
+                description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ardoino said. CoinDesk Flash gives you the power of news that moves markets — be the first to get the latest crypto financial opportunities, trends, and technology insights."
                 image={CardImage}
+                smallHeight={true}
               />
             </Box>
             <Box>
               <TrendingNewsCard
-                title="Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
-                description="Users can mint new tokens using the company'"
+                title="VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange"
+                descriptionLines={1}
+                description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ardoino said. CoinDesk Flash gives you the power of news that moves markets — be the first to get the latest crypto financial opportunities, trends, and technology insights."
                 image={CardImage}
+                smallHeight={true}
               />
             </Box>
           </Box>
@@ -249,8 +277,8 @@ const News = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            marginBottom: '24px',
-            marginTop: '42px',
+            marginBottom: '16px',
+            marginTop: '22px',
           }}
         >
           <Typography variant="h2" left={0}>
@@ -300,21 +328,52 @@ const News = () => {
           </Box>
         </Box>
 
-        <Box sx={{ marginBottom: '10px' }}>
-          <NewsCarouselBig height={'670px'} hideButtons={true} />
+        <Box sx={{ marginBottom: '12px' }}>
+          <NewsCarousel
+            isDetailPage={true}
+            showAudience={true}
+            isMainPage={true}
+          />
         </Box>
       </>
       <>
-        <RelatedNewsCards />
-        <RelatedNewsCarousel descriptionLines={1} />
+        <Box sx={{ display: 'flex', gap: '12px' }}>
+          <AudienceCard
+            image={CardImage}
+            descriptionLines={2}
+            title={"Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"}
+            description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin BTC, has acquired another 11,931 BTC for"
+          />
+          <AudienceCard
+            descriptionLines={2}
+            image={CardImage}
+            title={"Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"}
+            description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin BTC, has acquired another 11,931 BTC for"
+          />
+          <AudienceCard
+            descriptionLines={2}
+            image={CardImage}
+            title={"Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"}
+            description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin BTC, has acquired another 11,931 BTC for"
+          />
+          <AudienceCard
+            descriptionLines={2}
+            image={CardImage}
+            title={"Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"}
+            description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin BTC, has acquired another 11,931 BTC for"
+          />
+        </Box>
+        <Box sx={{ mt: '-10px' }}>
+          <RelatedNewsCarousel />
+        </Box>
       </>
       <Box
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '24px',
-          marginTop: '84px',
+          marginBottom: '18px',
+          marginTop: '60px',
         }}
       >
         <Typography variant="h2" left={0}>
@@ -367,9 +426,9 @@ const News = () => {
         </Box>
       </Box>
 
-      <Box sx={{ display: 'flex', gap: 2.2, maxHeight: '850px' }}>
-        <Box sx={{ width: '51%' }}>
-          <NewsCarouselBig />
+      <Box sx={{ display: 'flex', gap: 3 / 2, maxHeight: '850px' }}>
+        <Box sx={{ width: '53%' }}>
+          <NewsCarouselBig isDetailPage={true} height={'535px'} />
         </Box>
         <Box
           sx={{
@@ -380,22 +439,26 @@ const News = () => {
             flexDirection: 'column',
           }}
         >
-          <Box sx={{ marginBottom: '24px' }}>
+          <Box sx={{ marginBottom: '16px' }}>
             <TrendingNewsCard
+              descriptionLines={1}
+              isMainPage={true}
               image={CardImage}
               title={
-                "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
+                "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange"
               }
               description={
                 "Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ard.."
               }
             />
           </Box>
-
-          <TrendingNewsList height="450px" maxCards={4} marginLeft="10px" />
+          <Box maxHeight={'240px'}>
+            <TrendingNewsList height="250px" maxCards={3} marginLeft="10px" />
+          </Box>
         </Box>
         <Box sx={{ width: '24%' }}>
-          <TrendingNewsList height="300px" maxCards={3} marginLeft="0px" />
+          <TrendingNewsList height="200px" maxCards={2} marginLeft="0px" />
+
           <NewsMileStones />
         </Box>
       </Box>
@@ -406,7 +469,7 @@ const News = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '24px',
-          marginTop: '48px',
+          marginTop: '24px',
         }}
       >
         <Typography variant="h2" left={0}>
@@ -460,14 +523,21 @@ const News = () => {
 
       <>
         <Box sx={{ display: 'flex', gap: 2 }}>
-          <NewsCarouselBig height={'680px'} />
-          <Box maxWidth={'300px'}>
+          <NewsCarouselBig
+            latest={true}
+            isDetailPage={true}
+            width={'75%'}
+            height={'440px'}
+          />
+          <Box maxHeight={'440px'} maxWidth={'300px'}>
             <GlobalNews />
           </Box>
         </Box>
-        <RelatedNewsCarousel descriptionLines={1} />
+        <Box sx={{ marginTop: '-8px' }}>
+          <RelatedNewsCarousel descriptionLines={1} />
+        </Box>
       </>
-      <Box sx={{ marginTop: '110px', marginBottom: '80px' }}>
+      <Box sx={{ marginTop: '48px', marginBottom: '24px' }}>
         <MemberShipBanner />
       </Box>
     </>
