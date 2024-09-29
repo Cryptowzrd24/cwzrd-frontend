@@ -6,7 +6,7 @@ import EyeImage from '../../../../../../public/images/eyeImage.png';
 import RandomImg from '../../../../../../public/images/randomImg.png';
 import RandomImg2 from '../../../../../../public/images/randomImg2.png';
 
-function NewsRightPanel({ isDetailPage }: any) {
+function NewsRightPanel({ isDetailPage, isMainPage }: any) {
   const cardData = [
     {
       id: 1,
@@ -52,7 +52,7 @@ function NewsRightPanel({ isDetailPage }: any) {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: isDetailPage ? '10px' : '16px',
+        gap: isDetailPage ? '10px' : isMainPage ? '2px' : '16px',
       }}
     >
       {renderCard}

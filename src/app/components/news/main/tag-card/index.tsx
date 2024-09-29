@@ -27,9 +27,10 @@ const TagCard: React.FC<TagCardProps> = ({
         flexDirection: 'column',
         alignItems: 'center',
         borderRadius: '12px',
-        height: height ? height : '648px',
-        width: width ? width : '615px',
-        boxShadow: '2px 4px 28px 0px #0000000D',
+        height: height ? height : '520px',
+        width: width ? width : '600px',
+        boxShadow: '0px -6px 30px rgba(0, 0, 0, 0.07)',
+        paddingBottom: '2px',
       }}
     >
       <Box
@@ -55,8 +56,6 @@ const TagCard: React.FC<TagCardProps> = ({
               background:
                 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
               backdropFilter: 'blur(10px)',
-              width: '103px',
-              height: '33px',
             }}
             key={'123'}
             label={
@@ -66,8 +65,11 @@ const TagCard: React.FC<TagCardProps> = ({
                   justifyContent: 'center',
                   alignItems: 'center',
                   gap: '4.5px',
+                  height: '60px !important',
                   fontSize: '16px',
                   fontWeight: '600',
+                  paddingInline: '3px',
+                  paddingBlock: '4px',
                 }}
               >
                 <Image
@@ -76,7 +78,16 @@ const TagCard: React.FC<TagCardProps> = ({
                   width={12}
                   alt="people watching image"
                 />
-                {'374,039'}
+                <Typography
+                  sx={{
+                    fontWeight: '500',
+                    fontSize: '12px',
+                    lineHeight: '15.6px',
+                    color: 'white',
+                  }}
+                >
+                  374,039
+                </Typography>
               </Box>
             }
             color="primary"
@@ -92,11 +103,12 @@ const TagCard: React.FC<TagCardProps> = ({
           height={0}
         />
       </Box>
-      <Box sx={{ marginBlock: '24px', marginInline: '16px' }}>
+      <Box sx={{ margin: '12px 16px 16px 16px' }}>
         <Box sx={{ display: 'flex', gap: '8px' }}>
           <Chip
             sx={{
-              padding: '6px 12px 6px 12px',
+              padding: '3px',
+              height: '25px',
               background:
                 'linear-gradient(180deg, rgba(114, 72, 247, 0.1) 0%, rgba(191, 72, 247, 0.1) 100%) !important',
             }}
@@ -105,8 +117,8 @@ const TagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '12px',
-                  lineHeight: '15.6px',
+                  fontSize: '10px',
+                  lineHeight: '12px',
                   letterSpacing: '1px',
                 }}
               >
@@ -116,7 +128,8 @@ const TagCard: React.FC<TagCardProps> = ({
           />
           <Chip
             sx={{
-              padding: '6px 12px 6px 12px',
+              padding: '3px',
+              height: '25px',
               background:
                 'linear-gradient(180deg, rgba(114, 72, 247, 0.1) 0%, rgba(191, 72, 247, 0.1) 100%) !important',
             }}
@@ -125,8 +138,8 @@ const TagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '12px',
-                  lineHeight: '15.6px',
+                  fontSize: '10px',
+                  lineHeight: '12px',
                   letterSpacing: '1px',
                 }}
               >
@@ -136,7 +149,8 @@ const TagCard: React.FC<TagCardProps> = ({
           />
           <Chip
             sx={{
-              padding: '6px 12px 6px 12px',
+              padding: '3px',
+              height: '25px',
               background:
                 'linear-gradient(180deg, rgba(114, 72, 247, 0.1) 0%, rgba(191, 72, 247, 0.1) 100%) !important',
             }}
@@ -145,8 +159,8 @@ const TagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '12px',
-                  lineHeight: '15.6px',
+                  fontSize: '10px',
+                  lineHeight: '12px',
                   letterSpacing: '1px',
                 }}
               >
@@ -158,9 +172,9 @@ const TagCard: React.FC<TagCardProps> = ({
         <Typography
           sx={{
             fontWeight: '700',
-            fontSize: '24px',
-            lineHeight: '28.8px',
-            letterSpacing: '1px',
+            fontSize: '18px',
+            lineHeight: '23.4px',
+            letterSpacing: '0.7px',
             marginTop: '12px',
             marginInline: '8px',
           }}
@@ -172,12 +186,13 @@ const TagCard: React.FC<TagCardProps> = ({
         <Typography
           sx={{
             fontWeight: '400',
-            fontSize: '16px',
-            lineHeight: '24px',
+            fontSize: '12px',
+            lineHeight: '18px',
             marginTop: '8px',
             marginInline: '8px',
             overflow: 'hidden',
             WebkitLineClamp: 2,
+            color: 'rgba(17,17,17,0.8)',
             WebkitBoxOrient: 'vertical',
             textOverflow: 'ellipsis',
             display: '-webkit-box',
@@ -185,27 +200,30 @@ const TagCard: React.FC<TagCardProps> = ({
           variant="body2"
         >
           {description ||
-            "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."}
+            "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of Tether's upcoming tokenization venture, CEP Paolo ARdiono said. CoinDesk Flash the stocks."}
         </Typography>
         <Box
           sx={{
-            marginTop: '24px',
+            marginTop: '12px',
+            marginBottom: '2px',
           }}
         >
           <Typography
             sx={{
               fontWeight: '500',
-              fontSize: '16px',
-              lineHeight: '20.8px',
+              fontSize: '10px',
+              lineHeight: '13px',
               backgroundColor: 'rgb(243,243,243)',
               borderRadius: '8px',
               display: 'flex',
               alignSelf: 'flex-start',
-              paddingBlock: '12px',
+              paddingBlock: '6px',
               paddingLeft: '16px',
               alignItems: 'center',
             }}
-          >{`06/06/2023 at 00:06 AM  |  John Smith`}</Typography>
+          >
+            06/06/2023 at 00:06 AM &nbsp;&nbsp;|&nbsp;&nbsp; John Smith
+          </Typography>
         </Box>
       </Box>
     </Box>
