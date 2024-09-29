@@ -11,7 +11,7 @@ interface FinancialCardBigProps {
   image?: any;
 }
 
-function FinancialCarBig({  image }: FinancialCardBigProps) {
+function FinancialCarBig({ image }: FinancialCardBigProps) {
   return (
     <Box
       sx={{
