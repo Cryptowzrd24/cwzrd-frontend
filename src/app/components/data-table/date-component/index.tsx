@@ -5,7 +5,6 @@ import styles from './index.module.css';
 import TimeAgo from 'react-timeago';
 
 export const DateAdded = (props: CustomCellRendererProps) => {
-  console.log(props);
   return (
     <div
       className={

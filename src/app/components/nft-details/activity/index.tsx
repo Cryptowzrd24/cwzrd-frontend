@@ -37,7 +37,6 @@ const Activity = ({ serverNftData }: any) => {
       .then((data) => {
         if (data.data.length >= currentPage * pageSize) setCurrentPage(1);
         const startIndex = (currentPage - 1) * pageSize + 1;
-        console.log('running');
         const res = data.data.activities.map((item: any, index: number) => ({
           item: item?.tokenId,
           transaction: item?.txType,

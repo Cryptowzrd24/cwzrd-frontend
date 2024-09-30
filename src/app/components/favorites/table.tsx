@@ -35,7 +35,7 @@ const Table = () => {
   const favoriteIds = favorites ? favorites.join(',') : '';
 
   const { data, error } = token?.length
-    ? useFetchWatchlistQuery({ token })
+    ? useFetchWatchlistQuery({ token }, { refetchOnMountOrArgChange: true })
     : useFetchFavoritesDataQuery({
         id: favoriteIds,
       });
@@ -61,9 +61,7 @@ const Table = () => {
         ids: [],
       }).unwrap();
       dispatch(setFirstLoginToFalse());
-    } catch (error) {
-      console.log('error', error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -136,17 +134,7 @@ const Table = () => {
         setRowData(res);
       }
     }
-  }, [
-    data,
-    selectedWatchListName,
-    favorites.length,
-    currentPage,
-    itemStart,
-    pageSize,
-    filters,
-    error,
-    Cookies.get('authToken'),
-  ]);
+  }, [data, selectedWatchListName, favorites.length, Cookies.get('authToken')]);
 
   return (
     <>

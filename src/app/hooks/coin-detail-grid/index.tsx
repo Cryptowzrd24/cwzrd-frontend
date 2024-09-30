@@ -106,6 +106,9 @@ const useColumnCoinDetailDefs = (columns: any) => {
             field: 'liquidity_store',
             width: 130,
             headerName: 'Liquidity Store',
+            valueFormatter: (p: any) => {
+              return Math.floor(p.value);
+            },
             // cellRenderer: GraphComp,
           };
         case 'funding_rate':

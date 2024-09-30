@@ -185,6 +185,7 @@ export const dataGridApi = createApi({
             Authorization: token ? `Bearer ${token}` : undefined,
             'Content-Type': 'application/json',
           },
+          refetchOnMountOrArgChange: true,
         };
       },
     }),

@@ -165,7 +165,6 @@ body {
 
 #coininfo .MuiAccordionSummary-root .MuiAccordionSummary-content p {
   font-size: 16px !important;
-  font-weight: 600 !important;
 }
 
 #coininfo.Mui-expanded {
@@ -218,4 +217,71 @@ body {
 #read-more-btn-card svg {
   width: 12px;
   margin-bottom: 1.4px;
+}
+#go-back-btn svg {
+  font-size: 0.85rem;
+}
+
+.custom-tooltip {
+  background: none;
+  color: inherit;
+  box-shadow: none;
+  padding: 0;
+}
+
+.custom-tooltip-content {
+  background-color: white;
+  color: black;
+  /* border: 1px solid black; */
+  padding: 10px;
+  border-radius: 4px;
+}
+.info-icon {
+  transition: filter 0.3s ease;
+  cursor: pointer;
+  /* filter: brightness(10); */
+}
+
+.info-icon:hover {
+  filter: brightness(1);
+}
+
+.MuiTooltip-tooltip {
+  background-color: transparent !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background: white;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50%;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 12px !important;
+  font-style: 900 !important;
+  color: rgba(17, 17, 17, 1);
+  text-shadow:
+    1px 0 black,
+    -1px 0 black,
+    0 1px black,
+    0 -1px black !important;
+}
+
+.swiper-pagination {
+  top: 40px !important;
+  left: 90% !important;
+  width: max-content !important;
+  height: min-content !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white !important;
+}
+
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
 }
