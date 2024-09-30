@@ -50,7 +50,12 @@ const content = [
       'https://s3-alpha-sig.figma.com/img/37f3/d96a/b4e4239007a6d7ce9aecaef03b049930?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MRHH4kxGfZBi-Af87wUE-0W95X~hJMtqGwSY3ucVTbjLZqVffe7-2u-Svy0tULjRHkJV5~s0k00CMMjSPUOwkqgjs5pBZDcP~qeULNEzbSRZuMLUUx-YnVLZIMAIzmtYlnzQlb1FN3pfL6AFQJS7D9qGtYGNkWYmBkbDZE6vmcgd1BHXzvo58vIQC4OJ~qMOFlFPTjiiyl2DprNeNCUji8K4qzWBNd39Z8UiKsEjb0ScR5kqJX5TpieU97EZfZe9hcLsZvCV0Z-X~5m6gVW-yy6NIE5Igxr2j2gjsbg9b3MY7m5HH3F4GzHb72VH1nIzK6uwp6LzBM9kH7lK5KKMbw__',
   },
 ];
-const NewsCarousel = ({ showAudience, isDetailPage, isMainPage }: any) => {
+const NewsCarousel = ({
+  showAudience,
+  isDetailPage,
+  isMainPage,
+  isFirst,
+}: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -81,7 +86,9 @@ const NewsCarousel = ({ showAudience, isDetailPage, isMainPage }: any) => {
       height={
         isMainPage
           ? { xs: '180px', sm: '250px', md: '370px' }
-          : { xs: '300px', sm: '400px', md: '480px' }
+          : isFirst
+            ? { xs: '300px', sm: '400px', md: '480px' }
+            : { xs: '300px', sm: '400px', md: '480px' }
       }
       display="flex"
       justifyContent="center"

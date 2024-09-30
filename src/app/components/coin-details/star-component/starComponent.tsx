@@ -18,6 +18,7 @@ function StarComponent({ coinId }: any) {
     selectedWatchListMain,
     mainWatchFavorites,
   } = useAppSelector((state) => state.market);
+  const { token } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
   const [addWatchlist] = useAddWatchlistMutation();
 
@@ -29,7 +30,7 @@ function StarComponent({ coinId }: any) {
 
   // Use favorites if no watchlistEmail is available, otherwise use mainWatchFavorites based on the page
   const currentFavorites = useMemo(() => {
-    if (!Cookies.get('authToken')) {
+    if (!token?.length) {
       return favorites;
     }
     return isFavoritesPage ? favorites : mainWatchFavorites;
@@ -136,7 +137,7 @@ function StarComponent({ coinId }: any) {
       setIsLoading(true);
 
       try {
-        if (Cookies.get('authToken')) {
+        if (token?.length) {
           const response = await fetch(
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites`,
             {
@@ -153,7 +154,7 @@ function StarComponent({ coinId }: any) {
 
           if (mainCollection) {
             await addWatchlist({
-              token: Cookies.get('authToken'),
+              token: token as string,
               collection_name:
                 selectedWatchListName !== '' && isFavoritesPage
                   ? selectedWatchListName

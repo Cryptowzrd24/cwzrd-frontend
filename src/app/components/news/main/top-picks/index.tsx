@@ -5,7 +5,7 @@ import rect1 from '../../../../../../public/images/news-letter/rectangle1.png';
 import rect2 from '../../../../../../public/images/news-letter/rectangle2.png';
 import Image from 'next/image';
 
-function TopPicks({ showAll }: any) {
+function TopPicks({ showAll, isCrypoPage }: any) {
   return (
     <Box
       sx={{
@@ -21,7 +21,7 @@ function TopPicks({ showAll }: any) {
         boxShadow: '2px 4px 28px 0px #0000000D',
         // marginBottom: '24px',
         width: '305px',
-        height: '514px',
+        height: isCrypoPage ? '270px' : '514px',
       }}
     >
       <Box

@@ -81,7 +81,7 @@ const newsData = [
   // Add 11 more objects with different data
 ];
 
-const NewsGrid = ({ height, width }: any) => {
+const NewsGrid = ({ height, width, isCrypto }: any) => {
   return (
     <Box
       sx={{
@@ -91,10 +91,11 @@ const NewsGrid = ({ height, width }: any) => {
         scrollbarWidth: 'none',
       }}
     >
-      <Grid container rowGap={2}>
+      <Grid container rowGap={isCrypto ? 2 : 2}>
         {newsData.map((news, index) => (
-          <Grid gap={2} item xs={12} sm={6} md={4} key={index}>
+          <Grid gap={isCrypto ? 0 : 2} item xs={12} sm={6} md={4} key={index}>
             <NewsCard
+              isCrypto={isCrypto}
               image={news.image}
               title={news.title}
               description={news.description}

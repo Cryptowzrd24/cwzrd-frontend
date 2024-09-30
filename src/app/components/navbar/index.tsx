@@ -37,6 +37,7 @@ import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
 
 function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  console.log('activeID', activeId);
   const [isActive, setIsActive] = useState<string | null>('light');
   const dispatch = useAppDispatch();
   const router = useRouter();
@@ -65,55 +66,6 @@ function Navbar() {
       dispatch(setMainWatchFavorites(JSON.parse(storedFavorites)));
     }
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   const fetchWatchList = async () => {
-  //     const authToken = Cookies.get('authToken');
-  //     if (authToken) {
-  //       try {
-  //         const response = await fetch(
-  //           `${process.env.NEXT_PUBLIC_BASE_URL}/api/favorites`,
-  //           {
-  //             method: 'GET',
-  //             headers: {
-  //               Authorization: `Bearer ${authToken}`,
-  //             },
-  //           },
-  //         );
-  //         if (response.ok) {
-  //           const data = await response.json();
-  //           const mainCollection: any = Object.values(data.collections).find(
-  //             (collection: any) => collection?.main === true,
-  //           );
-
-  //           if (mainCollection) {
-  //             dispatch(
-  //               updateSelectedWatchListName(mainCollection?.collection_name),
-  //             );
-  //             dispatch(updateSelectedWatchListMain(mainCollection?.main));
-  //           }
-  //         }
-  //         if (response.statusText == 'Not Found') {
-  //           await addWatchlist({
-  //             token: token,
-  //             collection_name: 'My First Coin Watchlist',
-  //             main: true,
-  //             ids: [],
-  //           });
-
-  //           dispatch(updateFavorites([]));
-  //           dispatch(updateSelectedWatchListName('My First Coin Watchlist'));
-  //           dispatch(updateSelectedWatchListMain('My First Coin Watchlist'));
-  //           Cookies.remove('favorites');
-  //         }
-  //       } catch (error) {
-  //         console.error('error:', error);
-  //       }
-  //     }
-  //   };
-
-  //   fetchWatchList();
-  // }, [token, !isFirstLogin]);
 
   const handleAuthClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -237,7 +189,7 @@ function Navbar() {
                 gap: '32px',
               }}
             >
-              {NavbarData.map((item) => (
+              {/* {NavbarData.map((item) => (
                 <Box key={item.id}>
                   {pathname === '/news' ||
                   pathname === '/technicals' ||
@@ -318,6 +270,39 @@ function Navbar() {
                     </Link>
                   )}
                 </Box>
+              ))} */}
+              {NavbarData.map((item) => (
+                <Box key={item.id}>
+                  <Link
+                    href={`/${item.name !== 'Market' ? item.name.toLowerCase() : `market/coin`}`}
+                    style={{
+                      cursor: 'pointer',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        fontSize: '16px',
+                        color: pathname.includes(item.name.toLowerCase())
+                          ? '#7248F7' // Highlight color when the pathname contains the item's name
+                          : pathname === '/news' ||
+                              pathname.includes('/news/') ||
+                              pathname === '/technicals' ||
+                              pathname.includes('/technicals/')
+                            ? 'white' // Default white for `/news` or `/technicals` pages
+                            : 'rgba(17, 17, 17, 1)', // Default dark color for other pages
+                        cursor: 'pointer',
+                        transition: 'transform 0.1s ease-in-out',
+                        fontWeight: 500,
+                        letterSpacing: '0.7px',
+                      }}
+                      onClick={() => setActiveId(item.id)}
+                    >
+                      {item.name}
+                    </Typography>
+                  </Link>
+                </Box>
               ))}
             </Box>
 
@@ -350,7 +335,7 @@ function Navbar() {
                 }
               />
 
-              <Link style={{ textDecoration: 'none' }} href="/market/favorites">
+              <Link style={{ textDecoration: 'none' }} href="/favorites">
                 <StarIcon
                   color={
                     !!pathname.includes('/favorites')

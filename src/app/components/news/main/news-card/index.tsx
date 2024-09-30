@@ -9,6 +9,7 @@ interface NewsCardProps {
   description: string;
   allNews?: any;
   showChips?: any;
+  isCrypto?: any;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({
@@ -17,13 +18,14 @@ const NewsCard: React.FC<NewsCardProps> = ({
   description,
   allNews,
   showChips,
+  isCrypto,
 }) => {
   return (
     <Box
       sx={{
         // padding: '8px',
         // paddingBottom: '12px',
-        // paddingBlock: '8px',
+        padding: isCrypto ? '12px' : '0px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
