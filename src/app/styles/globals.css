@@ -201,7 +201,7 @@ body {
   bottom: -27px !important;
 }
 
-.slick-list {
+.technicals-slick .slick-list {
   padding-block: 20px !important;
 }
 
@@ -284,4 +284,31 @@ body {
 .swiper-pagination-bullet {
   width: 12px !important;
   height: 12px !important;
+}
+
+#read-more .MuiButton-icon.MuiButton-endIcon {
+  margin: 0 !important;
+}
+
+#read-more.MuiButton-root:hover {
+  background-color: transparent !important;
+}
+
+#read-more-small .MuiButton-icon.MuiButton-endIcon {
+  margin: 0 !important;
+}
+
+#read-more-small.MuiButton-root:hover {
+  background-color: transparent !important;
+}
+
+#read-more-small svg {
+  width: 12px;
+  height: 12px;
+}
+
+.MuiCircularProgress-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,22 +1,17 @@
-
-.header-container{
+.header-container {
     margin-left: 2px;
 }
 
-.news-header{
-    padding-bottom: 12px;
+.technical-header {
+    padding-bottom: 4px;
     margin-top: -150px !important;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    color: white !important;
-    
+    font-size: 12px;
+    line-height: 15.6px;
+    color: rgba(255, 255, 255, 1) !important;
+    font-family: "Sf Pro Display";
 }
 
-.news-header-title{
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 44px;
-    color: white !important;
-    
+.technical-header-title {
+    color: rgba(255, 255, 255, 1) !important;
 }

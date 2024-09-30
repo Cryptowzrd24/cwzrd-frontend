@@ -2,9 +2,9 @@
 import { Box, Button, Popover, Stack, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import styles from './style.module.scss';
-import ArrowRight from '../../../../public/icons/News-Letter/arrowRight';
 import { subscribeNewsletter } from '@/app/services/newsletter';
 import LoadingOverlay from '../loading-overlay';
+import { ArrowRightRound } from '../../../../public/icons/News-Letter/arrowRightRound';
 
 function NewsLetterBanner() {
   const [email, setEmail] = useState('');
@@ -38,7 +38,10 @@ function NewsLetterBanner() {
       setLoading(true);
       const response = await subscribeNewsletter({ email });
       if (response?.error) {
-        setErrorMessage({ color: 'red', message: response?.error });
+        setErrorMessage({
+          color: 'red',
+          message: 'This email is already subscribed to CWZRD Newsletter.',
+        });
         setAnchorEl(e.currentTarget);
         setPopoverOpen(true);
 
@@ -68,10 +71,9 @@ function NewsLetterBanner() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    setEmailError('');
   };
 
-  const Icon = loading ? <img /> : <ArrowRight />;
+  const Icon = loading ? <img /> : <ArrowRightRound />;
   return (
     <Box className={styles.bannerBox}>
       <Box>
@@ -128,25 +130,37 @@ function NewsLetterBanner() {
               placeholder="Enter your email address"
               className={styles.input}
             />
-            <Box sx={{ display: 'flex' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                height: '40px',
+                minWidth: '128px',
+                background: 'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)',
+                borderRadius: '56px',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
               <Button
                 disabled={loading}
                 onClick={handleSubmit}
                 variant="contained"
                 endIcon={Icon}
+                id="read-more"
                 sx={{
-                  background:
-                    'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)',
-                  borderRadius: '56px',
                   display: 'flex',
                   alignItems: 'center',
-                  fontWeight: '600',
                   justifyContent: 'center',
+                  background: '#3761FB01',
+                  fontWeight: '600',
                   fontSize: '14px',
                   lineHeight: '18.2px',
-                  height: '40px',
-                  width: '128px',
+                  width: '100%',
                   padding: 0,
+                  gap: '4px',
+                  marginBottom: '-2px',
+                  height: '40px',
+                  borderRadius: '56px',
                 }}
               >
                 {loading ? (
@@ -154,6 +168,7 @@ function NewsLetterBanner() {
                     size={'20px'}
                     background={'transparent'}
                     color={'white'}
+                    borderRadius={'56px'}
                   />
                 ) : (
                   'Get Started'
@@ -165,7 +180,7 @@ function NewsLetterBanner() {
       </Box>
       {emailError && (
         <Typography
-          sx={{ marginLeft: '20px', marginTop: '10px', color: 'white' }}
+          sx={{ marginLeft: '16px', marginTop: '10px', color: '#ff5454' }}
         >
           {emailError}
         </Typography>
