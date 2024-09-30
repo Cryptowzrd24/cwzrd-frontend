@@ -8,10 +8,11 @@ import bannerBgBrown from '../../../../../public/images/technicals-page/techBann
 import bannerBgSkyBlue from '../../../../../public/images/technicals-page/techBannerImgSkyBlue.png';
 import bannerBgGreen from '../../../../../public/images/technicals-page/techBannerImgGreen.png';
 import bannerBgPurple from '../../../../../public/images/technicals-page/techBannerImgPurple.png';
+import bannerBgBronze from '../../../../../public/images/technicals-page/techBannerImgBrown.png';
 
 import { ReadMoreIcon } from '../../../../../public/icons/readMoreIcon';
 
-type BgColor = 'purple' | 'brown' | 'blue' | 'green';
+type BgColor = 'purple' | 'brown' | 'blue' | 'green' | 'bronze';
 interface TechnicalsBannerProps {
   bgColor: BgColor;
   coinName: string;
@@ -32,7 +33,9 @@ function TechnicalsBanner({
           ? bannerBgBrown
           : bgColor === 'purple'
             ? bannerBgPurple
-            : bannerBg;
+            : bgColor === 'bronze'
+              ? bannerBgBronze
+              : bannerBg;
 
   return (
     <Box
