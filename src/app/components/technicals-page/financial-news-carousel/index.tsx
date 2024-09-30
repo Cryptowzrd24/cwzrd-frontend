@@ -83,6 +83,7 @@ const FinancialNewsCarousel = ({ noBackground = false }) => {
         key={elem}
         sx={{
           paddingLeft: '10px',
+          paddingBlock: '20px',
           boxSizing: 'border-box',
         }}
       >

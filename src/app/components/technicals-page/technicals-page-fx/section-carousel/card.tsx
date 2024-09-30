@@ -4,6 +4,9 @@ import React from 'react';
 
 import techGraph from '../../../../../../public/images/technicals-page/techPageGraph.png';
 import liteCoinImage from '../../../../../../public/images/coin-details/lite-coin.png';
+import usaIcon from '../../../../../../public/images/technicals-page/usaIcon.png';
+import ausIcon from '../../../../../../public/images/technicals-page/ausIcon.png';
+
 import CommentsLikes from '../../comments-likes';
 
 interface FinancialCardProps {
@@ -29,8 +32,8 @@ function FinancialCardCarouselSec({ image }: FinancialCardProps) {
       <Box>
         <Box
           sx={{
-            width: '32px',
-            height: '32px',
+            width: '44px',
+            height: '44px',
             background: 'rgba(255, 255, 255, 1)',
             boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
             borderRadius: '50%',
@@ -42,11 +45,28 @@ function FinancialCardCarouselSec({ image }: FinancialCardProps) {
           }}
         >
           <Image
-            src={image ? image : liteCoinImage}
+            src={image ? usaIcon : liteCoinImage}
             alt="analysis card"
-            width={23}
-            height={23}
+            width={32}
+            height={32}
           />
+        </Box>
+        <Box
+          sx={{
+            width: '44px',
+            height: '44px',
+            background: 'rgba(255, 255, 255, 1)',
+            boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
+            borderRadius: '50%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            left: '180px',
+            marginTop: '0.5px',
+          }}
+        >
+          <Image src={ausIcon} alt="analysis card" width={32} height={32} />
         </Box>
         <Box
           sx={{

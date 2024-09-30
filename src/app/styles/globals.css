@@ -203,7 +203,7 @@ body {
 }
 
 .slick-list {
-  padding-block: 20px !important;
+  /* padding-block: 20px !important; */
 }
 
 .slick-dots.slick-thumb li button::before {
