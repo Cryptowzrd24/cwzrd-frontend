@@ -1,7 +1,6 @@
 import styles from './index.module.css';
 
 export const Volume24 = (props: any) => {
-  debugger;
   return (
     <div className={styles['container']}>
       <div className={styles['container__text']}>{props.value.amount}</div>

@@ -143,7 +143,6 @@ const DataTable = memo(
             }
 
             if (getAirDropMain) {
-              console.log('Airdrops Main');
               router.push('/market/airdrops-main');
             }
 

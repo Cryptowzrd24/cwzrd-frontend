@@ -148,13 +148,6 @@ const StockChart: React.FC<StockChartProps> = React.memo(
             ? 'line'
             : 'area';
 
-    console.log(
-      selectedCompareCoinId,
-      graphType,
-      selectedFilter,
-      candleStickData,
-    );
-
     const getDate = (timestamp: string) =>
       new Date(parseInt(timestamp, 10) * 1000).getTime();
 
@@ -342,7 +335,6 @@ const StockChart: React.FC<StockChartProps> = React.memo(
           shadow: false,
           useHTML: true,
           formatter: function (this: any) {
-            console.log('this>>', this);
             const firstCoinIndex =
               this?.points?.length === 4
                 ? this.points?.[0]

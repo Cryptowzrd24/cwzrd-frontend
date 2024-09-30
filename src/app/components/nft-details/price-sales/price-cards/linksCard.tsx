@@ -57,6 +57,7 @@ const LinksCard = ({ serverNftData }: any) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              textDecoration: 'none',
             }}
           >
             {serverNftData?.website && serverNftData?.website !== '' ? (
@@ -118,10 +119,10 @@ const LinksCard = ({ serverNftData }: any) => {
                   ':hover': {
                     background: '#dddce1',
                   },
-                  textDecoration: 'none',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  textDecoration: 'none',
                 }}
               >
                 <Typography
@@ -225,6 +226,7 @@ const LinksCard = ({ serverNftData }: any) => {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  textDecoration: 'none',
                 }}
               >
                 <Typography
@@ -252,6 +254,7 @@ const LinksCard = ({ serverNftData }: any) => {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  textDecoration: 'none',
                 }}
               >
                 <Typography

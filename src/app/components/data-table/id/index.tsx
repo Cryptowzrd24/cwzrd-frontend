@@ -140,7 +140,8 @@ export const ID = (props: CustomCellRendererProps) => {
 
   return (
     <div className={styles['index-comp-main']}>
-      {pathname.includes('/collections') ? (
+      {pathname.includes('/collections') ||
+      pathname.includes('/nft-details') ? (
         <></>
       ) : (
         <div onClick={handleClick} data-is-star="true">

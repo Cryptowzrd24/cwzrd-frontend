@@ -3,11 +3,11 @@ import Image from 'next/image';
 import { Box, Stack, Typography } from '@mui/material';
 // import { cardDetails } from './data';
 interface cardProps {
-  id: string;
+  id: number;
   cardDetails: any;
 }
 const CollectionCard = ({ id, cardDetails }: cardProps) => {
-  const cardData = cardDetails.find((card: any) => card.id === id);
+  const cardData = cardDetails[id];
 
   if (!cardData) {
     return <Typography variant="h6">Card not found</Typography>;
@@ -23,7 +23,7 @@ const CollectionCard = ({ id, cardDetails }: cardProps) => {
         background: 'rgba(255, 255, 255, 1)',
       }}
     >
-      <Box sx={{ padding: '16px 16px 0 16px', position: 'relative' }}>
+      <Box sx={{ position: 'relative' }}>
         {/* <Image
           src={cardData.image1}
           alt="background"
@@ -31,31 +31,14 @@ const CollectionCard = ({ id, cardDetails }: cardProps) => {
           height={180}
           layout="responsive"
         /> */}
-        <div
-          style={{
-            width: '410px',
-            height: '180px',
-            position: 'relative',
-          }}
-        >
-          <Image
-            src={cardData.image1}
-            alt="background"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            style={{ borderRadius: '12px' }}
-          />
-        </div>
-
         <Box
           sx={{
             padding: '5px 12px',
             borderRadius: '8px',
             background: 'rgba(17, 17, 17, 1)',
             position: 'absolute',
-            top: '28px',
-            left: '30px',
+            top: '26px',
+            right: '30px',
           }}
         >
           <Typography
@@ -75,7 +58,17 @@ const CollectionCard = ({ id, cardDetails }: cardProps) => {
       <Box sx={{ padding: '24px' }}>
         <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
           <Box sx={{ mt: '8px' }}>
-            <Image src={cardData.image2} alt="icon" width={48} height={48} />
+            <Image
+              style={{
+                objectFit: 'cover',
+                borderRadius: '50%',
+              }}
+              loader={({ src }) => src}
+              src={cardData.image2}
+              alt="icon"
+              width={48}
+              height={48}
+            />
           </Box>
           <Box>
             <Stack>

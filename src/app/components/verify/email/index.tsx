@@ -65,13 +65,13 @@ const VerifyEmailModal = ({ verificationKey }: any) => {
             <Typography
               sx={{
                 userSelect: 'none',
-                fontWeight: '600',
+                fontWeight: '500',
                 fontSize: '16px',
                 textAlign: 'center',
                 color: 'rgb(107,118,138)',
                 overflowWrap: 'break-word',
                 lineHeight: '25px',
-                letterSpacing: '1px',
+                letterSpacing: '1.2px',
               }}
             >
               {/* @ts-expect-error: isSucces may not have error */}
@@ -107,6 +107,7 @@ const VerifyEmailModal = ({ verificationKey }: any) => {
                 marginTop: '5px',
               }}
               href="/market/coin"
+              id="go-back-btn"
             >
               <ArrowBackIosNewIcon fontSize="small" />{' '}
               <Typography sx={{ color: 'white', marginInline: '5px' }}>

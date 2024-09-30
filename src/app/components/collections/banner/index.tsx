@@ -2,16 +2,20 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import CollectionCard from './card';
-import ArrowRightDark from '../../../../../public/icons/collections/arrowRightDark';
-import ArrowLeftDark from '../../../../../public/icons/collections/arrowLeftDark';
 import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'; // Import Autoplay module
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay'; // Import Swiper autoplay styles
 import { getPopularNfts } from '@/app/services/collections';
 import VerifiedBlack from '../../../../../public/icons/collections/verifiedBlack';
+import { useRouter } from 'next/navigation';
 
 const CollectionBanner = () => {
   const [nfts, setNfts] = useState<any[]>([]); // Initialize as an empty array
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const router = useRouter();
 
   const fetchPopularNfts = async () => {
     const data = await getPopularNfts();
@@ -20,14 +24,9 @@ const CollectionBanner = () => {
   };
 
   const mapPopularNfts = async (nfts: any) => {
-    return nfts.map((nft: any, index: number) => ({
+    return nfts.map((nft: any) => ({
       id: nft.cryptoId.toString(),
-      image1:
-        index % 2 === 0
-          ? '/images/collections/background3.png'
-          : index % 2 != 0 && index % 3 != 0
-            ? '/images/collections/background2.png'
-            : '/images/collections/background1.png',
+      image1: '/images/collections/background1.png',
       image2: nft.logo,
       title: nft.name,
       subheading: nft.symbol,
@@ -36,160 +35,86 @@ const CollectionBanner = () => {
       value1: `${nft.assets} Items`,
       state2: '24h Volume',
       value2: `${nft.oneDay.volume.toFixed(2)} ${nft.floorPriceToken}`,
-      backgroundImage:
-        index % 2 === 0
-          ? '/images/collections/banner.png'
-          : index % 2 != 0 && index % 3 != 0
-            ? '/images/banner/banner2.png'
-            : '/images/banner/banner1.png',
+      backgroundImage: '/images/banner/bannerBlur1.png',
+      alias: nft.platformAlias,
+      contractAddress: nft.contractAddress,
     }));
-  };
-
-  const handleNextClick = () => {
-    if (currentCardIndex < nfts.length - 1) {
-      setCurrentCardIndex(currentCardIndex + 1);
-    }
-  };
-
-  const handlePrevClick = () => {
-    if (currentCardIndex > 0) {
-      setCurrentCardIndex(currentCardIndex - 1);
-    }
   };
 
   useEffect(() => {
     fetchPopularNfts();
   }, []);
 
-  const currentCard = nfts[currentCardIndex];
-
   return (
     <>
       {nfts.length > 0 && (
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentCard?.id}
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
-            transition={{
-              type: 'spring',
-              stiffness: 300,
-              damping: 30,
-              duration: 0.2,
-            }}
-            style={{ width: '100%' }}
-          >
-            <Box
-              sx={{
-                backgroundImage: `url(${currentCard.backgroundImage})`,
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center center',
-                padding: '52px 48px 52px  100px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'end',
-                position: 'relative',
-                borderRadius: '24px',
-              }}
-            >
-              <CollectionCard cardDetails={nfts} id={currentCard?.id} />
-              <Stack>
-                <Box
-                  sx={{
-                    padding: '12px 20px 12px 24px',
-                    borderRadius: '56px',
-                    background: 'rgba(255, 255, 255, 1)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    cursor: 'pointer',
-                  }}
-                >
-                  <Typography
-                    variant="body1"
-                    sx={{ fontWeight: '700', fontSize: '16px' }}
+        <Swiper
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
+          pagination={{ clickable: true }}
+          loop={true}
+          autoplay={{
+            delay: 3000, // Set delay between slides (in ms)
+            disableOnInteraction: false, // Autoplay even if the user interacts with the slide
+          }}
+          modules={[Navigation, Pagination, Autoplay]} // Add Autoplay to modules
+        >
+          {nfts.map((nft, index) => (
+            <SwiperSlide key={nft.id}>
+              <Box
+                sx={{
+                  backgroundImage: `url(${nft.backgroundImage})`,
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center center',
+                  padding: '52px 48px 52px 100px',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'end',
+                  position: 'relative',
+                  borderRadius: '24px',
+                }}
+              >
+                <CollectionCard cardDetails={nfts} id={index} />
+                <Stack>
+                  <div
+                    style={{
+                      padding: '12px 20px 12px 24px',
+                      borderRadius: '56px',
+                      background: 'rgba(255, 255, 255, 1)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                      cursor: 'pointer',
+                      zIndex: 9999,
+                    }}
+                    onClick={() =>
+                      router.push(
+                        `/market/nft-details/${nfts[index].contractAddress}/${nfts[index].alias}`,
+                      )
+                    }
                   >
-                    View Collection
-                  </Typography>
-                  <ArrowRightBlack />
-                </Box>
-              </Stack>
-              {/* Dots */}
-              {nfts.length > 1 && (
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    top: '10%',
-                    right: '4px',
-                    transform: 'translateX(-50%)',
-                    display: 'flex',
-                    gap: '12px',
-                  }}
-                >
-                  {nfts.map((card, index) => (
-                    <Box
-                      key={card.id}
-                      sx={{
-                        width: '12px',
-                        height: '12px',
-                        borderRadius: '50%',
-                        backgroundColor:
-                          index === currentCardIndex ? '#fff' : 'transparent',
-                        border: '1px solid rgba(255, 255, 255, 0.3)',
-                        cursor: 'pointer',
-                      }}
-                      onClick={() => setCurrentCardIndex(index)}
-                    />
-                  ))}
-                </Box>
-              )}
-              {/* Right Arrow */}
-              {currentCardIndex < nfts.length - 1 && (
-                <Box
-                  sx={{
-                    padding: '12px',
-                    borderRadius: '56px',
-                    background: 'rgba(255, 255, 255, 1)',
-                    position: 'absolute',
-                    top: '50%',
-                    right: '32px',
-                    transform: 'translateY(-50%)',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    cursor: 'pointer',
-                  }}
-                  onClick={handleNextClick}
-                >
-                  <ArrowRightDark />
-                </Box>
-              )}
-              {/* Left Arrow */}
-              {currentCardIndex > 0 && (
-                <Box
-                  sx={{
-                    padding: '12px',
-                    borderRadius: '56px',
-                    background: 'rgba(255, 255, 255, 1)',
-                    position: 'absolute',
-                    top: '50%',
-                    left: '32px',
-                    transform: 'translateY(-50%)',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    cursor: 'pointer',
-                  }}
-                  onClick={handlePrevClick}
-                >
-                  <ArrowLeftDark />
-                </Box>
-              )}
-            </Box>
-          </motion.div>
-        </AnimatePresence>
+                    <Typography
+                      variant="body1"
+                      sx={{ fontWeight: '700', fontSize: '16px' }}
+                    >
+                      View Collection
+                    </Typography>
+                    <ArrowRightBlack />
+                  </div>
+                </Stack>
+              </Box>
+            </SwiperSlide>
+          ))}
+
+          {/* Swiper Navigation Buttons */}
+          <Box className="swiper-button-next" sx={{ color: '#000' }}></Box>
+          <Box className="swiper-button-prev" sx={{ color: '#000' }}></Box>
+        </Swiper>
       )}
     </>
   );
