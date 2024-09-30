@@ -36,7 +36,7 @@ const TechnicalCardContent: React.FC = () => {
 
   return (
     <Box style={{ position: 'relative', width: '100%' }}>
-      <Slider className='technicals-slick' ref={sliderRef} {...settings}>
+      <Slider className="technicals-slick" ref={sliderRef} {...settings}>
         {TechnicalCardData.map((card) => (
           <TechnicalCard
             key={card.id}

@@ -93,7 +93,9 @@ const TechnicalGraphCarousel = () => {
 
   return (
     <Box>
-      <Slider className='technicals-slick' {...settings}>{renderCards}</Slider>
+      <Slider className="technicals-slick" {...settings}>
+        {renderCards}
+      </Slider>
     </Box>
   );
 };
