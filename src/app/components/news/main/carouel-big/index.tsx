@@ -11,7 +11,7 @@ import ArrowLeftDark from '../../../../../../public/icons/collections/arrowLeftD
 const content = [
   {
     title:
-      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros',
     description:
       'That will include high fines for those who manipulate the crypto asset market as part of a wider scheme to beef up surveillance of risks tied to the sector, Reuters reported, citing a draft decree it reviewed.',
     tags: ['Economy', 'Finance', 'Breaking'],
@@ -28,7 +28,7 @@ const content = [
   },
   {
     title:
-      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros',
     description:
       'The stock market has experienced a significant downturn today...',
     tags: ['Economy', 'Finance', 'Breaking'],
@@ -37,7 +37,7 @@ const content = [
   },
   {
     title:
-      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros',
     description:
       'Cryptocurrencies are on the rise again as investors flock to digital assets...',
     tags: ['Crypto', 'Investment', 'Trending'],
@@ -46,7 +46,7 @@ const content = [
   },
   {
     title:
-      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros: Reuters with anything ypu like uch as crypro wizard and cap c because of infringememet rigths as this is the way',
+      'Italy to Increase Surveillance and conveyance of Crypto Market With Fines as High as 5M Euros',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet sequi velit aspernatur sit quo nihil quibusdam, eius quis consequatur quod illo repudiandae iure magni libero, atque illum laudantium impedit nostrum! Tempore deleniti voluptatum voluptate atque minus sequi, exercitationem quia rem veniam maiores, ut eius esse ab eum quasi tempora repellendus animi, omnis molestias eaque! Atque porro velit dolorem sunt veniam!',
     tags: ['Economy', 'Finance', 'Breaking'],
@@ -61,6 +61,7 @@ const NewsCarouselBig = ({
   isDetailPage,
   width,
   latest,
+  isCrypto,
 }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -88,7 +89,11 @@ const NewsCarouselBig = ({
       color={'white'}
       position="relative"
       width={width ? width : '100%'}
-      height={{ xs: '300px', sm: '400px', md: height ? height : '800px' }}
+      height={
+        isCrypto
+          ? { xs: '300px', sm: '400px', md: height ? height : '680px' }
+          : { xs: '300px', sm: '400px', md: height ? height : '800px' }
+      }
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -165,7 +170,15 @@ const NewsCarouselBig = ({
         <Box
           position="absolute"
           top={
-            latest ? '43%' : hideButtons ? '60%' : isDetailPage ? '53%' : '65%'
+            latest
+              ? '43%'
+              : hideButtons
+                ? '60%'
+                : isDetailPage
+                  ? '53%'
+                  : isCrypto
+                    ? '60%'
+                    : '65%'
           }
           left="0"
           display="flex"
@@ -194,7 +207,15 @@ const NewsCarouselBig = ({
           position="absolute"
           paddingInline={'24px'}
           top={
-            latest ? '52%' : hideButtons ? '65%' : isDetailPage ? '60%' : '70%'
+            latest
+              ? '52%'
+              : hideButtons
+                ? '65%'
+                : isDetailPage
+                  ? '60%'
+                  : isCrypto
+                    ? '65%'
+                    : '70%'
           }
           left="0"
           color="white"

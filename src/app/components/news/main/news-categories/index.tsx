@@ -1,5 +1,7 @@
+'use client';
 import { Box, Container, Link } from '@mui/material';
 import SearchIcon from '../../../../../../public/icons/Navbar-Section/search';
+import { usePathname } from 'next/navigation';
 
 const newsData = [
   { name: 'All News', id: 1, link: '/news' },
@@ -14,6 +16,7 @@ const newsData = [
 ];
 
 export const NewsCategory: React.FC = () => {
+  const pathname = usePathname();
   return (
     <Container
       sx={{
@@ -40,10 +43,11 @@ export const NewsCategory: React.FC = () => {
           <Box
             key={index}
             sx={
-              item.name == 'All News'
+              (pathname === '/news' && item.name === 'All News') ||
+              (pathname.includes('crypto') && item.name === 'Cryptocurrency')
                 ? {
                     height: '40px',
-                    width: '90px',
+                    width: '120px',
                     backgroundColor: 'rgb(239,234,254)',
                     borderRadius: '30px',
                     display: 'flex',
@@ -65,7 +69,13 @@ export const NewsCategory: React.FC = () => {
                 fontWeight: 700,
                 paddingInline: '5px',
                 marginInline: '5px',
-                color: `${item.name == 'All News' ? '#7248F7' : 'inherit'}`,
+                color: `${
+                  (pathname === '/news' && item.name === 'All News') ||
+                  (pathname.includes('crypto') &&
+                    item.name === 'Cryptocurrency')
+                    ? '#7248F7'
+                    : 'inherit'
+                }`,
                 ':hover': {
                   color: '#7248F7',
                 },
@@ -88,7 +98,7 @@ export const NewsCategory: React.FC = () => {
           },
         }}
       >
-        <SearchIcon height={32} width={32} />
+        <SearchIcon height={20} width={20} />
       </Box>
     </Container>
   );

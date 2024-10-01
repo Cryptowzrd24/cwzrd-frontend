@@ -23,11 +23,13 @@ function LiveMarket({
   isTechnicalDetail,
   isNewsDetails,
   isNewsPage,
+  isFirst,
 }: {
   isPageDetails?: boolean;
   isTechnicalDetail?: boolean;
   isNewsDetails?: boolean;
   isNewsPage?: boolean;
+  isFirst?: boolean;
 }) {
   const { data: liveMarketData, isFetching } = useFetchLiveMarketCoinDataQuery(
     {},
@@ -50,6 +52,7 @@ function LiveMarket({
         borderRadius: '16px',
         overflowX: 'hidden',
         paddingInline: '20px',
+        scrollbarWidth: 'none',
         // marginBlock: '12px',
         background: !isTechnicalDetail
           ? 'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)'
@@ -63,7 +66,9 @@ function LiveMarket({
             ? '472px'
             : isNewsPage
               ? '528px'
-              : '438px',
+              : isFirst
+                ? '355px'
+                : '370px',
       }}
       className="live-market"
     >

@@ -49,7 +49,7 @@ export const ID = (props: CustomCellRendererProps) => {
     selectedWatchListMain,
     mainWatchFavorites,
   } = useAppSelector((state) => state.market);
-
+  const { token } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
   const [addWatchlist] = useAddWatchlistMutation();
 
@@ -61,7 +61,7 @@ export const ID = (props: CustomCellRendererProps) => {
 
   // Use favorites if no watchlistEmail is available, otherwise use mainWatchFavorites based on the page
   const currentFavorites = useMemo(() => {
-    if (!Cookies.get('authToken')) {
+    if (!token?.length) {
       return favorites;
     }
     return isFavoritesPage ? favorites : mainWatchFavorites;
@@ -75,13 +75,12 @@ export const ID = (props: CustomCellRendererProps) => {
   const handleClick = useCallback(
     async (event: React.MouseEvent) => {
       event.stopPropagation();
-      const token = Cookies.get('authToken');
       const isFavorite = currentFavorites.includes(String(coinId));
       const newFavorites = isFavorite
         ? currentFavorites.filter((id) => id !== String(coinId))
         : [...currentFavorites, String(coinId)];
 
-      if (!token || isFavoritesPage) {
+      if (!token?.length || isFavoritesPage) {
         Cookies.set('favorites', JSON.stringify(newFavorites));
         dispatch(updateFavorites(newFavorites));
         if (selectedWatchListMain) {
