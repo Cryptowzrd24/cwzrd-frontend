@@ -8,9 +8,16 @@ import Image from 'next/image';
 interface GraphDetailsCardProps {
   image?: any;
   isInverted?: boolean;
+  isFxPage?: boolean;
+  dualImg?: any;
 }
 
-const GraphDetailsCard = ({ image, isInverted }: GraphDetailsCardProps) => {
+const GraphDetailsCard = ({
+  image,
+  isInverted,
+  isFxPage,
+  dualImg,
+}: GraphDetailsCardProps) => {
   return (
     <Box
       sx={{
@@ -70,14 +77,12 @@ const GraphDetailsCard = ({ image, isInverted }: GraphDetailsCardProps) => {
           margin: '16px 0px 16px 16px',
         }}
       >
-        <Box sx={{ position: 'relative' }}>
+        <Box sx={{ position: 'relative', display: 'flex' }}>
           <Box
             sx={
               isInverted
                 ? {
                     position: 'absolute',
-                    // top: 1,
-                    // right: 1,
                     left: -2,
                     top: -1,
                     zIndex: 23,
@@ -92,8 +97,6 @@ const GraphDetailsCard = ({ image, isInverted }: GraphDetailsCardProps) => {
                   }
                 : {
                     position: 'absolute',
-                    // top: 1,
-                    // right: 1,
                     right: 25,
                     top: 6,
                     width: '44px',
@@ -114,6 +117,47 @@ const GraphDetailsCard = ({ image, isInverted }: GraphDetailsCardProps) => {
               height={32}
             />
           </Box>
+          {isFxPage && (
+            <Box
+              sx={
+                isInverted
+                  ? {
+                      position: 'absolute',
+                      left: 29,
+                      zIndex: 23,
+                      width: '44px',
+                      height: '44px',
+                      background: 'rgba(255, 255, 255, 1)',
+                      boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }
+                  : {
+                      position: 'absolute',
+                      right: 55,
+                      // right: 25,
+                      top: 6,
+                      width: '44px',
+                      height: '44px',
+                      background: 'rgba(255, 255, 255, 1)',
+                      boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }
+              }
+            >
+              <Image
+                src={dualImg ? dualImg : litecoinImg.src}
+                alt="coin-image"
+                width={32}
+                height={32}
+              />
+            </Box>
+          )}
         </Box>
         <img
           src={GraphCard.src}

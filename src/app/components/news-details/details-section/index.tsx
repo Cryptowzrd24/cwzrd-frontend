@@ -65,7 +65,7 @@ function DetailsSection({
         <ChildComponent />
       </Box>
       <Box
-        sx={{ flex: 0.5, position: 'sticky', top: '20px', height: '1380px' }}
+        sx={{ flex: 0.5, position: 'sticky', top: '20px', height: '1256px' }}
       >
         <MarketNewsPanel isTechnicalDetail={isTechnicalDetail} />
       </Box>

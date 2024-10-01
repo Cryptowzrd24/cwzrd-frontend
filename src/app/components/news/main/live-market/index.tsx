@@ -23,11 +23,13 @@ function LiveMarket({
   isTechnicalDetail,
   isNewsDetails,
   isNewsPage,
+  isFirst,
 }: {
   isPageDetails?: boolean;
   isTechnicalDetail?: boolean;
   isNewsDetails?: boolean;
   isNewsPage?: boolean;
+  isFirst?: boolean;
 }) {
   const { data: liveMarketData, isFetching } = useFetchLiveMarketCoinDataQuery(
     {},
@@ -50,6 +52,7 @@ function LiveMarket({
         borderRadius: '16px',
         overflowX: 'hidden',
         paddingInline: '20px',
+        scrollbarWidth: 'none',
         // marginBlock: '12px',
         background: !isTechnicalDetail
           ? 'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)'
@@ -63,7 +66,9 @@ function LiveMarket({
             ? '472px'
             : isNewsPage
               ? '528px'
-              : '438px',
+              : isFirst
+                ? '355px'
+                : '370px',
       }}
       className="live-market"
     >
@@ -121,160 +126,155 @@ function LiveMarket({
       </Box>
       <Divider sx={{ width: '100%' }} />
       {!isFetching ? (
-        liveMarketData
-          ?.slice(0, isPageDetails ? 5 : isNewsPage ? 7 : 4)
-          .map((item: any, index: any) => (
-            <Box paddingTop={'8px'}>
-              <Accordion
-                expanded={expanded === item.id}
-                onChange={handleChange(item.id)}
-                sx={{
-                  background: 'transparent',
-                  width: '270px',
-                  boxShadow: 'none',
-                  cursor: 'pointer',
+        liveMarketData?.slice(0, 10).map((item: any, index: any) => (
+          <Box paddingTop={'8px'}>
+            <Accordion
+              expanded={expanded === item.id}
+              onChange={handleChange(item.id)}
+              sx={{
+                background: 'transparent',
+                width: '270px',
+                boxShadow: 'none',
+                cursor: 'pointer',
+                '&:before': {
+                  display: 'none',
+                },
+                '&.Mui-expanded': {
+                  margin: 0,
                   '&:before': {
                     display: 'none',
                   },
-                  '&.Mui-expanded': {
-                    margin: 0,
-                    '&:before': {
-                      display: 'none',
-                    },
-                  },
+                },
+              }}
+            >
+              <AccordionSummary
+                aria-controls={`panel${item.id}-content`}
+                id={`panel${item.id}-header`}
+                sx={{
+                  // height: '61px',
+                  padding: '0 16px 0 5px',
+                  maxHeight: '42px',
                 }}
               >
-                <AccordionSummary
-                  aria-controls={`panel${item.id}-content`}
-                  id={`panel${item.id}-header`}
+                <Box
                   sx={{
-                    // height: '61px',
-                    padding: '0 16px 0 5px',
-                    maxHeight: '42px',
+                    width: '100%',
+                    borderRadius: '16px',
+                    mb: '8px',
                   }}
                 >
                   <Box
                     sx={{
-                      width: '100%',
-                      borderRadius: '16px',
-                      mb: '8px',
+                      display: 'flex',
+                      gap: '8px',
+                      flexDirection: 'row',
+                      alignItems: 'center',
                     }}
                   >
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        gap: '8px',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <Box sx={{ position: 'relative' }}>
-                        <img
-                          src={`https://backend.cwzrd.co.uk/api/coin-image/?id=${item.id}`}
-                          alt="picture"
-                          width={32}
-                          height={32}
-                          style={{
-                            objectFit: 'cover',
-                            borderRadius: '12px',
-                          }}
-                        ></img>
-                      </Box>
-                      <Stack
-                        maxHeight={'100px'}
-                        style={{ flex: 1, width: '100%' }}
-                      >
-                        <Box
-                          sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                          }}
-                        >
-                          <Typography
-                            sx={{
-                              fontSize: '14px',
-                              fontWeight: '500',
-                              lineHeight: '18.2px',
-                              marginBottom: '2px',
-                            }}
-                          >
-                            {item?.name}
-                          </Typography>
-                          <Typography
-                            sx={{
-                              fontSize: '14px',
-                              fontWeight: '500',
-                              lineHeight: '18.2px',
-                              marginBottom: '2px',
-                            }}
-                          >
-                            {'$' + priceNumberFormatDigits(item?.price)}
-                          </Typography>
-                        </Box>
-
-                        <Box
-                          sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                          }}
-                        >
-                          <Typography
-                            sx={{
-                              color: 'rgb(101,101,101)',
-                              fontSize: '12px',
-                              fontWeight: '400',
-                              lineHeight: '15.6px',
-                            }}
-                          >
-                            {item?.symbol}
-                          </Typography>
-                          <Typography
-                            sx={{
-                              fontSize: '14px',
-                              fontWeight: '500',
-                              lineHeight: '18.2px',
-                              marginBottom: '2px',
-                              color: item?.percent_change_24h
-                                .toString()
-                                .includes('-')
-                                ? 'rgb(243,57,57)'
-                                : 'rgb(61,194,136)',
-                            }}
-                          >
-                            {item?.percent_change_24h + ' '}%
-                          </Typography>
-                        </Box>
-                      </Stack>
+                    <Box sx={{ position: 'relative' }}>
+                      <img
+                        src={`https://backend.cwzrd.co.uk/api/coin-image/?id=${item.id}`}
+                        alt="picture"
+                        width={32}
+                        height={32}
+                        style={{
+                          objectFit: 'cover',
+                          borderRadius: '12px',
+                        }}
+                      ></img>
                     </Box>
+                    <Stack
+                      maxHeight={'100px'}
+                      style={{ flex: 1, width: '100%' }}
+                    >
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            lineHeight: '18.2px',
+                            marginBottom: '2px',
+                          }}
+                        >
+                          {item?.name}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            lineHeight: '18.2px',
+                            marginBottom: '2px',
+                          }}
+                        >
+                          {'$' + priceNumberFormatDigits(item?.price)}
+                        </Typography>
+                      </Box>
+
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            color: 'rgb(101,101,101)',
+                            fontSize: '12px',
+                            fontWeight: '400',
+                            lineHeight: '15.6px',
+                          }}
+                        >
+                          {item?.symbol}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            lineHeight: '18.2px',
+                            marginBottom: '2px',
+                            color: item?.percent_change_24h
+                              .toString()
+                              .includes('-')
+                              ? 'rgb(243,57,57)'
+                              : 'rgb(61,194,136)',
+                          }}
+                        >
+                          {item?.percent_change_24h + ' '}%
+                        </Typography>
+                      </Box>
+                    </Stack>
                   </Box>
-                </AccordionSummary>
-                <AccordionDetails sx={{ padding: '0 ' }}>
-                  <AreaChart
-                    data={item?.chart_data}
-                    color={getGraphColor(item?.percent_change_24h)}
-                    percent={false}
-                    fill="transparent"
-                    isLiveMarket={true}
-                    id={expanded}
-                  />
-                </AccordionDetails>
-              </Accordion>
-              {index !==
-                liveMarketData?.slice(0, isPageDetails ? 5 : isNewsPage ? 7 : 4)
-                  .length -
-                  1 && (
-                <Divider
-                  sx={{
-                    width: '100%',
-                    // marginBottom: '20px',
-                    borderColor: '#1111110D',
-                  }}
+                </Box>
+              </AccordionSummary>
+              <AccordionDetails sx={{ padding: '0 ' }}>
+                <AreaChart
+                  data={item?.chart_data}
+                  color={getGraphColor(item?.percent_change_24h)}
+                  percent={false}
+                  fill="transparent"
+                  isLiveMarket={true}
+                  id={expanded}
                 />
-              )}
-            </Box>
-          ))
+              </AccordionDetails>
+            </Accordion>
+            {index !== liveMarketData?.slice(0, 10).length - 1 && (
+              <Divider
+                sx={{
+                  width: '100%',
+                  // marginBottom: '20px',
+                  borderColor: '#1111110D',
+                }}
+              />
+            )}
+          </Box>
+        ))
       ) : (
         <Box
           sx={{

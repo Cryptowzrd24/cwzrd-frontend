@@ -11,10 +11,6 @@ const FinancialRight = () => {
         width: '298px',
         height: '600px',
         background: 'radial-gradient(circle, #e3e3e3, #ffffff)',
-        // backgroundImage: `url('/images/news-letter/card-background-2.jpeg')`,
-        // backgroundSize: '100% 100%',
-        // backgroundPosition: 'center',
-        // backgroundRepeat: 'no-repeat',
         boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
         borderRadius: '16px',
         padding: '16px 12px 0px 12px',
@@ -22,7 +18,14 @@ const FinancialRight = () => {
         scrollbarWidth: 'none',
       }}
     >
-      <Box sx={{ marginLeft: '2px', marginBottom: '12px' }}>
+      <Box
+        sx={{
+          marginLeft: '2px',
+          marginBottom: '12px',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <Typography
           sx={{
             color: 'rgba(114, 72, 247, 1)',
@@ -32,7 +35,7 @@ const FinancialRight = () => {
           }}
         >
           📰 New Update{' '}
-          <span style={{ color: 'rgba(17,17,17,0.3)', paddingLeft: '38px' }}>
+          <span style={{ color: 'rgba(17,17,17,0.3)', paddingLeft: '10px' }}>
             | <span style={{ marginLeft: '8px', color: '#111' }}>🔥</span>{' '}
             Trending
           </span>

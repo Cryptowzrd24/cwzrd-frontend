@@ -83,6 +83,7 @@ const FinancialNewsCarousel = ({ noBackground = false }) => {
         key={elem}
         sx={{
           paddingLeft: '10px',
+          paddingBlock: '20px',
           boxSizing: 'border-box',
         }}
       >
@@ -93,9 +94,7 @@ const FinancialNewsCarousel = ({ noBackground = false }) => {
 
   return (
     <Box>
-      <Slider className="technicals-slick" {...settings}>
-        {renderCards}
-      </Slider>
+      <Slider {...settings}>{renderCards}</Slider>
     </Box>
   );
 };

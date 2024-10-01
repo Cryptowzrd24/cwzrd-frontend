@@ -9,8 +9,10 @@ import litecoinImg from '../../../../../public/images/coin-details/lite-coin.png
 interface NewsCardProps {
   isShort?: boolean;
   image?: any;
+  isFxPage?: boolean;
+  dualImg?: any;
 }
-function NewsCard({ isShort, image }: NewsCardProps) {
+function NewsCard({ isShort, image, isFxPage, dualImg }: NewsCardProps) {
   return (
     <Box
       sx={
@@ -36,28 +38,55 @@ function NewsCard({ isShort, image }: NewsCardProps) {
       }
     >
       <Box>
-        <Box
-          sx={{
-            width: '24px',
-            height: '24px',
-            background: 'rgba(255, 255, 255, 1)',
-            boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
-            borderRadius: '50%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'relative',
-            top: !isShort ? '-2px' : '',
-            left: !isShort ? '-2px' : '',
-          }}
-        >
-          <Image
-            src={image ? image : isShort ? litecoinImg : bitcoinImg}
-            alt="analysis card"
-            width={17.45}
-            height={17.45}
-          />
+        <Box sx={{ display: 'flex' }}>
+          <Box
+            sx={{
+              width: '24px',
+              height: '24px',
+              background: 'rgba(255, 255, 255, 1)',
+              boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
+              borderRadius: '50%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              position: 'relative',
+              top: !isShort ? '-2px' : '',
+              left: !isShort ? '-2px' : '',
+            }}
+          >
+            <Image
+              src={image ? image : isShort ? litecoinImg : bitcoinImg}
+              alt="analysis card"
+              width={17.45}
+              height={17.45}
+            />
+          </Box>
+          {isFxPage && (
+            <Box
+              sx={{
+                width: '24px',
+                height: '24px',
+                background: 'rgba(255, 255, 255, 1)',
+                boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
+                borderRadius: '50%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                position: 'relative',
+                top: !isShort ? '-2px' : '',
+                left: !isShort ? '-10px' : '-8px',
+              }}
+            >
+              <Image
+                src={dualImg ? dualImg : isShort ? litecoinImg : bitcoinImg}
+                alt="analysis card"
+                width={17.45}
+                height={17.45}
+              />
+            </Box>
+          )}
         </Box>
+
         <Box sx={{ width: '140px', height: '75px', marginTop: '-20px' }}>
           <Image src={techGraph} alt="analysis card" width={140} height={75} />
         </Box>
