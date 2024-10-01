@@ -44,7 +44,6 @@ const ForgotPassword = ({ setForgotPassowrd }: any) => {
     if (valid) {
       setLoading(true);
       const response = await forgotPassword(email);
-      console.log('-----', response);
       setAnchorEl(e.currentTarget);
       setPopoverOpen(true);
       if (response?.error) {

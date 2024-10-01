@@ -174,9 +174,7 @@ function Navbar() {
         dispatch(updateSelectedWatchListName('My Favorite Coins'));
         dispatch(updateFavorites([]));
         dispatch(setFirstLoginToFalse());
-      } catch (error) {
-        console.log('error', error);
-      }
+      } catch (error) {}
     }
   };
 
@@ -224,7 +222,9 @@ function Navbar() {
             }}
           >
             <Link href="/">
-              {pathname.includes('/news') || pathname === '/technicals' ? (
+              {pathname === '/news' ||
+              pathname === '/news/crypto' ||
+              pathname === '/technicals' ? (
                 <LogoPurpleHat />
               ) : (
                 <Logo />
@@ -421,11 +421,11 @@ function Navbar() {
                     <Typography
                       sx={{
                         color: pathname.includes('news') ? 'white' : 'black',
-                        fontSize: '18px',
+                        fontSize: '16px',
                         paddingBlock: '5px',
                       }}
                     >
-                      {name.length > 5 ? `${name.slice(0, 5)}...` : name}
+                      {name.length > 7 ? `${name.slice(0, 5)}...` : name}
                     </Typography>
                   </Button>
                   <Menu
@@ -447,6 +447,7 @@ function Navbar() {
                         paddingInline: '10px',
                         color: 'black',
                         '&:hover': {
+                          background: 'transparent',
                           color: 'red',
                         },
                         width: '100%',

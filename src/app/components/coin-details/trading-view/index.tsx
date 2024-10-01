@@ -63,9 +63,7 @@ export const TradingView = ({
           tvWidget.showNoticeDialog({
             title: 'Notification',
             body: 'TradingView Charting Library API works correctly',
-            callback: () => {
-              console.log('Noticed!');
-            },
+            callback: () => {},
           }),
         );
 
