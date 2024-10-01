@@ -6,7 +6,10 @@ import techGraph from '../../../../../../public/images/technicals-page/techPageG
 import bitcoinImg from '../../../../../../public/images/coin-details/bitcoin.png';
 import CommentsLikes from '../../comments-likes';
 
-function MiddleAnalysisCard() {
+import usaIcon from '../../../../../../public/images/technicals-page/usaIcon.png';
+import ausIcon from '../../../../../../public/images/technicals-page/ausIcon.png';
+
+function MiddleAnalysisCard({ isFxPage }: { isFxPage?: boolean }) {
   return (
     <Box
       sx={{
@@ -20,23 +23,55 @@ function MiddleAnalysisCard() {
         marginBottom: '0px',
       }}
     >
-      <Box
-        sx={{
-          width: '44px',
-          height: '44px',
-          background: 'rgba(255, 255, 255, 1)',
-          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-          borderRadius: '50%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          position: 'relative',
-          top: '8px',
-          left: '-10px',
-        }}
-      >
-        <Image src={bitcoinImg} alt="analysis card" width={32} height={32} />
+      <Box sx={{ display: 'flex' }}>
+        <Box
+          sx={{
+            width: '44px',
+            height: '44px',
+            background: 'rgba(255, 255, 255, 1)',
+            boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+            borderRadius: '50%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'relative',
+            top: '8px',
+            left: '-10px',
+          }}
+        >
+          <Image
+            src={isFxPage ? ausIcon : bitcoinImg}
+            alt="analysis card"
+            width={32}
+            height={32}
+          />
+        </Box>
+        {isFxPage && (
+          <Box
+            sx={{
+              width: '44px',
+              height: '44px',
+              background: 'rgba(255, 255, 255, 1)',
+              boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+              borderRadius: '50%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              position: 'relative',
+              top: '8px',
+              left: '-22px',
+            }}
+          >
+            <Image
+              src={isFxPage ? usaIcon : bitcoinImg}
+              alt="analysis card"
+              width={32}
+              height={32}
+            />
+          </Box>
+        )}
       </Box>
+
       <Box
         sx={{
           width: '674px',

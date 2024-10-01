@@ -62,7 +62,7 @@ function FinancialCardCarouselSec({ image }: FinancialCardProps) {
             justifyContent: 'center',
             alignItems: 'center',
             position: 'absolute',
-            left: '180px',
+            left: '190px',
             marginTop: '0.5px',
           }}
         >

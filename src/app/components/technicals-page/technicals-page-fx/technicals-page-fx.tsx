@@ -13,6 +13,8 @@ import etheriumImg from '../../../../../public/images/coin-details/ether.png';
 import xrpImg from '../../../../../public/images/coin-details/xrp-coin.png';
 import litecoinImg from '../../../../../public/images/coin-details/lite-coin.png';
 import chainLinkImg from '../../../../../public/images/coin-details/chain-link.png';
+import usaIcon from '../../../../../public/images/technicals-page/usaIcon.png';
+import ausIcon from '../../../../../public/images/technicals-page/ausIcon.png';
 
 import RightCard from '../card-right';
 import NewsLetterBanner from '../../banners/newsLetterBanner';
@@ -174,6 +176,7 @@ function TechnicalsPageFx() {
             bgColor="blue"
             coinName="Etherium"
             coinImg={etheriumImg}
+            isFxPage={true}
           />
         </Box>
         <Box sx={{ display: 'flex', gap: '16px', mt: '24px', mb: '24px' }}>
@@ -181,13 +184,38 @@ function TechnicalsPageFx() {
             <FinancialCardCarouselSec image={chainLinkImg} />
             <FinancialCardCarouselSec image={chainLinkImg} />
           </Box>
-          <MiddleAnalysisCard />
+          <MiddleAnalysisCard isFxPage={true} />
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <NewsCard image={xrpImg} isShort={true} />
-            <NewsCard image={xrpImg} isShort={true} />
-            <NewsCard image={xrpImg} isShort={true} />
-            <NewsCard image={xrpImg} isShort={true} />
-            <NewsCard image={xrpImg} isShort={true} />
+            <NewsCard
+              image={usaIcon}
+              isShort={true}
+              dualImg={ausIcon}
+              isFxPage={true}
+            />
+            <NewsCard
+              image={usaIcon}
+              isShort={true}
+              dualImg={ausIcon}
+              isFxPage={true}
+            />
+            <NewsCard
+              image={usaIcon}
+              isShort={true}
+              dualImg={ausIcon}
+              isFxPage={true}
+            />
+            <NewsCard
+              image={usaIcon}
+              isShort={true}
+              dualImg={ausIcon}
+              isFxPage={true}
+            />
+            <NewsCard
+              image={usaIcon}
+              isShort={true}
+              dualImg={ausIcon}
+              isFxPage={true}
+            />
           </Box>
         </Box>
         {/* //carousel section// */}
@@ -201,42 +229,108 @@ function TechnicalsPageFx() {
           bgColor="purple"
           coinName="Litecoin"
           coinImg={litecoinImg}
+          isFxPage={true}
         />
       </Box>
 
       <Box sx={{ display: 'flex', gap: 2 }}>
         <Box>
-          <GraphDetailsCard />
+          <GraphDetailsCard isFxPage={true} dualImg={ausIcon} image={usaIcon} />
           <Box sx={{ display: 'flex', gap: 1, marginTop: '12px' }}>
-            <FinancialCard />
-            <FinancialCard />
-            <FinancialCard />
-            <FinancialCard />
+            <FinancialCard isFxPage={true} image={usaIcon} dualImg={ausIcon} />
+            <FinancialCard isFxPage={true} image={usaIcon} dualImg={ausIcon} />
+            <FinancialCard isFxPage={true} image={usaIcon} dualImg={ausIcon} />
+            <FinancialCard isFxPage={true} image={usaIcon} dualImg={ausIcon} />
           </Box>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-          <NewsCard isShort={true} />
-          <NewsCard isShort={true} />
-          <NewsCard isShort={true} />
-          <NewsCard isShort={true} />
-          <NewsCard isShort={true} />
-          <NewsCard isShort={true} />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
         </Box>
       </Box>
       <Box sx={{ marginBlock: '24px' }}>
-        <TechnicalsBanner bgColor="green" coinName="XRP" coinImg={xrpImg} />
+        <TechnicalsBanner
+          bgColor="green"
+          coinName="XRP"
+          coinImg={xrpImg}
+          isFxPage={true}
+        />
       </Box>
       <Box sx={{ display: 'flex', gap: 2 }}>
-        <AnalysisCard isFourth={true} image={xrpImg} />
+        <AnalysisCard
+          isFourth={true}
+          image={ausIcon}
+          dualImg={usaIcon}
+          isFxPage={true}
+        />
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-          <FinancialCarBig image={xrpImg} />
-          <NewsCard image={xrpImg} isShort={true} />
-          <NewsCard image={xrpImg} isShort={true} />
-          <NewsCard image={xrpImg} isShort={true} />
+          <FinancialCarBig image={usaIcon} isFxPage={true} dualImg={ausIcon} />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-          <NewsCard image={xrpImg} isShort={true} />
-          <NewsCard image={xrpImg} isShort={true} />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
+          <NewsCard
+            image={usaIcon}
+            isShort={true}
+            dualImg={ausIcon}
+            isFxPage={true}
+          />
           <MentorshipCard />
         </Box>
       </Box>
@@ -245,6 +339,7 @@ function TechnicalsPageFx() {
           bgColor="bronze"
           coinName="Chainlink"
           coinImg={chainLinkImg}
+          isFxPage={true}
         />
       </Box>
 
@@ -254,12 +349,33 @@ function TechnicalsPageFx() {
             <FinancialRight />
           </Box>
           <Box>
-            <GraphDetailsCard isInverted={true} image={chainLinkImg} />
+            <GraphDetailsCard
+              isInverted={true}
+              isFxPage={true}
+              dualImg={ausIcon}
+              image={usaIcon}
+            />
             <Box sx={{ display: 'flex', gap: 1, marginTop: '12px' }}>
-              <FinancialCard image={chainLinkImg} />
-              <FinancialCard image={chainLinkImg} />
-              <FinancialCard image={chainLinkImg} />
-              <FinancialCard image={chainLinkImg} />
+              <FinancialCard
+                isFxPage={true}
+                image={usaIcon}
+                dualImg={ausIcon}
+              />
+              <FinancialCard
+                isFxPage={true}
+                image={usaIcon}
+                dualImg={ausIcon}
+              />
+              <FinancialCard
+                isFxPage={true}
+                image={usaIcon}
+                dualImg={ausIcon}
+              />
+              <FinancialCard
+                isFxPage={true}
+                image={usaIcon}
+                dualImg={ausIcon}
+              />
             </Box>
           </Box>
         </Box>

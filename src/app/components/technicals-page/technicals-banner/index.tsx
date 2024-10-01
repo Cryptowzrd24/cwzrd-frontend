@@ -10,6 +10,9 @@ import bannerBgGreen from '../../../../../public/images/technicals-page/techBann
 import bannerBgPurple from '../../../../../public/images/technicals-page/techBannerImgPurple.png';
 import bannerBgBronze from '../../../../../public/images/technicals-page/techBannerImgBrown.png';
 
+import usaIcon from '../../../../../public/images/technicals-page/usaIcon.png';
+import ausIcon from '../../../../../public/images/technicals-page/ausIcon.png';
+
 import { ReadMoreIcon } from '../../../../../public/icons/readMoreIcon';
 
 type BgColor = 'purple' | 'brown' | 'blue' | 'green' | 'bronze';
@@ -17,12 +20,14 @@ interface TechnicalsBannerProps {
   bgColor: BgColor;
   coinName: string;
   coinImg: any;
+  isFxPage?: boolean;
 }
 
 function TechnicalsBanner({
   bgColor,
   coinName,
   coinImg,
+  isFxPage,
 }: TechnicalsBannerProps) {
   const background =
     bgColor === 'blue'
@@ -67,19 +72,49 @@ function TechnicalsBanner({
             width: '254px',
           }}
         >
-          <Box
-            sx={{
-              width: '44px',
-              height: '44px',
-              background: 'rgba(255, 255, 255, 1)',
-              boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
-              borderRadius: '50%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <Image src={coinImg} alt="analysis card" width={32} height={32} />
+          <Box sx={{ display: 'flex' }}>
+            <Box
+              sx={{
+                width: '44px',
+                height: '44px',
+                background: 'rgba(255, 255, 255, 1)',
+                boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
+                borderRadius: '50%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Image
+                src={isFxPage ? ausIcon : coinImg}
+                alt="analysis card"
+                width={32}
+                height={32}
+              />
+            </Box>
+            {isFxPage && (
+              <Box
+                sx={{
+                  width: '44px',
+                  height: '44px',
+                  background: 'rgba(255, 255, 255, 1)',
+                  boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  position: 'relative',
+                  left: '-10px',
+                }}
+              >
+                <Image
+                  src={isFxPage ? usaIcon : coinImg}
+                  alt="analysis card"
+                  width={32}
+                  height={32}
+                />
+              </Box>
+            )}
           </Box>
           <Typography
             sx={{
