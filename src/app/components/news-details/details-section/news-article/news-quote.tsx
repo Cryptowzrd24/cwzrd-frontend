@@ -1,13 +1,21 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
-function NewsQuote({ quote }: any) {
+function NewsQuote({
+  quote,
+  isArticleDetails,
+}: {
+  quote: any;
+  isArticleDetails?: boolean;
+}) {
   return (
     <Box sx={{ display: 'flex', gap: '48px', alignItems: 'start' }}>
       <Typography
         sx={{
-          fontSize: '18.5px',
+          fontSize: isArticleDetails ? '40px' : '18.5px',
           fontWeight: 700,
+          lineHeight: isArticleDetails ? '44px' : 'auto',
+          letterSpacing: isArticleDetails ? '0.8px' : 'auto',
           color: 'rgba(17, 17, 17, 1)',
           fontStyle: 'italic',
         }}
@@ -16,11 +24,11 @@ function NewsQuote({ quote }: any) {
       </Typography>
       <Typography
         sx={{
-          fontSize: '18.5px',
+          fontSize: isArticleDetails ? '18px' : '18.5px',
           fontWeight: 700,
           color: 'rgba(17, 17, 17, 1)',
-          lineHeight: '26px',
-          letterSpacing: '1.35px',
+          lineHeight: isArticleDetails ? '23.4px' : '26px',
+          letterSpacing: isArticleDetails ? '1px' : '1.35px',
           marginTop: '5px',
         }}
       >

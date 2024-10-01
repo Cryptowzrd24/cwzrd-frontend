@@ -1,15 +1,15 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
-function NewsHeading() {
+function NewsHeading({ isArticleDetails }: { isArticleDetails?: boolean }) {
   return (
     <Box>
       <Typography
         sx={{
           fontWeight: 700,
-          fontSize: '24px',
+          fontSize: isArticleDetails ? '32px' : '24px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: '28.8px',
+          lineHeight: isArticleDetails ? '38.4px' : '28.8px',
           letterSpacing: '1px',
           color: 'rgba(17, 17, 17, 1)',
         }}
@@ -20,9 +20,9 @@ function NewsHeading() {
       <Typography
         sx={{
           fontWeight: 400,
-          fontSize: '18.5px',
+          fontSize: isArticleDetails ? '16px' : '18.5px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: '27px',
+          lineHeight: isArticleDetails ? '24px' : '27px',
           color: 'rgba(17, 17, 17, 0.8)',
           marginTop: '8px',
         }}
