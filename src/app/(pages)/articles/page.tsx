@@ -1,7 +1,13 @@
+import ArticlesPage from '@/app/components/articles';
+import { Box } from '@mui/material';
 import React from 'react';
 
-const page = () => {
-  return <div></div>;
+const Articles = () => {
+  return (
+    <Box>
+      <ArticlesPage />
+    </Box>
+  );
 };
 
-export default page;
+export default Articles;

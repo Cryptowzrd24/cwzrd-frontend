@@ -16,8 +16,8 @@ export const TechnicalsCategory: React.FC = () => {
       sx={{
         display: 'flex',
         position: 'relative',
-        top: '-23px',
-        // marginBlock: '30px',
+        top: '-5px',
+        marginBlock: '30px',
         alignItems: 'center',
         backgroundColor: 'white',
         borderRadius: '24px',
