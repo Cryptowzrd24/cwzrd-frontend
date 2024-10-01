@@ -25,11 +25,9 @@ import FinancialCarBig from '../financial-card-big';
 import MentorshipCard from '../mentorship-card';
 import MemberShipBanner from '../../banners/memberShipBanner';
 import FinancialRight from '../financial-right';
-// import SectionCarousel from './section-carousel';
-import MiddleAnalysisCard from './section-carousel/middle-analysis-card';
-import FinancialCardCarouselSec from './section-carousel/card';
 import AnalysisCardCompressed from '../analysis-card-compressed';
 import FinancialCardWide from '../financial-card-wide';
+import SectionCarousel from './section-carousel';
 
 function TechnicalsPageFx() {
   return (
@@ -179,47 +177,11 @@ function TechnicalsPageFx() {
             isFxPage={true}
           />
         </Box>
-        <Box sx={{ display: 'flex', gap: '16px', mt: '24px', mb: '24px' }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <FinancialCardCarouselSec image={chainLinkImg} />
-            <FinancialCardCarouselSec image={chainLinkImg} />
-          </Box>
-          <MiddleAnalysisCard isFxPage={true} />
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <NewsCard
-              image={usaIcon}
-              isShort={true}
-              dualImg={ausIcon}
-              isFxPage={true}
-            />
-            <NewsCard
-              image={usaIcon}
-              isShort={true}
-              dualImg={ausIcon}
-              isFxPage={true}
-            />
-            <NewsCard
-              image={usaIcon}
-              isShort={true}
-              dualImg={ausIcon}
-              isFxPage={true}
-            />
-            <NewsCard
-              image={usaIcon}
-              isShort={true}
-              dualImg={ausIcon}
-              isFxPage={true}
-            />
-            <NewsCard
-              image={usaIcon}
-              isShort={true}
-              dualImg={ausIcon}
-              isFxPage={true}
-            />
-          </Box>
+        <Box sx={{ mb: '24px' }}>
+          <SectionCarousel />
         </Box>
         {/* //carousel section// */}
-        <Box>
+        <Box sx={{ mt: '48px' }}>
           <NewsLetterBanner />
         </Box>
       </Box>

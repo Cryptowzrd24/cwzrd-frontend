@@ -29,7 +29,7 @@ function FinancialCardCarouselSec({ image }: FinancialCardProps) {
         gap: '8px',
       }}
     >
-      <Box>
+      <Box sx={{ display: 'flex', position: 'relative' }}>
         <Box
           sx={{
             width: '44px',
@@ -62,7 +62,7 @@ function FinancialCardCarouselSec({ image }: FinancialCardProps) {
             justifyContent: 'center',
             alignItems: 'center',
             position: 'absolute',
-            left: '190px',
+            left: '29px',
             marginTop: '0.5px',
           }}
         >
