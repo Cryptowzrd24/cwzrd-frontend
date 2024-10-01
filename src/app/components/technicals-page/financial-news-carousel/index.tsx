@@ -94,9 +94,7 @@ const FinancialNewsCarousel = ({ noBackground = false }) => {
 
   return (
     <Box>
-      <Slider className="technicals-slick" {...settings}>
-        {renderCards}
-      </Slider>
+      <Slider {...settings}>{renderCards}</Slider>
     </Box>
   );
 };

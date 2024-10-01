@@ -103,8 +103,8 @@ function FinancialCarBig({ image, dualImg, isFxPage }: FinancialCardBigProps) {
           lineHeight: '18.2px',
           //   width: '205.5px',
           paddingInline: '8px',
-          width: '268px',
-          letterSpacing: '0.6px',
+          // width: '268px',
+          // letterSpacing: '0.3px',
         }}
       >
         The EURJPY takes advantage of the support line stability

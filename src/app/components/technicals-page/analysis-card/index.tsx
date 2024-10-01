@@ -125,7 +125,7 @@ function AnalysisCard({
             marginTop: '12px',
             width: isFourth ? '596px' : isThird ? '100%' : '500px',
             marginLeft: '12px',
-            letterSpacing: isFourth ? '0.8px' : '0.3px',
+            letterSpacing: isFourth ? '0.3px' : '0.3px',
             color: 'rgba(17, 17, 17, 1)',
           }}
         >

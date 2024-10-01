@@ -66,6 +66,7 @@ const TechnicalsHeader = ({
         }}
       >
         <Box
+          onClick={() => handleCurrencyChange('crypto')}
           sx={{
             width: '38px',
             height: '16px',
@@ -77,10 +78,10 @@ const TechnicalsHeader = ({
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            cursor: 'pointer',
           }}
         >
           <Typography
-            onClick={() => handleCurrencyChange('crypto')}
             sx={{
               fontSize: '12px',
               fontWeight: 700,
@@ -89,13 +90,13 @@ const TechnicalsHeader = ({
                   ? 'rgba(114, 72, 247, 1)'
                   : 'rgba(255, 255, 255, 1)',
               fontFamily: 'Sf Pro Display',
-              cursor: 'pointer',
             }}
           >
             Crypto
           </Typography>
         </Box>
         <Box
+          onClick={() => handleCurrencyChange('fx')}
           sx={{
             width: '38px',
             height: '16px',
@@ -103,14 +104,13 @@ const TechnicalsHeader = ({
             backgroundColor:
               tabSelected === 'fx' ? 'rgba(255, 255, 255, 1)' : '',
             padding: '7px 16px 7px 16px',
-            // marginLeft: '4px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            cursor: 'pointer',
           }}
         >
           <Typography
-            onClick={() => handleCurrencyChange('fx')}
             sx={{
               fontSize: '12px',
               fontWeight: 700,
@@ -119,7 +119,6 @@ const TechnicalsHeader = ({
                   ? 'rgba(114, 72, 247, 1)'
                   : 'rgba(255, 255, 255, 1)',
               fontFamily: 'Sf Pro Display',
-              cursor: 'pointer',
             }}
           >
             FX

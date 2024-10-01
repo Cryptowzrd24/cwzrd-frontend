@@ -96,7 +96,7 @@ function FinancialCardCarouselSec({ image }: FinancialCardProps) {
           lineHeight: '18.2px',
           //   width: '205.5px',
           paddingInline: '8px',
-          width: '203px',
+          width: '268px',
         }}
       >
         The EURJPY takes advantage of the support line stability
@@ -106,7 +106,7 @@ function FinancialCardCarouselSec({ image }: FinancialCardProps) {
           fontSize: '12px',
           fontWeight: '400',
           lineHeight: '17.4px',
-          width: '205.5px',
+          width: '268.5px',
           paddingInline: '8px',
           overflow: 'hidden',
           WebkitLineClamp: 2,

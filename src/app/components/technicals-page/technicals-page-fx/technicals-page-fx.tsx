@@ -157,26 +157,8 @@ function TechnicalsPageFx() {
       {/* //second sec// */}
 
       {/* //third sec// */}
+      {/* //carousel section// */}
       <Box>
-        <Box sx={{ display: 'flex', gap: '15px', marginTop: '24px' }}>
-          <AnalysisCard isThird={true} />
-          <FinancialNewsCardList isRenderFour={true} />
-          <FinancialNewsCardList isRenderFour={true} />
-        </Box>
-        <Box sx={{ mb: '120px' }}>
-          <FinancialNewsCarousel noBackground={true} />
-        </Box>
-        {/* //carousel section// */}
-        <Box
-          sx={{ display: 'flex', justifyContent: 'center', marginTop: '-50px' }}
-        >
-          <TechnicalsBanner
-            bgColor="blue"
-            coinName="Etherium"
-            coinImg={etheriumImg}
-            isFxPage={true}
-          />
-        </Box>
         <Box sx={{ mb: '24px' }}>
           <SectionCarousel />
         </Box>
