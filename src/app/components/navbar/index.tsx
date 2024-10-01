@@ -174,7 +174,9 @@ function Navbar() {
             }}
           >
             <Link href="/">
-              {pathname.includes('/news') || pathname === '/technicals' ? (
+              {pathname === '/news' ||
+              pathname === '/news/crypto' ||
+              pathname === '/technicals' ? (
                 <LogoPurpleHat />
               ) : (
                 <Logo />

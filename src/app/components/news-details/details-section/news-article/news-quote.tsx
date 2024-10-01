@@ -3,7 +3,7 @@ import React from 'react';
 
 function NewsQuote({ quote }: any) {
   return (
-    <Box sx={{ display: 'flex', gap: '48px', alignItems: 'start' }}>
+    <Box sx={{ display: 'flex', gap: '24px', alignItems: 'start' }}>
       <Typography
         sx={{
           fontSize: '18.5px',

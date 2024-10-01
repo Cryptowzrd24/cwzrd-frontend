@@ -2,7 +2,13 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 import './styles.scss';
 
-const TechnicalsHeader = () => {
+const TechnicalsHeader = ({
+  handleCurrencyChange,
+  tabSelected,
+}: {
+  handleCurrencyChange: (title: string) => void;
+  tabSelected: string;
+}) => {
   return (
     <Box className="header-container">
       <Typography
@@ -60,23 +66,29 @@ const TechnicalsHeader = () => {
         }}
       >
         <Box
+          onClick={() => handleCurrencyChange('crypto')}
           sx={{
             width: '38px',
             height: '16px',
             borderRadius: '40px',
-            backgroundColor: 'rgba(255, 255, 255, 1)',
+            backgroundColor:
+              tabSelected === 'crypto' ? 'rgba(255, 255, 255, 1)' : '',
             padding: '7px 16px 7px 16px',
             marginLeft: '4px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            cursor: 'pointer',
           }}
         >
           <Typography
             sx={{
               fontSize: '12px',
               fontWeight: 700,
-              color: 'rgba(114, 72, 247, 1)',
+              color:
+                tabSelected === 'crypto'
+                  ? 'rgba(114, 72, 247, 1)'
+                  : 'rgba(255, 255, 255, 1)',
               fontFamily: 'Sf Pro Display',
             }}
           >
@@ -84,23 +96,28 @@ const TechnicalsHeader = () => {
           </Typography>
         </Box>
         <Box
+          onClick={() => handleCurrencyChange('fx')}
           sx={{
             width: '38px',
             height: '16px',
             borderRadius: '40px',
-            // backgroundColor: 'rgba(255, 255, 255, 1)',
+            backgroundColor:
+              tabSelected === 'fx' ? 'rgba(255, 255, 255, 1)' : '',
             padding: '7px 16px 7px 16px',
-            // marginLeft: '4px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            cursor: 'pointer',
           }}
         >
           <Typography
             sx={{
               fontSize: '12px',
               fontWeight: 700,
-              color: 'rgba(255, 255, 255, 1)',
+              color:
+                tabSelected === 'fx'
+                  ? 'rgba(114, 72, 247, 1)'
+                  : 'rgba(255, 255, 255, 1)',
               fontFamily: 'Sf Pro Display',
             }}
           >

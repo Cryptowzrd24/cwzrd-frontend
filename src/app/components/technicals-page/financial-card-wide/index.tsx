@@ -6,17 +6,16 @@ import techGraph from '../../../../../public/images/technicals-page/techPageGrap
 import liteCoinImage from '../../../../../public/images/coin-details/lite-coin.png';
 import CommentsLikes from '../comments-likes';
 
-interface FinancialCardBigProps {
-  isFourth?: boolean;
+interface FinancialCardProps {
   image?: any;
-  dualImg?: any;
-  isFxPage?: boolean;
 }
 
-function FinancialCarBig({ image, dualImg, isFxPage }: FinancialCardBigProps) {
+function FinancialCardWide({ image }: FinancialCardProps) {
   return (
     <Box
       sx={{
+        width: '316.5px',
+        // height: '274px',
         padding: '8px',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
@@ -27,58 +26,31 @@ function FinancialCarBig({ image, dualImg, isFxPage }: FinancialCardBigProps) {
       }}
     >
       <Box>
-        <Box sx={{ display: 'flex', position: 'relative' }}>
-          <Box
-            sx={{
-              width: '32px',
-              height: '32px',
-              background: 'rgba(255, 255, 255, 1)',
-              boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
-              borderRadius: '50%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              position: 'absolute',
-              marginTop: '0.5px',
-            }}
-          >
-            <Image
-              src={image ? image : liteCoinImage}
-              alt="analysis card"
-              width={23.7}
-              height={23.7}
-            />
-          </Box>
-          {isFxPage && (
-            <Box
-              sx={{
-                width: '32px',
-                height: '32px',
-                background: 'rgba(255, 255, 255, 1)',
-                boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
-                borderRadius: '50%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                position: 'absolute',
-                left: '20px',
-                marginTop: '0.5px',
-              }}
-            >
-              <Image
-                src={dualImg ? dualImg : liteCoinImage}
-                alt="analysis card"
-                width={23.7}
-                height={23.7}
-              />
-            </Box>
-          )}
-        </Box>
-
         <Box
           sx={{
-            width: '300px',
-            height: '110px',
+            width: '32px',
+            height: '32px',
+            background: 'rgba(255, 255, 255, 1)',
+            boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
+            borderRadius: '50%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            marginTop: '0.5px',
+          }}
+        >
+          <Image
+            src={image ? image : liteCoinImage}
+            alt="analysis card"
+            width={23}
+            height={23}
+          />
+        </Box>
+        <Box
+          sx={{
+            width: '315.5px',
+            height: '158px',
             borderRadius: '12px',
             overflow: 'hidden',
             boxShadow: '0px 0px 12px 0px rgba(114, 72, 247, 0.1)',
@@ -87,8 +59,8 @@ function FinancialCarBig({ image, dualImg, isFxPage }: FinancialCardBigProps) {
           <Image
             src={techGraph}
             alt="analysis card"
-            width={284}
-            height={102}
+            width={300.5}
+            height={158}
             style={{
               boxShadow: '0px 0px 12px 0px rgba(114, 72, 247, 0.1) inset',
               borderRadius: '12px',
@@ -103,8 +75,7 @@ function FinancialCarBig({ image, dualImg, isFxPage }: FinancialCardBigProps) {
           lineHeight: '18.2px',
           //   width: '205.5px',
           paddingInline: '8px',
-          // width: '268px',
-          // letterSpacing: '0.3px',
+          width: '284px',
         }}
       >
         The EURJPY takes advantage of the support line stability
@@ -114,8 +85,7 @@ function FinancialCarBig({ image, dualImg, isFxPage }: FinancialCardBigProps) {
           fontSize: '12px',
           fontWeight: '400',
           lineHeight: '17.4px',
-          width: '258px',
-          letterSpacing: '0.4px',
+          width: '284px',
           paddingInline: '8px',
           overflow: 'hidden',
           WebkitLineClamp: 2,
@@ -137,4 +107,4 @@ function FinancialCarBig({ image, dualImg, isFxPage }: FinancialCardBigProps) {
   );
 }
 
-export default FinancialCarBig;
+export default FinancialCardWide;
