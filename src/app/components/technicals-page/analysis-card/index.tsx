@@ -11,9 +11,18 @@ interface NewsCardProps {
   image?: any;
   isFourth?: boolean;
   isFirst?: boolean;
+  dualImg?: any;
+  isFxPage?: boolean;
 }
 
-function AnalysisCard({ isThird, image, isFourth, isFirst }: NewsCardProps) {
+function AnalysisCard({
+  isThird,
+  image,
+  isFourth,
+  isFirst,
+  dualImg,
+  isFxPage,
+}: NewsCardProps) {
   return (
     <Box
       sx={{
@@ -30,28 +39,55 @@ function AnalysisCard({ isThird, image, isFourth, isFirst }: NewsCardProps) {
         marginBottom: isFourth ? '24px' : isFirst ? '0px' : '0px',
       }}
     >
-      <Box
-        sx={{
-          width: '44px',
-          height: '44px',
-          background: 'rgba(255, 255, 255, 1)',
-          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-          borderRadius: '50%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          position: 'relative',
-          top: '8px',
-          left: '-10px',
-        }}
-      >
-        <Image
-          src={image || bitcoinImg}
-          alt="analysis card"
-          width={32}
-          height={32}
-        />
+      <Box sx={{ display: 'flex' }}>
+        <Box
+          sx={{
+            width: '44px',
+            height: '44px',
+            background: 'rgba(255, 255, 255, 1)',
+            boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+            borderRadius: '50%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'relative',
+            top: '8px',
+            left: '-10px',
+          }}
+        >
+          <Image
+            src={image || bitcoinImg}
+            alt="analysis card"
+            width={32}
+            height={32}
+          />
+        </Box>
+        {isFxPage && (
+          <Box
+            sx={{
+              width: '44px',
+              height: '44px',
+              background: 'rgba(255, 255, 255, 1)',
+              boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+              borderRadius: '50%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              position: 'relative',
+              top: '8px',
+              left: '-23px',
+            }}
+          >
+            <Image
+              src={dualImg || bitcoinImg}
+              alt="analysis card"
+              width={32}
+              height={32}
+            />
+          </Box>
+        )}
       </Box>
+
       <Box
         sx={{
           width: isFourth ? '680px' : isThird ? '466px' : '516px',
@@ -89,7 +125,7 @@ function AnalysisCard({ isThird, image, isFourth, isFirst }: NewsCardProps) {
             marginTop: '12px',
             width: isFourth ? '596px' : isThird ? '100%' : '500px',
             marginLeft: '12px',
-            letterSpacing: isFourth ? '0.8px' : '0.3px',
+            letterSpacing: isFourth ? '0.3px' : '0.3px',
             color: 'rgba(17, 17, 17, 1)',
           }}
         >

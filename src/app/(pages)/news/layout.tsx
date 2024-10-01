@@ -9,7 +9,7 @@ export default function NewsLayout({
 }>) {
   return (
     <>
-      <Container maxWidth="xl">
+      <Container style={{ marginTop: 16 }} maxWidth="xl">
         <NewsHeader />
         <NewsCategory />
         {children}

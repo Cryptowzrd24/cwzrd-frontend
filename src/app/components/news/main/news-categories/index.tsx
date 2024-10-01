@@ -25,7 +25,7 @@ export const NewsCategory: React.FC = () => {
     <Container
       sx={{
         display: 'flex',
-        marginBlock: pathname.includes('/articles') ? '40px 24px' : '40px 40px',
+        marginBlock: pathname.includes('/articles') ? '12px 24px' : '12px 40px',
         alignItems: 'center',
         backgroundColor: 'white',
         borderRadius: '24px',

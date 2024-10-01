@@ -10,7 +10,7 @@ import {
 const TableOfContents = ({ sections, activeSection }: any) => {
   return (
     <Box
-      width={240}
+      width={250}
       p={2}
       paddingLeft={3}
       borderLeft={1}
@@ -34,9 +34,7 @@ const TableOfContents = ({ sections, activeSection }: any) => {
             component="a"
             style={{
               borderLeft:
-                activeSection === section.id
-                  ? '2px solid rgba(75,204,0,1)'
-                  : 'none',
+                activeSection === section.id ? '3px solid #7248F7' : 'none',
             }}
             href={`#${section.id}`}
           >

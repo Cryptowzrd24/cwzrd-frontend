@@ -76,7 +76,7 @@ function DetailsSection({
           flex: 0.5,
           position: 'sticky',
           top: '20px',
-          height: isArticleDetails ? '241px' : '1380px',
+          height: isArticleDetails ? '241px' : '1256px',
         }}
       >
         {isArticleDetails ? (

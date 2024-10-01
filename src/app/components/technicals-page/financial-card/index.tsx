@@ -9,9 +9,16 @@ import CommentsLikes from '../comments-likes';
 interface FinancialCardProps {
   isFourth?: boolean;
   image?: any;
+  isFxPage?: boolean;
+  dualImg?: any;
 }
 
-function FinancialCard({ isFourth, image }: FinancialCardProps) {
+function FinancialCard({
+  isFourth,
+  image,
+  isFxPage,
+  dualImg,
+}: FinancialCardProps) {
   return (
     <Box
       sx={
@@ -39,27 +46,54 @@ function FinancialCard({ isFourth, image }: FinancialCardProps) {
       }
     >
       <Box>
-        <Box
-          sx={{
-            width: '32px',
-            height: '32px',
-            background: 'rgba(255, 255, 255, 1)',
-            boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
-            borderRadius: '50%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'absolute',
-            marginTop: '0.5px',
-          }}
-        >
-          <Image
-            src={image ? image : liteCoinImage}
-            alt="analysis card"
-            width={23}
-            height={23}
-          />
+        <Box sx={{ display: 'flex', position: 'absolute' }}>
+          <Box
+            sx={{
+              width: '32px',
+              height: '32px',
+              background: 'rgba(255, 255, 255, 1)',
+              boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
+              borderRadius: '50%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              position: 'relative',
+              marginTop: '0.5px',
+            }}
+          >
+            <Image
+              src={image ? image : liteCoinImage}
+              alt="analysis card"
+              width={23}
+              height={23}
+            />
+          </Box>
+          {isFxPage && (
+            <Box
+              sx={{
+                width: '32px',
+                height: '32px',
+                background: 'rgba(255, 255, 255, 1)',
+                boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
+                borderRadius: '50%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                position: 'relative',
+                left: '-10px',
+                marginTop: '0.5px',
+              }}
+            >
+              <Image
+                src={dualImg ? dualImg : liteCoinImage}
+                alt="analysis card"
+                width={23}
+                height={23}
+              />
+            </Box>
+          )}
         </Box>
+
         <Box
           sx={{
             width: '238.5px',
