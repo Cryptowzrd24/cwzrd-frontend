@@ -3,7 +3,13 @@ import RightRed from '../../../../../../public/icons/News-Letter/rightRed';
 import { Box, Divider, Typography } from '@mui/material';
 import LiveNewsCardList from './live-news-card-list';
 
-function LiveNewsExplorer({ isPageDetails }: { isPageDetails?: boolean }) {
+function LiveNewsExplorer({
+  isPageDetails,
+  isFirst,
+}: {
+  isPageDetails?: boolean;
+  isFirst?: boolean;
+}) {
   return (
     <Box
       sx={{
@@ -13,8 +19,9 @@ function LiveNewsExplorer({ isPageDetails }: { isPageDetails?: boolean }) {
         alignItems: 'start',
         borderRadius: '16px',
         overflow: 'auto',
+        height: isFirst ? '400px' : 'auto',
         scrollbarWidth: 'none',
-        padding: '16px',
+        padding: isFirst ? '16px 16px 0px 16px' : '16px',
         background:
           'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
         backdropFilter: 'blur(10px)',

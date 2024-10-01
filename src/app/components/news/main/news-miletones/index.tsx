@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import PlusIcon from '../../../../../../public/icons/collections/plusIcon';
 
-const NewsMileStones = () => {
+const NewsMileStones = ({ isCrypto }: any) => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
@@ -59,6 +59,7 @@ const NewsMileStones = () => {
           padding: '25px 0px 0px 18px',
           boxShadow: '0px 4px 28px 0px #0000000D',
           height: '350px',
+          maxHeight: isCrypto ? '400px' : 'auto',
           maxWidth: '300px',
           borderRadius: '32px',
           position: 'relative',

@@ -27,18 +27,19 @@ const NewsComponent = () => {
             gap: '16px',
           }}
         >
-          <NewsCarousel />
-          <NewsGrid height={'377px'} width={'103%'} />
+          <NewsCarousel isFirst={true} />
+          <NewsGrid isCrypto={true} height={'301px'} width={'101%'} />
         </Box>
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             width: '23%',
+            gap: 3 / 2,
           }}
         >
-          <LiveMarket />
-          <LiveNewsExplorer />
+          <LiveMarket isFirst={true} />
+          <LiveNewsExplorer isFirst={true} />
         </Box>
       </Box>
       <Box sx={{ marginTop: '54px', marginBottom: '80px' }}>
@@ -47,10 +48,17 @@ const NewsComponent = () => {
 
       <Box sx={{ display: 'flex', marginBottom: '80px' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '75%' }}>
-          <NewsGrid height={'893px'} width={'99%'} />
+          <NewsGrid isCrypto={true} height={'800px'} width={'99%'} />
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'column', width: '25%' }}>
-          <TopPicks />
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 1,
+            flexDirection: 'column',
+            width: '25%',
+          }}
+        >
+          <TopPicks isCrypoPage={true} />
           <NewsTradingPlatform />
         </Box>
       </Box>
@@ -114,7 +122,7 @@ const NewsComponent = () => {
 
       <Box sx={{ display: 'flex', gap: 2.2, maxHeight: '850px' }}>
         <Box sx={{ width: '51%' }}>
-          <NewsCarouselBig />
+          <NewsCarouselBig isCrypto={true} />
         </Box>
         <Box
           sx={{
@@ -139,9 +147,16 @@ const NewsComponent = () => {
 
           <TrendingNewsList height="450px" maxCards={4} marginLeft="8px" />
         </Box>
-        <Box sx={{ width: '24%' }}>
-          <TrendingNewsList height="300px" maxCards={3} marginLeft="0px" />
-          <NewsMileStones />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 2,
+            width: '24%',
+          }}
+        >
+          <TrendingNewsList height="350px" maxCards={3} marginLeft="0px" />
+          <NewsMileStones isCrypto={true} />
         </Box>
       </Box>
       <Box sx={{ marginBlock: '80px' }}>
