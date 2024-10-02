@@ -7,7 +7,32 @@ import {
   ListItemButton,
 } from '@mui/material';
 
-const TableOfContents = ({ sections, activeSection }: any) => {
+interface Section {
+  id: string;
+  label: string;
+}
+
+interface TableOfContentsProps {
+  sections: Section[];
+  activeSection: string;
+}
+
+const TableOfContents: React.FC<TableOfContentsProps> = ({
+  sections,
+  activeSection,
+}) => {
+  const handleTOCClick =
+    (id: string) => (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      event.preventDefault(); // Prevent default button behavior
+
+      const sectionElement = document.getElementById(id);
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        window.history.pushState(null, '', `#${id}`);
+      }
+    };
+
   return (
     <Box
       width={250}
@@ -28,15 +53,15 @@ const TableOfContents = ({ sections, activeSection }: any) => {
         TABLE OF CONTENTS
       </Typography>
       <List>
-        {sections?.map((section: any) => (
+        {sections?.map((section) => (
           <ListItemButton
             key={section.id}
-            component="a"
+            onClick={handleTOCClick(section.id)}
             style={{
               borderLeft:
                 activeSection === section.id ? '3px solid #7248F7' : 'none',
+              transition: 'border-left 0.3s ease',
             }}
-            href={`#${section.id}`}
           >
             <ListItemText
               primary={section.label}
@@ -46,6 +71,7 @@ const TableOfContents = ({ sections, activeSection }: any) => {
                   fontSize: '0.875rem',
                   fontWeight: activeSection === section.id ? '500' : '400',
                   color: activeSection === section.id ? 'black' : 'gray',
+                  transition: 'color 0.3s ease, font-weight 0.3s ease',
                 },
               }}
             />
