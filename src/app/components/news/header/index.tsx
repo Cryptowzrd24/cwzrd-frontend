@@ -7,7 +7,13 @@ import { usePathname } from 'next/navigation';
 const NewsHeader = () => {
   const pathname = usePathname();
   return (
-    <Box className={pathname === '/technicals' ? 'header-container' : ''}>
+    <Box
+      className={
+        pathname.includes('/news')
+          ? 'header-news-container'
+          : 'header-container'
+      }
+    >
       <Typography
         sx={{
           fontSize: '12px',
@@ -16,7 +22,7 @@ const NewsHeader = () => {
           fontFamily: 'Sf Pro Display',
           letterSpacing: '1.2px',
         }}
-        // className="technical-header"
+        className="technical-header"
       >
         NEWS
       </Typography>
