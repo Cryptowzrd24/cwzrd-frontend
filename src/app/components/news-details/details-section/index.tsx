@@ -3,13 +3,20 @@ import { Box } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import ReadingCard from './reading-card';
 import MarketNewsPanel from './market-news-panel';
+import TableOfContents from '../../articles-details/table-of-contents';
 
 function DetailsSection({
   ChildComponent,
+  isArticleDetails,
   isTechnicalDetail,
+  sections,
+  activeSection,
 }: {
   ChildComponent: React.ElementType;
+  isArticleDetails?: boolean;
   isTechnicalDetail: boolean;
+  sections?: any;
+  activeSection?: any;
 }) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [sectionHeight, setSectionHeight] = useState(0);
@@ -65,9 +72,21 @@ function DetailsSection({
         <ChildComponent />
       </Box>
       <Box
-        sx={{ flex: 0.5, position: 'sticky', top: '20px', height: '1256px' }}
+        sx={{
+          flex: 0.5,
+          position: 'sticky',
+          top: '20px',
+          height: isArticleDetails ? '241px' : '1256px',
+        }}
       >
-        <MarketNewsPanel isTechnicalDetail={isTechnicalDetail} />
+        {isArticleDetails ? (
+          <TableOfContents
+            sections={isArticleDetails ? sections : null}
+            activeSection={isArticleDetails ? activeSection : null}
+          />
+        ) : (
+          <MarketNewsPanel isTechnicalDetail={isTechnicalDetail} />
+        )}
       </Box>
     </Box>
   );

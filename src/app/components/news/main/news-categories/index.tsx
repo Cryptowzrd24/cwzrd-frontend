@@ -3,25 +3,29 @@ import { Box, Container, Link } from '@mui/material';
 import SearchIcon from '../../../../../../public/icons/Navbar-Section/search';
 import { usePathname } from 'next/navigation';
 
-const newsData = [
-  { name: 'All News', id: 1, link: '/news' },
-  { name: 'AI', id: 2, link: '/news' },
-  { name: 'B2B', id: 3, link: '/news' },
-  { name: 'Bitcoin', id: 4, link: '/news' },
-  { name: 'Cryptocurrency', id: 5, link: '/news/crypto' },
-  { name: 'De-Fi', id: 6, link: '/news' },
-  { name: 'Exchanges', id: 7, link: '/news' },
-  { name: 'Featured', id: 8, link: '/news' },
-  { name: 'Invested', id: 9, link: '/news' },
-];
-
 export const NewsCategory: React.FC = () => {
   const pathname = usePathname();
+
+  const newsData = [
+    {
+      name: 'All News',
+      id: 1,
+      link: pathname.includes('/articles') ? '/articles' : '/news',
+    },
+    { name: 'AI', id: 2, link: '/news' },
+    { name: 'B2B', id: 3, link: '/news' },
+    { name: 'Bitcoin', id: 4, link: '/news' },
+    { name: 'Cryptocurrency', id: 5, link: '/news/crypto' },
+    { name: 'De-Fi', id: 6, link: '/news' },
+    { name: 'Exchanges', id: 7, link: '/news' },
+    { name: 'Featured', id: 8, link: '/news' },
+    { name: 'Invested', id: 9, link: '/news' },
+  ];
   return (
     <Container
       sx={{
         display: 'flex',
-        marginBlock: '16px 24px',
+        marginBlock: pathname.includes('/articles') ? '12px 24px' : '12px 40px',
         alignItems: 'center',
         backgroundColor: 'white',
         borderRadius: '24px',

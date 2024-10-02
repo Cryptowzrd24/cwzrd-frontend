@@ -2,14 +2,14 @@ import { Box, Divider, Typography } from '@mui/material';
 import React from 'react';
 import MostReadCard from './most-read-card';
 
-function MostRead({ height }: any) {
+function MostRead({ height, width }: any) {
   const renderCard = [1, 2, 3, 4, 5, 6, 7].map(() => {
     return <MostReadCard />;
   });
   return (
     <Box
       sx={{
-        width: '300px',
+        width: width ? width : '300px',
         height: height ? height : '480px',
         borderRadius: '16px',
         background: 'rgba(255, 255, 255, 1)',

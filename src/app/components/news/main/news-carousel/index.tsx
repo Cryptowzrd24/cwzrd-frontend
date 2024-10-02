@@ -10,7 +10,7 @@ import Image from 'next/image';
 const content = [
   {
     title:
-      '1 Top Cryptocurrency to Buy Before It Soars 1,415% to $1 Million, According to Certain Wall Street Expert Analysts',
+      '1 Top Cryptocurrency to Buy Before It Soars 1,415% to $1 Million, According to Certain Wall Street Expers',
     description:
       "Bitcoin (CRYPTO: BTC) returned 150% over the past year, easily outpacing the U.S. stock market. But Bernstein analysts Gautam Chhugani and Mahika Sapra expect the cryptocurrency to move much higher in the next decade. Their price targets are listed below, along with the implied upside based on Bitcoin's current price of $66,000.",
     tags: ['Economy', 'Finance', 'Breaking'],
@@ -55,6 +55,7 @@ const NewsCarousel = ({
   isDetailPage,
   isMainPage,
   isFirst,
+  isArticles,
 }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -82,7 +83,8 @@ const NewsCarousel = ({
     <Box
       color={'white'}
       position="relative"
-      width="100%"
+      width={'100%'}
+      minWidth={isArticles ? '700px !important' : 'auto'}
       height={
         isMainPage
           ? { xs: '180px', sm: '250px', md: '370px' }

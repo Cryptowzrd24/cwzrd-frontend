@@ -6,10 +6,12 @@ function ArticleHeader({
   coinName,
   date,
   readTime,
+  isArticleDetails,
 }: {
   coinName: string;
   date: string;
   readTime: string;
+  isArticleDetails?: boolean;
 }) {
   return (
     <Box
@@ -34,10 +36,10 @@ function ArticleHeader({
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             fontWeight: 500,
-            fontSize: '10px',
+            fontSize: isArticleDetails ? '12px' : '10px',
             letterSpacing: '1px',
             fontFamily: 'Sf Pro Display',
-            lineHeight: '13px',
+            lineHeight: isArticleDetails ? '15.6px' : '13px',
           }}
         >
           {coinName}
@@ -47,7 +49,7 @@ function ArticleHeader({
         sx={{
           color: 'rgba(17, 17, 17, 1)',
           fontWeight: 500,
-          fontSize: '10px',
+          fontSize: isArticleDetails ? '12px' : '10px',
           letterSpacing: '1.5px',
           fontFamily: 'Sf Pro Display',
           lineHeight: '15.6px',
@@ -67,7 +69,7 @@ function ArticleHeader({
           sx={{
             color: 'rgba(17, 17, 17, 1)',
             fontWeight: 500,
-            fontSize: '10px',
+            fontSize: isArticleDetails ? '12px' : '10px',
             letterSpacing: '1.5px',
             fontFamily: 'Sf Pro Display',
             lineHeight: '15.6px',

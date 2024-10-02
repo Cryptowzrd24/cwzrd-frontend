@@ -2,7 +2,15 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
-function NewsImage({ image, subheadingText }: any) {
+function NewsImage({
+  image,
+  subheadingText,
+  isArticleDetails,
+}: {
+  image: any;
+  subheadingText: any;
+  isArticleDetails?: boolean;
+}) {
   return (
     <Box>
       <Box
@@ -27,9 +35,9 @@ function NewsImage({ image, subheadingText }: any) {
       <Typography
         sx={{
           fontWeight: 400,
-          fontSize: '18.5px',
+          fontSize: isArticleDetails ? '16px' : '18.5px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: '27px',
+          lineHeight: isArticleDetails ? '24px' : '27px',
           color: 'rgba(17, 17, 17, 0.8)',
           marginTop: '12px',
         }}
