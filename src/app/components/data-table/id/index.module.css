@@ -39,3 +39,7 @@
 .star-image {
   cursor: pointer;
 }
+
+.index-num {
+  left: -7px !important;
+}
