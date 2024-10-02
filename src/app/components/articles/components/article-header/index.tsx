@@ -2,9 +2,9 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 import './styles.scss';
 
-const NewsHeader = () => {
+const ArticleHeader = () => {
   return (
-    <Box className={'header-news-container'}>
+    <Box className={'article-header-container'}>
       <Typography
         sx={{
           fontSize: '12px',
@@ -48,4 +48,4 @@ const NewsHeader = () => {
   );
 };
 
-export default NewsHeader;
+export default ArticleHeader;

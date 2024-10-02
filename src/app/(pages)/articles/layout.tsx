@@ -1,4 +1,4 @@
-import NewsHeader from '@/app/components/news/header';
+import ArticleHeader from '@/app/components/articles/components/article-header';
 import { NewsCategory } from '@/app/components/news/main/news-categories';
 import { Container } from '@mui/material';
 
@@ -10,7 +10,7 @@ export default function ArticlesLayout({
   return (
     <>
       <Container maxWidth="xl">
-        <NewsHeader />
+        <ArticleHeader />
         <NewsCategory />
         {children}
       </Container>

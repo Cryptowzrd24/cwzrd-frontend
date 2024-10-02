@@ -26,7 +26,7 @@ const News = () => {
   return (
     <>
       <Box
-        sx={{ display: 'flex', gap: 2, paddingTop: '18px', marginTop: '-27px' }}
+        sx={{ display: 'flex', gap: 2, paddingTop: '18px', marginTop: '-40px' }}
       >
         <TagCard
           title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"

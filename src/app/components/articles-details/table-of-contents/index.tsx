@@ -23,7 +23,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({
 }) => {
   const handleTOCClick =
     (id: string) => (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      event.preventDefault(); // Prevent default button behavior
+      event.preventDefault();
 
       const sectionElement = document.getElementById(id);
       if (sectionElement) {
