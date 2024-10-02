@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
-function NewsHashtags() {
+function NewsHashtags({ isArticleDetails }: { isArticleDetails?: boolean }) {
   const renderTags = [
     '#BITCOIN',
     '#cryptocurrencies',
@@ -28,7 +28,7 @@ function NewsHashtags() {
             fontSize: '12px',
             letterSpacing: '1px',
             fontFamily: 'Sf Pro Display',
-            lineHeight: '13px',
+            lineHeight: isArticleDetails ? '15.6px' : '13px',
           }}
         >
           {tag.toUpperCase()}

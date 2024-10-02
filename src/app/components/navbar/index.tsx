@@ -161,7 +161,9 @@ function Navbar() {
             ? 'headerbg'
             : pathname === '/technicals' || pathname.includes('/technicals/')
               ? 'headerbgTechnicals'
-              : ''
+              : pathname === '/articles'
+                ? 'articlesbg'
+                : ''
         }
       >
         <Container maxWidth="xl">
@@ -174,9 +176,9 @@ function Navbar() {
             }}
           >
             <Link href="/">
-              {pathname === '/news' ||
-              pathname === '/news/crypto' ||
-              pathname === '/technicals' ? (
+              {pathname.includes('/news') ||
+              pathname === '/technicals' ||
+              pathname === '/articles' ? (
                 <LogoPurpleHat />
               ) : (
                 <Logo />
@@ -289,6 +291,7 @@ function Navbar() {
                         color: pathname.includes(item.name.toLowerCase())
                           ? '#7248F7' // Highlight color when the pathname contains the item's name
                           : pathname === '/news' ||
+                              pathname === '/articles' ||
                               pathname.includes('/news/') ||
                               pathname === '/technicals' ||
                               pathname.includes('/technicals/')
@@ -331,6 +334,7 @@ function Navbar() {
                 color={
                   pathname === '/news' ||
                   pathname.includes('/news/') ||
+                  pathname === '/articles' ||
                   pathname.includes('technicals')
                     ? 'white'
                     : 'black'
@@ -342,7 +346,7 @@ function Navbar() {
                   color={
                     !!pathname.includes('/favorites')
                       ? 'rgb(243,143,56)'
-                      : pathname.includes('/news')
+                      : pathname.includes('/news') || pathname === '/articles'
                         ? 'white'
                         : pathname.includes('/technicals')
                           ? 'white'
@@ -405,7 +409,10 @@ function Navbar() {
                   >
                     <Typography
                       sx={{
-                        color: pathname.includes('news') ? 'white' : 'black',
+                        color:
+                          pathname.includes('news') || pathname === '/articles'
+                            ? 'white'
+                            : 'black',
                         fontSize: '16px',
                         paddingBlock: '5px',
                       }}
@@ -462,6 +469,7 @@ function Navbar() {
                     color={
                       pathname === '/news' ||
                       pathname === '/technicals' ||
+                      pathname === '/articles' ||
                       pathname.includes('/technicals/') ||
                       pathname.includes('/news/')
                         ? 'white'

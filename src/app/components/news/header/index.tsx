@@ -1,10 +1,13 @@
+'use client';
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 import './styles.scss';
+import { usePathname } from 'next/navigation';
 
 const NewsHeader = () => {
+  const pathname = usePathname();
   return (
-    <Box className="header-container">
+    <Box className={pathname === '/technicals' ? 'header-container' : ''}>
       <Typography
         sx={{
           fontSize: '12px',
@@ -13,7 +16,7 @@ const NewsHeader = () => {
           fontFamily: 'Sf Pro Display',
           letterSpacing: '1.2px',
         }}
-        className="technical-header"
+        // className="technical-header"
       >
         NEWS
       </Typography>
@@ -38,7 +41,7 @@ const NewsHeader = () => {
           fontFamily: 'Sf Pro Display',
           color: 'rgba(255, 255, 255, 0.8)',
           width: '850px',
-          marginTop: '8px',
+          // marginTop: '8px',
           opacity: '0.8',
         }}
       >

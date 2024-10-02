@@ -4,7 +4,7 @@ import RelatedNewsCarousel from './related-news-carousel';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import RelatedNewsCards from './related-news-cards';
 
-function RelatedNews() {
+function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
   return (
     <Box>
       <Box
@@ -67,7 +67,7 @@ function RelatedNews() {
         </Box>
       </Box>
       <Box sx={{ mt: '24px' }}>
-        <RelatedNewsCards />
+        {!isArticleDetails && <RelatedNewsCards />}
         <RelatedNewsCarousel />
       </Box>
     </Box>

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Slider from 'react-slick';
 import { Box, fabClasses, IconButton } from '@mui/material';
@@ -20,7 +21,7 @@ const PreviousArrow = ({ onClick }: any) => (
       left: '0px',
       width: '40px',
       height: '40px',
-      marginTop: '10px',
+      marginTop: '0px',
       transform: 'translateY(-50%)',
       zIndex: 1,
       background: '#f0f0f0',
@@ -48,7 +49,7 @@ const NextArrow = ({ onClick }: any) => (
       right: '0px',
       width: '40px',
       height: '40px',
-      marginTop: '10px',
+      marginTop: '0px',
       transform: 'translateY(-50%)',
       zIndex: 1,
       background: '#f0f0f0',
