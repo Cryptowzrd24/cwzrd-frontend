@@ -10,7 +10,7 @@ export default function ArticlesLayout({
   return (
     <>
       <Container maxWidth="xl">
-        <NewsHeader />
+        <NewsHeader isNews={false} />
         <NewsCategory />
         {children}
       </Container>

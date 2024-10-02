@@ -10,7 +10,7 @@ const TechnicalsHeader = ({
   tabSelected: string;
 }) => {
   return (
-    <Box className="header-container">
+    <Box className="technical-header-container">
       <Typography
         sx={{
           fontSize: '12px',
