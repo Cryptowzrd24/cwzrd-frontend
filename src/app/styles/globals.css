@@ -312,3 +312,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+/* div[col-id='index'] {
+  left: -7px !important;
+} */

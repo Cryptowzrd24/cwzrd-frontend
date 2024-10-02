@@ -137,8 +137,10 @@ export const ID = (props: CustomCellRendererProps) => {
     [currentFavorites, coinId, addWatchlist, dispatch, isFavoritesPage],
   );
 
+  const indexCompMainStyle = rankImages[index] ? {} : { marginLeft: '-10px' };
+
   return (
-    <div className={styles['index-comp-main']}>
+    <div className={styles['index-comp-main']} style={indexCompMainStyle}>
       {pathname.includes('/collections') ||
       pathname.includes('/nft-details') ? (
         <></>
