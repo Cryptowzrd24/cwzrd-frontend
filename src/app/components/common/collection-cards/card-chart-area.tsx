@@ -129,39 +129,87 @@ const CardChartArea = (props: any) => {
                 </div>
               </div>`;
       },
+      // positioner: function (
+      //   labelWidth: number,
+      //   labelHeight: number,
+      //   point: any,
+      // ) {
+      //   const chart: any = (this as any)?.chart;
+      //   const plotX: any = point.plotX + chart.plotLeft;
+      //   const plotY: any = point.plotY + chart.plotTop;
+      //   const cursorPadding = 15;
+
+      //   let x = plotX + cursorPadding;
+      //   let y = plotY - labelHeight - cursorPadding;
+
+      //   if (x + labelWidth > chart.plotLeft + chart.plotWidth) {
+      //     x = plotX - labelWidth - cursorPadding;
+      //   } else if (x < chart.plotLeft) {
+      //     x = chart.plotLeft + cursorPadding;
+      //   }
+
+      //   if (y < chart.plotTop) {
+      //     y = plotY + cursorPadding;
+      //   } else if (y + labelHeight > chart.plotTop + chart.plotHeight) {
+      //     y = chart.plotTop + chart.plotHeight - labelHeight - cursorPadding;
+      //   }
+
+      //   if (y < plotY && y + labelHeight > plotY) {
+      //     y = plotY + cursorPadding;
+      //   } else if (y > plotY && y < plotY + cursorPadding) {
+      //     y = plotY - labelHeight - cursorPadding;
+      //   }
+
+      //   return { x, y };
+      // },
       positioner: function (
         labelWidth: number,
         labelHeight: number,
         point: any,
       ) {
-        const chart: any = (this as any)?.chart;
-        const plotX: any = point.plotX + chart.plotLeft;
-        const plotY: any = point.plotY + chart.plotTop;
-        const cursorPadding = 15;
+        const chart = (this as any)?.chart;
+        const plotX = point.plotX + chart.plotLeft;
+        const plotY = point.plotY + chart.plotTop;
+        const cursorPadding = 10;
 
+        // Default position: Tooltip is placed to the right of the point
         let x = plotX + cursorPadding;
-        let y = plotY - labelHeight - cursorPadding;
+        let y = plotY - labelHeight / 2;
 
-        if (x + labelWidth > chart.plotLeft + chart.plotWidth) {
+        // Ensure tooltip stays within chart bounds on the x-axis
+        const chartRightBoundary = chart.plotLeft + chart.plotWidth;
+        const chartLeftBoundary = chart.plotLeft;
+
+        // Calculate available space on both sides of the point
+        const spaceRight =
+          chartRightBoundary - (plotX + labelWidth + cursorPadding);
+        const spaceLeft =
+          plotX - chartLeftBoundary - labelWidth - cursorPadding;
+
+        // Adjust the tooltip logic to prioritize right side unless it's not enough space
+        if (spaceRight < 0 && spaceLeft >= 0) {
+          // Not enough space on the right, move to the left
           x = plotX - labelWidth - cursorPadding;
-        } else if (x < chart.plotLeft) {
-          x = chart.plotLeft + cursorPadding;
         }
 
+        // Final check to ensure the tooltip is entirely inside the chart bounds
+        if (x + labelWidth > chartRightBoundary) {
+          x = chartRightBoundary - labelWidth - cursorPadding;
+        }
+        if (x < chartLeftBoundary) {
+          x = chartLeftBoundary + cursorPadding;
+        }
+
+        // Ensure tooltip stays within chart bounds on the y-axis
         if (y < chart.plotTop) {
-          y = plotY + cursorPadding;
+          y = chart.plotTop;
         } else if (y + labelHeight > chart.plotTop + chart.plotHeight) {
-          y = chart.plotTop + chart.plotHeight - labelHeight - cursorPadding;
-        }
-
-        if (y < plotY && y + labelHeight > plotY) {
-          y = plotY + cursorPadding;
-        } else if (y > plotY && y < plotY + cursorPadding) {
-          y = plotY - labelHeight - cursorPadding;
+          y = chart.plotTop + chart.plotHeight - labelHeight;
         }
 
         return { x, y };
       },
+
       outside: true,
     },
   };

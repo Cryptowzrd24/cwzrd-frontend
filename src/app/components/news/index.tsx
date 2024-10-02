@@ -18,7 +18,7 @@ import { ReadMoreIcon } from '../../../../public/icons/readMoreIcon';
 const NewsComponent = () => {
   return (
     <>
-      <Box sx={{ display: 'flex', gap: 4 }}>
+      <Box sx={{ display: 'flex', gap: 4, marginTop: '-20px' }}>
         <Box
           sx={{
             display: 'flex',

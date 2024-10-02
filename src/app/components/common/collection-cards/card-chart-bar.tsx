@@ -137,33 +137,44 @@ const CardChartBar = (props: any) => {
         labelHeight: number,
         point: any,
       ) {
-        const chart: any = (this as any)?.chart;
-        const plotX: any = point.plotX + chart.plotLeft;
-        const plotY: any = point.plotY + chart.plotTop;
-        const cursorPadding = 5; // Padding to keep tooltip close but not overlapping with cursor
+        const chart = (this as any)?.chart;
+        const plotX = point.plotX + chart.plotLeft;
+        const plotY = point.plotY + chart.plotTop;
+        const cursorPadding = 10;
 
-        let x = plotX + cursorPadding; // Default position to the right of the cursor
-        let y = plotY - labelHeight - cursorPadding; // Default position above the cursor
+        // Default position: Tooltip is placed to the right of the point
+        let x = plotX + cursorPadding;
+        let y = plotY - labelHeight / 2;
 
-        // Adjust x position if tooltip would overflow the chart's width
-        if (x + labelWidth > chart.plotLeft + chart.plotWidth) {
-          x = plotX - labelWidth - cursorPadding; // Move to the left of the cursor
-        } else if (x < chart.plotLeft) {
-          x = plotX + cursorPadding; // Move to the right within the bounds
+        // Ensure tooltip stays within chart bounds on the x-axis
+        const chartRightBoundary = chart.plotLeft + chart.plotWidth;
+        const chartLeftBoundary = chart.plotLeft;
+
+        // Calculate available space on both sides of the point
+        const spaceRight =
+          chartRightBoundary - (plotX + labelWidth + cursorPadding);
+        const spaceLeft =
+          plotX - chartLeftBoundary - labelWidth - cursorPadding;
+
+        // Adjust the tooltip logic to prioritize right side unless it's not enough space
+        if (spaceRight < 0 && spaceLeft >= 0) {
+          // Not enough space on the right, move to the left
+          x = plotX - labelWidth - cursorPadding;
         }
 
-        // Adjust y position if tooltip would overflow the chart's height
+        // Final check to ensure the tooltip is entirely inside the chart bounds
+        if (x + labelWidth > chartRightBoundary) {
+          x = chartRightBoundary - labelWidth - cursorPadding;
+        }
+        if (x < chartLeftBoundary) {
+          x = chartLeftBoundary + cursorPadding;
+        }
+
+        // Ensure tooltip stays within chart bounds on the y-axis
         if (y < chart.plotTop) {
-          y = plotY + cursorPadding; // Move below the cursor
+          y = chart.plotTop;
         } else if (y + labelHeight > chart.plotTop + chart.plotHeight) {
-          y = chart.plotTop + chart.plotHeight - labelHeight - cursorPadding; // Keep within the bottom bounds
-        }
-
-        // Adjust y position to avoid cursor overlap, switching direction if necessary
-        if (y < plotY && y + labelHeight > plotY) {
-          y = plotY + cursorPadding; // Position below if too close to the cursor
-        } else if (y > plotY && y < plotY + cursorPadding) {
-          y = plotY - labelHeight - cursorPadding; // Position above if below the cursor
+          y = chart.plotTop + chart.plotHeight - labelHeight;
         }
 
         return { x, y };
