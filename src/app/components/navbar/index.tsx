@@ -176,9 +176,10 @@ function Navbar() {
             }}
           >
             <Link href="/">
-              {pathname.includes('/news') ||
+              {pathname === '/news' ||
               pathname === '/technicals' ||
-              pathname === '/articles' ? (
+              pathname === '/articles' ||
+              pathname === '/news/crypto' ? (
                 <LogoPurpleHat />
               ) : (
                 <Logo />
@@ -346,7 +347,9 @@ function Navbar() {
                   color={
                     !!pathname.includes('/favorites')
                       ? 'rgb(243,143,56)'
-                      : pathname.includes('/news') || pathname === '/articles'
+                      : pathname === '/news' ||
+                          pathname === '/articles' ||
+                          pathname === '/news/crypto'
                         ? 'white'
                         : pathname.includes('/technicals')
                           ? 'white'
@@ -410,11 +413,15 @@ function Navbar() {
                     <Typography
                       sx={{
                         color:
-                          pathname.includes('news') || pathname === '/articles'
+                          pathname === '/news' ||
+                          pathname === '/news/crypto' ||
+                          pathname === '/articles' ||
+                          pathname === '/technicals'
                             ? 'white'
                             : 'black',
                         fontSize: '16px',
                         paddingBlock: '5px',
+                        whiteSpace: 'nowrap',
                       }}
                     >
                       {name.length > 7 ? `${name.slice(0, 5)}...` : name}
@@ -471,7 +478,7 @@ function Navbar() {
                       pathname === '/technicals' ||
                       pathname === '/articles' ||
                       pathname.includes('/technicals/') ||
-                      pathname.includes('/news/')
+                      pathname === '/news/crypto'
                         ? 'white'
                         : 'black'
                     }

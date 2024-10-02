@@ -79,7 +79,7 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
       <Box sx={{ mt: '88px' }}>
         <RelatedNews isArticleDetails={isArticleDetails} />
       </Box>
-      <Box sx={{ mt: isArticleDetails ? '60px' : '88px', mb: '48px' }}>
+      <Box sx={{ mt: isArticleDetails ? '60px' : '56px', mb: '48px' }}>
         <MemberShipBanner />
       </Box>
     </>
