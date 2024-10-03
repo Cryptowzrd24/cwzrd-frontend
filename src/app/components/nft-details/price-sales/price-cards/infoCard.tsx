@@ -19,7 +19,7 @@ const InfoCard = ({ serverNftData }: any) => {
     if (royaltyValues.length === 0) {
       return {
         royalty: false,
-        logo: marketPlaces[0].logo,
+        logo: marketPlaces[0]?.logo,
       };
     }
 
