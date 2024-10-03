@@ -68,7 +68,9 @@ function MarketNewsPanel({
         {!isTechnicalDetail ? (
           <LiveNewsExplorer isPageDetails={true} />
         ) : (
-          <DiscoverCardButton />
+          <Box sx={{ mt: '16px' }}>
+            <DiscoverCardButton />
+          </Box>
         )}
         {!isTechnicalDetail && (
           <Box sx={{ marginTop: '20px' }}>

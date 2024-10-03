@@ -28,7 +28,7 @@ const TechnicalDetails = () => {
       <Box sx={{ mt: '108px' }}>
         <RelatedNews />
       </Box>
-      <Box sx={{ mt: '88px', mb: '48px' }}>
+      <Box sx={{ mt: '56px', mb: '42px' }}>
         <MemberShipBanner />
       </Box>
     </>

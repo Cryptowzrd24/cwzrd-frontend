@@ -32,7 +32,6 @@ export const NewsCategory: React.FC = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          gap: 2,
           marginLeft: '-50px',
         }}
       >
@@ -63,8 +62,8 @@ export const NewsCategory: React.FC = () => {
                 textAlign: 'center',
                 fontSize: '14px',
                 fontWeight: 700,
-                paddingInline: '5px',
-                marginInline: '5px',
+                paddingInline: '8px',
+                marginInline: '8px',
                 color: `${item.name == 'All News' ? '#7248F7' : 'inherit'}`,
                 ':hover': {
                   color: '#7248F7',
