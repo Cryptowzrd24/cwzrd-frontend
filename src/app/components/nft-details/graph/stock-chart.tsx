@@ -23,6 +23,8 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
     const [options, setOptions] = useState({});
     // const previousTokenIdRef = useRef<any>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [isImgLoading, setIsImgLoading] = useState(false);
+
     const [isDataAvailable, setIsDataAvailable] = useState(false);
     const chartComponentRef = useRef<any>(null);
     const useZones = 2;
@@ -30,6 +32,11 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
     const pathname = usePathname();
     const contractId = pathname.split('/')[3];
     const platformAlias = pathname.split('/')[4];
+
+    const [currentTokenImage, setCurrentTokenImage] = useState(
+      '/images/collections/Rectangle 40918.png',
+    );
+    const imageCacheRef = useRef<Record<string, string>>({}); // Cache images by tokenId
 
     const periodTime =
       volumeValue === '1h'
@@ -40,7 +47,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
             ? 3
             : 4;
 
-    const { data: nftTrendingData } = useFetchNftTrendingDataQuery({
+    const { data: nftTrendingData, isFetching } = useFetchNftTrendingDataQuery({
       period: periodTime,
       contract_id: contractId,
       alias: platformAlias,
@@ -51,37 +58,43 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
       alias: platformAlias,
     });
 
-    const [fetchNftDetails, { data: nftDetails }] =
-      useFetchNftDetailsMutation();
+    // const [fetchNftDetails, { data: nftDetails }] =
+    //   useFetchNftDetailsMutation();
 
-    // const handleFetchNftDetails = (id: any) => {
-    //   if (previousTokenIdRef.current !== id) {
-    //     fetchNftDetails({
-    //       tokenId: id?.toString(),
-    //       contract_id: contractId,
-    //       alias: platformAlias,
-    //     });
-    //     previousTokenIdRef.current = id; // Store current tokenId to prevent repeated calls
-    //   }
-    // };
+    const [fetchNftDetails] = useFetchNftDetailsMutation();
+    const handleFetchNftDetails = async (id: string, point: any) => {
+      // Check if image is already cached
+      if (imageCacheRef.current[id]) {
+        setCurrentTokenImage(imageCacheRef.current[id]);
+        setTimeout(() => {
+          chartComponentRef.current?.chart.tooltip.refresh(point);
+        }, 0);
+        return;
+      }
 
-    const handleFetchNftDetails = async (id: any) => {
-      const response = await fetchNftDetails({
-        tokenId: id?.toString(),
-        contract_id: contractId,
-        alias: platformAlias,
-      });
+      setIsImgLoading(true);
 
-      console.log('response?.data?.[0]>>', response?.data?.data?.[0].nftImage);
-      // Assume the API response contains the data you provided
-      return response?.data?.data?.[0].nftImage; // Access the first element from the data array
+      try {
+        // Fetch from API
+        const response = await fetchNftDetails({
+          tokenId: id,
+          contract_id: contractId,
+          alias: platformAlias,
+        });
+
+        const nftImage = response?.data?.data?.[0]?.nftImage;
+        imageCacheRef.current[id] = nftImage;
+        setCurrentTokenImage(nftImage);
+
+        setIsImgLoading(false);
+
+        setTimeout(() => {
+          chartComponentRef.current?.chart.tooltip.refresh(point);
+        }, 0);
+      } catch (error) {
+        setIsImgLoading(false);
+      }
     };
-
-    // const { data: nftDetailsata } = useFetchNftDetailsMutation({
-    //   tokenId: tokenId,
-    //   alias: platformAlias,
-    //   contract_id: contractId,
-    // });
 
     const formatChartData = (data: any) => {
       // Area graph data for price with conditional marker based on sales count
@@ -125,6 +138,21 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
         marketplace: item.marketplace,
         marketLogoUrl: item.marketLogoUrl, // URL for marketplace logo
       }));
+    };
+
+    const injectKeyframes = () => {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @keyframes spin89345 {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      `;
+      document.head.appendChild(style);
     };
 
     const fetchChartData = useCallback(async () => {
@@ -227,15 +255,10 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
               const sales = this?.point?.options?.sales;
               const tokeId = this?.point?.tokenId;
               if (this.point?.series?.initialType === 'scatter') {
-                let cardImgUrl;
-
-                // Trigger the async API call
-                handleFetchNftDetails(tokeId).then((img) => {
-                  console.log('img>>>', img);
-                  cardImgUrl = img;
-                });
-                console.log('nftDetails inside the codn>>', nftDetails);
+                // handleFetchNftDetails(tokeId);
+                // let cardImgUrl;
                 // setTokenId(tokeId);
+                injectKeyframes();
                 return `
                   <div
                     style="
@@ -247,11 +270,36 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                   >
                     <div style="display: flex; flex-direction: column;">
                       <div style="margin-left: 8px; margin-top: 8px;">
-                        <img
-                          src="${cardImgUrl}"
-                          alt="banner"
-                          style="width: 184px; height: 169px;"
-                        />
+                         ${
+                           isImgLoading
+                             ? `
+                             <div 
+                             style="
+                                  display:flex;
+                                  justify-content:center;
+                                  align-items:center;
+                                    "
+                             >
+                             <div
+                                  style="
+                                  display:flex;
+                                  justify-content:center;
+                                  border: 2px solid rgba(114, 72, 247, 0.8);
+                                  border-left-color: transparent;
+                                  border-radius: 50%;
+                                  width: 28px;
+                                  height: 28px;
+                                  animation: spin89345 1s linear infinite;
+                                          "
+                                   ></div>
+                                   </div>
+                                   `
+                             : `<img
+                  src="${currentTokenImage}"
+                  alt="banner"
+                  style="width: 184px; height: 169px;"
+                 />`
+                         }
                       </div>
 
                       <div
@@ -447,6 +495,14 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                 lineColor: '#fff',
                 fillColor: 'rgba(114, 72, 247, 1)',
               },
+              point: {
+                events: {
+                  mouseOver: function (this: any) {
+                    const tokenId = this?.tokenId;
+                    handleFetchNftDetails(tokenId, this);
+                  },
+                },
+              },
             },
           ],
           legend: { enabled: false },
@@ -494,7 +550,6 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
 
         setIsLoading(false);
       } catch (error) {
-        console.error('Error fetching chart data:', error);
         setIsLoading(false);
       }
     }, [coinSymbol, nftTrendingData, nftScatterData]);
@@ -543,7 +598,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
           marginTop: '35px',
         }}
       >
-        {isLoading && (
+        {isFetching && (
           <div
             style={{
               position: 'absolute',
