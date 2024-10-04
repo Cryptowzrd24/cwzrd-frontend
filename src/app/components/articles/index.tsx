@@ -73,7 +73,7 @@ const ArticlesPage = () => {
 
       <Box sx={{ display: 'flex', gap: 2.2, maxHeight: '850px' }}>
         <Box sx={{ width: '51%' }}>
-          <NewsCarouselBig isCrypto={true} />
+          <NewsCarouselBig isDetailPage={true} height={'535px'} />
         </Box>
         <Box
           sx={{
@@ -84,30 +84,27 @@ const ArticlesPage = () => {
             flexDirection: 'column',
           }}
         >
-          <Box sx={{ marginBottom: '24px' }}>
+          <Box sx={{ marginBottom: '16px' }}>
             <TrendingNewsCard
+              descriptionLines={1}
+              isMainPage={true}
               image={CardImage}
               title={
-                "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
+                "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange"
               }
               description={
                 "Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ard.."
               }
             />
           </Box>
-
-          <TrendingNewsList height="450px" maxCards={4} marginLeft="8px" />
+          <Box maxHeight={'240px'}>
+            <TrendingNewsList height="250px" maxCards={3} marginLeft="10px" />
+          </Box>
         </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 2,
-            width: '24%',
-          }}
-        >
-          <TrendingNewsList height="350px" maxCards={3} marginLeft="0px" />
-          <NewsMileStones isCrypto={true} />
+        <Box sx={{ width: '24%' }}>
+          <TrendingNewsList height="200px" maxCards={2} marginLeft="0px" />
+
+          <NewsMileStones />
         </Box>
       </Box>
 
