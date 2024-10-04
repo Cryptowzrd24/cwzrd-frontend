@@ -9,6 +9,9 @@ import MemberShipBanner from '../banners/memberShipBanner';
 import Activity from './activity';
 import PriceSales from './price-sales';
 import GraphLayout from './graph/graphLayout';
+// import Info from './info';
+// import GraphCard from './graph/graphCard';
+// import { cardData } from '../collections/data';
 
 const NftDetails = ({ serverNftData }: any) => {
   return (

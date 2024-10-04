@@ -32,7 +32,27 @@ export const nftDetailsApi = createApi({
         };
       },
     }),
+    fetchNftDetails: builder.mutation({
+      query: ({ tokenId, alias, contract_id }) => {
+        const url = `api/nft/item-details/`;
+        return {
+          url,
+          method: 'POST',
+          body: {
+            contract: contract_id,
+            platformAlias: alias,
+            tokenIds: [tokenId],
+          },
+          headers: {
+            'Content-Type': 'application/json', // Ensure content type is set
+          },
+        };
+      },
+    }),
   }),
 });
-export const { useFetchNftTrendingDataQuery, useFetchNftScatterDataQuery } =
-  nftDetailsApi;
+export const {
+  useFetchNftTrendingDataQuery,
+  useFetchNftScatterDataQuery,
+  useFetchNftDetailsMutation,
+} = nftDetailsApi;
