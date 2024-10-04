@@ -254,6 +254,8 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                                   display:flex;
                                   justify-content:center;
                                   align-items:center;
+                                  width: 184px;
+                                  height: 169px;
                                     "
                              >
                              <div
@@ -319,7 +321,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                       margin-top: 8px;
                       margin-bottom: 8px;
                       margin-left: 8px;
-                      gap: 48px;
+                      gap: 24px;
                       opacity: 80%;
                     "
                       >
@@ -328,6 +330,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                             style="
                           font-size: 10px;
                           font-weight: 400;
+                          line-height:13px;
                           color: rgba(17, 17, 17, 0.6);
                           font-family: 'Sf Pro Display';
                         "
@@ -340,6 +343,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                           font-weight: 700;
                           font-family: 'Sf Pro Display';
                           color: rgba(17, 17, 17, 1);
+                          line-height:15.6px;
                         "
                           >
                             #${tokenId}
@@ -351,6 +355,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                             style="
                           font-size: 10px;
                           font-weight: 400;
+                          line-height:13px;
                           color: rgba(17, 17, 17, 0.6);
                           font-family: 'Sf Pro Display';
                         "
@@ -362,6 +367,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                           font-size: 12px;
                           font-weight: 700;
                           font-family: 'Sf Pro Display';
+                          line-height:15.6px;
                           color: rgba(17, 17, 17, 1);
                         "
                           >
