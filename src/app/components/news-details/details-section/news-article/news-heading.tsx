@@ -7,9 +7,9 @@ function NewsHeading({ isArticleDetails }: { isArticleDetails?: boolean }) {
       <Typography
         sx={{
           fontWeight: 700,
-          fontSize: isArticleDetails ? '32px' : '24px',
+          fontSize: '24px',
           fontFamily: 'Sf Pro Display',
-          lineHeight: isArticleDetails ? '38.4px' : '28.8px',
+          lineHeight: '28.8px',
           letterSpacing: '1px',
           color: 'rgba(17, 17, 17, 1)',
         }}
