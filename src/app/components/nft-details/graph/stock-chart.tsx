@@ -21,13 +21,10 @@ interface StockChartProps {
 const StockChartNft: React.FC<StockChartProps> = React.memo(
   ({ isFullScreen, chartRef, setIsFullScreen, coinSymbol, volumeValue }) => {
     const [options, setOptions] = useState({});
-    // const previousTokenIdRef = useRef<any>(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [isImgLoading, setIsImgLoading] = useState(false);
-
+    const [, setIsImgLoading] = useState(false);
     const [isDataAvailable, setIsDataAvailable] = useState(false);
     const chartComponentRef = useRef<any>(null);
-    const useZones = 2;
     const graphType = 'area';
     const pathname = usePathname();
     const contractId = pathname.split('/')[3];
@@ -36,7 +33,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
     const [currentTokenImage, setCurrentTokenImage] = useState(
       '/images/collections/Rectangle 40918.png',
     );
-    const imageCacheRef = useRef<Record<string, string>>({}); // Cache images by tokenId
+    const imageCacheRef = useRef<Record<string, string>>({});
 
     const periodTime =
       volumeValue === '1h'
@@ -58,24 +55,18 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
       alias: platformAlias,
     });
 
-    // const [fetchNftDetails, { data: nftDetails }] =
-    //   useFetchNftDetailsMutation();
-
     const [fetchNftDetails] = useFetchNftDetailsMutation();
+
     const handleFetchNftDetails = async (id: string, point: any) => {
-      // Check if image is already cached
       if (imageCacheRef.current[id]) {
         setCurrentTokenImage(imageCacheRef.current[id]);
-        setTimeout(() => {
-          chartComponentRef.current?.chart.tooltip.refresh(point);
-        }, 0);
+        chartComponentRef.current?.chart.tooltip.refresh(point);
         return;
       }
 
       setIsImgLoading(true);
 
       try {
-        // Fetch from API
         const response = await fetchNftDetails({
           tokenId: id,
           contract_id: contractId,
@@ -85,34 +76,26 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
         const nftImage = response?.data?.data?.[0]?.nftImage;
         imageCacheRef.current[id] = nftImage;
         setCurrentTokenImage(nftImage);
-
         setIsImgLoading(false);
-
-        setTimeout(() => {
-          chartComponentRef.current?.chart.tooltip.refresh(point);
-        }, 0);
+        chartComponentRef.current?.chart.tooltip.refresh(point);
       } catch (error) {
         setIsImgLoading(false);
       }
     };
 
     const formatChartData = (data: any) => {
-      // Area graph data for price with conditional marker based on sales count
       const priceData = data.map((item: any) => ({
         x: parseInt(item.timestamp),
         y: item.averagePrice,
-        sales: item.sales, // additional data: sales
+        sales: item.sales,
         marker: {
           enabled: false,
-          // enabled: item.sales > 0,
         },
       }));
 
-      // Column graph data for volume
       const volumeData = data.map((item: any) => ({
-        x: parseInt(item.timestamp), // x-axis: timestamp
+        x: parseInt(item.timestamp),
         y: item.volume,
-        sales: item.sales,
         color: {
           linearGradient: {
             x1: 0,
@@ -132,11 +115,11 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
 
     const formatScatterData = (data: any) => {
       return data.map((item: any) => ({
-        x: parseInt(item.time), // Use timestamp for x-axis
-        y: item.price, // Price for y-axis
-        tokenId: item.tokenId, // Additional data to show on hover
+        x: parseInt(item.time),
+        y: item.price,
+        tokenId: item.tokenId,
         marketplace: item.marketplace,
-        marketLogoUrl: item.marketLogoUrl, // URL for marketplace logo
+        marketLogoUrl: item.marketLogoUrl,
       }));
     };
 
@@ -159,29 +142,23 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
       setIsLoading(true);
 
       try {
-        // Fetching data from Highcharts' demo API
         const apiData = nftTrendingData?.data || [];
         const apiDataScatter = nftScatterData?.data?.middleSales || [];
         const { priceData, volumeData } = formatChartData(apiData);
         const scatterData = formatScatterData(apiDataScatter);
+
         if (priceData.length === 0) {
           setIsDataAvailable(false);
         } else {
           setIsDataAvailable(true);
         }
 
-        // Extract y values (price) from priceData
         const priceValues = priceData.map((item: any) => item.y);
-
-        // Calculate min and max prices
         const minPrice = Math.min(...priceValues);
         const maxPrice = Math.max(...priceValues);
-
-        // Set yMin and yMax with some padding
         const yMin = minPrice * 0.999;
         const yMax = maxPrice * 1.001;
 
-        // Setting chart options
         setOptions({
           scrollbar: { enabled: false },
           rangeSelector: { enabled: false },
@@ -253,12 +230,11 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
               const time = Highcharts.dateFormat('%I:%M:%S %p', this.x);
               const volume = this.points?.[1]?.y;
               const sales = this?.point?.options?.sales;
-              const tokeId = this?.point?.tokenId;
+              const tokenId = this?.point?.tokenId;
+
               if (this.point?.series?.initialType === 'scatter') {
-                // handleFetchNftDetails(tokeId);
-                // let cardImgUrl;
-                // setTokenId(tokeId);
                 injectKeyframes();
+
                 return `
                   <div
                     style="
@@ -271,7 +247,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                     <div style="display: flex; flex-direction: column;">
                       <div style="margin-left: 8px; margin-top: 8px;">
                          ${
-                           isImgLoading
+                           !imageCacheRef.current[tokenId]
                              ? `
                              <div 
                              style="
@@ -295,9 +271,9 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                                    </div>
                                    `
                              : `<img
-                  src="${currentTokenImage}"
+                  src="${imageCacheRef.current[tokenId] || currentTokenImage}"
                   alt="banner"
-                  style="width: 184px; height: 169px;"
+                  style="width: 184px; height: 169px; object-fit: cover; border-radius: 8px;"
                  />`
                          }
                       </div>
@@ -366,7 +342,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                           color: rgba(17, 17, 17, 1);
                         "
                           >
-                            #${tokeId}
+                            #${tokenId}
                           </span>
                         </div>
 
@@ -389,14 +365,16 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
                           color: rgba(17, 17, 17, 1);
                         "
                           >
-                            ${priceNumberFormatter(this.y)} ${apiData[0]?.nativeCurrencySymbol}
+                            ${priceNumberFormatter(this.y)} ${
+                              apiData[0]?.nativeCurrencySymbol
+                            }
                           </span>
                         </div>
                       </div>
                     </div>
                   </div>
                 `;
-              } else
+              } else {
                 return `
               <div style="padding: 16px; border-radius: 8px; background: white; box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 220px; max-height: 128px;">
                 <div style="display: flex; justify-content: space-between; padding-bottom: 16px;">
@@ -432,6 +410,7 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
     
               </div>
             `;
+              }
             },
             shared: true,
             split: false,
@@ -451,20 +430,6 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
               },
               marker: {
                 enabled: false,
-                // fillColor: 'rgba(114, 72, 247, 1)',
-                shadow: false,
-                radius: 3,
-                lineWidth: 0,
-                lineColor: '#fff',
-                states: {
-                  hover: {
-                    enabled: false,
-                    lineWidth: 4,
-                    radius: 8,
-                    shadow: false,
-                    fillColor: useZones ? '' : 'rgba(114, 72, 247, 1)',
-                  },
-                },
               },
               dataGrouping: {
                 enabled: false,
