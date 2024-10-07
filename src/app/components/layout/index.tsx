@@ -23,7 +23,7 @@ export default function CustomLayout({
             {children}
             <Footer />
           </StoreProvider>
-          <Script src="/ticker_websocket.js" />
+          <Script src="/ticker_websocket.js" strategy="afterInteractive" />
         </body>
       </html>
     </ThemeProvider>
