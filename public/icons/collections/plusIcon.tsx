@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PlusIcon = ({ active }: any) => {
+const PlusIcon = ({ active }: { active?: boolean }) => {
   return (
     <>
       {/* Hello world */}

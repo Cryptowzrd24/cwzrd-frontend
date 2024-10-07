@@ -14,7 +14,7 @@ const Table = () => {
 
   const columnAirDropsDef = useColumnAirdropsDefs(columnsAirdrops);
 
-  const handleSetSearch = useCallback((value: any) => {
+  const handleSetSearch = useCallback((value: string) => {
     setSearch(value);
   }, []);
 

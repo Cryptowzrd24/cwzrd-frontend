@@ -4,7 +4,7 @@ import banner from '../../../../../public/images/airdrops/banner.png';
 import Image from 'next/image';
 
 interface stepPicture {
-  currentStep: any;
+  currentStep: number;
 }
 const StepPicture = ({ currentStep }: stepPicture) => {
   let elements;

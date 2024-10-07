@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useCallback,
 } from 'react';
+import ReactDOMServer from 'react-dom/server';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useFetchCoinDetailsGraphDataQuery } from '@/app/redux/coin-details';
@@ -13,6 +14,7 @@ import { useFetchHistoricalCoinDataDetailsQuery } from '@/app/redux/reducers/dat
 import { usePathname } from 'next/navigation';
 import { priceNumberFormatter } from '../../data-table/price';
 import numeral from 'numeral';
+import CustomTooltip from './custom-tooltip';
 
 interface StockChartProps {
   selectedGraph: string;
@@ -378,100 +380,34 @@ const StockChart: React.FC<StockChartProps> = React.memo(
               ? 'rgba(255, 0, 0, 1)'
               : 'rgba(69, 202, 148, 1)';
 
-            return `
-            <div style="padding: 16px; border-radius: 8px; background: white; box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 250px; max-height: 194px;">
-              <div style="display: flex; justify-content: space-between; padding-bottom: 16px;">
-                <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${date}</div>
-                <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${time}</div>
-              </div>
-            ${
-              graphType === 'candlestick'
-                ? `
-                  <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                    <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                      Open
-                    </div>
-                    <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
-                      $${open}
-                    </div>
-                  </div>
-                  <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                    <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                      High
-                    </div>
-                    <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
-                      $${high}
-                    </div>
-                  </div>
-                  <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                    <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                      Low
-                    </div>
-                    <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
-                      $${low}
-                    </div>
-                  </div>
-                  <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                    <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                      Close
-                    </div>
-                    <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1)">
-                      $${close}
-                    </div>
-                  </div>
-                `
-                : selectedCompareCoinId === undefined
-                  ? `
-                <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                    ${graphType === 'line' && selectedGraph === 'Market Cap' ? 'Market Cap' : 'Price'}
-                  </div>
-                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase">
-                   $${graphType === 'line' && selectedGraph === 'Market Cap' ? marketCap : price}
-                  </div>
-                </div>
-                `
-                  : `${
-                      firstCoinIndex
-                        ? `<div style="display: flex; justify-content:space-between; align-items:center; padding-top: 6px; gap:10px">
-                        <div style="display: flex; justify-content:start; align-items:center; gap:8px;">
-                          <div style="width:12px; height: 12px; background-color:rgba(114, 72, 247, 1); border-radius:50%"></div>
-                          <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                            ${graphType === 'line' && selectedGraph === 'Market Cap' ? `Market Cap(${coinSymbol}):` : `Price(${coinSymbol}):`}
-                          </div>
-                        </div>
-                        <div style="font-size: 13px; font-weight: 500; font-family: 'Sf Pro Display'; color: ${firstPriceChangeColor}; text-transform: uppercase">
-                          ${graphType === 'line' && selectedGraph === 'Market Cap' ? `$${marketCap}(${priceChangeFirstCoin}%)` : `$${price}(${priceChangeFirstCoin}%)`}
-                        </div>
-                      </div>`
-                        : ''
-                    }
-              ${
-                secondCoinIndex
-                  ? `<div style="display: flex; justify-content:space-between; align-items:center; padding-top: 6px; gap:10px">
-                <div style="display: flex; justify-content:start; align-items:center; gap:8px;">
-                  <div style="width:13px; height: 12px; background-color:#FF775E; border-radius:50%"></div>
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">
-                    ${graphType === 'line' && selectedGraph === 'Market Cap' ? `Market Cap(${compareCoinSymbol}):` : `Price(${compareCoinSymbol}):`}
-                  </div>
-                </div>
-                  <div style="font-size: 13px; font-weight: 500; font-family: 'Sf Pro Display'; color: ${secondPriceChangeColor}; text-transform: uppercase">
-                    ${graphType === 'line' && selectedGraph === 'Market Cap' ? `$${compareMarketCap}(${priceChangeSecondCoin}%)` : `$${comparePrice}(${priceChangeSecondCoin}%)`}
-                  </div>
-                </div>`
-                  : ''
-              }
-                `
-            }
-              <div style="display: flex; justify-content: space-between; padding-top: 6px; align-items:center;">
-              <div style="display: flex; justify-content:start; align-items:center; gap:8px;">
-              ${selectedCompareCoinId !== undefined ? '<div style="width:12px; height: 12px; background-color:#919191dd; border-radius:50%"></div>' : ''}
-                <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">Volume</div>
-              </div>
-                <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase;">$${volume}</div>
-              </div>
-            </div>
-          `;
+            const tooltipHtml = ReactDOMServer.renderToString(
+              <CustomTooltip
+                date={date}
+                time={time}
+                graphType={graphType}
+                selectedGraph={selectedGraph}
+                selectedCompareCoinId={selectedCompareCoinId}
+                coinSymbol={coinSymbol}
+                compareCoinSymbol={compareCoinSymbol}
+                open={open}
+                high={high}
+                low={low}
+                close={close}
+                price={price}
+                marketCap={marketCap}
+                comparePrice={comparePrice}
+                compareMarketCap={compareMarketCap}
+                volume={volume}
+                priceChangeFirstCoin={priceChangeFirstCoin}
+                priceChangeSecondCoin={priceChangeSecondCoin}
+                firstPriceChangeColor={firstPriceChangeColor}
+                secondPriceChangeColor={secondPriceChangeColor}
+                firstCoinIndex={firstCoinIndex}
+                secondCoinIndex={secondCoinIndex}
+              />,
+            );
+
+            return tooltipHtml;
           },
           shared: true,
           split: false,

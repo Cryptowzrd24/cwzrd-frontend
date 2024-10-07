@@ -1,9 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// interface QueryParamsType {
-//   coinId: string | undefined;
-//   range?: string;
-// }
+interface QueryParamsType {
+  period?: number;
+  alias?: string;
+  contract_id: string;
+  tokenId?: string;
+}
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -15,7 +17,7 @@ export const nftDetailsApi = createApi({
 
   endpoints: (builder) => ({
     fetchNftTrendingData: builder.query({
-      query: ({ period, alias, contract_id }) => {
+      query: ({ period, alias, contract_id }: QueryParamsType) => {
         const url = `/api/nft/trending?platformAlias=${alias}&contract=${contract_id}&period=${period}`;
         return {
           url,
@@ -24,7 +26,7 @@ export const nftDetailsApi = createApi({
       },
     }),
     fetchNftScatterData: builder.query({
-      query: ({ period, alias, contract_id }) => {
+      query: ({ period, alias, contract_id }: QueryParamsType) => {
         const url = `/api/nft/scatter?platformAlias=${alias}&contract=${contract_id}&period=${period}`;
         return {
           url,
@@ -33,7 +35,7 @@ export const nftDetailsApi = createApi({
       },
     }),
     fetchNftDetails: builder.mutation({
-      query: ({ tokenId, alias, contract_id }) => {
+      query: ({ tokenId, alias, contract_id }: QueryParamsType) => {
         const url = `api/nft/item-details/`;
         return {
           url,
@@ -44,7 +46,7 @@ export const nftDetailsApi = createApi({
             tokenIds: [tokenId],
           },
           headers: {
-            'Content-Type': 'application/json', // Ensure content type is set
+            'Content-Type': 'application/json',
           },
         };
       },

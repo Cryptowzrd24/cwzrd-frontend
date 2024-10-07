@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 const Header = () => {
   const [activeHeading, setActiveHeading] = useState('all');
 
-  const handleHeadingClick = (heading: any) => {
+  const handleHeadingClick = (heading: string) => {
     setActiveHeading(heading);
   };
 

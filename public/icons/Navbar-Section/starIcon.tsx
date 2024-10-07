@@ -1,8 +1,8 @@
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
-const StarIcon = ({ color }: any) => {
-    const pathname = usePathname()
+const StarIcon = ({ color }: { color: string }) => {
+  const pathname = usePathname();
   return (
     <>
       <svg

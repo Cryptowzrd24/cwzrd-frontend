@@ -54,7 +54,7 @@ const ArticlesPage = () => {
           >
             <TrendingNewsCard
               descriptionLines={1}
-              image={CardImage} // Ensure the path is correct
+              image={CardImage}
               title={
                 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip'
               }
