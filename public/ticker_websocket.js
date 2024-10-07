@@ -40,18 +40,43 @@ ws.addEventListener('close', (event) => {
   console.log('WebSocket connection closed:', event);
 });
 
-const toggleMoreButton = document.getElementById('toggleMore');
-const toggleLessButton = document.getElementById('toggleLess');
-const additionalContent = document.getElementById('additionalContent');
+function attachToggleEventListeners() {
+  const toggleMoreButton = document.getElementById('toggleMore');
+  const toggleLessButton = document.getElementById('toggleLess');
+  const additionalContent = document.getElementById('additionalContent');
 
-toggleMoreButton?.addEventListener('click', () => {
-  additionalContent.style.display = 'block';
-  toggleMoreButton.style.display = 'none';
-  toggleLessButton.style.display = 'inline-block';
+  if (!toggleMoreButton || !toggleLessButton || !additionalContent) return;
+
+  function showContent() {
+    console.log('===>>togglemore');
+    additionalContent.style.display = 'block';
+    toggleMoreButton.style.display = 'none';
+    toggleLessButton.style.display = 'inline-block';
+  }
+
+  function hideContent() {
+    console.log('===>>toggleless');
+    additionalContent.style.display = 'none';
+    toggleLessButton.style.display = 'none';
+    toggleMoreButton.style.display = 'inline-block';
+  }
+
+  toggleMoreButton.removeEventListener('click', showContent);
+  toggleLessButton.removeEventListener('click', hideContent);
+
+  toggleMoreButton.addEventListener('click', showContent);
+  toggleLessButton.addEventListener('click', hideContent);
+}
+
+// Observe changes in the DOM
+const observer = new MutationObserver((mutationsList, observer) => {
+  for (const mutation of mutationsList) {
+    if (mutation.type === 'childList') {
+      attachToggleEventListeners();
+    }
+  }
 });
 
-toggleLessButton?.addEventListener('click', () => {
-  additionalContent.style.display = 'none';
-  toggleLessButton.style.display = 'none';
-  toggleMoreButton.style.display = 'inline-block';
-});
+observer.observe(document.body, { childList: true, subtree: true });
+
+attachToggleEventListeners();
