@@ -48,14 +48,12 @@ function attachToggleEventListeners() {
   if (!toggleMoreButton || !toggleLessButton || !additionalContent) return;
 
   function showContent() {
-    console.log('===>>togglemore');
     additionalContent.style.display = 'block';
     toggleMoreButton.style.display = 'none';
     toggleLessButton.style.display = 'inline-block';
   }
 
   function hideContent() {
-    console.log('===>>toggleless');
     additionalContent.style.display = 'none';
     toggleLessButton.style.display = 'none';
     toggleMoreButton.style.display = 'inline-block';
