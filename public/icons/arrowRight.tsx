@@ -1,4 +1,4 @@
-export const ArrowRight = ({ fill }: any) => {
+export const ArrowRight = ({ fill }: { fill?: string }) => {
   return (
     <svg
       width="16"

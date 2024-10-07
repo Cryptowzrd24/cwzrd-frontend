@@ -1,5 +1,5 @@
 interface IconProps {
-  isActive: any;
+  isActive: boolean;
 }
 function LightmodeIcon({ isActive }: IconProps) {
   return (

@@ -1,7 +1,13 @@
 import React from 'react';
 import CoinDetails from '@/app/components/coin-details';
 
-async function fetchCoinDetailData({ coinId }: any) {
+interface Params {
+  params: {
+    coin_id: string;
+  };
+}
+
+async function fetchCoinDetailData({ coinId }: { coinId: string }) {
   const res = await fetch(
     `https://backend.cwzrd.co.uk/detail/coin/?coin_id=${coinId}`,
     {
@@ -12,7 +18,7 @@ async function fetchCoinDetailData({ coinId }: any) {
   return data?.results[0];
 }
 
-const page = async ({ params }: any) => {
+const page = async ({ params }: Params) => {
   if (!params?.coin_id) {
     throw new Error('coin_id is missing');
   }

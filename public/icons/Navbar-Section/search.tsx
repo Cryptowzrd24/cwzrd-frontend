@@ -1,6 +1,12 @@
 import React from 'react';
 
-function SearchIcon({ color, height, width }: any) {
+interface SearchIconProps {
+  color?: string;
+  height?: number;
+  width?: number;
+}
+
+function SearchIcon({ color, height, width }: SearchIconProps) {
   return (
     <svg
       width={width || 20}

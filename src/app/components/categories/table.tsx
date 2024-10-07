@@ -33,7 +33,7 @@ const Table = () => {
   );
 
   const handleSetSearch = useCallback(
-    (value: any) => {
+    (value: string) => {
       debouncedFetchCoinData(value);
     },
     [debouncedFetchCoinData],

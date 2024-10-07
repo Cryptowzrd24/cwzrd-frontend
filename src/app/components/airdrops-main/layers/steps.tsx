@@ -1,12 +1,12 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 interface stepProps {
-  currentStep: any;
-  setCurrentStep: any;
+  currentStep: number;
+  setCurrentStep: (step: number) => void;
 }
 
 const Steps = ({ setCurrentStep }: stepProps) => {
-  const handleStepClick = (step: any) => {
+  const handleStepClick = (step: number) => {
     setCurrentStep(step);
   };
   return (

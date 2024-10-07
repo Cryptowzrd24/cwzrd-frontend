@@ -8,12 +8,10 @@ export default function ArticlesLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <Container maxWidth="xl">
-        <NewsHeader isNews={false} />
-        <NewsCategory />
-        {children}
-      </Container>
-    </>
+    <Container maxWidth="xl">
+      <NewsHeader isNews={false} />
+      <NewsCategory />
+      {children}
+    </Container>
   );
 }

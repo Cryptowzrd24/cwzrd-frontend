@@ -1,4 +1,3 @@
-'use client';
 import { Box, Chip, Typography } from '@mui/material';
 import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
@@ -44,7 +43,6 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
 
               lineHeight: '20.8px',
               background: 'rgba(255, 255, 255, 0.1)',
-              // backdropFilter: 'blur(10px)',
               borderRadius: '20px',
               marginTop: '6px',
               marginRight: !isDetailPage ? '12px' : '10px',
