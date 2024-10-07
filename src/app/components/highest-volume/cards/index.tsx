@@ -226,6 +226,7 @@ const Card = ({
                   fontSize: '12px',
                   fontWeight: '400',
                   color: 'rgba(17, 17, 17, 0.4)',
+                  zIndex: 999,
                 }}
               >
                 Market Cap
@@ -235,14 +236,17 @@ const Card = ({
                     tooltip: {
                       sx: {
                         width: '270px',
-                        backgroundColor: 'rgba(255, 255, 255, 1)',
+                        backgroundColor: '#FFFFFF',
+                        opacity: 1,
+                        zIndex: 9999,
                         color: 'rgba(17, 17, 17, 0.8)',
                         fontSize: '12px',
                         padding: '12px',
                         borderRadius: '12px',
-                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.08)',
                         fontWeight: 'normal',
                         lineHeight: '17.6px',
+                        backdropFilter: 'blur(100px)',
                       },
                     },
                   }}
@@ -294,9 +298,10 @@ const Card = ({
                         fontSize: '12px',
                         padding: '12px',
                         borderRadius: '12px',
-                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.08)',
                         fontWeight: 'normal',
                         lineHeight: '17.6px',
+                        backdropFilter: 'blur(100px)',
                       },
                     },
                   }}
@@ -349,9 +354,10 @@ const Card = ({
                         fontSize: '12px',
                         padding: '12px',
                         borderRadius: '12px',
-                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.08)',
                         fontWeight: 'normal',
                         lineHeight: '17.6px',
+                        backdropFilter: 'blur(100px)',
                       },
                     },
                   }}
@@ -402,9 +408,10 @@ const Card = ({
                         fontSize: '12px',
                         padding: '12px',
                         borderRadius: '12px',
-                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.08)',
                         fontWeight: 'normal',
                         lineHeight: '17.6px',
+                        backdropFilter: 'blur(100px)',
                       },
                     },
                   }}
