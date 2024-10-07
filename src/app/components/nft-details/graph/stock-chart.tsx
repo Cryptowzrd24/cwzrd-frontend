@@ -7,8 +7,9 @@ import {
   useFetchNftTrendingDataQuery,
   useFetchNftDetailsMutation,
 } from '@/app/redux/nft-details';
-import { priceNumberFormatter } from '../../data-table/price';
 import { usePathname } from 'next/navigation';
+import CustomTooltip from './custom-tooltip';
+import ReactDOMServer from 'react-dom/server';
 
 interface StockChartProps {
   volumeValue: string;
@@ -123,21 +124,6 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
       }));
     };
 
-    const injectKeyframes = () => {
-      const style = document.createElement('style');
-      style.innerHTML = `
-        @keyframes spin89345 {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-      `;
-      document.head.appendChild(style);
-    };
-
     const fetchChartData = useCallback(async () => {
       setIsLoading(true);
 
@@ -231,192 +217,24 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
               const volume = this.points?.[1]?.y;
               const sales = this?.point?.options?.sales;
               const tokenId = this?.point?.tokenId;
+              const isScatter = this.point?.series?.initialType === 'scatter';
 
-              if (this.point?.series?.initialType === 'scatter') {
-                injectKeyframes();
+              const tooltipHtml = ReactDOMServer.renderToString(
+                <CustomTooltip
+                  point={this.point}
+                  date={date}
+                  time={time}
+                  volume={volume}
+                  sales={sales}
+                  tokenId={tokenId}
+                  imageCacheRef={imageCacheRef}
+                  currentTokenImage={currentTokenImage}
+                  isScatter={isScatter}
+                  apiData={apiData}
+                />,
+              );
 
-                return `
-                  <div
-                    style="
-                  width: 200px;
-                  box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
-                  background-color: rgba(255, 255, 255, 1);
-                  border-radius: 16px;
-                "
-                  >
-                    <div style="display: flex; flex-direction: column;">
-                      <div style="margin-left: 8px; margin-top: 8px;">
-                         ${
-                           !imageCacheRef.current[tokenId]
-                             ? `
-                             <div 
-                             style="
-                                  display:flex;
-                                  justify-content:center;
-                                  align-items:center;
-                                  width: 184px;
-                                  height: 169px;
-                                    "
-                             >
-                             <div
-                                  style="
-                                  display:flex;
-                                  justify-content:center;
-                                  border: 2px solid rgba(114, 72, 247, 0.8);
-                                  border-left-color: transparent;
-                                  border-radius: 50%;
-                                  width: 28px;
-                                  height: 28px;
-                                  animation: spin89345 1s linear infinite;
-                                          "
-                                   ></div>
-                                   </div>
-                                   `
-                             : `<img
-                  src="${imageCacheRef.current[tokenId] || currentTokenImage}"
-                  alt="banner"
-                  style="width: 184px; height: 169px; object-fit: cover; border-radius: 8px;"
-                 />`
-                         }
-                      </div>
-
-                      <div
-                        style="
-                      display: flex;
-                      justify-content: space-between;
-                      align-items: center;
-                      margin-top: 8px;
-                      padding-inline: 16px;
-                    "
-                      >
-                        <span
-                          style="
-                        font-size: 10px;
-                        font-weight: 400;
-                        color: rgba(17, 17, 17, 1);
-                      "
-                        >
-                          ${date}
-                        </span>
-                        <span
-                          style="
-                        font-size: 10px;
-                        font-weight: 400;
-                        color: rgba(17, 17, 17, 1);
-                      "
-                        >
-                          ${time}
-                        </span>
-                      </div>
-
-                      <div
-                        style="
-                      height: 36px;
-                      width: 184px;
-                      border-radius: 8px;
-                      background: rgba(17, 17, 17, 0.05);
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      margin-top: 8px;
-                      margin-bottom: 8px;
-                      margin-left: 8px;
-                      gap: 24px;
-                      opacity: 80%;
-                    "
-                      >
-                        <div style='display:flex; flex-direction:column'>
-                          <span
-                            style="
-                          font-size: 10px;
-                          font-weight: 400;
-                          line-height:13px;
-                          color: rgba(17, 17, 17, 0.6);
-                          font-family: 'Sf Pro Display';
-                        "
-                          >
-                            Item
-                          </span>
-                          <span
-                            style="
-                          font-size: 12px;
-                          font-weight: 700;
-                          font-family: 'Sf Pro Display';
-                          color: rgba(17, 17, 17, 1);
-                          line-height:15.6px;
-                        "
-                          >
-                            #${tokenId}
-                          </span>
-                        </div>
-
-                        <div style='display:flex; flex-direction:column'>
-                          <span
-                            style="
-                          font-size: 10px;
-                          font-weight: 400;
-                          line-height:13px;
-                          color: rgba(17, 17, 17, 0.6);
-                          font-family: 'Sf Pro Display';
-                        "
-                          >
-                            Price
-                          </span>
-                          <span
-                            style="
-                          font-size: 12px;
-                          font-weight: 700;
-                          font-family: 'Sf Pro Display';
-                          line-height:15.6px;
-                          color: rgba(17, 17, 17, 1);
-                        "
-                          >
-                            ${priceNumberFormatter(this.y)} ${
-                              apiData[0]?.nativeCurrencySymbol
-                            }
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                `;
-              } else {
-                return `
-              <div style="padding: 16px; border-radius: 8px; background: white; box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05); width: 220px; max-height: 128px;">
-                <div style="display: flex; justify-content: space-between; padding-bottom: 16px;">
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${date}</div>
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1);">${time}</div>
-                </div>
-                <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4); display:flex; gap:4px;align-items:center;">
-                   <div style="width:8px; height: 8px; background-color:rgba(31, 215, 115, 1); border-radius:50%"></div>
-                    Price
-                  </div>
-                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase">
-                   ${priceNumberFormatter(this.y)} ${apiData[0]?.nativeCurrencySymbol}
-                  </div>
-                </div>
-                <div style="display: flex; justify-content: space-between; padding-top: 6px; align-items:center;">
-                <div style="display: flex; justify-content:start; align-items:center; gap:4px;">
-                <div style="width:8px; height: 8px; background-color:rgba(247, 132, 26, 1); border-radius:50%"></div>
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4)">Volume</div>
-                </div>
-                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase;">${priceNumberFormatter(volume)} ${apiData[0]?.nativeCurrencySymbol}</div>
-                </div>
-    
-                   <div style="display: flex; justify-content: space-between; padding-top: 6px;">
-                  <div style="font-size: 11px; font-weight: 400; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 0.4); display:flex; gap:4px;align-items:center;">
-                   <div style="width:8px; height: 8px; background-color:rgba(114, 72, 247, 1); border-radius:50%"></div>
-                    Sales Count
-                  </div>
-                  <div style="font-size: 14px; font-weight: 500; font-family: 'Sf Pro Display'; color: rgba(17, 17, 17, 1); text-transform: uppercase">
-                   ${sales}
-                  </div>
-                </div>
-    
-              </div>
-            `;
-              }
+              return tooltipHtml;
             },
             shared: true,
             split: false,
