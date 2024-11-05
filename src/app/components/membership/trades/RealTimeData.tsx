@@ -62,7 +62,6 @@ const RealTimeData = () => {
         alignItems: 'center',
         justifyContent: 'center',
         gap: '24px',
-        width: '100%',
       }}
     >
       <motion.div
