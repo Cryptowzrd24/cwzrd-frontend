@@ -61,7 +61,7 @@ const ProfitCard = () => {
       <motion.div
         style={{
           padding: '24px',
-          maxWidth: '473px',
+          width: '50%',
           height: '100%',
           borderRadius: '24px',
           flex: 1,

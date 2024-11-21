@@ -7,7 +7,6 @@ const Trades = () => {
   return (
     <Box
       sx={{
-        width: '972px',
         height: '353px',
         display: 'flex',
         gap: '21px',

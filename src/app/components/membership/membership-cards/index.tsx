@@ -12,7 +12,6 @@ const MembershipCards = () => {
         alignItems: 'center',
         justifyContent: 'space-between',
         gap: '24px',
-        width: '972px',
         height: '423px',
         boxSizing: 'border-box',
       }}

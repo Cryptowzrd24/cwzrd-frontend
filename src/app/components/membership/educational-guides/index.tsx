@@ -58,7 +58,6 @@ const EducationalGuides = () => {
       <motion.div
         style={{
           padding: '0 27px',
-          width: '972px',
           height: '146px',
           borderRadius: '24px',
           position: 'relative',

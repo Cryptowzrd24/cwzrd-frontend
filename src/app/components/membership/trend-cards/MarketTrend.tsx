@@ -45,7 +45,7 @@ const MarketTrend = () => {
       <Typography
         variant="body1"
         sx={{
-          fontSize: '13px',
+          fontSize: '12px',
           fontWeight: '400',
           lineHeight: '20px',
           color: 'rgba(255, 255, 255, 1)',

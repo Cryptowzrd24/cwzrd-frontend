@@ -7,13 +7,12 @@ function MembershipCta() {
   return (
     <Box
       sx={{
-        width: '1290px',
         position: 'relative',
         backgroundImage: 'url("/images/membership/ctaBanner.png")',
-        backgroundPosition: 'center center',
         backgroundSize: 'cover',
         padding: '42px 75px',
         borderRadius: '32px',
+        boxSizing: 'border-box',
       }}
     >
       <Box>
@@ -28,7 +27,8 @@ function MembershipCta() {
             variant="body1"
             sx={{
               fontSize: '12px',
-              color: 'rgba(255, 255, 255, 1)',
+              color: 'rgba(247, 132, 26, 1)',
+              fontWeight: '400',
               letterSpacing: '1px',
               lineHeight: '15.6px',
               marginBottom: '8px',

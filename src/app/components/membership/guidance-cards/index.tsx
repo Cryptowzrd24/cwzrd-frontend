@@ -10,7 +10,6 @@ const GuidanceCards = () => {
         display: 'flex',
         justifyContent: 'space-between',
         gap: '24px',
-        width: '972px',
         height: '353px',
         boxSizing: 'border-box',
       }}

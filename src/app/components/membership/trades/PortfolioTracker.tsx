@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 
 import PortfolioTimer from '../../../../../public/images/membership/portfolioTimer.svg';
-import TickIcon from '../../../../../public/images/membership/tick2.svg';
+import TickIcon from '../../../../../public/images/membership/tick.svg';
 import Image from 'next/image';
 
 const PortfolioTracker = () => {

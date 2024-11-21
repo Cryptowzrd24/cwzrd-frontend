@@ -53,7 +53,7 @@ const LessonCard = () => {
       <motion.div
         style={{
           padding: '0 42px',
-          width: '473px',
+          width: '50%',
           height: '100%',
           borderRadius: '24px',
           position: 'relative',

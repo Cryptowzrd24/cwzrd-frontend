@@ -8,7 +8,6 @@ const TrendCards = () => {
     <Box
       sx={{
         borderRadius: '24px',
-        width: '972px',
         height: '353px',
         display: 'flex',
         gap: '26px',

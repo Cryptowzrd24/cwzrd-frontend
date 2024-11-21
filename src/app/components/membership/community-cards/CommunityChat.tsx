@@ -7,7 +7,7 @@ const CommunityChat = () => {
       sx={{
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         borderRadius: '24px',
-        width: '100%',
+        width: '50%',
         height: '100%',
         backgroundImage: `url('/images/membership/communityChat.png')`,
         backgroundSize: 'cover',

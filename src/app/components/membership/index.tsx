@@ -2,11 +2,10 @@
 import { Box, Container } from '@mui/material';
 import React, { useEffect } from 'react';
 
-import FeatureText from './feature-text';
+import TradingText from './trading-text';
 import MembershipCards from './membership-cards';
 import ForexAnalysis from './forex-analysis';
 import StockAnalysis from './stock-analysis';
-import FrequentlyAskedQuestion from '../platform/frequently-question';
 import CommunityCards from './community-cards';
 import Mentorship from './mentorship';
 import LearningCards from './learning-cards';
@@ -19,6 +18,9 @@ import Trades from './trades';
 import TradingStrategies from './trading-strategies';
 import CoursesPart from './courses-part';
 import MembershipCta from './membership-cta';
+import MembershipHeroSection from './membership-hero-section';
+import EffortlessTrading from './effortless-trading';
+import JourneyText from './journey-text/JourneyText';
 
 const Membership = () => {
   useEffect(() => {
@@ -31,17 +33,44 @@ const Membership = () => {
 
   return (
     <>
+      <Box
+        sx={{
+          backgroundImage: `url('/images/banner/headerBgMembership.jpg')`,
+          objectFit: 'cover',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          zIndex: '-1',
+          paddingTop: '180px',
+          marginTop: '-120px',
+          backgroundPosition: 'center',
+          pb: '120px',
+        }}
+      >
+        <Box
+          sx={{
+            backgroundImage: `url('/images/membership/heroSectionBg.svg')`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPositionY: '60px',
+            pb: '120px',
+          }}
+        >
+          <MembershipHeroSection />
+        </Box>
+      </Box>
+      <Box sx={{ mb: '120px' }}>
+        <EffortlessTrading />
+      </Box>
       <Container maxWidth="xl">
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            maxWidth: '972px',
             width: '100%',
+            mx: 'auto',
           }}
         >
-          <Box sx={{ mt: '64px', mb: '40px' }}>
-            <FeatureText />
+          <Box sx={{ mb: '40px' }}>
+            <TradingText />
           </Box>
 
           <Box sx={{ mb: '24px' }}>
@@ -64,7 +93,7 @@ const Membership = () => {
 
       <Box
         sx={{
-          backgroundImage: `linear-gradient(270deg, rgba(245, 245, 247, 0.00) 25%, #F5F5F7 65%, #F5F5F7 95%, rgba(245, 245, 247, 0.00) 100%), url('/images/membership/featuresBg.svg')`,
+          backgroundImage: `url('/images/membership/newFeaturesBg.svg')`,
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
         }}
@@ -72,15 +101,13 @@ const Membership = () => {
         <Container maxWidth="xl">
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
+              maxWidth: '972px',
               width: '100%',
+              mx: 'auto',
             }}
           >
             <Box sx={{ pt: '76px', mb: '40px' }}>
-              {/* Same component is being used as above */}
-              <FeatureText />
+              <JourneyText />
             </Box>
 
             <Box sx={{ mb: '24px' }}>
@@ -108,19 +135,18 @@ const Membership = () => {
 
       <Box
         sx={{
-          backgroundImage: `linear-gradient(270deg, rgba(245, 245, 247, 0.00) 25%, #F5F5F7 65%, #F5F5F7 95%, rgba(245, 245, 247, 0.00) 100%), url('/images/membership/featuresBg.svg')`,
+          backgroundImage: `url('/images/membership/newFeaturesBg.svg')`,
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
-          backgroundPositionY: '30px',
+          backgroundPositionY: '740px',
         }}
       >
         <Container maxWidth="xl">
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
+              maxWidth: '972px',
               width: '100%',
+              mx: 'auto',
             }}
           >
             <Box sx={{ mb: '40px' }}>
@@ -139,12 +165,8 @@ const Membership = () => {
               <TechnicalOutlooks />
             </Box>
 
-            <Box sx={{ mb: '60px' }}>
+            <Box sx={{ mb: '64px' }}>
               <Trades />
-            </Box>
-
-            <Box sx={{ mb: '76px' }}>
-              <FrequentlyAskedQuestion />
             </Box>
 
             <Box sx={{ mb: '24px' }}>

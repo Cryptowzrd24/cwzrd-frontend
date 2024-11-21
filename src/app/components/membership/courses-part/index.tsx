@@ -7,7 +7,6 @@ const CoursesPart = () => {
   return (
     <Box
       sx={{
-        width: '972px',
         minHeight: '353px',
         display: 'flex',
         gap: '26px',

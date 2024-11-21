@@ -8,10 +8,10 @@ const ForexAnalysis = () => {
         display: 'flex',
         borderRadius: '24px',
         alignItems: 'center',
-        width: '972px',
         height: '330px',
         backgroundImage: `url('/images/membership/forexAnalysis.png')`,
         backgroundSize: 'cover',
+        backgroundPosition: 'center center',
       }}
     >
       <Box sx={{ maxWidth: '225px', width: '100%', paddingLeft: '40px' }}>

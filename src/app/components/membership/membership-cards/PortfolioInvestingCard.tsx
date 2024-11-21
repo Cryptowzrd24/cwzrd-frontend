@@ -11,12 +11,12 @@ const PortfolioInvestingCard = () => {
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         padding: '24px',
         borderRadius: '24px',
-        width: '308px',
+        width: '33%',
         height: '100%',
         boxSizing: 'border-box',
       }}
     >
-      <Image src={Portfolio} width={262} height={262} alt="Image of bag" />
+      <Image src={Portfolio} width={260} height={260} alt="Image of bag" />
 
       <Box sx={{ mt: '30px' }}>
         <Typography

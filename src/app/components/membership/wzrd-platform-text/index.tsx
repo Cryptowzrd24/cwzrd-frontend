@@ -9,7 +9,6 @@ const WzrdPlatformText = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          maxWidth: '972px',
           width: '100%',
           margin: 'auto',
         }}
@@ -25,28 +24,37 @@ const WzrdPlatformText = () => {
             mb: '4px',
           }}
         >
-          Platform
+          Education
         </Typography>
+
         <Typography
-          variant="h1"
-          sx={{
-            fontSize: '32px',
-            lineHeight: '38.4px',
-            mb: '12px',
-            fontWeight: '700',
-          }}
+          variant="h2"
+          sx={{ fontSize: '32px', fontWeight: '700', lineHeight: '38px' }}
         >
-          WZRD Platform
+          Virtually
+          <span
+            style={{
+              background:
+                'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              paddingLeft: '6px',
+            }}
+          >
+            limitless{' '}
+          </span>
+          learning
         </Typography>
+
         <Typography
           variant="body1"
           sx={{
             fontSize: '14px',
             fontWeight: '400',
-            mb: '24px',
             textAlign: 'center',
             color: '#111111CC',
             lineHeight: '21px',
+            maxWidth: '574px',
           }}
         >
           Join the industry's most exclusive Trading Community and unlock a

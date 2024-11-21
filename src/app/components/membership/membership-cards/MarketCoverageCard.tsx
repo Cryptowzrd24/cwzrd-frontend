@@ -9,9 +9,9 @@ const MarketCoverageCard = () => {
     <Box
       sx={{
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
-        padding: '32px 24px 0 32px',
+        padding: '32px 24px',
         borderRadius: '24px',
-        width: '308px',
+        width: '33%',
         height: '100%',
         backgroundImage: `url('/images/membership/marketCoverage.png')`,
         backgroundSize: 'cover',

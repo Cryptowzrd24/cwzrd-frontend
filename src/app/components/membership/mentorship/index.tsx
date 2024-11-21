@@ -73,8 +73,8 @@ const Mentorship = () => {
         <motion.div
           style={{
             borderRadius: '24px',
-            width: '972px',
             height: '423px',
+            width: '100%',
             boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             position: 'relative',
             transition: 'all 0.325s linear',

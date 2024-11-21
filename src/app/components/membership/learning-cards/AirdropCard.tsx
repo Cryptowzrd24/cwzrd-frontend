@@ -52,7 +52,7 @@ const AirdropCard = () => {
     <>
       <motion.div
         style={{
-          width: '473px',
+          width: '50%',
           height: '100%',
           borderRadius: '24px',
           position: 'relative',

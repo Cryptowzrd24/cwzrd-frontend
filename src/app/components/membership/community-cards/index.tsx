@@ -9,7 +9,6 @@ const CommunityCards = () => {
         display: 'flex',
         justifyContent: 'space-between',
         gap: '24px',
-        width: '972px',
         height: '423px',
         boxSizing: 'border-box',
       }}

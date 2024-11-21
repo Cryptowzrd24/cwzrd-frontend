@@ -9,17 +9,17 @@ const WzrdPlatformCard = () => {
       sx={{
         backgroundColor: 'rgba(255,255,255,1)',
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
-        padding: '24px 32px 24px 24px',
+        padding: '24px',
         borderRadius: '24px',
-        width: '308px',
+        width: '33%',
         height: '100%',
         boxSizing: 'border-box',
       }}
     >
       <Image
         src={Wzrd}
-        width={262}
-        height={262}
+        width={260}
+        height={260}
         alt="Image for Wzrd Platform"
       />
 
@@ -41,6 +41,7 @@ const WzrdPlatformCard = () => {
             color: 'rgba(17, 17, 17, 0.8)',
             fontWeight: '400',
             lineHeight: '18px',
+            mr: '8px',
           }}
         >
           Unlock the WZRD Platform for all your trading needs. From expert

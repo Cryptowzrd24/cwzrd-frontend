@@ -10,7 +10,6 @@ const LearningCards = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '972px',
         height: '380px',
         gap: '24px',
       }}

@@ -68,7 +68,7 @@ const TechnicalOutlooks = () => {
       <motion.div
         style={{
           borderRadius: '24px',
-          width: '972px',
+          width: '100%',
           height: '353px',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           position: 'relative',

@@ -11,7 +11,7 @@ const CommunityMember = () => {
       sx={{
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         borderRadius: '24px',
-        width: '100%',
+        width: '50%',
         height: '100%',
         backgroundImage:
           'linear-gradient(180deg, rgba(55, 97, 251, 1), rgba(55, 169, 251, 1))',

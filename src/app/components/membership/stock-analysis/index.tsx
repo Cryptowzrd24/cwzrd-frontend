@@ -6,7 +6,6 @@ const StockAnalysis = () => {
     <Box
       sx={{
         borderRadius: '24px',
-        width: '972px',
         height: '423px',
         backgroundImage: `url('/images/membership/stockAnalysis.png')`,
         backgroundSize: 'cover',

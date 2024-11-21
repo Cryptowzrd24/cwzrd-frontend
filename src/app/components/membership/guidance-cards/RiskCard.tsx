@@ -58,7 +58,7 @@ const Mentorship = () => {
     <motion.div
       style={{
         padding: '24px',
-        width: '473px',
+        width: '50%',
         borderRadius: '24px',
         boxSizing: 'border-box',
         position: 'relative',
