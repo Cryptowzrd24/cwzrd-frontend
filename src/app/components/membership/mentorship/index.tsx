@@ -220,6 +220,7 @@ const Mentorship = () => {
                         lineHeight: '21px',
                         color: 'rgba(255, 255, 255, 1)',
                         textAlign: 'center',
+                        fontFamily: 'Sf Pro Text',
                       }}
                     >
                       Receive direct mentorship from experienced traders. Our

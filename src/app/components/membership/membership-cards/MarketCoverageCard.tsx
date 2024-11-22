@@ -40,6 +40,7 @@ const MarketCoverageCard = () => {
             color: 'rgba(255, 255, 255, 1)',
             fontWeight: '600',
             lineHeight: '28px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Get round-the-clock market updates, so you're always informed and

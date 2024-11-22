@@ -49,6 +49,7 @@ const MarketAnalysisCard = () => {
             mb: '67px',
             px: '22px',
             textAlign: 'center',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Stay updated with daily, in-depth market analysis on 30

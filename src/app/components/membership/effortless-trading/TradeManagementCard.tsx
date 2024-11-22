@@ -58,6 +58,7 @@ const TradeManagementCard = () => {
             lineHeight: '20px',
             color: 'rgba(255, 255, 255, 0.8)',
             px: '22px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Take control of your trades with expert trade management guidance.

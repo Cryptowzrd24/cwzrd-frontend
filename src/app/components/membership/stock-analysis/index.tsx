@@ -31,6 +31,7 @@ const StockAnalysis = () => {
             fontWeight: '400',
             lineHeight: '20px',
             color: 'rgba(255, 255, 255, 0.8)',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Stay ahead of stock market trends with our daily analysis. Get the

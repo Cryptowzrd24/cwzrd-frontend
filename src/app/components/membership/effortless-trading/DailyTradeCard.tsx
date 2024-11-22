@@ -50,6 +50,7 @@ const DailyTradeCard = () => {
             fontWeight: '400',
             lineHeight: '18px',
             color: 'rgba(255, 255, 255, 0.8)',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Receive expert daily trade signals, tailored to give you a competitive

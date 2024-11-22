@@ -108,6 +108,7 @@ const LessonCard = () => {
                 fontWeight: '400',
                 lineHeight: '21px',
                 textAlign: 'center',
+                fontFamily: 'Sf Pro Text',
               }}
             >
               Learn from the best with expert-led lessons on trading. Gain the

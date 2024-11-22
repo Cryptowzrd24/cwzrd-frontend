@@ -55,6 +55,7 @@ const WzrdPlatformText = () => {
             color: '#111111CC',
             lineHeight: '21px',
             maxWidth: '574px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Join the industry's most exclusive Trading Community and unlock a

@@ -47,6 +47,7 @@ const SpotTradeCard = () => {
             color: 'rgba(255, 255, 255, 0.8)',
             mb: '61px',
             px: '21px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Get real-time spot trade signals delivered directly to you, helping

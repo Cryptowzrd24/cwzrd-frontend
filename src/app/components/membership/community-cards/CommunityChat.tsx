@@ -47,6 +47,7 @@ const CommunityChat = () => {
             textAlign: 'center',
             px: '40px',
             paddingBottom: '12px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Engage in open conversations with fellow traders. Our community chats

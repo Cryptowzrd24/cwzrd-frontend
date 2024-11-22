@@ -42,6 +42,7 @@ const WzrdPlatformCard = () => {
             fontWeight: '400',
             lineHeight: '18px',
             mr: '8px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Unlock the WZRD Platform for all your trading needs. From expert

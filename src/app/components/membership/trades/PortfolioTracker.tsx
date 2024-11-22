@@ -116,6 +116,7 @@ const PortfolioTracker = () => {
             mb: '6px',
             textAlign: 'center',
             lineHeight: '26px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Portfolio Tracker
@@ -129,7 +130,8 @@ const PortfolioTracker = () => {
             lineHeight: '18px',
             textAlign: 'center',
             color: 'rgba(17, 17, 17, 0.8)',
-            width: '297px',
+            maxWidth: '297px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Track and optimize your investments with our Portfolio Tracker. Keep

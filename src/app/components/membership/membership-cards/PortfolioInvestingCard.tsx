@@ -36,6 +36,7 @@ const PortfolioInvestingCard = () => {
             color: 'rgba(17, 17, 17, 0.8)',
             fontWeight: '400',
             lineHeight: '18px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Our platform provides insights and strategies for long-term wealth

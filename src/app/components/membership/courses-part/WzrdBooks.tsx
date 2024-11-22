@@ -47,6 +47,7 @@ const WzrdBooks = () => {
             fontWeight: '400',
             lineHeight: '20px',
             color: 'rgba(17, 17, 17, 0.8)',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Access our library of 26 comprehensive books packed with trading

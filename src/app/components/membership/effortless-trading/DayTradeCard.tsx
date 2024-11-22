@@ -48,6 +48,7 @@ const DayTradeCard = () => {
             lineHeight: '20px',
             color: 'rgba(255, 255, 255, 0.8)',
             textAlign: 'center',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Find perfect day trade setups with our expert analysis. Our platform

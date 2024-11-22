@@ -52,6 +52,7 @@ const JourneyText = () => {
             textAlign: 'center',
             color: '#111111CC',
             lineHeight: '21px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Unlock a wealth of benefits by joining our platform. From expert

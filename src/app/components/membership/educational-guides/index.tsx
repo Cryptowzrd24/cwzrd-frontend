@@ -116,6 +116,7 @@ const EducationalGuides = () => {
                 color: 'rgba(17, 17, 17, 1)',
                 fontWeight: '400',
                 lineHeight: '21px',
+                fontFamily: 'Sf Pro Text',
               }}
             >
               Access comprehensive guides designed to educate and empower

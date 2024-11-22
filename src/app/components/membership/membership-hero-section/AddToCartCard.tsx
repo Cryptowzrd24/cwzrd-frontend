@@ -41,6 +41,7 @@ const AddToCartCard = () => {
             fontWeight: '400',
             lineHeight: '24px',
             color: 'rgba(255, 255, 255, 0.8)',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           A one-time fee with no reoccurring monthly charge ensures you get the

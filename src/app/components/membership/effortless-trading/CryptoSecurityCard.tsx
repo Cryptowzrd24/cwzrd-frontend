@@ -60,6 +60,7 @@ const CryptoSecurityCard = () => {
             color: 'rgba(17, 17, 17, 0.8)',
             px: '22px',
             textAlign: 'center',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Unsure when to take profits? Our experts provide clear, actionable

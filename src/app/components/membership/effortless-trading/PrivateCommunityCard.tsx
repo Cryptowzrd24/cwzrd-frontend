@@ -52,6 +52,7 @@ const PrivateCommunityCard = () => {
             fontWeight: '400',
             lineHeight: '18px',
             color: 'rgba(255, 255, 255, 0.8)',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Our course has been made to guide a beginner and empower them with all

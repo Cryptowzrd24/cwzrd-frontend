@@ -48,6 +48,7 @@ const CommunityMember = () => {
             display: 'flex',
             textAlign: 'center',
             px: '40px',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Join a thriving community of over 10,700 traders. Learn from others,

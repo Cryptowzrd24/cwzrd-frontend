@@ -21,6 +21,7 @@ import MembershipCta from './membership-cta';
 import MembershipHeroSection from './membership-hero-section';
 import EffortlessTrading from './effortless-trading';
 import JourneyText from './journey-text/JourneyText';
+import FAQSection from './faq-section';
 
 const Membership = () => {
   useEffect(() => {
@@ -165,10 +166,40 @@ const Membership = () => {
               <TechnicalOutlooks />
             </Box>
 
-            <Box sx={{ mb: '64px' }}>
+            <Box sx={{ mb: '80px' }}>
               <Trades />
             </Box>
+          </Box>
+        </Container>
+      </Box>
 
+      <Box
+        sx={{
+          overflow: 'hidden',
+        }}
+      >
+        <Box
+          sx={{
+            height: '18px',
+            background:
+              'linear-gradient(90deg, #AACDF7 0%, #AC9FEF 27%, #A367F7 45%, #F57FC4 65.5%, #FBCCA4 100%)',
+            filter: 'blur(10px)',
+            mb: '64px',
+            width: '100%',
+          }}
+        ></Box>
+
+        <Container maxWidth="xl">
+          <Box
+            sx={{
+              maxWidth: '972px',
+              width: '100%',
+              mx: 'auto',
+            }}
+          >
+            <Box sx={{ mb: '120px' }}>
+              <FAQSection />
+            </Box>
             <Box sx={{ mb: '24px' }}>
               <MembershipCta />
             </Box>

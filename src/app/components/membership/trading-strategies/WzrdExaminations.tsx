@@ -77,7 +77,7 @@ const WzrdExaminations = () => {
         </Typography>
         <Box
           sx={{
-            paddingLeft: '24px',
+            paddingInline: '26px 48px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',

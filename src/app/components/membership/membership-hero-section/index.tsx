@@ -43,6 +43,7 @@ const MembershipHeroSection = () => {
               fontWeight: '700',
               lineHeight: '19.2px',
               color: 'rgba(0, 0, 0, 0.69)',
+              fontFamily: 'Sf Pro Text',
             }}
           >
             Revolutioning Crypto Education
@@ -97,6 +98,7 @@ const MembershipHeroSection = () => {
                 fontWeight: '600',
                 lineHeight: '18px',
                 color: 'rgba(0, 0, 0, 1)',
+                fontFamily: 'Sf Pro Text',
               }}
             >
               Profitable Signals
@@ -123,6 +125,7 @@ const MembershipHeroSection = () => {
                 fontWeight: '600',
                 lineHeight: '18px',
                 color: 'rgba(0, 0, 0, 1)',
+                fontFamily: 'Sf Pro Text',
               }}
             >
               Learning Focused
@@ -144,6 +147,7 @@ const MembershipHeroSection = () => {
                 fontWeight: '600',
                 lineHeight: '18px',
                 color: 'rgba(0, 0, 0, 1)',
+                fontFamily: 'Sf Pro Text',
               }}
             >
               The WZRD Platform
@@ -165,6 +169,7 @@ const MembershipHeroSection = () => {
                 fontWeight: '600',
                 lineHeight: '18px',
                 color: 'rgba(0, 0, 0, 1)',
+                fontFamily: 'Sf Pro Text',
               }}
             >
               Lifetime Membership

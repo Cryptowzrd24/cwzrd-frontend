@@ -35,6 +35,7 @@ const ForexAnalysis = () => {
             fontWeight: '400',
             lineHeight: '21px',
             color: 'rgba(255, 255, 255, 0.8)',
+            fontFamily: 'Sf Pro Text',
           }}
         >
           Access detailed daily analysis on the forex markets. Whether you're a
