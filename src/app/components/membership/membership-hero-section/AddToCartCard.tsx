@@ -14,12 +14,43 @@ const AddToCartCard = () => {
         borderRadius: '24px',
       }}
     >
-      <Image src={LifetimeBanner} alt="crypto icons" width={343} />
+      <Box
+        sx={{
+          position: 'relative',
+        }}
+      >
+        <Image src={LifetimeBanner} alt="crypto icons" width={343} />
+
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '16px',
+            left: '16px',
+            background: 'rgba(255, 255, 255, 1)',
+            padding: '8px 16px',
+            borderRadius: '32px',
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: '14px',
+              fontWeight: '700',
+              lineHeight: '16px',
+              fontFamily: 'SF Pro Text',
+              background: 'linear-gradient(80deg, #9F48F7 100%, #634DFD 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Black Friday Sale
+          </Typography>
+        </Box>
+      </Box>
 
       <Box
         sx={{
           px: '32px',
-          mb: '32px',
+          mb: '16px',
         }}
       >
         <Typography
@@ -42,24 +73,18 @@ const AddToCartCard = () => {
             lineHeight: '24px',
             color: 'rgba(255, 255, 255, 0.8)',
             fontFamily: 'Sf Pro Text',
+            mb: '32px',
           }}
         >
           A one-time fee with no reoccurring monthly charge ensures you get the
           most for your money.
         </Typography>
-      </Box>
 
-      <Box
-        sx={{
-          px: '32px',
-          mb: '16px',
-        }}
-      >
         <Box
           sx={{
             display: 'flex',
-            alignItems: 'center',
             gap: '12px',
+            alignItems: 'center',
             mb: '24px',
           }}
         >
@@ -69,25 +94,26 @@ const AddToCartCard = () => {
               fontWeight: '400',
               lineHeight: '40px',
               color: 'rgba(255, 255, 255, 1)',
+              fontFamily: 'SF Pro Display',
             }}
           >
-            £450,99
+            £450.99
           </Typography>
           <Box
             sx={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              padding: '6px 12px',
               borderRadius: '56px',
               border: '0.5px solid #FFF',
-              background: 'rgba(255, 255, 255, 0.10)',
             }}
           >
             <Typography
-              variant="h5"
               sx={{
                 fontSize: '10px',
                 fontWeight: '600',
                 lineHeight: '13px',
-                color: 'rgba(255, 255, 255, 0.8)',
-                padding: '6px 12px',
+                fontFamily: 'SF Pro Display',
+                color: 'rgba(255,255,255,1)',
               }}
             >
               One-time fee

@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import Members from '../../../../../public/images/membership/members.png';
-import Map from '../../../../../public/images/membership/map.png';
+import Map from '../../../../../public/images/membership/map2.svg';
 
 const CommunityMember = () => {
   return (
@@ -56,8 +56,14 @@ const CommunityMember = () => {
         </Typography>
       </Box>
 
-      <Box sx={{ mt: '-36px' }}>
-        <Image src={Map} alt="Multiple Members" />
+      <Box sx={{ mt: '-36px', position: 'relative', aspectRatio: '1' }}>
+        <Image
+          src={Map}
+          alt="Multiple Members"
+          fill
+          objectFit="contain"
+          objectPosition="top"
+        />
       </Box>
     </Box>
   );

@@ -92,7 +92,6 @@ const LessonCard = () => {
                 fontSize: '26px',
                 color: 'rgba(255, 255, 255, 1)',
                 mb: '4px',
-                width: '389px',
                 lineHeight: '28px',
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',

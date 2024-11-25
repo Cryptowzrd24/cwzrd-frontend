@@ -11,9 +11,19 @@ const FAQSection = () => {
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
+        '@media (max-width:768px)': {
+          flexDirection: 'column',
+        },
       }}
     >
-      <Box sx={{ width: '38%' }}>
+      <Box
+        sx={{
+          width: '38%',
+          '@media (max-width:786px)': {
+            width: '100%',
+          },
+        }}
+      >
         <Typography
           sx={{
             fontSize: '14px',
@@ -22,8 +32,11 @@ const FAQSection = () => {
             marginBottom: '4px',
             textTransform: 'uppercase',
             fontFamily: 'Sf Pro Display',
-            color: 'rgba(17,17,17,1)',
+            color: 'rgba(255,255,255,1)',
             letterSpacing: '1.4px',
+            '@media (max-width:660px)': {
+              fontSize: '14px',
+            },
           }}
         >
           Effortless trading
@@ -36,7 +49,11 @@ const FAQSection = () => {
             lineHeight: '38px',
             marginBottom: '36px',
             fontFamily: 'Sf Pro Display',
-            color: 'rgba(17,17,17,1)',
+            color: 'rgba(255,255,255,1)',
+            '@media (max-width:660px)': {
+              fontSize: '24px',
+              marginBottom: '24px',
+            },
           }}
         >
           Frequently Asked Questions
@@ -45,22 +62,21 @@ const FAQSection = () => {
         <Box
           sx={{
             maxWidth: '374px',
+            '@media (max-width:768px)': {
+              display: 'none',
+            },
           }}
         >
           <Image src={Star} alt="star" style={{ width: '100%' }} />
         </Box>
-        {/* <Box
-          sx={{
-            width: '38%',
-            aspectRatio: '1/2',
-          }}
-        >
-        </Box> */}
       </Box>
 
       <Box
         sx={{
           maxWidth: '522px',
+          '@media (max-width:768px)': {
+            maxWidth: 'none',
+          },
         }}
       >
         <FAQQuestion
@@ -72,7 +88,7 @@ const FAQSection = () => {
           variant="fullWidth"
           flexItem
           sx={{
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            borderColor: 'rgba(255, 255, 255, 0.1)',
             pb: '16px',
             mb: '16px',
           }}
@@ -86,7 +102,7 @@ const FAQSection = () => {
           variant="fullWidth"
           flexItem
           sx={{
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            borderColor: 'rgba(255, 255, 255, 0.1)',
             pb: '16px',
             mb: '16px',
           }}
@@ -100,7 +116,7 @@ const FAQSection = () => {
           variant="fullWidth"
           flexItem
           sx={{
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            borderColor: 'rgba(255, 255, 255, 0.1)',
             pb: '16px',
             mb: '16px',
           }}
@@ -114,7 +130,7 @@ const FAQSection = () => {
           variant="fullWidth"
           flexItem
           sx={{
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            borderColor: 'rgba(255, 255, 255, 0.1)',
             pb: '16px',
             mb: '16px',
           }}

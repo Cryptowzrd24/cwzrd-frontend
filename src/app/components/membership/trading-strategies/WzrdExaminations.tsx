@@ -49,10 +49,19 @@ const WzrdExaminations = () => {
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        width: '33%',
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
+      }}
+    >
       <motion.div
         style={{
           width: '100%',
+          minHeight: '352px',
+
           borderRadius: '24px',
           position: 'relative',
           transition: 'all 0.325s linear',
@@ -87,6 +96,9 @@ const WzrdExaminations = () => {
             variants={imgAndTextVariants}
             initial="initial"
             animate={active ? 'active' : 'inactive'}
+            style={{
+              height: '100%',
+            }}
           >
             <Typography
               sx={{
@@ -110,6 +122,7 @@ const WzrdExaminations = () => {
             initial="initial"
             animate={active ? 'active' : 'inactive'}
             style={{
+              height: '100%',
               objectFit: 'contain',
               fill: '#F9C53A',
               filter:
@@ -169,7 +182,7 @@ const WzrdExaminations = () => {
           </Box>
         </Box>
       </motion.div>
-    </>
+    </Box>
   );
 };
 

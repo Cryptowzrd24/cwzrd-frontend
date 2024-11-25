@@ -49,10 +49,19 @@ const TradingCourse = () => {
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        width: '33%',
+        height: '353px',
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
+      }}
+    >
       <motion.div
         style={{
-          width: '308px',
+          width: '100%',
+          height: '100%',
           borderRadius: '24px',
           position: 'relative',
           transition: 'all 0.325s linear',
@@ -63,7 +72,8 @@ const TradingCourse = () => {
       >
         <Typography
           sx={{
-            width: '144px',
+            maxWidth: '144px',
+            width: '100%',
             fontSize: '12px',
             fontWeight: '400',
             color: 'rgba(255, 255, 255, 1)',
@@ -77,7 +87,11 @@ const TradingCourse = () => {
         </Typography>
         <Box
           sx={{
-            paddingLeft: '42px',
+            paddingInline: '42px',
+            '@media (max-width:855px)': {
+              paddingInline: '24px',
+              pb: '28px',
+            },
           }}
         >
           <motion.img
@@ -104,7 +118,6 @@ const TradingCourse = () => {
                 lineHeight: '26px',
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
-                width: '224px',
               }}
             >
               Master the art of trading with our 76-video course covering 24
@@ -164,7 +177,7 @@ const TradingCourse = () => {
           </Box>
         </Box>
       </motion.div>
-    </>
+    </Box>
   );
 };
 

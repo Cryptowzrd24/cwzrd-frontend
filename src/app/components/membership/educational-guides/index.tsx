@@ -12,14 +12,14 @@ const EducationalGuides = () => {
 
   const backgroundVariants = {
     initial: {
-      backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #ffffff 100%)',
+      backgroundImage: 'linear-gradient(180deg, #1f1f1f 0%, #1f1f1f 100%)',
     },
     active: {
       backgroundImage:
         'linear-gradient(116.74deg, #F77F21 -4.07%, #F77F21 100.68%)',
     },
     inactive: {
-      backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #ffffff 100%)',
+      backgroundImage: 'linear-gradient(180deg, #1f1f1f 0%, #1f1f1f 100%)',
     },
   };
 
@@ -57,8 +57,6 @@ const EducationalGuides = () => {
     <>
       <motion.div
         style={{
-          padding: '0 27px',
-          height: '146px',
           borderRadius: '24px',
           position: 'relative',
           transition: 'all 0.325s linear',
@@ -72,8 +70,17 @@ const EducationalGuides = () => {
         <Box
           sx={{
             display: 'flex',
-            height: '100%',
+            gap: '52px',
+            minHeight: '146px',
+            boxSizing: 'border-box',
             alignItems: 'center',
+            padding: '27px 43px 0 27px',
+
+            '@media (max-width:660px)': {
+              flexDirection: 'column-reverse',
+              gap: '24px',
+              padding: '24px 24px 0 24px',
+            },
           }}
         >
           <motion.img
@@ -93,19 +100,20 @@ const EducationalGuides = () => {
             initial="initial"
             animate={active ? 'active' : 'inactive'}
             style={{
-              paddingLeft: '52px',
-              width: '505px',
+              maxWidth: '505px',
             }}
           >
             <Typography
               sx={{
-                fontSize: '26px',
-                color: 'rgba(17, 17, 17, 1)',
+                fontSize: '20px',
+                color: 'rgba(255, 255, 255, 1)',
                 mb: '4px',
-                width: '389px',
-                lineHeight: '28px',
+                lineHeight: '26px',
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
+                '@media (max-width:660px)': {
+                  fontSize: '20px',
+                },
               }}
             >
               Educational Guides
@@ -113,10 +121,13 @@ const EducationalGuides = () => {
             <Typography
               sx={{
                 fontSize: '14px',
-                color: 'rgba(17, 17, 17, 1)',
+                color: 'rgba(255, 255, 255, 0.8)',
                 fontWeight: '400',
                 lineHeight: '21px',
                 fontFamily: 'Sf Pro Text',
+                '@media (max-width:660px)': {
+                  fontSize: '14px',
+                },
               }}
             >
               Access comprehensive guides designed to educate and empower
@@ -130,7 +141,8 @@ const EducationalGuides = () => {
               initial="hidden"
               animate="visible"
               variants={loremVariants}
-              style={{ width: '100%' }}
+              layout
+              style={{ overflow: 'hidden' }}
             >
               <Typography
                 sx={{

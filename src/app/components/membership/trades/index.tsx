@@ -7,9 +7,11 @@ const Trades = () => {
   return (
     <Box
       sx={{
-        height: '353px',
         display: 'flex',
         gap: '21px',
+        '@media (max-width:768px)': {
+          flexDirection: 'column',
+        },
       }}
     >
       <PortfolioTracker />

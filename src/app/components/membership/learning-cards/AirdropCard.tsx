@@ -111,7 +111,7 @@ const AirdropCard = () => {
                 color: 'rgba(255, 255, 255, 1)',
                 mt: '27px',
                 letterSpacing: 0.1,
-                width: '388px',
+                maxWidth: '388px',
                 lineHeight: '28px',
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',

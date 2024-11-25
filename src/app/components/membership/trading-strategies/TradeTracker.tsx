@@ -53,17 +53,22 @@ const TradeTracker = () => {
         alignItems: 'center',
         justifyContent: 'center',
         gap: '24px',
-        width: '100%',
+        width: '67%',
+        height: '353px',
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
       }}
     >
       <motion.div
         style={{
           borderRadius: '24px',
-          width: '638px',
+          width: '100%',
           height: '100%',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           position: 'relative',
           backgroundSize: 'cover',
+          backgroundPosition: 'right',
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -106,23 +111,19 @@ const TradeTracker = () => {
                   fontWeight: '700',
                   lineHeight: '29px',
                   color: 'rgba(255, 255, 255, 1)',
-                  padding: '0 0 32px 32px',
+                  padding: '0 32px 32px 32px',
                   boxSizing: 'border-box',
+                  maxWidth: '457px',
                 }}
               >
                 <span style={{ color: 'rgba(254,215,69,1)' }}>
                   Monitor and analyze{' '}
                 </span>
-                your trades with <br />
-                our{' '}
+                your trades with our{' '}
                 <span style={{ color: 'rgba(254,215,69,1)' }}>
                   Trade Tracker
                 </span>
-                . Track your
-                <br />
-                progress and make smarter decisions
-                <br />
-                to refine your{' '}
+                . Track your progress and make smarter decisions to refine your{' '}
                 <span style={{ color: 'rgba(254,215,69,1)' }}>
                   trading strategies.{' '}
                 </span>

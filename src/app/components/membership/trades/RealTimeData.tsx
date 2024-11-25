@@ -62,16 +62,23 @@ const RealTimeData = () => {
         alignItems: 'center',
         justifyContent: 'center',
         gap: '24px',
+        maxWidth: '602px',
+        width: '100%',
+        height: '353px',
+        '@media (max-width:786px)': {
+          maxWidth: 'none',
+        },
       }}
     >
       <motion.div
         style={{
           borderRadius: '24px',
-          width: '602px',
+          width: '100%',
           height: '100%',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           position: 'relative',
           backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -137,8 +144,13 @@ const RealTimeData = () => {
                   fontWeight: '700',
                   lineHeight: '29px',
                   color: 'rgba(255, 255, 255, 1)',
-                  width: '277px',
-                  pl: '24px',
+                  maxWidth: '336px',
+                  boxSizing: 'border-box',
+                  padding: '0 42px 0 24px',
+                  '@media (max-width:660px)': {
+                    fontSize: '20px',
+                    lineHeight: '22px',
+                  },
                 }}
               >
                 Make timely, accurate trades with real-time market data. Stay

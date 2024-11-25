@@ -35,9 +35,9 @@ export default function FAQQuestion({ title, summary }: AccordionData) {
         <AccordionSummary
           expandIcon={
             expanded ? (
-              <CloseIcon sx={{ color: '#111111' }} />
+              <CloseIcon sx={{ color: 'rgba(255, 255, 255, 1)' }} />
             ) : (
-              <AddIcon sx={{ color: '#111111' }} />
+              <AddIcon sx={{ color: 'rgba(255, 255, 255, 1)' }} />
             )
           }
           aria-controls="panel1-content"
@@ -71,9 +71,12 @@ export default function FAQQuestion({ title, summary }: AccordionData) {
             sx={{
               fontSize: '20px',
               fontWeight: '500',
-              color: 'rgba(17, 17, 17, 1)',
+              color: 'rgba(255, 255, 255, 1)',
               lineHeight: '22px',
               fontFamily: 'Sf Pro Display',
+              '@media (max-width:660px)': {
+                fontSize: '20px',
+              },
             }}
           >
             {title}
@@ -88,9 +91,12 @@ export default function FAQQuestion({ title, summary }: AccordionData) {
             sx={{
               fontSize: '14px',
               fontWeight: '400',
-              color: 'rgba(17, 17, 17, 0.8)',
+              color: 'rgba(255, 255, 255, 0.8)',
               lineHeight: '21px',
               fontFamily: 'Sf Pro Text',
+              '@media (max-width:660px)': {
+                fontSize: '14px',
+              },
             }}
           >
             {summary}

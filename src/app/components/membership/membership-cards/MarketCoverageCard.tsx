@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
-import Clock from '../../../../../public/images/membership/clock.png';
+import Clock from '../../../../../public/images/membership/clock.svg';
 
 const MarketCoverageCard = () => {
   return (
@@ -31,7 +31,23 @@ const MarketCoverageCard = () => {
         </Typography>
       </Box>
 
-      <Image src={Clock} width={120} height={120} alt="Image of bag" />
+      <Box
+        sx={{
+          position: 'relative',
+          maxWidth: '120px',
+          width: '100%',
+          aspectRatio: '1',
+        }}
+      >
+        <Image
+          src={Clock}
+          fill
+          alt="Image of bag"
+          style={{
+            objectFit: 'cover',
+          }}
+        />
+      </Box>
 
       <Box sx={{ mt: '28px' }}>
         <Typography

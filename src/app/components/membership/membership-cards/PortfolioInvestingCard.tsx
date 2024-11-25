@@ -2,12 +2,12 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
-import Portfolio from '../../../../../public/images/membership/portfolio.png';
+import Portfolio from '../../../../../public/images/membership/portfolio.svg';
 const PortfolioInvestingCard = () => {
   return (
     <Box
       sx={{
-        backgroundColor: 'rgba(255,255,255,1)',
+        backgroundColor: 'rgba(31,31,31,1)',
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         padding: '24px',
         borderRadius: '24px',
@@ -16,13 +16,20 @@ const PortfolioInvestingCard = () => {
         boxSizing: 'border-box',
       }}
     >
-      <Image src={Portfolio} width={260} height={260} alt="Image of bag" />
+      <Box
+        sx={{
+          position: 'relative',
+          aspectRatio: '1',
+        }}
+      >
+        <Image src={Portfolio} alt="Image of bag" fill objectFit="cover" />
+      </Box>
 
       <Box sx={{ mt: '30px' }}>
         <Typography
           sx={{
             fontSize: '18px',
-            color: 'rgba(17, 17, 17, 1)',
+            color: 'rgba(255, 255, 255, 1)',
             lineHeight: '24px',
             fontWeight: '500',
             mb: '4px',
@@ -33,7 +40,7 @@ const PortfolioInvestingCard = () => {
         <Typography
           sx={{
             fontSize: '12px',
-            color: 'rgba(17, 17, 17, 0.8)',
+            color: 'rgba(255, 255, 255, 0.8)',
             fontWeight: '400',
             lineHeight: '18px',
             fontFamily: 'Sf Pro Text',

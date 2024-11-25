@@ -68,35 +68,35 @@ const EffortlessTradingCardContent: React.FC = () => {
           onClick={handlePrev}
           sx={{
             cursor: 'pointer',
-            background: 'rgba(17, 17, 17, 0.05)',
+            background: 'rgba(255, 255, 255, 0.10)',
             borderRadius: '56px',
             padding: '12px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             '&:hover': {
-              background: 'rgba(17, 17, 17, 0.15)',
+              background: 'rgba(17, 17, 17, 0.10)',
             },
           }}
         >
-          <ArrowLeftDark />
+          <ArrowLeftDark color="rgba(255, 255, 255, 1)" />
         </Box>
         <Box
           onClick={handleNext}
           sx={{
             cursor: 'pointer',
-            background: 'rgba(17, 17, 17, 0.05)',
+            background: 'rgba(255, 255, 255, 0.10)',
             borderRadius: '56px',
             padding: '12px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             '&:hover': {
-              background: 'rgba(17, 17, 17, 0.15)',
+              background: 'rgba(17, 17, 17, 0.10)',
             },
           }}
         >
-          <ArrowRightDark />
+          <ArrowRightDark color="rgba(255, 255, 255, 1)" />
         </Box>
       </Box>
     </Box>

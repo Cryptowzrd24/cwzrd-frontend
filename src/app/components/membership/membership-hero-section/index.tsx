@@ -9,6 +9,14 @@ import GraduationCap from '../../../../../public/icons/membership//graduation-ca
 import Speedometer from '../../../../../public/icons/membership/speedometer.svg';
 import AddToCartCard from './AddToCartCard';
 import FeaturesSection from './FeaturesSection';
+import FeatureHeaderCard from './FeatureHeaderCard';
+
+const featuresHeader = [
+  { imagePath: Signals, title: 'Profitable Signals' },
+  { imagePath: GraduationCap, title: 'Learning Focused' },
+  { imagePath: Speedometer, title: 'The WZRD Platform' },
+  { imagePath: Clock, title: 'Lifetime Membership' },
+];
 
 const MembershipHeroSection = () => {
   return (
@@ -28,10 +36,12 @@ const MembershipHeroSection = () => {
             alignItems: 'center',
             padding: '12px 24px',
             borderRadius: '32px',
-            border: '1px solid rgba(99, 77, 253, 0.39)',
+            border: '1px solid rgba(255, 255, 255, 0.04)',
             maxWidth: '400px',
-            background: 'rgba(255, 255, 255, 0.1)',
             marginBottom: '32px',
+            '@media (max-width:660px)': {
+              display: 'none',
+            },
           }}
         >
           <Image src={Crown} width={20} height={20} alt="Crown" />
@@ -42,7 +52,10 @@ const MembershipHeroSection = () => {
               fontSize: '16px',
               fontWeight: '700',
               lineHeight: '19.2px',
-              color: 'rgba(0, 0, 0, 0.69)',
+              backgroundImage:
+                'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
               fontFamily: 'Sf Pro Text',
             }}
           >
@@ -52,25 +65,29 @@ const MembershipHeroSection = () => {
         <Typography
           sx={{
             fontSize: '72px',
-            fontWeight: '500',
+            fontWeight: '700',
             lineHeight: '72px',
             marginBottom: '32px',
             textAlign: 'center',
             letterSpacing: '1px',
             fontFamily: 'Sf Pro Display',
+            color: 'rgba(255, 255, 255, 1)',
+            '@media (max-width:834px)': {
+              fontSize: '56px',
+            },
+            '@media (max-width:660px)': {
+              fontSize: '48px',
+            },
           }}
         >
-          Conquer The
+          Black friday
           <br />
           <span
             style={{
-              backgroundImage:
-                'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: 'rgba(255, 255, 65, 1)',
             }}
           >
-            Crypto Market
+            40 % discount
           </span>{' '}
         </Typography>
 
@@ -80,107 +97,23 @@ const MembershipHeroSection = () => {
             gap: '24px',
             alignItems: 'center',
             marginBottom: '62px',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              gap: '8px',
-              alignItems: 'center',
-            }}
-          >
-            <Image src={Signals} width={24} height={24} alt="Signals" />
-
-            <Typography
-              variant="h5"
-              sx={{
-                fontSize: '14px',
-                fontWeight: '600',
-                lineHeight: '18px',
-                color: 'rgba(0, 0, 0, 1)',
-                fontFamily: 'Sf Pro Text',
-              }}
-            >
-              Profitable Signals
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              gap: '8px',
-              alignItems: 'center',
-            }}
-          >
-            <Image
-              src={GraduationCap}
-              width={24}
-              height={24}
-              alt="GraduationCap"
+          {featuresHeader.map((feature, index) => (
+            <FeatureHeaderCard
+              key={index}
+              imagePath={feature.imagePath}
+              title={feature.title}
             />
-
-            <Typography
-              variant="h5"
-              sx={{
-                fontSize: '14px',
-                fontWeight: '600',
-                lineHeight: '18px',
-                color: 'rgba(0, 0, 0, 1)',
-                fontFamily: 'Sf Pro Text',
-              }}
-            >
-              Learning Focused
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              gap: '8px',
-              alignItems: 'center',
-            }}
-          >
-            <Image src={Speedometer} width={24} height={24} alt="Speedometer" />
-
-            <Typography
-              variant="h5"
-              sx={{
-                fontSize: '14px',
-                fontWeight: '600',
-                lineHeight: '18px',
-                color: 'rgba(0, 0, 0, 1)',
-                fontFamily: 'Sf Pro Text',
-              }}
-            >
-              The WZRD Platform
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              gap: '8px',
-              alignItems: 'center',
-            }}
-          >
-            <Image src={Clock} width={24} height={24} alt="Clock" />
-
-            <Typography
-              variant="h5"
-              sx={{
-                fontSize: '14px',
-                fontWeight: '600',
-                lineHeight: '18px',
-                color: 'rgba(0, 0, 0, 1)',
-                fontFamily: 'Sf Pro Text',
-              }}
-            >
-              Lifetime Membership
-            </Typography>
-          </Box>
+          ))}
         </Box>
       </Box>
 
       <Box
         sx={{
-          background: 'rgba(255,255,255,1)',
+          background: 'rgba(31,31,31,1)',
           borderRadius: '24px',
           maxWidth: '855px',
           width: '100%',
@@ -192,6 +125,10 @@ const MembershipHeroSection = () => {
             display: 'flex',
             padding: '8px',
             gap: '8px',
+            '@media (max-width:786px)': {
+              flexDirection: 'column',
+              alignItems: 'center',
+            },
           }}
         >
           <AddToCartCard />

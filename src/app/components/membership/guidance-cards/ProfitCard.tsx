@@ -11,12 +11,12 @@ const ProfitCard = () => {
   };
 
   const backgroundVariants = {
-    initial: { backgroundColor: 'black' },
+    initial: { backgroundColor: 'rgba(31, 31, 31, 1)' },
     active: {
       backgroundColor: '#ffffff',
     },
     inactive: {
-      backgroundColor: 'black',
+      backgroundColor: 'rgba(31, 31, 31, 1)',
     },
   };
 

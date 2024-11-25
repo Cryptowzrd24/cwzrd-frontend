@@ -22,10 +22,11 @@ import MembershipHeroSection from './membership-hero-section';
 import EffortlessTrading from './effortless-trading';
 import JourneyText from './journey-text/JourneyText';
 import FAQSection from './faq-section';
+import HowItWorks from './how-it-works';
 
 const Membership = () => {
   useEffect(() => {
-    document.body.style.backgroundColor = '#f5f5f7';
+    document.body.style.backgroundColor = '#111111';
 
     return () => {
       document.body.style.backgroundColor = '';
@@ -36,7 +37,7 @@ const Membership = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url('/images/banner/headerBgMembership.jpg')`,
+          backgroundImage: `url('/images/banner/heroSectionBgBlack.png')`,
           objectFit: 'cover',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
@@ -44,20 +45,13 @@ const Membership = () => {
           paddingTop: '180px',
           marginTop: '-120px',
           backgroundPosition: 'center',
-          pb: '120px',
+          mb: '120px',
         }}
       >
-        <Box
-          sx={{
-            backgroundImage: `url('/images/membership/heroSectionBg.svg')`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPositionY: '60px',
-            pb: '120px',
-          }}
-        >
-          <MembershipHeroSection />
-        </Box>
+        <MembershipHeroSection />
+      </Box>
+      <Box sx={{ mb: '120px' }}>
+        <HowItWorks />
       </Box>
       <Box sx={{ mb: '120px' }}>
         <EffortlessTrading />
@@ -85,16 +79,12 @@ const Membership = () => {
           <Box sx={{ mb: '24px' }}>
             <StockAnalysis />
           </Box>
-
-          <Box sx={{ mb: '40px' }}>
-            <CommunityCards />
-          </Box>
         </Box>
       </Container>
 
       <Box
         sx={{
-          backgroundImage: `url('/images/membership/newFeaturesBg.svg')`,
+          backgroundImage: `url('/images/banner/heroSectionBgBlack.png')`,
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
         }}
@@ -107,6 +97,9 @@ const Membership = () => {
               mx: 'auto',
             }}
           >
+            <Box sx={{ mb: '40px' }}>
+              <CommunityCards />
+            </Box>
             <Box sx={{ pt: '76px', mb: '40px' }}>
               <JourneyText />
             </Box>
@@ -126,20 +119,15 @@ const Membership = () => {
             <Box sx={{ mb: '24px' }}>
               <TrendCards />
             </Box>
-
-            <Box sx={{ mb: '80px' }}>
-              <GuidanceCards />
-            </Box>
           </Box>
         </Container>
       </Box>
 
       <Box
         sx={{
-          backgroundImage: `url('/images/membership/newFeaturesBg.svg')`,
+          backgroundImage: `url('/images/banner/heroSectionBgBlack.png')`,
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
-          backgroundPositionY: '740px',
         }}
       >
         <Container maxWidth="xl">
@@ -150,6 +138,9 @@ const Membership = () => {
               mx: 'auto',
             }}
           >
+            <Box sx={{ mb: '120px' }}>
+              <GuidanceCards />
+            </Box>
             <Box sx={{ mb: '40px' }}>
               <WzrdPlatformText />
             </Box>

@@ -10,14 +10,19 @@ const PortfolioTracker = () => {
     <Box
       sx={{
         boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-        backgroundColor: 'rgba(255,255,255,1)',
+        backgroundColor: 'rgba(31,31,31,1)',
         borderRadius: '24px',
         boxSizing: 'border-box',
-        width: '348px',
+        maxWidth: '348px',
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         height: '100%',
+        padding: '0 18px 24px',
+        '@media (max-width:768px)': {
+          maxWidth: 'none',
+        },
       }}
     >
       <Box
@@ -33,7 +38,7 @@ const PortfolioTracker = () => {
             gap: '5px',
             boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             borderRadius: '80px',
-            backgroundColor: 'rgba(255,255,255,1)',
+            backgroundColor: 'rgba(51,51,51,1)',
             py: '3px',
             paddingLeft: '5px',
             paddingRight: '7px',
@@ -58,7 +63,7 @@ const PortfolioTracker = () => {
             sx={{
               fontSize: '11px',
               fontWeight: '500',
-              color: 'rgba(17, 17, 17, 1)',
+              color: 'rgba(255, 255, 255, 1)',
               lineHeight: '14px',
             }}
           >
@@ -73,7 +78,7 @@ const PortfolioTracker = () => {
             gap: '5px',
             boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             borderRadius: '80px',
-            backgroundColor: 'rgba(255,255,255,1)',
+            backgroundColor: 'rgba(51,51,51,1)',
             py: '3px',
             paddingLeft: '5px',
             paddingRight: '7px',
@@ -98,7 +103,7 @@ const PortfolioTracker = () => {
             sx={{
               fontSize: '11px',
               fontWeight: '500',
-              color: 'rgba(17, 17, 17, 1)',
+              color: 'rgba(255, 255, 255, 1)',
               lineHeight: '14px',
             }}
           >
@@ -112,7 +117,7 @@ const PortfolioTracker = () => {
           sx={{
             fontSize: '20px',
             fontWeight: '700',
-            color: 'rgba(17, 17, 17, 1)',
+            color: 'rgba(255, 255, 255, 1)',
             mb: '6px',
             textAlign: 'center',
             lineHeight: '26px',
@@ -129,7 +134,7 @@ const PortfolioTracker = () => {
             fontWeight: '400',
             lineHeight: '18px',
             textAlign: 'center',
-            color: 'rgba(17, 17, 17, 0.8)',
+            color: 'rgba(255, 255, 255, 0.8)',
             maxWidth: '297px',
             fontFamily: 'Sf Pro Text',
           }}

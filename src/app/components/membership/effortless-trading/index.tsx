@@ -15,13 +15,19 @@ function EffortlessTrading() {
             fontWeight: '500',
             lineHeight: '18px',
             textTransform: 'uppercase',
+            color: 'rgba(255, 255, 255, 1)',
           }}
         >
           Effortless trading{' '}
         </Typography>
         <Typography
           variant="h2"
-          sx={{ fontSize: '32px', fontWeight: '700', lineHeight: '38px' }}
+          sx={{
+            fontSize: '32px',
+            fontWeight: '700',
+            lineHeight: '38px',
+            color: 'rgba(255, 255, 255, 1)',
+          }}
         >
           Trade and profit
           <span

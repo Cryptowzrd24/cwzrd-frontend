@@ -73,6 +73,7 @@ const TechnicalOutlooks = () => {
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           position: 'relative',
           backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -90,6 +91,10 @@ const TechnicalOutlooks = () => {
             pl: '24px',
             letterSpacing: '1px',
             lineHeight: '15.6px',
+            '@media (max-width:660px)': {
+              mb: '8px',
+              fontSize: '12px',
+            },
           }}
           variants={textVariants}
         >
@@ -138,8 +143,13 @@ const TechnicalOutlooks = () => {
                   fontWeight: '700',
                   lineHeight: '29px',
                   color: 'rgba(255, 255, 255, 1)',
-                  width: '374px',
-                  pl: '75px',
+                  maxWidth: '374px',
+                  paddingInline: '75px',
+                  '@media (max-width:660px)': {
+                    paddingInline: '24px',
+                    fontSize: '20px',
+                    lineHeight: '22px',
+                  },
                 }}
               >
                 Receive daily technical outlooks to stay ahead of market trends.
