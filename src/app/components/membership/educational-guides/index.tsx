@@ -15,8 +15,7 @@ const EducationalGuides = () => {
       backgroundImage: 'linear-gradient(180deg, #1f1f1f 0%, #1f1f1f 100%)',
     },
     active: {
-      backgroundImage:
-        'linear-gradient(116.74deg, #F77F21 -4.07%, #F77F21 100.68%)',
+      backgroundImage: 'linear-gradient(180deg, #1f1f1f 0%, #1f1f1f 100%)',
     },
     inactive: {
       backgroundImage: 'linear-gradient(180deg, #1f1f1f 0%, #1f1f1f 100%)',
@@ -66,15 +65,17 @@ const EducationalGuides = () => {
           sx={{
             display: 'flex',
             gap: '52px',
-            minHeight: '146px',
+            // minHeight: '146px',
+            height: '146px',
             boxSizing: 'border-box',
             alignItems: 'center',
             padding: '27px 43px 0 27px',
 
-            '@media (max-width:660px)': {
+            '@media (max-width:768px)': {
               flexDirection: 'column-reverse',
-              gap: '24px',
               padding: '24px 24px 0 24px',
+              height: '282px',
+              gap: '24px',
             },
           }}
         >
@@ -86,7 +87,6 @@ const EducationalGuides = () => {
             animate={active ? 'active' : 'inactive'}
             style={{
               objectFit: 'cover',
-              marginTop: 'auto',
             }}
           />
 
@@ -96,6 +96,7 @@ const EducationalGuides = () => {
             animate={active ? 'active' : 'inactive'}
             style={{
               maxWidth: '505px',
+              height: '100%',
             }}
           >
             <Typography
@@ -137,15 +138,28 @@ const EducationalGuides = () => {
               animate="visible"
               variants={loremVariants}
               layout
-              style={{ overflow: 'hidden' }}
+              style={{ overflow: 'hidden', marginBottom: 'auto' }}
             >
               <Typography
                 sx={{
-                  fontSize: '12px',
+                  fontSize: '16px',
+                  fontWeight: '500',
                   color: 'rgba(255, 255, 255, 1)',
-                  mt: '82px',
-                  letterSpacing: 0.1,
-                  lineHeight: '20px',
+                  lineHeight: '21px',
+                  textAlign: 'start',
+                  maxWidth: '226px',
+                  mb: '4px',
+                }}
+              >
+                Lorem ipsum dolor sit
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: '16px',
+                  fontWeight: '400',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  // mt: '82px',
+                  lineHeight: '24px',
                   textAlign: 'start',
                 }}
               >

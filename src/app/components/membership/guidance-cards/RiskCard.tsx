@@ -13,19 +13,11 @@ const Mentorship = () => {
 
   const backgroundVariants = {
     active: {
-      backgroundImage: 'linear-gradient(180deg, #ffff 0%, #ffff 100%)',
+      backgroundImage: `url('/images/membership/riskManagement.png')`,
       transition: { duration: 0.325 },
     },
     inactive: {
       backgroundImage: `url('/images/membership/riskManagement.png')`,
-      transition: { duration: 0.325 },
-    },
-  };
-
-  const textVariants = {
-    active: { color: 'rgba(0, 0, 0, 1)', transition: { duration: 0.325 } },
-    inactive: {
-      color: 'rgba(255, 255, 255, 1)',
       transition: { duration: 0.325 },
     },
   };
@@ -89,11 +81,14 @@ const Mentorship = () => {
             letterSpacing: '1px',
             lineHeight: '15.6px',
             px: '24px',
+            color: 'rgba(255, 255, 255, 1)',
             '@media (max-width:660px)': {
               fontSize: '12px',
             },
           }}
-          variants={textVariants}
+          variants={imgAndTextVariants}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
         >
           Risk management guidance
         </Typography>
@@ -110,21 +105,36 @@ const Mentorship = () => {
               initial="hidden"
               animate="visible"
               variants={loremVariants}
+              style={{
+                padding: '0 24px',
+              }}
             >
               <Typography
                 sx={{
-                  fontSize: '14px',
-                  color: 'rgba(0, 0, 0, 1)',
-                  mt: '85px',
-                  letterSpacing: 0.1,
-                  lineHeight: '26px',
+                  fontSize: '16px',
+                  fontWeight: '500',
+                  color: 'rgba(255, 255, 255, 1)',
+                  lineHeight: '21px',
                   textAlign: 'start',
-                  marginLeft: '28px',
-                  maxWidth: '690px',
+                  maxWidth: '226px',
                 }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry...
+                Lorem ipsum dolor sit
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: '16px',
+                  fontWeight: '400',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  mt: '71px',
+                  lineHeight: '24px',
+                  textAlign: 'start',
+                }}
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
               </Typography>
             </motion.div>
           )}
@@ -183,17 +193,14 @@ const Mentorship = () => {
               display: 'flex',
               justifyContent: 'end',
               position: 'absolute',
-              right: '14px',
-              bottom: '14px',
+              right: '13px',
+              bottom: '13px',
+              transform: active ? 'rotate(45deg)' : '',
+              transition: 'transform 0.5s ease-in-out',
             }}
           >
-            <motion.div
-              initial="hidden"
-              animate={active ? 'visible' : 'hidden'}
-              variants={iconVariants}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              onClick={handleClick}
-              style={{
+            <Box
+              sx={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -202,9 +209,10 @@ const Mentorship = () => {
                 borderRadius: '100px',
                 cursor: 'pointer',
               }}
+              onClick={handleClick}
             >
               <PlusIcon />
-            </motion.div>
+            </Box>
           </Box>
         </Box>
       </motion.div>

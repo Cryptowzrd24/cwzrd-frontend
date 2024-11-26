@@ -14,7 +14,7 @@ const RealTimeData = () => {
       backgroundImage: `url('/images/membership/realTime.png')`,
     },
     active: {
-      backgroundImage: 'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)',
+      backgroundImage: `url('/images/membership/realTimeBg.png')`,
     },
     inactive: {
       backgroundImage: `url('/images/membership/realTime.png')`,
@@ -95,11 +95,14 @@ const RealTimeData = () => {
             pl: '24px',
             letterSpacing: '1px',
             lineHeight: '15.6px',
+            color: 'rgba(255, 255, 255, 1)',
             '@media (max-width:660px)': {
               fontSize: '12px',
             },
           }}
-          variants={textVariants}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
+          variants={imgAndTextVariants}
         >
           Real-Time Data
         </Typography>
@@ -110,20 +113,36 @@ const RealTimeData = () => {
               initial="hidden"
               animate="visible"
               variants={loremVariants}
+              style={{
+                padding: '24px',
+              }}
             >
               <Typography
                 sx={{
-                  fontSize: '14px',
+                  fontSize: '16px',
+                  fontWeight: '500',
                   color: 'rgba(255, 255, 255, 1)',
-                  letterSpacing: 0.1,
-                  lineHeight: '26px',
+                  lineHeight: '21px',
                   textAlign: 'start',
-                  ml: '28px',
-                  maxWidth: '690px',
+                  maxWidth: '226px',
+                }}
+              >
+                Lorem ipsum dolor sit
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: '16px',
+                  fontWeight: '400',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  mt: '82px',
+                  lineHeight: '24px',
+                  textAlign: 'start',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry...
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book
               </Typography>
             </motion.div>
           )}
@@ -168,15 +187,12 @@ const RealTimeData = () => {
               position: 'absolute',
               right: '16px',
               bottom: '16px',
+              transform: active ? 'rotate(45deg)' : '',
+              transition: 'transform 0.5s ease-in-out',
             }}
           >
-            <motion.div
-              initial="hidden"
-              animate={active ? 'visible' : 'hidden'}
-              variants={iconVariants}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              onClick={handleClick}
-              style={{
+            <Box
+              sx={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -185,9 +201,10 @@ const RealTimeData = () => {
                 borderRadius: '100px',
                 cursor: 'pointer',
               }}
+              onClick={handleClick}
             >
               <PlusIcon />
-            </motion.div>
+            </Box>
           </Box>
         </Box>
       </motion.div>

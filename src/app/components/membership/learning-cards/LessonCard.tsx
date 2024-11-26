@@ -15,8 +15,7 @@ const LessonCard = () => {
       backgroundImage: `linear-gradient(180deg, rgba(74, 132, 213, 1), rgba(89, 125, 255, 1))`,
     },
     active: {
-      backgroundImage:
-        'linear-gradient(116.74deg, #F77F21 -4.07%, #F77F21 100.68%)',
+      backgroundImage: `linear-gradient(180deg, rgba(74, 132, 213, 1), rgba(89, 125, 255, 1))`,
     },
     inactive: {
       backgroundImage: `linear-gradient(180deg, rgba(74, 132, 213, 1), rgba(89, 125, 255, 1))`,
@@ -76,7 +75,7 @@ const LessonCard = () => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            padding: '0 42px 32px',
+            padding: active ? '0 24px' : '0 42px 32px',
             '@media (max-width:855px)': {
               padding: '0 16px 32px',
             },
@@ -153,11 +152,24 @@ const LessonCard = () => {
             >
               <Typography
                 sx={{
-                  fontSize: '12px',
+                  fontSize: '16px',
+                  fontWeight: '500',
                   color: 'rgba(255, 255, 255, 1)',
-                  mt: '82px',
-                  letterSpacing: 0.1,
-                  lineHeight: '20px',
+                  mt: '24px',
+                  lineHeight: '21px',
+                  textAlign: 'start',
+                  maxWidth: '226px',
+                }}
+              >
+                Lorem ipsum dolor sit
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: '16px',
+                  fontWeight: '400',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  mt: '105px',
+                  lineHeight: '24px',
                   textAlign: 'start',
                 }}
               >
