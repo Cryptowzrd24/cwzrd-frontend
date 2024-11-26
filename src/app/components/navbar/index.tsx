@@ -4,18 +4,7 @@ import Logo from '../../../../public/icons/logo';
 import LogoPurpleHat from '../../../../public/icons/logoPurpleHat';
 
 import { NavbarData } from './data';
-import LightmodeIcon from '../../../../public/icons/Navbar-Section/lightmode';
-import DarkmodeIcon from '../../../../public/icons/Navbar-Section/darkmode';
-import ProfileIcon from '../../../../public/icons/Navbar-Section/profile';
-import SearchIcon from '../../../../public/icons/Navbar-Section/search';
-import {
-  Box,
-  Button,
-  Container,
-  Menu,
-  MenuItem,
-  Typography,
-} from '@mui/material';
+import { Box, Container } from '@mui/material';
 import Link from 'next/link';
 import { useAppDispatch } from '@/app/redux/store';
 import {
@@ -26,10 +15,9 @@ import {
 } from '@/app/redux/market';
 import Cookies from 'js-cookie';
 import './index.scss';
-import { usePathname, useRouter } from 'next/navigation';
-import StarIcon from '../../../../public/icons/Navbar-Section/starIcon';
+import { usePathname } from 'next/navigation';
 import { useSelector } from 'react-redux';
-import { logout, setFirstLoginToFalse } from '@/app/redux/user';
+import { setFirstLoginToFalse } from '@/app/redux/user';
 import AuthModal from '../favorites/authModal';
 import FirstLoginModal from '../favorites/firstLoginModal';
 import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
@@ -38,24 +26,15 @@ import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
 function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
   console.log('activeID', activeId);
-  const [isActive, setIsActive] = useState<string | null>('light');
   const dispatch = useAppDispatch();
-  const router = useRouter();
   const pathname = usePathname();
-  const { token, name, isFirstLogin } = useSelector((state: any) => state.user);
-  const [anchorEl, setAnchorEl] = useState(null);
+  const { token, isFirstLogin } = useSelector((state: any) => state.user);
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const open = Boolean(anchorEl);
 
   const [addWatchlist] = useAddWatchlistMutation();
   // const { favorites } = useAppSelector((state: any) => state.market);
   // const [addWatchlist] = useAddWatchlistMutation();
 
-  const handleOpenAuth = () => {
-    if (!token?.length) {
-      setShowAuthModal(true);
-    }
-  };
   useEffect(() => {
     const storedFavorites: any =
       Cookies.get('mainWatchFavorites') === 'null' ||
@@ -67,24 +46,7 @@ function Navbar() {
     }
   }, [dispatch]);
 
-  const handleAuthClick = (event: any) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   useEffect(() => {}, [token]);
-
-  const handleLogout = async () => {
-    Cookies.remove('authToken');
-    Cookies.remove('favorites');
-    dispatch(logout());
-    dispatch(updateFavorites([]));
-    router.refresh();
-    handleClose();
-  };
 
   useEffect(() => {
     const favorites = JSON.parse(
@@ -165,6 +127,9 @@ function Navbar() {
                 ? 'articlesbg'
                 : ''
         }
+        style={{
+          marginTop: '28px',
+        }}
       >
         <Container maxWidth="xl">
           <Box
@@ -176,7 +141,7 @@ function Navbar() {
             }}
           >
             <Link href="/">
-              {pathname === '/news' ||
+              {pathname === '/membership' ||
               pathname === '/technicals' ||
               pathname === '/articles' ||
               pathname === '/news/crypto' ? (
@@ -185,307 +150,6 @@ function Navbar() {
                 <Logo />
               )}
             </Link>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                gap: '32px',
-              }}
-            >
-              {/* {NavbarData.map((item) => (
-                <Box key={item.id}>
-                  {pathname === '/news' ||
-                  pathname === '/technicals' ||
-                  pathname.includes('/technicals/') ||
-                  pathname.includes('/news/') ? (
-                    <Link
-                      href={`/${item.name.toLowerCase()}`}
-                      style={{
-                        cursor: 'pointer',
-                        textDecoration: 'none',
-                        textDecorationColor: 'none',
-                      }}
-                    >
-                      <Typography
-                        variant="caption"
-                        sx={{
-                          fontSize: '16px',
-                          color: 'white',
-                          cursor: 'pointer',
-                          transition: 'transform 0.1s ease-in-out',
-                          fontWeight: 500,
-                          letterSpacing: '0.7px',
-                        }}
-                        onClick={() => setActiveId(item.id)}
-                      >
-                        {item.name}
-                      </Typography>
-                    </Link>
-                  ) : item.name === 'Market' ? (
-                    <Link
-                      href="/market/coin"
-                      style={{ textDecoration: 'none' }}
-                    >
-                      <Typography
-                        variant="caption"
-                        sx={{
-                          fontSize: '16px',
-                          color:
-                            activeId === item.id
-                              ? '#7248F7'
-                              : 'rgba(17, 17, 17, 1)',
-                          cursor: 'pointer',
-                          transition: 'transform 0.1s ease-in-out',
-                          fontWeight: 500,
-                          letterSpacing: '0.7px',
-                        }}
-                        onClick={() => setActiveId(item.id)}
-                      >
-                        {item.name}
-                      </Typography>
-                    </Link>
-                  ) : (
-                    <Link
-                      href={`/${item.name.toLowerCase()}`}
-                      style={{
-                        cursor: 'pointer',
-                        textDecoration: 'none',
-                        textDecorationColor: 'none',
-                      }}
-                    >
-                      <Typography
-                        variant="caption"
-                        sx={{
-                          fontSize: '16px',
-                          color:
-                            activeId === item.id
-                              ? '#7248F7'
-                              : 'rgba(17, 17, 17, 1)',
-                          cursor: 'pointer',
-                          transition: 'transform 0.1s ease-in-out',
-                          fontWeight: 500,
-                          letterSpacing: '0.7px',
-                        }}
-                        onClick={() => setActiveId(item.id)}
-                      >
-                        {item.name}
-                      </Typography>
-                    </Link>
-                  )}
-                </Box>
-              ))} */}
-              {NavbarData.map((item) => (
-                <Box key={item.id}>
-                  <Link
-                    href={`/${item.name !== 'Market' ? item.name.toLowerCase() : `market/coin`}`}
-                    style={{
-                      cursor: 'pointer',
-                      textDecoration: 'none',
-                    }}
-                  >
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        fontSize: '16px',
-                        color: pathname.includes(item.name.toLowerCase())
-                          ? '#7248F7' // Highlight color when the pathname contains the item's name
-                          : pathname === '/news' ||
-                              pathname === '/articles' ||
-                              pathname.includes('/news/') ||
-                              pathname === '/technicals' ||
-                              pathname.includes('/technicals/')
-                            ? 'white' // Default white for `/news` or `/technicals` pages
-                            : 'rgba(17, 17, 17, 1)', // Default dark color for other pages
-                        cursor: 'pointer',
-                        transition: 'transform 0.1s ease-in-out',
-                        fontWeight: 500,
-                        letterSpacing: '0.7px',
-                      }}
-                      onClick={() => setActiveId(item.id)}
-                    >
-                      {item.name}
-                    </Typography>
-                  </Link>
-                </Box>
-              ))}
-            </Box>
-
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
-              <Box
-                sx={{
-                  border: '1px solid rgba(17, 17, 17, 0.1)',
-                  borderRadius: '66.66px',
-                  padding: { xs: '2px', sm: '2.6px 3px 1.6px 2.6px' },
-                  display: 'flex',
-                  cursor: 'pointer',
-                  background: 'white',
-                }}
-              >
-                <Box height={26.5} onClick={() => setIsActive('light')}>
-                  <LightmodeIcon isActive={isActive === 'light'} />
-                </Box>
-                <Box height={26.5} onClick={() => setIsActive('dark')}>
-                  <DarkmodeIcon isActive={isActive === 'dark'} />
-                </Box>
-              </Box>
-
-              <SearchIcon
-                color={
-                  pathname === '/news' ||
-                  pathname.includes('/news/') ||
-                  pathname === '/articles' ||
-                  pathname.includes('technicals')
-                    ? 'white'
-                    : 'black'
-                }
-              />
-
-              <Link style={{ textDecoration: 'none' }} href="/favorites">
-                <StarIcon
-                  color={
-                    !!pathname.includes('/favorites')
-                      ? 'rgb(243,143,56)'
-                      : pathname === '/news' ||
-                          pathname === '/articles' ||
-                          pathname === '/news/crypto'
-                        ? 'white'
-                        : pathname.includes('/technicals')
-                          ? 'white'
-                          : 'black'
-                  }
-                />
-              </Link>
-
-              {token ? (
-                // <>
-                //   <Button
-                //     sx={{
-                //       width: '0px',
-                //       height: '30px',
-                //     }}
-                //     onClick={handleAuthClick}
-                //   >
-                //     <Typography
-                //       sx={{
-                //         color: pathname.includes('news') ? 'white' : 'black',
-                //         fontSize: '18px',
-                //         paddingBlock: '5px',
-                //       }}
-                //     >
-                //       {name.length > 5 ? `${name.slice(0, 5)}...` : name}
-                //     </Typography>
-                //   </Button>
-                //   <Menu
-                //     anchorEl={anchorEl}
-                //     open={open}
-                //     onClose={handleClose}
-                //     slotProps={{
-                //       paper: {
-                //         style: {
-                //           border: '1px solid lightgray',
-                //           paddingInline: '10px',
-                //           marginBottom: '30px',
-                //         },
-                //       },
-                //     }}
-                //   >
-                //     <MenuItem
-                //       sx={{
-                //         paddingInline: '10px',
-                //         color: 'black',
-                //       }}
-                //       onClick={handleLogout}
-                //     >
-                //       Logout
-                //     </MenuItem>
-                //   </Menu>
-                // </>
-                <>
-                  <Button
-                    sx={{
-                      width: '0px',
-                      height: '30px',
-                    }}
-                    onClick={handleAuthClick}
-                  >
-                    <Typography
-                      sx={{
-                        color:
-                          pathname === '/news' ||
-                          pathname === '/news/crypto' ||
-                          pathname === '/articles' ||
-                          pathname === '/technicals'
-                            ? 'white'
-                            : 'black',
-                        fontSize: '16px',
-                        paddingBlock: '5px',
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      {name.length > 7 ? `${name.slice(0, 5)}...` : name}
-                    </Typography>
-                  </Button>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    slotProps={{
-                      paper: {
-                        style: {
-                          border: '1px solid lightgray',
-                          paddingInline: '10px',
-                          marginBottom: '30px',
-                        },
-                      },
-                    }}
-                  >
-                    <MenuItem
-                      sx={{
-                        paddingInline: '10px',
-                        color: 'black',
-                        '&:hover': {
-                          background: 'transparent',
-                          color: 'red',
-                        },
-                        width: '100%',
-                        display: 'flex',
-                        justifyContent: 'center',
-                      }}
-                      onClick={handleLogout}
-                    >
-                      <Box
-                        sx={{
-                          ':hover': {
-                            color: 'red',
-                          },
-                        }}
-                      >
-                        Logout
-                      </Box>
-                    </MenuItem>
-                  </Menu>
-                </>
-              ) : (
-                <Box
-                  onClick={handleOpenAuth}
-                  style={{ textDecoration: 'none', cursor: 'pointer' }}
-                >
-                  <ProfileIcon
-                    color={
-                      pathname === '/news' ||
-                      pathname === '/technicals' ||
-                      pathname === '/articles' ||
-                      pathname.includes('/technicals/') ||
-                      pathname === '/news/crypto'
-                        ? 'white'
-                        : 'black'
-                    }
-                  />
-                </Box>
-              )}
-            </Box>
           </Box>
         </Container>
       </Box>

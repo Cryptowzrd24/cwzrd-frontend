@@ -4,9 +4,10 @@ import { ThemeProvider } from '@mui/material';
 import Navbar from '../navbar';
 import Footer from '../footer';
 import theme from '@/theme';
-import TickerServer from '../ticker';
+// import TickerServer from '../ticker';
 import StoreProvider from '@/app/StoreProvider';
 import Script from 'next/script';
+import CountDown from '../count-down';
 
 export default function CustomLayout({
   children,
@@ -18,7 +19,8 @@ export default function CustomLayout({
       <html lang="en">
         <body>
           <StoreProvider>
-            <TickerServer />
+            {/* <TickerServer /> */}
+            <CountDown />
             <Navbar />
             {children}
             <Footer />

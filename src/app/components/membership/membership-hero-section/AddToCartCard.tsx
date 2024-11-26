@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 
 import LifetimeBanner from '../../../../../public/images/membership/lifetimeBanner.png';
+import LockIcon from '../../../../../public/icons/lockIcon';
 
 const AddToCartCard = () => {
   return (
@@ -168,9 +169,15 @@ const AddToCartCard = () => {
             lineHeight: '21px',
             fontFamily: 'Sf Pro Display',
             color: 'rgba(255,255,255,1)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            opacity: '0.8',
+            cursor: 'not-allowed',
           }}
         >
-          Add to cart
+          <LockIcon />
+          Coming Soon
         </Button>
       </Box>
     </Box>
