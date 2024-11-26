@@ -93,7 +93,6 @@ const TradingCourse = () => {
             pl: '42px',
             pr: '24px',
             '@media (max-width:855px)': {
-              pl: '24px',
               pb: '28px',
             },
           }}

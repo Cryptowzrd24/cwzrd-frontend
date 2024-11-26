@@ -33,7 +33,17 @@ const PortfolioInvestingCard = () => {
         <Image src={Portfolio} alt="Image of bag" fill objectFit="contain" />
       </Box>
 
-      <Box sx={{ mt: '30px' }}>
+      <Box
+        sx={{
+          mt: '30px',
+          '@media (max-width:898px)': {
+            mt: '0',
+          },
+          '@media (max-width:768px)': {
+            mt: '30px',
+          },
+        }}
+      >
         <Typography
           sx={{
             fontSize: '18px',

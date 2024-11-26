@@ -44,6 +44,9 @@ const WzrdPlatformCard = () => {
           '@media (max-width:898px)': {
             mt: '0',
           },
+          '@media (max-width:768px)': {
+            mt: '12px',
+          },
         }}
       >
         <Typography

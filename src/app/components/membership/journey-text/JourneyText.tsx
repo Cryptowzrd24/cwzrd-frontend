@@ -13,7 +13,6 @@ const JourneyText = () => {
         }}
       >
         <Typography
-          variant="body1"
           sx={{
             fontSize: '14px',
             fontWeight: '500',
@@ -33,7 +32,6 @@ const JourneyText = () => {
         </Typography>
 
         <Typography
-          variant="h2"
           sx={{
             fontSize: '32px',
             fontWeight: '700',
@@ -52,10 +50,10 @@ const JourneyText = () => {
                 'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
               backgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              paddingLeft: '6px',
+              paddingRight: '6px',
             }}
           >
-            Boost{' '}
+            Boost
           </span>
           your trading journey
         </Typography>

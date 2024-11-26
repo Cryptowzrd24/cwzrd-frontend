@@ -69,6 +69,7 @@ const MarketCoverageCard = () => {
             fontWeight: '600',
             lineHeight: '28px',
             fontFamily: 'Sf Pro Text',
+            maxWidth: '251px',
             '@media (max-width:855px)': {
               fontSize: '20px',
             },

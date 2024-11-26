@@ -110,16 +110,16 @@ const LessonCard = () => {
           >
             <Typography
               sx={{
-                fontSize: '26px',
+                fontSize: '20px',
                 color: 'rgba(255, 255, 255, 1)',
                 mb: '4px',
-                lineHeight: '28px',
+                lineHeight: '26px',
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
                 textAlign: 'center',
                 '@media (max-width:660px)': {
                   mt: '4px',
-                  fontSize: '26px',
+                  fontSize: '20px',
                 },
               }}
             >
