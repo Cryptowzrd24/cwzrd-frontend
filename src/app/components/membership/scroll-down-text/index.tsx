@@ -9,7 +9,7 @@ const ScrollDownText = () => {
     <Box
       sx={{
         position: 'absolute',
-        bottom: '0',
+        bottom: '10%',
         right: '0',
         display: 'inline-flex',
         alignItems: 'center',

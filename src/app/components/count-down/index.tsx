@@ -27,7 +27,7 @@ const CountDown = () => {
         textAlign: 'center',
         fontSize: {
           xs: '14px', // for screens <= 500px
-          sm: '18px'  // for larger screens
+          sm: '18px', // for larger screens
         },
         fontWeight: '600',
         fontFamily: 'Sf Pro Display',

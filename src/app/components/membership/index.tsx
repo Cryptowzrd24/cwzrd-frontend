@@ -43,7 +43,7 @@ const Membership = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           zIndex: '-1',
-          paddingTop: '180px',
+          paddingTop: '120px',
           marginTop: '-120px',
           backgroundPosition: 'center',
           mb: '120px',

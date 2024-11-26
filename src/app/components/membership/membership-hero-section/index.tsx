@@ -81,6 +81,7 @@ const MembershipHeroSection = () => {
             '@media (max-width:660px)': {
               fontSize: '48px',
               lineHeight: '48px',
+              marginTop: '48px',
             },
           }}
         >
