@@ -20,7 +20,7 @@ const CommunityChat = () => {
         display: 'flex',
         justifyContent: 'space-between',
         flexDirection: 'column',
-        py: '32px',
+        padding: '32px 24px',
         boxSizing: 'border-box',
         '@media (max-width:768px)': {
           width: '100%',
@@ -101,8 +101,8 @@ const CommunityChat = () => {
             fontWeight: '400',
             lineHeight: '18px',
             textAlign: 'center',
-            px: '40px',
-            paddingBottom: '12px',
+            maxWidth: '391px',
+            mx: 'auto',
             fontFamily: 'Sf Pro Text',
             '@media (max-width:660px)': {
               fontSize: '12px',

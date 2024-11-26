@@ -12,8 +12,10 @@ const AddToCartCard = () => {
         maxWidth: '343px',
         backgroundSize: 'cover',
         borderRadius: '24px',
+        overflow: 'hidden',
         '@media (max-width:786px)': {
           maxWidth: 'none',
+          width: '100%',
         },
       }}
     >

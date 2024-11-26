@@ -45,14 +45,12 @@ function MembershipCta() {
               MEMBERSHIP
             </Typography>
             <Typography
-              variant="h2"
               sx={{
                 fontWeight: '700',
                 maxWidth: '606px',
                 mb: '13px',
                 color: 'rgba(255, 255, 255, 1)',
                 lineHeight: '44px',
-                marginBottom: '0px',
                 fontSize: '40px',
                 '@media (max-width:786px)': {
                   fontSize: '20px',
@@ -65,7 +63,6 @@ function MembershipCta() {
               Community Today!{' '}
             </Typography>
             <Typography
-              variant="body1"
               sx={{
                 color: '#FFFFFFCC',
                 fontSize: '12px',
@@ -114,7 +111,6 @@ function MembershipCta() {
             </Box>
 
             <Typography
-              variant="h5"
               sx={{
                 fontSize: '16px',
                 fontWeight: '700',

@@ -150,6 +150,9 @@ const Mentorship = () => {
                   mb: '30px',
                   backgroundImage:
                     'linear-gradient(180deg, rgba(55, 97, 251, 1), rgba(55, 169, 251, 1))',
+                  '@media (max-width:660px)': {
+                    mb: '24px',
+                  },
                 }}
               >
                 <Image src={Verified} alt="verified icon" />

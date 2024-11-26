@@ -101,7 +101,7 @@ const RealTimeData = () => {
           }}
           variants={textVariants}
         >
-          Daily technical outlooks
+          Real-Time Data
         </Typography>
 
         <Box sx={{ display: 'flex', alignItems: 'center' }}>

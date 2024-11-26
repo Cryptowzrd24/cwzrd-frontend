@@ -22,7 +22,6 @@ const FeatureHeaderCard: React.FC<FeatureHeaderCardProps> = ({
       <Image src={imagePath} width={24} height={24} alt="Signals" />
 
       <Typography
-        variant="h5"
         sx={{
           fontSize: '14px',
           fontWeight: '600',

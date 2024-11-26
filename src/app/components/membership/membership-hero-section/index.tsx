@@ -11,9 +11,11 @@ import AddToCartCard from './AddToCartCard';
 import FeaturesSection from './FeaturesSection';
 import FeatureHeaderCard from './FeatureHeaderCard';
 
-const featuresHeader = [
+const featuresHeaderLeft = [
   { imagePath: Signals, title: 'Profitable Signals' },
   { imagePath: GraduationCap, title: 'Learning Focused' },
+];
+const featuresHeaderRight = [
   { imagePath: Speedometer, title: 'The WZRD Platform' },
   { imagePath: Clock, title: 'Lifetime Membership' },
 ];
@@ -95,21 +97,52 @@ const MembershipHeroSection = () => {
 
         <Box
           sx={{
+            maxWidth: '730px',
+            width: '100%',
             display: 'flex',
             gap: '24px',
-            alignItems: 'center',
             marginBottom: '42px',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
+            '@media (max-width:768px)': {
+              justifyContent: 'space-around',
+            },
           }}
         >
-          {featuresHeader.map((feature, index) => (
-            <FeatureHeaderCard
-              key={index}
-              imagePath={feature.imagePath}
-              title={feature.title}
-            />
-          ))}
+          <Box
+            sx={{
+              display: 'flex',
+              gap: '24px',
+              alignItems: 'center',
+              '@media (max-width:768px)': {
+                flexDirection: 'column',
+              },
+            }}
+          >
+            {featuresHeaderLeft.map((feature, index) => (
+              <FeatureHeaderCard
+                key={index}
+                imagePath={feature.imagePath}
+                title={feature.title}
+              />
+            ))}
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              gap: '24px',
+              alignItems: 'center',
+              '@media (max-width:768px)': {
+                flexDirection: 'column',
+              },
+            }}
+          >
+            {featuresHeaderRight.map((feature, index) => (
+              <FeatureHeaderCard
+                key={index}
+                imagePath={feature.imagePath}
+                title={feature.title}
+              />
+            ))}
+          </Box>
         </Box>
       </Box>
 
@@ -127,6 +160,7 @@ const MembershipHeroSection = () => {
             display: 'flex',
             padding: '8px',
             gap: '8px',
+            boxSizing: 'border-box',
             '@media (max-width:786px)': {
               flexDirection: 'column',
               alignItems: 'center',

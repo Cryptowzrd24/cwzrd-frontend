@@ -9,7 +9,7 @@ const WzrdBooks = () => {
     <Box
       sx={{
         width: '67%',
-        paddingLeft: '42px',
+        // paddingLeft: '42px',
         boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
         backgroundColor: 'rgba(31,31,31,1)',
         borderRadius: '24px',
@@ -29,6 +29,7 @@ const WzrdBooks = () => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
+          paddingLeft: '42px',
         }}
       >
         <Typography
@@ -40,7 +41,7 @@ const WzrdBooks = () => {
             mb: '6px',
             letterSpacing: '1px',
             lineHeight: '43px',
-            '@media (max-width:660px)': {
+            '@media (max-width:768px)': {
               fontSize: '26px',
               lineHeight: '34px',
               pt: '24px',
@@ -75,6 +76,7 @@ const WzrdBooks = () => {
             width: '316px',
             height: '353px',
             ml: 'auto',
+            overflow: 'hidden',
           },
         }}
       >

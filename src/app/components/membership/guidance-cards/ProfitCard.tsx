@@ -128,7 +128,7 @@ const ProfitCard = () => {
                 lineHeight: '33px',
                 fontWeight: 700,
                 '@media (max-width:885px)': {
-                  fontSize: '20px',
+                  fontSize: '24px',
                   lineHeight: '26px',
                 },
               }}

@@ -56,8 +56,12 @@ const CommunityMember = () => {
             textAlign: 'center',
             px: '40px',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:855px)': {
+              px: '30px',
+            },
             '@media (max-width:660px)': {
               fontSize: '12px',
+              px: '24px',
             },
           }}
         >
