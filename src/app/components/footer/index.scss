@@ -1,0 +1,57 @@
+@media only screen and (max-width: 768px) {
+    #footer-container{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        h1, p{
+            width: 100%;
+            max-width: 100%;
+        }
+    }    
+}
+
+@media only screen and (max-width: 585px) {
+    #footer-container{
+        h1{
+            font-size: 32px;
+            line-height: normal;
+        }
+    }    
+}
+
+
+@media only screen and (max-width: 500px) {
+    #footer{
+        padding-top: 32px;
+        padding-bottom: 24px;
+    }
+    #footer-container{
+        gap: 16px;
+        h1{
+            font-size: 24px;
+            line-height: normal;
+        }
+        p{
+            font-size: 14px;
+        }
+
+    }    
+}
+
+@media only screen and (max-width: 405px) {
+    #footer{
+        padding-top: 32px;
+        padding-bottom: 24px;
+    }
+    #footer-container{
+        gap: 16px;
+        h1{
+            font-size: 24px;
+            line-height: normal;
+        }
+        p{
+            font-size: 14px;
+        }
+
+    }    
+}

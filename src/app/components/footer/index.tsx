@@ -1,49 +1,56 @@
 import React from 'react';
 import LogoWhite from '../../../../public/icons/logoWhite';
-import { FooterData } from './data';
 import Link from 'next/link';
 import { Box, Container, Typography } from '@mui/material';
+import './index.scss';
 
 function Footer() {
   return (
     <Box
+      id="footer"
       sx={{
-        padding: '80px 75px 48px 75px',
+        padding: '80px 0px 48px 0px',
         backgroundImage:
           'linear-gradient(to bottom, rgba(99, 77, 253, 1), rgba(126, 68, 241, 1))',
       }}
     >
-      <Container maxWidth="xl">
-        <Box
-          sx={{
+      <Container
+        maxWidth="xl"
+        style={{
+          maxWidth: 'calc(972px + 160px)',
+        }}
+      >
+        <div
+          style={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             margin: '0 auto',
             paddingBottom: '40px',
           }}
+          id="footer-container"
         >
           <Typography
             variant="h1"
             sx={{
               fontWeight: '500',
               color: '#fff',
-              maxWidth: '646px',
-              lineHeight: '70.4px',
-              fontSize: '64px',
+              maxWidth: '48%',
+              lineHeight: '1.1',
+              fontSize: '42px',
             }}
           >
             Join the Cryptowzrd Community Today!
           </Typography>
           <Typography
             variant="body1"
-            sx={{ color: 'rgba(255, 255, 255, 0.8)', maxWidth: '525px' }}
+            sx={{ color: 'rgba(255, 255, 255, 0.8)', maxWidth: '40%' }}
           >
             Unlock the door to trading success and become a part of the
             Cryptowzrd community! Gain access to our comprehensive educational
             resources, powerful trading tools, and supportive community.
           </Typography>
-        </Box>
+        </div>
         <Box
           sx={{
             display: 'flex',
@@ -56,31 +63,6 @@ function Footer() {
           <Link href="/">
             <LogoWhite />
           </Link>
-          <Box sx={{ display: 'flex', gap: '32px' }}>
-            {FooterData.map((item) => (
-              <Link
-                key={item.id}
-                href={
-                  item.title === 'Market'
-                    ? '/market/coin'
-                    : `/${item.title.toLowerCase()}`
-                }
-                style={{
-                  color: 'rgba(255, 255, 255, 1)',
-                  cursor: 'pointer',
-                  textDecoration: 'none',
-                  textDecorationColor: 'none',
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  sx={{ fontWeight: '500', color: 'rgba(255, 255, 255, 1)' }}
-                >
-                  {item.title}
-                </Typography>
-              </Link>
-            ))}
-          </Box>
         </Box>
       </Container>
     </Box>
