@@ -9,9 +9,10 @@ const LearningCards = () => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        height: '380px',
         gap: '24px',
+        '@media (max-width:768px)': {
+          flexDirection: 'column',
+        },
       }}
     >
       <AirdropCard />

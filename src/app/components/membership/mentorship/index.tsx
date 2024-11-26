@@ -22,7 +22,7 @@ const Mentorship = () => {
       backgroundImage: `url('/images/membership/mentorshipBg.png')`,
     },
     active: {
-      backgroundImage: 'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)',
+      backgroundImage: `url('/images/membership/mentorshipBg.png')`,
     },
     inactive: {
       backgroundImage: `url('/images/membership/mentorshipBg.png')`,
@@ -78,6 +78,8 @@ const Mentorship = () => {
             boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             position: 'relative',
             transition: 'all 0.325s linear',
+            paddingInline: '20px',
+            backgroundPosition: 'center',
           }}
           initial="initial"
           animate={active ? 'active' : 'inactive'}
@@ -96,24 +98,47 @@ const Mentorship = () => {
                 initial="hidden"
                 animate="visible"
                 variants={loremVariants}
+                style={{
+                  height: '100%',
+                }}
               >
                 <Typography
                   sx={{
-                    fontSize: '14px',
+                    fontSize: '16px',
+                    fontWeight: '500',
                     color: 'rgba(255, 255, 255, 1)',
-                    mt: '185px',
+                    mt: '24px',
+                    letterSpacing: 0.1,
+                    lineHeight: '21px',
+                    textAlign: 'start',
+                    marginLeft: '24px',
+                    maxWidth: '226px',
+                  }}
+                >
+                  Lorem ipsum dolor sit
+                </Typography>
+
+                <Typography
+                  sx={{
+                    fontSize: '18px',
+                    fontWeight: '400',
+                    color: 'rgba(255, 255, 255, 0.8)',
+                    mt: '112px',
                     letterSpacing: 0.1,
                     lineHeight: '26px',
                     textAlign: 'start',
-                    marginLeft: '28px',
-                    maxWidth: '690px',
+                    marginLeft: '27px',
+                    maxWidth: '924px',
                   }}
                 >
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit.
                 </Typography>
               </motion.div>
             )}
@@ -121,9 +146,12 @@ const Mentorship = () => {
             <Box
               sx={{
                 py: '64px',
-                px: '216px',
+                mx: 'auto',
                 height: '100%',
                 boxSizing: 'border-box',
+                '@media (max-width:660px)': {
+                  py: '84px',
+                },
               }}
             >
               <motion.div
@@ -139,6 +167,7 @@ const Mentorship = () => {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     height: '100%',
+                    maxWidth: '573px',
                   }}
                 >
                   <Box>
@@ -148,6 +177,10 @@ const Mentorship = () => {
                         fontWeight: '600',
                         lineHeight: '38px',
                         color: 'rgba(255, 255, 255, 1)',
+                        '@media (max-width:660px)': {
+                          fontSize: '24px',
+                          lineHeight: '31px',
+                        },
                       }}
                     >
                       Professional Mentorship
@@ -167,49 +200,166 @@ const Mentorship = () => {
                         backgroundColor: 'rgba(255,255,255,1)',
                         padding: '14px',
                         borderRadius: '14px',
+                        boxSizing: 'border-box',
+                        '@media (max-width:660px)': {
+                          padding: '7px',
+                          borderRadius: '7px',
+                        },
                       }}
                     >
-                      <Image src={BrainIcon} alt="brain icon" />
+                      <Box
+                        sx={{
+                          position: 'relative',
+                          width: '52px',
+                          height: '46px',
+                          '@media (max-width:660px)': {
+                            width: '26px',
+                            height: '23px',
+                          },
+                        }}
+                      >
+                        <Image
+                          src={BrainIcon}
+                          alt="brain icon"
+                          fill
+                          objectFit="contain"
+                          objectPosition="center"
+                        />
+                      </Box>
                     </Box>
+
                     <Box
                       sx={{
                         backgroundColor: 'rgba(255,255,255,1)',
-                        padding: '20px',
+                        padding: '16px',
                         borderRadius: '16px',
+                        boxSizing: 'border-box',
+                        '@media (max-width:660px)': {
+                          padding: '8px',
+                          borderRadius: '8px',
+                        },
                       }}
                     >
-                      <Image src={PersonIcon} alt="brain icon" />
+                      <Box
+                        sx={{
+                          position: 'relative',
+                          width: '56px',
+                          height: '56px',
+                          '@media (max-width:660px)': {
+                            width: '28px',
+                            height: '28px',
+                          },
+                        }}
+                      >
+                        <Image
+                          src={PersonIcon}
+                          alt="person icon"
+                          fill
+                          objectFit="contain"
+                          objectPosition="center"
+                        />
+                      </Box>
                     </Box>
+
                     <Box
                       sx={{
                         backgroundColor: 'rgba(245,65,65,1)',
-                        py: '30px',
-                        px: '20px',
+                        padding: '20px',
                         borderRadius: '20px',
                         boxShadow:
                           '0px 3.318px 92.907px 0px rgba(245, 65, 65, 0.40), 0px 3.318px 285.358px 0px #F54141',
+                        boxSizing: 'border-box',
+                        '@media (max-width:660px)': {
+                          padding: '10px',
+                          borderRadius: '10px',
+                        },
                       }}
                     >
-                      <Image src={CapIcon} alt="brain icon" />
+                      <Box
+                        sx={{
+                          position: 'relative',
+                          width: '72px',
+                          height: '72px',
+                          '@media (max-width:660px)': {
+                            width: '36px',
+                            height: '36px',
+                          },
+                        }}
+                      >
+                        <Image
+                          src={CapIcon}
+                          alt="cap icon"
+                          fill
+                          objectFit="contain"
+                          objectPosition="center"
+                        />
+                      </Box>
                     </Box>
+
                     <Box
                       sx={{
                         backgroundColor: 'rgba(255,255,255,1)',
-                        padding: '18px',
+                        padding: '16px',
                         borderRadius: '16px',
+                        boxSizing: 'border-box',
+                        '@media (max-width:660px)': {
+                          padding: '8px',
+                          borderRadius: '8px',
+                        },
                       }}
                     >
-                      <Image src={GlassIcon} alt="brain icon" />
+                      <Box
+                        sx={{
+                          position: 'relative',
+                          width: '56px',
+                          height: '56px',
+                          '@media (max-width:660px)': {
+                            width: '28px',
+                            height: '28px',
+                          },
+                        }}
+                      >
+                        <Image
+                          src={GlassIcon}
+                          alt="glass icon"
+                          fill
+                          objectFit="contain"
+                          objectPosition="center"
+                        />
+                      </Box>
                     </Box>
+
                     <Box
                       sx={{
                         backgroundColor: 'rgba(255,255,255,1)',
-                        py: '18px',
-                        px: '22px',
+                        padding: '14px',
                         borderRadius: '14px',
+                        boxSizing: 'border-box',
+                        '@media (max-width:660px)': {
+                          padding: '7px',
+                          borderRadius: '7px',
+                        },
                       }}
                     >
-                      <Image src={FileIcon} alt="file icon" />
+                      <Box
+                        sx={{
+                          position: 'relative',
+                          width: '44px',
+                          height: '44px',
+                          '@media (max-width:660px)': {
+                            width: '22px',
+                            height: '22px',
+                          },
+                        }}
+                      >
+                        <Image
+                          src={FileIcon}
+                          alt="file icon"
+                          fill
+                          objectFit="contain"
+                          objectPosition="center"
+                        />
+                      </Box>
                     </Box>
                   </Box>
                   <Box>
@@ -218,9 +368,13 @@ const Mentorship = () => {
                         fontSize: '14px',
                         fontWeight: '400',
                         lineHeight: '21px',
-                        color: 'rgba(255, 255, 255, 1)',
+                        color: 'rgba(255, 255, 255, 0.8)',
                         textAlign: 'center',
                         fontFamily: 'Sf Pro Text',
+                        '@media (max-width:660px)': {
+                          fontSize: '12px',
+                          lineHeight: '18px',
+                        },
                       }}
                     >
                       Receive direct mentorship from experienced traders. Our

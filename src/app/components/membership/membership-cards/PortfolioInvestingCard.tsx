@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
-import Portfolio from '../../../../../public/images/membership/portfolio.svg';
+import Portfolio from '../../../../../public/images/membership/portfolio.png';
 const PortfolioInvestingCard = () => {
   return (
     <Box
@@ -12,17 +12,25 @@ const PortfolioInvestingCard = () => {
         padding: '24px',
         borderRadius: '24px',
         width: '33%',
-        height: '100%',
+        height: '423px',
         boxSizing: 'border-box',
+        '@media (max-width:855px)': {
+          padding: '16px',
+        },
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
       }}
     >
       <Box
         sx={{
           position: 'relative',
-          aspectRatio: '1',
+          maxWidth: '262px',
+          height: '262px',
+          mx: 'auto',
         }}
       >
-        <Image src={Portfolio} alt="Image of bag" fill objectFit="cover" />
+        <Image src={Portfolio} alt="Image of bag" fill objectFit="contain" />
       </Box>
 
       <Box sx={{ mt: '30px' }}>
@@ -33,6 +41,9 @@ const PortfolioInvestingCard = () => {
             lineHeight: '24px',
             fontWeight: '500',
             mb: '4px',
+            '@media (max-width:660px)': {
+              fontSize: '18px',
+            },
           }}
         >
           Portfolio Investing
@@ -44,6 +55,9 @@ const PortfolioInvestingCard = () => {
             fontWeight: '400',
             lineHeight: '18px',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           Our platform provides insights and strategies for long-term wealth

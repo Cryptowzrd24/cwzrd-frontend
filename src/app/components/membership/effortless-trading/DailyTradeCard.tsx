@@ -39,6 +39,9 @@ const DailyTradeCard = () => {
             lineHeight: '29px',
             color: 'rgba(255, 255, 255, 1)',
             mb: '4px',
+            '@media (max-width:660px)': {
+              fontSize: '24px',
+            },
           }}
         >
           Daily Trade <br />
@@ -51,6 +54,9 @@ const DailyTradeCard = () => {
             lineHeight: '18px',
             color: 'rgba(255, 255, 255, 0.8)',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           Receive expert daily trade signals, tailored to give you a competitive

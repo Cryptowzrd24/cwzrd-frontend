@@ -57,11 +57,19 @@ const ProfitCard = () => {
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        width: '50%',
+        height: '353px',
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
+      }}
+    >
       <motion.div
         style={{
           padding: '24px',
-          width: '50%',
+          width: '100%',
           height: '100%',
           borderRadius: '24px',
           flex: 1,
@@ -75,7 +83,6 @@ const ProfitCard = () => {
         variants={backgroundVariants}
       >
         <Typography
-          variant="body1"
           component={motion.div}
           sx={{
             fontSize: '12px',
@@ -84,6 +91,9 @@ const ProfitCard = () => {
             mb: '24px',
             letterSpacing: '1px',
             lineHeight: '15.6px',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
           variants={textVariants}
         >
@@ -117,6 +127,10 @@ const ProfitCard = () => {
                 maxWidth: '380px',
                 lineHeight: '33px',
                 fontWeight: 700,
+                '@media (max-width:885px)': {
+                  fontSize: '20px',
+                  lineHeight: '26px',
+                },
               }}
             >
               Maximize your earnings with
@@ -198,7 +212,7 @@ const ProfitCard = () => {
           </Box>
         </Box>
       </motion.div>
-    </>
+    </Box>
   );
 };
 

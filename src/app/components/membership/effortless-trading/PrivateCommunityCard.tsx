@@ -42,6 +42,9 @@ const PrivateCommunityCard = () => {
             lineHeight: '21px',
             color: 'rgba(255, 255, 255, 1)',
             mb: '4px',
+            '@media (max-width:660px)': {
+              fontSize: '16px',
+            },
           }}
         >
           Private Community
@@ -53,6 +56,9 @@ const PrivateCommunityCard = () => {
             lineHeight: '18px',
             color: 'rgba(255, 255, 255, 0.8)',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           Our course has been made to guide a beginner and empower them with all

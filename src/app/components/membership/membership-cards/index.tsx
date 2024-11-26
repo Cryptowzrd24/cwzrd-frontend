@@ -10,10 +10,11 @@ const MembershipCards = () => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
         gap: '24px',
-        height: '423px',
         boxSizing: 'border-box',
+        '@media (max-width:768px)': {
+          flexDirection: 'column',
+        },
       }}
     >
       <PortfolioInvestingCard />

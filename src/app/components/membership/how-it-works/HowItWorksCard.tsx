@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material';
-import Image from 'next/image';
 import React from 'react';
 
 interface HowItWorksCardProps {
@@ -7,7 +6,6 @@ interface HowItWorksCardProps {
   title: string;
   description: string;
   imagePath: string;
-  bg?: string;
 }
 
 const HowItWorksCard: React.FC<HowItWorksCardProps> = ({
@@ -15,7 +13,6 @@ const HowItWorksCard: React.FC<HowItWorksCardProps> = ({
   title,
   description,
   imagePath,
-  bg,
 }) => {
   return (
     <Box
@@ -23,11 +20,15 @@ const HowItWorksCard: React.FC<HowItWorksCardProps> = ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        background: `${bg ? bg : 'rgba(31,31,31,1)'}`,
+        backgroundImage: `url(${imagePath})`,
+        backgroundSize: 'cover',
         borderRadius: '24px',
         maxWidth: '305px',
+        minHeight: '440px',
         width: '100%',
         padding: '32px 24px 0 24px',
+        marginRight: '16px',
+        boxSizing: 'border-box',
       }}
     >
       <Box
@@ -61,6 +62,9 @@ const HowItWorksCard: React.FC<HowItWorksCardProps> = ({
             mb: '4px',
             fontFamily: 'SF Pro Display',
             textAlign: 'center',
+            '@media (max-width:660px)': {
+              fontSize: '18px',
+            },
           }}
         >
           {title}
@@ -68,36 +72,19 @@ const HowItWorksCard: React.FC<HowItWorksCardProps> = ({
         <Typography
           sx={{
             maxWidth: '260px',
-            color: 'rgba(255,255,255,1)',
+            color: 'rgba(255,255,255,0.8)',
             fontSize: '12px',
             fontWeight: '400',
             lineHeight: '18px',
             fontFamily: 'SF Pro Text',
             textAlign: 'center',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           {description}
         </Typography>
-      </Box>
-
-      <Box
-        sx={{
-          height: '100%',
-          position: 'relative',
-          aspectRatio: '1',
-          width: '100%',
-        }}
-      >
-        <Image
-          src={imagePath}
-          alt="iphone"
-          fill
-          style={{
-            height: '100%',
-            objectFit: 'contain',
-            objectPosition: 'bottom',
-          }}
-        />
       </Box>
     </Box>
   );

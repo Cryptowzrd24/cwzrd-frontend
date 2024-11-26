@@ -111,9 +111,14 @@ const TradeTracker = () => {
                   fontWeight: '700',
                   lineHeight: '29px',
                   color: 'rgba(255, 255, 255, 1)',
-                  padding: '0 32px 32px 32px',
+                  padding: '0 32px 32px',
                   boxSizing: 'border-box',
                   maxWidth: '457px',
+                  '@media (max-width:660px)': {
+                    fontSize: '20px',
+                    lineHeight: '22px',
+                    padding: '0 24px 32px',
+                  },
                 }}
               >
                 <span style={{ color: 'rgba(254,215,69,1)' }}>

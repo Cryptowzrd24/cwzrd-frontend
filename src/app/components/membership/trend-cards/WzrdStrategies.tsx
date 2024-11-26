@@ -8,10 +8,15 @@ const WzrdStrategies = () => {
   return (
     <Box
       sx={{
+        width: '33%',
         backgroundColor: 'rgba(216,223,242,1)',
         borderRadius: '24px',
         boxSizing: 'border-box',
         overflow: 'hidden',
+        height: '353px',
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
       }}
     >
       <Box>
@@ -26,13 +31,15 @@ const WzrdStrategies = () => {
             px: '36px',
             letterSpacing: '1px',
             lineHeight: '15.6px',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           Wzrd Strategies
         </Typography>
 
         <Typography
-          variant="h1"
           sx={{
             fontSize: '20px',
             fontWeight: '700',
@@ -40,15 +47,35 @@ const WzrdStrategies = () => {
             px: '36px',
             mb: '20px',
             color: 'rgba(17, 17, 17, 1)',
-            width: '236px',
+            maxWidth: '236px',
+            '@media (max-width:1014px)': {
+              pr: '12px',
+            },
+            '@media (max-width:660px)': {
+              fontSize: '20px',
+            },
           }}
         >
           Designed to maximize profits and minimize risk.
         </Typography>
       </Box>
 
-      <Box>
-        <Image src={WzrdStrategy} alt="graph" />
+      <Box
+        sx={{
+          position: 'relative',
+          maxWidth: '342px',
+          width: '100%',
+          aspectRatio: '1',
+          mx: 'auto',
+        }}
+      >
+        <Image
+          src={WzrdStrategy}
+          alt="graph"
+          fill
+          objectFit="contain"
+          objectPosition="top"
+        />
       </Box>
     </Box>
   );

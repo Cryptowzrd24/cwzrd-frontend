@@ -40,19 +40,27 @@ const WzrdBooks = () => {
             mb: '6px',
             letterSpacing: '1px',
             lineHeight: '43px',
+            '@media (max-width:660px)': {
+              fontSize: '26px',
+              lineHeight: '34px',
+              pt: '24px',
+            },
           }}
         >
-          26 WZRD Books
+          26 WZRD <br /> Books
         </Typography>
 
         <Typography
-          variant="h1"
           sx={{
             fontSize: '14px',
             fontWeight: '400',
             lineHeight: '20px',
             color: 'rgba(255, 255, 255, 0.8)',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '14px',
+              mb: '4px',
+            },
           }}
         >
           Access our library of 26 comprehensive books packed with trading

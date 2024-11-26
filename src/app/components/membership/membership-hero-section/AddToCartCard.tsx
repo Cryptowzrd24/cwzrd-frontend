@@ -9,9 +9,12 @@ const AddToCartCard = () => {
     <Box
       sx={{
         backgroundImage: `url('/images/membership/lifetimeBg.png')`,
-        width: '343px',
+        maxWidth: '343px',
         backgroundSize: 'cover',
         borderRadius: '24px',
+        '@media (max-width:786px)': {
+          maxWidth: 'none',
+        },
       }}
     >
       <Box
@@ -37,7 +40,8 @@ const AddToCartCard = () => {
               fontWeight: '700',
               lineHeight: '16px',
               fontFamily: 'SF Pro Text',
-              background: 'linear-gradient(80deg, #9F48F7 100%, #634DFD 100%)',
+              background:
+                'linear-gradient(80deg, #9F48F7 6.21%, #634DFD 96.42%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}
@@ -54,19 +58,21 @@ const AddToCartCard = () => {
         }}
       >
         <Typography
-          variant="h5"
           sx={{
             fontSize: '20px',
             fontWeight: '500',
             lineHeight: '20px',
             color: 'rgba(255, 255, 255, 1)',
             mb: '8px',
+            '@media (max-width:660px)': {
+              fontSize: '18px',
+              lineHeight: '18px',
+            },
           }}
         >
           Lifetime Membership
         </Typography>
         <Typography
-          variant="h5"
           sx={{
             fontSize: '16px',
             fontWeight: '400',
@@ -74,6 +80,10 @@ const AddToCartCard = () => {
             color: 'rgba(255, 255, 255, 0.8)',
             fontFamily: 'Sf Pro Text',
             mb: '32px',
+            '@media (max-width:660px)': {
+              fontSize: '14px',
+              lineHeight: '21px',
+            },
           }}
         >
           A one-time fee with no reoccurring monthly charge ensures you get the
@@ -83,18 +93,40 @@ const AddToCartCard = () => {
         <Box
           sx={{
             display: 'flex',
-            gap: '12px',
+            gap: '8px',
             alignItems: 'center',
             mb: '24px',
           }}
         >
           <Typography
             sx={{
-              fontSize: '40px',
+              fontSize: '32px',
               fontWeight: '400',
-              lineHeight: '40px',
+              lineHeight: '32px',
               color: 'rgba(255, 255, 255, 1)',
               fontFamily: 'SF Pro Display',
+              letterSpacing: '-1px',
+              '@media (max-width:660px)': {
+                fontSize: '28px',
+                lineHeight: '28px',
+              },
+            }}
+          >
+            £314.99
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: '16px',
+              fontWeight: '400',
+              lineHeight: '16px',
+              color: 'rgba(255, 252, 52, 1)',
+              fontFamily: 'SF Pro Display',
+              letterSpacing: '-1px',
+              textDecoration: 'line-through',
+              '@media (max-width:660px)': {
+                fontSize: '14px',
+                lineHeight: '14px',
+              },
             }}
           >
             £450.99
@@ -114,6 +146,9 @@ const AddToCartCard = () => {
                 lineHeight: '13px',
                 fontFamily: 'SF Pro Display',
                 color: 'rgba(255,255,255,1)',
+                '@media (max-width:660px)': {
+                  fontSize: '10px',
+                },
               }}
             >
               One-time fee

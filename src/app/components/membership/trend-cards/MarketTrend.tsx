@@ -5,12 +5,16 @@ const MarketTrend = () => {
   return (
     <Box
       sx={{
-        width: '638px',
+        width: '67%',
+        height: '353px',
         paddingLeft: '36px',
         backgroundImage: `url('/images/membership/marketTrend.png')`,
         backgroundSize: 'cover',
         borderRadius: '24px',
         boxSizing: 'border-box',
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
       }}
     >
       <Typography
@@ -23,33 +27,43 @@ const MarketTrend = () => {
           mt: '46px',
           letterSpacing: '1px',
           lineHeight: '15.6px',
+          '@media (max-width:660px)': {
+            fontSize: '12px',
+            mt: '96px',
+          },
         }}
       >
         Market outlooks
       </Typography>
 
       <Typography
-        variant="h1"
         sx={{
           fontSize: '32px',
           fontWeight: '700',
           lineHeight: '38px',
           mb: '33px',
           color: 'rgba(255, 255, 255, 1)',
-          width: '322px',
+          maxWidth: '322px',
+          pr: '107px',
+          '@media (max-width:660px)': {
+            fontSize: '24px',
+            lineHeight: '28px',
+          },
         }}
       >
         Get a clear perspective on market trends with our expert market
         outlooks.
       </Typography>
       <Typography
-        variant="body1"
         sx={{
           fontSize: '12px',
           fontWeight: '400',
           lineHeight: '20px',
           color: 'rgba(255, 255, 255, 1)',
-          width: '339px',
+          maxWidth: '339px',
+          '@media (max-width:660px)': {
+            fontSize: '12px',
+          },
         }}
       >
         Know where the market is heading and adjust your strategies accordingly.

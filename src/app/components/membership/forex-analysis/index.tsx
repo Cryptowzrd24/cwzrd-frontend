@@ -24,6 +24,9 @@ const ForexAnalysis = () => {
             mb: '8px',
             color: 'rgba(255, 255, 255, 1)',
             textWrap: 'balance',
+            '@media (max-width:660px)': {
+              fontSize: '24px',
+            },
           }}
         >
           Digital Market Analysis on Forex
@@ -36,6 +39,9 @@ const ForexAnalysis = () => {
             lineHeight: '21px',
             color: 'rgba(255, 255, 255, 0.8)',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '14px',
+            },
           }}
         >
           Access detailed daily analysis on the forex markets. Whether you're a

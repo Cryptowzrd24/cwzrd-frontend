@@ -49,14 +49,23 @@ const AirdropCard = () => {
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        width: '50%',
+        height: '380px',
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
+      }}
+    >
       <motion.div
         style={{
-          width: '50%',
+          width: '100%',
           height: '100%',
           borderRadius: '24px',
           position: 'relative',
           transition: 'all 0.325s linear',
+          backgroundSize: 'cover',
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -72,17 +81,19 @@ const AirdropCard = () => {
             letterSpacing: '1px',
             lineHeight: '15.6px',
             padding: '24px 0 0 24px',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           Airdrop calls
         </Typography>
         <Box
           sx={{
-            paddingLeft: '24px',
+            padding: '0 24px 60px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            paddingBottom: '60px',
           }}
         >
           <motion.img
@@ -109,12 +120,17 @@ const AirdropCard = () => {
               sx={{
                 fontSize: '26px',
                 color: 'rgba(255, 255, 255, 1)',
-                mt: '27px',
+                mt: '32px',
                 letterSpacing: 0.1,
                 maxWidth: '388px',
                 lineHeight: '28px',
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
+                '@media (max-width:855px)': {
+                  fontSize: '20px',
+                  lineHeight: '22px',
+                  mt: '60px',
+                },
               }}
             >
               Don't miss out on free opportunities. Stay informed on the latest
@@ -174,7 +190,7 @@ const AirdropCard = () => {
           </Box>
         </Box>
       </motion.div>
-    </>
+    </Box>
   );
 };
 

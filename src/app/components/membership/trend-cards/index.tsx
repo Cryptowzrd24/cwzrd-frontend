@@ -8,9 +8,11 @@ const TrendCards = () => {
     <Box
       sx={{
         borderRadius: '24px',
-        height: '353px',
         display: 'flex',
         gap: '26px',
+        '@media (max-width:768px)': {
+          flexDirection: 'column',
+        },
       }}
     >
       <MarketTrend />

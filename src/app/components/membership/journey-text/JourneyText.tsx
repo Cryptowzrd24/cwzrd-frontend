@@ -22,6 +22,11 @@ const JourneyText = () => {
             lineHeight: '18.2px',
             mb: '4px',
             color: 'rgba(255, 255, 255, 1)',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+              lineHeight: '15px',
+              fontWeight: '500',
+            },
           }}
         >
           EVERYTHING AND MORE
@@ -34,6 +39,11 @@ const JourneyText = () => {
             fontWeight: '700',
             lineHeight: '38px',
             color: 'rgba(255, 255, 255, 1)',
+            '@media (max-width:660px)': {
+              fontSize: '24px',
+              lineHeight: '28px',
+              fontWeight: '700',
+            },
           }}
         >
           <span
@@ -59,6 +69,10 @@ const JourneyText = () => {
             color: 'rgba(255, 255, 255, 0.8)',
             lineHeight: '21px',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '14px',
+              fontWeight: '400',
+            },
           }}
         >
           Unlock a wealth of benefits by joining our platform. From expert

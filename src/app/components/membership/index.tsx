@@ -23,6 +23,7 @@ import EffortlessTrading from './effortless-trading';
 import JourneyText from './journey-text/JourneyText';
 import FAQSection from './faq-section';
 import HowItWorks from './how-it-works';
+import ScrollDownText from './scroll-down-text';
 
 const Membership = () => {
   useEffect(() => {
@@ -46,13 +47,19 @@ const Membership = () => {
           marginTop: '-120px',
           backgroundPosition: 'center',
           mb: '120px',
+          position: 'relative',
         }}
       >
-        <MembershipHeroSection />
+        <Container maxWidth="xl">
+          <MembershipHeroSection />
+        </Container>
+        <ScrollDownText />
       </Box>
-      <Box sx={{ mb: '120px' }}>
-        <HowItWorks />
-      </Box>
+      <Container maxWidth="xl">
+        <Box sx={{ mb: '120px' }}>
+          <HowItWorks />
+        </Box>
+      </Container>
       <Box sx={{ mb: '120px' }}>
         <EffortlessTrading />
       </Box>
@@ -76,7 +83,14 @@ const Membership = () => {
             <MembershipCards />
           </Box>
 
-          <Box sx={{ mb: '24px' }}>
+          <Box
+            sx={{
+              mb: '24px',
+              '@media (max-width:768px)': {
+                display: 'none',
+              },
+            }}
+          >
             <StockAnalysis />
           </Box>
         </Box>

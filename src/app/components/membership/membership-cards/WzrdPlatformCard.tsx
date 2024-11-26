@@ -12,25 +12,40 @@ const WzrdPlatformCard = () => {
         padding: '24px',
         borderRadius: '24px',
         width: '33%',
-        height: '100%',
+        height: '423px',
         boxSizing: 'border-box',
+        '@media (max-width:855px)': {
+          padding: '16px',
+        },
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
       }}
     >
       <Box
         sx={{
           position: 'relative',
-          aspectRatio: '1',
+          maxWidth: '262px',
+          height: '262px',
+          mx: 'auto',
         }}
       >
         <Image
           src={Wzrd}
           fill
-          objectFit="cover"
+          objectFit="contain"
           alt="Image for Wzrd Platform"
         />
       </Box>
 
-      <Box sx={{ mt: '12px' }}>
+      <Box
+        sx={{
+          mt: '12px',
+          '@media (max-width:898px)': {
+            mt: '0',
+          },
+        }}
+      >
         <Typography
           sx={{
             fontSize: '18px',
@@ -38,6 +53,9 @@ const WzrdPlatformCard = () => {
             lineHeight: '24px',
             fontWeight: '500',
             mb: '4px',
+            '@media (max-width:660px)': {
+              fontSize: '18px',
+            },
           }}
         >
           WZRD Platform
@@ -50,6 +68,9 @@ const WzrdPlatformCard = () => {
             lineHeight: '18px',
             mr: '8px',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           Unlock the WZRD Platform for all your trading needs. From expert

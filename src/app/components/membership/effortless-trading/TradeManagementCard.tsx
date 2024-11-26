@@ -34,6 +34,9 @@ const TradeManagementCard = () => {
             color: 'rgba(255, 255, 255, 1)',
             mb: '38px',
             px: '22px',
+            '@media (max-width:660px)': {
+              fontSize: '24px',
+            },
           }}
         >
           Trade <br />
@@ -59,6 +62,9 @@ const TradeManagementCard = () => {
             color: 'rgba(255, 255, 255, 0.8)',
             px: '22px',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '13px',
+            },
           }}
         >
           Take control of your trades with expert trade management guidance.

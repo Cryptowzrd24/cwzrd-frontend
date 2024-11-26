@@ -74,9 +74,11 @@ const MembershipHeroSection = () => {
             color: 'rgba(255, 255, 255, 1)',
             '@media (max-width:834px)': {
               fontSize: '56px',
+              lineHeight: '56px',
             },
             '@media (max-width:660px)': {
               fontSize: '48px',
+              lineHeight: '48px',
             },
           }}
         >
@@ -87,7 +89,7 @@ const MembershipHeroSection = () => {
               color: 'rgba(255, 255, 65, 1)',
             }}
           >
-            40 % discount
+            30 % discount
           </span>{' '}
         </Typography>
 
@@ -96,7 +98,7 @@ const MembershipHeroSection = () => {
             display: 'flex',
             gap: '24px',
             alignItems: 'center',
-            marginBottom: '62px',
+            marginBottom: '42px',
             justifyContent: 'center',
             flexWrap: 'wrap',
           }}

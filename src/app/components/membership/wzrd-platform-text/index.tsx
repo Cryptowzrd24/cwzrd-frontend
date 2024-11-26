@@ -14,7 +14,6 @@ const WzrdPlatformText = () => {
         }}
       >
         <Typography
-          variant="body1"
           sx={{
             fontSize: '14px',
             fontWeight: '500',
@@ -23,18 +22,25 @@ const WzrdPlatformText = () => {
             lineHeight: '18.2px',
             mb: '4px',
             color: 'rgba(255, 255, 255, 1)',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+              lineHeight: '15px',
+            },
           }}
         >
           Education
         </Typography>
 
         <Typography
-          variant="h2"
           sx={{
             fontSize: '32px',
             fontWeight: '700',
             lineHeight: '38px',
             color: 'rgba(255, 255, 255, 1)',
+            '@media (max-width:660px)': {
+              fontSize: '24px',
+              lineHeight: '28px',
+            },
           }}
         >
           Virtually
@@ -53,7 +59,6 @@ const WzrdPlatformText = () => {
         </Typography>
 
         <Typography
-          variant="body1"
           sx={{
             fontSize: '14px',
             fontWeight: '400',
@@ -62,6 +67,9 @@ const WzrdPlatformText = () => {
             lineHeight: '21px',
             maxWidth: '574px',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '14px',
+            },
           }}
         >
           Join the industry's most exclusive Trading Community and unlock a

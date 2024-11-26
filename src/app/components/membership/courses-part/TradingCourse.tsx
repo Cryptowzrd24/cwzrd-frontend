@@ -81,21 +81,25 @@ const TradingCourse = () => {
             mb: '18px',
             lineHeight: '15.6px',
             padding: '24px 0 0 24px',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           76-Video (24 Hours) Trading Course
         </Typography>
         <Box
           sx={{
-            paddingInline: '42px',
+            pl: '42px',
+            pr: '24px',
             '@media (max-width:855px)': {
-              paddingInline: '24px',
+              pl: '24px',
               pb: '28px',
             },
           }}
         >
           <motion.img
-            src={'/images/membership/playIcon.svg'}
+            src={'/images/membership/playIcon.png'}
             alt="dollar sign"
             width={75}
             height={68}
@@ -118,6 +122,10 @@ const TradingCourse = () => {
                 lineHeight: '26px',
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
+                maxWidth: '224px',
+                '@media (max-width:660px)': {
+                  fontSize: '24px',
+                },
               }}
             >
               Master the art of trading with our 76-video course covering 24

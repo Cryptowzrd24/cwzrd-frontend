@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
-import PortfolioTimer from '../../../../../public/images/membership/portfolioTimer.svg';
+import PortfolioTimer from '../../../../../public/images/membership/portfolioTimer.png';
 import TickIcon from '../../../../../public/images/membership/tick.svg';
 import Image from 'next/image';
 
@@ -30,7 +30,9 @@ const PortfolioTracker = () => {
           position: 'relative',
         }}
       >
-        <Image src={PortfolioTimer} alt="graph" />
+        <Box>
+          <Image src={PortfolioTimer} alt="graph" width={225} />
+        </Box>
         <Box
           sx={{
             display: 'flex',
@@ -122,13 +124,15 @@ const PortfolioTracker = () => {
             textAlign: 'center',
             lineHeight: '26px',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '20px',
+            },
           }}
         >
           Portfolio Tracker
         </Typography>
 
         <Typography
-          variant="body1"
           sx={{
             fontSize: '12px',
             fontWeight: '400',
@@ -137,6 +141,9 @@ const PortfolioTracker = () => {
             color: 'rgba(255, 255, 255, 0.8)',
             maxWidth: '297px',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           Track and optimize your investments with our Portfolio Tracker. Keep

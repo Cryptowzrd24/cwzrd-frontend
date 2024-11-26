@@ -36,6 +36,9 @@ const MarketAnalysisCard = () => {
             mb: '8px',
             px: '26px',
             textAlign: 'center',
+            '@media (max-width:660px)': {
+              fontSize: '20px',
+            },
           }}
         >
           Daily Market Analysis on 30 Cryptos
@@ -50,6 +53,9 @@ const MarketAnalysisCard = () => {
             px: '22px',
             textAlign: 'center',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '10px',
+            },
           }}
         >
           Stay updated with daily, in-depth market analysis on 30

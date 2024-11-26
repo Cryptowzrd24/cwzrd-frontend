@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import Members from '../../../../../public/images/membership/members.png';
-import Map from '../../../../../public/images/membership/map2.svg';
+import Map from '../../../../../public/images/membership/map.svg';
 
 const CommunityMember = () => {
   return (
@@ -12,9 +12,13 @@ const CommunityMember = () => {
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         borderRadius: '24px',
         width: '50%',
-        height: '100%',
+        height: '423px',
+        overflow: 'hidden',
         backgroundImage:
           'linear-gradient(180deg, rgba(55, 97, 251, 1), rgba(55, 169, 251, 1))',
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
       }}
     >
       <Box
@@ -26,15 +30,18 @@ const CommunityMember = () => {
           width: '100%',
         }}
       >
-        <Image src={Members} alt="Multiple Members" />
+        <Image src={Members} alt="Multiple Members" width={110} height={36} />
         <Typography
           sx={{
             fontSize: '20px',
             color: 'rgba(255, 255, 255, 1)',
             lineHeight: '26px',
             fontWeight: '700',
-            mt: '24px',
+            mt: '20px',
             mb: '4px',
+            '@media (max-width:660px)': {
+              fontSize: '20px',
+            },
           }}
         >
           10,700+ Members
@@ -49,14 +56,22 @@ const CommunityMember = () => {
             textAlign: 'center',
             px: '40px',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           Join a thriving community of over 10,700 traders. Learn from others,
           share strategies, and grow together.
         </Typography>
       </Box>
-
-      <Box sx={{ mt: '-36px', position: 'relative', aspectRatio: '1' }}>
+      <Box
+        sx={{
+          position: 'relative',
+          aspectRatio: '1',
+          width: '100%',
+        }}
+      >
         <Image
           src={Map}
           alt="Multiple Members"

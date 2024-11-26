@@ -37,6 +37,9 @@ const DayTradeCard = () => {
             lineHeight: '24px',
             color: 'rgba(255, 255, 255, 1)',
             mb: '8px',
+            '@media (max-width:660px)': {
+              fontSize: '20px',
+            },
           }}
         >
           Day Trade Setups
@@ -49,6 +52,9 @@ const DayTradeCard = () => {
             color: 'rgba(255, 255, 255, 0.8)',
             textAlign: 'center',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '13px',
+            },
           }}
         >
           Find perfect day trade setups with our expert analysis. Our platform

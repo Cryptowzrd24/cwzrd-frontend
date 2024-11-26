@@ -85,7 +85,6 @@ const RealTimeData = () => {
         variants={backgroundVariants}
       >
         <Typography
-          variant="body1"
           component={motion.div}
           sx={{
             fontSize: '12px',
@@ -96,6 +95,9 @@ const RealTimeData = () => {
             pl: '24px',
             letterSpacing: '1px',
             lineHeight: '15.6px',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
           variants={textVariants}
         >

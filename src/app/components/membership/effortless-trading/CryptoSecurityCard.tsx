@@ -48,6 +48,9 @@ const CryptoSecurityCard = () => {
             mb: '8px',
             px: '26px',
             textAlign: 'center',
+            '@media (max-width:660px)': {
+              fontSize: '20px',
+            },
           }}
         >
           Crypto Security Education
@@ -61,6 +64,9 @@ const CryptoSecurityCard = () => {
             px: '22px',
             textAlign: 'center',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '13px',
+            },
           }}
         >
           Unsure when to take profits? Our experts provide clear, actionable

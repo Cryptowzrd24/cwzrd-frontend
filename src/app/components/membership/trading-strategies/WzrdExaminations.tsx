@@ -80,6 +80,9 @@ const WzrdExaminations = () => {
             letterSpacing: '1px',
             lineHeight: '15.6px',
             padding: '24px 0 0 26px',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           Wzrd examination
@@ -108,6 +111,10 @@ const WzrdExaminations = () => {
                 lineHeight: '20px',
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
+                '@media (max-width:660px)': {
+                  fontSize: '24px',
+                  lineHeight: '28px',
+                },
               }}
             >
               Test your knowledge with WZRD Examinations.

@@ -7,10 +7,11 @@ const CommunityCards = () => {
     <Box
       sx={{
         display: 'flex',
-        justifyContent: 'space-between',
         gap: '24px',
-        height: '423px',
         boxSizing: 'border-box',
+        '@media (max-width:768px)': {
+          flexDirection: 'column',
+        },
       }}
     >
       <CommunityMember />

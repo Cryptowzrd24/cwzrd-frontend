@@ -37,11 +37,6 @@ const EducationalGuides = () => {
     },
   };
 
-  const iconVariants = {
-    hidden: { opacity: 1, rotate: 0, filter: 'invert(1)' },
-    visible: { opacity: 1, rotate: 45, filter: 'invert(0)' },
-  };
-
   const loremVariants: any = {
     hidden: { opacity: 0, visibility: 'hidden', y: 20, display: 'none' },
     visible: {
@@ -84,7 +79,7 @@ const EducationalGuides = () => {
           }}
         >
           <motion.img
-            src={'/images/membership/educationalIcons.png'}
+            src={'/images/membership/educationalIcons.svg'}
             alt="educational icons"
             variants={imgAndTextVariants}
             initial="initial"
@@ -167,17 +162,14 @@ const EducationalGuides = () => {
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '16px',
-            bottom: '16px',
+            right: '14px',
+            bottom: '15px',
+            transform: active ? 'rotate(45deg)' : '',
+            transition: 'transform 0.5s ease-in-out',
           }}
         >
-          <motion.div
-            initial="hidden"
-            animate={active ? 'visible' : 'hidden'}
-            variants={iconVariants}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-            onClick={handleClick}
-            style={{
+          <Box
+            sx={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -186,9 +178,10 @@ const EducationalGuides = () => {
               borderRadius: '100px',
               cursor: 'pointer',
             }}
+            onClick={handleClick}
           >
             <PlusIcon />
-          </motion.div>
+          </Box>
         </Box>
       </motion.div>
     </>

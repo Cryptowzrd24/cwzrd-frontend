@@ -1,45 +1,63 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Box, Typography } from '@mui/material';
 import HowItWorksCard from './HowItWorksCard';
 
-import iPhone from '../../../../../public/images/membership/iPhoneHIW.svg';
+import Slider from 'react-slick';
+import ArrowLeftDark from '../../../../../public/icons/collections/arrowLeftDark';
+import ArrowRightDark from '../../../../../public/icons/collections/arrowRightDark';
 
 const howItWorksData = [
   {
     step: '01',
     title: 'Buy a Lifetime Membership',
     description: 'Pay with either a credit/debit card or via crypto',
-    imagePath: iPhone,
+    imagePath: '/images/membership/iPhoneBg.png',
   },
   {
     step: '02',
     title: 'Buy a Lifetime Membership',
     description:
       'Our platform provides insights and strategies for long-term wealth accumulation through smart portfolio investing.',
-    imagePath: iPhone,
+    imagePath: '/images/membership/mailBoxBg.png',
   },
   {
     step: '03',
     title: 'Follow Our Signals',
     description:
       'The WZRD Aggresive Scalping Strategy delivers consistent trades.',
-    imagePath: iPhone,
+    imagePath: '/images/membership/lockScreenBg.png',
   },
   {
     step: '04',
     title: 'Portfolio Investing',
     description:
       'Follow along with the trade signals in Discord. We trade using Bybit.',
-    imagePath: iPhone,
-    bg: 'linear-gradient(131deg, #BF48F7 -3.29%, #7E44F1 98.06%)',
+    imagePath: '/images/membership/appBg.png',
   },
 ];
 function HowItWorks() {
+  const sliderRef = useRef<Slider>(null);
+
+  const settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    variableWidth: true,
+  };
+
+  const handlePrev = () => {
+    sliderRef.current?.slickPrev();
+  };
+
+  const handleNext = () => {
+    sliderRef.current?.slickNext();
+  };
   return (
     <>
       <Box sx={{ mb: '40px' }}>
         <Typography
-          variant="h4"
           sx={{
             mb: '4px',
             letterSpacing: '1.4px',
@@ -49,27 +67,31 @@ function HowItWorks() {
             textTransform: 'uppercase',
             color: 'rgba(255, 255, 255, 1)',
             textAlign: 'center',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+              lineHeight: '15px',
+            },
           }}
         >
           Become a wzrd in minute{' '}
         </Typography>
         <Typography
-          variant="h2"
           sx={{
             fontSize: '32px',
             fontWeight: '700',
             lineHeight: '38px',
             color: 'rgba(255, 255, 255, 1)',
             textAlign: 'center',
+            '@media (max-width:660px)': {
+              fontSize: '24px',
+              lineHeight: '28px',
+            },
           }}
         >
           How It
           <span
             style={{
-              background:
-                'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
-              backgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: 'rgba(99, 77 ,253, 1)',
               paddingLeft: '6px',
             }}
           >
@@ -80,24 +102,70 @@ function HowItWorks() {
 
       <Box
         sx={{
-          display: 'flex',
-          gap: '24px',
-          paddingInline: '75px',
-          maxWidth: '1290px',
+          position: 'relative',
           width: '100%',
-          mx: 'auto',
+          display: 'flex',
+          gap: '8px',
         }}
       >
-        {howItWorksData.map((data, index) => (
-          <HowItWorksCard
-            key={index}
-            step={data.step}
-            title={data.title}
-            description={data.description}
-            imagePath={data.imagePath}
-            bg={data.bg ?? ''}
-          />
-        ))}
+        <Slider className="technicals-slick" ref={sliderRef} {...settings}>
+          {howItWorksData.map((data, index) => (
+            <HowItWorksCard
+              key={index}
+              step={data.step}
+              title={data.title}
+              description={data.description}
+              imagePath={data.imagePath}
+            />
+          ))}
+        </Slider>
+        <Box
+          style={{
+            position: 'absolute',
+            bottom: '-70px',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '48px',
+            gap: '8px',
+            right: '75px',
+          }}
+        >
+          <Box
+            onClick={handlePrev}
+            sx={{
+              cursor: 'pointer',
+              background: 'rgba(255, 255, 255, 0.10)',
+              borderRadius: '56px',
+              padding: '12px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              '&:hover': {
+                background: 'rgba(17, 17, 17, 0.10)',
+              },
+            }}
+          >
+            <ArrowLeftDark color="rgba(255, 255, 255, 1)" />
+          </Box>
+          <Box
+            onClick={handleNext}
+            sx={{
+              cursor: 'pointer',
+              background: 'rgba(255, 255, 255, 0.10)',
+              borderRadius: '56px',
+              padding: '12px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              '&:hover': {
+                background: 'rgba(17, 17, 17, 0.10)',
+              },
+            }}
+          >
+            <ArrowRightDark color="rgba(255, 255, 255, 1)" />
+          </Box>
+        </Box>
       </Box>
     </>
   );

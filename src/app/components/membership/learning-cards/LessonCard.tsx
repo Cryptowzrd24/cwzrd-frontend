@@ -12,14 +12,14 @@ const LessonCard = () => {
 
   const backgroundVariants = {
     initial: {
-      backgroundImage: `linear-gradient(180deg, rgba(180, 211, 255, 1), rgba(89, 125, 255, 1))`,
+      backgroundImage: `linear-gradient(180deg, rgba(74, 132, 213, 1), rgba(89, 125, 255, 1))`,
     },
     active: {
       backgroundImage:
         'linear-gradient(116.74deg, #F77F21 -4.07%, #F77F21 100.68%)',
     },
     inactive: {
-      backgroundImage: `linear-gradient(180deg, rgba(180, 211, 255, 1), rgba(89, 125, 255, 1))`,
+      backgroundImage: `linear-gradient(180deg, rgba(74, 132, 213, 1), rgba(89, 125, 255, 1))`,
     },
   };
 
@@ -49,11 +49,18 @@ const LessonCard = () => {
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        width: '50%',
+        height: '380px',
+        '@media (max-width:768px)': {
+          width: '100%',
+        },
+      }}
+    >
       <motion.div
         style={{
-          padding: '0 42px',
-          width: '50%',
+          width: '100%',
           height: '100%',
           borderRadius: '24px',
           position: 'relative',
@@ -69,18 +76,32 @@ const LessonCard = () => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
+            padding: '0 42px 32px',
+            '@media (max-width:855px)': {
+              padding: '0 16px 32px',
+            },
           }}
         >
-          <motion.img
-            src={'/images/membership/lessonTrading.png'}
-            alt="dollar sign"
-            variants={imgAndTextVariants}
-            initial="initial"
-            animate={active ? 'active' : 'inactive'}
-            style={{
-              objectFit: 'cover',
+          <Box
+            sx={{
+              maxWidth: '392px',
+              width: '100%',
+              margin: '0 auto',
             }}
-          />
+          >
+            <motion.img
+              src={'/images/membership/lessonTrading.png'}
+              alt="dollar sign"
+              variants={imgAndTextVariants}
+              initial="initial"
+              animate={active ? 'active' : 'inactive'}
+              style={{
+                objectFit: 'contain',
+                marginTop: '-5px',
+                width: '100%',
+              }}
+            />
+          </Box>
 
           <motion.div
             variants={imgAndTextVariants}
@@ -96,6 +117,10 @@ const LessonCard = () => {
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
                 textAlign: 'center',
+                '@media (max-width:660px)': {
+                  mt: '4px',
+                  fontSize: '26px',
+                },
               }}
             >
               Expert Lessons on Trading
@@ -108,6 +133,9 @@ const LessonCard = () => {
                 lineHeight: '21px',
                 textAlign: 'center',
                 fontFamily: 'Sf Pro Text',
+                '@media (max-width:660px)': {
+                  fontSize: '14px',
+                },
               }}
             >
               Learn from the best with expert-led lessons on trading. Gain the
@@ -168,7 +196,7 @@ const LessonCard = () => {
           </Box>
         </Box>
       </motion.div>
-    </>
+    </Box>
   );
 };
 

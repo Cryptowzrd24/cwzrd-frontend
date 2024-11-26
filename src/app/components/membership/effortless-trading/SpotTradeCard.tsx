@@ -18,6 +18,7 @@ const SpotTradeCard = () => {
         marginRight: '16px',
         boxShadow: '0px 4px 6px 0px #00000005',
         boxSizing: 'border-box',
+        overflow: 'hidden',
       }}
     >
       <Box
@@ -35,6 +36,9 @@ const SpotTradeCard = () => {
             color: 'rgba(255, 255, 255, 1)',
             mb: '4px',
             px: '21px',
+            '@media (max-width:660px)': {
+              fontSize: '16px',
+            },
           }}
         >
           Spot Trade Signals
@@ -57,6 +61,7 @@ const SpotTradeCard = () => {
         <Image
           src={Coins}
           alt="coin"
+          height={210}
           style={{
             objectFit: 'cover',
           }}
