@@ -31,11 +31,6 @@ const Mentorship = () => {
     inactive: { opacity: 1, display: 'block', transition: { duration: 0.325 } },
   };
 
-  const iconVariants = {
-    hidden: { rotate: 0, filter: 'invert(0)' },
-    visible: { rotate: 45, filter: 'invert(1)' },
-  };
-
   const loremVariants = {
     hidden: { opacity: 0, y: 20, transitionEnd: { display: 'none' } },
     visible: {

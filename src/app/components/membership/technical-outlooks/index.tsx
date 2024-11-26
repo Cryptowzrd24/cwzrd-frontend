@@ -31,11 +31,6 @@ const TechnicalOutlooks = () => {
     inactive: { opacity: 1, display: 'block', transition: { duration: 0.325 } },
   };
 
-  const iconVariants = {
-    hidden: { opacity: 1, rotate: 0, filter: 'invert(0)' },
-    visible: { opacity: 1, rotate: 45, filter: 'invert(1)' },
-  };
-
   const loremVariants = {
     hidden: { opacity: 0, y: 20, display: 'none' },
     visible: {
