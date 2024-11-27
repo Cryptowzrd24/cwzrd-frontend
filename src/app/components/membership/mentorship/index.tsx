@@ -129,6 +129,11 @@ const Mentorship = () => {
                     textAlign: 'start',
                     marginLeft: '27px',
                     maxWidth: '924px',
+                    width: '100%',
+                    '@media (max-width:660px)': {
+                      mt: '42px',
+                      fontSize: '12px',
+                    },
                   }}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed

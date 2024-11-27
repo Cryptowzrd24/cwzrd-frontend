@@ -67,6 +67,9 @@ const PortfolioTracker = () => {
               fontWeight: '500',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '14px',
+              '@media (max-width:660px)': {
+                fontSize: '11px',
+              },
             }}
           >
             Performance
@@ -107,6 +110,9 @@ const PortfolioTracker = () => {
               fontWeight: '500',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '14px',
+              '@media (max-width:660px)': {
+                fontSize: '11px',
+              },
             }}
           >
             Tracker

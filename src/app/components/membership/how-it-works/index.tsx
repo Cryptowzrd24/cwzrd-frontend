@@ -39,7 +39,7 @@ function HowItWorks() {
   const sliderRef = useRef<Slider>(null);
 
   const settings = {
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -102,13 +102,102 @@ function HowItWorks() {
 
       <Box
         sx={{
-          position: 'relative',
-          width: '100%',
-          display: 'flex',
-          gap: '8px',
+          display: 'none',
+          '@media (max-width:1290px)': {
+            display: 'block',
+          },
         }}
       >
-        <Slider className="technicals-slick" ref={sliderRef} {...settings}>
+        <Box
+          sx={{
+            position: 'relative',
+            maxWidth: '1290px',
+            mx: 'auto',
+            width: '100%',
+            display: 'flex',
+            gap: '8px',
+          }}
+        >
+          <Slider className="technicals-slick" ref={sliderRef} {...settings}>
+            {howItWorksData.map((data, index) => (
+              <HowItWorksCard
+                key={index}
+                step={data.step}
+                title={data.title}
+                description={data.description}
+                imagePath={data.imagePath}
+              />
+            ))}
+          </Slider>
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: '-70px',
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '48px',
+              gap: '8px',
+              right: '25px',
+              '@media (max-width:660px)': {
+                right: '50px',
+              },
+            }}
+          >
+            <Box
+              onClick={handlePrev}
+              sx={{
+                cursor: 'pointer',
+                background: 'rgba(255, 255, 255, 0.10)',
+                borderRadius: '56px',
+                padding: '12px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                '&:hover': {
+                  background: 'rgba(17, 17, 17, 0.10)',
+                },
+              }}
+            >
+              <ArrowLeftDark color="rgba(255, 255, 255, 1)" />
+            </Box>
+            <Box
+              onClick={handleNext}
+              sx={{
+                cursor: 'pointer',
+                background: 'rgba(255, 255, 255, 0.10)',
+                borderRadius: '56px',
+                padding: '12px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                '&:hover': {
+                  background: 'rgba(17, 17, 17, 0.10)',
+                },
+              }}
+            >
+              <ArrowRightDark color="rgba(255, 255, 255, 1)" />
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+
+      <Box
+        sx={{
+          '@media (max-width:1290px)': {
+            display: 'none',
+          },
+        }}
+      >
+        <Box
+          sx={{
+            position: 'relative',
+            width: '1290px',
+            mx: 'auto',
+            display: 'flex',
+            gap: '8px',
+          }}
+        >
           {howItWorksData.map((data, index) => (
             <HowItWorksCard
               key={index}
@@ -118,53 +207,6 @@ function HowItWorks() {
               imagePath={data.imagePath}
             />
           ))}
-        </Slider>
-        <Box
-          style={{
-            position: 'absolute',
-            bottom: '-70px',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            justifyContent: 'space-between',
-            width: '48px',
-            gap: '8px',
-            right: '75px',
-          }}
-        >
-          <Box
-            onClick={handlePrev}
-            sx={{
-              cursor: 'pointer',
-              background: 'rgba(255, 255, 255, 0.10)',
-              borderRadius: '56px',
-              padding: '12px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              '&:hover': {
-                background: 'rgba(17, 17, 17, 0.10)',
-              },
-            }}
-          >
-            <ArrowLeftDark color="rgba(255, 255, 255, 1)" />
-          </Box>
-          <Box
-            onClick={handleNext}
-            sx={{
-              cursor: 'pointer',
-              background: 'rgba(255, 255, 255, 0.10)',
-              borderRadius: '56px',
-              padding: '12px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              '&:hover': {
-                background: 'rgba(17, 17, 17, 0.10)',
-              },
-            }}
-          >
-            <ArrowRightDark color="rgba(255, 255, 255, 1)" />
-          </Box>
         </Box>
       </Box>
     </>

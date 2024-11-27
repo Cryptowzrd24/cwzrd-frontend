@@ -14,7 +14,7 @@ const TechnicalOutlooks = () => {
       backgroundImage: `url('/images/membership/technicalOutlook.svg')`,
     },
     active: {
-      backgroundImage: 'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)',
+      backgroundImage: `url('/images/membership/technicalOutlookBg.png')`,
     },
     inactive: {
       backgroundImage: `url('/images/membership/technicalOutlook.svg')`,
@@ -29,20 +29,6 @@ const TechnicalOutlooks = () => {
       transitionEnd: { display: 'none' },
     },
     inactive: { opacity: 1, display: 'block', transition: { duration: 0.325 } },
-  };
-
-  const textVariants = {
-    initial: { color: 'rgba(255, 255, 255, 1)' },
-    active: { color: 'rgba(0, 0, 0, 1)', transition: { duration: 0.325 } },
-    inactive: {
-      color: 'rgba(255, 255, 255, 1)',
-      transition: { duration: 0.325 },
-    },
-  };
-
-  const iconVariants = {
-    hidden: { opacity: 1, rotate: 0, filter: 'invert(0)' },
-    visible: { opacity: 1, rotate: 45, filter: 'invert(1)' },
   };
 
   const loremVariants = {
@@ -80,7 +66,6 @@ const TechnicalOutlooks = () => {
         variants={backgroundVariants}
       >
         <Typography
-          variant="body1"
           component={motion.div}
           sx={{
             fontSize: '12px',
@@ -91,12 +76,15 @@ const TechnicalOutlooks = () => {
             pl: '24px',
             letterSpacing: '1px',
             lineHeight: '15.6px',
+            color: 'rgba(255, 255, 255, 1)',
             '@media (max-width:660px)': {
               mb: '8px',
               fontSize: '12px',
             },
           }}
-          variants={textVariants}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
+          variants={imgAndTextVariants}
         >
           Daily technical outlooks
         </Typography>
@@ -107,20 +95,36 @@ const TechnicalOutlooks = () => {
               initial="hidden"
               animate="visible"
               variants={loremVariants}
+              style={{
+                padding: '24px',
+              }}
             >
               <Typography
                 sx={{
-                  fontSize: '14px',
+                  fontSize: '16px',
+                  fontWeight: '500',
                   color: 'rgba(255, 255, 255, 1)',
-                  letterSpacing: 0.1,
-                  lineHeight: '26px',
+                  lineHeight: '21px',
                   textAlign: 'start',
-                  ml: '28px',
-                  maxWidth: '690px',
+                  maxWidth: '226px',
+                }}
+              >
+                Lorem ipsum dolor sit
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: '16px',
+                  fontWeight: '400',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  mt: '77px',
+                  lineHeight: '24px',
+                  textAlign: 'start',
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry...
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book
               </Typography>
             </motion.div>
           )}
@@ -166,15 +170,12 @@ const TechnicalOutlooks = () => {
               position: 'absolute',
               right: '16px',
               bottom: '16px',
+              transform: active ? 'rotate(45deg)' : '',
+              transition: 'transform 0.5s ease-in-out',
             }}
           >
-            <motion.div
-              initial="hidden"
-              animate={active ? 'visible' : 'hidden'}
-              variants={iconVariants}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              onClick={handleClick}
-              style={{
+            <Box
+              sx={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -183,9 +184,10 @@ const TechnicalOutlooks = () => {
                 borderRadius: '100px',
                 cursor: 'pointer',
               }}
+              onClick={handleClick}
             >
               <PlusIcon />
-            </motion.div>
+            </Box>
           </Box>
         </Box>
       </motion.div>

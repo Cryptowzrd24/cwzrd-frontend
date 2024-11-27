@@ -13,22 +13,10 @@ const ProfitCard = () => {
   const backgroundVariants = {
     initial: { backgroundColor: 'rgba(31, 31, 31, 1)' },
     active: {
-      backgroundColor: '#ffffff',
+      backgroundColor: 'rgba(31, 31, 31, 1)',
     },
     inactive: {
       backgroundColor: 'rgba(31, 31, 31, 1)',
-    },
-  };
-
-  const textVariants = {
-    initial: { color: 'rgba(255, 255, 255, 1)' },
-    active: {
-      color: 'rgba(0, 0, 0, 1)',
-      transition: { duration: 0.325 },
-    },
-    inactive: {
-      color: 'rgba(255, 255, 255, 1)',
-      transition: { duration: 0.325 },
     },
   };
 
@@ -91,11 +79,14 @@ const ProfitCard = () => {
             mb: '24px',
             letterSpacing: '1px',
             lineHeight: '15.6px',
+            color: 'rgba(255, 255, 255, 1)',
             '@media (max-width:660px)': {
               fontSize: '12px',
             },
           }}
-          variants={textVariants}
+          variants={imgAndTextVariants}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
         >
           Take profit guidance
         </Typography>
@@ -160,40 +151,51 @@ const ProfitCard = () => {
               to cash in on your trades.
             </Typography>
           </motion.div>
-          {active && (
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={loremVariants}
-            >
-              <Typography
-                sx={{
-                  fontSize: '12px',
-                  color: 'rgba(0, 0, 0, 1)',
-                  mt: '125px',
-                  letterSpacing: 0.1,
-                  lineHeight: '22px',
-                  fontWeight: '400',
-                  marginLeft: '-32px',
-                }}
-              >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book <br />
-              </Typography>
-            </motion.div>
-          )}
         </Box>
+        {active && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={loremVariants}
+          >
+            <Typography
+              sx={{
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(255, 255, 255, 1)',
+                lineHeight: '21px',
+                textAlign: 'start',
+                maxWidth: '226px',
+              }}
+            >
+              Lorem ipsum dolor sit
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: '16px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 0.8)',
+                mt: '71px',
+                lineHeight: '24px',
+                textAlign: 'start',
+              }}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Typography>
+          </motion.div>
+        )}
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'end',
             position: 'absolute',
-            right: '14px',
-            bottom: '14px',
-            transition: 'all 0.5s ease-in-out',
+            right: '13px',
+            bottom: '13px',
             transform: active ? 'rotate(45deg)' : '',
+            transition: 'transform 0.5s ease-in-out',
           }}
         >
           <Box
@@ -202,13 +204,13 @@ const ProfitCard = () => {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '6px',
-              background: active ? '#000' : '#FFFFFF',
+              background: '#FFFFFF',
               borderRadius: '100px',
               cursor: 'pointer',
             }}
             onClick={handleClick}
           >
-            <PlusIcon active={active} />
+            <PlusIcon />
           </Box>
         </Box>
       </motion.div>

@@ -15,8 +15,7 @@ const TradingCourse = () => {
       backgroundImage: `linear-gradient(180deg, rgba(55, 97, 251, 1), rgba(55, 169, 251, 1))`,
     },
     active: {
-      backgroundImage:
-        'linear-gradient(116.74deg, #F77F21 -4.07%, #F77F21 100.68%)',
+      backgroundImage: `linear-gradient(180deg, rgba(55, 97, 251, 1), rgba(55, 169, 251, 1))`,
     },
     inactive: {
       backgroundImage: `linear-gradient(180deg, rgba(55, 97, 251, 1), rgba(55, 169, 251, 1))`,
@@ -71,6 +70,7 @@ const TradingCourse = () => {
         variants={backgroundVariants}
       >
         <Typography
+          component={motion.div}
           sx={{
             maxWidth: '144px',
             width: '100%',
@@ -85,6 +85,9 @@ const TradingCourse = () => {
               fontSize: '12px',
             },
           }}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
+          variants={imgAndTextVariants}
         >
           76-Video (24 Hours) Trading Course
         </Typography>
@@ -131,32 +134,55 @@ const TradingCourse = () => {
               hours of in-depth lessons.
             </Typography>
           </motion.div>
-
-          {active && (
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={loremVariants}
-              style={{ width: '100%' }}
-            >
-              <Typography
-                sx={{
-                  fontSize: '12px',
-                  color: 'rgba(255, 255, 255, 1)',
-                  mt: '82px',
-                  letterSpacing: 0.1,
-                  lineHeight: '20px',
-                  textAlign: 'start',
-                }}
-              >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book
-              </Typography>
-            </motion.div>
-          )}
         </Box>
+        {active && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={loremVariants}
+            style={{
+              width: '100%',
+              paddingInline: '24px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(255, 255, 255, 1)',
+                lineHeight: '21px',
+                textAlign: 'start',
+                maxWidth: '226px',
+                pt: '24px',
+                '@media (max-width:855px)': {
+                  pt: '0',
+                },
+              }}
+            >
+              Lorem ipsum dolor sit
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: '16px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 0.8)',
+                mt: '35px',
+                lineHeight: '24px',
+                textAlign: 'start',
+                '@media (max-width:855px)': {
+                  fontSize: '12px',
+                },
+              }}
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book
+            </Typography>
+          </motion.div>
+        )}
+
         <Box
           sx={{
             display: 'flex',

@@ -15,8 +15,7 @@ const AirdropCard = () => {
       backgroundImage: `url('/images/membership/airdropBg.png')`,
     },
     active: {
-      backgroundImage:
-        'linear-gradient(116.74deg, #F77F21 -4.07%, #F77F21 100.68%)',
+      backgroundImage: `url('/images/membership/airdropBg.png')`,
     },
     inactive: {
       backgroundImage: `url('/images/membership/airdropBg.png')`,
@@ -72,6 +71,7 @@ const AirdropCard = () => {
         variants={backgroundVariants}
       >
         <Typography
+          component={motion.div}
           sx={{
             fontSize: '12px',
             fontWeight: '400',
@@ -85,6 +85,9 @@ const AirdropCard = () => {
               fontSize: '12px',
             },
           }}
+          variants={imgAndTextVariants}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
         >
           Airdrop calls
         </Typography>
@@ -147,11 +150,24 @@ const AirdropCard = () => {
             >
               <Typography
                 sx={{
-                  fontSize: '12px',
+                  fontSize: '16px',
+                  fontWeight: '500',
                   color: 'rgba(255, 255, 255, 1)',
-                  mt: '82px',
-                  letterSpacing: 0.1,
-                  lineHeight: '20px',
+                  mt: '24px',
+                  lineHeight: '21px',
+                  textAlign: 'start',
+                  maxWidth: '226px',
+                }}
+              >
+                Lorem ipsum dolor sit
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: '16px',
+                  fontWeight: '400',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  mt: '105px',
+                  lineHeight: '24px',
                   textAlign: 'start',
                 }}
               >
