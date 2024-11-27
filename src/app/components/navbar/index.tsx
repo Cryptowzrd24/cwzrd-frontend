@@ -1,9 +1,8 @@
+// src/app/components/navbar/index.tsx
 'use client';
 import React, { useEffect, useState } from 'react';
-import Logo from '../../../../public/icons/logo';
-import LogoPurpleHat from '../../../../public/icons/logoPurpleHat';
-
-import { NavbarData } from './data';
+import { Select } from 'antd';
+import Cookies from 'js-cookie';
 import { Box, Container } from '@mui/material';
 import Link from 'next/link';
 import { useAppDispatch } from '@/app/redux/store';
@@ -13,27 +12,28 @@ import {
   updateSelectedWatchListMain,
   updateSelectedWatchListName,
 } from '@/app/redux/market';
-import Cookies from 'js-cookie';
-import './index.scss';
 import { usePathname } from 'next/navigation';
 import { useSelector } from 'react-redux';
 import { setFirstLoginToFalse } from '@/app/redux/user';
 import AuthModal from '../favorites/authModal';
 import FirstLoginModal from '../favorites/firstLoginModal';
 import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
-// import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
+import Logo from '../../../../public/icons/logo';
+import LogoPurpleHat from '../../../../public/icons/logoPurpleHat';
+import { ConfigProvider, theme } from 'antd';
+
+const { Option } = Select;
 
 function Navbar() {
-  const [activeId, setActiveId] = useState<string | null>(null);
-  console.log('activeID', activeId);
   const dispatch = useAppDispatch();
   const pathname = usePathname();
-  const { token, isFirstLogin } = useSelector((state: any) => state.user);
+  const { isFirstLogin } = useSelector((state: any) => state.user);
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [selectedCurrency, setSelectedCurrency] = useState<string>(
+    Cookies.get('currency') || 'USD',
+  );
 
   const [addWatchlist] = useAddWatchlistMutation();
-  // const { favorites } = useAppSelector((state: any) => state.market);
-  // const [addWatchlist] = useAddWatchlistMutation();
 
   useEffect(() => {
     const storedFavorites: any =
@@ -45,8 +45,6 @@ function Navbar() {
       dispatch(setMainWatchFavorites(JSON.parse(storedFavorites)));
     }
   }, [dispatch]);
-
-  useEffect(() => {}, [token]);
 
   useEffect(() => {
     const favorites = JSON.parse(
@@ -63,12 +61,6 @@ function Navbar() {
     );
     dispatch(updateFavorites(favorites));
     dispatch(setMainWatchFavorites(mainWatchFavorites));
-
-    NavbarData.forEach((item) => {
-      if (window.location.pathname.includes(item.name.toLowerCase())) {
-        setActiveId(item.id);
-      }
-    });
   }, []);
 
   const createFirstWatchList = async () => {
@@ -108,6 +100,11 @@ function Navbar() {
     }
   };
 
+  const handleCurrencyChange = (value: string) => {
+    setSelectedCurrency(value);
+    Cookies.set('currency', value);
+  };
+
   return (
     <>
       {Cookies.get('favorites') && renderFirstLogin()}
@@ -129,6 +126,8 @@ function Navbar() {
         }
         style={{
           marginTop: '28px',
+          position: 'relative',
+          zIndex: '100',
         }}
       >
         <Container maxWidth="xl">
@@ -142,7 +141,7 @@ function Navbar() {
           >
             <Link href="/">
               {pathname === '/membership' ||
-              pathname === '/technicals' ||
+              pathname === '/' ||
               pathname === '/articles' ||
               pathname === '/news/crypto' ? (
                 <LogoPurpleHat />
@@ -150,6 +149,26 @@ function Navbar() {
                 <Logo />
               )}
             </Link>
+            <ConfigProvider
+              theme={{
+                algorithm: theme.darkAlgorithm,
+                token: {
+                  colorPrimary: '#634DFD',
+                },
+              }}
+            >
+              <Select
+                value={selectedCurrency}
+                onChange={handleCurrencyChange}
+                style={{ width: 120 }}
+              >
+                <Option value="GBP">GBP</Option>
+                <Option value="USD">USD</Option>
+                <Option value="EUR">EUR</Option>
+                <Option value="CAD">CAD</Option>
+                <Option value="AUD">AUD</Option>
+              </Select>
+            </ConfigProvider>
           </Box>
         </Container>
       </Box>

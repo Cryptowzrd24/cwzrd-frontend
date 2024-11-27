@@ -26,10 +26,11 @@ const ScrollDownText = () => {
           fontWeight: '700',
           lineHeight: '19px',
           fontFamily: 'Sf Pro Text',
-          background: 'linear-gradient(80deg, #FFC404 100%, #F2FF04 100%)',
-          backgroundClip: 'text',
-          WebkitBackgroundClip: 'text',
-          color: 'transparent',
+          // background: 'linear-gradient(80deg, #F2FF04 80%, #FFC404 100%)',
+          color: '#F2FF04',
+          // backgroundClip: 'text',
+          // WebkitBackgroundClip: 'text',
+          // color: 'transparent',
         }}
       >
         Scroll Down

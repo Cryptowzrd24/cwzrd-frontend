@@ -26,6 +26,10 @@ export default function CustomLayout({
             <Footer />
           </StoreProvider>
           <Script src="/ticker_websocket.js" strategy="afterInteractive" />
+          <Script
+            src="//code.tidio.co/gj53mlpfryjaana8cczknxelallwsasm.js"
+            async={true}
+          />
         </body>
       </html>
     </ThemeProvider>

@@ -42,7 +42,6 @@ const Membership = () => {
           objectFit: 'cover',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          zIndex: '-1',
           paddingTop: '120px',
           marginTop: '-120px',
           backgroundPosition: 'center',

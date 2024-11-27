@@ -1,8 +1,12 @@
-import { Typography } from '@mui/material';
-export default function Home() {
+import Membership from '@/app/components/membership';
+import React from 'react';
+
+const page = () => {
   return (
     <div>
-      <Typography variant="h1">hello world</Typography>
+      <Membership />
     </div>
   );
-}
+};
+
+export default page;

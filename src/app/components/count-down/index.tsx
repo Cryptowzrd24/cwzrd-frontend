@@ -3,15 +3,33 @@ import { Box } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 
 const CountDown = () => {
-  const [timeLeft, setTimeLeft] = useState('02D 03H 04M 05S');
+  const [timeLeft, setTimeLeft] = useState('');
 
   useEffect(() => {
+    const targetDate: any = new Date(Date.UTC(2024, 10, 29, 0, 0, 0)); // November 29, 2024, UTC
+
     const updateCountdown = () => {
-      // Logic to calculate the time left and update `timeLeft`
-      setTimeLeft('01D 02H 03M 04S');
+      const now: any = new Date();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        setTimeLeft('00D 00H 00M 00S');
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / (1000 * 60)) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
+
+      setTimeLeft(
+        `${String(days).padStart(2, '0')}D ${String(hours).padStart(2, '0')}H ${String(minutes).padStart(2, '0')}M ${String(seconds).padStart(2, '0')}S`,
+      );
     };
 
     const intervalId = setInterval(updateCountdown, 1000);
+
+    updateCountdown();
 
     return () => {
       clearInterval(intervalId);
@@ -26,11 +44,13 @@ const CountDown = () => {
         color: '#000',
         textAlign: 'center',
         fontSize: {
-          xs: '14px', // for screens <= 500px
-          sm: '18px', // for larger screens
+          xs: '14px',
+          sm: '18px',
         },
         fontWeight: '600',
         fontFamily: 'Sf Pro Display',
+        position: 'relative',
+        zIndex: '100',
       }}
     >
       BLACK FRIDAY SALE BEGINS IN {timeLeft}
