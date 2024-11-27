@@ -1,9 +1,9 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
 import LifetimeBanner from '../../../../../public/images/membership/lifetimeBanner.png';
-// import LockIcon from '../../../../../public/icons/lockIcon';
+import LockIcon from '../../../../../public/icons/lockIcon';
 
 const AddToCartCard = () => {
   return (
@@ -159,7 +159,7 @@ const AddToCartCard = () => {
           </Box>
         </Box>
 
-        {/* <Button
+        <Button
           sx={{
             borderRadius: '56px',
             width: '100%',
@@ -180,8 +180,8 @@ const AddToCartCard = () => {
         >
           <LockIcon />
           Coming Soon
-        </Button> */}
-        <div id="product-component-1732711102218"></div>
+        </Button>
+        {/* <div id="product-component-1732711102218"></div> */}
       </Box>
     </Box>
   );
