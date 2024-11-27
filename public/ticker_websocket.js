@@ -81,7 +81,7 @@ observer.observe(document.body, { childList: true, subtree: true });
 attachToggleEventListeners();
 
 (function () {
-  const targetDate = new Date(Date.UTC(2025, 10, 29, 0, 0, 0)); // November is month 10 (0-indexed)
+  const targetDate = new Date(Date.UTC(2024, 10, 27, 0, 0, 0));
   const currentDate = new Date();
 
   if (currentDate > targetDate) {
