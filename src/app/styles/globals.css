@@ -340,3 +340,8 @@ body {
 /* div[col-id='index'] {
   left: -7px !important;
 } */
+
+.technicals-slick {
+  /* min-width: 1px; */
+  width: 100%;
+}

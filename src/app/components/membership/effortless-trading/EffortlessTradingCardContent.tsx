@@ -21,9 +21,12 @@ const EffortlessTradingCardContent: React.FC = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1,
+    // slidesToScroll: 1,
     arrows: false,
+    touchMove: true,
+    swipe: true,
     variableWidth: true,
+    draggable: true,
   };
 
   const handlePrev = () => {
@@ -44,7 +47,7 @@ const EffortlessTradingCardContent: React.FC = () => {
           mb: '16px',
         }}
       >
-        <Slider className="" ref={sliderRef} {...settings}>
+        <Slider className="technicals-slick" ref={sliderRef} {...settings}>
           <PrivateCommunityCard />
           <DailyTradeCard />
           <SpotTradeCard />

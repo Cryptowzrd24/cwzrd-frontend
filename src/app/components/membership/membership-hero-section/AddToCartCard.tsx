@@ -181,7 +181,7 @@ const AddToCartCard = () => {
           <LockIcon />
           Coming Soon
         </Button> */}
-        <div id="product-component-1732655668473"></div>
+        <div id="product-component-1732711102218"></div>
       </Box>
     </Box>
   );
