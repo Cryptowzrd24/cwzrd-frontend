@@ -168,8 +168,9 @@ const CommunityChat = () => {
                   },
                 }}
               >
-                Engage in open conversations with fellow traders. Our community
-                chats foster collaboration, idea sharing, and collective growth.
+                Dive into our vibrant open community chat, and unlock a world of
+                real-time updates, 24/7 expert support, and exclusive insider
+                knowledge.
               </Typography>
             </Box>
           </Box>
@@ -193,7 +194,7 @@ const CommunityChat = () => {
                 maxWidth: '226px',
               }}
             >
-              Lorem ipsum dolor sit
+              Open Community Chats
             </Typography>
             <Typography
               sx={{
@@ -204,10 +205,12 @@ const CommunityChat = () => {
                 textAlign: 'start',
               }}
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book
+              Stay ahead with breaking market news, in-depth analysis, trades,
+              and lessons that deliver pure alpha. Connect with a thriving
+              network of like-minded individuals and gain unparalleled access to
+              the tools, insights, and strategies you need to dominate the
+              crypto market. This is more than a chat - it’s your gateway to
+              thriving in the crypto world.
             </Typography>
           </motion.div>
         )}

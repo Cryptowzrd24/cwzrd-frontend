@@ -159,7 +159,7 @@ const WzrdExaminations = () => {
                   mt: '24px',
                 }}
               >
-                Lorem ipsum dolor sit
+                WZRD Examination
               </Typography>
               <Typography
                 sx={{
@@ -175,10 +175,10 @@ const WzrdExaminations = () => {
                   },
                 }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Put your knowledge to the test with our dynamic exam package,
+                featuring 450 expert questions across 47 exams. These challenges
+                reinforce key concepts, sharpen your skills, and help you master
+                cryptocurrency trading like a pro.
               </Typography>
             </motion.div>
           )}

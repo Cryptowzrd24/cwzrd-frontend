@@ -75,9 +75,8 @@ const DailyTradeCard = () => {
             },
           }}
         >
-          Receive expert daily trade signals, tailored to give you a competitive
-          edge. Our alerts keep you informed and ready to act on market
-          opportunities.
+          Access daily trade signals from elite analysts to seize opportunities
+          confidently and achieve trading success.
         </Typography>
       </Box>
 
@@ -103,7 +102,7 @@ const DailyTradeCard = () => {
             mt: '21px',
           }}
         >
-          Lorem ipsum dolor sit
+          Daily Trade Signals
         </Typography>
         <Typography
           sx={{
@@ -114,10 +113,13 @@ const DailyTradeCard = () => {
             mt: '85px',
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Designed with precision and simplicity, these signals are your
+          blueprint for consistent profits, taking the guesswork out of trading
+          and replacing it with pure confidence. Whether you’re just starting or
+          already a pro, our cutting-edge insights keep you ahead of the
+          competition in the ever-evolving market. With our expert guidance,
+          building a profitable portfolio isn’t just possible - it’s
+          unstoppable.
         </Typography>
       </Box>
 

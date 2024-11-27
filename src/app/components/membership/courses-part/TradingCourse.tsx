@@ -175,10 +175,10 @@ const TradingCourse = () => {
                 },
               }}
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book
+              Ignite your trading journey with our 76-video masterclass, a
+              24-hour experience led by experts. Packed with insider strategies
+              and advanced techniques, this course is your blueprint to market
+              domination, transforming you into a trading powerhouse.
             </Typography>
           </motion.div>
         )}

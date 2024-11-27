@@ -114,7 +114,7 @@ const Mentorship = () => {
                   maxWidth: '226px',
                 }}
               >
-                Lorem ipsum dolor sit
+                Risk Management
               </Typography>
               <Typography
                 sx={{
@@ -124,12 +124,17 @@ const Mentorship = () => {
                   mt: '71px',
                   lineHeight: '24px',
                   textAlign: 'start',
+                  '@media (max-width:855px)': {
+                    fontSize: '14px',
+                  },
                 }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Master the art of protecting your investments with our proven
+                risk management techniques. We guide you through each trade,
+                minimizing risks and maximizing profits. Learn to identify
+                threats, set effective limits, and safeguard your portfolio. Our
+                approach ensures calculated risks and steady growth, helping you
+                trade smarter in the crypto market.
               </Typography>
             </motion.div>
           )}

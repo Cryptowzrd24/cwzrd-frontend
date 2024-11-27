@@ -136,8 +136,9 @@ const AirdropCard = () => {
                 },
               }}
             >
-              Don't miss out on free opportunities. Stay informed on the latest
-              airdrop calls and discover how to earn from them.
+              Discover how to earn free crypto effortlessly with our Airdrop
+              guides! Complete simple tasks to unlock free tokens and grow your
+              portfolio easily.
             </Typography>
           </motion.div>
 
@@ -159,7 +160,7 @@ const AirdropCard = () => {
                   maxWidth: '226px',
                 }}
               >
-                Lorem ipsum dolor sit
+                Airdrop Calls
               </Typography>
               <Typography
                 sx={{
@@ -171,10 +172,10 @@ const AirdropCard = () => {
                   textAlign: 'start',
                 }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book
+                Unlock the power of earning free crypto with our in-depth
+                airdrop guides! Complete simple, no-cost tasks to earn token
+                rewards from top blockchain projects. Maximize your rewards and
+                grow your portfolio effortlessly.
               </Typography>
             </motion.div>
           )}

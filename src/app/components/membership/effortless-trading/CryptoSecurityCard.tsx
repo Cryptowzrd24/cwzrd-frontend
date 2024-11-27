@@ -69,8 +69,8 @@ const CryptoSecurityCard = () => {
             },
           }}
         >
-          Unsure when to take profits? Our experts provide clear, actionable
-          guidance to help you lock in gains at the perfect time.
+          Secure your crypto with elite training to protect assets, avoid scams,
+          and trade confidently.
         </Typography>
       </Box>
     </Box>

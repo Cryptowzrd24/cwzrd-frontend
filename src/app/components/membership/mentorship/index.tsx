@@ -115,7 +115,7 @@ const Mentorship = () => {
                     maxWidth: '226px',
                   }}
                 >
-                  Lorem ipsum dolor sit
+                  Professional Mentorship
                 </Typography>
 
                 <Typography
@@ -136,14 +136,12 @@ const Mentorship = () => {
                     },
                   }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit.
+                  Having a mentor is a game-changer in mastering crypto trading.
+                  With professional guidance, you'll gain confidence, knowledge,
+                  and a proven strategy for consistent results. Our mentorship
+                  ensures you stay on track with clear steps and support every
+                  step of the way. Take control of your financial future like
+                  never before!
                 </Typography>
               </motion.div>
             )}
@@ -382,9 +380,12 @@ const Mentorship = () => {
                         },
                       }}
                     >
-                      Receive direct mentorship from experienced traders. Our
-                      professional guidance ensures you have the support needed
-                      to improve your skills and strategies.
+                      Trade with unstoppable confidence, knowing an expert
+                      mentor is by your side every step of the way. Our
+                      professional guidance ensures you’re never alone as you
+                      conquer the market. Armed with proven strategies and
+                      unwavering support, success isn’t just within reach—it’s
+                      yours for the taking.
                     </Typography>
                   </Box>
                 </Box>
