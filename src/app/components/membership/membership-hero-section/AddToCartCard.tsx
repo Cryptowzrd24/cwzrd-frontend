@@ -101,7 +101,7 @@ const AddToCartCard = () => {
             mb: '24px',
           }}
         >
-          <Typography
+          {/* <Typography
             sx={{
               fontSize: '32px',
               fontWeight: '400',
@@ -133,7 +133,7 @@ const AddToCartCard = () => {
             }}
           >
             £450.99
-          </Typography>
+          </Typography> */}
           <Box
             sx={{
               background: 'rgba(255, 255, 255, 0.1)',
