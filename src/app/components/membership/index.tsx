@@ -54,14 +54,12 @@ const Membership = () => {
         </Container>
         <ScrollDownText />
       </Box>
-      <Box sx={{ mb: '120px' }}>
+      <Box sx={{ mb: '42px' }}>
         <EffortlessTrading />
       </Box>
-      <Container maxWidth="xl">
-        <Box sx={{ mb: '120px' }}>
-          <HowItWorks />
-        </Box>
-      </Container>
+      <Box>
+        <HowItWorks />
+      </Box>
       <Container maxWidth="xl">
         <Box
           sx={{
@@ -201,7 +199,7 @@ const Membership = () => {
               mx: 'auto',
             }}
           >
-            <Box sx={{ mb: '120px' }}>
+            <Box sx={{ mb: '80px' }}>
               <FAQSection />
             </Box>
             <Box sx={{ mb: '24px' }}>

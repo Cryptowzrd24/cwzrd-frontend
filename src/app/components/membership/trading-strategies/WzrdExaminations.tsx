@@ -59,8 +59,8 @@ const WzrdExaminations = () => {
       <motion.div
         style={{
           width: '100%',
-          minHeight: '352px',
-
+          height: '352px',
+          overflow: 'hidden',
           borderRadius: '24px',
           position: 'relative',
           transition: 'all 0.325s linear',
@@ -92,25 +92,23 @@ const WzrdExaminations = () => {
         </Typography>
         <Box
           sx={{
-            paddingInline: '26px 48px',
+            paddingInline: '26px',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
+            height: '100%',
+            boxSizing: 'border-box',
           }}
         >
           <motion.div
             variants={imgAndTextVariants}
             initial="initial"
             animate={active ? 'active' : 'inactive'}
-            style={{
-              height: '100%',
-            }}
           >
             <Typography
               sx={{
                 fontSize: '16px',
                 color: 'rgba(255, 255, 255, 1)',
-                mb: '32px',
+                maxWidth: '235px',
                 lineHeight: '20px',
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
@@ -127,11 +125,12 @@ const WzrdExaminations = () => {
           <motion.img
             src={'/images/membership/iPhone.png'}
             alt="dollar sign"
-            width={206}
             variants={imgAndTextVariants}
             initial="initial"
             animate={active ? 'active' : 'inactive'}
             style={{
+              maxWidth: '206px',
+              marginTop: 'auto',
               height: '100%',
               objectFit: 'contain',
               fill: '#F9C53A',
@@ -139,43 +138,51 @@ const WzrdExaminations = () => {
                 'drop-shadow(0px 19.141px 80.706px rgba(255, 208, 88, 0.24))',
             }}
           />
+          {active && (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={loremVariants}
+              style={{
+                width: '100%',
+                boxSizing: 'border-box',
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: '16px',
+                  fontWeight: '500',
+                  color: 'rgba(255, 255, 255, 1)',
+                  lineHeight: '21px',
+                  textAlign: 'start',
+                  maxWidth: '226px',
+                  mt: '24px',
+                }}
+              >
+                Lorem ipsum dolor sit
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: '16px',
+                  fontWeight: '400',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  mt: '33px',
+                  lineHeight: '24px',
+                  textAlign: 'start',
+                  '@media (max-width:855px)': {
+                    fontSize: '14px',
+                    lineHeight: '20px',
+                  },
+                }}
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </Typography>
+            </motion.div>
+          )}
         </Box>
-        {active && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={loremVariants}
-            style={{ width: '100%', padding: '24px', boxSizing: 'border-box' }}
-          >
-            <Typography
-              sx={{
-                fontSize: '16px',
-                fontWeight: '500',
-                color: 'rgba(255, 255, 255, 1)',
-                lineHeight: '21px',
-                textAlign: 'start',
-                maxWidth: '226px',
-              }}
-            >
-              Lorem ipsum dolor sit
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: '16px',
-                fontWeight: '400',
-                color: 'rgba(255, 255, 255, 0.8)',
-                mt: '33px',
-                lineHeight: '24px',
-                textAlign: 'start',
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-          </motion.div>
-        )}
         <Box
           sx={{
             display: 'flex',

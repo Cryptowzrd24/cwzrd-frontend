@@ -1,7 +1,7 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
@@ -9,15 +9,27 @@ const TechnicalOutlooks = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => setActive((prev) => !prev);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 660px)');
+    const handleResize = () => setIsMobile(mediaQuery.matches);
+
+    handleResize();
+    mediaQuery.addEventListener('change', handleResize);
+
+    return () => mediaQuery.removeEventListener('change', handleResize);
+  }, []);
+
   const backgroundVariants = {
     initial: {
-      backgroundImage: `url('/images/membership/technicalOutlook.svg')`,
+      backgroundImage: `url(${isMobile ? '/images/membership/technicalOutlookMobile.svg' : '/images/membership/technicalOutlook.svg'})`,
     },
     active: {
-      backgroundImage: `url('/images/membership/technicalOutlookBg.png')`,
+      backgroundImage: `url(${isMobile ? '/images/membership/technicalOutlookMobileBg.svg' : '/images/membership/technicalOutlookBg.png'})`,
     },
     inactive: {
-      backgroundImage: `url('/images/membership/technicalOutlook.svg')`,
+      backgroundImage: `url(${isMobile ? '/images/membership/technicalOutlookMobile.svg' : '/images/membership/technicalOutlook.svg'})`,
     },
   };
 

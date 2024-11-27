@@ -35,33 +35,39 @@ const EffortlessTradingCardContent: React.FC = () => {
   };
 
   return (
-    <Box
-      style={{
-        position: 'relative',
-        width: '100%',
-        display: 'flex',
-        gap: '8px',
-      }}
-    >
-      <Slider className="technicals-slick" ref={sliderRef} {...settings}>
-        <PrivateCommunityCard />
-        <DailyTradeCard />
-        <SpotTradeCard />
-        <DayTradeCard />
-        <MarketAnalysisCard />
-        <CryptoSecurityCard />
-        <TradeManagementCard />
-      </Slider>
+    <>
       <Box
-        style={{
-          position: 'absolute',
-          bottom: '-70px',
-          transform: 'translateX(-50%)',
+        sx={{
           display: 'flex',
-          justifyContent: 'space-between',
-          width: '48px',
           gap: '8px',
-          right: '75px',
+          overflowX: 'hidden',
+          mb: '16px',
+        }}
+      >
+        <Slider className="" ref={sliderRef} {...settings}>
+          <PrivateCommunityCard />
+          <DailyTradeCard />
+          <SpotTradeCard />
+          <DayTradeCard />
+          <MarketAnalysisCard />
+          <TradeManagementCard />
+          <CryptoSecurityCard />
+        </Slider>
+      </Box>
+
+      <Box
+        sx={{
+          display: 'flex',
+          maxWidth: '104px',
+          width: '100%',
+          gap: '8px',
+          margin: '0 75px 0 auto',
+          '@media (max-width:855px)': {
+            margin: '0 25px 0 auto',
+          },
+          '@media (max-width:660px)': {
+            margin: '0 16px 0 auto',
+          },
         }}
       >
         <Box
@@ -99,7 +105,7 @@ const EffortlessTradingCardContent: React.FC = () => {
           <ArrowRightDark color="rgba(255, 255, 255, 1)" />
         </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 
