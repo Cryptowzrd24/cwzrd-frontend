@@ -52,6 +52,9 @@ const SpotTradeCard = () => {
             mb: '61px',
             px: '21px',
             fontFamily: 'Sf Pro Text',
+            '@media (max-width:660px)': {
+              fontSize: '12px',
+            },
           }}
         >
           Get real-time spot trade signals delivered directly to you, helping

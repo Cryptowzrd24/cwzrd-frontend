@@ -10,6 +10,7 @@ const MarketTrend = () => {
         paddingLeft: '36px',
         backgroundImage: `url('/images/membership/marketTrend.png')`,
         backgroundSize: 'cover',
+        backgroundPosition: 'center',
         borderRadius: '24px',
         boxSizing: 'border-box',
         '@media (max-width:768px)': {

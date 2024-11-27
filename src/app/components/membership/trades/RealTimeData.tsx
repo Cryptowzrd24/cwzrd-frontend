@@ -56,8 +56,9 @@ const RealTimeData = () => {
         },
       }}
     >
-      <motion.div
-        style={{
+      <Box
+        component={motion.div}
+        sx={{
           borderRadius: '24px',
           width: '100%',
           height: '100%',
@@ -65,6 +66,9 @@ const RealTimeData = () => {
           position: 'relative',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          '@media (max-width: 768px)': {
+            backgroundPosition: 'right bottom',
+          },
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -193,7 +197,7 @@ const RealTimeData = () => {
             </Box>
           </Box>
         </Box>
-      </motion.div>
+      </Box>
     </Box>
   );
 };
