@@ -117,7 +117,7 @@ const RealTimeData = () => {
                   maxWidth: '226px',
                 }}
               >
-                Lorem ipsum dolor sit
+                Real-Time Data
               </Typography>
               <Typography
                 sx={{
@@ -129,10 +129,12 @@ const RealTimeData = () => {
                   textAlign: 'start',
                 }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book
+                Stay ahead of the market with access to real-time data that
+                empowers timely and precise trading decisions. Our analysts and
+                updates keep you connected to live data, ensuring you never miss
+                an opportunity. React instantly to market shifts with the
+                confidence that comes from having accurate and up-to-date
+                information.
               </Typography>
             </motion.div>
           )}

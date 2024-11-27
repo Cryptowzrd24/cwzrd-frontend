@@ -74,9 +74,9 @@ const PrivateCommunityCard = () => {
             },
           }}
         >
-          Our course has been made to guide a beginner and empower them with all
-          the knowledge and tools they'll need to get started investing and
-          trading Cryptocurrency
+          Join a thriving community of ambitious, like-minded individuals who
+          are committed to mastering the world of cryptocurrency and achieving
+          unparalleled financial success.
         </Typography>
       </Box>
 
@@ -102,7 +102,7 @@ const PrivateCommunityCard = () => {
             mt: '21px',
           }}
         >
-          Lorem ipsum dolor sit
+          Private Community
         </Typography>
         <Typography
           sx={{
@@ -113,10 +113,11 @@ const PrivateCommunityCard = () => {
             mt: '85px',
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Surround yourself with driven peers, share insights, and grow together
+          as you unlock the strategies and skills needed to dominate the crypto
+          market and secure your financial future. Our expert guidance and
+          winning strategies make it easy to stay on track. Take the first step
+          toward steady profits and a brighter future today.
         </Typography>
       </Box>
 

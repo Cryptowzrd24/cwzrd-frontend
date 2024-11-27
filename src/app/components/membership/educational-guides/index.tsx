@@ -151,7 +151,7 @@ const EducationalGuides = () => {
                   mb: '4px',
                 }}
               >
-                Lorem ipsum dolor sit
+                Educational Guides
               </Typography>
               <Typography
                 sx={{
@@ -163,10 +163,11 @@ const EducationalGuides = () => {
                   textAlign: 'start',
                 }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book
+                Unleash your full trading potential with our ultimate guides,
+                expertly designed to empower and elevate traders at every stage.
+                Whether you’re just starting out or refining advanced skills,
+                these guides give you the tools and knowledge to dominate the
+                markets with confidence and precision!
               </Typography>
             </motion.div>
           )}

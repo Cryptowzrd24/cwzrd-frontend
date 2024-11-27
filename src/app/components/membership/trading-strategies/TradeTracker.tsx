@@ -91,7 +91,7 @@ const TradeTracker = () => {
                   maxWidth: '226px',
                 }}
               >
-                Lorem ipsum dolor sit
+                Trade Tracker
               </Typography>
               <Typography
                 sx={{
@@ -103,10 +103,11 @@ const TradeTracker = () => {
                   textAlign: 'start',
                 }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book
+                Keep a close eye on your trading performance with our intuitive
+                trade tracker. Easily monitor your progress, analyze results,
+                and identify areas for improvement. With detailed insights,
+                you’ll make smarter decisions and refine your strategies for
+                consistent success.
               </Typography>
             </motion.div>
           )}

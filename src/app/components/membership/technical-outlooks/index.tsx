@@ -121,7 +121,7 @@ const TechnicalOutlooks = () => {
                   maxWidth: '226px',
                 }}
               >
-                Lorem ipsum dolor sit
+                Daily Technical Outlooks
               </Typography>
               <Typography
                 sx={{
@@ -133,10 +133,11 @@ const TechnicalOutlooks = () => {
                   textAlign: 'start',
                 }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book
+                Get the ultimate edge with our daily Forex and Crypto
+                technicals, delivered every evening after the market closes. Our
+                reports provide clear insights into trends, key levels, and
+                opportunities, helping you stay ahead and capitalize on market
+                moves in both markets.
               </Typography>
             </motion.div>
           )}

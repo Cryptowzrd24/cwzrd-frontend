@@ -10,28 +10,29 @@ const howItWorksData = [
   {
     step: '01',
     title: 'Buy a Lifetime Membership',
-    description: 'Pay with either a credit/debit card or via crypto',
+    description:
+      'Secure your lifetime membership today using your credit/debit card or pay seamlessly with cryptocurrency.',
     imagePath: '/images/membership/iPhoneBg.png',
   },
   {
     step: '02',
-    title: 'Buy a Lifetime Membership',
+    title: 'Check Your Email',
     description:
-      'Our platform provides insights and strategies for long-term wealth accumulation through smart portfolio investing.',
+      'Join our exclusive trading community with a one-time membership for lifetime access to expert resources, updates, and support—no recurring fees, just long-term success.',
     imagePath: '/images/membership/mailBoxBg.png',
   },
   {
     step: '03',
     title: 'Follow Our Signals',
     description:
-      'The WZRD Aggresive Scalping Strategy delivers consistent trades.',
+      'Follow our expertly crafted trading signals to execute profitable trades with ease. Each clear, actionable signal is designed to help you maximize success in the markets.',
     imagePath: '/images/membership/lockScreenBg.png',
   },
   {
     step: '04',
     title: 'Portfolio Investing',
     description:
-      'Follow along with the trade signals in Discord. We trade using Bybit.',
+      'Build a strong, diversified portfolio with our expert investing guidance. We provide strategies to balance risk and reward, ensuring steady, long-term growth.',
     imagePath: '/images/membership/appBg.png',
   },
 ];

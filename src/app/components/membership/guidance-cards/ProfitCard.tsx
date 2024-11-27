@@ -168,7 +168,7 @@ const ProfitCard = () => {
                 maxWidth: '226px',
               }}
             >
-              Lorem ipsum dolor sit
+              Take Profit Guidance
             </Typography>
             <Typography
               sx={{
@@ -178,12 +178,17 @@ const ProfitCard = () => {
                 mt: '71px',
                 lineHeight: '24px',
                 textAlign: 'start',
+                '@media (max-width:855px)': {
+                  fontSize: '14px',
+                },
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Maximize your earnings with our expert take profit guidance. We
+              provide clear instructions on when to close trades and secure
+              profits, ensuring you avoid unnecessary losses. Our strategies
+              help you manage trades effectively and capitalize on market
+              movements, achieving consistent results and steady portfolio
+              growth.
             </Typography>
           </motion.div>
         )}

@@ -137,9 +137,9 @@ const LessonCard = () => {
                 },
               }}
             >
-              Learn from the best with expert-led lessons on trading. Gain the
-              knowledge you need to execute smart strategies and achieve
-              long-term success.
+              Receive expert-crafted lesson write-ups designed to elevate your
+              trading knowledge. Each lesson simplifies complex concepts into
+              actionable insights, empowering you to trade with confidence.
             </Typography>
           </motion.div>
 
@@ -161,7 +161,7 @@ const LessonCard = () => {
                   maxWidth: '226px',
                 }}
               >
-                Lorem ipsum dolor sit
+                Expert Lessons on Trading
               </Typography>
               <Typography
                 sx={{
@@ -173,10 +173,12 @@ const LessonCard = () => {
                   textAlign: 'start',
                 }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book
+                Enhance your trading skills with lessons that simplify complex
+                concepts into clear, practical knowledge. Discover proven
+                strategies, market analysis techniques, and valuable tips from
+                experienced professionals. These resources will boost your
+                confidence and guide you toward smarter, more informed trading
+                decisions.
               </Typography>
             </motion.div>
           )}
