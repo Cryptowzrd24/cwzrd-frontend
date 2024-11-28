@@ -7,7 +7,7 @@ const CountDown = () => {
 
   useEffect(() => {
     const targetDate: any = new Date(
-      process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T19:30:00Z',
+      process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T22:00:00Z',
     );
 
     const updateCountdown = () => {
@@ -15,7 +15,7 @@ const CountDown = () => {
       const difference = targetDate - now;
 
       if (difference <= 0) {
-        setTimeLeft('30% DISCOUNT LIVE NOW');
+        setTimeLeft('BLACK FRIDAY SALE NOW LIVE');
         return;
       }
 
@@ -55,7 +55,7 @@ const CountDown = () => {
         zIndex: '100',
       }}
     >
-      {timeLeft.includes('DISCOUNT')
+      {timeLeft.includes('LIVE')
         ? timeLeft
         : `BLACK FRIDAY SALE BEGINS IN ${timeLeft}`}
     </Box>
