@@ -81,7 +81,7 @@ observer.observe(document.body, { childList: true, subtree: true });
 attachToggleEventListeners();
 
 (function () {
-  const targetDate = new Date('2024-11-28T18:45:00Z');
+  const targetDate = new Date('2024-11-28T19:00:00Z');
   const currentDate = new Date();
   const isSaleActive = currentDate > targetDate;
 

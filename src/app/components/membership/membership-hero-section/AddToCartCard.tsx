@@ -8,7 +8,7 @@ import LockIcon from '../../../../../public/icons/lockIcon';
 
 const AddToCartCard = () => {
   const targetDate = new Date(
-    process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T18:45:00Z',
+    process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T19:00:00Z',
   );
   const currentDate = new Date();
   const isSaleActive = currentDate > targetDate;
