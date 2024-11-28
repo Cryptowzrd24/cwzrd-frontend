@@ -74,7 +74,7 @@ function HowItWorks() {
             },
           }}
         >
-          Become a wzrd in minute{' '}
+          Become a wzrd in a minute{' '}
         </Typography>
         <Typography
           sx={{
