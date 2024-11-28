@@ -81,13 +81,11 @@ observer.observe(document.body, { childList: true, subtree: true });
 attachToggleEventListeners();
 
 (function () {
-  const targetDate = new Date(
-    process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T18:35:00Z',
-  );
+  const targetDate = new Date('2024-11-28T18:45:00Z');
   const currentDate = new Date();
   const isSaleActive = currentDate > targetDate;
 
-  if (currentDate > targetDate) {
+  if (isSaleActive) {
     var scriptURL =
       'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
     if (window.ShopifyBuy) {
