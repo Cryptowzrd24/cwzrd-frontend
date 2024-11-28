@@ -160,7 +160,7 @@ const TradingCourse = () => {
                 },
               }}
             >
-              Lorem ipsum dolor sit
+              76-Video (24 Hours) Trading Course
             </Typography>
             <Typography
               sx={{
@@ -170,7 +170,7 @@ const TradingCourse = () => {
                 mt: '35px',
                 lineHeight: '24px',
                 textAlign: 'start',
-                '@media (max-width:855px)': {
+                '@media (max-width:940px)': {
                   fontSize: '12px',
                 },
               }}
