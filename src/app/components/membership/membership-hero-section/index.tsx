@@ -21,6 +21,12 @@ const featuresHeaderRight = [
 ];
 
 const MembershipHeroSection = () => {
+  const targetDate = new Date(
+    process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T22:00:00Z',
+  );
+  const currentDate = new Date();
+  const isSaleActive = currentDate > targetDate;
+
   return (
     <>
       <Box
@@ -85,14 +91,14 @@ const MembershipHeroSection = () => {
             },
           }}
         >
-          Black friday
+          BLACK FRIDAY
           <br />
           <span
             style={{
               color: 'rgba(255, 255, 65, 1)',
             }}
           >
-            30 % discount
+            {isSaleActive ? '30% DISCOUNT NOW LIVE' : '30% DISCOUNT'}
           </span>{' '}
         </Typography>
 

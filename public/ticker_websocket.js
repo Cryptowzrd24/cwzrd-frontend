@@ -81,8 +81,11 @@ observer.observe(document.body, { childList: true, subtree: true });
 attachToggleEventListeners();
 
 (function () {
-  const targetDate = new Date(Date.UTC(2024, 10, 29, 0, 0, 0));
+  const targetDate = new Date(
+    process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T22:00:00Z',
+  );
   const currentDate = new Date();
+  const isSaleActive = currentDate > targetDate;
 
   if (currentDate > targetDate) {
     var scriptURL =

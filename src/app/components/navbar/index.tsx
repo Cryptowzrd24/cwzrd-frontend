@@ -30,7 +30,7 @@ function Navbar() {
   const { isFirstLogin } = useSelector((state: any) => state.user);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState<string>(
-    Cookies.get('currency') || 'USD',
+    Cookies.get('currency') || 'GBP',
   );
 
   const [addWatchlist] = useAddWatchlistMutation();

@@ -1,11 +1,63 @@
+import Cookies from 'js-cookie';
 import { Box, Typography, Button } from '@mui/material';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import LifetimeBanner from '../../../../../public/images/membership/lifetimeBanner.png';
 import LockIcon from '../../../../../public/icons/lockIcon';
 
 const AddToCartCard = () => {
+  const targetDate = new Date(
+    process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T22:00:00Z',
+  );
+  const currentDate = new Date();
+  const isSaleActive = currentDate > targetDate;
+
+  const price = {
+    GBP: {
+      symbol: '£',
+      original: `450.00`,
+      sale: `315.00`,
+    },
+    USD: {
+      symbol: '$',
+      original: `570.44`,
+      sale: `399.31`,
+    },
+    EUR: {
+      symbol: '€',
+      original: `540.72`,
+      sale: `378.50`,
+    },
+    CAD: {
+      symbol: '$',
+      original: `799.08`,
+      sale: `559.44`,
+    },
+    AUD: {
+      symbol: '$',
+      original: `877.35`,
+      sale: `614.14`,
+    },
+  };
+
+  const [currency, setCurrency] = useState(Cookies.get('currency') ?? 'GBP');
+
+  useEffect(() => {
+    const handleCurrencyChange = () => {
+      const newCurrency = Cookies.get('currency');
+      if (newCurrency !== currency) {
+        setCurrency(newCurrency ?? 'GBP');
+      }
+    };
+
+    // Set an interval to check for currency changes
+    const intervalId = setInterval(handleCurrencyChange, 1000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(intervalId);
+  }, [currency]);
+
   return (
     <Box
       sx={{
@@ -101,7 +153,9 @@ const AddToCartCard = () => {
             mb: '24px',
           }}
         >
-          {/* <Typography
+        {  isSaleActive &&
+          <>
+          <Typography
             sx={{
               fontSize: '32px',
               fontWeight: '400',
@@ -115,7 +169,8 @@ const AddToCartCard = () => {
               },
             }}
           >
-            £314.99
+            {price[currency as keyof typeof price].symbol}
+            {price[currency as keyof typeof price].sale}
           </Typography>
           <Typography
             sx={{
@@ -132,8 +187,11 @@ const AddToCartCard = () => {
               },
             }}
           >
-            £450.99
-          </Typography> */}
+            {price[currency as keyof typeof price].symbol}
+            {price[currency as keyof typeof price].original}
+          </Typography>
+          </>
+          }
           <Box
             sx={{
               background: 'rgba(255, 255, 255, 0.1)',
@@ -147,6 +205,7 @@ const AddToCartCard = () => {
                 fontSize: '10px',
                 fontWeight: '600',
                 lineHeight: '13px',
+                whiteSpace: 'nowrap',
                 fontFamily: 'SF Pro Display',
                 color: 'rgba(255,255,255,1)',
                 '@media (max-width:660px)': {
@@ -159,29 +218,32 @@ const AddToCartCard = () => {
           </Box>
         </Box>
 
-        <Button
-          sx={{
-            borderRadius: '56px',
-            width: '100%',
-            padding: '12px 24px',
-            background:
-              'linear-gradient(117deg, #F7841A -4.07%, #F74848 100.68%)',
-            fontSize: '16px',
-            fontWeight: 600,
-            lineHeight: '21px',
-            fontFamily: 'Sf Pro Display',
-            color: 'rgba(255,255,255,1)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            opacity: '0.8',
-            cursor: 'not-allowed',
-          }}
-        >
-          <LockIcon />
-          Coming Soon
-        </Button>
-        {/* <div id="product-component-1732711102218"></div> */}
+        {!isSaleActive ? (
+          <Button
+            sx={{
+              borderRadius: '56px',
+              width: '100%',
+              padding: '12px 24px',
+              background:
+                'linear-gradient(117deg, #F7841A -4.07%, #F74848 100.68%)',
+              fontSize: '16px',
+              fontWeight: 600,
+              lineHeight: '21px',
+              fontFamily: 'Sf Pro Display',
+              color: 'rgba(255,255,255,1)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              opacity: '0.8',
+              cursor: 'not-allowed',
+            }}
+          >
+            <LockIcon />
+            Coming Soon
+          </Button>
+        ) : (
+          <div id="product-component-1732711102218"></div>
+        )}
       </Box>
     </Box>
   );

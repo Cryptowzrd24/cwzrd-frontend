@@ -6,7 +6,9 @@ const CountDown = () => {
   const [timeLeft, setTimeLeft] = useState('');
 
   useEffect(() => {
-    const targetDate: any = new Date(Date.UTC(2024, 10, 29, 0, 0, 0)); // November 29, 2024, UTC
+    const targetDate: any = new Date(
+      process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T22:00:00Z',
+    );
 
     const updateCountdown = () => {
       const now: any = new Date();
