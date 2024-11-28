@@ -153,45 +153,45 @@ const AddToCartCard = () => {
             mb: '24px',
           }}
         >
-        {  isSaleActive &&
-          <>
-          <Typography
-            sx={{
-              fontSize: '32px',
-              fontWeight: '400',
-              lineHeight: '32px',
-              color: 'rgba(255, 255, 255, 1)',
-              fontFamily: 'SF Pro Display',
-              letterSpacing: '-1px',
-              '@media (max-width:660px)': {
-                fontSize: '28px',
-                lineHeight: '28px',
-              },
-            }}
-          >
-            {price[currency as keyof typeof price].symbol}
-            {price[currency as keyof typeof price].sale}
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: '16px',
-              fontWeight: '400',
-              lineHeight: '16px',
-              color: 'rgba(255, 252, 52, 1)',
-              fontFamily: 'SF Pro Display',
-              letterSpacing: '-1px',
-              textDecoration: 'line-through',
-              '@media (max-width:660px)': {
-                fontSize: '14px',
-                lineHeight: '14px',
-              },
-            }}
-          >
-            {price[currency as keyof typeof price].symbol}
-            {price[currency as keyof typeof price].original}
-          </Typography>
-          </>
-          }
+          {isSaleActive && (
+            <>
+              <Typography
+                sx={{
+                  fontSize: '32px',
+                  fontWeight: '400',
+                  lineHeight: '32px',
+                  color: 'rgba(255, 255, 255, 1)',
+                  fontFamily: 'SF Pro Display',
+                  letterSpacing: '-1px',
+                  '@media (max-width:660px)': {
+                    fontSize: '28px',
+                    lineHeight: '28px',
+                  },
+                }}
+              >
+                {price[currency as keyof typeof price].symbol}
+                {price[currency as keyof typeof price].sale}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: '16px',
+                  fontWeight: '400',
+                  lineHeight: '16px',
+                  color: 'rgba(255, 252, 52, 1)',
+                  fontFamily: 'SF Pro Display',
+                  letterSpacing: '-1px',
+                  textDecoration: 'line-through',
+                  '@media (max-width:660px)': {
+                    fontSize: '14px',
+                    lineHeight: '14px',
+                  },
+                }}
+              >
+                {price[currency as keyof typeof price].symbol}
+                {price[currency as keyof typeof price].original}
+              </Typography>
+            </>
+          )}
           <Box
             sx={{
               background: 'rgba(255, 255, 255, 0.1)',
