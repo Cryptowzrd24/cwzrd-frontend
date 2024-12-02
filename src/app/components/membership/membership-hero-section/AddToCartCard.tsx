@@ -101,7 +101,7 @@ const AddToCartCard = () => {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            Black Friday Sale
+            Cyber Monday Sale
           </Typography>
         </Box>
       </Box>

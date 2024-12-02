@@ -67,7 +67,7 @@ const MembershipHeroSection = () => {
               fontFamily: 'Sf Pro Text',
             }}
           >
-            Revolutioning Crypto Education
+            Revolutionizing Crypto Education
           </Typography>
         </Box>
         <Typography
@@ -91,7 +91,7 @@ const MembershipHeroSection = () => {
             },
           }}
         >
-          BLACK FRIDAY
+          LAST CHANCE
           <br />
           <span
             style={{

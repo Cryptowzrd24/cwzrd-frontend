@@ -15,7 +15,7 @@ const CountDown = () => {
       const difference = targetDate - now;
 
       if (difference <= 0) {
-        setTimeLeft('BLACK FRIDAY SALE NOW LIVE');
+        setTimeLeft('CYBER MONDAY SALE NOW LIVE');
         return;
       }
 
