@@ -7,7 +7,7 @@ const WzrdPlatformCard = () => {
   return (
     <Box
       sx={{
-        backgroundColor: 'rgba(31,31,31,1)',
+        backgroundColor: 'rgba(255,255,255,1)',
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         padding: '24px',
         borderRadius: '24px',
@@ -52,7 +52,7 @@ const WzrdPlatformCard = () => {
         <Typography
           sx={{
             fontSize: '18px',
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'rgba(17, 17, 17, 1)',
             lineHeight: '24px',
             fontWeight: '500',
             mb: '4px',
@@ -66,7 +66,7 @@ const WzrdPlatformCard = () => {
         <Typography
           sx={{
             fontSize: '12px',
-            color: 'rgba(255, 255, 255, 0.8)',
+            color: 'rgba(17, 17, 17, 0.8)',
             fontWeight: '400',
             lineHeight: '18px',
             mr: '8px',

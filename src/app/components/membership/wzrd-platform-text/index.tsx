@@ -21,7 +21,7 @@ const WzrdPlatformText = () => {
             letterSpacing: 2,
             lineHeight: '18.2px',
             mb: '4px',
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'rgba(17, 17, 17, 1)',
             '@media (max-width:660px)': {
               fontSize: '12px',
               lineHeight: '15px',
@@ -36,7 +36,7 @@ const WzrdPlatformText = () => {
             fontSize: '32px',
             fontWeight: '700',
             lineHeight: '38px',
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'rgba(17, 17, 17, 1)',
             '@media (max-width:660px)': {
               fontSize: '24px',
               lineHeight: '28px',
@@ -63,7 +63,7 @@ const WzrdPlatformText = () => {
             fontSize: '14px',
             fontWeight: '400',
             textAlign: 'center',
-            color: 'rgba(255, 255, 255, 0.8)',
+            color: 'rgba(17, 17, 17, 0.8)',
             lineHeight: '21px',
             maxWidth: '574px',
             fontFamily: 'Sf Pro Text',

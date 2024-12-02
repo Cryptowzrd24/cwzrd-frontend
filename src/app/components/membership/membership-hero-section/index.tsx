@@ -44,7 +44,7 @@ const MembershipHeroSection = () => {
             alignItems: 'center',
             padding: '12px 24px',
             borderRadius: '32px',
-            border: '1px solid rgba(255, 255, 255, 0.04)',
+            border: '1px solid rgba(17, 17, 17, 0.2)',
             maxWidth: '400px',
             marginBottom: '32px',
             '@media (max-width:660px)': {
@@ -73,13 +73,13 @@ const MembershipHeroSection = () => {
         <Typography
           sx={{
             fontSize: '72px',
-            fontWeight: '700',
+            fontWeight: '500',
             lineHeight: '72px',
             marginBottom: '32px',
             textAlign: 'center',
             letterSpacing: '1px',
             fontFamily: 'Sf Pro Display',
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'rgba(17, 17, 17, 1)',
             '@media (max-width:834px)': {
               fontSize: '56px',
               lineHeight: '56px',
@@ -91,14 +91,18 @@ const MembershipHeroSection = () => {
             },
           }}
         >
-          LAST CHANCE
+          Conquer The
           <br />
           <span
             style={{
-              color: 'rgba(255, 255, 65, 1)',
+              backgroundImage:
+                'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
-            {isSaleActive ? '30% DISCOUNT NOW LIVE' : '30% DISCOUNT'}
+            {/* {isSaleActive ? '30% DISCOUNT NOW LIVE' : '30% DISCOUNT'} */}
+            Crypto Market
           </span>{' '}
         </Typography>
 
@@ -155,7 +159,7 @@ const MembershipHeroSection = () => {
 
       <Box
         sx={{
-          background: 'rgba(31,31,31,1)',
+          background: 'rgba(255,255,255,1)',
           borderRadius: '24px',
           maxWidth: '855px',
           width: '100%',

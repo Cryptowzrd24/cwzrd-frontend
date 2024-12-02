@@ -26,7 +26,7 @@ const FeatureHeaderCard: React.FC<FeatureHeaderCardProps> = ({
           fontSize: '14px',
           fontWeight: '600',
           lineHeight: '18px',
-          color: 'rgba(255, 255, 255, 1)',
+          color: 'rgba(0, 0, 0, 1)',
           fontFamily: 'Sf Pro Text',
           '@media (max-width:660px)': {
             fontSize: '12px',

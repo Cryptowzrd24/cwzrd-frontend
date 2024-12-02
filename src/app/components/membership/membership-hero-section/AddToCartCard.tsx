@@ -148,7 +148,7 @@ const AddToCartCard = () => {
         <Box
           sx={{
             display: 'flex',
-            gap: '8px',
+            gap: '12px',
             alignItems: 'center',
             mb: '24px',
           }}
@@ -157,9 +157,9 @@ const AddToCartCard = () => {
             <>
               <Typography
                 sx={{
-                  fontSize: '32px',
+                  fontSize: '40px',
                   fontWeight: '400',
-                  lineHeight: '32px',
+                  lineHeight: '40px',
                   color: 'rgba(255, 255, 255, 1)',
                   fontFamily: 'SF Pro Display',
                   letterSpacing: '-1px',
@@ -172,7 +172,7 @@ const AddToCartCard = () => {
                 {price[currency as keyof typeof price].symbol}
                 {price[currency as keyof typeof price].sale}
               </Typography>
-              <Typography
+              {/* <Typography
                 sx={{
                   fontSize: '16px',
                   fontWeight: '400',
@@ -189,7 +189,7 @@ const AddToCartCard = () => {
               >
                 {price[currency as keyof typeof price].symbol}
                 {price[currency as keyof typeof price].original}
-              </Typography>
+              </Typography> */}
             </>
           )}
           <Box

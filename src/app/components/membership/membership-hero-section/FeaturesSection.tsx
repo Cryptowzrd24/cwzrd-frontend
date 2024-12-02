@@ -32,7 +32,7 @@ const FeaturesSection = () => {
   return (
     <Box
       sx={{
-        background: 'rgba(41,41,41,1)',
+        background: 'rgba(248,248,248,1)',
         borderRadius: '24px',
         display: 'flex',
         gap: '24px',

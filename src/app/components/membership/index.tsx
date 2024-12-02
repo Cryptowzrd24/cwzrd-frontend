@@ -27,7 +27,7 @@ import ScrollDownText from './scroll-down-text';
 
 const Membership = () => {
   useEffect(() => {
-    document.body.style.backgroundColor = '#111111';
+    document.body.style.backgroundColor = '#F5F5F7';
 
     return () => {
       document.body.style.backgroundColor = '';
@@ -38,15 +38,16 @@ const Membership = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url('/images/banner/heroSectionBgBlack.png')`,
+          backgroundImage: `url('/images/banner/heroSectionBgWhite.png')`,
           objectFit: 'cover',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           paddingTop: '120px',
           marginTop: '-120px',
-          backgroundPosition: 'center',
-          mb: '120px',
+          backgroundPosition: 'bottom',
+          mb: '32px',
           position: 'relative',
+          paddingBottom: '120px',
         }}
       >
         <Container maxWidth="xl">
@@ -90,14 +91,18 @@ const Membership = () => {
           >
             <StockAnalysis />
           </Box>
+          <Box sx={{ mb: '40px' }}>
+            <CommunityCards />
+          </Box>
         </Box>
       </Container>
 
       <Box
         sx={{
-          backgroundImage: `url('/images/banner/heroSectionBgBlack.png')`,
+          backgroundImage: `url('/images/membership/journeyBg.png')`,
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
         }}
       >
         <Container maxWidth="xl">
@@ -108,9 +113,6 @@ const Membership = () => {
               mx: 'auto',
             }}
           >
-            <Box sx={{ mb: '40px' }}>
-              <CommunityCards />
-            </Box>
             <Box sx={{ pt: '76px', mb: '40px' }}>
               <JourneyText />
             </Box>
@@ -130,15 +132,19 @@ const Membership = () => {
             <Box sx={{ mb: '24px' }}>
               <TrendCards />
             </Box>
+            <Box sx={{ mb: '120px' }}>
+              <GuidanceCards />
+            </Box>
           </Box>
         </Container>
       </Box>
 
       <Box
         sx={{
-          backgroundImage: `url('/images/banner/heroSectionBgBlack.png')`,
+          backgroundImage: `url('/images/membership/journeyBg.png')`,
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
         }}
       >
         <Container maxWidth="xl">
@@ -149,9 +155,6 @@ const Membership = () => {
               mx: 'auto',
             }}
           >
-            <Box sx={{ mb: '120px' }}>
-              <GuidanceCards />
-            </Box>
             <Box sx={{ mb: '40px' }}>
               <WzrdPlatformText />
             </Box>

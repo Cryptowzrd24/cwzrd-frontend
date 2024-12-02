@@ -21,7 +21,7 @@ function EffortlessTrading() {
             fontWeight: '500',
             lineHeight: '18px',
             textTransform: 'uppercase',
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'rgba(17, 17, 17, 1)',
             '@media (max-width:660px)': {
               fontSize: '12px',
               lineHeight: '15px',
@@ -35,7 +35,7 @@ function EffortlessTrading() {
             fontSize: '32px',
             fontWeight: '700',
             lineHeight: '38px',
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'rgba(17, 17, 17, 1)',
             '@media (max-width:660px)': {
               fontSize: '24px',
               lineHeight: '28px',
@@ -45,7 +45,10 @@ function EffortlessTrading() {
           Trade and profit
           <span
             style={{
-              color: 'rgba(99, 77 ,253, 1)',
+              background:
+                'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
               paddingLeft: '6px',
             }}
           >

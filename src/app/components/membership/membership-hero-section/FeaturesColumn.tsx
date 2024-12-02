@@ -33,7 +33,7 @@ const FeaturesColumn: React.FC<FeaturesColumnProps> = ({ features }) => {
           <Image src={Check} alt="tick" />
           <Typography
             sx={{
-              color: 'rgba(255, 255, 255, 1)',
+              color: 'rgba(0, 0, 0, 1)',
               fontSize: '14px',
               fontWeight: '600',
               lineHeight: '18px',

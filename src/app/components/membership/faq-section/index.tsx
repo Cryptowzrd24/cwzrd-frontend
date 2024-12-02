@@ -32,7 +32,7 @@ const FAQSection = () => {
             marginBottom: '4px',
             textTransform: 'uppercase',
             fontFamily: 'Sf Pro Display',
-            color: 'rgba(255,255,255,1)',
+            color: 'rgba(17,17,17,1)',
             letterSpacing: '1.4px',
             '@media (max-width:660px)': {
               fontSize: '14px',
@@ -49,7 +49,7 @@ const FAQSection = () => {
             lineHeight: '38px',
             marginBottom: '36px',
             fontFamily: 'Sf Pro Display',
-            color: 'rgba(255,255,255,1)',
+            color: 'rgba(17,17,17,1)',
             '@media (max-width:660px)': {
               fontSize: '24px',
               marginBottom: '24px',
@@ -88,7 +88,7 @@ const FAQSection = () => {
           variant="fullWidth"
           flexItem
           sx={{
-            borderColor: 'rgba(255, 255, 255, 0.1)',
+            borderColor: 'rgba(0, 0, 0, 0.1)',
             pb: '16px',
             mb: '16px',
           }}
@@ -104,7 +104,7 @@ But the real magic? Our 24/7 support - a team of experts ready to answer your qu
           variant="fullWidth"
           flexItem
           sx={{
-            borderColor: 'rgba(255, 255, 255, 0.1)',
+            borderColor: 'rgba(0, 0, 0, 0.1)',
             pb: '16px',
             mb: '16px',
           }}
@@ -126,7 +126,7 @@ Forget the stress of complicated strategies - let us handle the heavy lifting wh
           variant="fullWidth"
           flexItem
           sx={{
-            borderColor: 'rgba(255, 255, 255, 0.1)',
+            borderColor: 'rgba(0, 0, 0, 0.1)',
             pb: '16px',
             mb: '16px',
           }}
@@ -144,7 +144,7 @@ Why pay monthly for less when you can make one powerful move and gain everything
           variant="fullWidth"
           flexItem
           sx={{
-            borderColor: 'rgba(255, 255, 255, 0.1)',
+            borderColor: 'rgba(0, 0, 0, 0.1)',
             pb: '16px',
             mb: '16px',
           }}
@@ -160,7 +160,7 @@ We focus on teaching you the skills and techniques to maximize every opportunity
           variant="fullWidth"
           flexItem
           sx={{
-            borderColor: 'rgba(255, 255, 255, 0.1)',
+            borderColor: 'rgba(0, 0, 0, 0.1)',
             pb: '16px',
             mb: '16px',
           }}
@@ -176,7 +176,7 @@ No waiting, no delays.. just instant access to everything you need to dive into 
           variant="fullWidth"
           flexItem
           sx={{
-            borderColor: 'rgba(255, 255, 255, 0.1)',
+            borderColor: 'rgba(0, 0, 0, 0.1)',
             pb: '16px',
             mb: '16px',
           }}

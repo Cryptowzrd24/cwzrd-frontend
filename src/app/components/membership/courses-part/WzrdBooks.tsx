@@ -9,9 +9,8 @@ const WzrdBooks = () => {
     <Box
       sx={{
         width: '67%',
-        // paddingLeft: '42px',
         boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-        backgroundColor: 'rgba(31,31,31,1)',
+        backgroundColor: 'rgba(255,255,255,1)',
         borderRadius: '24px',
         boxSizing: 'border-box',
         display: 'flex',
@@ -36,7 +35,7 @@ const WzrdBooks = () => {
           sx={{
             fontSize: '36px',
             fontWeight: '700',
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'rgba(17, 17, 17, 1)',
             textTransform: 'uppercase',
             mb: '6px',
             letterSpacing: '1px',
@@ -56,7 +55,7 @@ const WzrdBooks = () => {
             fontSize: '14px',
             fontWeight: '400',
             lineHeight: '20px',
-            color: 'rgba(255, 255, 255, 0.8)',
+            color: 'rgba(17, 17, 17, 0.8)',
             fontFamily: 'Sf Pro Text',
             '@media (max-width:660px)': {
               fontSize: '14px',

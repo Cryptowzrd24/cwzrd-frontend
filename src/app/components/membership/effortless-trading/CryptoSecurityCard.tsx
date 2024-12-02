@@ -9,7 +9,7 @@ const CryptoSecurityCard = () => {
   return (
     <Box
       sx={{
-        background: 'rgba(20,20,20,1)',
+        background: 'rgba(255,255,255,1)',
         borderRadius: '24px',
         maxWidth: '270px',
         width: '100%',
@@ -44,7 +44,7 @@ const CryptoSecurityCard = () => {
             fontSize: '20px',
             fontWeight: '700',
             lineHeight: '26px',
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'rgba(17, 17, 17, 1)',
             mb: '8px',
             px: '26px',
             textAlign: 'center',
@@ -60,7 +60,7 @@ const CryptoSecurityCard = () => {
             fontSize: '13px',
             fontWeight: '400',
             lineHeight: '20px',
-            color: 'rgba(255, 255, 255, 0.8)',
+            color: 'rgba(17, 17, 17, 0.8)',
             px: '22px',
             textAlign: 'center',
             fontFamily: 'Sf Pro Text',

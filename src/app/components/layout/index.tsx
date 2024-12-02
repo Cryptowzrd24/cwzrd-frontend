@@ -20,7 +20,7 @@ export default function CustomLayout({
         <body>
           <StoreProvider>
             {/* <TickerServer /> */}
-            <CountDown />
+            {/* <CountDown /> */}
             <Navbar />
             {children}
             <Footer />

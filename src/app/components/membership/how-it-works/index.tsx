@@ -66,7 +66,7 @@ function HowItWorks() {
             fontWeight: '500',
             lineHeight: '18px',
             textTransform: 'uppercase',
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'rgba(17, 17, 17, 1)',
             textAlign: 'center',
             '@media (max-width:660px)': {
               fontSize: '12px',
@@ -81,7 +81,7 @@ function HowItWorks() {
             fontSize: '32px',
             fontWeight: '700',
             lineHeight: '38px',
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'rgba(17, 17, 17, 1)',
             textAlign: 'center',
             '@media (max-width:660px)': {
               fontSize: '24px',
@@ -92,7 +92,10 @@ function HowItWorks() {
           How It
           <span
             style={{
-              color: 'rgba(99, 77 ,253, 1)',
+              background:
+                'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
               paddingLeft: '6px',
             }}
           >
@@ -155,7 +158,7 @@ function HowItWorks() {
             onClick={handlePrev}
             sx={{
               cursor: 'pointer',
-              background: 'rgba(255, 255, 255, 0.10)',
+              background: 'rgba(17, 17, 17, 0.05)',
               borderRadius: '56px',
               padding: '12px',
               display: 'flex',
@@ -166,13 +169,13 @@ function HowItWorks() {
               },
             }}
           >
-            <ArrowLeftDark color="rgba(255, 255, 255, 1)" />
+            <ArrowLeftDark color="rgba(17, 17, 17, 1)" />
           </Box>
           <Box
             onClick={handleNext}
             sx={{
               cursor: 'pointer',
-              background: 'rgba(255, 255, 255, 0.10)',
+              background: 'rgba(17, 17, 17, 0.05)',
               borderRadius: '56px',
               padding: '12px',
               display: 'flex',
@@ -183,7 +186,7 @@ function HowItWorks() {
               },
             }}
           >
-            <ArrowRightDark color="rgba(255, 255, 255, 1)" />
+            <ArrowRightDark color="rgba(17, 17, 17, 1)" />
           </Box>
         </Box>
       </Box>

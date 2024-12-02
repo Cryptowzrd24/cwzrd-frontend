@@ -10,18 +10,6 @@ const EducationalGuides = () => {
     setActive((show) => !show);
   };
 
-  const backgroundVariants = {
-    initial: {
-      backgroundImage: 'linear-gradient(180deg, #1f1f1f 0%, #1f1f1f 100%)',
-    },
-    active: {
-      backgroundImage: 'linear-gradient(180deg, #1f1f1f 0%, #1f1f1f 100%)',
-    },
-    inactive: {
-      backgroundImage: 'linear-gradient(180deg, #1f1f1f 0%, #1f1f1f 100%)',
-    },
-  };
-
   const imgAndTextVariants = {
     initial: { opacity: 1, display: 'block' },
     active: {
@@ -56,16 +44,13 @@ const EducationalGuides = () => {
           transition: 'all 0.325s linear',
           boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
           boxSizing: 'border-box',
+          background: 'rgba(255, 255, 255, 1)',
         }}
-        initial="initial"
-        animate={active ? 'active' : 'inactive'}
-        variants={backgroundVariants}
       >
         <Box
           sx={{
             display: 'flex',
             gap: '52px',
-            // minHeight: '146px',
             height: '146px',
             boxSizing: 'border-box',
             alignItems: 'center',
@@ -102,7 +87,7 @@ const EducationalGuides = () => {
             <Typography
               sx={{
                 fontSize: '20px',
-                color: 'rgba(255, 255, 255, 1)',
+                color: 'rgba(17, 17, 17, 1)',
                 mb: '4px',
                 lineHeight: '26px',
                 fontWeight: 700,
@@ -117,7 +102,7 @@ const EducationalGuides = () => {
             <Typography
               sx={{
                 fontSize: '14px',
-                color: 'rgba(255, 255, 255, 0.8)',
+                color: 'rgba(17, 17, 17, 0.8)',
                 fontWeight: '400',
                 lineHeight: '21px',
                 fontFamily: 'Sf Pro Text',
@@ -144,7 +129,7 @@ const EducationalGuides = () => {
                 sx={{
                   fontSize: '16px',
                   fontWeight: '500',
-                  color: 'rgba(255, 255, 255, 1)',
+                  color: 'rgba(17, 17, 17, 1)',
                   lineHeight: '21px',
                   textAlign: 'start',
                   maxWidth: '226px',
@@ -157,7 +142,7 @@ const EducationalGuides = () => {
                 sx={{
                   fontSize: '16px',
                   fontWeight: '400',
-                  color: 'rgba(255, 255, 255, 0.8)',
+                  color: 'rgba(17, 17, 17, 0.8)',
                   // mt: '82px',
                   lineHeight: '24px',
                   textAlign: 'start',
@@ -189,13 +174,13 @@ const EducationalGuides = () => {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '6px',
-              background: '#FFFFFF',
+              background: '#000000',
               borderRadius: '100px',
               cursor: 'pointer',
             }}
             onClick={handleClick}
           >
-            <PlusIcon />
+            <PlusIcon active />
           </Box>
         </Box>
       </motion.div>

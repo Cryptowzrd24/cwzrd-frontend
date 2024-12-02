@@ -47,7 +47,7 @@ const CommunityChat = () => {
         width: '50%',
         height: '432px',
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
-        background: 'rgba(31, 31, 31, 1)',
+        background: 'rgba(255, 255, 255, 1)',
         borderRadius: '24px',
         '@media (max-width:768px)': {
           width: '100%',
@@ -96,7 +96,7 @@ const CommunityChat = () => {
               <Typography
                 sx={{
                   fontSize: '24px',
-                  color: 'rgba(255, 255, 255, 1)',
+                  color: 'rgba(17, 17, 17, 1)',
                   lineHeight: '28px',
                   fontWeight: '600',
                   '@media (max-width:660px)': {
@@ -156,7 +156,7 @@ const CommunityChat = () => {
               <Typography
                 sx={{
                   fontSize: '12px',
-                  color: 'rgba(255, 255, 255, 0.8)',
+                  color: 'rgba(17, 17, 17, 0.8)',
                   fontWeight: '400',
                   lineHeight: '18px',
                   textAlign: 'center',
@@ -187,7 +187,7 @@ const CommunityChat = () => {
               sx={{
                 fontSize: '16px',
                 fontWeight: '500',
-                color: 'rgba(255, 255, 255, 1)',
+                color: 'rgba(17, 17, 17, 1)',
                 mb: '48px',
                 lineHeight: '21px',
                 textAlign: 'start',
@@ -200,7 +200,7 @@ const CommunityChat = () => {
               sx={{
                 fontSize: '16px',
                 fontWeight: '400',
-                color: 'rgba(255, 255, 255, 0.8)',
+                color: 'rgba(17, 17, 17, 0.8)',
                 lineHeight: '24px',
                 textAlign: 'start',
               }}
@@ -232,13 +232,13 @@ const CommunityChat = () => {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '6px',
-              background: '#FFFFFF',
+              background: '#000000',
               borderRadius: '100px',
               cursor: 'pointer',
             }}
             onClick={handleClick}
           >
-            <PlusIcon />
+            <PlusIcon active />
           </Box>
         </Box>
       </motion.div>

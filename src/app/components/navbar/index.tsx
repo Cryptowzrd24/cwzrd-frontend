@@ -151,7 +151,7 @@ function Navbar() {
             </Link>
             <ConfigProvider
               theme={{
-                algorithm: theme.darkAlgorithm,
+                algorithm: theme.defaultAlgorithm,
                 token: {
                   colorPrimary: '#634DFD',
                 },
