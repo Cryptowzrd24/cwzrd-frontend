@@ -7,7 +7,7 @@ import theme from '@/theme';
 // import TickerServer from '../ticker';
 import StoreProvider from '@/app/StoreProvider';
 import Script from 'next/script';
-import CountDown from '../count-down';
+// import CountDown from '../count-down';
 
 export default function CustomLayout({
   children,

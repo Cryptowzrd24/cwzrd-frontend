@@ -21,11 +21,11 @@ const featuresHeaderRight = [
 ];
 
 const MembershipHeroSection = () => {
-  const targetDate = new Date(
-    process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T22:00:00Z',
-  );
-  const currentDate = new Date();
-  const isSaleActive = currentDate > targetDate;
+  // const targetDate = new Date(
+  //   process.env.NEXT_PUBLIC_TARGET_DATE || '2024-11-28T22:00:00Z',
+  // );
+  // const currentDate = new Date();
+  // const isSaleActive = currentDate > targetDate;
 
   return (
     <>
