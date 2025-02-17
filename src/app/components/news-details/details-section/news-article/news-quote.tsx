@@ -18,6 +18,13 @@ function NewsQuote({
           letterSpacing: isArticleDetails ? '0.8px' : 'auto',
           color: 'rgba(17, 17, 17, 1)',
           fontStyle: 'italic',
+
+          '@media (max-width: 978px)': {
+            fontSize: '20px !important',
+            fontWeight: '500 !important',
+            lineHeight: '110% !important',
+            letterSpacing: '0.2px !important',
+          },
         }}
       >
         ''
@@ -30,9 +37,16 @@ function NewsQuote({
           lineHeight: isArticleDetails ? '23.4px' : '26px',
           letterSpacing: isArticleDetails ? '1px' : '1.35px',
           marginTop: '5px',
+
+          '@media (max-width: 978px)': {
+            fontSize: '16px !important',
+            fontWeight: '700 !important',
+            lineHeight: '130% !important',
+            letterSpacing: '0.32px !important',
+          },
         }}
       >
-        {`"${quote}"`}
+        {`${quote}"`}
       </Typography>
     </Box>
   );

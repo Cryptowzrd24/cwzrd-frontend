@@ -29,6 +29,13 @@ function NewsHashtags({ isArticleDetails }: { isArticleDetails?: boolean }) {
             letterSpacing: '1px',
             fontFamily: 'Sf Pro Display',
             lineHeight: isArticleDetails ? '15.6px' : '13px',
+
+            '@media (max-width: 978px)': {
+              fontSize: '10px !important',
+              fontWeight: '500 !important',
+              lineHeight: '13px !important',
+              letterSpaceing: '1px !important',
+            },
           }}
         >
           {tag.toUpperCase()}
@@ -45,6 +52,7 @@ function NewsHashtags({ isArticleDetails }: { isArticleDetails?: boolean }) {
         padding: '12px 0',
         display: 'flex',
         gap: '12px',
+        flexWrap: 'wrap',
       }}
     >
       {renderTags}

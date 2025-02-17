@@ -43,6 +43,16 @@ function RelatedNewsCards() {
         scrollbarWidth: 'none',
         display: 'flex',
         justifyContent: 'space-between',
+        gap: '12px',
+
+        '@media (max-width: 1360px)': {
+          flexWrap: 'wrap',
+          justifyContent: 'space-evenly',
+        },
+
+        '@media (max-width: 978px)': {
+          flexDirection: 'column',
+        },
       }}
     >
       {newsData.map((news) => (

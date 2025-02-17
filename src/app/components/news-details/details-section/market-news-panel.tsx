@@ -15,7 +15,6 @@ function MarketNewsPanel({
         display: 'flex',
         flexDirection: 'column',
         gap: '16px',
-        marginLeft: '-25px',
       }}
     >
       <Box
@@ -56,7 +55,7 @@ function MarketNewsPanel({
       </Box>
       <Box
         sx={{
-          width: '300px',
+          maxWidth: '300px',
         }}
       >
         {isTechnicalDetail && (

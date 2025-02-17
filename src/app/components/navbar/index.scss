@@ -1,33 +1,40 @@
 .headerbg {
-    background-image: url("/images/banner/headerbg.png");
-    object-fit: cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: -1;
-    height: 230px;
-    padding-top: 32px;
-    margin-top: -32px;
+  background-image: url('/images/banner/headerbg.png');
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  height: 230px;
+  padding-top: 32px;
+  margin-top: -32px;
 }
 
-.articlesbg{
-    background-image: url("/images/banner/headerbg.png");
-    object-fit: cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: -1;
-    height: 230px;
-    padding-top: 32px;
-    margin-top: -32px;
+.newsDetailbg {
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 101;
+  background-color: #fff;
 }
 
+.articlesbg {
+  background-image: url('/images/banner/headerbg.png');
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  height: 230px;
+  padding-top: 32px;
+  margin-top: -32px;
+}
 
-.headerbgTechnicals{
-    background-image: url("/images/banner/technicalsNavImg.png");
-    object-fit:cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: -1;
-    height:230px;
-    padding-top: 32px;
-    margin-top: -32px,
+.headerbgTechnicals {
+  background-image: url('/images/banner/technicalsNavImg.png');
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  height: 230px;
+  padding-top: 32px;
+  margin-top: -32px;
 }
