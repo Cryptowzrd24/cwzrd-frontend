@@ -25,7 +25,11 @@ function CustomTabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && (
+        <Box sx={{ p: 3, '@media (max-width: 576px)': { p: '20px 0' } }}>
+          {children}
+        </Box>
+      )}
     </Box>
   );
 }
@@ -56,6 +60,9 @@ const AuthModal = ({ setShowAuthModal, showAuthModal }: any) => {
           sx: {
             borderRadius: '16px',
             width: '480px',
+            '@media (max-width: 576px)': {
+              margin: '0 5px',
+            },
           },
         }}
         onClose={handleClose}
@@ -77,7 +84,15 @@ const AuthModal = ({ setShowAuthModal, showAuthModal }: any) => {
           <CloseIcon fontSize="inherit" />
         </IconButton>
 
-        <DialogContent>
+        <DialogContent
+          sx={{
+            '&.MuiDialogContent-root': {
+              '@media (max-width: 576px)': {
+                padding: '20px 12px',
+              },
+            },
+          }}
+        >
           <motion.div
             initial={{ transform: 'scale(0.96)', opacity: '0.5' }}
             animate={{ transform: 'scale(1)', opacity: '1' }}

@@ -1,11 +1,16 @@
 'use client';
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import BreadCrumb from './breadcrumb';
 import DetailsSection from './details-section';
 import RelatedNews from './related-news';
 import MemberShipBanner from '../banners/memberShipBanner';
 import NewsArticle from './details-section/news-article';
+
+// import Twitter from '../../../../public/icons/twitter';
+// import Facebook from '../../../../public/icons/facebook';
+// import LinkedIn from '../../../../public/icons/linkedIn';
+// import Mail from '../../../../public/icons/mail';
 
 const sections = [
   { id: 'heading1', label: 'Is BTC set to break $70K' },
@@ -59,14 +64,22 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
   }, [sections, tocRefs, activeSection]);
   return (
     <>
-      <Box sx={{ mt: '32px' }}>
-        <BreadCrumb
-          origin={'News'}
-          description={
-            'Bitcoin whale accumulation reaches pre-2020 bull run levels — Is BTC set to break $70K?'
-          }
-        />
-      </Box>
+      <Container
+        maxWidth="xl"
+        sx={{
+          '@media (max-width: 1440px)': { paddingInline: '20px !important' },
+          '@media (max-width: 599px)': { paddingInline: '5px !important' },
+        }}
+      >
+        <Box sx={{ mt: '32px' }}>
+          <BreadCrumb
+            origin={'News'}
+            description={
+              'Bitcoin whale accumulation reaches pre-2020 bull run levels — Is BTC set to break $70K?'
+            }
+          />
+        </Box>
+      </Container>
       <Box sx={{ mt: '24px' }}>
         <DetailsSection
           sections={sections}
@@ -75,13 +88,45 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
           ChildComponent={childComponent}
           isTechnicalDetail={false}
         />
+
+        <DetailsSection
+          sections={sections}
+          activeSection={activeSection} // Pass activeSection to DetailsSection
+          isArticleDetails={isArticleDetails}
+          ChildComponent={childComponent}
+          isTechnicalDetail={false}
+        />
       </Box>
-      <Box sx={{ mt: '88px' }}>
-        <RelatedNews isArticleDetails={isArticleDetails} />
-      </Box>
-      <Box sx={{ mt: isArticleDetails ? '60px' : '56px', mb: '48px' }}>
-        <MemberShipBanner />
-      </Box>
+      <Container
+        maxWidth="xl"
+        sx={{
+          '@media (max-width: 1440px)': { paddingInline: '20px !important' },
+          '@media (max-width: 599px)': { paddingInline: '5px !important' },
+        }}
+      >
+        <Box
+          sx={{
+            mt: '88px',
+            '@media (max-width: 978px)': {
+              mt: '44px',
+            },
+          }}
+        >
+          <RelatedNews isArticleDetails={isArticleDetails} />
+        </Box>
+        <Box
+          sx={{
+            mt: isArticleDetails ? '60px' : '56px',
+            mb: '48px',
+            '@media (max-width: 978px)': {
+              mt: '42px',
+              mb: '28px',
+            },
+          }}
+        >
+          <MemberShipBanner />
+        </Box>
+      </Container>
     </>
   );
 };
