@@ -150,8 +150,8 @@ function Navbar() {
         className={
           pathname === '/news' || pathname.includes('/news/')
             ? 'headerbg'
-            : pathname === '/news-details'
-              ? 'newsDetailbg'
+            : pathname === '/news-details' || pathname === '/technical-details'
+              ? 'detailbg'
               : pathname === '/technicals' || pathname.includes('/technicals/')
                 ? 'headerbgTechnicals'
                 : pathname === '/articles'
