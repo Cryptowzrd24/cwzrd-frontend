@@ -13,6 +13,10 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
           justifyContent: 'space-between',
           alignItems: 'center',
           padding: '0 10px 0 8px',
+
+          '@media (max-width: 978px)': {
+            padding: 0,
+          },
         }}
       >
         <Typography
@@ -21,6 +25,12 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
             fontWeight: 700,
             lineHeight: '38.4px',
             lettterSpacing: '1px',
+
+            '@media (max-width: 660px)': {
+              fontSize: '24px',
+              lineHeight: '120%',
+              letterSpacing: '0.24px',
+            },
           }}
         >
           Other Related
