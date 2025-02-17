@@ -7,11 +7,6 @@ import RelatedNews from './related-news';
 import MemberShipBanner from '../banners/memberShipBanner';
 import NewsArticle from './details-section/news-article';
 
-// import Twitter from '../../../../public/icons/twitter';
-// import Facebook from '../../../../public/icons/facebook';
-// import LinkedIn from '../../../../public/icons/linkedIn';
-// import Mail from '../../../../public/icons/mail';
-
 const sections = [
   { id: 'heading1', label: 'Is BTC set to break $70K' },
   { id: 'heading2', label: 'Bitcoin whale accumulation reached 2020 levels' },
@@ -81,14 +76,6 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
         </Box>
       </Container>
       <Box sx={{ mt: '24px' }}>
-        <DetailsSection
-          sections={sections}
-          activeSection={activeSection} // Pass activeSection to DetailsSection
-          isArticleDetails={isArticleDetails}
-          ChildComponent={childComponent}
-          isTechnicalDetail={false}
-        />
-
         <DetailsSection
           sections={sections}
           activeSection={activeSection} // Pass activeSection to DetailsSection

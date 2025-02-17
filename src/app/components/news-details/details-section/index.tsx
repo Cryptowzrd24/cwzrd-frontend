@@ -92,7 +92,7 @@ function DetailsSection({
             sx={{
               flex: 0.5,
               position: 'sticky',
-              top: '20px',
+              top: '60px',
               height: '241px',
 
               '@media (max-width: 1320px)': {

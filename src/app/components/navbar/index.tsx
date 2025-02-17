@@ -147,21 +147,16 @@ function Navbar() {
         />
       )}
       <Box
-        sx={{
-          height: '60px',
-          position: 'sticky',
-          top: 0,
-          zIndex: 101,
-          background: '#fff',
-        }}
         className={
           pathname === '/news' || pathname.includes('/news/')
             ? 'headerbg'
-            : pathname === '/technicals' || pathname.includes('/technicals/')
-              ? 'headerbgTechnicals'
-              : pathname === '/articles'
-                ? 'articlesbg'
-                : ''
+            : pathname === '/news-details'
+              ? 'newsDetailbg'
+              : pathname === '/technicals' || pathname.includes('/technicals/')
+                ? 'headerbgTechnicals'
+                : pathname === '/articles'
+                  ? 'articlesbg'
+                  : ''
         }
       >
         <Container maxWidth="xl">
