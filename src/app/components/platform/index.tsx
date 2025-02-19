@@ -1,5 +1,5 @@
 'use client';
-import { Box, Container } from '@mui/material';
+import { Box, Container, useMediaQuery } from '@mui/material';
 import React, { useEffect } from 'react';
 import PlatformHeader from './header';
 import TradingPlatform from './trading';
@@ -29,6 +29,8 @@ import Forex from './forex-cryptocurrencies';
 import MemberShipBanner from './membership-banner';
 
 const Platform = () => {
+  const isTabView = useMediaQuery('(min-width: 978px)');
+  const isDesktopView = useMediaQuery('(min-width: 1025px)');
   useEffect(() => {
     document.body.style.backgroundColor = '#f5f5f7';
 
@@ -38,7 +40,14 @@ const Platform = () => {
   }, []);
   return (
     <>
-      <Container maxWidth="xl">
+      <Container
+        maxWidth="xl"
+        sx={{
+          '@media (max-width: 576px)': {
+            paddingInline: '5px !important',
+          },
+        }}
+      >
         <Box sx={{ mt: '64px' }}>
           <PlatformHeader />
         </Box>
@@ -48,7 +57,14 @@ const Platform = () => {
         alt="header"
         style={{ maxWidth: '100%', height: 'auto' }}
       />
-      <Container maxWidth="xl">
+      <Container
+        maxWidth="xl"
+        sx={{
+          '@media (max-width: 576px)': {
+            paddingInline: '5px !important',
+          },
+        }}
+      >
         <Box sx={{ mb: '24px' }}>
           <TradeOpportunities />
         </Box>
@@ -63,7 +79,7 @@ const Platform = () => {
         </Box>
         <Box
           sx={{
-            mt: '100px',
+            mt: isTabView ? '100px' : '40px',
             mb: '30px',
             display: 'flex',
             justifyContent: 'center',
@@ -73,16 +89,22 @@ const Platform = () => {
         >
           <TradingPlatform />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        {/* <Box sx={{ mb: '30px' }}>
           <PlatformCards />
-        </Box>
-        <Box sx={{ mb: '100px', display: 'flex', justifyContent: 'center' }}>
+        </Box> */}
+        <Box
+          sx={{
+            mb: isTabView ? '100px' : '40px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <MemberShipBanner />
         </Box>
         <Box sx={{ mb: '30px' }}>
           <Feature />
         </Box>
-        <Box sx={{ mt: '100px', mb: '30px' }}>
+        <Box sx={{ mt: isTabView ? '100px' : '40px', mb: '30px' }}>
           <Education />
         </Box>
         <Box sx={{ mb: '24px' }}>
@@ -103,45 +125,93 @@ const Platform = () => {
       </Container>
       <Box
         sx={{
-          mt: '100px',
-          // mb: '30px',
+          mt: isTabView ? '100px' : '40px',
+          overflow: 'hidden',
           display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '56px',
-        }}
-      >
-        <Forex />
-        <Image
-          src={forexImg}
-          alt="macbook"
-          style={{
-            flex: 1,
-            width: '45%',
-            height: 'auto',
-          }}
-        />
-      </Box>
-      <Container maxWidth="xl">
-        <Box sx={{ mt: '100px' }}>
-          <PersonalCalendar />
-        </Box>
-        <Box
-          sx={{
-            mt: '24px',
+          justifyContent: 'center',
+
+          '@media (max-width: 1024px)': {
             display: 'flex',
             justifyContent: 'center',
+            paddingInline: '40px',
+          },
+
+          '@media (max-width: 599px)': {
+            paddingInline: '20px',
+          },
+
+          '@media (max-width: 576px)': {
+            paddingInline: '5px',
+          },
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '56px',
+
+            '@media (max-width: 1024px)': {
+              flexDirection: 'column',
+              gap: '28px',
+              background: 'white',
+              width: 'fit-content',
+              borderRadius: '24px',
+              padding: '16px 0 16px 16px',
+            },
           }}
         >
-          <RealTimeMarketData />
+          <Forex />
+          <Box
+            sx={{
+              flex: 1,
+              display: 'flex',
+              justifyContent: 'flex-end',
+              width: '100%',
+            }}
+          >
+            <Image
+              src={forexImg}
+              alt="macbook"
+              style={{
+                width: isDesktopView ? '45%' : '80%',
+                height: 'auto',
+                flex: isDesktopView ? 1 : 0,
+              }}
+            />
+          </Box>
         </Box>
+      </Box>
+      <Container
+        maxWidth="xl"
+        sx={{
+          '@media (max-width: 576px)': {
+            paddingInline: '5px !important',
+          },
+        }}
+      >
+        <Box sx={{ mt: isTabView ? '100px' : '40px' }}>
+          <PersonalCalendar />
+        </Box>
+        {isTabView && (
+          <Box
+            sx={{
+              mt: '24px',
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <RealTimeMarketData />
+          </Box>
+        )}
         <Box sx={{ mt: '24px' }}>
           <CoverageCards />
         </Box>
-        <Box sx={{ mt: '100px' }}>
+        <Box sx={{ mt: isTabView ? '100px' : '40px' }}>
           <FrequentlyAskedQuestion />
         </Box>
-        <Box sx={{ mt: '100px', mb: '24px' }}>
+        <Box sx={{ mt: isTabView ? '100px' : '40px', mb: '24px' }}>
           <MemberShipBannerLarge />
         </Box>
       </Container>

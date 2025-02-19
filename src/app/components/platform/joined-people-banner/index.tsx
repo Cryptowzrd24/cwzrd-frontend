@@ -15,8 +15,17 @@ const JoinedPeople = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: 62,
           width: '967.5px',
+
+          '@media (max-width: 824px)': {
+            flexDirection: 'column',
+            padding: '16px',
+          },
+
+          '@media (max-width: 576px)': {
+            alignItems: 'flex-start',
+            padding: '16px',
+          },
         }}
       >
         <Box
@@ -26,6 +35,17 @@ const JoinedPeople = () => {
             gap: '32px',
             paddingBlock: '10px',
             paddingLeft: '36px',
+
+            '@media (max-width: 824px)': {
+              padding: '0px',
+            },
+            '@media (max-width: 576px)': {
+              gap: '16px',
+            },
+            '@media (max-width: 492px)': {
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+            },
           }}
         >
           <Image src={join} alt="join" width={189} height={42} />
@@ -47,6 +67,10 @@ const JoinedPeople = () => {
             alignItems: 'center',
             paddingBlock: '10px',
             paddingRight: '36px',
+
+            '@media (max-width: 824px)': {
+              padding: '0px',
+            },
           }}
         >
           <Typography

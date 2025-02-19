@@ -14,21 +14,34 @@ const FrequentlyAskedQuestion = () => {
           textAlign: 'center',
           letterSpacing: '1px',
           fontFamily: 'Sf Pro Display',
+
+          '@media (max-width: 576px)': {
+            fontSize: '24px !important',
+            lineHeight: '120%',
+            letterSpacing: '0.24px',
+          },
         }}
       >
         Frequently Asked
-        <span
-          style={{
+        <Typography
+          component={'span'}
+          sx={{
+            fontSize: 'inherit !important',
+            fontWeight: 'inherit',
+            lineHeight: 'inherit',
             backgroundImage:
               'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             marginLeft: '12px',
             letterSpacing: '-1px',
+            '@media (max-width: 576px)': {
+              marginLeft: '6px',
+            },
           }}
         >
           Questions
-        </span>{' '}
+        </Typography>{' '}
       </Typography>
 
       <Box
@@ -39,7 +52,7 @@ const FrequentlyAskedQuestion = () => {
           width: '100%',
         }}
       >
-        <Box sx={{ width: '477px' }}>
+        <Box sx={{ maxWidth: '477px' }}>
           <AccordionQuestion
             title="What is Cryptowzrd?"
             summary="Cryptowzrd is a comprehensive platform designed to empower traders in the world of cryptocurrency. We offer a range of educational resources, tools, and support to help traders of all levels succeed in the market."
@@ -57,7 +70,14 @@ const FrequentlyAskedQuestion = () => {
             summary="Choose Cryptowzrd for its comprehensive resources, user-friendly platform, and dedicated support team. We are committed to helping you succeed in the world of cryptocurrency trading."
           />
         </Box>
-        <Box sx={{ width: '477px' }}>
+        <Box
+          sx={{
+            maxWidth: '477px',
+            '@media(max-width: 987px)': {
+              display: 'none',
+            },
+          }}
+        >
           <AccordionQuestion
             title="Who can use Cryptowzrd?"
             summary="Cryptowzrd is designed for traders of all levels, from beginners to advanced traders. Our platform offers a range of resources to help you succeed in the cryptocurrency market."

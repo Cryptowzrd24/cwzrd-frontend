@@ -13,12 +13,40 @@ const RealWinsCard = () => {
           gap: '12px',
           alignItems: 'center',
           maxWidth: '670px',
+          width: '100%',
           height: '368px',
+
+          '@media (max-width: 1024px)': {
+            justifyContent: 'center',
+            maxWidth: '100%',
+          },
+
+          '@media (max-width: 576px)': {
+            flexDirection: 'column',
+            height: 'auto',
+          },
         }}
       >
-        <Stack>
+        <Stack
+          sx={{
+            flex: 1,
+            '@media (max-width: 576px)': {
+              flexDirection: 'row',
+              gap: '12px',
+              width: '100%',
+            },
+          }}
+        >
           <DeliverCard />
-          <Box sx={{ mt: '12px' }}>
+          <Box
+            sx={{
+              mt: '12px',
+              flex: 1,
+              '@media (max-width: 576px)': {
+                mt: '0px',
+              },
+            }}
+          >
             <TradeSignalCard />
           </Box>
         </Stack>

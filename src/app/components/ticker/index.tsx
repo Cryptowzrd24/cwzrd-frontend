@@ -18,9 +18,10 @@ async function fetchTickerData() {
 }
 
 const TickerServer = async () => {
-  const initialData = await fetchTickerData();
+  // const initialData = await fetchTickerData();
 
-  return <Ticker initialData={initialData} />;
+  // return <Ticker initialData={initialData} />;
+  return <div></div>;
 };
 
 export default TickerServer;

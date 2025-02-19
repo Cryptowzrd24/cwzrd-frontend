@@ -1,5 +1,5 @@
 'use client';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import iphone from '../../../../../public/images/platform/iPhone.png';
@@ -9,6 +9,9 @@ import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
 const PersonalCalendar = () => {
   const [active, setActive] = useState(false);
+  const isTabView = useMediaQuery('(min-width: 978px)');
+  const isSmallView = useMediaQuery('(max-width: 672px)');
+
   const handleClick = () => {
     setActive((show) => !show);
   };
@@ -84,6 +87,14 @@ const PersonalCalendar = () => {
               display: 'flex',
               alignItems: 'center',
               gap: '53.82px',
+
+              '@media (max-width: 672px)': {
+                flexDirection: active ? 'column' : 'column-reverse',
+                alignItems: 'flex-start',
+                overflow: 'hidden',
+                height: '100%',
+                gap: '22.75px',
+              },
             }}
           >
             <motion.div
@@ -92,24 +103,33 @@ const PersonalCalendar = () => {
               animate={active ? 'active' : 'inactive'}
               style={{
                 overflow: 'hidden',
-                width: '292.18px',
+                width: isSmallView ? '100%' : '292.18px',
                 height: '442.98px',
                 position: 'relative',
               }}
             >
-              <Image
-                src={iphone}
-                alt="iphone"
-                width={219.18}
-                height={447.98}
-                style={{
-                  paddingLeft: '70.5px',
-                  marginTop: '57.75px',
-                  position: 'absolute',
-                  left: '0',
-                  top: '0',
+              <Box
+                sx={{
+                  width: isSmallView ? '100%' : '292.18px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
-              />
+              >
+                <Image
+                  src={iphone}
+                  alt="iphone"
+                  width={isSmallView ? 250.18 : 219.18}
+                  height={447.98}
+                  style={{
+                    paddingLeft: isSmallView ? '0' : '70.5px',
+                    marginTop: isSmallView ? '0' : '57.75px',
+                    position: isSmallView ? 'relative' : 'absolute',
+                    left: '0',
+                    top: '0',
+                  }}
+                />
+              </Box>
             </motion.div>
 
             {active && (
@@ -128,6 +148,11 @@ const PersonalCalendar = () => {
                     textAlign: 'start',
                     marginLeft: '28px',
                     maxWidth: '690px',
+
+                    '@media (max-width: 576px)': {
+                      mt: '150px',
+                      mx: '14px',
+                    },
                   }}
                 >
                   Lorem Ipsum is simply dummy text of the printing and
@@ -139,7 +164,15 @@ const PersonalCalendar = () => {
               </motion.div>
             )}
 
-            <Stack sx={{ paddingTop: '126.75px', paddingBottom: '79.75px' }}>
+            <Stack
+              sx={{
+                paddingTop: '126.75px',
+                paddingBottom: '79.75px',
+                '@media (max-width: 672px)': {
+                  p: '24px 18px 0',
+                },
+              }}
+            >
               <motion.div
                 variants={imgAndTextVariants}
                 initial="initial"
@@ -154,9 +187,18 @@ const PersonalCalendar = () => {
                     maxWidth: '243px',
                     mb: '48.75px',
                     textWrap: 'balance',
+
+                    '@media (max-width: 672px)': {
+                      fontSize: '24px !important',
+                      maxWidth: '308px',
+                      letterSpacing: '0.24px',
+                      lineHeight: '120%',
+                      mb: '16px',
+                    },
                   }}
                 >
-                  Personal Calendar: Keep Track of Everything
+                  Personal Calendar:
+                  <br /> Keep Track of Everything
                 </Typography>
 
                 <Typography
@@ -180,6 +222,11 @@ const PersonalCalendar = () => {
                 position: 'absolute',
                 right: '23.5px',
                 bottom: '16.28px',
+
+                '@media (max-width: 576px)': {
+                  right: '10.5px',
+                  left: '10.28px',
+                },
               }}
             >
               <motion.div
@@ -203,7 +250,7 @@ const PersonalCalendar = () => {
             </Box>
           </Box>
         </motion.div>
-        <ExportCard />
+        {isTabView && <ExportCard />}
       </Box>
     </>
   );
