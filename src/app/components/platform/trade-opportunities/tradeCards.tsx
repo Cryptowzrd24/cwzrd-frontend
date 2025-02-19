@@ -5,7 +5,15 @@ import Image from 'next/image';
 const TradeCards = () => {
   return (
     <Box
-      sx={{ display: 'flex', gap: '30px', flex: 1, justifyContent: 'center' }}
+      sx={{
+        display: 'flex',
+        gap: '30px',
+        flex: 1,
+        justifyContent: 'center',
+        '@media (max-width: 786px)': {
+          flexDirection: 'column',
+        },
+      }}
     >
       <Box
         sx={{
@@ -16,6 +24,12 @@ const TradeCards = () => {
           borderRadius: '32px',
           // width: '41.2%',
           width: '390px',
+
+          '@media (max-width: 786px)': {
+            width: 'inherit',
+            paddingLeft: '16px',
+            paddingBottom: '20px',
+          },
         }}
       >
         <Image
@@ -30,7 +44,7 @@ const TradeCards = () => {
         <Stack sx={{ maxWidth: '440px', paddingLeft: '8px' }}>
           <Typography
             sx={{
-              fontSize: '13px',
+              fontSize: '13px !important',
               fontWeight: '600',
               color: 'rgba(17, 17, 17, 1)',
               lineHeight: '16.9px',
@@ -42,7 +56,7 @@ const TradeCards = () => {
           </Typography>
           <Typography
             sx={{
-              fontSize: '12px',
+              fontSize: '12px !important',
               fontWeight: '400',
               color: 'rgba(17, 17, 17, 0.8)',
               lineHeight: '18px',
@@ -62,18 +76,30 @@ const TradeCards = () => {
           padding: '64px 0 0 48px',
           borderRadius: '32px',
           position: 'relative',
-          // maxWidth: '740px',
           width: '555px',
+
+          '@media (max-width: 786px)': {
+            padding: '32px 0 0 24px',
+            width: 'inherit',
+            height: '400px',
+          },
         }}
       >
         <Typography
           variant="h1"
           sx={{
-            fontSize: '24px',
+            fontSize: '24px !important',
             color: 'rgba(255, 255, 255, 1)',
             lineHeight: '26.44px',
             mb: '8px',
             fontFamily: 'Sf Pro Display',
+
+            '@media (max-width: 576px)': {
+              fontSize: '16px !important',
+              fontWeight: '700',
+              lineHeight: '130%',
+              letterSpacing: '0.32px',
+            },
           }}
         >
           Trade Signals
@@ -81,11 +107,15 @@ const TradeCards = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: '12px',
+            fontSize: '12px !important',
             color: 'rgba(255, 255, 255, 0.8)',
             width: '206px',
             fontWeight: '400',
             lineHeight: '18px',
+
+            '@media (max-width: 576px)': {
+              width: '226px',
+            },
           }}
         >
           We provide both the Crypto and FX signals with Entry Prices, Take

@@ -12,6 +12,10 @@ const ExaminationPart = () => {
         justifyContent: 'center',
         gap: '24px',
         flex: 1,
+
+        '@media (max-width: 978px)': {
+          flexDirection: 'column',
+        },
       }}
     >
       <ExaminationCard />

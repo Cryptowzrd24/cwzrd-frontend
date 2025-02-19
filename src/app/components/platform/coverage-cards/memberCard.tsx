@@ -1,9 +1,10 @@
 import React from 'react';
 import join from '../../../../../public/images/platform/Component.png';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
 import ArrowRight from '../../../../../public/icons/News-Letter/arrowRight';
 const MemberCard = () => {
+  const isSmallScreen = useMediaQuery('(min-width: 576px)');
   return (
     <>
       <Box
@@ -16,15 +17,37 @@ const MemberCard = () => {
           alignItems: 'center',
           justifyContent: 'space-between',
           width: '967.5px',
+
+          '@media (max-width: 824px)': {
+            flexDirection: 'column',
+          },
+
+          '@media (max-width: 576px)': {
+            alignItems: 'flex-start',
+            padding: '16px',
+          },
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '15px',
+
+            '@media (max-width: 576px)': {
+              alignItems: 'flex-start',
+              flexDirection: 'column',
+            },
+          }}
+        >
           <Image
             src={join}
             alt="join"
             width={36}
             height={36}
-            style={{ paddingBlock: '10px', paddingLeft: '36px' }}
+            style={
+              isSmallScreen ? { paddingBlock: '10px', paddingLeft: '36px' } : {}
+            }
           />
           <Typography
             sx={{
@@ -38,7 +61,14 @@ const MemberCard = () => {
             We are the largest trading community. Join Now?
           </Typography>
         </Box>
-        <Box sx={{ paddingRight: '36px' }}>
+        <Box
+          sx={{
+            paddingRight: '36px',
+            '@media (max-width: 824px)': {
+              paddingRight: '0px',
+            },
+          }}
+        >
           <Typography
             sx={{
               fontSize: '18px',

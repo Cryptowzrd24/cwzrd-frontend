@@ -9,8 +9,8 @@ function TechnicalImage() {
     <>
       <Box
         sx={{
-          width: '800px',
-          height: '400px',
+          width: { xs: '100%', sm: '80%', md: '800px' },
+          height: { xs: 'auto', sm: '300px', md: '400px' },
           borderRadius: '16px',
           overflow: 'hidden',
         }}
@@ -18,6 +18,7 @@ function TechnicalImage() {
         <Image
           src={TechnicalDetailImage}
           alt="image"
+          layout="responsive"
           width={800}
           height={400}
         />
@@ -25,9 +26,9 @@ function TechnicalImage() {
       <Typography
         sx={{
           fontWeight: 400,
-          fontSize: '18.5px',
+          fontSize: { xs: '16px', md: '18.5px' },
           fontFamily: 'Sf Pro Display',
-          lineHeight: '27px',
+          lineHeight: { xs: '24px', md: '27px' },
           color: 'rgba(17, 17, 17, 0.8)',
           marginTop: '12px',
         }}

@@ -16,6 +16,8 @@ const TradersCard = () => {
           flexDirection: 'column',
           gap: '17.5px',
           alignItems: 'center',
+          flexGrow: 1,
+          flexShrink: 0,
         }}
       >
         <Stack

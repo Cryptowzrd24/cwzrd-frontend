@@ -114,7 +114,15 @@ const RelatedNewsCarousel = ({
   });
 
   return (
-    <Box sx={{ padding: '20px 0', position: 'relative' }}>
+    <Box
+      sx={{
+        padding: '20px 0',
+        position: 'relative',
+        '@media (max-width: 1500px)': {
+          display: 'none',
+        },
+      }}
+    >
       {/* @ts-expect-error TS2322: Type '{}' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<HTMLDivElement> & { children?: ReactNode; }'. */}
       <Slider {...settings}>{renderCards}</Slider>
     </Box>
