@@ -68,6 +68,10 @@ const NewsCard: React.FC<NewsCardProps> = ({
               backdropFilter: 'blur(15px)',
               borderRadius: '100px',
               color: 'white',
+
+              '@media (max-width: 576px)': {
+                display: 'none',
+              },
             }}
             label={
               <Box

@@ -30,6 +30,11 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
         borderRadius: '12px',
         height: height ? height : '648px',
         width: width ? width : '615px',
+
+        '@media (max-width: 978px)': {
+          width: 'auto',
+          height: 'auto',
+        },
       }}
     >
       <Box
@@ -38,6 +43,11 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
           height: height ? '200px' : '338px',
           width: width ? '300px' : '516px',
           overflow: 'hidden',
+
+          '@media (max-width: 978px)': {
+            width: '100%',
+            height: 'auto',
+          },
         }}
       >
         <Box
@@ -95,18 +105,16 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
 
         <Image
           style={{
-            height: height ? '200px' : '380px',
-            width: width ? '300px' : '100%',
+            height: '100%',
+            width: '100%',
             borderRadius: '12px',
-            // objectFit: 'cover',
+            objectFit: 'cover',
           }}
           alt="news"
           src={
             image ||
             'https://s3-alpha-sig.figma.com/img/e7a2/1b9d/8dee851bf60c683f94041035849f3dca?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BvgpfnvcAL~zhHG6Oowu1t3HZRwEfXSfH4khOf-3eUB2Uyv8r2u6bU3BVqFllyBCHOsEQjlzxCVobCT8yE8iIhbf1aiqtfUWPypscZYHrLgXrmv32wfptJ7uz5GLSfUhMF9vsPhm3zsby0HqdX2cJHa3H3B7BN-V3dXG8mdmWZoJQwdr8zC7FIAMqPwebOoEbeseY6Q2MK3MeT30CSYde3CmG094wS2f1NI~sSfi~~RCnM~1SyWDv~WX7KL6jhRuxWFBY7IztH-8kgOOyvvP6ESbtWKVmPi07YdpqiFIFtk4MDesUsyThfs6129AmKfVhyVjfY7WY~mBVNAYWuXr5Q__'
           }
-          width={516}
-          height={0}
         />
       </Box>
       <Box>
@@ -124,7 +132,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '10px',
+                  fontSize: '10px !important',
                   lineHeight: '13px',
                   // letterSpacing: '1px',
                 }}
@@ -146,7 +154,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '10px',
+                  fontSize: '10px !important',
                   lineHeight: '13px',
                   // letterSpacing: '1px',
                 }}
@@ -168,7 +176,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '10px',
+                  fontSize: '10px !important',
                   lineHeight: '13px',
                   // letterSpacing: '1px',
                 }}
@@ -181,7 +189,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
         <Typography
           sx={{
             fontWeight: '500',
-            fontSize: '16px',
+            fontSize: '16px !important',
             lineHeight: '20.8px',
             letterSpacing: '1px',
             marginTop: '16px',
@@ -194,7 +202,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
         <Typography
           sx={{
             fontWeight: '400',
-            fontSize: '12px',
+            fontSize: '12px !important',
             lineHeight: '17.4px',
             overflow: 'hidden',
             marginTop: '8px',
@@ -214,7 +222,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
           sx={{
             marginTop: '16px',
             fontWeight: '500',
-            fontSize: '12px',
+            fontSize: '12px !important',
             lineHeight: '15.6px',
             color: 'rgba(17, 17, 17, 1)',
           }}

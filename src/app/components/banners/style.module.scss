@@ -55,13 +55,15 @@
 }
 
 @media (max-width: 768px) {
-  .bannerBox2 {
+  .bannerBox2,
+  .bannerBox {
     padding: 32px 37.5px;
   }
 }
 
 @media (max-width: 576px) {
-  .bannerBox2 {
+  .bannerBox2,
+  .bannerBox {
     padding: 32px 16px;
   }
   .smallText {

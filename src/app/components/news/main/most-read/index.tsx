@@ -17,6 +17,10 @@ function MostRead({ height, width }: any) {
         padding: '18px 12px 24px 12px',
         overflow: 'auto',
         scrollbarWidth: 'none',
+
+        '@media (max-width: 1380px)': {
+          width: 'auto',
+        },
       }}
     >
       <Box
@@ -32,7 +36,7 @@ function MostRead({ height, width }: any) {
             sx={{
               color: 'rgba(114, 72, 247, 1)',
               fontFamily: 'Sf Pro Display',
-              fontSize: '14px',
+              fontSize: '14px !important',
               fontWeight: 600,
               lineHeight: '18.2px',
             }}
@@ -56,7 +60,7 @@ function MostRead({ height, width }: any) {
             sx={{
               color: 'rgba(17, 17, 17, 0.3)',
               fontFamily: 'Sf Pro Display',
-              fontSize: '14px',
+              fontSize: '14px !important',
               fontWeight: 600,
               lineHeight: '18.2px',
             }}

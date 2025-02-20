@@ -162,7 +162,18 @@ export default function Menu({
   return (
     <div>
       <Button onClick={toggleDrawer(true)} sx={{ p: 0, minWidth: 'auto' }}>
-        <MenuIcon />
+        <MenuIcon
+          sx={{
+            color:
+              pathname === '/news' ||
+              pathname === '/technicals' ||
+              pathname === '/articles' ||
+              pathname.includes('/technicals/') ||
+              pathname === '/news/crypto'
+                ? 'white'
+                : 'black',
+          }}
+        />
       </Button>
       <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         {list}

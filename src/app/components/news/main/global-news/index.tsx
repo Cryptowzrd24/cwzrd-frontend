@@ -73,13 +73,18 @@ function GlobalNews() {
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         borderRadius: '16px',
         padding: '16px  12px  16px 12px',
+
+        '@media (max-width: 1440px)': {
+          height: 'auto',
+          width: 'auto',
+        },
       }}
     >
       <Typography
         sx={{
           color: 'rgba(17, 17, 17, 1)',
           fontWeight: 600,
-          fontSize: '14px',
+          fontSize: '14px !important',
           fontFamily: 'Sf Pro Display',
           lineHeight: '18.2px',
           textAlign: 'start',

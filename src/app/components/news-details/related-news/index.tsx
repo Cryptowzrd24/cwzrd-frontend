@@ -1,10 +1,11 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import React from 'react';
 import RelatedNewsCarousel from './related-news-carousel';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import RelatedNewsCards from './related-news-cards';
 
 function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
+  const isTabView = useMediaQuery('(min-width: 1500px)');
   return (
     <Box>
       <Box
@@ -78,7 +79,7 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
       </Box>
       <Box sx={{ mt: '24px' }}>
         {!isArticleDetails && <RelatedNewsCards />}
-        <RelatedNewsCarousel />
+        {isTabView && <RelatedNewsCarousel />}
       </Box>
     </Box>
   );
