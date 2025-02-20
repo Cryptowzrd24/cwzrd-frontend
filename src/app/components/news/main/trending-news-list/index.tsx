@@ -59,6 +59,11 @@ function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
         gap: 2 / 3,
         overflow: 'scroll',
         scrollbarWidth: 'none',
+
+        '@media (max-width: 978px)': {
+          maxHeight: '100%',
+          flex: 1,
+        },
       }}
     >
       {LiveCardData.slice(0, maxCards).map((card) => (
@@ -158,7 +163,7 @@ const Card = ({ title, image, description }: any) => {
         <Box sx={{ width: '53%' }}>
           <Typography
             sx={{
-              fontSize: '12px',
+              fontSize: '12px !important',
               fontWeight: '700',
               lineHeight: '15.6px',
               marginTop: '1px',
@@ -173,7 +178,7 @@ const Card = ({ title, image, description }: any) => {
           </Typography>
           <Typography
             sx={{
-              fontSize: '10px',
+              fontSize: '10px !important',
               fontWeight: '400',
               lineHeight: '13px',
               marginTop: '4px',

@@ -40,6 +40,11 @@ function ArticleHeader({
             letterSpacing: '1px',
             fontFamily: 'Sf Pro Display',
             lineHeight: isArticleDetails ? '15.6px' : '13px',
+
+            '@media (max-width: 978px)': {
+              fontSize: '10px !important',
+              lineHeight: '13px !important',
+            },
           }}
         >
           {coinName}
@@ -53,6 +58,10 @@ function ArticleHeader({
           letterSpacing: '1.5px',
           fontFamily: 'Sf Pro Display',
           lineHeight: '15.6px',
+          '@media (max-width: 978px)': {
+            fontSize: '10px !important',
+            lineHeight: '13px !important',
+          },
         }}
       >
         {date}
@@ -73,6 +82,10 @@ function ArticleHeader({
             letterSpacing: '1.5px',
             fontFamily: 'Sf Pro Display',
             lineHeight: '15.6px',
+            '@media (max-width: 978px)': {
+              fontSize: '10px !important',
+              lineHeight: '13px !important',
+            },
           }}
         >
           {readTime}

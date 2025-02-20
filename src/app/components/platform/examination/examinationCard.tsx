@@ -1,10 +1,11 @@
 'use client';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
 const ExaminationCard = () => {
+  const isTabView = useMediaQuery('(min-width: 978px)');
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
@@ -55,7 +56,7 @@ const ExaminationCard = () => {
       <motion.div
         style={{
           // padding: '24px 42px 60px 24px',
-          width: '307.5px',
+          width: isTabView ? '307.5px' : '100%',
           height: '352.75px',
           borderRadius: '24px',
           position: 'relative',
@@ -105,7 +106,7 @@ const ExaminationCard = () => {
           >
             <Typography
               sx={{
-                fontSize: '30px',
+                fontSize: '30px !important',
                 color: 'rgba(255, 255, 255, 1)',
                 mt: '27px',
                 letterSpacing: 0.1,

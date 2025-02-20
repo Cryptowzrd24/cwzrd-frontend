@@ -14,15 +14,35 @@ const Portfolio = () => {
           alignItems: 'center',
           borderRadius: '24px',
           gap: '40px',
+
+          '@media (max-width: 1024px)': {
+            flexDirection: 'column-reverse',
+            alignItems: 'flex-start',
+            gap: '16px',
+          },
         }}
       >
-        <Box sx={{ paddingTop: '36px' }}>
+        <Box
+          sx={{
+            paddingTop: '36px',
+            '@media (max-width: 1024px)': {
+              padding: '0px',
+            },
+          }}
+        >
           <PortfolioCard />
         </Box>
-        <Box sx={{ paddingBlock: '114px' }}>
+        <Box
+          sx={{
+            paddingBlock: '114px',
+            '@media (max-width: 1024px)': {
+              padding: '16px',
+            },
+          }}
+        >
           <Typography
             sx={{
-              fontSize: '30px',
+              fontSize: '30px !important',
               fontWeight: '600',
               lineHeight: '33px',
               color: 'rgba(17, 17, 17, 1)',
@@ -30,6 +50,10 @@ const Portfolio = () => {
               width: '375px',
               letterSpacing: '-1px',
               fontFamily: 'Sf Pro Display',
+
+              '@media (max-width: 1024px)': {
+                width: '100%',
+              },
             }}
           >
             Portfolio Investing for long term growth
@@ -42,6 +66,10 @@ const Portfolio = () => {
               color: 'rgba(17, 17, 17, 0.8)',
               width: '375px',
               fontFamily: 'Sf Pro Display',
+
+              '@media (max-width: 1024px)': {
+                width: '100%',
+              },
             }}
           >
             Manage and track your investments with ease using our personal
