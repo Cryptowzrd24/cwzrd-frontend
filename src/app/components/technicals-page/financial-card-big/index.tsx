@@ -74,19 +74,23 @@ function FinancialCarBig({ image, dualImg, isFxPage }: FinancialCardBigProps) {
             </Box>
           )}
         </Box>
-
         <Box
           sx={{
-            width: '300px',
+            width: '100%',
+            // width: '300px',
             height: '110px',
             borderRadius: '12px',
             overflow: 'hidden',
             boxShadow: '0px 0px 12px 0px rgba(114, 72, 247, 0.1)',
+            '@media (max-width: 768px)': {
+              height: 'auto',
+            },
           }}
         >
           <Image
             src={techGraph}
             alt="analysis card"
+            layout="responsive"
             width={284}
             height={102}
             style={{

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Box, IconButton } from '@mui/material';
+import { Box, IconButton, useMediaQuery, Typography } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -12,6 +12,7 @@ import Slider from 'react-slick';
 import NewsCard from '../../financial-news-card/newsCard';
 import FinancialCardCarouselSec from './card';
 import MiddleAnalysisCard from './middle-analysis-card';
+import FinancialNewsCarousel from '../../financial-news-carousel';
 
 import usaIcon from '../../../../../../public/images/technicals-page/usaIcon.png';
 import ausIcon from '../../../../../../public/images/technicals-page/ausIcon.png';
@@ -72,6 +73,7 @@ const NextArrow = ({ onClick }: any) => (
 );
 
 const SectionCarousel = () => {
+  const isSmallDesktop = useMediaQuery('(min-width: 1400px)');
   const settings = {
     dots: true,
     infinite: false,
@@ -136,7 +138,7 @@ const SectionCarousel = () => {
     );
   });
 
-  return (
+  return isSmallDesktop ? (
     <Box
       sx={{
         '& .slick-dots': {
@@ -145,6 +147,45 @@ const SectionCarousel = () => {
       }}
     >
       <Slider {...settings}>{renderCards}</Slider>
+    </Box>
+  ) : (
+    <Box sx={{ mt: '10px' }}>
+      <MiddleAnalysisCard isFxPage={true} />
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <NewsCard
+          image={usaIcon}
+          isShort={true}
+          dualImg={ausIcon}
+          isFxPage={true}
+        />
+        <NewsCard
+          image={usaIcon}
+          isShort={true}
+          dualImg={ausIcon}
+          isFxPage={true}
+        />
+        <NewsCard
+          image={usaIcon}
+          isShort={true}
+          dualImg={ausIcon}
+          isFxPage={true}
+        />
+        <NewsCard
+          image={usaIcon}
+          isShort={true}
+          dualImg={ausIcon}
+          isFxPage={true}
+        />
+        <NewsCard
+          image={usaIcon}
+          isShort={true}
+          dualImg={ausIcon}
+          isFxPage={true}
+        />
+      </Box>
+      <Box sx={{ mt: '24px' }}>
+        <FinancialNewsCarousel />
+      </Box>
     </Box>
   );
 };

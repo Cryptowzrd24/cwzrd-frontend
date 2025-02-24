@@ -38,3 +38,9 @@
   padding-top: 32px;
   margin-top: -32px;
 }
+
+@media (max-width: 768px) {
+  .headerbgTechnicals {
+    height: 300px;
+  }
+}

@@ -1,17 +1,23 @@
 import { Box, Typography } from '@mui/material';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 import techGraph from '../../../../../public/images/technicals-page/techPageGraph.png';
 import bitcoinImg from '../../../../../public/images/coin-details/bitcoin.png';
 import CommentsLikes from '../comments-likes';
 
-function FinancialNewsCardVertical({ noBackground = false }) {
+function FinancialNewsCardVertical({
+  noBackground = false,
+  image,
+}: {
+  noBackground?: boolean;
+  image?: string | StaticImageData;
+}) {
   return (
     <Box
       sx={{
-        width: '243.6px',
-        height: '274px',
+        width: 'auto',
+        height: 'auto',
         padding: '8px',
         background: noBackground ? 'transparent' : 'rgba(255, 255, 255, 1)',
         boxShadow: noBackground
@@ -39,12 +45,17 @@ function FinancialNewsCardVertical({ noBackground = false }) {
             left: '6px',
           }}
         >
-          <Image src={bitcoinImg} alt="analysis card" width={32} height={32} />
+          <Image
+            src={image || bitcoinImg}
+            alt="analysis card"
+            width={32}
+            height={32}
+          />
         </Box>
         <Box
           sx={{
-            width: '235.6px',
-            height: '132px',
+            width: 'auto',
+            height: 'auto',
             marginTop: '-40px',
             marginLeft: '4px',
             borderRadius: '12px',
@@ -54,13 +65,15 @@ function FinancialNewsCardVertical({ noBackground = false }) {
           <Image
             src={techGraph}
             alt="analysis card"
-            width={235.6}
-            height={132}
+            // width={235.6}
+            // height={132}
             style={{
               boxShadow: noBackground
                 ? 'none'
                 : '0px 0px 12px 0px rgba(114, 72, 247, 0.1) inset',
               borderRadius: noBackground ? '0px' : '12px',
+              width: '100%',
+              height: 'auto',
             }}
           />
         </Box>
@@ -75,7 +88,7 @@ function FinancialNewsCardVertical({ noBackground = false }) {
         <Typography
           sx={{
             fontWeight: 700,
-            fontSize: '14px',
+            fontSize: '14px !important',
             lineHeight: '18.2px',
             fontFamily: 'Sf Pro Display',
             width: noBackground ? 'auto' : '219.6px',
@@ -86,7 +99,7 @@ function FinancialNewsCardVertical({ noBackground = false }) {
         <Typography
           sx={{
             fontWeight: 400,
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontFamily: 'Sf Pro Display',
             width: noBackground ? 'auto' : '219.6px',
             lineHeight: '17.4px',
