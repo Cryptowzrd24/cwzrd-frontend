@@ -9,7 +9,7 @@ import {
 } from '@/app/helpers/functions';
 import styles from './index.module.scss';
 import BarChart from '../elements/barGraphCard.element';
-import { Card } from '@mui/material';
+import { Card, Typography, useMediaQuery, Box } from '@mui/material';
 import CardHeader from './cardHeader.component';
 import Card1 from './card1.component';
 import frogImage from '@/app/assets/images/frogImage.png';
@@ -33,6 +33,7 @@ const GraphCard = (props: IMarketCapCardProps) => {
   const { heading, value, percent, graphAttr } = props;
   const [currentStep, setCurrentStep] = useState(0);
   const sliderRef = useRef<Slider>(null);
+  const isLargeScreen = useMediaQuery('(min-width: 1200px)');
 
   const totalSteps = 2;
 
@@ -52,7 +53,7 @@ const GraphCard = (props: IMarketCapCardProps) => {
     sliderRef.current?.slickGoTo(index);
   };
 
-  return (
+  return isLargeScreen ? (
     <div
       style={{
         width: '24%',
@@ -179,6 +180,45 @@ const GraphCard = (props: IMarketCapCardProps) => {
         </StyledSlider>
       </Card>
     </div>
+  ) : (
+    <Box
+      sx={{
+        p: '16px',
+        background: 'red',
+        borderRadius: '15px',
+        width: '24%',
+        height: '150px',
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+      }}
+    >
+      <CardHeader heading={heading} />
+      <Box sx={{ display: 'flex', gap: '4px' }}>
+        <Typography>{value?.prefix}</Typography>
+        <Typography>{value.data}</Typography>
+        <Typography>{value?.postfix}</Typography>
+      </Box>
+      <Box
+        style={{
+          marginTop: '2px',
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: '14px',
+            fontFamily: 'Sf Pro Display',
+            lineHeight: '18.2px',
+            marginLeft: '-8px',
+            color:
+              getPositiveNegativeIcon(percent) === '-' ? '#F56D6D' : '#45CA94',
+          }}
+        >
+          {getPositiveNegativeIcon(percent)}
+          {Math.abs(percent)}%
+        </Typography>
+      </Box>
+    </Box>
   );
 };
 

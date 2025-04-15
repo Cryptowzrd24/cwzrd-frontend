@@ -44,7 +44,7 @@ const Platform = () => {
         maxWidth="xl"
         sx={{
           '@media (max-width: 576px)': {
-            paddingInline: '5px !important',
+            paddingInline: '16px !important',
           },
         }}
       >
@@ -61,7 +61,7 @@ const Platform = () => {
         maxWidth="xl"
         sx={{
           '@media (max-width: 576px)': {
-            paddingInline: '5px !important',
+            paddingInline: '16px !important',
           },
         }}
       >
@@ -70,7 +70,7 @@ const Platform = () => {
         </Box>
         <Box
           sx={{
-            mb: '64px',
+            mb: '24px',
             display: 'flex',
             justifyContent: 'center',
           }}
@@ -79,7 +79,7 @@ const Platform = () => {
         </Box>
         <Box
           sx={{
-            mt: isTabView ? '100px' : '40px',
+            mt: isTabView ? '100px' : '24px',
             mb: '30px',
             display: 'flex',
             justifyContent: 'center',
@@ -89,14 +89,16 @@ const Platform = () => {
         >
           <TradingPlatform />
         </Box>
-        {/* <Box sx={{ mb: '30px' }}>
+        <Box sx={{ maxWidth: '1060px', mb: '30px', mx: 'auto' }}>
           <PlatformCards />
-        </Box> */}
+        </Box>
         <Box
           sx={{
-            mb: isTabView ? '100px' : '40px',
+            mx: 'auto',
+            mb: isTabView ? '100px' : '24px',
             display: 'flex',
             justifyContent: 'center',
+            maxWidth: '1060px',
           }}
         >
           <MemberShipBanner />
@@ -187,7 +189,7 @@ const Platform = () => {
         maxWidth="xl"
         sx={{
           '@media (max-width: 576px)': {
-            paddingInline: '5px !important',
+            paddingInline: '16px !important',
           },
         }}
       >

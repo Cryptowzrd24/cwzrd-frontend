@@ -201,7 +201,7 @@ const TechnicalGraphCarousel = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        marginBottom: isTablet || isMobile ? '50px' : '0px',
+        marginBottom: isTablet || isMobile ? '64px' : '0px',
       }}
     >
       <Slider className="technicals-slick" {...settings}>

@@ -11,10 +11,9 @@ const RealWinsCard = () => {
         sx={{
           display: 'flex',
           gap: '12px',
-          alignItems: 'center',
+          // alignItems: 'center',
           maxWidth: '670px',
           width: '100%',
-          height: '368px',
 
           '@media (max-width: 1024px)': {
             justifyContent: 'center',
@@ -29,6 +28,7 @@ const RealWinsCard = () => {
       >
         <Stack
           sx={{
+            height: '276px',
             flex: 1,
             '@media (max-width: 576px)': {
               flexDirection: 'row',

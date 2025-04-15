@@ -28,7 +28,6 @@ import NavLink from './NavLink';
 
 function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
-  console.log('activeID', activeId);
   const [isActive, setIsActive] = useState<string | null>('light');
   const dispatch = useAppDispatch();
   const router = useRouter();
@@ -150,7 +149,9 @@ function Navbar() {
         className={
           pathname === '/news' || pathname.includes('/news/')
             ? 'headerbg'
-            : pathname === '/news-details' || pathname === '/technical-details'
+            : pathname === '/news-details' ||
+                pathname === '/technical-details' ||
+                pathname === '/articles-details'
               ? 'detailbg'
               : pathname === '/technicals' || pathname.includes('/technicals/')
                 ? 'headerbgTechnicals'

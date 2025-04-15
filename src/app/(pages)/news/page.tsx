@@ -186,6 +186,7 @@ const News = () => {
                 showChips={true}
                 title="Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
                 description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for"
+                isVertical
               />
               <NewsCard
                 allNews={true}
@@ -193,6 +194,7 @@ const News = () => {
                 showChips={true}
                 title="Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
                 description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for"
+                isVertical
               />
             </Box>
           </Box>
@@ -359,7 +361,7 @@ const News = () => {
               },
             }}
           >
-            <Box minWidth={'300px'}>
+            <Box minWidth={'245px'}>
               <TrendingNewsCard
                 title="VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange"
                 descriptionLines={1}
@@ -644,7 +646,7 @@ const News = () => {
             />
           </Box>
           <Box
-            maxHeight={'240px'}
+            maxHeight={'max-content'}
             sx={{ '@media (max-width: 978px)': { maxHeight: '100%' } }}
           >
             <TrendingNewsList height="250px" maxCards={3} marginLeft="10px" />

@@ -68,11 +68,11 @@ const NewsMileStones = ({ isCrypto }: any) => {
           transition: 'all 0.325s linear',
 
           '@media (max-width: 978px)': {
-            maxWidth: '100%',
+            width: '95%',
           },
 
           '@media (max-width: 768px)': {
-            width: 'auto',
+            maxWidth: '100%',
           },
         }}
         initial="initial"
@@ -99,6 +99,12 @@ const NewsMileStones = ({ isCrypto }: any) => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
+
+            '@media (max-width: 768px)': {
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+              paddingLeft: '0px',
+            },
           }}
         >
           <motion.div
@@ -152,6 +158,10 @@ const NewsMileStones = ({ isCrypto }: any) => {
 
                   '@media (max-width: 978px)': {
                     mx: '4px',
+                  },
+
+                  '@media (max-width: 768px)': {
+                    mt: '15%',
                   },
                 }}
               >

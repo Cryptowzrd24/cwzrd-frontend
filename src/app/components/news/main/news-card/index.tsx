@@ -1,4 +1,4 @@
-import { Box, Chip, Typography } from '@mui/material';
+import { Box, Chip, Typography, useMediaQuery } from '@mui/material';
 import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
 import React from 'react';
@@ -11,6 +11,7 @@ interface NewsCardProps {
   allNews?: any;
   showChips?: any;
   isCrypto?: any;
+  isVertical?: boolean;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({
@@ -20,7 +21,9 @@ const NewsCard: React.FC<NewsCardProps> = ({
   allNews,
   showChips,
   isCrypto,
+  isVertical,
 }) => {
+  const isTabView = useMediaQuery('@media (max-width: 978px)');
   return (
     <Box
       sx={{
@@ -38,9 +41,16 @@ const NewsCard: React.FC<NewsCardProps> = ({
 
         '@media (max-width: 978px)': {
           flexDirection: 'row',
-          width: '100%',
+          width: isVertical ? 'auto' : '100%',
           height: 'auto',
+          padding: isVertical ? '10px' : '0px',
         },
+
+        ...(isVertical && {
+          '@media (max-width: 576px)': {
+            flexDirection: 'column',
+          },
+        }),
       }}
     >
       <Box
@@ -55,6 +65,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
             maxWidth: '312px',
             margin: 0,
           },
+
+          ...(isVertical && {
+            '@media (max-width: 576px)': {
+              maxWidth: 'none',
+              width: '100%',
+            },
+          }),
         }}
       >
         {showChips === true && (
@@ -70,7 +87,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
               color: 'white',
 
               '@media (max-width: 576px)': {
-                display: 'none',
+                display: isVertical ? 'block' : 'none',
               },
             }}
             label={
@@ -111,7 +128,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
           height={0}
           style={{
             width: '100%',
-            height: '100%',
+            height:
+              isVertical && isTabView ? '100%' : isTabView ? '72%' : '100%',
             objectFit: 'cover',
             borderRadius: '12px',
           }}

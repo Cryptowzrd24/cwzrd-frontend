@@ -13,8 +13,7 @@ export default function NewsLayout({
         maxWidth="xl"
         sx={{
           marginTop: 2,
-          '@media (max-width: 1520px)': { paddingInline: '20px !important' },
-          '@media (max-width: 599px)': { paddingInline: '5px !important' },
+          '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >
         <NewsHeader isNews={true} />

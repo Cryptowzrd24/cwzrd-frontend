@@ -17,7 +17,6 @@ const TradingPlatform = () => {
           marginLeft: '-860px',
           mb: '16px',
           width: 'min-content',
-          // lineHeight: '32px',
 
           '@media (max-width: 1024px)': { marginLeft: '0px' },
           '@mdeia (max-width: 576px)': {
@@ -45,7 +44,7 @@ const TradingPlatform = () => {
           src={mask}
           alt="mask"
           layout="responsive"
-          width={1060}
+          width={1096}
           style={{ marginBottom: '48px' }}
         />
         <Stack
@@ -53,7 +52,7 @@ const TradingPlatform = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            maxWidth: '1070px',
+            maxWidth: '1096px',
             width: '100%',
             margin: 'auto',
           }}

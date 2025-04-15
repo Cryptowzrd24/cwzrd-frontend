@@ -117,7 +117,7 @@ const VerticalTagCard: React.FC<TagCardProps> = ({
           }
         />
       </Box>
-      <Box>
+      <Box sx={{ '@media (max-width: 576px)': { paddingInline: '16px' } }}>
         <Box sx={{ display: 'flex', gap: '8px' }}>
           <Chip
             sx={{

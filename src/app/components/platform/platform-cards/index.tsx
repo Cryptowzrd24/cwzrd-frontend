@@ -16,7 +16,7 @@ const PlatformCards = () => {
 
   if (isMobile) {
     const settings = {
-      dots: false,
+      dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -35,7 +35,7 @@ const PlatformCards = () => {
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: 'space-between',
             gap: 1,
             mt: 2,
           }}

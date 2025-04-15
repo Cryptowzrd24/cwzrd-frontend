@@ -128,7 +128,7 @@ function TechnicalsPageCrypto() {
           <PicksForPanel />
         </Box>
       </Box>
-      <Box sx={{ mb: '120px' }}>
+      <Box sx={{ mb: '70px', mt: '16px' }}>
         <FinancialNewsCarousel />
       </Box>
       <Box
@@ -185,7 +185,7 @@ function TechnicalsPageCrypto() {
             <RightCard />
           </Box>
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '70px', mt: '16px' }}>
           <FinancialNewsCarousel />
         </Box>
 
@@ -200,15 +200,12 @@ function TechnicalsPageCrypto() {
           />
         </Box>
       </Box>
-
       {/* //second sec// */}
-
       {/* //third sec// */}
       <Box>
         <Box
           sx={{
             display: 'flex',
-            gap: '15px',
             marginTop: '24px',
             '@media (max-width: 1360px)': { flexDirection: 'column' },
           }}
@@ -216,7 +213,7 @@ function TechnicalsPageCrypto() {
           <Box
             sx={{
               display: 'flex',
-              gap: '15px',
+              gap: '16px',
               '@media (max-width: 768px)': { flexDirection: 'column' },
             }}
           >
@@ -225,7 +222,7 @@ function TechnicalsPageCrypto() {
           </Box>
           <FinancialNewsCardList isRenderFour={true} />
         </Box>
-        <Box sx={{ mb: '120px' }}>
+        <Box sx={{ mb: '120px', mt: '16px' }}>
           <FinancialNewsCarousel noBackground={true} />
         </Box>
         <Box sx={{ marginTop: '-42px' }}>
@@ -240,7 +237,6 @@ function TechnicalsPageCrypto() {
           coinImg={litecoinImg}
         />
       </Box>
-
       <Box
         sx={{
           display: 'flex',
@@ -284,13 +280,13 @@ function TechnicalsPageCrypto() {
           <NewsCard isShort={true} />
         </Box>
       </Box>
-      <Box sx={{ marginBlock: '24px' }}>
+      <Box sx={{ my: '16px' }}>
         <TechnicalsBanner bgColor="green" coinName="XRP" coinImg={xrpImg} />
       </Box>
       <Box
         sx={{
           display: 'flex',
-          gap: 2,
+          gap: 1,
           '@media (max-width: 1360px)': {
             flexDirection: 'column',
           },
@@ -317,7 +313,7 @@ function TechnicalsPageCrypto() {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 1,
+            gap: 2,
             '@media (max-width: 1360px)': {
               flexDirection: 'row',
             },
@@ -326,21 +322,20 @@ function TechnicalsPageCrypto() {
             },
           }}
         >
-          <Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             <NewsCard image={xrpImg} isShort={true} />
             <NewsCard image={xrpImg} isShort={true} />
           </Box>
           <MentorshipCard />
         </Box>
       </Box>
-      <Box sx={{ marginBottom: '24px' }}>
+      <Box sx={{ my: '16px' }}>
         <TechnicalsBanner
           bgColor="green"
           coinName="Chainlink"
           coinImg={chainLinkImg}
         />
       </Box>
-
       <Box sx={{ marginBlock: '24px', display: 'flex' }}>
         <Box
           sx={{

@@ -21,7 +21,7 @@ export default function TechnicalsLayout({
         maxWidth="xl"
         sx={{
           '@media (max-width: 1520px)': { paddingInline: '20px !important' },
-          '@media (max-width: 599px)': { paddingInline: '5px !important' },
+          '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >
         <PageContext.Provider value={{ tabSelected, setTabSelected }}>

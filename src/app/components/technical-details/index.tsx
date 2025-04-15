@@ -15,7 +15,7 @@ const TechnicalDetails = () => {
         maxWidth="xl"
         sx={{
           '@media (max-width: 1440px)': { paddingInline: '20px !important' },
-          '@media (max-width: 599px)': { paddingInline: '5px !important' },
+          '@media (max-width: 599px)': { padding: '16px !important' },
         }}
       >
         <Box sx={{ mt: '32px' }}>
@@ -37,7 +37,7 @@ const TechnicalDetails = () => {
         maxWidth="xl"
         sx={{
           '@media (max-width: 1440px)': { paddingInline: '20px !important' },
-          '@media (max-width: 599px)': { paddingInline: '5px !important' },
+          '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >
         <Box

@@ -55,7 +55,6 @@ function TrendingNewsList({ height, maxCards }: TrendingNewsListPropss) {
         maxHeight: height ? height : '100%',
         display: 'flex',
         flexDirection: 'column',
-        borderRadius: '16px',
         gap: 2 / 3,
         overflow: 'scroll',
         scrollbarWidth: 'none',

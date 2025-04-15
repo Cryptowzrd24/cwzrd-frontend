@@ -224,6 +224,11 @@ const NewsCarousel = ({
                     paddingInline: '48px',
                     marginTop: '8px',
 
+                    '@media (max-width: 658px)': {
+                      fontSize: '20px  !important',
+                      marginTop: '16px',
+                    },
+
                     '@media (max-width: 576px)': {
                       paddingInline: '0px',
                     },
@@ -233,6 +238,11 @@ const NewsCarousel = ({
                     color: 'white',
                     fontSize: '32px  !important',
                     paddingInline: '32px',
+
+                    '@media (max-width: 658px)': {
+                      fontSize: '20px  !important',
+                      marginTop: '16px',
+                    },
 
                     '@media (max-width: 576px)': {
                       paddingInline: '0px',

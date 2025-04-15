@@ -28,7 +28,6 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
         width: '100%',
         borderRadius: '12px',
       }}
@@ -104,7 +103,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           }}
         />
       </Box>
-      <Box sx={{ paddingInline: '4px', marginTop: '8px' }}>
+      <Box sx={{ paddingInline: '8px', marginTop: '8px' }}>
         <Typography
           sx={{
             fontWeight: '700',

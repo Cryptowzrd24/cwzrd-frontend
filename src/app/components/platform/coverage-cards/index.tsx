@@ -15,6 +15,8 @@ const CoverageCards = () => {
           justifyContent: 'center',
           flexWrap: 'wrap',
           gap: '22px',
+          maxWidth: '967.5px',
+          mx: 'auto',
         }}
       >
         {isSmallScreen && <TradersCard />}
