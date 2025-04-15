@@ -17,7 +17,13 @@ export default function TechnicalsLayout({
 
   return (
     <>
-      <Container maxWidth="xl">
+      <Container
+        maxWidth="xl"
+        sx={{
+          '@media (max-width: 1520px)': { paddingInline: '20px !important' },
+          '@media (max-width: 599px)': { paddingInline: '16px !important' },
+        }}
+      >
         <PageContext.Provider value={{ tabSelected, setTabSelected }}>
           <TechnicalsHeader
             handleCurrencyChange={handleCurrencyChange}

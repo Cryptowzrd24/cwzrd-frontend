@@ -87,7 +87,7 @@ function NewsLetterBanner() {
         >
           <Typography
             sx={{
-              fontSize: '12px',
+              fontSize: '12px !important',
               color: 'rgba(255, 255, 255, 1)',
               letterSpacing: '1px',
               lineHeight: '15.6px',
@@ -98,14 +98,20 @@ function NewsLetterBanner() {
           <Typography
             variant="h2"
             sx={{
-              fontWeight: '700',
+              fontWeight: '700 !important',
               maxWidth: '606px',
               mb: '8px',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '44px',
               letterSpacing: '2px',
               marginBottom: '0px',
-              fontSize: '40px',
+              fontSize: '40px !important',
+
+              '@media (max-width: 576px)': {
+                fontSize: '32px !important',
+                lineHeight: '110%',
+                letterSpacing: '0.32px',
+              },
             }}
           >
             Subscribe To Our Weekly Newsletter!
@@ -121,6 +127,11 @@ function NewsLetterBanner() {
               marginTop: '16px',
               background: 'rgba(255, 255, 255, 1)',
               padding: '4px 4px 4px 24px',
+
+              '@media (max-width: 576px)': {
+                maxWidth: '100%',
+                width: 'auto',
+              },
             }}
           >
             <input

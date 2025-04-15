@@ -38,7 +38,7 @@ const TradeOpportunities = () => {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ marginTop: '141px' }}>
+      <Box sx={{ mt: '141px', '@media (max-width: 978px)': { mt: '30px' } }}>
         <TradeHeader />
       </Box>
       <Box>

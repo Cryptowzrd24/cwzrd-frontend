@@ -11,14 +11,28 @@ const DeliverCard = () => {
           background: 'rgba(17, 17, 17, 1)',
           borderRadius: '16px',
           width: '139.5px',
+          flex: 1,
           // height: '101px',
+
+          '@media (max-width: 1024px)': {
+            width: 'auto',
+          },
+
+          '@media (max-width: 576px)': {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            gap: '6px',
+            padding: '16px',
+          },
         }}
       >
         <Image src={deliver} alt="deliver" width={36} height={36} />
         <Typography
           variant="body1"
           sx={{
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontWeight: '500',
             color: 'rgba(255, 255, 255, 1)',
             lineHeight: '15.6px',

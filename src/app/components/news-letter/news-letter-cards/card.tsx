@@ -27,6 +27,15 @@ const Card: React.FC<CardProps> = ({ img2, heading, date, author }) => {
           borderRadius: '16px',
           backgroundColor: '#fff',
           boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
+
+          '@media (max-width: 978px)': {
+            width: '100%',
+          },
+
+          '@media (max-width: 576px)': {
+            padding: '8px',
+            width: 'auto',
+          },
         }}
       >
         <Box height={106}>
@@ -67,7 +76,7 @@ const Card: React.FC<CardProps> = ({ img2, heading, date, author }) => {
                       'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    fontSize: '10px',
+                    fontSize: '10px !important',
                     fontWeight: '500',
                     lineHeight: '13px',
                     letterSpacing: '1px',
@@ -82,7 +91,15 @@ const Card: React.FC<CardProps> = ({ img2, heading, date, author }) => {
           <Box>
             <Typography
               variant="h5"
-              sx={{ mb: '6px', marginLeft: '6px', width: '90%' }}
+              sx={{
+                mb: '6px',
+                marginLeft: '6px',
+                width: '90%',
+                '@media (max-width: 576px)': {
+                  width: '100%',
+                  fontSize: '14px !important',
+                },
+              }}
             >
               {heading}
             </Typography>

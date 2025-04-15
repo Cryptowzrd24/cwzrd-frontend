@@ -32,11 +32,14 @@ const VerifyEmailModal = ({ verificationKey }: any) => {
             borderRadius: '16px',
             width: '500px',
             paddingBlock: '18px',
+            '@media (max-width: 576px)': {
+              margin: '10px',
+            },
           },
         }}
         open={true}
       >
-        <DialogContent>
+        <DialogContent sx={{ '@media (max-width: 576px)': { padding: 0 } }}>
           <Box
             sx={{
               width: '100%',
@@ -58,6 +61,10 @@ const VerifyEmailModal = ({ verificationKey }: any) => {
                 textAlign: 'center',
                 wordSpacing: '3.5px',
                 userSelect: 'none',
+
+                '@media (max-width: 576px)': {
+                  fontSize: '20px !important',
+                },
               }}
             >
               Account Verification

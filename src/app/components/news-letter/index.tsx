@@ -14,6 +14,12 @@ function NewsLetter() {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
+
+            '@media (max-width: 978px)': {
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              gap: '8px',
+            },
           }}
         >
           <div>
@@ -24,11 +30,29 @@ function NewsLetter() {
                 letterSpacing: 3,
                 fontSize: '16px',
                 fontWeight: '400',
+
+                '@media (max-width: 576px)': {
+                  fontSize: '12px !important',
+                  fontWeight: '400 !important',
+                  lineHeight: '130%',
+                  letterSpacing: '1.2px',
+                },
               }}
             >
               NEWSLETTER
             </Typography>
-            <Typography variant="h2" sx={{ maxWidth: '650px' }}>
+            <Typography
+              variant="h2"
+              sx={{
+                maxWidth: '650px',
+                '@media (max-width: 576px)': {
+                  fontSize: '24px !important',
+                  fontWeight: '700 !important',
+                  lineHeight: '120%',
+                  letterSpacing: '0.24px',
+                },
+              }}
+            >
               News: All About{' '}
               <span
                 style={{
@@ -40,7 +64,7 @@ function NewsLetter() {
                 className="font-semibold text-[32px]   font-[#111111CC]"
               >
                 Crypto
-              </span>{' '}
+              </span>
             </Typography>
           </div>
           <Typography
@@ -50,9 +74,14 @@ function NewsLetter() {
               maxWidth: '630px',
               lineHeight: '30px',
               marginRight: '45px',
+
+              '@media (max-width: 576px)': {
+                fontSize: '12px !important',
+                fontWeight: '400 !important',
+                lineHeight: '150%',
+              },
             }}
           >
-            {' '}
             Stay informed and ahead of the curve with our curated selection of
             articles and reports.
           </Typography>
@@ -73,18 +102,22 @@ function NewsLetter() {
           >
             <CardContent />
           </div>
-          <div
-            style={{
+          <Box
+            sx={{
               width: '330px',
               backgroundImage: `url('/images/news-letter/card-background1.png')`,
               backgroundSize: '100% 100%',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               borderRadius: '16px',
+
+              '@media (max-width: 1330px)': {
+                display: 'none',
+              },
             }}
           >
             <LiveExplorer />
-          </div>
+          </Box>
         </div>
 
         <Box

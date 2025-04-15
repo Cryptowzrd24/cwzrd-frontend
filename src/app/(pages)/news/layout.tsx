@@ -9,7 +9,13 @@ export default function NewsLayout({
 }>) {
   return (
     <>
-      <Container style={{ marginTop: 16 }} maxWidth="xl">
+      <Container
+        maxWidth="xl"
+        sx={{
+          marginTop: 2,
+          '@media (max-width: 599px)': { paddingInline: '16px !important' },
+        }}
+      >
         <NewsHeader isNews={true} />
         <NewsCategory />
         {children}

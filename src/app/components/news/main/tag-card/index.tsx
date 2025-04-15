@@ -31,6 +31,18 @@ const TagCard: React.FC<TagCardProps> = ({
         width: width ? width : '600px',
         boxShadow: '0px -6px 30px rgba(0, 0, 0, 0.07)',
         paddingBottom: '2px',
+
+        '@media (max-width: 1380px)': {
+          width: '100%',
+        },
+
+        // '@media (max-width: 1380px)': {
+        //   width: '100%',
+        // },
+
+        '@media (max-width: 912px)': {
+          height: '100%',
+        },
       }}
     >
       <Box
@@ -40,6 +52,10 @@ const TagCard: React.FC<TagCardProps> = ({
           width: 'calc(100% - 32px)',
           overflow: 'hidden',
           marginTop: '16px',
+
+          '@media (max-width: 912px)': {
+            minHeight: 'auto',
+          },
         }}
       >
         <Box
@@ -51,6 +67,7 @@ const TagCard: React.FC<TagCardProps> = ({
           zIndex={1}
           marginRight={'28px'}
         >
+          0
           <Chip
             sx={{
               background:
@@ -66,7 +83,7 @@ const TagCard: React.FC<TagCardProps> = ({
                   alignItems: 'center',
                   gap: '4.5px',
                   height: '60px !important',
-                  fontSize: '16px',
+                  fontSize: '16px !important',
                   fontWeight: '600',
                   paddingInline: '3px',
                   paddingBlock: '4px',
@@ -81,7 +98,7 @@ const TagCard: React.FC<TagCardProps> = ({
                 <Typography
                   sx={{
                     fontWeight: '500',
-                    fontSize: '12px',
+                    fontSize: '12px !important',
                     lineHeight: '15.6px',
                     color: 'white',
                   }}
@@ -117,7 +134,7 @@ const TagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '10px',
+                  fontSize: '10px !important',
                   lineHeight: '12px',
                   letterSpacing: '1px',
                 }}
@@ -138,7 +155,7 @@ const TagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '10px',
+                  fontSize: '10px !important',
                   lineHeight: '12px',
                   letterSpacing: '1px',
                 }}
@@ -159,7 +176,7 @@ const TagCard: React.FC<TagCardProps> = ({
                 sx={{
                   color: '#7248F7',
                   fontWeight: '500',
-                  fontSize: '10px',
+                  fontSize: '10px !important',
                   lineHeight: '12px',
                   letterSpacing: '1px',
                 }}
@@ -172,7 +189,7 @@ const TagCard: React.FC<TagCardProps> = ({
         <Typography
           sx={{
             fontWeight: '700',
-            fontSize: '18px',
+            fontSize: '18px !important',
             lineHeight: '23.4px',
             letterSpacing: '0.7px',
             marginTop: '12px',
@@ -186,7 +203,7 @@ const TagCard: React.FC<TagCardProps> = ({
         <Typography
           sx={{
             fontWeight: '400',
-            fontSize: '12px',
+            fontSize: '12px !important',
             lineHeight: '18px',
             marginTop: '8px',
             marginInline: '8px',
@@ -211,7 +228,7 @@ const TagCard: React.FC<TagCardProps> = ({
           <Typography
             sx={{
               fontWeight: '500',
-              fontSize: '10px',
+              fontSize: '10px !important',
               lineHeight: '13px',
               backgroundColor: 'rgb(243,243,243)',
               borderRadius: '8px',

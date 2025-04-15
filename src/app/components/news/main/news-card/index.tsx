@@ -1,7 +1,8 @@
-import { Box, Chip, Typography } from '@mui/material';
+import { Box, Chip, Typography, useMediaQuery } from '@mui/material';
 import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
 import React from 'react';
+import { ChevronsRight } from '../../../../../../public/icons/chevronsRight';
 
 interface NewsCardProps {
   image: any;
@@ -10,6 +11,7 @@ interface NewsCardProps {
   allNews?: any;
   showChips?: any;
   isCrypto?: any;
+  isVertical?: boolean;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({
@@ -19,7 +21,9 @@ const NewsCard: React.FC<NewsCardProps> = ({
   allNews,
   showChips,
   isCrypto,
+  isVertical,
 }) => {
+  const isTabView = useMediaQuery('@media (max-width: 978px)');
   return (
     <Box
       sx={{
@@ -34,16 +38,40 @@ const NewsCard: React.FC<NewsCardProps> = ({
         height: allNews ? '252px' : '252px',
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
+
+        '@media (max-width: 978px)': {
+          flexDirection: 'row',
+          width: isVertical ? 'auto' : '100%',
+          height: 'auto',
+          padding: isVertical ? '10px' : '0px',
+        },
+
+        ...(isVertical && {
+          '@media (max-width: 576px)': {
+            flexDirection: 'column',
+          },
+        }),
       }}
     >
       <Box
-        style={{
+        sx={{
           width: '312px',
           height: '134px',
           objectFit: 'cover',
           borderRadius: '12px',
           margin: '8px 8px 0px 8px',
           position: 'relative',
+          '@media (max-width: 978px)': {
+            maxWidth: '312px',
+            margin: 0,
+          },
+
+          ...(isVertical && {
+            '@media (max-width: 576px)': {
+              maxWidth: 'none',
+              width: '100%',
+            },
+          }),
         }}
       >
         {showChips === true && (
@@ -57,6 +85,10 @@ const NewsCard: React.FC<NewsCardProps> = ({
               backdropFilter: 'blur(15px)',
               borderRadius: '100px',
               color: 'white',
+
+              '@media (max-width: 576px)': {
+                display: isVertical ? 'block' : 'none',
+              },
             }}
             label={
               <Box
@@ -95,8 +127,9 @@ const NewsCard: React.FC<NewsCardProps> = ({
           width={100}
           height={0}
           style={{
-            width: '312px',
-            height: '134px',
+            width: '100%',
+            height:
+              isVertical && isTabView ? '100%' : isTabView ? '72%' : '100%',
             objectFit: 'cover',
             borderRadius: '12px',
           }}
@@ -113,6 +146,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
               letterSpacing: '0.5px',
               display: 'flex',
               alignItems: 'center',
+
+              '@media (max-width: 978px)': {
+                fontSize: '12px !important',
+                fontWeight: '700 !important',
+                lineHeight: '130% !important',
+                letterSpacing: '0.24px !important',
+              },
             }}
             variant="body1"
           >
@@ -135,6 +175,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
                     display: '-webkit-box',
                     WebkitLineClamp: 1,
                     WebkitBoxOrient: 'vertical',
+
+                    '@media (max-width: 978px)': {
+                      fontSize: '8px !important',
+                      fontWeight: '400 !important',
+                      lineHeight: '120% !important',
+                    },
                   }
                 : {
                     fontWeight: '400',
@@ -147,12 +193,64 @@ const NewsCard: React.FC<NewsCardProps> = ({
                     display: '-webkit-box',
                     WebkitLineClamp: 2,
                     WebkitBoxOrient: 'vertical',
+
+                    '@media (max-width: 978px)': {
+                      fontSize: '8px !important',
+                      fontWeight: '400 !important',
+                      lineHeight: '120% !important',
+                    },
                   }
             }
             variant="body2"
           >
             {description ||
               "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."}
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            display: 'flex',
+            gap: '8px',
+            alignItems: 'center',
+            overflow: 'hidden',
+            flexWrap: 'nowrap',
+            paddingTop: '3px',
+            paddingInline: '16px',
+
+            '@media (min-width: 978px)': {
+              display: 'none',
+            },
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: '10px !important',
+              fontWeight: 500,
+              fontFamily: 'Sf Pro Display',
+              lineHeight: '18.2px',
+              color: 'rgba(17, 17, 17, 1)',
+              flexShrink: 0,
+            }}
+          >
+            News
+          </Typography>
+          <ChevronsRight />
+          <Typography
+            sx={{
+              fontSize: '10px !important',
+              fontWeight: 500,
+              fontFamily: 'Sf Pro Display',
+              lineHeight: '18.2px',
+              color: 'rgba(114, 72, 247, 1)',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              flexShrink: 1,
+              minWidth: 0,
+            }}
+          >
+            Bitcoin whale accunlation reaches pre
           </Typography>
         </Box>
 
@@ -174,6 +272,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
               lineHeight: '14.3px',
               paddingBlock: '6px',
               paddingInline: '10px',
+
+              '@media (max-width: 978px)': {
+                fontSize: '8px !important',
+                fontWeight: '400 !important',
+                lineHeight: '130% !important',
+              },
             }}
           >
             06/06/2023 at 00:06 AM &nbsp;&nbsp;|&nbsp;&nbsp; John Smith

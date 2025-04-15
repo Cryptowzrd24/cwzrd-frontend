@@ -12,6 +12,12 @@ function Technicals() {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
+
+            '@media (max-width: 978px)': {
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              gap: '8px',
+            },
           }}
         >
           <div>
@@ -22,11 +28,29 @@ function Technicals() {
                 letterSpacing: 3,
                 fontSize: '16px',
                 fontWeight: '400',
+
+                '@media (max-width: 576px)': {
+                  fontSize: '12px !important',
+                  fontWeight: '400 !important',
+                  lineHeight: '130%',
+                  letterSpacing: '1.2px',
+                },
               }}
             >
               TECHNICALS{' '}
             </Typography>
-            <Typography variant="h2" sx={{ maxWidth: '630px' }}>
+            <Typography
+              variant="h2"
+              sx={{
+                maxWidth: '630px',
+                '@media (max-width: 576px)': {
+                  fontSize: '24px !important',
+                  fontWeight: '700 !important',
+                  lineHeight: '120%',
+                  letterSpacing: '0.24px',
+                },
+              }}
+            >
               Crypto
               <span
                 style={{
@@ -47,6 +71,12 @@ function Technicals() {
               color: 'rgba(17, 17, 17, 0.8)',
               maxWidth: '630px',
               lineHeight: '30px',
+
+              '@media (max-width: 576px)': {
+                fontSize: '12px !important',
+                fontWeight: '400 !important',
+                lineHeight: '150%',
+              },
             }}
           >
             Receive expert commentary, market trends, and technical analysis
@@ -63,6 +93,11 @@ function Technicals() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+
+          '@media (max-width: 576px)': {
+            alignItems: 'flex-start',
+            justifyContent: 'flex-start',
+          },
         }}
       >
         <Typography

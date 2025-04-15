@@ -10,59 +10,86 @@ const TechnicalsHeader = ({
   tabSelected: string;
 }) => {
   return (
-    <Box className="technical-header-container">
-      <Typography
-        sx={{
-          fontSize: '12px',
-          fontWeight: 500,
-          lineHeight: '15.6px',
-          fontFamily: 'Sf Pro Display',
-          letterSpacing: '1.2px',
-        }}
-        className="technical-header"
-      >
-        TECHNICALS
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: '32px',
-          fontWeight: 700,
-          lineHeight: '26.4px',
-          fontFamily: 'Sf Pro Display',
-          letterSpacing: '1px',
-          color: 'rgba(255, 255, 255, 1)',
-          marginTop: '2px',
-        }}
-      >
-        Your Guide to Smarter Trading Decisions
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: '14px',
-          fontWeight: 400,
-          lineHeight: '21px',
-          fontFamily: 'Sf Pro Display',
-          color: 'rgba(255, 255, 255, 0.8)',
-          width: '850px',
-          marginTop: '8px',
-          opacity: '0.8',
-        }}
-      >
-        Delve into detailed technical analysis and insights to enhance your
-        trading skills.
-      </Typography>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        gap: 2,
+        alignItems: 'center',
+
+        '@media (max-width: 768px)': {
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+        },
+      }}
+    >
+      <Box className="technical-header-container">
+        <Typography
+          sx={{
+            fontSize: '12px !important',
+            fontWeight: 500,
+            lineHeight: '15.6px',
+            fontFamily: 'Sf Pro Display',
+            letterSpacing: '1.2px',
+          }}
+          className="technical-header"
+        >
+          TECHNICALS
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: '32px !important',
+            fontWeight: 700,
+            lineHeight: '26.4px',
+            fontFamily: 'Sf Pro Display',
+            letterSpacing: '1px',
+            color: 'rgba(255, 255, 255, 1)',
+            marginTop: '2px',
+
+            '@media (max-width: 768px)': {
+              fontSize: '24px !important',
+              lineHeight: '120%',
+              letterSpacing: '0.24px',
+            },
+          }}
+        >
+          Your Guide to Smarter Trading Decisions
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: '14px !important',
+            fontWeight: 400,
+            lineHeight: '21px',
+            fontFamily: 'Sf Pro Display',
+            color: 'rgba(255, 255, 255, 0.8)',
+            maxWidth: '850px',
+            marginTop: '8px',
+            opacity: '0.8',
+          }}
+        >
+          Delve into detailed technical analysis and insights to enhance your
+          trading skills.
+        </Typography>
+      </Box>
+
       <Box
         sx={{
-          position: 'relative',
           width: '148px',
           height: '38px',
           borderRadius: '48px',
           border: '1px solid rgba(255, 255, 255, 0.3)',
-          left: '1217px',
-          top: '-40px',
           display: 'flex',
           alignItems: 'center',
           background: '#4041423d',
+          marginTop: '-150px',
+
+          '@media (max-width: 768px)': {
+            marginBottom: '30px',
+          },
+
+          '@media (max-width: 576px)': {
+            marginBottom: '45px',
+          },
         }}
       >
         <Box
@@ -83,7 +110,7 @@ const TechnicalsHeader = ({
         >
           <Typography
             sx={{
-              fontSize: '12px',
+              fontSize: '12px !important',
               fontWeight: 700,
               color:
                 tabSelected === 'crypto'
@@ -112,7 +139,7 @@ const TechnicalsHeader = ({
         >
           <Typography
             sx={{
-              fontSize: '12px',
+              fontSize: '12px !important',
               fontWeight: 700,
               color:
                 tabSelected === 'fx'

@@ -11,7 +11,13 @@ import Table from './table';
 
 function Coin() {
   return (
-    <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
+    <Container
+      maxWidth="xl"
+      sx={{
+        '@media (max-width: 1520px)': { paddingInline: '20px !important' },
+        '@media (max-width: 599px)': { paddingInline: '16px !important' },
+      }}
+    >
       <Box sx={{ mt: '48px' }}>
         <Hero />
         <HeroContent />

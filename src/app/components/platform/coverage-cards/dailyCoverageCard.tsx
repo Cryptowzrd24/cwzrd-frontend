@@ -65,6 +65,8 @@ const DailyCoverageCard = () => {
           borderRadius: '24px',
           position: 'relative',
           transition: 'all 0.325s linear',
+          flexGrow: 1,
+          flexShrink: 0,
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -142,6 +144,11 @@ const DailyCoverageCard = () => {
                   lineHeight: '20px',
                   textAlign: 'start',
                   marginLeft: '14px',
+
+                  '@media (max-width: 576px)': {
+                    mt: '50px',
+                    mx: '14px',
+                  },
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting

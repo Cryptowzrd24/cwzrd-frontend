@@ -1,8 +1,6 @@
 import { Box, Divider, Typography } from '@mui/material';
-import Image from 'next/image';
-import techGraph from '../../../../../public/images/technicals-page/techPageGraph.png';
 import React from 'react';
-import CommentsLikes from '../comments-likes';
+import FinancialTile from './FinancialTile';
 
 const FinancialRight = () => {
   return (
@@ -16,6 +14,11 @@ const FinancialRight = () => {
         padding: '16px 12px 0px 12px',
         overflow: 'scroll',
         scrollbarWidth: 'none',
+
+        '@media (max-width: 1360px)': {
+          width: 'auto',
+          height: 'auto',
+        },
       }}
     >
       <Box
@@ -42,256 +45,30 @@ const FinancialRight = () => {
         </Typography>
       </Box>
       <Divider />
-
-      <Box
-        sx={{
-          marginTop: '12px',
-          marginBottom: '13px',
-          display: 'flex',
-          gap: 3 / 2,
-        }}
-      >
-        <Box>
-          <Typography
-            sx={{
-              fontWeight: '700',
-              fontSize: '12px',
-              lineHeight: '15.6px',
-              letterSpacing: '0.4px',
-            }}
-          >
-            Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
-          </Typography>
-          <Typography
-            sx={{
-              fontWeight: '400',
-              fontSize: '10px',
-              marginTop: '4px',
-              lineHeight: '14.5px',
-              WebkitLineClamp: 1,
-              WebkitBoxOrient: 'vertical',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              overflow: 'hidden',
-            }}
-          >
-            NASA's Drew Feusted and Ricky Arnold are to spend more than six
-            hours outside of
-          </Typography>
-          <Box sx={{ marginTop: '12px' }}>
-            <CommentsLikes />
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            borderRadius: '12px',
-            overflow: 'hidden',
-            boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
-          }}
-        >
-          <Image src={techGraph} alt="image" height={90} width={140} />
-        </Box>
-      </Box>
+      <FinancialTile
+        title="Comprehensive Ethereum Price Forecast and Market Update for ETH/USD"
+        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of"
+      />
       <Divider />
-      <Box
-        sx={{
-          marginTop: '12px',
-          marginBottom: '13px',
-          display: 'flex',
-          gap: 3 / 2,
-        }}
-      >
-        <Box>
-          <Typography
-            sx={{
-              fontWeight: '700',
-              fontSize: '12px',
-              lineHeight: '15.6px',
-              letterSpacing: '0.4px',
-            }}
-          >
-            Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
-          </Typography>
-          <Typography
-            sx={{
-              fontWeight: '400',
-              fontSize: '10px',
-              marginTop: '4px',
-              lineHeight: '14.5px',
-              WebkitLineClamp: 1,
-              WebkitBoxOrient: 'vertical',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              overflow: 'hidden',
-            }}
-          >
-            NASA's Drew Feusted and Ricky Arnold are to spend more than six
-            hours outside of
-          </Typography>
-          <Box sx={{ marginTop: '12px' }}>
-            <CommentsLikes />
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            borderRadius: '12px',
-            overflow: 'hidden',
-            boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
-          }}
-        >
-          <Image src={techGraph} alt="image" height={90} width={140} />
-        </Box>
-      </Box>
+      <FinancialTile
+        title="Comprehensive Ethereum Price Forecast and Market Update for ETH/USD"
+        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of"
+      />
       <Divider />
-      <Box
-        sx={{
-          marginTop: '12px',
-          marginBottom: '13px',
-          display: 'flex',
-          gap: 3 / 2,
-        }}
-      >
-        <Box>
-          <Typography
-            sx={{
-              fontWeight: '700',
-              fontSize: '12px',
-              lineHeight: '15.6px',
-              letterSpacing: '0.4px',
-            }}
-          >
-            Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
-          </Typography>
-          <Typography
-            sx={{
-              fontWeight: '400',
-              fontSize: '10px',
-              marginTop: '4px',
-              lineHeight: '14.5px',
-              WebkitLineClamp: 1,
-              WebkitBoxOrient: 'vertical',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              overflow: 'hidden',
-            }}
-          >
-            NASA's Drew Feusted and Ricky Arnold are to spend more than six
-            hours outside of
-          </Typography>
-          <Box sx={{ marginTop: '12px' }}>
-            <CommentsLikes />
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            borderRadius: '12px',
-            overflow: 'hidden',
-            boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
-          }}
-        >
-          <Image src={techGraph} alt="image" height={90} width={140} />
-        </Box>
-      </Box>
+      <FinancialTile
+        title="Comprehensive Ethereum Price Forecast and Market Update for ETH/USD"
+        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of"
+      />
       <Divider />
-      <Box
-        sx={{
-          marginTop: '12px',
-          marginBottom: '13px',
-          display: 'flex',
-          gap: 3 / 2,
-        }}
-      >
-        <Box>
-          <Typography
-            sx={{
-              fontWeight: '700',
-              fontSize: '12px',
-              lineHeight: '15.6px',
-              letterSpacing: '0.4px',
-            }}
-          >
-            Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
-          </Typography>
-          <Typography
-            sx={{
-              fontWeight: '400',
-              fontSize: '10px',
-              marginTop: '4px',
-              lineHeight: '14.5px',
-              WebkitLineClamp: 1,
-              WebkitBoxOrient: 'vertical',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              overflow: 'hidden',
-            }}
-          >
-            NASA's Drew Feusted and Ricky Arnold are to spend more than six
-            hours outside of
-          </Typography>
-          <Box sx={{ marginTop: '12px' }}>
-            <CommentsLikes />
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            borderRadius: '12px',
-            overflow: 'hidden',
-            boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
-          }}
-        >
-          <Image src={techGraph} alt="image" height={90} width={140} />
-        </Box>
-      </Box>
+      <FinancialTile
+        title="Comprehensive Ethereum Price Forecast and Market Update for ETH/USD"
+        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of"
+      />
       <Divider />
-      <Box
-        sx={{
-          marginTop: '12px',
-          marginBottom: '13px',
-          display: 'flex',
-          gap: 3 / 2,
-        }}
-      >
-        <Box>
-          <Typography
-            sx={{
-              fontWeight: '700',
-              fontSize: '12px',
-              lineHeight: '15.6px',
-              letterSpacing: '0.4px',
-            }}
-          >
-            Comprehensive Ethereum Price Forecast and Market Update for ETH/USD
-          </Typography>
-          <Typography
-            sx={{
-              fontWeight: '400',
-              fontSize: '10px',
-              marginTop: '4px',
-              lineHeight: '14.5px',
-              WebkitLineClamp: 1,
-              WebkitBoxOrient: 'vertical',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              overflow: 'hidden',
-            }}
-          >
-            NASA's Drew Feusted and Ricky Arnold are to spend more than six
-            hours outside of
-          </Typography>
-          <Box sx={{ marginTop: '12px' }}>
-            <CommentsLikes />
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            borderRadius: '12px',
-            overflow: 'hidden',
-            boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
-          }}
-        >
-          <Image src={techGraph} alt="image" height={90} width={140} />
-        </Box>
-      </Box>
+      <FinancialTile
+        title="Comprehensive Ethereum Price Forecast and Market Update for ETH/USD"
+        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of"
+      />
     </Box>
   );
 };

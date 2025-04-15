@@ -43,7 +43,14 @@ function TechnicalsGraph() {
           />
         </Box>
       </Box>
-      <Box sx={{ position: 'relative', top: '-400px', left: '50px' }}>
+      <Box
+        sx={{
+          position: 'relative',
+          top: '-400px',
+          left: '50px',
+          width: 'fit-content',
+        }}
+      >
         <GraphFilter
           selectedFilter={selectedFilter}
           setSelectedFilter={setSelectedFilter}

@@ -17,7 +17,7 @@ export const TechnicalsCategory: React.FC = () => {
         display: 'flex',
         position: 'relative',
         top: '-9px',
-        // marginBlock: '30px',
+        marginTop: '-35px',
         alignItems: 'center',
         backgroundColor: 'white',
         borderRadius: '24px',
@@ -25,13 +25,26 @@ export const TechnicalsCategory: React.FC = () => {
         maxWidth: '100% !important',
         boxShadow: '0px 4px 28px 0px #0000000D',
         justifyContent: 'space-between',
+
+        '@media (min-width: 1440px)': {
+          paddingInline: '20px !important',
+        },
+
+        '@media (max-width: 1024px)': {
+          marginTop: '10px',
+        },
+
+        '@media (max-width: 576px)': {
+          padding: '0px !important',
+        },
       }}
     >
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
-          marginLeft: '-50px',
+          overflowX: 'auto',
+          height: '100%',
         }}
       >
         {newsData.map((item, index) => (
@@ -41,7 +54,7 @@ export const TechnicalsCategory: React.FC = () => {
               item.name == 'All Analysis'
                 ? {
                     // height: '40px',
-                    // width: '106px',
+                    // width: '120px',
                     padding: '11px 16px',
                     backgroundColor: 'rgba(114, 72, 247, 0.1)',
                     borderRadius: '30px',
@@ -64,6 +77,7 @@ export const TechnicalsCategory: React.FC = () => {
                 fontWeight: 700,
                 paddingInline: '8px',
                 marginInline: '8px',
+                whiteSpace: 'nowrap',
                 color: `${item.name == 'All Analysis' ? 'rgba(114, 72, 247, 1)' : 'inherit'}`,
                 ':hover': {
                   color: 'rgba(114, 72, 247, 1)',
@@ -80,7 +94,7 @@ export const TechnicalsCategory: React.FC = () => {
         sx={{
           display: 'flex',
           justifyContent: 'center',
-          marginRight: '-42px',
+          paddingLeft: '8px',
 
           ':hover': {
             cursor: 'pointer',

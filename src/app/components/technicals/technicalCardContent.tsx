@@ -7,20 +7,27 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ArrowLeftDark from '../../../../public/icons/collections/arrowLeftDark';
 import ArrowRightDark from '../../../../public/icons/collections/arrowRightDark';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 
 const TechnicalCardContent: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: isMobile ? 1 : isTablet ? 2 : 4,
+    slidesToScroll: isMobile ? 1 : isTablet ? 2 : 4,
     arrows: false,
     afterChange: (current: any) => setCurrentSlide(current),
     variableWidth: true,
+    style: {
+      height: '350px',
+    },
   };
 
   const handlePrev = () => {
@@ -53,7 +60,7 @@ const TechnicalCardContent: React.FC = () => {
         ))}
       </Slider>
       <Box
-        style={{
+        sx={{
           position: 'absolute',
           bottom: '-70px',
           transform: 'translateX(-50%)',
@@ -62,6 +69,10 @@ const TechnicalCardContent: React.FC = () => {
           width: '48px',
           gap: '8px',
           right: '2%',
+
+          '@media (max-width: 576px)': {
+            transform: 'translateX(-100%)',
+          },
         }}
       >
         <Box
@@ -99,20 +110,22 @@ const TechnicalCardContent: React.FC = () => {
           <ArrowRightDark />
         </Box>
       </Box>
-      <Typography
-        variant="body2"
-        sx={{
-          position: 'absolute',
-          left: '0%',
-          bottom: '-55px',
-          color: 'rgba(17, 17, 17, 0.4)',
-          fontSize: '14px',
-          fontWeight: '500',
-          lineHeight: '18.2px',
-        }}
-      >
-        {`${Math.ceil(currentSlide / settings.slidesToScroll) + 1}/${totalSlides}`}
-      </Typography>
+      {!isMobile && (
+        <Typography
+          variant="body2"
+          sx={{
+            position: 'absolute',
+            left: '0%',
+            bottom: '-55px',
+            color: 'rgba(17, 17, 17, 0.4)',
+            fontSize: '14px',
+            fontWeight: '500',
+            lineHeight: '18.2px',
+          }}
+        >
+          {`${Math.ceil(currentSlide / settings.slidesToScroll) + 1}/${totalSlides}`}
+        </Typography>
+      )}
     </Box>
   );
 };

@@ -3,15 +3,19 @@ import Card from './card';
 import { CardData } from '../data';
 
 import './styles.module.css';
+import { Box } from '@mui/material';
 
 const CardContent: React.FC = () => {
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
         rowGap: '12px',
         columnGap: '16px',
+        '@media (max-width: 978px)': {
+          gridTemplateColumns: '1fr',
+        },
       }}
     >
       {CardData.map((card) => (
@@ -28,7 +32,7 @@ const CardContent: React.FC = () => {
           author={card.author}
         />
       ))}
-    </div>
+    </Box>
   );
 };
 
