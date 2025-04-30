@@ -7,11 +7,23 @@ import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 import { useWindowSize } from '@/hooks/useWindowSize';
 
 // Memoizing the Graph component using React.memo
-const Graph = React.memo((props: IChartProps) => {
-  const { data, color, isMarker, percent, fill, className, isLiveMarket, id } =
-    props;
+const Graph = React.memo((props: { isMainPage?: boolean } & IChartProps) => {
+  const {
+    data,
+    color,
+    isMarker,
+    percent,
+    fill,
+    className,
+    isLiveMarket,
+    id,
+    isMainPage = false,
+  } = props;
   const chartRef: any = useRef(null);
   const { width } = useWindowSize();
+
+  console.log('isMainPage: ', isMainPage);
+  console.log('props: ', props);
 
   useEffect(() => {
     if (chartRef.current) {
@@ -121,7 +133,7 @@ const Graph = React.memo((props: IChartProps) => {
         labels: {
           enabled: true,
           align: 'right',
-          x: 20,
+          x: isMainPage ? 0 : 20,
           style: {
             fontSize: '12px',
             fontFamily: 'Sf Pro Display',
@@ -145,7 +157,8 @@ const Graph = React.memo((props: IChartProps) => {
         lineWidth: 0,
         gridLineWidth: 0.5,
         tickAmount: 10,
-        opposite: true,
+        opposite: isMainPage ? false : true,
+        offset: isMainPage ? 13 : 0,
       },
       legend: {
         enabled: false,

@@ -12,6 +12,12 @@ interface NewsCardProps {
   showChips?: any;
   isCrypto?: any;
   isVertical?: boolean;
+  isTransparent?: boolean;
+  imageMargin?: string;
+  imageWidth?: string;
+  containerWidth?: string;
+  justifyContent?: string;
+  isMainPage?: boolean;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({
@@ -22,6 +28,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
   showChips,
   isCrypto,
   isVertical,
+  isTransparent,
+  imageMargin,
+  imageWidth,
+  containerWidth,
+  justifyContent,
+  isMainPage,
 }) => {
   const isTabView = useMediaQuery('@media (max-width: 978px)');
   return (
@@ -33,8 +45,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        width: allNews ? '328px' : '309px',
+        justifyContent: justifyContent || 'center',
+        width: allNews ? '328px' : containerWidth || '309px',
         height: allNews ? '252px' : '252px',
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
@@ -55,11 +67,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
     >
       <Box
         sx={{
-          width: '312px',
+          width: imageWidth || '312px',
           height: '134px',
           objectFit: 'cover',
           borderRadius: '12px',
-          margin: '8px 8px 0px 8px',
+          margin: imageMargin || '8px 8px 0px 8px',
           position: 'relative',
           '@media (max-width: 978px)': {
             maxWidth: '312px',
@@ -136,13 +148,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
         />
       </Box>
       <Box sx={{ padding: '8px 2px 2px 2px' }}>
-        <Box sx={{ paddingInline: '8px' }}>
+        <Box sx={{ paddingInline: isMainPage ? '0px' : '8px' }}>
           <Typography
             sx={{
               fontWeight: '700',
               fontSize: '14px',
               lineHeight: '18.2px',
-              marginInline: '8px',
+              marginInline: isMainPage ? '0px' : '8px',
               letterSpacing: '0.5px',
               display: 'flex',
               alignItems: 'center',
@@ -187,7 +199,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
                     fontSize: '13px',
                     lineHeight: '19px',
                     marginTop: '4px',
-                    marginInline: '8px',
+                    marginInline: isMainPage ? '0px' : '8px',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     display: '-webkit-box',
@@ -256,13 +268,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
 
         <Box
           sx={{
-            margin: '10px 8px 8px 8px',
+            margin: isMainPage ? '10px 0px 8px' : '10px 8px 8px 8px',
             height: '25px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'start',
             borderRadius: '8px',
-            backgroundColor: 'rgb(243,243,243)',
+            backgroundColor: isTransparent ? 'transparent' : 'rgb(243,243,243)',
           }}
         >
           <Typography
@@ -271,7 +283,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
               fontSize: '11px',
               lineHeight: '14.3px',
               paddingBlock: '6px',
-              paddingInline: '10px',
+              paddingInline: isMainPage ? '0px' : '10px',
 
               '@media (max-width: 978px)': {
                 fontSize: '8px !important',

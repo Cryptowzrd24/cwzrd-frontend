@@ -7,9 +7,10 @@ import CommentsLikes from '../comments-likes';
 interface FinancialTile {
   title: string;
   desc: string;
+  isBorder?: boolean;
 }
 
-const FinancialTile = ({ title, desc }: FinancialTile) => {
+const FinancialTile = ({ title, desc, isBorder }: FinancialTile) => {
   return (
     <Box
       sx={{
@@ -57,9 +58,16 @@ const FinancialTile = ({ title, desc }: FinancialTile) => {
           borderRadius: '12px',
           overflow: 'hidden',
           boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
+          border: isBorder ? '1px solid rgba(0,0,0,0.20)' : 'none',
         }}
       >
-        <Image src={techGraph} alt="image" height={90} width={140} />
+        <Image
+          src={techGraph}
+          alt="image"
+          height={90}
+          width={140}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
       </Box>
     </Box>
   );

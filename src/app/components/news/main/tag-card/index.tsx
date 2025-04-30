@@ -10,6 +10,7 @@ interface TagCardProps {
   isDetailPage?: boolean;
   height?: string;
   width?: string;
+  isMainPage?: boolean;
 }
 
 const TagCard: React.FC<TagCardProps> = ({
@@ -18,6 +19,7 @@ const TagCard: React.FC<TagCardProps> = ({
   description,
   height,
   width,
+  isMainPage,
 }) => {
   return (
     <Box
@@ -49,9 +51,9 @@ const TagCard: React.FC<TagCardProps> = ({
         sx={{
           borderRadius: '12px',
           minHeight: '338px',
-          width: 'calc(100% - 32px)',
+          width: isMainPage ? '100%' : 'calc(100% - 32px)',
           overflow: 'hidden',
-          marginTop: '16px',
+          marginTop: isMainPage ? 0 : '16px',
 
           '@media (max-width: 912px)': {
             minHeight: 'auto',
@@ -120,7 +122,7 @@ const TagCard: React.FC<TagCardProps> = ({
           height={0}
         />
       </Box>
-      <Box sx={{ margin: '12px 16px 16px 16px' }}>
+      <Box sx={{ margin: isMainPage ? '12px 0px 0px' : '12px 16px 16px 16px' }}>
         <Box sx={{ display: 'flex', gap: '8px' }}>
           <Chip
             sx={{
@@ -230,7 +232,7 @@ const TagCard: React.FC<TagCardProps> = ({
               fontWeight: '500',
               fontSize: '10px !important',
               lineHeight: '13px',
-              backgroundColor: 'rgb(243,243,243)',
+              backgroundColor: isMainPage ? 'transparent' : 'rgb(243,243,243)',
               borderRadius: '8px',
               display: 'flex',
               alignSelf: 'flex-start',

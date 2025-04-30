@@ -7,7 +7,7 @@ import { areachartData } from './data';
 import { getGraphColor } from '@/app/helpers/functions';
 import GraphFilter from '../../coin-details/graph-filter';
 
-function TechnicalsGraph() {
+function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
   const chartRef = useRef<HTMLDivElement>(null);
 
   //   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -31,6 +31,7 @@ function TechnicalsGraph() {
           width: '100%',
           height: '400px',
           borderRadius: '24px',
+          background: isMainPage ? '#FFF' : 'transparent',
           boxShadow: '0px 4px 28px 0px #0000000D',
         }}
       >
@@ -40,6 +41,7 @@ function TechnicalsGraph() {
             color={getGraphColor(20)}
             percent={true}
             fill="transparent"
+            isMainPage={isMainPage}
           />
         </Box>
       </Box>
@@ -47,7 +49,7 @@ function TechnicalsGraph() {
         sx={{
           position: 'relative',
           top: '-400px',
-          left: '50px',
+          left: isMainPage ? '79%' : '50px',
           width: 'fit-content',
         }}
       >

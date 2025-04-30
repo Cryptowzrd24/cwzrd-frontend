@@ -327,19 +327,21 @@ import bannerBgSkyBlue from '../../../../../public/images/technicals-page/techBa
 import bannerBgGreen from '../../../../../public/images/technicals-page/techBannerImgGreen.png';
 import bannerBgPurple from '../../../../../public/images/technicals-page/techBannerImgPurple.png';
 import bannerBgBronze from '../../../../../public/images/technicals-page/techBannerImgBrown.png';
+import bannerBgBlack from '../../../../../public/images/technicals-page/techBannerImgBlack.png';
 
 import usaIcon from '../../../../../public/images/technicals-page/usaIcon.png';
 import ausIcon from '../../../../../public/images/technicals-page/ausIcon.png';
 
 import { ReadMoreIcon } from '../../../../../public/icons/readMoreIcon';
 
-type BgColor = 'purple' | 'brown' | 'blue' | 'green' | 'bronze';
+type BgColor = 'purple' | 'brown' | 'blue' | 'green' | 'bronze' | 'black';
 interface TechnicalsBannerProps {
   bgColor: BgColor;
   coinName: string;
   coinImg: any;
   isFxPage?: boolean;
   width?: string;
+  borderRadius?: string;
 }
 
 function TechnicalsBanner({
@@ -348,6 +350,7 @@ function TechnicalsBanner({
   coinImg,
   isFxPage,
   width,
+  borderRadius,
 }: TechnicalsBannerProps) {
   const background =
     bgColor === 'blue'
@@ -360,7 +363,9 @@ function TechnicalsBanner({
             ? bannerBgPurple
             : bgColor === 'bronze'
               ? bannerBgBronze
-              : bannerBg;
+              : bgColor === 'black'
+                ? bannerBgBlack
+                : bannerBg;
 
   return (
     <Box
@@ -368,7 +373,7 @@ function TechnicalsBanner({
         backgroundImage: `url(${background.src})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        borderRadius: '24px',
+        borderRadius: borderRadius || '24px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',

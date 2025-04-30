@@ -8,7 +8,7 @@ import GaugeChart from '../common/guage-chart';
 import { useAppSelector } from '@/app/redux/store';
 import { Box } from '@mui/material';
 
-const StatsContainer = () => {
+const StatsContainer = ({ isMainPage }: { isMainPage?: boolean }) => {
   const { showStats } = useAppSelector((state) => state.market);
   return (
     <AnimatePresence>
@@ -27,7 +27,7 @@ const StatsContainer = () => {
               alignItems: 'center',
               maxWidth: '100%',
               justifyContent: 'space-between',
-              marginBottom: '20px',
+              marginBottom: isMainPage ? '0px' : '20px',
             }}
             className="coin__container"
           >

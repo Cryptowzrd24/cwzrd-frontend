@@ -9,8 +9,10 @@ function Footer() {
     <Box
       sx={{
         padding: '80px 75px 48px 75px',
-        backgroundImage:
-          'linear-gradient(to bottom, rgba(99, 77, 253, 1), rgba(126, 68, 241, 1))',
+        background:
+          ' linear-gradient(117deg, #634DFD -4.07%, #7E44F1 100.68%), #EDF0FF',
+        // backgroundImage:
+        //   'linear-gradient(to bottom, rgba(99, 77, 253, 1), rgba(126, 68, 241, 1))',
         '@media (max-width: 1280px)': {
           padding: '40px 37.5px 24px 37.5px',
         },
