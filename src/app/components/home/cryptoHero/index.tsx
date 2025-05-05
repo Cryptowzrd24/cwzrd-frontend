@@ -271,9 +271,10 @@ const CryptoHero = () => {
           display: 'flex',
           flexDirection: 'column',
           gap: '24px',
+          width: '300px',
         }}
       >
-        <MostRead height="510px" width="auto" />
+        <MostRead height="510px" width="auto" isMainPage />
         <JoinCrypto />
         <LiveMarket isMainPage />
       </Box>

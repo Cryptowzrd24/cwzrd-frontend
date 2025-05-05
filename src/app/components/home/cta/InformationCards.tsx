@@ -10,7 +10,7 @@ const InformationCards = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         position: 'absolute',
-        right: '18px',
+        right: '40px',
         bottom: '51px',
       }}
     >

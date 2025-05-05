@@ -1,7 +1,7 @@
 import { Box, Divider, Typography } from '@mui/material';
 import React from 'react';
 
-function MostReadCard() {
+function MostReadCard({ isMainPage }: { isMainPage?: boolean }) {
   return (
     <Box
       sx={{
@@ -31,7 +31,7 @@ function MostReadCard() {
         </Typography>
         <Typography
           sx={{
-            width: '290px',
+            width: isMainPage ? 'auto' : '290px',
             color: 'rgba(17, 17, 17, 0.8)',
             fontWeight: 400,
             fontSize: '12px !important',

@@ -2,9 +2,17 @@ import { Box, Divider, Typography } from '@mui/material';
 import React from 'react';
 import MostReadCard from './most-read-card';
 
-function MostRead({ height, width }: any) {
+function MostRead({
+  height,
+  width,
+  isMainPage,
+}: {
+  height?: string;
+  width?: string;
+  isMainPage?: boolean;
+}) {
   const renderCard = [1, 2, 3, 4, 5, 6, 7].map(() => {
-    return <MostReadCard />;
+    return <MostReadCard isMainPage={isMainPage} />;
   });
   return (
     <Box
@@ -14,7 +22,7 @@ function MostRead({ height, width }: any) {
         borderRadius: '16px',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-        padding: '18px 12px 24px 12px',
+        padding: isMainPage ? '12px 0px 0px' : '18px 12px 24px 12px',
         overflow: 'auto',
         scrollbarWidth: 'none',
 

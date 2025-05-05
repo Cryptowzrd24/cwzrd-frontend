@@ -8,7 +8,8 @@ function Footer() {
   return (
     <Box
       sx={{
-        padding: '80px 75px 48px 75px',
+        // padding: '80px 75px 48px 75px',
+        padding: '48px 0px 32px',
         background:
           ' linear-gradient(117deg, #634DFD -4.07%, #7E44F1 100.68%), #EDF0FF',
         // backgroundImage:

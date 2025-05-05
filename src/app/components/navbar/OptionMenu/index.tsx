@@ -10,6 +10,7 @@ import StarIcon from '../../../../../public/icons/Navbar-Section/starIcon';
 import ProfileIcon from '../../../../../public/icons/Navbar-Section/profile';
 import Menu from './Menu';
 import { OptionMenuProps } from '../../../../../@types/app/OptionMenu.interface';
+import ChevronDownHead from '../../../../../public/icons/chevronDownHead';
 
 const OptionMenu = ({
   pathname,
@@ -51,30 +52,32 @@ const OptionMenu = ({
         }
       />
 
-      <Box
-        component={Link}
-        style={{ textDecoration: 'none' }}
-        href="/favorites"
-        sx={{
-          '@media (max-width: 978px)': {
-            display: 'none',
-          },
-        }}
-      >
-        <StarIcon
-          color={
-            !!pathname.includes('/favorites')
-              ? 'rgb(243,143,56)'
-              : pathname === '/news' ||
-                  pathname === '/articles' ||
-                  pathname === '/news/crypto'
-                ? 'white'
-                : pathname.includes('/technicals')
+      {pathname !== '/' && (
+        <Box
+          component={Link}
+          style={{ textDecoration: 'none' }}
+          href="/favorites"
+          sx={{
+            '@media (max-width: 978px)': {
+              display: 'none',
+            },
+          }}
+        >
+          <StarIcon
+            color={
+              !!pathname.includes('/favorites')
+                ? 'rgb(243,143,56)'
+                : pathname === '/news' ||
+                    pathname === '/articles' ||
+                    pathname === '/news/crypto'
                   ? 'white'
-                  : 'black'
-          }
-        />
-      </Box>
+                  : pathname.includes('/technicals')
+                    ? 'white'
+                    : 'black'
+            }
+          />
+        </Box>
+      )}
 
       {token ? (
         <ProfileMenu
@@ -102,6 +105,7 @@ const OptionMenu = ({
                 : 'black'
             }
           />
+          {pathname === '/' && <ChevronDownHead />}
         </Box>
       )}
 
