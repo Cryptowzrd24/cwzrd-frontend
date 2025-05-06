@@ -175,7 +175,7 @@ const FinancialNewsCarousel = ({
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: isMobile ? 1 : isTablet ? 2 : 3, // Adjusts based on screen size
+    slidesToShow: isMobile ? 1 : isTablet ? 2 : 5, // Adjusts based on screen size
     slidesToScroll: 1,
     arrows: true,
     prevArrow: <PreviousArrow />,
@@ -196,7 +196,12 @@ const FinancialNewsCarousel = ({
   ));
 
   return (
-    <Box sx={{ position: 'relative', width: '100%' }}>
+    <Box
+      sx={{
+        position: 'relative',
+        width: '100%',
+      }}
+    >
       <Slider {...settings}>{renderCards}</Slider>
     </Box>
   );

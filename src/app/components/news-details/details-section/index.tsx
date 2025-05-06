@@ -73,7 +73,6 @@ function DetailsSection({
       <Container
         maxWidth="xl"
         sx={{
-          '@media (max-width: 1440px)': { paddingInline: '20px !important' },
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >

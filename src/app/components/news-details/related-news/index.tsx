@@ -1,11 +1,12 @@
-import { Box, Typography, useMediaQuery } from '@mui/material';
+import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
+import goldbarImg from '../../../../../public/images/goldbar.png';
 import React from 'react';
-import RelatedNewsCarousel from './related-news-carousel';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import RelatedNewsCards from './related-news-cards';
+import FinancialNewsCarousel from '../../technicals-page/financial-news-carousel';
+import FinancialCard from '../../technicals-page/financial-card';
 
 function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
-  const isTabView = useMediaQuery('(min-width: 1500px)');
+  const isTabView = useMediaQuery('(min-width: 978px)');
   return (
     <Box>
       <Box
@@ -77,10 +78,44 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
           />
         </Box>
       </Box>
-      <Box sx={{ mt: '24px' }}>
-        {!isArticleDetails && <RelatedNewsCards />}
-        {isTabView && <RelatedNewsCarousel />}
-      </Box>
+      <Stack spacing="16px" sx={{ mt: '24px' }}>
+        {isTabView && !isArticleDetails ? (
+          <Box
+            sx={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '16px',
+              '& > *': {
+                flex: '1 1 0',
+                minWidth: 0,
+                maxWidth: '100%',
+              },
+              '@media (max-width: 978px)': {
+                '& > *': {
+                  flex: '1 1 48%',
+                  minWidth: '280px',
+                  maxWidth: '48%',
+                },
+              },
+              '@media (max-width: 600px)': {
+                '& > *': {
+                  flex: '1 1 100%',
+                  minWidth: '0',
+                  maxWidth: '100%',
+                },
+              },
+            }}
+          >
+            <FinancialCard image={goldbarImg} />
+            <FinancialCard image={goldbarImg} />
+            <FinancialCard image={goldbarImg} />
+            <FinancialCard image={goldbarImg} />
+          </Box>
+        ) : (
+          <FinancialNewsCarousel image={goldbarImg} />
+        )}
+        {isTabView && <FinancialNewsCarousel image={goldbarImg} />}
+      </Stack>
     </Box>
   );
 }
