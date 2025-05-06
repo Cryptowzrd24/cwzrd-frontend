@@ -65,7 +65,7 @@ function MarketNewsPanel({
           />
         )}
         {!isTechnicalDetail && (
-          <Box sx={{ marginTop: '20px' }}>
+          <Box sx={{ marginBottom: '16px' }}>
             <LiveMarket
               isPageDetails={true}
               isTechnicalDetail={isTechnicalDetail}
