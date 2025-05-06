@@ -12,7 +12,7 @@ function BreadCrumb({
   return (
     <Box
       sx={{
-        padding: '16px 24px',
+        padding: '14px 24px',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         borderRadius: '16px',
