@@ -10,7 +10,10 @@ const MentorshipCard = () => {
         width: 'auto',
         boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
         borderRadius: '24px',
-        height: '364px',
+        height: '380px',
+        display: "flex",
+        flexDirection: 'column',
+        justifyContent: 'space-between',
       }}
     >
       <Box
@@ -32,6 +35,24 @@ const MentorshipCard = () => {
         />
       </Box>
       <Box
+        sx={{
+          overflow: 'hidden',
+          height: '170px',
+          width: '100%',
+          borderRadius: '24px',
+        }}
+      >
+        <img
+          src={cardImg.src}
+          alt="card image"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+      </Box>
+      {/* <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -109,7 +130,7 @@ const MentorshipCard = () => {
             </Box>
           </Button>
         </Box>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

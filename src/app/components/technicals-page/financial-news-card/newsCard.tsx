@@ -23,6 +23,7 @@ function NewsCard({ isShort, image, isFxPage, dualImg }: NewsCardProps) {
         borderRadius: '16px',
         display: 'flex',
         gap: isShort ? '2px' : '12px',
+        boxSizing: 'border-box',
         '@media (max-width: 1400px)': {
           width: 'auto',
         },
