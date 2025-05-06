@@ -29,7 +29,7 @@ export const NewsCategory: React.FC = () => {
         alignItems: 'center',
         backgroundColor: 'white',
         borderRadius: '24px',
-        height: '72px',
+        height: '70px',
         maxWidth: '100% !important',
         boxShadow: '0px 4px 28px 0px #0000000D',
         justifyContent: 'space-between',

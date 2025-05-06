@@ -88,7 +88,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           },
         }}
       />
-      <Box sx={{ width: '100%', height: 'auto' }}>
+      <Box sx={{ width: '100%', height: '150px' }}>
         <Image
           alt="news"
           src={
@@ -99,7 +99,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             objectFit: 'cover',
             borderRadius: '12px',
             width: '100%',
-            height: 'auto',
+            height: '150px',
           }}
         />
       </Box>
@@ -110,7 +110,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             fontSize: '14px !important',
             lineHeight: '18.2px',
             letterSpacing: '0.3px',
-            width: isDetailPage ? '264px' : '100%',
+            width: '100%',
           }}
           variant="body1"
         >
