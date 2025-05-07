@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
@@ -13,6 +13,7 @@ interface NewsCardProps {
   dualImg?: any;
 }
 function NewsCard({ isShort, image, isFxPage, dualImg }: NewsCardProps) {
+  const isMobile = useMediaQuery('(max-width: 767px)');
   return (
     <Box
       sx={{
@@ -85,7 +86,11 @@ function NewsCard({ isShort, image, isFxPage, dualImg }: NewsCardProps) {
       <Box
         sx={
           isShort
-            ? { marginTop: '6px', paddingLeft: '12px', paddingRight: '22px' }
+            ? {
+                marginTop: '6px',
+                paddingLeft: '12px',
+                paddingRight: isMobile ? '6px' : '22px',
+              }
             : { paddingBlock: '6.5px', marginTop: '6px' }
         }
       >
