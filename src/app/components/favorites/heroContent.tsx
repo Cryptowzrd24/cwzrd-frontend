@@ -11,6 +11,7 @@ import {
   Alert,
   Menu,
   MenuItem,
+  useMediaQuery,
 } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -60,6 +61,8 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
   const dispatch = useAppDispatch();
   const { favorites } = useAppSelector((state) => state.market);
   const { isFirstLogin, token } = useSelector((state: any) => state.user);
+
+  const isMobile = useMediaQuery('(max-width:490px)');
 
   const handleStarClick = () => {
     setIsMainWatchlist(true);
@@ -335,13 +338,19 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
+          alignItems: isMobile ? 'flex-start' : 'center',
+          flexWrap: isMobile ? 'nowrap' : 'wrap',
+          gap: '8px',
+          flexDirection: isMobile ? 'column' : 'row',
         }}
       >
         {!token?.length && (
           <Typography
-            variant="h1"
-            sx={{ maxWidth: '960px', marginTop: '-5px' }}
+            variant={isMobile ? 'h2' : 'h1'}
+            sx={{
+              maxWidth: '960px',
+              marginTop: '-5px',
+            }}
           >
             <span
               style={{
@@ -474,13 +483,21 @@ const HeroContent = ({ selectedWatchList, setSelectedWatchList }: any) => {
         )}
 
         {/* WatchList button */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            justifyContent: isMobile ? 'flex-end' : 'space-between',
+            width: isMobile ? '100%' : 'auto',
+          }}
+        >
           <Button
             variant="contained"
             sx={{
-              fontSize: '14px',
+              fontSize: isMobile ? '12px' : '14px',
               borderRadius: '56px',
-              padding: '11px 16px',
+              padding: isMobile ? '9px 14px' : '11px 16px',
               lineHeight: 1,
               letterSpacing: '0.7px',
               background: '#664CFC',
