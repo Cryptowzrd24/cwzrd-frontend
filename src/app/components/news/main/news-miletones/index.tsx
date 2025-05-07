@@ -117,9 +117,9 @@ const NewsMileStones = ({ isCrypto }: any) => {
               sx={{
                 fontSize: '24px !important',
                 color: 'black',
-                letterSpacing: 0.1,
+                letterSpacing: -0.1,
                 maxWidth: '298px',
-                lineHeight: '28px',
+                lineHeight: '130% !important',
                 fontWeight: '700',
               }}
             >

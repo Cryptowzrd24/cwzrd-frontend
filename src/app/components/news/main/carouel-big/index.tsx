@@ -352,7 +352,7 @@ const NewsCarouselBig = ({
       ) : (
         <Box
           position="absolute"
-          bottom="40px"
+          bottom="29px"
           right="32px"
           display="flex"
           gap="8px"

@@ -70,9 +70,11 @@ function NewsRightPanelCard({ cardData }: CardDataProps) {
             lineHeight: '14.3px',
             color: 'rgba(17, 17, 17, 0.8)',
             height: '28px',
-            WebkitLineClamp: 2,
-            textOverflow: 'ellipsis',
             overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
           }}
         >
           {cardData?.subTitle}

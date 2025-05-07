@@ -1,4 +1,4 @@
-import { Box, Divider, Typography } from '@mui/material';
+import { Box, Divider, Typography, useMediaQuery } from '@mui/material';
 import React from 'react';
 import MostReadCard from './most-read-card';
 
@@ -14,6 +14,7 @@ function MostRead({
   const renderCard = [1, 2, 3, 4, 5, 6, 7].map(() => {
     return <MostReadCard isMainPage={isMainPage} />;
   });
+  const isTabView = useMediaQuery('(max-width: 978px)');
   return (
     <Box
       sx={{
@@ -35,7 +36,7 @@ function MostRead({
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: isTabView ? 'space-evenly' : 'center',
           gap: '15px',
         }}
       >
