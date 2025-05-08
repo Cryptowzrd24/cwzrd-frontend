@@ -17,11 +17,12 @@ const AudienceCard = ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '320px',
+        width: '313.5px',
         borderRadius: '12px',
         padding: '8px',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+        boxSizing: 'border-box',
 
         '@media (max-width: 724px)': {
           width: 'auto',
@@ -85,7 +86,7 @@ const AudienceCard = ({
       />
       <Box
         sx={{
-          width: isDetailPage ? 264 : 320,
+          width: isDetailPage ? 264 : 297.5,
           '@media (max-width: 724px)': {
             width: '100%',
             height: 'auto',
@@ -97,7 +98,7 @@ const AudienceCard = ({
           src={image.src}
           layout="responsive"
           width={isDetailPage ? 264 : 320}
-          height={isDetailPage ? 130 : 160}
+          height={isDetailPage ? 130 : 150}
           style={{
             objectFit: 'cover',
             borderRadius: '12px',

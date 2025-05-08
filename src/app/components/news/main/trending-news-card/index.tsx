@@ -111,7 +111,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             fontSize: '14px !important',
             lineHeight: '18.2px',
             letterSpacing: '0.3px',
-            width: isDetailPage ? '248.4px' : '100%',
+            width: '100%',
           }}
           variant="body1"
         >

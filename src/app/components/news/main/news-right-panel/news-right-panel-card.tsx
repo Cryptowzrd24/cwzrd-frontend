@@ -26,6 +26,7 @@ function NewsRightPanelCard({ cardData }: CardDataProps) {
         alignItems: 'center',
         gap: '16px',
         marginBottom: '8px',
+        boxSizing: 'border-box',
 
         '@media (max-width: 1380px)': {
           width: 'auto',

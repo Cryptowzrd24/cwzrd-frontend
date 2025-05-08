@@ -239,7 +239,7 @@ const RelatedNewsCarousel = ({
       sx={{
         padding: '0 5px',
         boxSizing: 'border-box',
-        marginBottom: '5px',
+        marginBottom: '10px',
       }}
     >
       <TrendingNewsCard
