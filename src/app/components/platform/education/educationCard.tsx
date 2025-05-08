@@ -151,9 +151,9 @@ const EducationCard = () => {
               margin: 'auto',
 
               '@media (max-width: 767px)': {
-                fontSize: '24px !important',
+                fontSize: '22px !important',
                 lineHeight: '120%',
-                letterSpacing: '0.24px',
+                letterSpacing: '0.1px',
               },
             }}
           >
