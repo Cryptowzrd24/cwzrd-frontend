@@ -24,17 +24,18 @@ import AudienceCard from '@/app/components/news/main/audience-card';
 
 //Random image
 import RandomImage from '../../../../public/images/randomImg.png';
+import RelatedNewsCards from '@/app/components/news-details/related-news/related-news-cards';
 
 const News = () => {
   const isMobileScreen = useMediaQuery('(max-width: 576px)');
   const isLargeScreen = useMediaQuery('(min-width: 1381px)');
-  const isVeryLargeScreen = useMediaQuery('(min-width: 1441px)');
+  const isVeryLargeScreen = useMediaQuery('(min-width: 1280px)');
   return (
     <>
       <Box
         sx={{
           display: 'flex',
-          gap: 2,
+          gap: 1.5,
           paddingTop: '18px',
           marginTop: '-27px',
           '@media (max-width: 1380px)': {
@@ -45,7 +46,7 @@ const News = () => {
         <Box
           sx={{
             display: 'flex',
-            gap: 2,
+            gap: 1.5,
             '@media (max-width: 978px)': {
               flexDirection: 'column',
             },
@@ -65,7 +66,6 @@ const News = () => {
           descriptionLines={1}
           showSlider={true}
           showDot={false}
-          showProgressSlider={true}
         />
       </Box>
       <Box
@@ -156,7 +156,6 @@ const News = () => {
             display: 'flex',
             gap: 2,
             marginTop: '22px',
-            marginLeft: '5px',
 
             '@media (max-width: 1380px)': {
               flexDirection: 'column',
@@ -166,7 +165,7 @@ const News = () => {
           <Box
             sx={{
               display: 'flex',
-              gap: 2,
+              gap: 1.5,
 
               '@media (max-width: 978px)': {
                 flexDirection: 'column',
@@ -175,7 +174,7 @@ const News = () => {
           >
             <TagCard
               height={'520px'}
-              width={'590px'}
+              width={'528px'}
               title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
               description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
               image={TagCardImage}
@@ -330,7 +329,7 @@ const News = () => {
             <Box>
               <VerticalTagCard
                 width={'300px'}
-                height={'550px'}
+                height={'525px'}
                 title="Crypto 'Secondaries' Prices Jump as Expectations of IPOs Climb"
                 description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ardoino said. CoinDesk Flash gives you the power of news that moves markets — be the first to get the latest crypto financial opportunities, trends, and technology insights."
                 image={RandomImage}
@@ -338,7 +337,7 @@ const News = () => {
             </Box>
             <TagCard
               height={'525px'}
-              width={'800px'}
+              width={'658px'}
               title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
               description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
               image={TagCardImage}
@@ -474,7 +473,7 @@ const News = () => {
             display: 'flex',
             gap: '12px',
             justifyContent: 'center',
-            '@media (max-width: 1440px)': { flexWrap: 'wrap' },
+            // '@media (max-width: 1440px)': { flexWrap: 'wrap' },
             '@media (max-width: 576px)': { flexDirection: 'column' },
           }}
         >
@@ -756,23 +755,26 @@ const News = () => {
           sx={{
             display: 'flex',
             gap: 2,
-            '@media(max-width: 1440px)': { flexDirection: 'column' },
+            '@media(max-width: 1280px)': { flexDirection: 'column' },
           }}
         >
-          <NewsCarouselBig
-            latest={true}
-            isDetailPage={true}
-            width={isVeryLargeScreen ? '75%' : '100%'}
-            height={'440px'}
-          />
+          {/* <Box> */}
+            <NewsCarouselBig
+              latest={true}
+              isDetailPage={true}
+              width={isVeryLargeScreen ? '75%' : '100%'}
+              height={'440px'}
+            />
+          {/* </Box> */}
           <Box
             maxHeight={'440px'}
             maxWidth={'300px'}
             sx={{
-              '@media(max-width: 1440px)': {
+              '@media(max-width: 1280px)': {
                 maxWidth: '100%',
                 maxHeight: '100%',
               },
+              overflowY: 'scroll',
             }}
           >
             <GlobalNews />

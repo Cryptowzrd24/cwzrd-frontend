@@ -163,9 +163,11 @@ const NextArrow = ({ onClick }: any) => (
 const FinancialNewsCarousel = ({
   noBackground = false,
   image,
+  slidesToShowOnDesktop = 3
 }: {
   noBackground?: boolean;
   image?: string | StaticImageData;
+  slidesToShowOnDesktop?: number;
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // <600px
@@ -175,7 +177,7 @@ const FinancialNewsCarousel = ({
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: isMobile ? 1 : isTablet ? 2 : 3, // Adjusts based on screen size
+    slidesToShow: isMobile ? 1 : isTablet ? 2 : slidesToShowOnDesktop, // Adjusts based on screen size
     slidesToScroll: 1,
     arrows: true,
     prevArrow: <PreviousArrow />,

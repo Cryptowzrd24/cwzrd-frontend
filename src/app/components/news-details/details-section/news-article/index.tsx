@@ -92,7 +92,7 @@ function NewsArticle({
   return (
     <Box
       sx={{
-        maxWidth: '770px',
+        maxWidth: '100%',
         '@media (max-width: 1320px)': {
           maxWidth: '100%',
         },

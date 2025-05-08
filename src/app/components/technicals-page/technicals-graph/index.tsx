@@ -30,9 +30,6 @@ function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
         sx={{
           width: '100%',
           height: '400px',
-          borderRadius: '24px',
-          background: isMainPage ? '#FFF' : 'transparent',
-          boxShadow: '0px 4px 28px 0px #0000000D',
         }}
       >
         <Box>

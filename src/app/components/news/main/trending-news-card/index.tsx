@@ -23,6 +23,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
   smallHeight,
 }) => {
   const isMobile = useMediaQuery('(max-width: 576px)');
+  const isLargeScreen = useMediaQuery('@media (min-width: 1680px)');
   return (
     <Box
       sx={{
@@ -89,7 +90,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           },
         }}
       />
-      <Box sx={{ width: '100%', height: 'auto' }}>
+      <Box sx={{ width: '100%', height: isLargeScreen ? '150px' : '130px' }}>
         <Image
           alt="news"
           src={
@@ -100,7 +101,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             objectFit: 'cover',
             borderRadius: '12px',
             width: '100%',
-            height: 'auto',
+            height: isLargeScreen ? '150px' : '130px',
           }}
         />
       </Box>

@@ -29,8 +29,8 @@ const TagCard: React.FC<TagCardProps> = ({
         flexDirection: 'column',
         alignItems: 'center',
         borderRadius: '12px',
-        height: height ? height : '520px',
-        width: width ? width : '600px',
+        height: height ? height : '512px',
+        width: width ? width : '548px',
         boxShadow: '0px -6px 30px rgba(0, 0, 0, 0.07)',
         paddingBottom: '2px',
 
