@@ -215,7 +215,7 @@ const RelatedNewsCarousel = ({
   useEffect(() => {
     if (isMobile) setSlidesToShow(1);
     else if (isTablet) setSlidesToShow(2);
-    else setSlidesToShow(3);
+    else setSlidesToShow(5);
   }, [isMobile, isTablet]);
 
   const totalSlides = 10;

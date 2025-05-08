@@ -1,5 +1,5 @@
 'use client';
-import { Box, Chip, Typography } from '@mui/material';
+import { Box, Chip, Typography, useMediaQuery } from '@mui/material';
 import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
 import React from 'react';
@@ -22,6 +22,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
   descriptionLines,
   smallHeight,
 }) => {
+  const isLargeScreen = useMediaQuery('@media (min-width: 1680px)');
   return (
     <Box
       sx={{
@@ -88,7 +89,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           },
         }}
       />
-      <Box sx={{ width: '100%', height: 'auto' }}>
+      <Box sx={{ width: '100%', height: isLargeScreen ? '150px' : '130px' }}>
         <Image
           alt="news"
           src={
@@ -99,7 +100,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             objectFit: 'cover',
             borderRadius: '12px',
             width: '100%',
-            height: 'auto',
+            height: isLargeScreen ? '150px' : '130px',
           }}
         />
       </Box>
@@ -110,7 +111,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             fontSize: '14px !important',
             lineHeight: '18.2px',
             letterSpacing: '0.3px',
-            width: isDetailPage ? '264px' : '100%',
+            width: isDetailPage ? '248.4px' : '100%',
           }}
           variant="body1"
         >
