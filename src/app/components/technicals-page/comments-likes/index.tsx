@@ -40,7 +40,7 @@ function CommentsLikes({ shouldWhite }: { shouldWhite?: boolean }) {
         />
         <Typography
           sx={{
-            fontSize: '9.8px',
+            fontSize: '9.8px !important',
             fontWeight: 700,
             color: shouldWhite
               ? 'rgba(255, 255, 255, 0.6)'
@@ -65,7 +65,7 @@ function CommentsLikes({ shouldWhite }: { shouldWhite?: boolean }) {
         <Image src={LikesIcon} alt={'like icon'} width={19.2} height={19.2} />
         <Typography
           sx={{
-            fontSize: '9.8px',
+            fontSize: '9.8px !important',
             fontWeight: 700,
             background:
               'linear-gradient(116.74deg, #11D269 -4.07%, #1FD773 100.68%)',

@@ -15,6 +15,13 @@ const Text = () => {
             mb: '8px',
             color: 'rgba(17, 17, 17, 1)',
             textWrap: 'balance',
+
+            '@media (max-width: 576px)': {
+              fontSize: '24px',
+              fontWeight: '700',
+              lineHeight: '110%',
+              letterSpacing: '0.24px',
+            },
           }}
         >
           Real Wins from Our Community
@@ -22,7 +29,7 @@ const Text = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontWeight: '400',
             lineHeight: '18px',
             color: 'rgba(17, 17, 17, 0.8)',
@@ -32,11 +39,18 @@ const Text = () => {
           See real wins and success stories from traders who have used our
           platform to achieve their financial goals.
         </Typography>
-        <Box sx={{ mt: '42px' }}>
+        <Box
+          sx={{
+            mt: '42px',
+            '@media (max-width: 576px)': {
+              mt: '8px',
+            },
+          }}
+        >
           <Typography
             variant="body1"
             sx={{
-              fontSize: '13.5px',
+              fontSize: '13.5px !important',
               fontWeight: '500',
               color: 'rgba(114, 72, 247, 1)',
               lineHeight: '17.55px',

@@ -17,6 +17,10 @@ const PortfolioCard = () => {
           width: '470px',
           WebkitBorderBottomLeftRadius: '24px',
           WebkitBorderTopRightRadius: '24px',
+          '@media (max-width: 768px)': {
+            width: 'auto',
+            padding: '20px',
+          },
         }}
       >
         <Box
@@ -26,6 +30,10 @@ const PortfolioCard = () => {
             background: 'rgba(255, 255, 255, 1)',
             width: '391.37px',
             boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
+
+            '@media (max-width: 768px)': {
+              width: '100%',
+            },
           }}
         >
           <Box
@@ -34,6 +42,11 @@ const PortfolioCard = () => {
               justifyContent: 'space-between',
               alignItems: 'center',
               padding: '13.69px 29.48px 13.69px 20.54px',
+              gap: '8px',
+
+              '@media (max-width: 576px)': {
+                padding: '6px',
+              },
             }}
           >
             <Box
@@ -90,6 +103,11 @@ const PortfolioCard = () => {
               backgroundColor: 'rgba(17, 17, 17, 0.01)',
               width: '350.29px',
               marginLeft: '20.54px',
+
+              '@media (max-width: 576px)': {
+                width: '100%',
+                marginLeft: '0px',
+              },
             }}
           />
           <Box
@@ -101,13 +119,17 @@ const PortfolioCard = () => {
               paddingInline: '20.54px',
               paddingBottom: '20.54px',
               paddingTop: '13.69px',
+
+              '@media (max-width: 576px)': {
+                gap: '20px',
+              },
             }}
           >
             <Box>
               <Stack sx={{ mb: '28px' }}>
                 <Typography
                   sx={{
-                    fontSize: '11.98px',
+                    fontSize: '11.98px !important',
                     fontWeight: '500',
                     color: 'rgba(17, 17, 17, 1)',
                     lineHeight: '14.38px',
@@ -130,7 +152,7 @@ const PortfolioCard = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: '8.56px',
+                    fontSize: '8.56px !important',
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 1)',
                     background: 'rgba(31, 215, 115, 1)',
@@ -150,7 +172,7 @@ const PortfolioCard = () => {
               <Stack>
                 <Typography
                   sx={{
-                    fontSize: '11.98px',
+                    fontSize: '11.98px !important',
                     fontWeight: '500',
                     color: 'rgba(17, 17, 17, 1)',
                     lineHeight: '14.38px',
@@ -174,7 +196,7 @@ const PortfolioCard = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: '8.56px',
+                    fontSize: '8.56px !important',
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 1)',
                     background: 'rgba(247, 72, 72, 1)',
@@ -198,7 +220,7 @@ const PortfolioCard = () => {
               <Stack sx={{ mb: '28px' }}>
                 <Typography
                   sx={{
-                    fontSize: '11.98px',
+                    fontSize: '11.98px !important',
                     fontWeight: '500',
                     color: 'rgba(17, 17, 17, 1)',
                     lineHeight: '14.38px',
@@ -222,7 +244,7 @@ const PortfolioCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '8.56px',
+                    fontSize: '8.56px !important',
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 1)',
                     background: 'rgba(31, 215, 115, 1)',
@@ -242,7 +264,7 @@ const PortfolioCard = () => {
               <Stack>
                 <Typography
                   sx={{
-                    fontSize: '11.98px',
+                    fontSize: '11.98px !important',
                     fontWeight: '500',
                     color: 'rgba(17, 17, 17, 1)',
                     lineHeight: '14.38px',
@@ -266,7 +288,7 @@ const PortfolioCard = () => {
 
                 <Typography
                   sx={{
-                    fontSize: '8.56px',
+                    fontSize: '8.56px !important',
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 1)',
                     background: 'rgba(247, 72, 72, 1)',

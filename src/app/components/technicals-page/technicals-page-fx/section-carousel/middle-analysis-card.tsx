@@ -21,6 +21,14 @@ function MiddleAnalysisCard({ isFxPage }: { isFxPage?: boolean }) {
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         paddingInline: '16px',
         marginBottom: '0px',
+
+        '@media (max-width: 1400px)': {
+          width: 'auto',
+        },
+
+        '@media (max-width: 768px)': {
+          height: '100%',
+        },
       }}
     >
       <Box sx={{ display: 'flex' }}>
@@ -77,14 +85,25 @@ function MiddleAnalysisCard({ isFxPage }: { isFxPage?: boolean }) {
           width: '674px',
           height: '333px',
           marginTop: '-24px',
+
+          '@media (max-width: 1400px)': {
+            width: '100%',
+          },
         }}
       >
-        <Image src={techGraph} alt="analysis card" width={674} height={333} />
+        <Image
+          src={techGraph}
+          alt="analysis card"
+          style={{
+            width: '100%',
+            height: '100%',
+          }}
+        />
       </Box>
       <Box sx={{ mt: '16px' }}>
         <Typography
           sx={{
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontWeight: 500,
             fontFamily: 'Sf Pro Display',
             lineHeight: '15.6px',
@@ -97,12 +116,12 @@ function MiddleAnalysisCard({ isFxPage }: { isFxPage?: boolean }) {
         </Typography>
         <Typography
           sx={{
-            fontSize: '18px',
+            fontSize: '18px !important',
             fontWeight: 700,
             lineHeight: '23.4px',
             fontFamily: 'Sf Pro Display',
             marginTop: '12px',
-            width: '610px',
+            maxWidth: '610px',
             marginLeft: '12px',
             letterSpacing: '0.3px',
             color: 'rgba(17, 17, 17, 1)',
@@ -112,12 +131,12 @@ function MiddleAnalysisCard({ isFxPage }: { isFxPage?: boolean }) {
         </Typography>
         <Typography
           sx={{
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontWeight: 400,
             lineHeight: '18px',
             fontFamily: 'Sf Pro Display',
             marginTop: '8px',
-            width: '610px',
+            maxWidth: '610px',
             marginLeft: '12px',
             color: 'rgba(17, 17, 17, 0.8)',
             WebkitLineClamp: 2,

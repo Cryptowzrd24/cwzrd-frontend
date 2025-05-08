@@ -1,8 +1,9 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
 function GlobalNewsCards({ cardData }: any) {
+  const isTabView = useMediaQuery('(max-width: 1440px)');
   const renderCards = cardData.map((card: any) => {
     return (
       <Box
@@ -13,6 +14,11 @@ function GlobalNewsCards({ cardData }: any) {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
+
+          '@media (max-width: 1440px)': {
+            flex: 1,
+            alignItems: 'flex-start',
+          },
         }}
       >
         <Box
@@ -23,7 +29,18 @@ function GlobalNewsCards({ cardData }: any) {
             overflow: 'hidden',
           }}
         >
-          <Image src={card.img} alt="image" width={142.5} height={88} />
+          <Image
+            src={card.img}
+            alt="image"
+            // width={isTabView ? 142.5 : '100%'}
+            // height={88}
+
+            style={{
+              objectFit: 'cover',
+              width: isTabView ? '100%' : '142.5px',
+              height: '88px',
+            }}
+          />
         </Box>
         <Typography
           sx={{
@@ -31,7 +48,7 @@ function GlobalNewsCards({ cardData }: any) {
             width: '100%',
             fontFamily: 'Sf Pro Display',
             fontWeight: 700,
-            fontSize: '14px',
+            fontSize: '14px !important',
             lineHeight: '18.20px',
             color: 'rgba(17, 17, 17, 1)',
           }}
@@ -43,7 +60,7 @@ function GlobalNewsCards({ cardData }: any) {
             marginTop: '4px',
             fontFamily: 'Sf Pro Display',
             fontWeight: 400,
-            fontSize: '11px',
+            fontSize: '11px !important',
             lineHeight: '14.3px',
             color: 'rgba(17, 17, 17, 0.8)',
             letterSpacing: '-0.3px',

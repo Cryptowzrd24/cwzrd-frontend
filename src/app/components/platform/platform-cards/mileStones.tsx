@@ -57,8 +57,9 @@ const MileStones = () => {
 
   return (
     <>
-      <motion.div
-        style={{
+      <Box
+        component={motion.div}
+        sx={{
           padding: '24px',
           maxWidth: '307.5px',
           height: '352px',
@@ -66,6 +67,11 @@ const MileStones = () => {
           position: 'relative',
           flex: 1,
           transition: 'all 0.325s linear',
+
+          '@media (max-width: 768px)': {
+            maxWidth: '100%',
+            width: 'calc(100% - 50px)',
+          },
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -91,6 +97,10 @@ const MileStones = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'start',
+
+            '@media (max-width: 1024px)': {
+              padding: 0,
+            },
           }}
         >
           <motion.div
@@ -100,7 +110,7 @@ const MileStones = () => {
           >
             <Typography
               sx={{
-                fontSize: '30px',
+                fontSize: '30px !important',
                 color: 'rgba(255, 255, 255, 1)',
                 mt: '32px',
                 letterSpacing: 0.1,
@@ -127,6 +137,14 @@ const MileStones = () => {
                   lineHeight: '22px',
                   textAlign: 'start',
                   marginLeft: '-16px',
+
+                  '@media (max-width: 1024px)': {
+                    marginLeft: 0,
+                  },
+
+                  '@media (min-width: 769px) and (max-width: 968px)': {
+                    mt: '40px',
+                  },
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -166,7 +184,7 @@ const MileStones = () => {
             <PlusIcon />
           </motion.div>
         </Box>
-      </motion.div>
+      </Box>
     </>
   );
 };

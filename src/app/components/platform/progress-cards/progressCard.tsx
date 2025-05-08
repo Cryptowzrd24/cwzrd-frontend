@@ -23,6 +23,18 @@ const ProgressCard = ({
         display: 'flex',
         alignItems: 'center',
         gap: '27px',
+
+        '@media (max-width: 978px)': {
+          gap: '10px',
+          paddingLeft: '6px',
+        },
+
+        '@media (max-width: 768px)': {
+          boxShadow: 'none',
+          width: 'inherit',
+          paddingLeft: '18px',
+          gap: '20px',
+        },
       }}
     >
       <style jsx global>{`
@@ -30,14 +42,18 @@ const ProgressCard = ({
           display: none !important;
         }
       `}</style>
-      <div
-        style={{
+      <Box
+        sx={{
           width: 75,
           height: 75,
           display: 'inline-block',
           position: 'relative',
           paddingBlock: '24px',
           paddingLeft: '34px',
+
+          '@media (max-width: 978px)': {
+            padding: '0px',
+          },
         }}
       >
         <Progress.Circle
@@ -47,8 +63,8 @@ const ProgressCard = ({
           strokeWidth={10}
           trailWidth={10}
         />
-        <div
-          style={{
+        <Box
+          sx={{
             position: 'absolute',
             top: '50%',
             left: '67%',
@@ -57,11 +73,15 @@ const ProgressCard = ({
             lineHeight: '18px',
             fontWeight: '700',
             color: 'rgba(17, 17, 17, 1)',
+
+            '@media (max-width: 978px)': {
+              left: '54%',
+            },
           }}
         >
           {percent}%
-        </div>
-      </div>
+        </Box>
+      </Box>
       <Box>
         <Typography
           sx={{
@@ -100,7 +120,7 @@ const ProgressCard = ({
         </Typography>
         <Typography
           sx={{
-            fontSize: '8.56px',
+            fontSize: '8.56px !important',
             fontWeight: '400',
             color: 'rgba(255, 255, 255, 1)',
             lineHeight: '11.12px',

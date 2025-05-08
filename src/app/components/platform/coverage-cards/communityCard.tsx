@@ -14,12 +14,14 @@ const CommunityCard = () => {
           borderRadius: '24px',
           display: 'flex',
           justifyContent: 'flex-start',
+          flexGrow: 1,
+          flexShrink: 0,
         }}
       >
         <Box>
           <Stack
             sx={{
-              widht: '259.5px',
+              width: '259.5px',
               paddingInline: '24px',
               paddingTop: '232.47px',
               paddingBottom: '24.03px',
@@ -41,7 +43,7 @@ const CommunityCard = () => {
             </Typography>
             <Typography
               sx={{
-                fontSize: '12px',
+                fontSize: '12px !important',
                 color: 'rgba(255, 255, 255, 0.8)',
                 fontWeight: '400',
                 lineHeight: '18px',

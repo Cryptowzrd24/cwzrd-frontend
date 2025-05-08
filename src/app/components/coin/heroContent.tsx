@@ -120,7 +120,19 @@ const HeroContent = async () => {
 
   return (
     <>
-      <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
+      <Typography
+        variant="h1"
+        sx={{
+          maxWidth: '960px',
+          marginTop: '10px',
+          '@media (max-width: 576px)': {
+            fontSize: '24px !important',
+            fontWeight: '700 !important',
+            lineHeight: '120%',
+            letterSpacing: '0.24px',
+          },
+        }}
+      >
         Today{' '}
         <span
           style={{
@@ -137,7 +149,7 @@ const HeroContent = async () => {
 
       <Box
         sx={{
-          fontSize: '14px',
+          fontSize: '14px !important',
           lineHeight: '24px',
           color: 'rgba(17, 17, 17, 0.8)',
           mt: '8px',
@@ -149,7 +161,7 @@ const HeroContent = async () => {
           style={{
             color: 'rgba(17,17,17,0.8)',
             fontWeight: '600',
-            fontSize: '14px',
+            fontSize: '14px !important',
           }}
         >
           {' '}
@@ -160,7 +172,7 @@ const HeroContent = async () => {
           style={{
             color: marketCapChangeColor,
             fontWeight: '600',
-            fontSize: '14px',
+            fontSize: '14px !important',
           }}
         >
           {formattedMarketCapChange}%
@@ -170,7 +182,7 @@ const HeroContent = async () => {
           style={{
             color: '#808A9D',
             cursor: 'pointer',
-            fontSize: '14px',
+            fontSize: '14px !important',
             fontWeight: '400',
             textDecoration: 'underline',
           }}
@@ -178,7 +190,10 @@ const HeroContent = async () => {
         >
           Read More
         </span>
-        <div id="additionalContent" style={{ display: 'none' }}>
+        <div
+          id="additionalContent"
+          style={{ display: 'none', fontSize: '14px' }}
+        >
           The total crypto market volume over the last 24 hours is
           <span
             style={{

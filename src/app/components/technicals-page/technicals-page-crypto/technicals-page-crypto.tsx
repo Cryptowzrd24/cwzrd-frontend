@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import React from 'react';
 import TechnicalsGraph from '../technicals-graph';
 import TechnicalGraphCarousel from '../technicals-graph-carousel';
@@ -24,14 +24,25 @@ import MentorshipCard from '../mentorship-card';
 import MemberShipBanner from '../../banners/memberShipBanner';
 import FinancialRight from '../financial-right';
 
-function TechnicalsPageCrypto() {
+function TechnicalsPageCrypto({
+  isMainPage = false,
+}: {
+  isMainPage?: boolean;
+}) {
+  const isTablet = useMediaQuery('(min-width: 768px)');
   return (
     <Box>
-      <Box>
-        <Box>
+      <Box sx={{ marginBottom: '30px' }}>
+        <Box
+          sx={{
+            borderRadius: '24px',
+            background: isMainPage ? '#FFF' : 'transparent',
+            boxShadow: '0px 4px 28px 0px #0000000D',
+          }}
+        >
           <TechnicalsGraph />
         </Box>
-        <Box sx={{ position: 'relative', top: '-150px' }}>
+        <Box>
           <TechnicalGraphCarousel />
         </Box>
       </Box>
@@ -41,12 +52,15 @@ function TechnicalsPageCrypto() {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '21.5px',
-          marginTop: '-110px',
+
+          '@media (max-width: 576px)': {
+            paddingInline: '10px',
+          },
         }}
       >
         <Typography
           sx={{
-            fontSize: '24px',
+            fontSize: '24px !important',
             fontWeight: 700,
             fontFamily: 'Sf Pro Display',
           }}
@@ -69,6 +83,10 @@ function TechnicalsPageCrypto() {
             alignItems: 'center',
             justifyContent: 'flex-start',
             marginRight: '38px',
+
+            '@media (max-width: 576px)': {
+              marginRight: '0px',
+            },
           }}
         >
           <Typography
@@ -78,7 +96,7 @@ function TechnicalsPageCrypto() {
               WebkitTextFillColor: 'transparent',
               marginRight: '5px',
               fontWeight: '600',
-              fontSize: '14px',
+              fontSize: '14px !important',
               lineHeight: '18.2px',
               fontFamily: 'Sf Pro Display',
             }}
@@ -89,12 +107,26 @@ function TechnicalsPageCrypto() {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ display: 'flex', gap: '16px' }}>
-        <AnalysisCard isFirst={true} />
-        <FinancialNewsCardList />
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '16px',
+          '@media (max-width: 1360px)': { flexDirection: 'column' },
+        }}
+      >
         <Box
           sx={{
-            width: '368px',
+            display: 'flex',
+            gap: '16px',
+            '@media (max-width: 1024px)': { flexDirection: 'column' },
+          }}
+        >
+          <AnalysisCard isFirst={true} />
+          <FinancialNewsCardList />
+        </Box>
+        <Box
+          sx={{
+            width: '100%',
             backgroundImage: `url('/images/news-letter/card-background1.png')`,
             backgroundSize: '100% 100%',
             backgroundPosition: 'center',
@@ -106,11 +138,16 @@ function TechnicalsPageCrypto() {
           <PicksForPanel />
         </Box>
       </Box>
-      <Box sx={{ mb: '120px' }}>
-        <FinancialNewsCarousel />
+      <Box sx={{ mb: '70px', mt: '16px' }}>
+        <FinancialNewsCarousel slidesToShowOnDesktop={5} />
       </Box>
       <Box
-        sx={{ display: 'flex', justifyContent: 'center', marginTop: '-50px' }}
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          marginTop: '10px',
+        }}
       >
         <TechnicalsBanner
           bgColor="brown"
@@ -120,46 +157,86 @@ function TechnicalsPageCrypto() {
       </Box>
       {/* //second sec// */}
       <Box>
-        <Box sx={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
-          <AnalysisCard isFirst={true} />
-          <FinancialNewsCardList />
+        <Box
+          sx={{
+            display: 'flex',
+            gap: '16px',
+            marginTop: '16px',
+            '@media (max-width: 1360px)': {
+              flexDirection: 'column',
+            },
+          }}
+        >
           <Box
             sx={{
-              width: '360px',
+              display: 'flex',
+              gap: '16px',
+              '@media (max-width: 1024px)': {
+                flexDirection: 'column',
+              },
+            }}
+          >
+            <AnalysisCard isFirst={true} />
+            <FinancialNewsCardList />
+          </Box>
+          <Box
+            sx={{
+              width: '100%',
               height: '507px',
               background: 'white',
               boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
               borderRadius: '24px',
+
+              '@media (max-width: 1360px)': {
+                height: 'auto',
+              },
             }}
           >
             <RightCard />
           </Box>
         </Box>
-        <Box sx={{ mb: '120px' }}>
-          <FinancialNewsCarousel />
+        <Box sx={{ mb: '70px', mt: '16px' }}>
+          <FinancialNewsCarousel slidesToShowOnDesktop={5} />
         </Box>
+
         <Box
-          sx={{ display: 'flex', justifyContent: 'center', marginTop: '-50px' }}
+          sx={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}
         >
           <TechnicalsBanner
             bgColor="blue"
             coinName="Etherium"
             coinImg={etheriumImg}
+            width="100%"
           />
         </Box>
       </Box>
-
       {/* //second sec// */}
-
       {/* //third sec// */}
       <Box>
-        <Box sx={{ display: 'flex', gap: '15px', marginTop: '24px' }}>
-          <AnalysisCard isThird={true} />
-          <FinancialNewsCardList isRenderFour={true} />
+        <Box
+          sx={{
+            display: 'flex',
+            marginTop: '24px',
+            '@media (max-width: 1360px)': { flexDirection: 'column' },
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              gap: '16px',
+              '@media (max-width: 768px)': { flexDirection: 'column' },
+            }}
+          >
+            <AnalysisCard isThird={true} />
+            <FinancialNewsCardList isRenderFour={true} />
+          </Box>
           <FinancialNewsCardList isRenderFour={true} />
         </Box>
-        <Box sx={{ mb: '120px' }}>
-          <FinancialNewsCarousel noBackground={true} />
+        <Box sx={{ mb: '120px', mt: '16px' }}>
+          <FinancialNewsCarousel
+            noBackground={true}
+            slidesToShowOnDesktop={5}
+          />
         </Box>
         <Box sx={{ marginTop: '-42px' }}>
           <NewsLetterBanner />
@@ -173,15 +250,38 @@ function TechnicalsPageCrypto() {
           coinImg={litecoinImg}
         />
       </Box>
-
-      <Box sx={{ display: 'flex', gap: 2 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 1.5,
+          '@media (max-width: 1400px)': { flexDirection: 'column' },
+        }}
+      >
         <Box>
           <GraphDetailsCard />
-          <Box sx={{ display: 'flex', gap: 1, marginTop: '12px' }}>
-            <FinancialCard />
-            <FinancialCard />
-            <FinancialCard />
-            <FinancialCard />
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 1,
+              marginTop: '12px',
+              marginBottom: isTablet ? '0px' : '50px',
+
+              '@media (max-width: 1360px)': {
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+              },
+            }}
+          >
+            {isTablet ? (
+              <>
+                <FinancialCard />
+                <FinancialCard />
+                <FinancialCard />
+                <FinancialCard />
+              </>
+            ) : (
+              <FinancialNewsCarousel />
+            )}
           </Box>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
@@ -193,43 +293,100 @@ function TechnicalsPageCrypto() {
           <NewsCard isShort={true} />
         </Box>
       </Box>
-      <Box sx={{ marginBlock: '24px' }}>
+      <Box sx={{ my: '16px' }}>
         <TechnicalsBanner bgColor="green" coinName="XRP" coinImg={xrpImg} />
       </Box>
-      <Box sx={{ display: 'flex', gap: 2 }}>
-        <AnalysisCard isFourth={true} image={xrpImg} />
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-          <FinancialCarBig image={xrpImg} />
-          <NewsCard image={xrpImg} isShort={true} />
-          <NewsCard image={xrpImg} isShort={true} />
-          <NewsCard image={xrpImg} isShort={true} />
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 2,
+          '@media (max-width: 1360px)': {
+            flexDirection: 'column',
+          },
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 2,
+            '@media (max-width: 1024px)': {
+              flexDirection: 'column',
+            },
+          }}
+        >
+          <AnalysisCard isFourth={true} image={xrpImg} />
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <FinancialCarBig image={xrpImg} />
+            <NewsCard image={xrpImg} isShort={true} />
+            <NewsCard image={xrpImg} isShort={true} />
+            <NewsCard image={xrpImg} isShort={true} />
+          </Box>
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-          <NewsCard image={xrpImg} isShort={true} />
-          <NewsCard image={xrpImg} isShort={true} />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 2,
+            '@media (max-width: 1360px)': {
+              flexDirection: 'row',
+            },
+            '@media (max-width: 1024px)': {
+              flexDirection: 'column',
+            },
+          }}
+        >
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <NewsCard image={xrpImg} isShort={true} />
+            <NewsCard image={xrpImg} isShort={true} />
+          </Box>
           <MentorshipCard />
         </Box>
       </Box>
-      <Box sx={{ marginBottom: '24px' }}>
+      <Box sx={{ my: '16px' }}>
         <TechnicalsBanner
           bgColor="green"
           coinName="Chainlink"
           coinImg={chainLinkImg}
         />
       </Box>
-
       <Box sx={{ marginBlock: '24px', display: 'flex' }}>
-        <Box sx={{ display: 'flex', gap: 2 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 1.25,
+            '@media (max-width: 1360px)': {
+              flexDirection: 'column',
+              width: '100%',
+            },
+          }}
+        >
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             <FinancialRight />
           </Box>
           <Box>
             <GraphDetailsCard isInverted={true} image={chainLinkImg} />
-            <Box sx={{ display: 'flex', gap: 1, marginTop: '12px' }}>
-              <FinancialCard image={chainLinkImg} />
-              <FinancialCard image={chainLinkImg} />
-              <FinancialCard image={chainLinkImg} />
-              <FinancialCard image={chainLinkImg} />
+            <Box
+              sx={{
+                display: 'flex',
+                gap: 1,
+                marginTop: '12px',
+                marginBottom: isTablet ? '0px' : '50px',
+                '@media (max-width: 1360px)': {
+                  flexWrap: 'wrap',
+                  justifyContent: 'center',
+                },
+              }}
+            >
+              {isTablet ? (
+                <>
+                  <FinancialCard image={chainLinkImg} />
+                  <FinancialCard image={chainLinkImg} />
+                  <FinancialCard image={chainLinkImg} />
+                  <FinancialCard image={chainLinkImg} />
+                </>
+              ) : (
+                <FinancialNewsCarousel image={chainLinkImg} />
+              )}
             </Box>
           </Box>
         </Box>

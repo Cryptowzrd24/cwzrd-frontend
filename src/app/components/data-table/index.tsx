@@ -73,8 +73,10 @@ const DataTable = memo(
         className="ag-theme-material"
         style={{
           width,
+          height,
+          maxHeight: '400px',
           minHeight: height ? height : 'auto',
-          overflow: 'hidden',
+          overflowX: 'auto',
         }}
       >
         {title && (
@@ -109,13 +111,13 @@ const DataTable = memo(
           </Box>
         )}
         <AgGridReact
-          suppressHorizontalScroll={true}
+          suppressHorizontalScroll={false}
           rowData={rowData}
           columnDefs={modifiedColumnDefs}
-          suppressRowClickSelection={true}
+          suppressRowClickSelection={false}
           pagination={true}
           suppressPaginationPanel={true}
-          tooltipShowDelay={0}
+          tooltipShowDelay={400}
           tooltipInteraction={true}
           {...(rowHeight ? { rowHeight } : {})}
           rowStyle={{

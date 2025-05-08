@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import techGraph from '../../../../../public/images/technicals-page/techPageGraph.png';
 
-function Card() {
+function Card({textWidth = '240px'}: {textWidth?: string}) {
   return (
     <Box
       sx={{
@@ -34,7 +34,7 @@ function Card() {
             color: 'rgba(255, 255, 255, 1)',
             lineHeight: '15.6px',
             letterSpacing: '0.6px',
-            width: '240px',
+            width: textWidth ? textWidth : '240px',
           }}
         >
           Comprehensive Ethereum Price Forecast and Market Update for ETH/USD

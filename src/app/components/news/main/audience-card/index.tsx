@@ -22,6 +22,10 @@ const AudienceCard = ({
         padding: '8px',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+
+        '@media (max-width: 724px)': {
+          width: 'auto',
+        },
       }}
     >
       <Chip
@@ -42,6 +46,10 @@ const AudienceCard = ({
               fontSize: '16px',
               fontWeight: '600',
               gap: '4.5px',
+
+              '@media (max-width: 576px)': {
+                marginRight: '0px',
+              },
             }}
           >
             <Image
@@ -53,7 +61,7 @@ const AudienceCard = ({
             <Typography
               sx={{
                 fontWeight: '400',
-                fontSize: '12px',
+                fontSize: '12px !important',
                 lineHeight: '15.6px',
                 color: 'white',
               }}
@@ -69,12 +77,25 @@ const AudienceCard = ({
           fontWeight: 'bold',
           backgroundColor: 'transparent',
           height: '33px',
+
+          '@media (max-width: 576px)': {
+            right: '8px',
+          },
         }}
       />
-      <Box>
+      <Box
+        sx={{
+          width: isDetailPage ? 264 : 320,
+          '@media (max-width: 724px)': {
+            width: '100%',
+            height: 'auto',
+          },
+        }}
+      >
         <Image
           alt="news"
           src={image.src}
+          layout="responsive"
           width={isDetailPage ? 264 : 320}
           height={isDetailPage ? 130 : 160}
           style={{
@@ -83,11 +104,12 @@ const AudienceCard = ({
           }}
         />
       </Box>
+
       <Box sx={{ paddingInline: '9px', marginTop: '8px' }}>
         <Typography
           sx={{
             fontWeight: '700',
-            fontSize: '14px',
+            fontSize: '14px !important',
             lineHeight: '18.2px',
             letterSpacing: '0.3px',
             width: isDetailPage ? '264px' : '100%',
@@ -127,7 +149,7 @@ const AudienceCard = ({
         <Typography
           sx={{
             fontWeight: '500',
-            fontSize: '10px',
+            fontSize: '10px !important',
             lineHeight: '13px',
             backgroundColor: 'rgb(243,243,243)',
             borderRadius: '8px',

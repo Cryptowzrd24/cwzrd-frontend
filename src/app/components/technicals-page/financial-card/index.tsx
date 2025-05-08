@@ -11,6 +11,7 @@ interface FinancialCardProps {
   image?: any;
   isFxPage?: boolean;
   dualImg?: any;
+  isMainPage?: boolean;
 }
 
 function FinancialCard({
@@ -18,6 +19,7 @@ function FinancialCard({
   image,
   isFxPage,
   dualImg,
+  isMainPage,
 }: FinancialCardProps) {
   return (
     <Box
@@ -35,6 +37,7 @@ function FinancialCard({
           : {
               // width: '237.5px',
               // height: '274px',
+              ...(isMainPage && { width: '217px' }),
               padding: '8px',
               background: 'rgba(255, 255, 255, 1)',
               boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
@@ -96,7 +99,7 @@ function FinancialCard({
 
         <Box
           sx={{
-            width: '238.5px',
+            width: isMainPage ? 'auto' : '218px',
             height: '132px',
             borderRadius: '12px',
             overflow: 'hidden',
@@ -122,7 +125,8 @@ function FinancialCard({
           lineHeight: '18.2px',
           //   width: '205.5px',
           paddingInline: '8px',
-          width: '203px',
+          width: '204px',
+          boxSizing: 'border-box',
         }}
       >
         The EURJPY takes advantage of the support line stability
@@ -139,6 +143,7 @@ function FinancialCard({
           WebkitBoxOrient: 'vertical',
           textOverflow: 'ellipsis',
           display: '-webkit-box',
+          boxSizing: 'border-box',
         }}
       >
         Users can mint new tokens using the company's new Alloy platform, which

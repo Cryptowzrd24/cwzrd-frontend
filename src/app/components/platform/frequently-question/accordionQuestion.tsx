@@ -10,16 +10,21 @@ import RemoveIcon from '@mui/icons-material/Remove';
 interface accordionData {
   title: string;
   summary: string;
+  isExpanded?: boolean;
 }
-export default function AccordionQuestion({ title, summary }: accordionData) {
-  const [expanded, setExpanded] = React.useState(false);
+export default function AccordionQuestion({
+  title,
+  summary,
+  isExpanded,
+}: accordionData) {
+  const [expanded, setExpanded] = React.useState(isExpanded ? true : false);
 
   const handleChange = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <div style={{ marginBottom: '8px', maxWidth: '90%' }}>
+    <div style={{ marginBottom: '8px', maxWidth: '100%' }}>
       <Accordion
         expanded={expanded}
         onChange={handleChange}
@@ -28,7 +33,7 @@ export default function AccordionQuestion({ title, summary }: accordionData) {
           borderRadius: '16px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          width: '437px',
+          maxWidth: '437px',
           height: 'auto',
           '&:last-of-type': {
             borderRadius: '16px',

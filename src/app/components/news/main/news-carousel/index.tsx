@@ -87,10 +87,10 @@ const NewsCarousel = ({
       minWidth={isArticles ? '700px !important' : 'auto'}
       height={
         isMainPage
-          ? { xs: '180px', sm: '250px', md: '370px' }
+          ? { xs: '346px', sm: '350px', md: '370px' }
           : isFirst
-            ? { xs: '300px', sm: '400px', md: '480px' }
-            : { xs: '300px', sm: '400px', md: '480px' }
+            ? { xs: '346px', sm: '400px', md: '480px' }
+            : { xs: '346px', sm: '400px', md: '480px' }
       }
       display="flex"
       justifyContent="center"
@@ -132,6 +132,10 @@ const NewsCarousel = ({
             boxShadow: '1px',
             width: '103px',
             height: '33px',
+
+            '@media (max-width: 978px)': {
+              display: 'none',
+            },
           }}
           label={
             <Box
@@ -161,12 +165,17 @@ const NewsCarousel = ({
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box
           position="absolute"
-          top="50%"
+          top={{ xs: '12%', sm: '28%', md: '34%', lg: '40%' }}
           left={0}
           display="flex"
           gap="8px"
           paddingInline={isMainPage ? '48px' : '32px'}
           zIndex={1}
+          sx={{
+            '@media (max-width: 576px)': {
+              paddingInline: '14px',
+            },
+          }}
         >
           {content[currentIndex].tags.map((tag, index) => (
             <Chip
@@ -187,7 +196,7 @@ const NewsCarousel = ({
 
         <Box
           position="absolute"
-          top="57%"
+          top={{ xs: '18%', sm: '38%', md: '42%', lg: '46%' }}
           left="0"
           width="100%"
           color="white"
@@ -197,6 +206,10 @@ const NewsCarousel = ({
             boxSizing: 'border-box',
             padding: 0,
             margin: 0,
+
+            '@media (max-width: 576px)': {
+              paddingInline: '14px',
+            },
           }}
         >
           <Typography
@@ -210,12 +223,30 @@ const NewsCarousel = ({
                     fontSize: '24px  !important',
                     paddingInline: '48px',
                     marginTop: '8px',
+
+                    '@media (max-width: 658px)': {
+                      fontSize: '20px  !important',
+                      marginTop: '16px',
+                    },
+
+                    '@media (max-width: 576px)': {
+                      paddingInline: '0px',
+                    },
                   }
                 : {
                     fontWeight: '700 !important',
                     color: 'white',
                     fontSize: '32px  !important',
                     paddingInline: '32px',
+
+                    '@media (max-width: 658px)': {
+                      fontSize: '20px  !important',
+                      marginTop: '16px',
+                    },
+
+                    '@media (max-width: 576px)': {
+                      paddingInline: '0px',
+                    },
                   }
             }
           >
@@ -237,6 +268,10 @@ const NewsCarousel = ({
               textOverflow: 'ellipsis',
               whiteSpace: 'normal',
               maxWidth: isMainPage ? '87% ' : 'calc(100% - 48px)',
+
+              '@media (max-width: 576px)': {
+                paddingInline: '0px',
+              },
             }}
           >
             {content[currentIndex].description}
@@ -253,6 +288,11 @@ const NewsCarousel = ({
               display: 'flex',
               paddingBlock: '24px',
               gap: isMainPage ? '0px' : '2px',
+
+              '@media (max-width: 768px)': {
+                left: '14%',
+                transform: 'none',
+              },
             }}
           >
             {content.map((_, index) => (
@@ -282,6 +322,11 @@ const NewsCarousel = ({
           right="54px"
           display="flex"
           gap="8px"
+          sx={{
+            '@media (max-width: 768px)': {
+              right: '14%',
+            },
+          }}
         >
           <IconButton
             sx={{
@@ -320,6 +365,11 @@ const NewsCarousel = ({
         display="flex"
         gap="8px"
         left={0}
+        sx={{
+          '@media (max-width:768px)': {
+            display: 'none',
+          },
+        }}
       >
         <Typography
           sx={{

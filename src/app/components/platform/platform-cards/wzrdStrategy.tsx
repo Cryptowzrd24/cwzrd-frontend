@@ -16,13 +16,26 @@ const WzrdStrategy = () => {
           display: 'flex',
           justifyContent: 'center',
           flex: 1,
+
+          '@media (max-width: 768px)': {
+            maxWidth: '100%',
+            width: 'calc(100% - 50px)',
+          },
         }}
       >
-        <Box sx={{ paddingLeft: '12px', marginTop: '253px' }}>
+        <Box
+          sx={{
+            paddingLeft: '12px',
+            marginTop: '253px',
+            '@media (max-width: 1024px)': {
+              paddingLeft: 0,
+            },
+          }}
+        >
           <Stack>
             <Typography
               sx={{
-                fontSize: '14px',
+                fontSize: '14px !important',
                 color: 'rgba(255, 255, 255, 1)',
                 letterSpacing: 0.1,
                 maxWidth: '298px',
@@ -35,7 +48,7 @@ const WzrdStrategy = () => {
             </Typography>
             <Typography
               sx={{
-                fontSize: '12px',
+                fontSize: '12px !important',
                 color: 'rgba(255, 255, 255, 0.8)',
                 letterSpacing: 0.1,
                 maxWidth: '298px',

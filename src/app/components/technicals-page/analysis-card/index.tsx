@@ -26,7 +26,7 @@ function AnalysisCard({
   return (
     <Box
       sx={{
-        width: isFourth ? '680px' : !isThird ? '516px' : '468px',
+        width: isFourth ? '644px' : !isThird ? '516px' : '468px',
         height: isThird ? '402px' : undefined,
         borderRadius: '16px',
         background: isFourth
@@ -36,7 +36,12 @@ function AnalysisCard({
             : 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, #FFFFFF 43.91%, #F5F1FF 100%)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         paddingInline: '16px',
-        marginBottom: isFourth ? '24px' : isFirst ? '0px' : '0px',
+        marginBottom: isFourth ? '0x' : isFirst ? '0px' : '0px',
+        boxSizing: 'border-box',
+
+        '@media (max-width: 1024px)': {
+          width: 'auto',
+        },
       }}
     >
       <Box sx={{ display: 'flex' }}>
@@ -90,76 +95,79 @@ function AnalysisCard({
 
       <Box
         sx={{
-          width: isFourth ? '680px' : isThird ? '466px' : '516px',
+          width: isFourth ? '644px' : isThird ? '466px' : '516px',
           height: isFourth ? '375px' : isThird ? '174px' : '277px',
           marginTop: '-24px',
+
+          '@media (max-width: 1024px)': {
+            width: '100%',
+            height: 'auto',
+          },
         }}
       >
         <Image
           src={techGraph}
           alt="analysis card"
-          width={isFourth ? 680 : isThird ? 466 : 516}
-          height={isFourth ? 375 : isThird ? 174 : 277}
+          style={{ width: '100%', height: 'auto' }}
         />
       </Box>
       <Box sx={{ marginTop: isFourth ? '24px' : '16px' }}>
         <Typography
           sx={{
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontWeight: 500,
             fontFamily: 'Sf Pro Display',
             lineHeight: '15.6px',
             color: 'rgba(55, 97, 251, 1)',
             letterSpacing: '1.2px',
             marginLeft: '12px',
+
+            '@media (max-width: 576px)': {
+              marginLeft: '0px',
+            },
           }}
         >
           06/06/2023 At 00:06 AM
         </Typography>
         <Typography
           sx={{
-            fontSize: '18px',
+            fontSize: '18px !important',
             fontWeight: 700,
             lineHeight: '23.4px',
             fontFamily: 'Sf Pro Display',
             marginTop: '12px',
-            width: isFourth ? '596px' : isThird ? '100%' : '500px',
+            maxWidth: isFourth ? '596px' : isThird ? '100%' : '500px',
             marginLeft: '12px',
             letterSpacing: isFourth ? '0.3px' : '0.3px',
             color: 'rgba(17, 17, 17, 1)',
+
+            '@media (max-width: 576px)': {
+              marginLeft: '0px',
+            },
           }}
         >
           BITCOIN POTENTIAL $4k Target On Potential Major BEARISH FLAT
         </Typography>
         <Typography
-          sx={
-            isFourth
-              ? {
-                  fontSize: '12px',
-                  fontWeight: 400,
-                  lineHeight: '18px',
-                  fontFamily: 'Sf Pro Display',
-                  marginTop: '8px',
-                  width: '596px',
-                  marginLeft: '12px',
-                  color: 'rgba(17, 17, 17, 0.8)',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
-                  textOverflow: 'ellipsis',
-                  display: '-webkit-box',
-                  overflow: 'hidden',
-                }
-              : {
-                  fontSize: '12px',
-                  fontWeight: 400,
-                  lineHeight: '18px',
-                  fontFamily: 'Sf Pro Display',
-                  marginTop: '8px',
-                  width: isThird ? '100%' : '500px',
-                  marginLeft: '12px',
-                  color: 'rgba(17, 17, 17, 0.8)',
-                }
-          }
+          sx={{
+            fontSize: '12px !important',
+            fontWeight: 400,
+            lineHeight: '18px',
+            fontFamily: 'Sf Pro Display',
+            marginTop: '8px',
+            maxWidth: isFourth ? '596px' : isThird ? '100%' : '500px',
+            marginLeft: '12px',
+            color: 'rgba(17, 17, 17, 0.8)',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            display: '-webkit-box',
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: isFourth ? 2 : undefined,
+
+            '@media (max-width: 576px)': {
+              marginLeft: '0px',
+            },
+          }}
         >
           Ethereum price (ETHUSD) continues to fluctuate near 3361.31$ level,
           while stochastic attempts to gain the positive momentum...

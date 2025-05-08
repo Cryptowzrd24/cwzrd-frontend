@@ -1,10 +1,11 @@
 'use client';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 import { motion } from 'framer-motion';
 
 const ProfitableCard = () => {
+  const isTabView = useMediaQuery('(min-width: 1024px)');
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
@@ -55,7 +56,7 @@ const ProfitableCard = () => {
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'column',
-          width: '307.5px',
+          width: isTabView ? '307.5px' : '100%',
           height: '310.5px',
           position: 'relative',
           transition: 'all 0.325s linear',
@@ -79,7 +80,7 @@ const ProfitableCard = () => {
         >
           <Typography
             sx={{
-              fontSize: '30px',
+              fontSize: '30px !important',
               fontWeight: '700',
               color: 'rgba(255, 255, 255, 1)',
               textAlign: 'center',
@@ -87,6 +88,10 @@ const ProfitableCard = () => {
               marginTop: '24px',
               marginBottom: '22px',
               fontFamily: 'Sf Pro Display',
+
+              '@media (max-width: 576px)': {
+                paddingInline: '20px',
+              },
             }}
           >
             Profitable Opportunities

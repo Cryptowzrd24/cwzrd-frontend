@@ -11,6 +11,10 @@ function CarouselCard() {
         boxShadow: '0px 4px 28px 0px #0000000D ',
         padding: '20px 12px',
         width: '85%',
+
+        '@media (max-width: 899px)': {
+          width: '100%',
+        },
       }}
     >
       <Box sx={{ marginLeft: '8px' }}>

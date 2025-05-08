@@ -6,7 +6,7 @@ import RightRed from '../../../../../public/icons/News-Letter/rightRed';
 
 function PicksForPanel() {
   const renderCards = [1, 2, 3, 4].map(() => {
-    return <Card />;
+    return <Card textWidth='194px' />;
   });
   return (
     <Box

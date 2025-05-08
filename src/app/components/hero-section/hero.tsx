@@ -17,7 +17,10 @@ const Hero: React.FC = () => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h4" sx={{ letterSpacing: '1px', fontSize: 14 }}>
+        <Typography
+          variant="h4"
+          sx={{ letterSpacing: '1px', fontSize: '14px !important' }}
+        >
           MARKET CAP
         </Typography>
         <Box sx={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
@@ -58,7 +61,7 @@ const Hero: React.FC = () => {
             </Box>
           </Box>
           <Typography
-            sx={{ fontSize: '13px', fontWeight: '400' }}
+            sx={{ fontSize: '13px !important', fontWeight: '400' }}
             variant="body1"
           >
             Show Stats
