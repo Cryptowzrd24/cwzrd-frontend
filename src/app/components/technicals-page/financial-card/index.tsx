@@ -95,6 +95,7 @@ function FinancialCard({
 
         <Box
           sx={{
+            width: isMainPage ? 'auto' : '218px',
             height: '132px',
             borderRadius: '12px',
             overflow: 'hidden',
@@ -119,6 +120,8 @@ function FinancialCard({
           fontWeight: '700',
           lineHeight: '18.2px',
           paddingInline: '8px',
+          width: '204px',
+          boxSizing: 'border-box',
         }}
       >
         The EURJPY takes advantage of the support line stability
@@ -134,6 +137,7 @@ function FinancialCard({
           WebkitBoxOrient: 'vertical',
           textOverflow: 'ellipsis',
           display: '-webkit-box',
+          boxSizing: 'border-box',
         }}
       >
         Users can mint new tokens using the company's new Alloy platform, which

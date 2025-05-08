@@ -24,7 +24,6 @@ function NewsImage({
         sx={{
           height: { xs: '200px', md: '400px' },
           width: '100%',
-          maxWidth: '795px',
           borderRadius: '16px',
           overflow: 'hidden',
         }}

@@ -27,6 +27,7 @@ const Portfolio = () => {
             paddingTop: '36px',
             '@media (max-width: 1024px)': {
               padding: '0px',
+              width: '100%',
             },
           }}
         >

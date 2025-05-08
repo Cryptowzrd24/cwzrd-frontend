@@ -163,9 +163,11 @@ const NextArrow = ({ onClick }: any) => (
 const FinancialNewsCarousel = ({
   noBackground = false,
   image,
+  slidesToShowOnDesktop = 3
 }: {
   noBackground?: boolean;
   image?: string | StaticImageData;
+  slidesToShowOnDesktop?: number;
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // <600px

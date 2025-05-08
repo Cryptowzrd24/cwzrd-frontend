@@ -1,5 +1,5 @@
 'use client';
-import { Box, Button, Popover, Stack, Typography } from '@mui/material';
+import { Box, Button, Popover, Stack, Typography, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import styles from './style.module.scss';
 import { subscribeNewsletter } from '@/app/services/newsletter';
@@ -7,6 +7,7 @@ import LoadingOverlay from '../loading-overlay';
 import { ArrowRightRound } from '../../../../public/icons/News-Letter/arrowRightRound';
 
 function NewsLetterBanner() {
+  const isMobileView = useMediaQuery('@media (max-width: 600px)');
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -138,7 +139,7 @@ function NewsLetterBanner() {
               value={email}
               type="text"
               onChange={handleChange}
-              placeholder="Enter your email address"
+              placeholder={isMobileView ? "Enter your email ..." : "Enter your email address"}
               className={styles.input}
             />
             <Box

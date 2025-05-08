@@ -378,7 +378,7 @@ function TechnicalsBanner({
         alignItems: 'center',
         justifyContent: 'space-between',
         width: width || 'auto',
-        padding: '16px',
+        padding: '20px 16px',
 
         '@media (max-width: 1120px)': {
           flexDirection: 'column',
@@ -407,7 +407,6 @@ function TechnicalsBanner({
               width: '44px',
               height: '44px',
               background: 'rgba(255, 255, 255, 1)',
-              boxShadow: '0px 2.18px 15.27px 0px rgba(0, 0, 0, 0.05)',
               borderRadius: '50%',
               display: 'flex',
               justifyContent: 'center',

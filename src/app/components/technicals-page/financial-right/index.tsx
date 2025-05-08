@@ -7,7 +7,7 @@ const FinancialRight = ({ isMainPage }: { isMainPage: boolean }) => {
   return (
     <Box
       sx={{
-        width: '298px',
+        width: '314px',
         height: isMainPage ? '580px' : '600px',
         background: isMainPage
           ? 'rgba(255,255,255,1)'
@@ -17,6 +17,7 @@ const FinancialRight = ({ isMainPage }: { isMainPage: boolean }) => {
         padding: '16px 12px 0px 12px',
         overflow: 'scroll',
         scrollbarWidth: 'none',
+        boxSizing: 'border-box',
 
         '@media (max-width: 1360px)': {
           width: 'auto',

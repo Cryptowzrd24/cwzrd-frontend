@@ -31,7 +31,7 @@ function MostReadCard({ isMainPage }: { isMainPage?: boolean }) {
         </Typography>
         <Typography
           sx={{
-            width: isMainPage ? 'auto' : '290px',
+            width: 'auto',
             color: 'rgba(17, 17, 17, 0.8)',
             fontWeight: 400,
             fontSize: '12px !important',
@@ -45,8 +45,6 @@ function MostReadCard({ isMainPage }: { isMainPage?: boolean }) {
             '@media (max-width: 1380px)': {
               width: 'auto',
               overflow: 'auto',
-              whiteSpace: 'normal',
-              textOverflow: 'unset',
             },
           }}
         >
