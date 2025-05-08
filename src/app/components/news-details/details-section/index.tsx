@@ -3,15 +3,15 @@ import { Box, Container, useMediaQuery } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import ReadingCard from './reading-card';
 import MarketNewsPanel from './market-news-panel';
-import TableOfContents from '../../articles-details/table-of-contents';
+// import TableOfContents from '../../articles-details/table-of-contents';
 import BorderLinearProgress from './BorderLinearProgress';
 
 function DetailsSection({
   ChildComponent,
-  isArticleDetails,
+  // isArticleDetails,
   isTechnicalDetail,
-  sections,
-  activeSection,
+  // sections,
+  // activeSection,
 }: {
   ChildComponent: React.ElementType;
   isArticleDetails?: boolean;
@@ -72,8 +72,6 @@ function DetailsSection({
       )}
       <Container
         sx={{
-          maxWidth: "89.58% !important",
-          '@media (max-width: 1440px)': { paddingInline: '20px !important' },
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >
@@ -127,20 +125,22 @@ function DetailsSection({
               flex: 0.5,
               position: 'sticky',
               top: '20px',
-              height: isArticleDetails ? '241px' : '1256px',
+              height: '1256px',
+              // height: isArticleDetails ? '241px' : '1256px',
               '@media (max-width: 1320px)': {
                 display: 'none',
               },
             }}
           >
-            {isArticleDetails ? (
+            <MarketNewsPanel isTechnicalDetail={isTechnicalDetail} />
+            {/* {isArticleDetails ? (
               <TableOfContents
                 sections={isArticleDetails ? sections : null}
                 activeSection={isArticleDetails ? activeSection : null}
               />
             ) : (
               <MarketNewsPanel isTechnicalDetail={isTechnicalDetail} />
-            )}
+            )} */}
           </Box>
         </Box>
       </Container>

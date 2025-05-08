@@ -9,7 +9,7 @@ function TechnicalImage() {
     <>
       <Box
         sx={{
-          width: { xs: '100%', sm: '80%', md: '800px' },
+          width: { xs: '100%', sm: '100%', md: '770px' },
           height: { xs: 'auto', sm: '300px', md: '400px' },
           borderRadius: '16px',
           overflow: 'hidden',

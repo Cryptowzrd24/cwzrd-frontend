@@ -23,30 +23,26 @@ function FinancialCard({
 }: FinancialCardProps) {
   return (
     <Box
-      sx={
-        isFourth
-          ? {
-              padding: '8px',
-              background: 'rgba(255, 255, 255, 1)',
-              boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
-              borderRadius: '16px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '8px',
-            }
-          : {
-              // width: '237.5px',
-              // height: '274px',
-              ...(isMainPage && { width: '217px' }),
-              padding: '8px',
-              background: 'rgba(255, 255, 255, 1)',
-              boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
-              borderRadius: '16px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '8px',
-            }
-      }
+      sx={() => {
+        const baseStyles = {
+          padding: '8px',
+          background: 'rgba(255, 255, 255, 1)',
+          boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
+          borderRadius: '16px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+        };
+
+        if (isFourth) {
+          return baseStyles;
+        }
+
+        return {
+          ...baseStyles,
+          ...(isMainPage && { width: '217px' }),
+        };
+      }}
     >
       <Box>
         <Box sx={{ display: 'flex', position: 'absolute' }}>
@@ -109,7 +105,7 @@ function FinancialCard({
           <Image
             src={techGraph}
             alt="analysis card"
-            width={238.5}
+            width={300}
             height={132}
             style={{
               boxShadow: '0px 0px 12px 0px rgba(114, 72, 247, 0.1) inset',
@@ -123,7 +119,6 @@ function FinancialCard({
           fontSize: '14px',
           fontWeight: '700',
           lineHeight: '18.2px',
-          //   width: '205.5px',
           paddingInline: '8px',
           width: '204px',
           boxSizing: 'border-box',
@@ -136,7 +131,6 @@ function FinancialCard({
           fontSize: '12px',
           fontWeight: '400',
           lineHeight: '17.4px',
-          width: '205.5px',
           paddingInline: '8px',
           overflow: 'hidden',
           WebkitLineClamp: 2,

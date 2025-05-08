@@ -143,6 +143,11 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import CardImage from '../../../../../public/images/news-letter/image-car-news.png';
+import img1 from '../../../../../public/images/news-letter/coins.png';
+import img2 from '../../../../../public/images/news-letter/image-car-news.png';
+import img3 from '../../../../../public/images/news-letter/australia.png';
+import coinstackImg from '../../../../../public/images/news-letter/coinstack.png';
+import personImg from '../../../../../public/images/news-letter/person.png';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -233,6 +238,8 @@ const RelatedNewsCarousel = ({
     dotsClass: 'slick-dots slick-thumb',
   };
 
+  const imageArray = [img2, personImg, img1, coinstackImg, img3];
+
   const renderCards = Array.from({ length: 10 }).map((_, index) => (
     <Box
       key={index}
@@ -244,14 +251,14 @@ const RelatedNewsCarousel = ({
     >
       <TrendingNewsCard
         descriptionLines={descriptionLines}
-        image={CardImage}
+        image={imageArray[index % imageArray.length]}
         title={
           'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip'
         }
         description={
           "Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ard.."
         }
-        isDetailPage={true}
+        isDetailPage={false}
       />
     </Box>
   ));

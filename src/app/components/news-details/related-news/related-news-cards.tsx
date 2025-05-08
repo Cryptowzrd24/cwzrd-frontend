@@ -3,6 +3,7 @@ import React from 'react';
 import img1 from '../../../../../public/images/news-letter/coins.png';
 import img2 from '../../../../../public/images/news-letter/image-car-news.png';
 import img3 from '../../../../../public/images/news-letter/australia.png';
+import coinstackImg from '../../../../../public/images/news-letter/coinstack.png';
 
 import { Box } from '@mui/material';
 import NewsCard from '../../news/main/news-card';
@@ -27,7 +28,7 @@ const newsData = [
       "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of",
   },
   {
-    image: img1,
+    image: coinstackImg,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
     description:
       "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",

@@ -14,7 +14,6 @@ const TechnicalDetails = () => {
       <Container
         maxWidth="xl"
         sx={{
-          '@media (max-width: 1440px)': { paddingInline: '20px !important' },
           '@media (max-width: 599px)': { padding: '16px !important' },
         }}
       >
@@ -30,13 +29,12 @@ const TechnicalDetails = () => {
       <Box sx={{ mt: '24px' }}>
         <DetailsSection
           ChildComponent={TechnicalArticle}
-          isTechnicalDetail={true}
+          isTechnicalDetail={false}
         />
       </Box>
       <Container
         maxWidth="xl"
         sx={{
-          '@media (max-width: 1440px)': { paddingInline: '20px !important' },
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >
@@ -54,7 +52,7 @@ const TechnicalDetails = () => {
           sx={{
             mt: '56px',
             mb: '42px',
-            '@media (max-width: 978px)': { mt: '32px', mb: '28px' },
+            '@media (max-width: 978px)': { mb: '28px' },
           }}
         >
           <MemberShipBanner />
