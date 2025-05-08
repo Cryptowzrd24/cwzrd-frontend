@@ -45,8 +45,6 @@ function MostReadCard({ isMainPage }: { isMainPage?: boolean }) {
             '@media (max-width: 1380px)': {
               width: 'auto',
               overflow: 'auto',
-              whiteSpace: 'normal',
-              textOverflow: 'unset',
             },
           }}
         >

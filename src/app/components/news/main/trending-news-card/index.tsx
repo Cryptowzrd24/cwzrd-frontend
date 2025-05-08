@@ -22,6 +22,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
   descriptionLines,
   smallHeight,
 }) => {
+  const isMobile = useMediaQuery('(max-width: 576px)');
   const isLargeScreen = useMediaQuery('@media (min-width: 1680px)');
   return (
     <Box
@@ -111,7 +112,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             fontSize: '14px !important',
             lineHeight: '18.2px',
             letterSpacing: '0.3px',
-            width: '100%',
+            width: isMobile ? '100%' : isDetailPage ? '264px' : '100%',
           }}
           variant="body1"
         >

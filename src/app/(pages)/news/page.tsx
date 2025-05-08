@@ -27,6 +27,7 @@ import RandomImage from '../../../../public/images/randomImg.png';
 import RelatedNewsCards from '@/app/components/news-details/related-news/related-news-cards';
 
 const News = () => {
+  const isMobileScreen = useMediaQuery('(max-width: 576px)');
   const isLargeScreen = useMediaQuery('(min-width: 1381px)');
   const isVeryLargeScreen = useMediaQuery('(min-width: 1280px)');
   return (
@@ -60,7 +61,7 @@ const News = () => {
         </Box>
         <MostRead />
       </Box>
-      <Box>
+      <Box sx={{width: isMobileScreen ? '105%' : '100%'}}>
         <RelatedNewsCarousel
           descriptionLines={1}
           showSlider={true}
@@ -501,7 +502,7 @@ const News = () => {
             description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin BTC, has acquired another 11,931 BTC for"
           />
         </Box>
-        <Box sx={{ mt: '-10px' }}>
+        <Box sx={{ mt: '-10px', width: isMobileScreen ? '105%' : '100%' }}>
           <RelatedNewsCarousel />
         </Box>
       </>
