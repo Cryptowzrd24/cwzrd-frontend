@@ -26,7 +26,7 @@ function AnalysisCard({
   return (
     <Box
       sx={{
-        width: isFourth ? '680px' : !isThird ? '516px' : '468px',
+        width: isFourth ? '644px' : !isThird ? '516px' : '468px',
         height: isThird ? '402px' : undefined,
         borderRadius: '16px',
         background: isFourth
@@ -36,7 +36,8 @@ function AnalysisCard({
             : 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, #FFFFFF 43.91%, #F5F1FF 100%)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         paddingInline: '16px',
-        marginBottom: isFourth ? '24px' : isFirst ? '0px' : '0px',
+        marginBottom: isFourth ? '0x' : isFirst ? '0px' : '0px',
+        boxSizing: 'border-box',
 
         '@media (max-width: 1024px)': {
           width: 'auto',
@@ -94,7 +95,7 @@ function AnalysisCard({
 
       <Box
         sx={{
-          width: isFourth ? '680px' : isThird ? '466px' : '516px',
+          width: isFourth ? '644px' : isThird ? '466px' : '516px',
           height: isFourth ? '375px' : isThird ? '174px' : '277px',
           marginTop: '-24px',
 

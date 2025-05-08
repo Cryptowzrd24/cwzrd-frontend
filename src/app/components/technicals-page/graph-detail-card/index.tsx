@@ -23,7 +23,7 @@ const GraphDetailsCard = ({
       sx={{
         display: 'flex',
         flexDirection: isInverted ? 'row-reverse' : '',
-        width: '1042px',
+        width: '960px',
         height: '330px',
         background:
           'radial-gradient(83.94% 66.65% at 16.06% 44.55%, rgba(255, 255, 255, 1) 55.91%, rgba(217, 223, 255, 0.9) 100%)',

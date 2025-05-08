@@ -17,9 +17,10 @@ const PortfolioCard = () => {
           width: '470px',
           WebkitBorderBottomLeftRadius: '24px',
           WebkitBorderTopRightRadius: '24px',
-          '@media (max-width: 768px)': {
-            width: 'auto',
+          '@media (max-width: 1024px)': {
+            width: '100%',
             padding: '20px',
+            boxSizing: 'border-box',
           },
         }}
       >
@@ -31,7 +32,7 @@ const PortfolioCard = () => {
             width: '391.37px',
             boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
 
-            '@media (max-width: 768px)': {
+            '@media (max-width: 1024px)': {
               width: '100%',
             },
           }}
