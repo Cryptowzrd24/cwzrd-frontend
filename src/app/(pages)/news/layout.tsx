@@ -12,7 +12,7 @@ export default function NewsLayout({
       <Container
         sx={{
           marginTop: 2,
-          maxWidth: "89.58% !important",
+          maxWidth: '89.58% !important',
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
           '@media (max-width: 1440px)': { paddingInline: '0px !important' },
         }}

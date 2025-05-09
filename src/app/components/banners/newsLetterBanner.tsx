@@ -1,5 +1,12 @@
 'use client';
-import { Box, Button, Popover, Stack, Typography, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  Button,
+  Popover,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import React, { useState } from 'react';
 import styles from './style.module.scss';
 import { subscribeNewsletter } from '@/app/services/newsletter';
@@ -139,7 +146,11 @@ function NewsLetterBanner() {
               value={email}
               type="text"
               onChange={handleChange}
-              placeholder={isMobileView ? "Enter your email ..." : "Enter your email address"}
+              placeholder={
+                isMobileView
+                  ? 'Enter your email ...'
+                  : 'Enter your email address'
+              }
               className={styles.input}
             />
             <Box
