@@ -71,6 +71,7 @@ function DetailsSection({
         </Box>
       )}
       <Container
+        maxWidth="xl"
         sx={{
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
@@ -111,7 +112,6 @@ function DetailsSection({
           <Box
             sx={{
               flex: 2,
-              marginRight: "40px",
               '@media (max-width: 1320px)': {
                 display: 'flex',
                 justifyContent: 'center',

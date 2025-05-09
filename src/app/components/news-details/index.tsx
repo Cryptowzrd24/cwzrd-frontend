@@ -61,8 +61,7 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
     <>
       <Container
         sx={{
-          maxWidth: "89.58% !important",
-          '@media (max-width: 1440px)': { paddingInline: '20px !important' },
+          maxWidth: '100% !important',
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >
@@ -86,7 +85,7 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
       </Box>
       <Container
         sx={{
-          maxWidth: "89.58% !important",
+          maxWidth: '89.58% !important',
           '@media (max-width: 1440px)': { paddingInline: '20px !important' },
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
