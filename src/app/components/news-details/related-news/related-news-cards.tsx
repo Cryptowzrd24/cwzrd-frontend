@@ -14,24 +14,28 @@ const newsData = [
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
     description:
       "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
+    width: '250px',
   },
   {
     image: img2,
     title: "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin Ahead",
     description:
       "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
+    width: '250px',
   },
   {
     image: img3,
     title: "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock ",
     description:
       "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of",
+    width: '250px',
   },
   {
     image: coinstackImg,
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip',
     description:
       "NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of...",
+    width: '250px',
   },
   // Add 11 more objects with different data
 ];
@@ -61,6 +65,7 @@ function RelatedNewsCards() {
           image={news.image}
           title={news.title}
           description={news.description}
+          imageWidth={news.width}
         />
       ))}
     </Box>

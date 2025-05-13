@@ -18,25 +18,25 @@ export const LiveCardData: LiveCardProps[] = [
   {
     id: '1',
     title: 'India financial watchdog imposes $2.25 million penalty on crypto',
-    desc: 'Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for',
+    desc: 'Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for...',
     image: Img1,
   },
   {
     id: '2',
     title: 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market',
-    desc: 'Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for',
+    desc: 'Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for...',
     image: Img2,
   },
   {
     id: '3',
     title: 'India financial watchdog imposes $2.25 million penalty on crypto',
-    desc: 'Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for',
+    desc: 'Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for...',
     image: Img3,
   },
   {
     id: '4',
     title: "Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin",
-    desc: 'Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for',
+    desc: 'Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for...',
     image: Img4,
   },
 ];

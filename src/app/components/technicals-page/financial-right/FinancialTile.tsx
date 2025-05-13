@@ -19,7 +19,7 @@ const FinancialTile = ({ title, desc, isBorder }: FinancialTile) => {
         display: 'flex',
         gap: 3 / 2,
         '@media (max-width: 1360px)': {
-          justifyContent: 'space-evenly',
+          justifyContent: 'space-between',
         },
       }}
     >

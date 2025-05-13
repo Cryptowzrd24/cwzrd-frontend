@@ -101,31 +101,31 @@ const FinancialRight = ({ isMainPage }: { isMainPage: boolean }) => {
       <Divider />
       <FinancialTile
         title="Comprehensive Ethereum Price Forecast and Market Update for ETH/USD"
-        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of"
+        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
         isBorder
       />
       <Divider />
       <FinancialTile
         title="Comprehensive Ethereum Price Forecast and Market Update for ETH/USD"
-        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of"
+        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
         isBorder
       />
       <Divider />
       <FinancialTile
         title="Comprehensive Ethereum Price Forecast and Market Update for ETH/USD"
-        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of"
+        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
         isBorder
       />
       <Divider />
       <FinancialTile
         title="Comprehensive Ethereum Price Forecast and Market Update for ETH/USD"
-        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of"
+        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
         isBorder
       />
       <Divider />
       <FinancialTile
         title="Comprehensive Ethereum Price Forecast and Market Update for ETH/USD"
-        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of"
+        desc="NASA's Drew Feusted and Ricky Arnold are to spend more than six hours outside of..."
         isBorder
       />
     </Box>

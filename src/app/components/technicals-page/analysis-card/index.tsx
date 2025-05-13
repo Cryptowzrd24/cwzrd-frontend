@@ -26,8 +26,8 @@ function AnalysisCard({
   return (
     <Box
       sx={{
-        width: isFourth ? '644px' : !isThird ? '516px' : '468px',
-        height: isThird ? '402px' : undefined,
+        width: isFourth ? '644px' : !isThird ? 'auto' : '468px',
+        height: 'auto',
         borderRadius: '16px',
         background: isFourth
           ? 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, rgba(114, 72, 247, 0.14) 43.91%, rgba(191, 72, 247, 0.08) 100%)'
@@ -41,6 +41,7 @@ function AnalysisCard({
 
         '@media (max-width: 1024px)': {
           width: 'auto',
+          height: 'auto',
         },
       }}
     >
@@ -95,8 +96,8 @@ function AnalysisCard({
 
       <Box
         sx={{
-          width: isFourth ? '644px' : isThird ? '466px' : '516px',
-          height: isFourth ? '375px' : isThird ? '174px' : '277px',
+          // width: isFourth ? '644px' : isThird ? '466px' : '516px',
+          // height: 'auto',
           marginTop: '-24px',
 
           '@media (max-width: 1024px)': {

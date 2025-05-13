@@ -41,11 +41,6 @@ function MostReadCard({ isMainPage }: { isMainPage?: boolean }) {
             overflow: 'hidden',
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
-
-            '@media (max-width: 1380px)': {
-              width: 'auto',
-              overflow: 'auto',
-            },
           }}
         >
           NASA's Drew Feustel and Ricky Arnold are the first astronauts to

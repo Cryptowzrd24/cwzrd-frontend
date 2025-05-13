@@ -47,7 +47,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: justifyContent || 'center',
-        width: isLargeScreen ? "389px" : allNews ? '328px' : containerWidth || '309px',
+        width: isLargeScreen
+          ? '389px'
+          : allNews
+            ? '328px'
+            : containerWidth || '309px',
         height: allNews ? '252px' : '252px',
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
@@ -68,8 +72,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
     >
       <Box
         sx={{
-          width: isLargeScreen ? "100%" : imageWidth || '312px',
-          height: isLargeScreen ? "154px" : '134px',
+          width: isLargeScreen ? '100%' : imageWidth || '312px',
+          height: isLargeScreen ? '154px' : '134px',
           objectFit: 'cover',
           borderRadius: '12px',
           margin: imageMargin || '8px 8px 0px 8px',

@@ -24,7 +24,6 @@ import AudienceCard from '@/app/components/news/main/audience-card';
 
 //Random image
 import RandomImage from '../../../../public/images/randomImg.png';
-import RelatedNewsCards from '@/app/components/news-details/related-news/related-news-cards';
 
 const News = () => {
   const isMobileScreen = useMediaQuery('(max-width: 576px)');
@@ -61,7 +60,7 @@ const News = () => {
         </Box>
         <MostRead />
       </Box>
-      <Box sx={{width: isMobileScreen ? '105%' : '100%'}}>
+      <Box sx={{ width: isMobileScreen ? '105%' : '100%' }}>
         <RelatedNewsCarousel
           descriptionLines={1}
           showSlider={true}
@@ -473,7 +472,6 @@ const News = () => {
             display: 'flex',
             gap: '12px',
             justifyContent: 'center',
-            // '@media (max-width: 1440px)': { flexWrap: 'wrap' },
             '@media (max-width: 576px)': { flexDirection: 'column' },
           }}
         >
@@ -759,12 +757,12 @@ const News = () => {
           }}
         >
           {/* <Box> */}
-            <NewsCarouselBig
-              latest={true}
-              isDetailPage={true}
-              width={isVeryLargeScreen ? '75%' : '100%'}
-              height={'440px'}
-            />
+          <NewsCarouselBig
+            latest={true}
+            isDetailPage={true}
+            width={isVeryLargeScreen ? '75%' : '100%'}
+            height={'440px'}
+          />
           {/* </Box> */}
           <Box
             maxHeight={'440px'}

@@ -18,7 +18,6 @@ function LiveNewsExplorer({
         flexDirection: 'column',
         alignItems: 'start',
         borderRadius: '16px',
-        overflow: 'auto',
         height: isFirst ? '400px' : 'auto',
         scrollbarWidth: 'none',
         padding: isFirst ? '16px 16px 0px 16px' : '16px',

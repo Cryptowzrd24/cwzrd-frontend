@@ -81,10 +81,7 @@ function DetailsSection({
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            gap: 1,
-            '@media (max-width: 1320px)': {
-              gap: '10px',
-            },
+            gap: 4,
           }}
         >
           <Box

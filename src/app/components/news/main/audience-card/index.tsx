@@ -86,7 +86,7 @@ const AudienceCard = ({
       />
       <Box
         sx={{
-          width: isDetailPage ? 264 : 297.5,
+          width: isDetailPage ? 264 : '100%',
           '@media (max-width: 724px)': {
             width: '100%',
             height: 'auto',

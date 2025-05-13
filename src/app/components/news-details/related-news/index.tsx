@@ -35,6 +35,10 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
               lineHeight: '120%',
               letterSpacing: '0.24px',
             },
+
+            '@media (max-width: 425px)': {
+              fontSize: '16px',
+            },
           }}
         >
           Other Related

@@ -148,6 +148,7 @@ const ArticlesPage = () => {
 
             '@media (max-width: 768px)': {
               flexDirection: 'column',
+              marginTop: '10px',
             },
           }}
         >

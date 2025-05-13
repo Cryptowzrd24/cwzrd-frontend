@@ -174,21 +174,21 @@ function TechnicalsPageFx() {
           >
             <AnalysisCard isFirst={true} />
             <FinancialNewsCardList />
-          </Box>
-          <Box
-            sx={{
-              width: '100%',
-              height: '507px',
-              background: 'white',
-              boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-              borderRadius: '24px',
+            <Box
+              sx={{
+                width: '300px',
+                height: '507px',
+                background: 'white',
+                boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                borderRadius: '24px',
 
-              '@media (max-width: 1360px)': {
-                height: 'auto',
-              },
-            }}
-          >
-            <RightCard />
+                '@media (max-width: 1360px)': {
+                  height: 'auto',
+                },
+              }}
+            >
+              <RightCard />
+            </Box>
           </Box>
         </Box>
         <Box sx={{ mb: '120px' }}>
@@ -427,7 +427,7 @@ function TechnicalsPageFx() {
           }}
         >
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-            <FinancialRight />
+            <FinancialRight isMainPage={false} />
           </Box>
           <Box>
             <GraphDetailsCard

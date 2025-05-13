@@ -105,7 +105,7 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
             mt: isArticleDetails ? '60px' : '56px',
             mb: '48px',
             '@media (max-width: 978px)': {
-              mt: '42px',
+              mt: '64px',
               mb: '28px',
             },
           }}

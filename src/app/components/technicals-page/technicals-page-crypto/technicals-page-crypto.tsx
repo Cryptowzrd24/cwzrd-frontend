@@ -139,7 +139,7 @@ function TechnicalsPageCrypto({
         </Box>
       </Box>
       <Box sx={{ mb: '70px', mt: '16px' }}>
-        <FinancialNewsCarousel slidesToShowOnDesktop={5} />
+        <FinancialNewsCarousel noBackground={true} />
       </Box>
       <Box
         sx={{
@@ -178,25 +178,25 @@ function TechnicalsPageCrypto({
           >
             <AnalysisCard isFirst={true} />
             <FinancialNewsCardList />
-          </Box>
-          <Box
-            sx={{
-              width: '100%',
-              height: '507px',
-              background: 'white',
-              boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-              borderRadius: '24px',
+            <Box
+              sx={{
+                width: '300px',
+                height: '507px',
+                background: 'white',
+                boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                borderRadius: '24px',
 
-              '@media (max-width: 1360px)': {
-                height: 'auto',
-              },
-            }}
-          >
-            <RightCard />
+                '@media (max-width: 1360px)': {
+                  height: 'auto',
+                },
+              }}
+            >
+              <RightCard />
+            </Box>
           </Box>
         </Box>
         <Box sx={{ mb: '70px', mt: '16px' }}>
-          <FinancialNewsCarousel slidesToShowOnDesktop={5} />
+          <FinancialNewsCarousel />
         </Box>
 
         <Box
@@ -224,19 +224,20 @@ function TechnicalsPageCrypto({
             sx={{
               display: 'flex',
               gap: '16px',
-              '@media (max-width: 768px)': { flexDirection: 'column' },
+              maxWidth: '1278px',
+              '@media (max-width: 768px)': {
+                flexDirection: 'column',
+                marginTop: '24px',
+              },
             }}
           >
             <AnalysisCard isThird={true} />
             <FinancialNewsCardList isRenderFour={true} />
+            <FinancialNewsCardList isRenderFour={true} />
           </Box>
-          <FinancialNewsCardList isRenderFour={true} />
         </Box>
         <Box sx={{ mb: '120px', mt: '16px' }}>
-          <FinancialNewsCarousel
-            noBackground={true}
-            slidesToShowOnDesktop={5}
-          />
+          <FinancialNewsCarousel noBackground={true} />
         </Box>
         <Box sx={{ marginTop: '-42px' }}>
           <NewsLetterBanner />
@@ -361,7 +362,7 @@ function TechnicalsPageCrypto({
           }}
         >
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-            <FinancialRight />
+            <FinancialRight isMainPage={false} />
           </Box>
           <Box>
             <GraphDetailsCard isInverted={true} image={chainLinkImg} />
