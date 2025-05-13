@@ -185,6 +185,9 @@ function TechnicalsPageFx() {
                 '@media (max-width: 1360px)': {
                   height: 'auto',
                 },
+                '@media (max-width: 1024px)': {
+                  width: '100%',
+                },
               }}
             >
               <RightCard />

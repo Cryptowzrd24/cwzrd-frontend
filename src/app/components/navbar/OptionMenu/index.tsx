@@ -93,6 +93,11 @@ const OptionMenu = ({
         <Box
           onClick={handleOpenAuth}
           style={{ textDecoration: 'none', cursor: 'pointer' }}
+          sx={{
+            '@media (max-width: 768px)': {
+              display: 'none',
+            },
+          }}
         >
           <ProfileIcon
             color={
