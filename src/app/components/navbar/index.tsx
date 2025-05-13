@@ -167,7 +167,7 @@ function Navbar() {
               justifyContent: 'space-between',
               alignItems: 'center',
               py: '8px',
-              mt: 4,
+              mt: 3,
             }}
           >
             <Link href="/">
