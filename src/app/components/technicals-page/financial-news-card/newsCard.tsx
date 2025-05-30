@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
@@ -13,29 +13,22 @@ interface NewsCardProps {
   dualImg?: any;
 }
 function NewsCard({ isShort, image, isFxPage, dualImg }: NewsCardProps) {
+  const isMobile = useMediaQuery('(max-width: 767px)');
   return (
     <Box
-      sx={
-        isShort
-          ? {
-              width: '300px',
-              padding: '8px',
-              background: 'rgba(255, 255, 255, 1)',
-              boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-              borderRadius: '16px',
-              display: 'flex',
-              gap: '2px',
-            }
-          : {
-              width: '402px',
-              padding: '8px',
-              background: 'rgba(255, 255, 255, 1)',
-              boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-              borderRadius: '16px',
-              display: 'flex',
-              gap: '12px',
-            }
-      }
+      sx={{
+        width: isShort ? '300px' : '402px',
+        padding: '8px',
+        background: 'rgba(255, 255, 255, 1)',
+        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+        borderRadius: '16px',
+        display: 'flex',
+        gap: isShort ? '2px' : '12px',
+        boxSizing: 'border-box',
+        '@media (max-width: 1400px)': {
+          width: 'auto',
+        },
+      }}
     >
       <Box>
         <Box sx={{ display: 'flex' }}>
@@ -94,17 +87,25 @@ function NewsCard({ isShort, image, isFxPage, dualImg }: NewsCardProps) {
       <Box
         sx={
           isShort
-            ? { marginTop: '6px', paddingLeft: '12px', paddingRight: '22px' }
+            ? {
+                marginTop: '6px',
+                paddingLeft: '12px',
+                paddingRight: isMobile ? '6px' : '22px',
+              }
             : { paddingBlock: '6.5px', marginTop: '6px' }
         }
       >
         <Typography
           sx={{
             fontWeight: 700,
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontFamily: 'Sf Pro Display',
             width: isShort ? '132px' : '242px',
             lineHeight: isShort ? '15px' : '',
+
+            '@media (max-width: 1400px)': {
+              width: '100%',
+            },
           }}
         >
           The EURUSD price needs new positive momentum
@@ -112,7 +113,7 @@ function NewsCard({ isShort, image, isFxPage, dualImg }: NewsCardProps) {
         <Typography
           sx={{
             fontWeight: 400,
-            fontSize: '10px',
+            fontSize: '10px !important',
             fontFamily: 'Sf Pro Display',
             width: isShort ? '132px' : '100%',
             lineHeight: '13px',
@@ -123,6 +124,10 @@ function NewsCard({ isShort, image, isFxPage, dualImg }: NewsCardProps) {
             WebkitBoxOrient: 'vertical',
             textOverflow: 'ellipsis',
             display: '-webkit-box',
+
+            '@media (max-width: 1360px)': {
+              width: '100%',
+            },
           }}
         >
           Ethereum price (ETHUSD) continues to fluctuate near 3361.31$ level,

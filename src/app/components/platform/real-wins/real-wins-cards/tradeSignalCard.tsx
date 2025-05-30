@@ -11,12 +11,20 @@ const TradeSignalCard = () => {
           borderRadius: '24px',
           width: '136.5px',
           // height: '156px',
+
+          '@media (max-width: 1024px)': {
+            width: 'auto',
+          },
+
+          '@media (max-width: 576px)': {
+            padding: '16px',
+          },
         }}
       >
         <Stack>
           <Typography
             sx={{
-              fontSize: '10px',
+              fontSize: '10px !important',
               fontWeight: '400',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '13px',
@@ -30,7 +38,7 @@ const TradeSignalCard = () => {
           </Typography>
           <Typography
             sx={{
-              fontSize: '48px',
+              fontSize: '48px !important',
               fontWeight: '500',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '52.8px',

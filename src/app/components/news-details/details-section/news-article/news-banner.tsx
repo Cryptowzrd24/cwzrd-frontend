@@ -1,5 +1,12 @@
 'use client';
-import { Box, Button, Popover, Stack, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Popover,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import React, { useState } from 'react';
 import styles from './style.module.scss';
 import { subscribeNewsletter } from '@/app/services/newsletter';
@@ -16,6 +23,7 @@ function NewsBanner() {
   });
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const [popoverOpen, setPopoverOpen] = useState(false);
+  const isMobileView = useMediaQuery('@media (max-width: 425px)');
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -125,7 +133,11 @@ function NewsBanner() {
               value={email}
               type="text"
               onChange={handleChange}
-              placeholder="Enter your email address"
+              placeholder={
+                isMobileView
+                  ? 'Enter your email ...'
+                  : 'Enter your email address'
+              }
               className={styles.input}
             />
             <Box sx={{ display: 'flex' }}>

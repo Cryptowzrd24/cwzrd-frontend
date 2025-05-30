@@ -25,7 +25,7 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
         >
           <Typography
             sx={{
-              fontSize: '10px',
+              fontSize: '10px !important',
               background:
                 'linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)',
               WebkitBackgroundClip: 'text',
@@ -41,12 +41,18 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
             sx={{
               fontWeight: '700',
               maxWidth: '438.7px',
-              mb: '13px',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '33px',
               letterSpacing: '2px',
               marginBottom: '0px',
               fontSize: '30px',
+
+              '@media (max-width: 576px)': {
+                fontWeight: 700,
+                fontSize: '24px',
+                lineHeight: '110%',
+                letterSpacing: '0.24px',
+              },
             }}
           >
             Join the Cryptowzrd Community Today!{' '}
@@ -55,7 +61,7 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
             variant="body1"
             sx={{
               color: '#FFFFFFCC',
-              fontSize: '10px',
+              fontSize: '10px !important',
               lineHeight: '15px',
               fontWeight: '400',
               mb: '24px',
@@ -73,6 +79,11 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
               borderRadius: '32px',
               width: '289px',
               background: 'rgba(255, 255, 255, 1)',
+
+              '@media (max-width: 576px)': {
+                gap: '6px',
+                padding: '8px',
+              },
             }}
           >
             <Image
@@ -84,7 +95,7 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
 
             <Typography
               sx={{
-                fontSize: '10px',
+                fontSize: '10px !important',
                 fontWeight: '700',
                 lineHeight: '14.4px',
                 width: '201px',

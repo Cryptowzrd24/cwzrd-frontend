@@ -17,9 +17,23 @@ const Coverage = () => {
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           width: '967px',
+
+          '@media (max-width: 768px)': {
+            flexDirection: 'column',
+            padding: '16px',
+            gap: '16px',
+          },
         }}
       >
-        <Box sx={{ paddingBlock: '31.75px', paddingLeft: '66px' }}>
+        <Box
+          sx={{
+            paddingBlock: '31.75px',
+            paddingLeft: '66px',
+            '@media (max-width: 768px)': {
+              padding: '0px',
+            },
+          }}
+        >
           <Image src={coverageTwo} alt="coverage" width={97.5} height={97.5} />
         </Box>
         <Box>
@@ -30,10 +44,17 @@ const Coverage = () => {
                   ' linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                fontSize: '30px',
+                fontSize: '30px !important',
                 mb: '8px',
                 lineHeight: '33px',
                 fontWeight: 700,
+
+                '@media (max-width: 576px)': {
+                  fontSize: '24px !important',
+                  lineHeight: '110%',
+                  letterSpacing: '0.24px',
+                  textAlign: 'center',
+                },
               }}
             >
               Stay Updated with 24/7 Coverage
@@ -43,7 +64,7 @@ const Coverage = () => {
                 fontWeight: '400',
                 maxWidth: '697.5px',
                 lineHeight: '20.25px',
-                fontSize: '13.5px',
+                fontSize: '13.5px !important',
                 color: 'rgba(17, 17, 17, 0.8)',
               }}
             >

@@ -1,4 +1,4 @@
-interface NavbarProps {
+export interface NavbarProps {
   id: string;
   name: string;
 }

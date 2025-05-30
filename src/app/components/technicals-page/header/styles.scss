@@ -1,19 +1,31 @@
 .technical-header-container {
-    margin-left: 2px;
-    margin-top: 23px;
-    margin-bottom: -20px;
+  margin-left: 2px;
+  margin-top: 23px;
+  //   margin-bottom: -20px;
 }
 
 .technical-header {
-    padding-bottom: 4px;
-    margin-top: -150px !important;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 15.6px;
-    color: rgba(255, 255, 255, 1) !important;
-    font-family: "Sf Pro Display";
+  padding-bottom: 4px;
+  margin-top: -150px !important;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15.6px;
+  color: rgba(255, 255, 255, 1) !important;
+  font-family: 'Sf Pro Display';
 }
 
 .technical-header-title {
-    color: rgba(255, 255, 255, 1) !important;
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+@media (max-width: '768px') {
+  .technical-header {
+    margin-top: -200px !important;
+  }
+}
+
+@media (max-width: '576px') {
+  .technical-header {
+    margin-top: -250px !important;
+  }
 }

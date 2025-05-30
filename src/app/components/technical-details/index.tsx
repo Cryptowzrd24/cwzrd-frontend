@@ -1,5 +1,5 @@
 'use client';
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import React from 'react';
 
 import MemberShipBanner from '../banners/memberShipBanner';
@@ -11,26 +11,53 @@ import TechnicalArticle from './technical-article';
 const TechnicalDetails = () => {
   return (
     <>
-      <Box sx={{ mt: '32px' }}>
-        <BreadCrumb
-          origin={'Technicals'}
-          description={
-            'Bitcoin whale accumulation reaches pre-2020 bull run levels — Is BTC set to break $70K?'
-          }
-        />
-      </Box>
+      <Container
+        maxWidth="xl"
+        sx={{
+          '@media (max-width: 599px)': { padding: '16px !important' },
+        }}
+      >
+        <Box sx={{ mt: '32px' }}>
+          <BreadCrumb
+            origin={'Technicals'}
+            description={
+              'Bitcoin whale accumulation reaches pre-2020 bull run levels — Is BTC set to break $70K?'
+            }
+          />
+        </Box>
+      </Container>
       <Box sx={{ mt: '24px' }}>
         <DetailsSection
           ChildComponent={TechnicalArticle}
-          isTechnicalDetail={true}
+          isTechnicalDetail={false}
         />
       </Box>
-      <Box sx={{ mt: '108px' }}>
-        <RelatedNews />
-      </Box>
-      <Box sx={{ mt: '56px', mb: '42px' }}>
-        <MemberShipBanner />
-      </Box>
+      <Container
+        maxWidth="xl"
+        sx={{
+          '@media (max-width: 599px)': { paddingInline: '16px !important' },
+        }}
+      >
+        <Box
+          sx={{
+            mt: '108px',
+            '@media (max-width: 978px)': {
+              mt: '44px',
+            },
+          }}
+        >
+          <RelatedNews />
+        </Box>
+        <Box
+          sx={{
+            mt: '56px',
+            mb: '42px',
+            '@media (max-width: 978px)': { mb: '28px' },
+          }}
+        >
+          <MemberShipBanner />
+        </Box>
+      </Container>
     </>
   );
 };

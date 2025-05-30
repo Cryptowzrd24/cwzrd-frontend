@@ -1,5 +1,12 @@
 'use client';
-import { Box, Button, Popover, Stack, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Popover,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import React, { useState } from 'react';
 import styles from './style.module.scss';
 import { subscribeNewsletter } from '@/app/services/newsletter';
@@ -7,6 +14,7 @@ import LoadingOverlay from '../loading-overlay';
 import { ArrowRightRound } from '../../../../public/icons/News-Letter/arrowRightRound';
 
 function NewsLetterBanner() {
+  const isMobileView = useMediaQuery('@media (max-width: 600px)');
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -87,7 +95,7 @@ function NewsLetterBanner() {
         >
           <Typography
             sx={{
-              fontSize: '12px',
+              fontSize: '12px !important',
               color: 'rgba(255, 255, 255, 1)',
               letterSpacing: '1px',
               lineHeight: '15.6px',
@@ -98,14 +106,20 @@ function NewsLetterBanner() {
           <Typography
             variant="h2"
             sx={{
-              fontWeight: '700',
+              fontWeight: '700 !important',
               maxWidth: '606px',
               mb: '8px',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '44px',
               letterSpacing: '2px',
               marginBottom: '0px',
-              fontSize: '40px',
+              fontSize: '40px !important',
+
+              '@media (max-width: 576px)': {
+                fontSize: '32px !important',
+                lineHeight: '110%',
+                letterSpacing: '0.32px',
+              },
             }}
           >
             Subscribe To Our Weekly Newsletter!
@@ -121,13 +135,22 @@ function NewsLetterBanner() {
               marginTop: '16px',
               background: 'rgba(255, 255, 255, 1)',
               padding: '4px 4px 4px 24px',
+
+              '@media (max-width: 576px)': {
+                maxWidth: '100%',
+                width: 'auto',
+              },
             }}
           >
             <input
               value={email}
               type="text"
               onChange={handleChange}
-              placeholder="Enter your email address"
+              placeholder={
+                isMobileView
+                  ? 'Enter your email ...'
+                  : 'Enter your email address'
+              }
               className={styles.input}
             />
             <Box

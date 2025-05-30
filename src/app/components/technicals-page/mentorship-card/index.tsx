@@ -7,10 +7,13 @@ const MentorshipCard = () => {
   return (
     <Box
       sx={{
-        width: '314px',
+        width: 'auto',
         boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
         borderRadius: '24px',
-        height: '364px',
+        height: '380px',
+        display: "flex",
+        flexDirection: 'column',
+        justifyContent: 'space-between',
       }}
     >
       <Box
@@ -33,6 +36,24 @@ const MentorshipCard = () => {
       </Box>
       <Box
         sx={{
+          overflow: 'hidden',
+          height: '170px',
+          width: '100%',
+          borderRadius: '24px',
+        }}
+      >
+        <img
+          src={cardImg.src}
+          alt="card image"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+      </Box>
+      {/* <Box
+        sx={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -42,7 +63,7 @@ const MentorshipCard = () => {
       >
         <Typography
           sx={{
-            fontSize: '16px',
+            fontSize: '16px !important',
             lineHeight: '20.8px',
             fontWeight: '700',
             letterSpacing: '0.3px',
@@ -53,7 +74,7 @@ const MentorshipCard = () => {
         </Typography>
         <Typography
           sx={{
-            fontSize: '10px',
+            fontSize: '10px !important',
             lineHeight: '14.5px',
             fontWeight: '400',
             // letterSpacing: '0.6px',
@@ -95,7 +116,7 @@ const MentorshipCard = () => {
               <Typography
                 sx={{
                   // height: '32px',
-                  fontSize: '12px',
+                  fontSize: '12px !important',
                   fontWeight: '600',
                   lineHeight: '15.6px',
                   whiteSpace: 'nowrap',
@@ -109,7 +130,7 @@ const MentorshipCard = () => {
             </Box>
           </Button>
         </Box>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

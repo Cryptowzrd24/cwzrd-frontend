@@ -2,6 +2,7 @@ import { Stack, Typography } from '@mui/material';
 import React from 'react';
 import feature from '../../../../public/images/platform/feature.png';
 import Image from 'next/image';
+
 const Feature = () => {
   return (
     <>
@@ -10,15 +11,16 @@ const Feature = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          maxWidth: '1070px',
-          width: '100%',
+          maxWidth: { xs: '100%', md: '1070px' },
+          width: { xs: 'auto', sm: '100%' },
           margin: 'auto',
+          padding: { xs: '16px', md: '0' },
         }}
       >
         <Typography
           variant="body1"
           sx={{
-            fontSize: '14px',
+            fontSize: { xs: '12px', md: '14px' },
             fontWeight: '500',
             textTransform: 'uppercase',
             letterSpacing: 2,
@@ -30,7 +32,12 @@ const Feature = () => {
         </Typography>
         <Typography
           variant="h1"
-          sx={{ fontSize: '32px', lineHeight: '38.4px', mb: '12px' }}
+          sx={{
+            fontSize: { xs: '24px', md: '32px' },
+            lineHeight: { xs: '28.8px', md: '38.4px' },
+            mb: '12px',
+            textAlign: 'center',
+          }}
         >
           Our Platform
           <span
@@ -39,7 +46,7 @@ const Feature = () => {
                 'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              marginLeft: '12px',
+              marginLeft: '7px',
             }}
           >
             Features
@@ -48,12 +55,12 @@ const Feature = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: '14px',
+            fontSize: { xs: '12px', md: '14px' },
             fontWeight: '400',
-            mb: '36px',
+            mb: '24px',
             textAlign: 'center',
             maxWidth: '850px',
-            lineHeight: '21px',
+            lineHeight: { xs: '18px', md: '21px' },
             color: 'rgba(17, 17, 17, 0.8)',
           }}
         >
@@ -61,7 +68,15 @@ const Feature = () => {
           tracker tool, providing valuable insights into your trading activity
           and performance over time.
         </Typography>
-        <Image src={feature} alt="feature" width={1079} />
+        <Image
+          src={feature}
+          alt="feature"
+          width={1079}
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
       </Stack>
     </>
   );

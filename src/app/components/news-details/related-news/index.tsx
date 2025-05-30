@@ -1,10 +1,14 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
+import goldbarImg from '../../../../../public/images/goldbar.png';
 import React from 'react';
-import RelatedNewsCarousel from './related-news-carousel';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import FinancialNewsCarousel from '../../technicals-page/financial-news-carousel';
+import FinancialCard from '../../technicals-page/financial-card';
 import RelatedNewsCards from './related-news-cards';
+import RelatedNewsCarousel from './related-news-carousel';
 
 function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
+  const isTabView = useMediaQuery('(min-width: 978px)');
   return (
     <Box>
       <Box
@@ -13,6 +17,10 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
           justifyContent: 'space-between',
           alignItems: 'center',
           padding: '0 10px 0 8px',
+
+          '@media (max-width: 978px)': {
+            padding: 0,
+          },
         }}
       >
         <Typography
@@ -21,6 +29,16 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
             fontWeight: 700,
             lineHeight: '38.4px',
             lettterSpacing: '1px',
+
+            '@media (max-width: 660px)': {
+              fontSize: '24px',
+              lineHeight: '120%',
+              letterSpacing: '0.24px',
+            },
+
+            '@media (max-width: 425px)': {
+              fontSize: '16px',
+            },
           }}
         >
           Other Related
@@ -66,10 +84,55 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
           />
         </Box>
       </Box>
-      <Box sx={{ mt: '24px' }}>
-        {!isArticleDetails && <RelatedNewsCards />}
-        <RelatedNewsCarousel />
-      </Box>
+      {isArticleDetails ? (
+        <Box sx={{ mt: '24px' }}>
+          <RelatedNewsCards />
+          <RelatedNewsCarousel />
+        </Box>
+      ) : (
+        <Stack spacing="16px" sx={{ mt: '24px' }}>
+          {isTabView ? (
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '16px',
+                '& > *': {
+                  flex: '1 1 0',
+                  minWidth: 0,
+                  maxWidth: '100%',
+                },
+                '@media (max-width: 977px)': {
+                  '& > *': {
+                    flex: '1 1 48%',
+                    minWidth: '280px',
+                    maxWidth: '48%',
+                  },
+                },
+                '@media (max-width: 600px)': {
+                  '& > *': {
+                    flex: '1 1 100%',
+                    minWidth: '0',
+                    maxWidth: '100%',
+                  },
+                },
+              }}
+            >
+              <FinancialCard image={goldbarImg} />
+              <FinancialCard image={goldbarImg} />
+              <FinancialCard image={goldbarImg} />
+              <FinancialCard image={goldbarImg} />
+            </Box>
+          ) : (
+            <Box sx={{ mb: '32px' }}>
+              <FinancialNewsCarousel noBackground={true} image={goldbarImg} />
+            </Box>
+          )}
+          {isTabView && (
+            <FinancialNewsCarousel noBackground={true} image={goldbarImg} />
+          )}
+        </Stack>
+      )}
     </Box>
   );
 }

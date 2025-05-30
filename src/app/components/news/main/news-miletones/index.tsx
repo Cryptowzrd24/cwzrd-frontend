@@ -54,17 +54,26 @@ const NewsMileStones = ({ isCrypto }: any) => {
 
   return (
     <>
-      <motion.div
-        style={{
+      <Box
+        component={motion.div}
+        sx={{
           padding: '25px 0px 0px 18px',
           boxShadow: '0px 4px 28px 0px #0000000D',
-          height: '350px',
-          maxHeight: isCrypto ? '400px' : 'auto',
+          minHeight: '350px',
+          maxHeight: isCrypto ? '400px' : '100%',
           maxWidth: '300px',
           borderRadius: '32px',
           position: 'relative',
           flex: 1,
           transition: 'all 0.325s linear',
+
+          '@media (max-width: 978px)': {
+            width: '95%',
+          },
+
+          '@media (max-width: 768px)': {
+            maxWidth: '100%',
+          },
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -73,7 +82,7 @@ const NewsMileStones = ({ isCrypto }: any) => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: '11px',
+            fontSize: '11px !important',
             fontWeight: '400',
             color: 'black',
             textTransform: 'uppercase',
@@ -90,6 +99,12 @@ const NewsMileStones = ({ isCrypto }: any) => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
+
+            '@media (max-width: 768px)': {
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+              paddingLeft: '0px',
+            },
           }}
         >
           <motion.div
@@ -100,11 +115,11 @@ const NewsMileStones = ({ isCrypto }: any) => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: '24px',
+                fontSize: '24px !important',
                 color: 'black',
-                letterSpacing: 0.1,
+                letterSpacing: -0.1,
                 maxWidth: '298px',
-                lineHeight: '28px',
+                lineHeight: '130% !important',
                 fontWeight: '700',
               }}
             >
@@ -113,7 +128,7 @@ const NewsMileStones = ({ isCrypto }: any) => {
             <Typography
               //   variant="body1"
               sx={{
-                fontSize: '11px',
+                fontSize: '11px !important',
                 color: 'black',
                 maxWidth: '298px',
                 marginTop: '10px',
@@ -133,13 +148,21 @@ const NewsMileStones = ({ isCrypto }: any) => {
             >
               <Typography
                 sx={{
-                  fontSize: '14px',
+                  fontSize: '14px !important',
                   color: 'black',
                   letterSpacing: 0.1,
                   lineHeight: '22px',
                   textAlign: 'start',
                   marginTop: '25%',
                   marginLeft: '-16px',
+
+                  '@media (max-width: 978px)': {
+                    mx: '4px',
+                  },
+
+                  '@media (max-width: 768px)': {
+                    mt: '15%',
+                  },
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -179,7 +202,7 @@ const NewsMileStones = ({ isCrypto }: any) => {
             <PlusIcon active={true} />
           </motion.div>
         </Box>
-      </motion.div>
+      </Box>
     </>
   );
 };

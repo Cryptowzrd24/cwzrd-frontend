@@ -2,10 +2,14 @@
 import React from 'react';
 import RightRed from '../../../../../../../public/icons/News-Letter/rightRed';
 import { Box, Divider, Stack, Typography } from '@mui/material';
-import Bitcoin from '../../../../../../public/images/coin-details/bitcoin.png';
-import Ethereum from '../../../../../../public/images/coin-details/ether.png';
-import Tether from '../../../../../../public/images/coin-details/usdt.png';
-import Xrp from '../../../../../../public/images/coin-details/xrp.png';
+// import Bitcoin from '../../../../../../public/images/coin-details/bitcoin.png';
+import Bitcoin from '../../../../../../../public/images/coin-details/bitcoin.png';
+// import Ethereum from '../../../../../../public/images/coin-details/ether.png';
+import Ethereum from '../../../../../../../public/images/coin-details/ether.png';
+// import Tether from '../../../../../../public/images/coin-details/usdt.png';
+import Tether from '../../../../../../../public/images/coin-details/usdt.png';
+// import Xrp from '../../../../../../public/images/coin-details/xrp.png';
+import Xrp from '../../../../../../../public/images/coin-details/xrp.png';
 import Image from 'next/image';
 import AreaChart from '@/app/components/elements/areaGraphCard.element';
 import { getGraphColor } from '@/app/helpers/functions';
@@ -90,7 +94,13 @@ const areachartData = [
   { x: 17, y: 7 },
 ];
 
-function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
+function LiveMarket({
+  isPageDetails,
+  isMainPage,
+}: {
+  isPageDetails?: boolean;
+  isMainPage?: boolean;
+}) {
   return (
     <Box
       sx={{
@@ -101,12 +111,14 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
         borderRadius: '16px',
         overflow: 'hidden',
         paddingInline: '20px',
-        marginBottom: '20px',
-        background:
-          'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
-        backdropFilter: 'blur(10px)',
+        marginBottom: isMainPage ? '' : '20px',
+        background: isMainPage
+          ? 'rgba(255, 255, 255, 1)'
+          : 'linear-gradient(to right, rgba(254, 231, 226, 0.8), rgba(254, 231, 226, 0) 50px)',
+        backdropFilter: 'blur(8px)',
         boxShadow: '0px 4px 28px 0px #0000000D',
         paddingBlock: '6px',
+        border: isMainPage ? '2px solid #FFF' : '',
       }}
       className="live-market"
     >
@@ -161,7 +173,7 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
         sx={{ width: '100%', marginTop: '-13px', marginBottom: '10px' }}
       />
       {liveCoinData
-        ?.slice(0, isPageDetails ? liveCoinData.length : 4)
+        ?.slice(0, isPageDetails ? liveCoinData.length : isMainPage ? 6 : 4)
         .map((item, index) => (
           <>
             <Box
@@ -169,7 +181,7 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
                 paddingRight: '12px',
                 borderRadius: '16px',
                 mb: '8px',
-                // paddingBlock:'8px',
+                width: isMainPage ? '100%' : item?.id === '1' ? '100%' : 'auto',
               }}
             >
               <Box
@@ -180,7 +192,12 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
                   alignItems: 'center',
                 }}
               >
-                <Box sx={{ position: 'relative', width: '50%' }}>
+                <Box
+                  sx={{
+                    position: 'relative',
+                    width: isMainPage ? 'auto' : '50%',
+                  }}
+                >
                   <Image
                     src={item?.image.src}
                     alt="picture"
@@ -192,13 +209,13 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
                     }}
                   ></Image>
                 </Box>
-                <Stack maxHeight={'100px'}>
+                <Stack maxHeight={'100px'} flex={isMainPage ? 1 : ''}>
                   <Box
                     sx={{
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      width: '220px',
+                      width: isMainPage ? '100%' : '220px',
                     }}
                   >
                     <Typography
@@ -228,7 +245,7 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      width: '220px',
+                      width: isMainPage ? '100%' : '220px',
                     }}
                   >
                     <Typography
@@ -258,19 +275,22 @@ function LiveMarket({ isPageDetails }: { isPageDetails?: boolean }) {
                   </Box>
                 </Stack>
               </Box>
+              {item?.id === '1' && (
+                <AreaChart
+                  className={'highcharts-container'}
+                  data={areachartData}
+                  color={getGraphColor(20)}
+                  percent={true}
+                  fill="transparent"
+                />
+              )}
             </Box>
-            {item?.id === '1' && (
-              <AreaChart
-                className={'highcharts-container'}
-                data={areachartData}
-                color={getGraphColor(20)}
-                percent={true}
-                fill="transparent"
-              />
-            )}
+
             {index !==
-              liveCoinData?.slice(0, isPageDetails ? liveCoinData.length : 4)
-                .length -
+              liveCoinData?.slice(
+                0,
+                isPageDetails ? liveCoinData.length : isMainPage ? 6 : 4,
+              ).length -
                 1 && <Divider sx={{ width: '100%', marginBottom: '20px' }} />}
           </>
         ))}

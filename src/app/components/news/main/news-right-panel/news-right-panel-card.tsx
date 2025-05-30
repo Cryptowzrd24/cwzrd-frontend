@@ -26,6 +26,11 @@ function NewsRightPanelCard({ cardData }: CardDataProps) {
         alignItems: 'center',
         gap: '16px',
         marginBottom: '8px',
+        boxSizing: 'border-box',
+
+        '@media (max-width: 1380px)': {
+          width: 'auto',
+        },
       }}
     >
       <Box
@@ -50,10 +55,10 @@ function NewsRightPanelCard({ cardData }: CardDataProps) {
           sx={{
             fontFamily: 'Sf Pro Display',
             fontWeight: 700,
-            fontSize: '12px',
+            fontSize: '12px !important',
             lineHeight: '15.6px',
             color: 'rgba(17, 17, 17, 1)',
-            width: '90%',
+            width: '100%',
           }}
         >
           {cardData?.title}
@@ -62,13 +67,15 @@ function NewsRightPanelCard({ cardData }: CardDataProps) {
           sx={{
             fontFamily: 'Sf Pro Display',
             fontWeight: 400,
-            fontSize: '11px',
+            fontSize: '11px !important',
             lineHeight: '14.3px',
             color: 'rgba(17, 17, 17, 0.8)',
             height: '28px',
-            WebkitLineClamp: 2,
-            textOverflow: 'ellipsis',
             overflow: 'hidden',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            textOverflow: 'ellipsis',
           }}
         >
           {cardData?.subTitle}

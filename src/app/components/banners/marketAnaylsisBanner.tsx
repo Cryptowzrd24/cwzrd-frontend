@@ -1,0 +1,107 @@
+import { Box, Button, Typography } from '@mui/material';
+import React from 'react';
+import BlueArcLg from '../../../../public/icons/blueArcLg.svg';
+import BlueArcSm from '../../../../public/icons/blueArcSm.svg';
+import Image from 'next/image';
+import ChevronRightHead from '../../../../public/icons/chevronRightHead';
+
+const MarketAnaylsisBanner = () => {
+  return (
+    <Box
+      sx={{
+        width: 'auto',
+        padding: '24px 24px 16px',
+        backgroundImage: "url('/images/marketAnalysisBg.png')",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        borderRadius: '16px',
+        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+        overflow: 'hidden',
+        position: 'relative',
+        display: 'flex',
+        gap: '16px',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}
+    >
+      <Box sx={{ position: 'absolute', right: '455px', bottom: '72px' }}>
+        <Box sx={{ position: 'absolute' }}>
+          <Image src={BlueArcLg} alt="" />
+        </Box>
+        <Box sx={{ position: 'absolute', left: '12px', top: '20px' }}>
+          <Image src={BlueArcSm} alt="" />
+        </Box>
+      </Box>
+      <Box
+        sx={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: 1 }}
+      >
+        <Typography
+          sx={{
+            color: '#FFF',
+            fontSize: '14px',
+            fontWeight: '700',
+            lineHeight: '130%',
+            letterSpacing: '1.4px',
+          }}
+        >
+          ⭐️ Membership
+        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <Typography
+            sx={{
+              color: '#FFF',
+              fontSize: '24px',
+              fontWeight: '600',
+              lineHeight: '130%',
+              letterSpacing: '0.48px',
+            }}
+          >
+            Daily Market Analysis on Forex
+          </Typography>
+          <Typography
+            sx={{
+              color: 'rgba(255,255,255,0.80)',
+              fontSize: '14px',
+              fontWeight: '400',
+              lineHeight: '150%',
+            }}
+          >
+            Access detailed daily analysis on the forex markets.
+          </Typography>
+        </Box>
+      </Box>
+      {/* button here */}
+      <Box>
+        <Button
+          sx={{
+            display: 'flex',
+            padding: '8px 16px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '4px',
+            borderRadius: '56px',
+            background: '#FFF',
+
+            '&:hover': {
+              background: '#F0F0F0',
+            },
+          }}
+        >
+          <Typography
+            sx={{
+              color: '#111',
+              fontSize: '18px',
+              fontWeight: '500',
+              lineHeight: '130%',
+            }}
+          >
+            Get Started
+          </Typography>
+          <ChevronRightHead />
+        </Button>
+      </Box>
+    </Box>
+  );
+};
+
+export default MarketAnaylsisBanner;

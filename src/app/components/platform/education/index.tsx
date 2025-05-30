@@ -14,10 +14,20 @@ const Education = () => {
           gap: '24px',
           width: '100%',
           justifyContent: 'center',
+
+          '@media (max-width: 1023px)': {
+            flexDirection: 'column',
+          },
         }}
       >
         <EducationCard />
-        <Stack>
+        <Stack
+          sx={{
+            '@media (max-width: 1023px)': {
+              width: '100%',
+            },
+          }}
+        >
           <Box sx={{ mb: '30px' }}>
             <RiskCalculator />
           </Box>

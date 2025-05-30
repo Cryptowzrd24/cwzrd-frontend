@@ -151,25 +151,25 @@ const Table = () => {
       >
         {favorites.length} {favorites.length === 1 ? 'coin' : 'coins'} in total
       </div>
-      <div className="data-table-wrapper">
-        <div
-          style={{
-            display: 'flex',
-            gap: '36px',
-          }}
-        >
-          <DataTable
-            search={search}
-            rowData={rowData}
-            columnDefs={columnCoinsDef}
-            width="100%"
-            gridApiRef={gridApiRef}
-            getRowId={(params: any) => params.data.coin_id}
-            priceRefs={priceRefs}
-            height="400px"
-          />
-        </div>
+      {/* <div className="data-table-wrapper"> */}
+      <div
+        style={{
+          width: '100%',
+          overflowX: 'auto',
+        }}
+      >
+        <DataTable
+          search={search}
+          rowData={rowData}
+          columnDefs={columnCoinsDef}
+          width="100%"
+          gridApiRef={gridApiRef}
+          getRowId={(params: any) => params.data.coin_id}
+          priceRefs={priceRefs}
+          height="400px"
+        />
       </div>
+      {/* </div> */}
     </>
   );
 };

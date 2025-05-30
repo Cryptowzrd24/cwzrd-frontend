@@ -1,5 +1,5 @@
 'use client';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import VerifiedGreen from '../../../../../public/icons/coin-details/verifiedGreen';
 import macbook from '../../../../../public/images/platform/MacBook-pro.png';
@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 
 const EducationCard = () => {
+  const isTabView = useMediaQuery('(min-width: 1024px)');
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
@@ -56,18 +57,24 @@ const EducationCard = () => {
 
   return (
     <>
-      <motion.div
-        style={{
+      <Box
+        component={motion.div}
+        sx={{
           backgroundImage: !active
             ? `url('/images/platform/community.png')`
             : '',
-
-          // padding: '0px 0px 32px 0px',
           borderRadius: '24px',
-          width: '637.5px',
+          width: isTabView ? '637.5px' : '100%',
           position: 'relative',
           transition: 'all 0.325s linear',
           height: '693.75px',
+          '@media (max-width: 678px)': {
+            height: '630px',
+          },
+
+          '@media (max-width: 436px)': {
+            height: '560px',
+          },
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -76,7 +83,7 @@ const EducationCard = () => {
         <Typography
           variant="body1"
           sx={{
-            paddingTop: '36px',
+            paddingTop: '36px !important',
             fontSize: '12px',
             fontWeight: '400',
             color: 'rgba(255, 255, 255, 1)',
@@ -105,6 +112,18 @@ const EducationCard = () => {
                 maxWidth: '690px',
                 mt: '260px',
                 marginLeft: '36px',
+
+                '@media (max-width: 1024px)': {
+                  mx: '36px',
+                },
+
+                '@media (max-width: 677px)': {
+                  mt: '200px',
+                },
+
+                '@media (max-width: 599px)': {
+                  mt: '180px',
+                },
               }}
             >
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -129,8 +148,13 @@ const EducationCard = () => {
               textAlign: 'center',
               mb: '32px',
               maxWidth: '690px',
-              width: '517.5px',
               margin: 'auto',
+
+              '@media (max-width: 767px)': {
+                fontSize: '22px !important',
+                lineHeight: '120%',
+                letterSpacing: '0.1px',
+              },
             }}
           >
             Upgrade Trading Knowledge with In-Depth Lessons
@@ -150,6 +174,13 @@ const EducationCard = () => {
               gap: '8px',
               width: '100%',
               mb: '42px',
+
+              '@media (max-width: 767px)': {
+                mt: '16px',
+                gap: '4px',
+                px: '12px',
+                width: 'auto',
+              },
             }}
           >
             <Box
@@ -175,7 +206,7 @@ const EducationCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '10.5px',
+                    fontSize: '10.5px !important',
                     fontWeight: '700',
                     lineHeight: '13.65px',
                     fontFamily: 'Sf Pro Display',
@@ -201,7 +232,7 @@ const EducationCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '10.5px',
+                    fontSize: '10.5px !important',
                     lineHeight: '13.65px',
                     fontFamily: 'Sf Pro Display',
                     fontWeight: '700',
@@ -217,6 +248,7 @@ const EducationCard = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
+                flexWrap: 'wrap',
                 gap: '8px',
               }}
             >
@@ -229,6 +261,10 @@ const EducationCard = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '4px',
+
+                  '@media (max-width: 576px)': {
+                    padding: '4px',
+                  },
                 }}
               >
                 <VerifiedGreen />
@@ -236,7 +272,7 @@ const EducationCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '10.5px',
+                    fontSize: '10.5px !important',
                     lineHeight: '13.65px',
                     fontFamily: 'Sf Pro Display',
                     fontWeight: '700',
@@ -262,7 +298,7 @@ const EducationCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '10.5px',
+                    fontSize: '10.5px !important',
                     lineHeight: '13.65px',
                     fontFamily: 'Sf Pro Display',
                     fontWeight: '700',
@@ -288,7 +324,7 @@ const EducationCard = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '10.5px',
+                    fontSize: '10.5px !important',
                     lineHeight: '13.65px',
                     fontFamily: 'Sf Pro Display',
                     fontWeight: '700',
@@ -302,6 +338,32 @@ const EducationCard = () => {
           </Stack>
         </motion.div>
 
+        {/* <motion.div
+          variants={imgAndTextVariants}
+          initial="initial"
+          animate={active ? 'active' : 'inactive'}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              '& img': {
+                width: '100%',
+                height: 'auto',
+                maxWidth: '100vw',
+                maxHeight: '100vh',
+              },
+
+              '@media (max-width: 767px)': {
+                padding: '12px',
+              },
+            }}
+          >
+            <Image src={macbook} alt="macbook" layout="responsive" />
+          </Box>
+        </motion.div> */}
+
         <motion.div
           variants={imgAndTextVariants}
           initial="initial"
@@ -312,17 +374,23 @@ const EducationCard = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              width: '100%',
+
+              '@media (max-width: 767px)': {
+                padding: '12px',
+                width: 'auto',
+              },
             }}
           >
             <Image
               src={macbook}
               alt="macbook"
               width={590}
-              style={{ height: '359px' }}
+              height={359}
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
           </Box>
         </motion.div>
-
         <Box
           sx={{
             display: 'flex',
@@ -351,7 +419,7 @@ const EducationCard = () => {
             <PlusIcon />
           </motion.div>
         </Box>
-      </motion.div>
+      </Box>
     </>
   );
 };

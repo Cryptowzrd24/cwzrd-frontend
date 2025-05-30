@@ -18,6 +18,15 @@ const RealWins = () => {
           width: '978px',
           gap: '52.5px',
           height: '321px',
+
+          '@media (max-width: 1024px)': {
+            padding: '16px 12px',
+            gap: '16px',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            width: '100%',
+            height: '100%',
+          },
         }}
       >
         <Text />

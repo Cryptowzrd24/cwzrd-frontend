@@ -34,7 +34,12 @@ const RightCard = () => {
         </Box>
       </Box>
       <Box
-        sx={{ overflow: 'hidden', paddingInline: '24px', marginTop: '12px' }}
+        sx={{
+          overflow: 'hidden',
+          paddingInline: '24px',
+          marginTop: '12px',
+          width: '251px',
+        }}
       >
         <img
           src={pepiImg.src}
@@ -59,7 +64,7 @@ const RightCard = () => {
         <Typography
           sx={{
             textAlign: 'center',
-            fontSize: '16px',
+            fontSize: '16px !important',
             fontWeight: '700',
             lineHeight: '20.8px',
             letterSpacing: '0.5px',
@@ -72,7 +77,7 @@ const RightCard = () => {
             marginTop: '9px',
             fontFamily: 'SF Pro Text',
             textAlign: 'center',
-            fontSize: '10px',
+            fontSize: '10px !important',
             fontWeight: '400',
             lineHeight: '14.5px',
             letterSpacing: '0.1px',
@@ -112,7 +117,7 @@ const RightCard = () => {
               <Typography
                 sx={{
                   // height: '32px',
-                  fontSize: '12px',
+                  fontSize: '12px !important',
                   fontWeight: '600',
                   lineHeight: '15.6px',
                   whiteSpace: 'nowrap',

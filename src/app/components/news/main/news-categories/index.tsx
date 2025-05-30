@@ -29,17 +29,22 @@ export const NewsCategory: React.FC = () => {
         alignItems: 'center',
         backgroundColor: 'white',
         borderRadius: '24px',
-        height: '72px',
+        height: '70px',
         maxWidth: '100% !important',
         boxShadow: '0px 4px 28px 0px #0000000D',
         justifyContent: 'space-between',
+
+        '@media (min-width: 1440px)': {
+          paddingInline: '20px !important',
+        },
       }}
     >
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
-          marginLeft: '-50px',
+          overflowX: 'auto',
+          height: '100%',
         }}
       >
         {newsData.map((item, index) => (
@@ -68,6 +73,7 @@ export const NewsCategory: React.FC = () => {
               sx={{
                 textDecoration: 'none',
                 textAlign: 'center',
+                textWrap: 'nowrap',
                 fontSize: '14px',
                 fontWeight: 700,
                 paddingInline: '8px',
@@ -94,7 +100,7 @@ export const NewsCategory: React.FC = () => {
         sx={{
           display: 'flex',
           justifyContent: 'center',
-          marginRight: '-42px',
+          paddingLeft: '8px',
 
           ':hover': {
             cursor: 'pointer',

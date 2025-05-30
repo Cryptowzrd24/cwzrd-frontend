@@ -15,7 +15,6 @@ function MarketNewsPanel({
         display: 'flex',
         flexDirection: 'column',
         gap: '16px',
-        marginLeft: '-25px',
       }}
     >
       <Box
@@ -56,7 +55,7 @@ function MarketNewsPanel({
       </Box>
       <Box
         sx={{
-          width: '300px',
+          maxWidth: '300px',
         }}
       >
         {isTechnicalDetail && (
@@ -65,19 +64,19 @@ function MarketNewsPanel({
             isTechnicalDetail={isTechnicalDetail}
           />
         )}
+        {!isTechnicalDetail && (
+          <Box sx={{ marginBottom: '16px' }}>
+            <LiveMarket
+              isPageDetails={true}
+              isTechnicalDetail={isTechnicalDetail}
+            />
+          </Box>
+        )}
         {!isTechnicalDetail ? (
           <LiveNewsExplorer isPageDetails={true} />
         ) : (
           <Box sx={{ mt: '16px' }}>
             <DiscoverCardButton />
-          </Box>
-        )}
-        {!isTechnicalDetail && (
-          <Box sx={{ marginTop: '20px' }}>
-            <LiveMarket
-              isPageDetails={true}
-              isTechnicalDetail={isTechnicalDetail}
-            />
           </Box>
         )}
       </Box>

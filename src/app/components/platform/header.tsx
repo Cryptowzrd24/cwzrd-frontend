@@ -26,26 +26,50 @@ const PlatformHeader = () => {
               letterSpacing: 2,
               lineHeight: '18.2px',
               mb: '8px',
+
+              '@media (max-width: 576px)': {
+                fontSize: '12px',
+                fontWeight: '400',
+                lineHeight: '130%',
+                letterSpacing: '1.2px',
+              },
             }}
           >
             PLATFORM
           </Typography>
           <Typography
             variant="h1"
-            sx={{ fontSize: '40px', lineHeight: '44px', mb: '12px' }}
+            sx={{
+              fontSize: '40px',
+              lineHeight: '44px',
+              fontWeight: '700',
+              mb: '12px',
+              '@media (max-width: 576px)': {
+                fontSize: '24px',
+                lineHeight: '120%',
+                letterSpacing: '0.24px',
+              },
+            }}
           >
             Discover Our
-            <span
-              style={{
+            <Typography
+              component={'span'}
+              sx={{
+                fontSize: 'inherit !important',
+                fontWeight: 'inherit',
+                lineHeight: 'inherit',
                 backgroundImage:
                   'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 marginLeft: '10px',
+                '@media (max-width: 576px)': {
+                  marginLeft: '5px',
+                },
               }}
             >
               Trading
-            </span>{' '}
+            </Typography>{' '}
             Tools
           </Typography>
           <Typography
@@ -57,7 +81,12 @@ const PlatformHeader = () => {
               textAlign: 'center',
               color: '#111111CC',
               lineHeight: '21px',
-              width: '800px',
+              maxWidth: '800px',
+
+              '@media (max-width: 576px)': {
+                fontSize: '12px',
+                lineHeight: '18px',
+              },
             }}
           >
             On a daily basis we analyze Crypto, Forex, and Stock markets, to
@@ -76,6 +105,11 @@ const PlatformHeader = () => {
               background: 'rgba(255, 255, 255, 1)',
               boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
               // mb: '36px',
+
+              '@media (max-width: 576px)': {
+                maxWidth: '280px',
+                mb: '20px',
+              },
             }}
           >
             <Image
@@ -86,7 +120,11 @@ const PlatformHeader = () => {
 
             <Typography
               variant="h5"
-              sx={{ fontSize: '10px', fontWeight: '700', lineHeight: '19.2px' }}
+              sx={{
+                fontSize: '10px !important',
+                fontWeight: '700',
+                lineHeight: '19.2px',
+              }}
             >
               10,700+{' '}
               <span

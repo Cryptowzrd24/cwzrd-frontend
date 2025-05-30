@@ -91,8 +91,8 @@ const NewsCarouselBig = ({
       width={width ? width : '100%'}
       height={
         isCrypto
-          ? { xs: '300px', sm: '400px', md: height ? height : '680px' }
-          : { xs: '300px', sm: '400px', md: height ? height : '800px' }
+          ? { xs: '550px', sm: '500px', md: height ? height : '680px' }
+          : { xs: '550px', sm: '500px', md: height ? height : '800px' }
       }
       display="flex"
       justifyContent="center"
@@ -135,7 +135,7 @@ const NewsCarouselBig = ({
                 justifyContent: 'center',
                 alignItems: 'center',
                 gap: '4.5px',
-                fontSize: '16px',
+                fontSize: '16px !important',
                 fontWeight: '600',
                 paddingInline: '5px',
                 paddingBlock: '8px',
@@ -150,7 +150,7 @@ const NewsCarouselBig = ({
               <Typography
                 sx={{
                   fontWeight: '600',
-                  fontSize: '16px',
+                  fontSize: '16px !important',
                   lineHeight: '20.8px',
                   color: 'white',
                   paddingTop: '8px',
@@ -228,7 +228,7 @@ const NewsCarouselBig = ({
                 ? {
                     mt: '16px',
                     color: 'white',
-                    fontSize: '32px',
+                    fontSize: '32px !important',
                     fontWeight: '700',
                     letterSpacing: '1px',
                     lineHeight: '38.4px',
@@ -243,7 +243,7 @@ const NewsCarouselBig = ({
                   ? {
                       fontWeight: '600',
                       color: 'white',
-                      fontSize: '20px',
+                      fontSize: '20px !important',
                       lineHeight: '26px',
                       width: '97%',
                       letterSpacing: '1px',
@@ -256,7 +256,7 @@ const NewsCarouselBig = ({
                   : {
                       fontWeight: '700',
                       color: 'white',
-                      fontSize: '24px',
+                      fontSize: '24px !important',
                       lineHeight: '28.8px',
                       letterSpacing: '1%',
                     }
@@ -272,7 +272,7 @@ const NewsCarouselBig = ({
               isDetailPage
                 ? {
                     mt: '6px',
-                    fontSize: '13px',
+                    fontSize: '13px !important',
                     fontWeight: '400',
                     lineHeight: '18.85px',
                     width: '98%',
@@ -286,7 +286,7 @@ const NewsCarouselBig = ({
                 : {
                     mt: 1,
                     color: 'white',
-                    fontSize: '16px',
+                    fontSize: '16px !important',
                     fontWeight: '400',
                     lineHeight: '24px',
                     opacity: '80%',
@@ -352,7 +352,7 @@ const NewsCarouselBig = ({
       ) : (
         <Box
           position="absolute"
-          bottom="40px"
+          bottom="29px"
           right="32px"
           display="flex"
           gap="8px"

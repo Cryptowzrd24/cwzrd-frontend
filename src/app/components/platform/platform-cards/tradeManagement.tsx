@@ -58,8 +58,9 @@ const TradeManagement = () => {
 
   return (
     <>
-      <motion.div
-        style={{
+      <Box
+        component={motion.div}
+        sx={{
           padding: '24px',
           maxWidth: '307.5px',
           height: '352px',
@@ -67,6 +68,11 @@ const TradeManagement = () => {
           flex: 1,
           position: 'relative',
           transition: 'all 0.325s linear',
+
+          '@media (max-width: 768px)': {
+            maxWidth: '100%',
+            width: 'calc(100% - 50px)',
+          },
         }}
         initial="initial"
         animate={active ? 'active' : 'inactive'}
@@ -90,6 +96,10 @@ const TradeManagement = () => {
         <Box
           sx={{
             paddingLeft: '26px',
+
+            '@media (max-width: 1024px)': {
+              padding: 0,
+            },
           }}
         >
           <motion.img
@@ -108,7 +118,7 @@ const TradeManagement = () => {
           >
             <Typography
               sx={{
-                fontSize: '30px',
+                fontSize: '30px !important',
                 color: 'rgba(255, 255, 255, 1)',
                 mt: '27.5px',
                 letterSpacing: 0.1,
@@ -145,6 +155,14 @@ const TradeManagement = () => {
                   lineHeight: '22px',
                   fontWeight: '400',
                   marginLeft: '-32px',
+
+                  '@media (max-width: 1024px)': {
+                    marginLeft: 0,
+                  },
+
+                  '@media (min-width: 769px) and (max-width: 968px)': {
+                    mt: '40px',
+                  },
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -181,7 +199,7 @@ const TradeManagement = () => {
             <PlusIcon active={active} />
           </Box>
         </Box>
-      </motion.div>
+      </Box>
     </>
   );
 };

@@ -125,11 +125,14 @@ const PasswordResetModal = ({ verificationKey }: any) => {
               borderRadius: '16px',
               width: '500px',
               padding: '0 24px 18px 24px',
+              '@media (max-width: 576px)': {
+                margin: '10px',
+              },
             },
           }}
           open={true}
         >
-          <DialogContent>
+          <DialogContent sx={{ '@media (max-width: 576px)': { padding: 0 } }}>
             <Box
               sx={{
                 width: '100%',

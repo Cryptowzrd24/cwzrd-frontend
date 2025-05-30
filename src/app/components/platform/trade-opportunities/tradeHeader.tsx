@@ -28,26 +28,41 @@ const TradeHeader = () => {
       </Typography>
       <Typography
         variant="h1"
-        sx={{ fontSize: '32px', lineHeight: '38.4px', mb: '12px' }}
+        sx={{
+          fontSize: '32px',
+          lineHeight: '38.4px',
+          mb: '12px',
+          '@media (max-width: 978px)': {
+            fontSize: '21px !important',
+            lineHeight: '28.8px',
+            letterSpacing: '0.24px',
+          },
+        }}
       >
-        <span
-          style={{
+        <Typography
+          component={'span'}
+          sx={{
+            fontSize: 'inherit !important',
+            fontWeight: 'inherit',
+            lineHeight: 'inherit',
+            letterSpacing: 'inherit',
             backgroundImage:
               'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             marginLeft: '10px',
+            '@media (max-width: 978px)': { marginLeft: '0px' },
           }}
         >
           Profitable
-        </span>{' '}
+        </Typography>{' '}
         Trade Opportunities
       </Typography>
       <Typography
         variant="body1"
         sx={{
-          width: '800px',
-          fontSize: '14px',
+          maxWidth: '800px',
+          fontSize: '14px !important',
           fontWeight: '400',
           mb: '36px',
           textAlign: 'center',

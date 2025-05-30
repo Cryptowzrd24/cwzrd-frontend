@@ -1,5 +1,5 @@
 'use client';
-import { Box, Chip, Typography } from '@mui/material';
+import { Box, Chip, Typography, useMediaQuery } from '@mui/material';
 import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
 import React from 'react';
@@ -22,13 +22,14 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
   descriptionLines,
   smallHeight,
 }) => {
+  const isMobile = useMediaQuery('(max-width: 576px)');
+  const isLargeScreen = useMediaQuery('@media (min-width: 1680px)');
   return (
     <Box
       sx={{
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
         width: '100%',
         borderRadius: '12px',
       }}
@@ -49,9 +50,13 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
               marginTop: '6px',
               marginRight: !isDetailPage ? '12px' : '10px',
               padding: '4px 8px 4px 8px',
-              fontSize: '16px',
+              fontSize: '16px !important',
               fontWeight: '600',
               gap: '4.5px',
+
+              '@media (max-width: 576px)': {
+                marginRight: '0px',
+              },
             }}
           >
             <Image
@@ -63,7 +68,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             <Typography
               sx={{
                 fontWeight: '400',
-                fontSize: '12px',
+                fontSize: '12px !important',
                 lineHeight: '15.6px',
                 color: 'white',
               }}
@@ -79,31 +84,35 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           fontWeight: 'bold',
           backgroundColor: 'transparent',
           height: '33px',
+
+          '@media (max-width: 576px)': {
+            right: '4px',
+          },
         }}
       />
-      <Box>
+      <Box sx={{ width: '100%', height: isLargeScreen ? '150px' : '130px' }}>
         <Image
           alt="news"
           src={
             image ||
             'https://s3-alpha-sig.figma.com/img/e7a2/1b9d/8dee851bf60c683f94041035849f3dca?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BvgpfnvcAL~zhHG6Oowu1t3HZRwEfXSfH4khOf-3eUB2Uyv8r2u6bU3BVqFllyBCHOsEQjlzxCVobCT8yE8iIhbf1aiqtfUWPypscZYHrLgXrmv32wfptJ7uz5GLSfUhMF9vsPhm3zsby0HqdX2cJHa3H3B7BN-V3dXG8mdmWZoJQwdr8zC7FIAMqPwebOoEbeseY6Q2MK3MeT30CSYde3CmG094wS2f1NI~sSfi~~RCnM~1SyWDv~WX7KL6jhRuxWFBY7IztH-8kgOOyvvP6ESbtWKVmPi07YdpqiFIFtk4MDesUsyThfs6129AmKfVhyVjfY7WY~mBVNAYWuXr5Q__'
           }
-          width={isDetailPage ? 264 : 300}
-          height={isDetailPage ? 130 : smallHeight ? 150 : 180}
           style={{
             objectFit: 'cover',
             borderRadius: '12px',
+            width: '100%',
+            height: isLargeScreen ? '150px' : '130px',
           }}
         />
       </Box>
-      <Box sx={{ paddingInline: '4px', marginTop: '8px' }}>
+      <Box sx={{ paddingInline: '8px', marginTop: '8px' }}>
         <Typography
           sx={{
             fontWeight: '700',
-            fontSize: '14px',
+            fontSize: '14px !important',
             lineHeight: '18.2px',
             letterSpacing: '0.3px',
-            width: isDetailPage ? '264px' : '100%',
+            width: isMobile ? '100%' : isDetailPage ? '264px' : '100%',
           }}
           variant="body1"
         >
@@ -132,7 +141,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
         <Typography
           sx={{
             fontWeight: '500',
-            fontSize: !isDetailPage ? '10px' : '10px',
+            fontSize: '10px !important',
             lineHeight: '13px',
             marginTop: '8px',
             alignSelf: 'flex-start',

@@ -1,59 +1,24 @@
 import { Box, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Image from 'next/image';
 
 import ReadingNowImg from '../../../../../public/icons/reading-now.png';
 import TechnicalDetailImg from '../../../../../public/icons/technicalDetailImage.png';
 
-import { styled } from '@mui/material/styles';
-import LinearProgress, {
-  linearProgressClasses,
-} from '@mui/material/LinearProgress';
 import Twitter from '../../../../../public/icons/twitter';
 import Facebook from '../../../../../public/icons/facebook';
 import LinkedIn from '../../../../../public/icons/linkedIn';
 import Mail from '../../../../../public/icons/mail';
-import CheckMark from '../../../../../public/check-mark.svg';
+import BorderLinearProgress from './BorderLinearProgress';
 
 function ReadingCard({
   scrollPosition,
   sectionHeight,
   isTechnicalDetail,
 }: any) {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    if (sectionHeight > 0) {
-      const baseProgress = 0;
-      const calculatedProgress = Math.min(
-        baseProgress +
-          (scrollPosition / (sectionHeight - window.innerHeight)) * 90,
-        100,
-      );
-      setProgress(calculatedProgress);
-    }
-  }, [scrollPosition, sectionHeight]);
-
-  const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-    height: 6,
-    borderRadius: 5,
-    flex: '0 0 90%',
-    [`&.${linearProgressClasses.colorPrimary}`]: {
-      backgroundColor:
-        theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
-    },
-    [`& .${linearProgressClasses.bar}`]: {
-      borderRadius: 5,
-      background:
-        progress === 100
-          ? '#0d9488'
-          : 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
-    },
-  }));
-
   return (
-    <Box sx={{ width: '190px' }}>
+    <Box sx={{ maxWidth: '190px' }}>
       <Typography
         sx={{
           fontFamily: 'Sf Pro Display',
@@ -105,10 +70,11 @@ function ReadingCard({
           gap: '8px',
         }}
       >
-        <BorderLinearProgress variant="determinate" value={progress} />
-        {progress === 100 && (
-          <Image src={CheckMark} alt="img" style={{ marginBottom: '3px' }} />
-        )}
+        <BorderLinearProgress
+          variant="determinate"
+          sectionHeight={sectionHeight}
+          scrollPosition={scrollPosition}
+        />
       </Box>
       <Box sx={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
         <Twitter />

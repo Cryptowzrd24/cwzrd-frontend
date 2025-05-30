@@ -4,12 +4,37 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts';
 import { debounce } from 'lodash';
 import { priceNumberFormatDigits } from '@/utils/price-number-formater';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 // Memoizing the Graph component using React.memo
-const Graph = React.memo((props: IChartProps) => {
-  const { data, color, isMarker, percent, fill, className, isLiveMarket, id } =
-    props;
+const Graph = React.memo((props: { isMainPage?: boolean } & IChartProps) => {
+  const {
+    data,
+    color,
+    isMarker,
+    percent,
+    fill,
+    className,
+    isLiveMarket,
+    id,
+    isMainPage = false,
+  } = props;
   const chartRef: any = useRef(null);
+  const { width } = useWindowSize();
+
+  console.log('isMainPage: ', isMainPage);
+  console.log('props: ', props);
+
+  useEffect(() => {
+    if (chartRef.current) {
+      const chart = chartRef.current.chart;
+      const containerHeight =
+        chartRef.current.container.current?.clientHeight || 400;
+
+      chart.setSize(undefined, containerHeight);
+      chart.reflow();
+    }
+  }, [width]);
 
   // Memoize getDate function
   const getDate = useCallback(
@@ -67,10 +92,10 @@ const Graph = React.memo((props: IChartProps) => {
 
   useEffect(() => {
     if (chartRef.current && className !== '') {
-      chartRef.current?.chart.setSize(undefined, 327);
+      chartRef.current?.chart.setSize(undefined, 400);
       const innerDiv = chartRef.current.container.current.querySelector('div');
       if (innerDiv) {
-        innerDiv.style.height = '327px';
+        innerDiv.style.height = '400px';
         innerDiv.style.width = '100% !important';
       }
       const xAxisElement = chartRef.current.chart.xAxis[0].axisGroup;
@@ -108,7 +133,7 @@ const Graph = React.memo((props: IChartProps) => {
         labels: {
           enabled: true,
           align: 'right',
-          x: 20,
+          x: isMainPage ? 0 : 20,
           style: {
             fontSize: '12px',
             fontFamily: 'Sf Pro Display',
@@ -132,7 +157,8 @@ const Graph = React.memo((props: IChartProps) => {
         lineWidth: 0,
         gridLineWidth: 0.5,
         tickAmount: 10,
-        opposite: true,
+        opposite: isMainPage ? false : true,
+        offset: isMainPage ? 13 : 0,
       },
       legend: {
         enabled: false,

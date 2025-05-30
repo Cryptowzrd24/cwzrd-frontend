@@ -13,17 +13,33 @@ const CommunityCard = () => {
           backgroundPosition: 'center',
           padding: '24px 0 23.75px 24px',
           borderRadius: '24px',
-          height: '276px',
+          minHeight: '250px',
           width: '295px',
           overflow: 'hidden',
+
+          '@media (max-width: 576px)': {
+            width: 'auto',
+            display: 'flex',
+            flexDirection: 'column',
+          },
         }}
       >
-        <Image src={comments} alt="deliver" width={308} height={114.75} />
+        <Image
+          src={comments}
+          alt="deliver"
+          width={308}
+          height={114.75}
+          style={{ marginLeft: 'auto' }}
+        />
         <Box
           sx={{
             paddingRight: '24.75px',
             mt: 'auto',
             paddingLeft: '6px',
+
+            '@media (max-width: 576px)': {
+              mt: '20px',
+            },
           }}
         >
           <Typography

@@ -32,9 +32,9 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
         display: 'flex',
         borderRadius: '16px',
         padding: '8px',
-        maxWidth: '255px',
+        maxWidth: '310px',
         width: '100%',
-        marginRight: '30px',
+        marginRight: '10px',
         boxShadow: '0px 4px 6px 0px #00000005',
       }}
     >

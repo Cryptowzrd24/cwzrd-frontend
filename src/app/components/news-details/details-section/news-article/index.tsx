@@ -90,7 +90,14 @@ function NewsArticle({
   const subheadingTextTwo = `Factors like an anticipated interest rate cut and increased institutional buying could lead to more upward momentum for Bitcoin, according to Bitfinex analysts:`;
 
   return (
-    <Box style={{ width: '770px' }}>
+    <Box
+      sx={{
+        maxWidth: '100%',
+        '@media (max-width: 1320px)': {
+          maxWidth: '100%',
+        },
+      }}
+    >
       <Box
         id="heading1"
         ref={(el: HTMLDivElement | null) => {
@@ -99,15 +106,33 @@ function NewsArticle({
           }
         }}
       >
-        <ArticleHeader
-          isArticleDetails={isArticleDetails}
-          coinName={'BITCOIN'}
-          date={'APRIL 25, 2024'}
-          readTime={'5 MIN READ'}
-        />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            '@media (max-width: 978px)': {
+              flexDirection: 'column-reverse',
+            },
+          }}
+        >
+          <ArticleHeader
+            isArticleDetails={isArticleDetails}
+            coinName={'BITCOIN'}
+            date={'APRIL 25, 2024'}
+            readTime={'5 MIN READ'}
+          />
 
-        <Box sx={{ marginTop: '12px' }}>
-          <NewsHeading isArticleDetails={isArticleDetails} />
+          <Box
+            sx={{
+              marginTop: '12px',
+              '@media (max-width: 978px)': {
+                marginTop: '0px',
+                marginBottom: '12px',
+              },
+            }}
+          >
+            <NewsHeading isArticleDetails={isArticleDetails} />
+          </Box>
         </Box>
 
         <Box sx={{ marginTop: '12px' }}>
@@ -115,6 +140,7 @@ function NewsArticle({
             isArticleDetails={isArticleDetails}
             image={NewsImg}
             subheadingText={subheadingTextOne}
+            isSocialIcon
           />
         </Box>
       </Box>
@@ -142,7 +168,11 @@ function NewsArticle({
           />
         </Box>
 
-        <Box sx={{ marginTop: '12px' }}>
+        <Box
+          sx={{
+            marginTop: '12px',
+          }}
+        >
           <NewsQuote isArticleDetails={isArticleDetails} quote={quoteTwo} />
         </Box>
 

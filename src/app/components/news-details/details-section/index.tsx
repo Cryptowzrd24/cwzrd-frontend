@@ -1,16 +1,17 @@
 'use client';
-import { Box } from '@mui/material';
+import { Box, Container, useMediaQuery } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import ReadingCard from './reading-card';
 import MarketNewsPanel from './market-news-panel';
-import TableOfContents from '../../articles-details/table-of-contents';
+// import TableOfContents from '../../articles-details/table-of-contents';
+import BorderLinearProgress from './BorderLinearProgress';
 
 function DetailsSection({
   ChildComponent,
-  isArticleDetails,
+  // isArticleDetails,
   isTechnicalDetail,
-  sections,
-  activeSection,
+  // sections,
+  // activeSection,
 }: {
   ChildComponent: React.ElementType;
   isArticleDetails?: boolean;
@@ -21,6 +22,7 @@ function DetailsSection({
   const [scrollPosition, setScrollPosition] = useState(0);
   const [sectionHeight, setSectionHeight] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isTabView = useMediaQuery('(max-width: 978px)');
 
   useEffect(() => {
     const updateSectionHeight = () => {
@@ -50,45 +52,96 @@ function DetailsSection({
   }, []);
 
   return (
-    <Box
-      ref={sectionRef}
-      sx={{ display: 'flex', justifyContent: 'space-between' }}
-    >
-      <Box
-        sx={{
-          flex: 0.5,
-          position: 'sticky',
-          top: '20px',
-          height: '241px',
-        }}
-      >
-        <ReadingCard
-          scrollPosition={scrollPosition}
-          sectionHeight={sectionHeight}
-          isTechnicalDetail={isTechnicalDetail}
-        />
-      </Box>
-      <Box sx={{ flex: 2 }}>
-        <ChildComponent />
-      </Box>
-      <Box
-        sx={{
-          flex: 0.5,
-          position: 'sticky',
-          top: '20px',
-          height: isArticleDetails ? '241px' : '1256px',
-        }}
-      >
-        {isArticleDetails ? (
-          <TableOfContents
-            sections={isArticleDetails ? sections : null}
-            activeSection={isArticleDetails ? activeSection : null}
+    <>
+      {isTabView && (
+        <Box
+          sx={{
+            my: '20px',
+            position: 'sticky',
+            zIndex: '100',
+            top: '60px',
+          }}
+        >
+          <BorderLinearProgress
+            variant="determinate"
+            scrollPosition={scrollPosition}
+            sectionHeight={sectionHeight}
+            isLarge={false}
           />
-        ) : (
-          <MarketNewsPanel isTechnicalDetail={isTechnicalDetail} />
-        )}
-      </Box>
-    </Box>
+        </Box>
+      )}
+      <Container
+        maxWidth="xl"
+        sx={{
+          '@media (max-width: 599px)': { paddingInline: '16px !important' },
+        }}
+      >
+        <Box
+          ref={sectionRef}
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: 4,
+          }}
+        >
+          <Box
+            sx={{
+              flex: 0.5,
+              position: 'sticky',
+              top: '60px',
+              height: '241px',
+
+              '@media (max-width: 1320px)': {
+                flex: 0.45,
+              },
+
+              '@media (max-width: 978px)': {
+                display: 'none',
+              },
+            }}
+          >
+            <ReadingCard
+              scrollPosition={scrollPosition}
+              sectionHeight={sectionHeight}
+              isTechnicalDetail={isTechnicalDetail}
+            />
+          </Box>
+          <Box
+            sx={{
+              flex: 2,
+              '@media (max-width: 1320px)': {
+                display: 'flex',
+                justifyContent: 'center',
+              },
+            }}
+          >
+            <ChildComponent />
+          </Box>
+          <Box
+            sx={{
+              flex: 0.5,
+              position: 'sticky',
+              top: '20px',
+              height: '1256px',
+              // height: isArticleDetails ? '241px' : '1256px',
+              '@media (max-width: 1320px)': {
+                display: 'none',
+              },
+            }}
+          >
+            <MarketNewsPanel isTechnicalDetail={isTechnicalDetail} />
+            {/* {isArticleDetails ? (
+              <TableOfContents
+                sections={isArticleDetails ? sections : null}
+                activeSection={isArticleDetails ? activeSection : null}
+              />
+            ) : (
+              <MarketNewsPanel isTechnicalDetail={isTechnicalDetail} />
+            )} */}
+          </Box>
+        </Box>
+      </Container>
+    </>
   );
 }
 

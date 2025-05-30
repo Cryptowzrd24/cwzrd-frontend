@@ -15,13 +15,20 @@ const ArticlesPage = () => {
   const items = Array.from({ length: 20 }, (_, index) => index);
   return (
     <>
-      <Box sx={{ display: 'flex', gap: 4 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 4,
+          '@media (max-width: 1380px)': { flexDirection: 'column' },
+        }}
+      >
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             width: '77%',
             gap: '16px',
+            '@media (max-width: 1380px)': { width: '100%' },
           }}
         >
           <NewsCarousel isFirst={true} />
@@ -40,8 +47,9 @@ const ArticlesPage = () => {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(5, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
           rowGap: '30px',
+          columnGap: '16px',
           padding: '42px 0px 0px 0px',
         }}
       >
@@ -71,8 +79,25 @@ const ArticlesPage = () => {
         <NewsLetterBanner />
       </Box>
 
-      <Box sx={{ display: 'flex', gap: 2.2, maxHeight: '850px' }}>
-        <Box sx={{ width: '51%' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 2.2,
+          maxHeight: '850px',
+          '@media (max-width: 978px)': {
+            flexDirection: 'column',
+            maxHeight: '100%',
+          },
+        }}
+      >
+        <Box
+          sx={{
+            width: '51%',
+            '@media (max-width: 978px)': {
+              width: '100%',
+            },
+          }}
+        >
           <NewsCarouselBig isDetailPage={true} height={'535px'} />
         </Box>
         <Box
@@ -82,6 +107,16 @@ const ArticlesPage = () => {
             alignItems: 'center',
             jusstifyContent: 'center',
             flexDirection: 'column',
+
+            '@media (max-width: 978px)': {
+              width: '100%',
+              flexDirection: 'row',
+              gap: '8px',
+            },
+
+            '@media (max-width: 768px)': {
+              flexDirection: 'column',
+            },
           }}
         >
           <Box sx={{ marginBottom: '16px' }}>
@@ -101,7 +136,22 @@ const ArticlesPage = () => {
             <TrendingNewsList height="250px" maxCards={3} marginLeft="10px" />
           </Box>
         </Box>
-        <Box sx={{ width: '24%' }}>
+        <Box
+          sx={{
+            width: '24%',
+            '@media (max-width: 978px)': {
+              width: '100%',
+              display: 'flex',
+              gap: '8px',
+              alignItems: 'center',
+            },
+
+            '@media (max-width: 768px)': {
+              flexDirection: 'column',
+              marginTop: '10px',
+            },
+          }}
+        >
           <TrendingNewsList height="200px" maxCards={2} marginLeft="0px" />
 
           <NewsMileStones />
@@ -111,8 +161,9 @@ const ArticlesPage = () => {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(5, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
           rowGap: '30px',
+          columnGap: '16px',
           padding: '35px 0px 0px 0px',
         }}
       >
@@ -137,7 +188,12 @@ const ArticlesPage = () => {
           </Box>
         ))}
       </Box>
-      <Box sx={{ margin: '72px 0px 80px 0px' }}>
+      <Box
+        sx={{
+          margin: '72px 0px 80px 0px',
+          '@media (max-width: 768px)': { margin: '48px 0px' },
+        }}
+      >
         <MemberShipBanner />
       </Box>
     </>

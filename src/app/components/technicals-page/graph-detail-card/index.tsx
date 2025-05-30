@@ -23,15 +23,32 @@ const GraphDetailsCard = ({
       sx={{
         display: 'flex',
         flexDirection: isInverted ? 'row-reverse' : '',
-        width: '1042px',
+        width: '960px',
         height: '330px',
         background:
           'radial-gradient(83.94% 66.65% at 16.06% 44.55%, rgba(255, 255, 255, 1) 55.91%, rgba(217, 223, 255, 0.9) 100%)',
         borderRadius: '16px',
         boxShadow: '0 0 28px 0 rgba(0, 0, 0, 0.08)',
+
+        '@media (max-width: 1400px)': {
+          width: 'auto',
+        },
+
+        '@media (max-width: 768px)': {
+          height: 'auto',
+          flexDirection: 'column-reverse',
+        },
       }}
     >
-      <Box sx={{ padding: '76px 32px 76px 32px', width: '370px' }}>
+      <Box
+        sx={{
+          padding: '76px 32px 76px 32px',
+          maxWidth: '370px',
+          '@media (max-width: 768px)': {
+            padding: '16px',
+          },
+        }}
+      >
         <Typography
           sx={{
             width: '90%',
@@ -45,9 +62,9 @@ const GraphDetailsCard = ({
         </Typography>
         <Typography
           sx={{
-            width: '370px',
+            maxWidth: '370px',
             marginTop: '8px',
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontWeight: '400',
             lineHeight: '17.4px',
             wordSpacing: '0.4px',
@@ -74,7 +91,15 @@ const GraphDetailsCard = ({
           height: '297px',
           width: '750px',
           borderRadius: '12px',
-          margin: '16px 0px 16px 16px',
+          margin: '16px',
+
+          '@media (max-width: 1400px)': {
+            width: '100%',
+          },
+
+          '@media (max-width: 768px)': {
+            width: 'auto',
+          },
         }}
       >
         <Box sx={{ position: 'relative', display: 'flex' }}>
@@ -163,7 +188,7 @@ const GraphDetailsCard = ({
           src={GraphCard.src}
           alt="card"
           style={{
-            width: '576px',
+            width: '100%',
             height: '100%',
             borderRadius: '12px',
             objectFit: 'cover',
