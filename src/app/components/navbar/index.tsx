@@ -158,7 +158,9 @@ function Navbar() {
                 ? 'headerbgTechnicals'
                 : pathname === '/articles'
                   ? 'articlesbg'
-                  : 'homebg'
+                  : pathname === '/'
+                    ? 'homebg'
+                    : ''
         }
       >
         <Container maxWidth="xl" sx={{ background: '' }}>
