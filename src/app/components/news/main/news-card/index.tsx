@@ -1,3 +1,4 @@
+'use client';
 import { Box, Chip, Typography, useMediaQuery } from '@mui/material';
 import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
