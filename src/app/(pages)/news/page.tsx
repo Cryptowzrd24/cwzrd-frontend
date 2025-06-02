@@ -366,7 +366,6 @@ const News = () => {
                 descriptionLines={1}
                 description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ardoino said. CoinDesk Flash gives you the power of news that moves markets — be the first to get the latest crypto financial opportunities, trends, and technology insights."
                 image={CardImage}
-                smallHeight={true}
               />
             </Box>
             <Box>
@@ -375,7 +374,6 @@ const News = () => {
                 descriptionLines={1}
                 description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization venture, CEO Paolo Ardoino said. CoinDesk Flash gives you the power of news that moves markets — be the first to get the latest crypto financial opportunities, trends, and technology insights."
                 image={CardImage}
-                smallHeight={true}
               />
             </Box>
           </Box>

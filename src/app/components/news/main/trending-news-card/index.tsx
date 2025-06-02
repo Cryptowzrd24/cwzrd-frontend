@@ -11,7 +11,6 @@ interface TrendingNewsCardProps {
   isDetailPage?: boolean;
   descriptionLines?: number;
   isMainPage?: boolean;
-  smallHeight?: boolean;
 }
 
 const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
@@ -20,7 +19,6 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
   description,
   isDetailPage,
   descriptionLines,
-  smallHeight,
 }) => {
   const isMobile = useMediaQuery('(max-width: 576px)');
   const isLargeScreen = useMediaQuery('@media (min-width: 1680px)');

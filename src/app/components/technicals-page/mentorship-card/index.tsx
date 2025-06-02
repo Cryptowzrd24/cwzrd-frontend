@@ -1,7 +1,8 @@
-import { Box, Typography, Button } from '@mui/material';
+import { Box } from '@mui/material';
+//import {Typography, Button} from "@mui/material";
 import cardImg from '../../../../../public/images/cards/card-community.png';
 import React from 'react';
-import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
+// import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
 
 const MentorshipCard = () => {
   return (
@@ -11,7 +12,7 @@ const MentorshipCard = () => {
         boxShadow: '0px 1px 12px 0px rgba(0, 0, 0, 0.05)',
         borderRadius: '24px',
         height: '380px',
-        display: "flex",
+        display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
       }}

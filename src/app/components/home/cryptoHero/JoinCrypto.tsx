@@ -96,7 +96,6 @@ const JoinCrypto = () => {
           }}
           onClick={() => {
             alert('working');
-            console.log('clicked');
           }}
         >
           <Typography

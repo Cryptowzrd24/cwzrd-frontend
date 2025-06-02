@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Box, IconButton, useMediaQuery, Typography } from '@mui/material';
+import { Box, IconButton, useMediaQuery } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 

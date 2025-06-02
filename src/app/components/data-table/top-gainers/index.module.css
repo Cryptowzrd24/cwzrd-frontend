@@ -1,6 +1,6 @@
 .top-gainers {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 17px;
   gap: 5px;

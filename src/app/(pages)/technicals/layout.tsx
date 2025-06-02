@@ -19,7 +19,7 @@ export default function TechnicalsLayout({
     <>
       <Container
         sx={{
-          maxWidth: "92% !important",
+          maxWidth: '92% !important',
           '@media (max-width: 1520px)': { paddingInline: '20px !important' },
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
           margin: '0 auto',

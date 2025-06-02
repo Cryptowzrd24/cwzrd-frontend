@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import techGraph from '../../../../../public/images/technicals-page/techPageGraph.png';
 
-function Card({textWidth = '240px'}: {textWidth?: string}) {
+function Card({ textWidth = '240px' }: { textWidth?: string }) {
   return (
     <Box
       sx={{

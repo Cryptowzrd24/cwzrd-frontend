@@ -22,9 +22,6 @@ const Graph = React.memo((props: { isMainPage?: boolean } & IChartProps) => {
   const chartRef: any = useRef(null);
   const { width } = useWindowSize();
 
-  console.log('isMainPage: ', isMainPage);
-  console.log('props: ', props);
-
   useEffect(() => {
     if (chartRef.current) {
       const chart = chartRef.current.chart;
