@@ -141,8 +141,6 @@ import Slider from 'react-slick';
 import { Box, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-
-import CardImage from '../../../../../public/images/news-letter/image-car-news.png';
 import img1 from '../../../../../public/images/news-letter/coins.png';
 import img2 from '../../../../../public/images/news-letter/image-car-news.png';
 import img3 from '../../../../../public/images/news-letter/australia.png';
@@ -232,8 +230,12 @@ const RelatedNewsCarousel = ({
     slidesToShow,
     slidesToScroll: 1,
     arrows: !showSlider,
-    prevArrow: !showSlider ? <PreviousArrow onClick={() => {}} /> : null,
-    nextArrow: !showSlider ? <NextArrow onClick={() => {}} /> : null,
+    ...(showSlider
+      ? {}
+      : {
+          prevArrow: <PreviousArrow onClick={() => {}} />,
+          nextArrow: <NextArrow onClick={() => {}} />,
+        }),
     beforeChange: (_: number, next: number) => setCurrentSlide(next),
     dotsClass: 'slick-dots slick-thumb',
   };

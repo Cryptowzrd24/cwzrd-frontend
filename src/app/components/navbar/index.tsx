@@ -27,6 +27,7 @@ import NavLink from './NavLink';
 // import { useAddWatchlistMutation } from '@/app/redux/reducers/data-grid';
 
 function Navbar() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeId, setActiveId] = useState<string | null>(null);
   const [isActive, setIsActive] = useState<string | null>('light');
   const dispatch = useAppDispatch();

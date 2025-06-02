@@ -12,7 +12,7 @@ function MostRead({
   isMainPage?: boolean;
 }) {
   const renderCard = [1, 2, 3, 4, 5, 6, 7].map(() => {
-    return <MostReadCard isMainPage={isMainPage} />;
+    return <MostReadCard />;
   });
   const isTabView = useMediaQuery('(max-width: 978px)');
   return (

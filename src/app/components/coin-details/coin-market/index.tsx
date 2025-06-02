@@ -262,7 +262,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
           borderRadius: '24px',
           boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           '& .ag-header-cell:last-child .ag-header-cell-label': {
-            justifyContent: 'start !important',
+            justifyContent: 'flex-start !important',
           },
           '& .ag-header': {
             borderTop: 'none',

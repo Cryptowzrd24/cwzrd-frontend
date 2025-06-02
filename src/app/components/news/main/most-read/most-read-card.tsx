@@ -1,7 +1,7 @@
 import { Box, Divider, Typography } from '@mui/material';
 import React from 'react';
 
-function MostReadCard({ isMainPage }: { isMainPage?: boolean }) {
+function MostReadCard() {
   return (
     <Box
       sx={{

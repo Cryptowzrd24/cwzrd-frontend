@@ -1,23 +1,23 @@
 .date-comp {
   font-size: 13px;
   line-height: 16.9px;
-  font-family: "Sf Pro Display";
+  font-family: 'Sf Pro Display';
   font-weight: 400;
   text-align: right !important;
   display: flex;
   align-items: center;
-  justify-content: end !important;
+  justify-content: flex-end !important;
   height: inherit;
 }
 
 .date-comp-nft {
   font-size: 13px;
   line-height: 16.9px;
-  font-family: "Sf Pro Display";
+  font-family: 'Sf Pro Display';
   font-weight: 400;
   text-align: right !important;
   display: flex;
   align-items: center;
-  justify-content: start !important;
+  justify-content: flex-start !important;
   height: inherit;
 }
