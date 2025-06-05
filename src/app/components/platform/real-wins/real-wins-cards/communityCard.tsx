@@ -13,7 +13,7 @@ const CommunityCard = () => {
           backgroundPosition: 'center',
           padding: '24px 0 23.75px 24px',
           borderRadius: '24px',
-          minHeight: '250px',
+          // minHeight: '250px',
           width: '295px',
           overflow: 'hidden',
 

@@ -12,7 +12,7 @@ function AnalysisCardCompressed() {
   return (
     <Box
       sx={{
-        width: '657px',
+        width: '600px',
         height: '400px',
         borderRadius: '16px',
         backgroundImage: `url(${background.src})`,

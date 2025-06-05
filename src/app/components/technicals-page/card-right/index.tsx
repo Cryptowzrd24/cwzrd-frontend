@@ -50,7 +50,14 @@ const RightCard = () => {
           }}
         />
       </Box>
-      <Box sx={{ overflow: 'hidden' }}>
+      <Box
+        sx={{
+          overflow: 'hidden',
+          '@media (max-width: 1360px) and (min-width: 1024px)': {
+            height: '250px',
+          },
+        }}
+      >
         <img
           src={pepiBigImg.src}
           alt="pepi image"

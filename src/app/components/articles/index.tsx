@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import NewsCarousel from '../news/main/news-carousel';
 import NewsLetterBanner from '../banners/newsLetterBanner';
 import NewsCarouselBig from '../news/main/carouel-big';
@@ -12,6 +12,7 @@ import CardImage from '../../../../public/images/news-letter/image-car-news.png'
 import MostRead from '../news/main/most-read';
 
 const ArticlesPage = () => {
+  const isLargeTabScreen = useMediaQuery('(min-width: 978px)');
   const items = Array.from({ length: 20 }, (_, index) => index);
   return (
     <>
@@ -51,6 +52,10 @@ const ArticlesPage = () => {
           rowGap: '30px',
           columnGap: '16px',
           padding: '42px 0px 0px 0px',
+
+          '@media (max-width: 978px)': {
+            padding: '24px 0px 0px 0px',
+          },
         }}
       >
         {items.map((item) => (
@@ -62,6 +67,7 @@ const ArticlesPage = () => {
           >
             <TrendingNewsCard
               descriptionLines={1}
+              paddingInline="2px"
               image={CardImage} // Ensure the path is correct
               title={
                 'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip'
@@ -75,30 +81,35 @@ const ArticlesPage = () => {
         ))}
       </Box>
 
-      <Box sx={{ marginBlock: '51px' }}>
+      <Box
+        sx={{
+          marginBlock: '51px',
+          '@media (max-width: 978px)': { marginBlock: '16px' },
+        }}
+      >
         <NewsLetterBanner />
       </Box>
 
       <Box
         sx={{
           display: 'flex',
-          gap: 2.2,
-          maxHeight: '850px',
+          gap: 3 / 2,
+          height: '510px',
           '@media (max-width: 978px)': {
             flexDirection: 'column',
-            maxHeight: '100%',
+            height: '100%',
           },
         }}
       >
         <Box
           sx={{
-            width: '51%',
+            width: '53%',
             '@media (max-width: 978px)': {
               width: '100%',
             },
           }}
         >
-          <NewsCarouselBig isDetailPage={true} height={'535px'} />
+          <NewsCarouselBig isDetailPage={true} height={'510px'} />
         </Box>
         <Box
           sx={{
@@ -111,7 +122,7 @@ const ArticlesPage = () => {
             '@media (max-width: 978px)': {
               width: '100%',
               flexDirection: 'row',
-              gap: '8px',
+              gap: '16px',
             },
 
             '@media (max-width: 768px)': {
@@ -124,6 +135,7 @@ const ArticlesPage = () => {
               descriptionLines={1}
               isMainPage={true}
               image={CardImage}
+              textEllipsis={true}
               title={
                 "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange"
               }
@@ -132,8 +144,15 @@ const ArticlesPage = () => {
               }
             />
           </Box>
-          <Box maxHeight={'240px'}>
-            <TrendingNewsList height="250px" maxCards={3} marginLeft="10px" />
+          <Box
+            maxHeight={'max-content'}
+            sx={{ '@media (max-width: 978px)': { maxHeight: '100%' } }}
+          >
+            <TrendingNewsList
+              height="fit-content"
+              maxCards={3}
+              marginLeft="10px"
+            />
           </Box>
         </Box>
         <Box
@@ -142,19 +161,27 @@ const ArticlesPage = () => {
             '@media (max-width: 978px)': {
               width: '100%',
               display: 'flex',
-              gap: '8px',
+              gap: '16px',
               alignItems: 'center',
             },
 
             '@media (max-width: 768px)': {
               flexDirection: 'column',
-              marginTop: '10px',
             },
           }}
         >
-          <TrendingNewsList height="200px" maxCards={2} marginLeft="0px" />
+          <TrendingNewsList
+            height="200px"
+            maxCards={isLargeTabScreen ? 2 : 4}
+            marginLeft="0px"
+          />
 
-          <NewsMileStones />
+          <NewsMileStones
+            containerpadding={'18px 0px 0px 18px'}
+            containerMinHeight={'315px'}
+            titleMaxWidth={'100%'}
+            descriptionMaxWidth={'100%'}
+          />
         </Box>
       </Box>
 
@@ -191,7 +218,7 @@ const ArticlesPage = () => {
       <Box
         sx={{
           margin: '72px 0px 80px 0px',
-          '@media (max-width: 768px)': { margin: '48px 0px' },
+          '@media (max-width: 768px)': { margin: '24px 0px' },
         }}
       >
         <MemberShipBanner />

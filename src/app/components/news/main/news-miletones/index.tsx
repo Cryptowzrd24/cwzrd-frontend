@@ -4,7 +4,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import PlusIcon from '../../../../../../public/icons/collections/plusIcon';
 
-const NewsMileStones = ({ isCrypto }: any) => {
+const NewsMileStones = ({
+  isCrypto,
+  containerpadding,
+  containerMinHeight,
+  titleMaxWidth,
+  descriptionMaxWidth,
+}: any) => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((show) => !show);
@@ -57,9 +63,9 @@ const NewsMileStones = ({ isCrypto }: any) => {
       <Box
         component={motion.div}
         sx={{
-          padding: '25px 0px 0px 18px',
+          padding: containerpadding ?? '25px 0px 0px 18px',
           boxShadow: '0px 4px 28px 0px #0000000D',
-          minHeight: '350px',
+          minHeight: containerMinHeight ?? '350px',
           maxHeight: isCrypto ? '400px' : '100%',
           maxWidth: '300px',
           borderRadius: '32px',
@@ -68,11 +74,12 @@ const NewsMileStones = ({ isCrypto }: any) => {
           transition: 'all 0.325s linear',
 
           '@media (max-width: 978px)': {
-            width: '95%',
+            maxWidth: '410px',
           },
 
           '@media (max-width: 768px)': {
             maxWidth: '100%',
+            width: '100%',
           },
         }}
         initial="initial"
@@ -118,7 +125,7 @@ const NewsMileStones = ({ isCrypto }: any) => {
                 fontSize: '24px !important',
                 color: 'black',
                 letterSpacing: -0.1,
-                maxWidth: '298px',
+                maxWidth: titleMaxWidth ?? '298px',
                 lineHeight: '130% !important',
                 fontWeight: '700',
               }}
@@ -130,10 +137,11 @@ const NewsMileStones = ({ isCrypto }: any) => {
               sx={{
                 fontSize: '11px !important',
                 color: 'black',
-                maxWidth: '298px',
+                maxWidth: descriptionMaxWidth ?? '298px',
                 marginTop: '10px',
                 lineHeight: '15.95px',
                 fontWeight: '400',
+                paddingRight: '16px',
               }}
             >
               Every trade recommendation is managed on your behalf. Our experts

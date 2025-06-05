@@ -64,7 +64,6 @@ function GlobalNews() {
   return (
     <Box
       sx={{
-        // width: '300px',
         height: '410px',
         width: '300px',
         overflow: 'scroll',
@@ -77,6 +76,10 @@ function GlobalNews() {
         '@media (max-width: 1440px)': {
           height: 'auto',
           width: 'auto',
+        },
+
+        '@media (max-width: 1280px)': {
+          padding: '16px 0px',
         },
       }}
     >

@@ -45,7 +45,7 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
               lineHeight: '33px',
               letterSpacing: '2px',
               marginBottom: '0px',
-              fontSize: '30px',
+              fontSize: '30px !important',
 
               '@media (max-width: 576px)': {
                 fontWeight: 700,

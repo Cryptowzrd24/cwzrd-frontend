@@ -23,14 +23,15 @@ const Education = () => {
         <EducationCard />
         <Stack
           sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: '24px',
             '@media (max-width: 1023px)': {
               width: '100%',
             },
           }}
         >
-          <Box sx={{ mb: '30px' }}>
-            <RiskCalculator />
-          </Box>
+          <RiskCalculator />
           <ProfitableCard />
         </Stack>
       </Box>

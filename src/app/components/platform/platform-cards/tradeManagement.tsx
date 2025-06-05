@@ -125,6 +125,10 @@ const TradeManagement = () => {
                 maxWidth: '223.5px',
                 lineHeight: '33px',
                 fontWeight: 700,
+
+                '@media (max-width: 768px)': {
+                  maxWidth: '100%',
+                },
               }}
             >
               Sit back as our experts handle trades, <br />

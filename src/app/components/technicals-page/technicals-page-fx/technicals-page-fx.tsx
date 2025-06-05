@@ -30,12 +30,18 @@ import FinancialCardWide from '../financial-card-wide';
 import SectionCarousel from './section-carousel';
 
 function TechnicalsPageFx() {
-  const isTablet = useMediaQuery('(min-width: 768px)');
-
+  const screenSize1400 = useMediaQuery('(max-width: 1400px)');
+  const isMediumLaptop = useMediaQuery('(min-width: 1361px)');
   return (
     <Box>
-      <Box>
-        <Box>
+      <Box sx={{ marginBottom: '30px' }}>
+        <Box
+          sx={{
+            borderRadius: '24px',
+            background: '#FFF',
+            boxShadow: '0px 4px 28px 0px #0000000D',
+          }}
+        >
           <TechnicalsGraph />
         </Box>
         <Box>
@@ -47,7 +53,7 @@ function TechnicalsPageFx() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '21.5px',
+          marginBottom: '16px',
 
           '@media (max-width: 576px)': {
             paddingInline: '10px',
@@ -78,11 +84,6 @@ function TechnicalsPageFx() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-start',
-            marginRight: '38px',
-
-            '@media (max-width: 576px)': {
-              marginRight: '0px',
-            },
           }}
         >
           <Typography
@@ -90,14 +91,12 @@ function TechnicalsPageFx() {
               background: 'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              marginRight: '5px',
               fontWeight: '600',
               fontSize: '14px !important',
               lineHeight: '18.2px',
               fontFamily: 'Sf Pro Display',
             }}
             variant="body2"
-            right={1}
           >
             Read More
           </Typography>
@@ -110,6 +109,9 @@ function TechnicalsPageFx() {
           '@media (max-width: 1360px)': { flexDirection: 'column' },
         }}
       >
+        <Box>
+          <AnalysisCard isFirst={true} />
+        </Box>
         <Box
           sx={{
             display: 'flex',
@@ -117,31 +119,33 @@ function TechnicalsPageFx() {
             '@media (max-width: 1024px)': { flexDirection: 'column' },
           }}
         >
-          <AnalysisCard isFirst={true} />
           <FinancialNewsCardList />
-        </Box>
-        <Box
-          sx={{
-            width: '100%',
-            backgroundImage: `url('/images/news-letter/card-background1.png')`,
-            backgroundSize: '100% 100%',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            borderRadius: '16px',
-            height: '505px',
-          }}
-        >
-          <PicksForPanel />
+          <Box
+            sx={{
+              width: '100%',
+              backgroundImage: `url('/images/news-letter/card-background1.png')`,
+              backgroundSize: '100% 100%',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              borderRadius: '16px',
+              height: '505px',
+
+              '@media (max-width: 1360px)': { width: '50%' },
+              '@media (max-width: 1024px)': { width: '100%' },
+            }}
+          >
+            <PicksForPanel />
+          </Box>
         </Box>
       </Box>
-      <Box sx={{ mb: '120px' }}>
-        <FinancialNewsCarousel />
+      <Box sx={{ mb: '70px' }}>
+        <FinancialNewsCarousel titleWidth="auto" descriptionWidth="auto" />
       </Box>
       <Box
         sx={{
           display: 'flex',
           justifyContent: 'center',
-          marginTop: '10px',
+          marginTop: '16px',
           flexDirection: 'column',
         }}
       >
@@ -172,30 +176,40 @@ function TechnicalsPageFx() {
               },
             }}
           >
-            <AnalysisCard isFirst={true} />
-            <FinancialNewsCardList />
+            <AnalysisCard isFirst={true} height="505px" />
             <Box
               sx={{
-                width: '300px',
-                height: '507px',
-                background: 'white',
-                boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-                borderRadius: '24px',
-
-                '@media (max-width: 1360px)': {
-                  height: 'auto',
-                },
-                '@media (max-width: 1024px)': {
-                  width: '100%',
-                },
+                display: 'flex',
+                gap: '16px',
+                '@media (max-width: 1024px)': { flexDirection: 'column' },
               }}
             >
-              <RightCard />
+              <FinancialNewsCardList />
+              <Box
+                sx={{
+                  width: '300px',
+                  height: '507px',
+                  background: 'white',
+                  boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+                  borderRadius: '24px',
+
+                  '@media (max-width: 1360px)': {
+                    width: '45%',
+                  },
+                  '@media (max-width: 1024px)': {
+                    height: 'auto',
+                    width: '100%',
+                  },
+                }}
+              >
+                <RightCard />
+              </Box>
             </Box>
           </Box>
         </Box>
-        <Box sx={{ mb: '120px' }}>
-          <FinancialNewsCarousel />
+        {/* <Box sx={{ mb: '120px' }}> */}
+        <Box sx={{ mb: '70px', mt: '16px' }}>
+          <FinancialNewsCarousel titleWidth="auto" descriptionWidth="auto" />
         </Box>
         <Box
           sx={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}
@@ -223,7 +237,7 @@ function TechnicalsPageFx() {
         </Box>
       </Box>
       {/* //third sec// */}
-      <Box sx={{ marginBlock: '24px' }}>
+      <Box sx={{ marginBlock: '16px' }}>
         <TechnicalsBanner
           bgColor="purple"
           coinName="Litecoin"
@@ -235,7 +249,7 @@ function TechnicalsPageFx() {
       <Box
         sx={{
           display: 'flex',
-          gap: 2,
+          gap: '16px',
           '@media (max-width: 1400px)': { flexDirection: 'column' },
         }}
       >
@@ -244,9 +258,9 @@ function TechnicalsPageFx() {
           <Box
             sx={{
               display: 'flex',
-              gap: 1,
-              marginTop: '12px',
-              marginBottom: isTablet ? '0px' : '50px',
+              gap: '16px',
+              marginTop: '16px',
+              marginBottom: isMediumLaptop ? '0px' : '50px',
 
               '@media (max-width: 1360px)': {
                 flexWrap: 'wrap',
@@ -254,35 +268,42 @@ function TechnicalsPageFx() {
               },
             }}
           >
-            {isTablet ? (
+            {isMediumLaptop ? (
               <>
                 <FinancialCard
                   isFxPage={true}
                   image={usaIcon}
                   dualImg={ausIcon}
+                  titleMaxWidth="auto"
                 />
                 <FinancialCard
                   isFxPage={true}
                   image={usaIcon}
                   dualImg={ausIcon}
+                  titleMaxWidth="auto"
                 />
                 <FinancialCard
                   isFxPage={true}
                   image={usaIcon}
                   dualImg={ausIcon}
+                  titleMaxWidth="auto"
                 />
                 <FinancialCard
                   isFxPage={true}
                   image={usaIcon}
                   dualImg={ausIcon}
+                  titleMaxWidth="auto"
                 />
               </>
             ) : (
-              <FinancialNewsCarousel />
+              <FinancialNewsCarousel
+                titleWidth="auto"
+                descriptionWidth="auto"
+              />
             )}
           </Box>
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <NewsCard
             image={usaIcon}
             isShort={true}
@@ -321,7 +342,7 @@ function TechnicalsPageFx() {
           />
         </Box>
       </Box>
-      <Box sx={{ marginBlock: '24px' }}>
+      <Box sx={{ marginBlock: '16px' }}>
         <TechnicalsBanner
           bgColor="green"
           coinName="XRP"
@@ -332,9 +353,12 @@ function TechnicalsPageFx() {
       <Box
         sx={{
           display: 'flex',
-          gap: 2,
-          '@media (max-width: 1360px)': {
+          gap: '16px',
+          mb: '16px',
+          '@media (max-width: 1400px)': {
             flexDirection: 'column',
+            height: 'auto',
+            gap: 0,
           },
         }}
       >
@@ -342,17 +366,21 @@ function TechnicalsPageFx() {
           sx={{
             display: 'flex',
             gap: 2,
+            mb: '8px',
             '@media (max-width: 1024px)': {
               flexDirection: 'column',
             },
           }}
         >
-          <AnalysisCard
-            isFourth={true}
-            image={ausIcon}
-            dualImg={usaIcon}
-            isFxPage={true}
-          />
+          <Box>
+            <AnalysisCard
+              isFourth={true}
+              image={ausIcon}
+              dualImg={usaIcon}
+              isFxPage={true}
+              height="100%"
+            />
+          </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             <FinancialCarBig
               image={usaIcon}
@@ -384,7 +412,7 @@ function TechnicalsPageFx() {
             display: 'flex',
             flexDirection: 'column',
             gap: 1,
-            '@media (max-width: 1360px)': {
+            '@media (max-width: 1400px)': {
               flexDirection: 'row',
             },
             '@media (max-width: 1024px)': {
@@ -392,7 +420,7 @@ function TechnicalsPageFx() {
             },
           }}
         >
-          <Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             <NewsCard
               image={usaIcon}
               isShort={true}
@@ -405,11 +433,27 @@ function TechnicalsPageFx() {
               dualImg={ausIcon}
               isFxPage={true}
             />
+            {screenSize1400 && (
+              <>
+                <NewsCard
+                  image={usaIcon}
+                  isShort={true}
+                  dualImg={ausIcon}
+                  isFxPage={true}
+                />
+                <NewsCard
+                  image={usaIcon}
+                  isShort={true}
+                  dualImg={ausIcon}
+                  isFxPage={true}
+                />
+              </>
+            )}
           </Box>
           <MentorshipCard />
         </Box>
       </Box>
-      <Box sx={{ marginBottom: '24px' }}>
+      <Box sx={{ marginBottom: '16px' }}>
         <TechnicalsBanner
           bgColor="bronze"
           coinName="Chainlink"
@@ -418,18 +462,18 @@ function TechnicalsPageFx() {
         />
       </Box>
 
-      <Box sx={{ marginBlock: '24px', display: 'flex' }}>
+      <Box sx={{ marginBlock: '16px', display: 'flex' }}>
         <Box
           sx={{
             display: 'flex',
-            gap: 2,
+            gap: '16px',
             '@media (max-width: 1360px)': {
               flexDirection: 'column',
               width: '100%',
             },
           }}
         >
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <FinancialRight isMainPage={false} />
           </Box>
           <Box>
@@ -442,16 +486,16 @@ function TechnicalsPageFx() {
             <Box
               sx={{
                 display: 'flex',
-                gap: 1,
-                marginTop: '12px',
-                marginBottom: isTablet ? '0px' : '50px',
+                gap: '16px',
+                marginTop: '16px',
+                marginBottom: isMediumLaptop ? '0px' : '50px',
                 '@media (max-width: 1360px)': {
                   flexWrap: 'wrap',
                   justifyContent: 'center',
                 },
               }}
             >
-              {isTablet ? (
+              {isMediumLaptop ? (
                 <>
                   <FinancialCard
                     isFxPage={true}
@@ -475,14 +519,18 @@ function TechnicalsPageFx() {
                   />
                 </>
               ) : (
-                <FinancialNewsCarousel image={usaIcon} />
+                <FinancialNewsCarousel
+                  image={usaIcon}
+                  titleWidth="auto"
+                  descriptionWidth="auto"
+                />
               )}
             </Box>
           </Box>
         </Box>
       </Box>
       <Box>
-        <Box sx={{ marginBottom: '24px' }}>
+        <Box sx={{ marginBottom: '16px' }}>
           <TechnicalsBanner
             bgColor="purple"
             coinName="Chainlink"
@@ -534,15 +582,15 @@ function TechnicalsPageFx() {
           sx={{
             display: 'flex',
             gap: '16px',
-            marginTop: '12px',
-            marginBottom: isTablet ? '0px' : '60px',
+            marginTop: '16px',
+            marginBottom: isMediumLaptop ? '0px' : '60px',
             '@media (max-width: 1400px)': {
               flexWrap: 'wrap',
               justifyContent: 'center',
             },
           }}
         >
-          {isTablet ? (
+          {isMediumLaptop ? (
             <>
               <FinancialCardWide image={chainLinkImg} />
               <FinancialCardWide image={chainLinkImg} />
@@ -550,14 +598,18 @@ function TechnicalsPageFx() {
               <FinancialCardWide image={chainLinkImg} />
             </>
           ) : (
-            <FinancialNewsCarousel image={usaIcon} />
+            <FinancialNewsCarousel
+              image={usaIcon}
+              titleWidth="auto"
+              descriptionWidth="auto"
+            />
           )}
         </Box>
-        <Box sx={{ marginBottom: '80px' }}>
-          <FinancialNewsCarousel />
+        <Box sx={{ marginBottom: '70px' }}>
+          <FinancialNewsCarousel titleWidth="auto" descriptionWidth="auto" />
         </Box>
       </Box>
-      <Box sx={{ marginBottom: '24px', mt: '54px' }}>
+      <Box sx={{ marginBottom: '16px', mt: '54px' }}>
         <TechnicalsBanner
           bgColor="blue"
           coinName="Chainlink"
@@ -584,16 +636,16 @@ function TechnicalsPageFx() {
           <Box
             sx={{
               display: 'flex',
-              gap: 1,
-              marginTop: '12px',
-              marginBottom: isTablet ? '0px' : '50px',
+              gap: '16px',
+              marginTop: '16px',
+              marginBottom: isMediumLaptop ? '0px' : '50px',
               '@media (max-width: 1400px)': {
                 flexWrap: 'wrap',
                 justifyContent: 'center',
               },
             }}
           >
-            {isTablet ? (
+            {isMediumLaptop ? (
               <>
                 <FinancialCard />
                 <FinancialCard />
@@ -601,12 +653,16 @@ function TechnicalsPageFx() {
                 <FinancialCard />
               </>
             ) : (
-              <FinancialNewsCarousel image={usaIcon} />
+              <FinancialNewsCarousel
+                image={usaIcon}
+                titleWidth="auto"
+                descriptionWidth="auto"
+              />
             )}
           </Box>
         </Box>
       </Box>
-      <Box sx={{ marginBottom: '24px', mt: '24px' }}>
+      <Box sx={{ marginBottom: '16px', mt: '16px' }}>
         <MemberShipBanner />
       </Box>
     </Box>

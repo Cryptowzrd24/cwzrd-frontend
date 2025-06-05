@@ -13,7 +13,7 @@ function MiddleAnalysisCard({ isFxPage }: { isFxPage?: boolean }) {
   return (
     <Box
       sx={{
-        width: '670px',
+        width: '590px',
         height: '524px',
         borderRadius: '16px',
         background:
@@ -82,7 +82,7 @@ function MiddleAnalysisCard({ isFxPage }: { isFxPage?: boolean }) {
 
       <Box
         sx={{
-          width: '674px',
+          width: 'autp',
           height: '333px',
           marginTop: '-24px',
 

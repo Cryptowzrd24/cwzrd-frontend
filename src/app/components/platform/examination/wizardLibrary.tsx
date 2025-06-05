@@ -27,7 +27,8 @@ const WizardLibrary = () => {
             paddingLeft: '48px',
             paddingTop: '68.75px',
             paddingBottom: '68.75px',
-            padding: isSmallScreen ? '' : '16px 16px 0px',
+            padding: isSmallScreen ? '' : '36px 16px 0px',
+            textAlign: isSmallScreen ? 'left' : 'center',
           }}
         >
           <Typography

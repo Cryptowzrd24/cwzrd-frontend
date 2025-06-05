@@ -28,13 +28,17 @@ function Card({ textWidth = '240px' }: { textWidth?: string }) {
       >
         <Typography
           sx={{
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontWeight: 700,
             fontFamily: 'Sf Pro Display',
             color: 'rgba(255, 255, 255, 1)',
             lineHeight: '15.6px',
             letterSpacing: '0.6px',
             width: textWidth ? textWidth : '240px',
+
+            '@media (max-width: 1024px)': {
+              width: '250px',
+            },
           }}
         >
           Comprehensive Ethereum Price Forecast and Market Update for ETH/USD

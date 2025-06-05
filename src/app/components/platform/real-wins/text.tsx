@@ -5,7 +5,16 @@ import RightBlue from '../../../../../public/icons/collections/rightBlue';
 const Text = () => {
   return (
     <>
-      <Box sx={{ maxWidth: '460px', width: '100%' }}>
+      <Box
+        sx={{
+          maxWidth: '460px',
+          width: '100%',
+          '@media (max-width: 978px)': {
+            maxWidth: '100%',
+            textAlign: 'center',
+          },
+        }}
+      >
         <Typography
           variant="h1"
           sx={{
@@ -34,6 +43,11 @@ const Text = () => {
             lineHeight: '18px',
             color: 'rgba(17, 17, 17, 0.8)',
             width: '342px',
+
+            '@media (max-width: 978px)': {
+              width: '100%',
+              textAlign: 'center',
+            },
           }}
         >
           See real wins and success stories from traders who have used our
@@ -42,8 +56,11 @@ const Text = () => {
         <Box
           sx={{
             mt: '42px',
-            '@media (max-width: 576px)': {
+
+            '@media (max-width: 978px)': {
               mt: '8px',
+              display: 'flex',
+              justifyContent: 'center',
             },
           }}
         >

@@ -38,6 +38,8 @@ export default function AccordionQuestion({
           '&:last-of-type': {
             borderRadius: '16px',
           },
+
+          '@media (max-width: 976px)': { maxWidth: '100%' },
         }}
       >
         <AccordionSummary

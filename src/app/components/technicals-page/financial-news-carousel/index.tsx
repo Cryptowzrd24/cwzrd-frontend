@@ -163,9 +163,13 @@ const NextArrow = ({ onClick }: any) => (
 const FinancialNewsCarousel = ({
   noBackground = false,
   image,
+  titleWidth,
+  descriptionWidth,
 }: {
   noBackground?: boolean;
   image?: string | StaticImageData;
+  titleWidth?: string;
+  descriptionWidth?: string;
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // <600px
@@ -191,7 +195,12 @@ const FinancialNewsCarousel = ({
         boxSizing: 'border-box',
       }}
     >
-      <FinancialNewsCardVertical noBackground={noBackground} image={image} />
+      <FinancialNewsCardVertical
+        noBackground={noBackground}
+        image={image}
+        titleMaxWidth={titleWidth}
+        descriptionMaxWidth={descriptionWidth}
+      />
     </Box>
   ));
 

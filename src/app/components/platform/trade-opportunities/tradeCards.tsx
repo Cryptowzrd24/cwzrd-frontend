@@ -10,46 +10,60 @@ const TradeCards = () => {
         gap: '30px',
         flex: 1,
         justifyContent: 'center',
-        '@media (max-width: 786px)': {
+        '@media (max-width: 834px)': {
           flexDirection: 'column',
         },
       }}
     >
       <Box
         sx={{
-          paddingLeft: '32px',
-          paddingBottom: '40px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '32px',
-          // width: '41.2%',
           width: '390px',
 
-          '@media (max-width: 786px)': {
-            width: 'inherit',
-            paddingLeft: '16px',
-            paddingBottom: '20px',
+          '@media (max-width: 834px)': {
+            width: 'auto',
           },
         }}
       >
-        <Image
-          src={graph}
-          alt="graph"
-          width={500}
-          style={{
-            width: '100%',
-            height: 'auto',
+        <Box
+          sx={{
+            paddingLeft: '32px',
+            paddingBottom: '40px',
+            '@media (max-width: 834px)': {
+              paddingLeft: '16px',
+              paddingBottom: '20px',
+            },
           }}
-        />
-        <Stack sx={{ maxWidth: '440px', paddingLeft: '8px' }}>
+        >
+          <Image
+            src={graph}
+            alt="graph"
+            width={500}
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+          />
+        </Box>
+        <Stack
+          sx={{
+            maxWidth: '440px',
+            padding: '0px 16px 16px',
+            '@media (max-width: 834px)': {
+              padding: '16px',
+              maxWidth: '100%',
+              textAlign: 'center',
+            },
+          }}
+        >
           <Typography
             sx={{
               fontSize: '13px !important',
               fontWeight: '600',
               color: 'rgba(17, 17, 17, 1)',
               lineHeight: '16.9px',
-              mb: '8px',
-              mt: '32px',
             }}
           >
             Daily WZRD Intraday Setup Calls
@@ -77,11 +91,17 @@ const TradeCards = () => {
           borderRadius: '32px',
           position: 'relative',
           width: '555px',
+          height: '290px !important',
 
-          '@media (max-width: 786px)': {
-            padding: '32px 0 0 24px',
-            width: 'inherit',
+          '@media (max-width: 834px)': {
+            padding: '36px 32px',
+            width: 'auto',
             height: '400px',
+            textAlign: 'center',
+          },
+
+          '@media (max-width: 576px)': {
+            padding: '36px 24px',
           },
         }}
       >
@@ -93,13 +113,6 @@ const TradeCards = () => {
             lineHeight: '26.44px',
             mb: '8px',
             fontFamily: 'Sf Pro Display',
-
-            '@media (max-width: 576px)': {
-              fontSize: '16px !important',
-              fontWeight: '700',
-              lineHeight: '130%',
-              letterSpacing: '0.32px',
-            },
           }}
         >
           Trade Signals
@@ -113,8 +126,9 @@ const TradeCards = () => {
             fontWeight: '400',
             lineHeight: '18px',
 
-            '@media (max-width: 576px)': {
-              width: '226px',
+            '@media (max-width: 834px)': {
+              width: '340px',
+              mx: 'auto',
             },
           }}
         >

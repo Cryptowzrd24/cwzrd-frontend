@@ -1,30 +1,28 @@
 import React from 'react';
 import join from '../../../../../public/images/platform/Component.png';
-import { Box, Typography, useMediaQuery } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import ArrowRight from '../../../../../public/icons/News-Letter/arrowRight';
 const MemberCard = () => {
-  const isSmallScreen = useMediaQuery('(min-width: 576px)');
   return (
     <>
       <Box
         sx={{
-          // padding: '20px 48px',
+          padding: '10px 36px',
           borderRadius: '24px',
           backgroundImage:
             'linear-gradient(116.74deg, #634DFD -4.07%, #7E44F1 100.68%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '967.5px',
+          width: '890.5px',
 
-          '@media (max-width: 824px)': {
-            flexDirection: 'column',
+          '@media (max-width: 830px)': {
+            padding: '10px',
           },
 
-          '@media (max-width: 576px)': {
-            alignItems: 'flex-start',
-            padding: '16px',
+          '@media (max-width: 768px)': {
+            flexDirection: 'column',
           },
         }}
       >
@@ -34,21 +32,12 @@ const MemberCard = () => {
             alignItems: 'center',
             gap: '15px',
 
-            '@media (max-width: 576px)': {
-              alignItems: 'flex-start',
+            '@media (max-width: 768px)': {
               flexDirection: 'column',
             },
           }}
         >
-          <Image
-            src={join}
-            alt="join"
-            width={36}
-            height={36}
-            style={
-              isSmallScreen ? { paddingBlock: '10px', paddingLeft: '36px' } : {}
-            }
-          />
+          <Image src={join} alt="join" width={36} height={36} />
           <Typography
             sx={{
               color: 'rgba(255, 255, 255, 1)',
@@ -56,19 +45,16 @@ const MemberCard = () => {
               fontWeight: 600,
               lineHeight: '21.6px',
               fontFamily: 'Sf Pro Display',
+
+              '@media (max-width: 768px)': {
+                textAlign: 'center',
+              },
             }}
           >
             We are the largest trading community. Join Now?
           </Typography>
         </Box>
-        <Box
-          sx={{
-            paddingRight: '36px',
-            '@media (max-width: 824px)': {
-              paddingRight: '0px',
-            },
-          }}
-        >
+        <Box>
           <Typography
             sx={{
               fontSize: '18px',

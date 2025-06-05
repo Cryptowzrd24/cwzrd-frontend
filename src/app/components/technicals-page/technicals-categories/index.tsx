@@ -33,10 +33,6 @@ export const TechnicalsCategory: React.FC = () => {
         '@media (max-width: 1024px)': {
           marginTop: '10px',
         },
-
-        '@media (max-width: 576px)': {
-          padding: '0px !important',
-        },
       }}
     >
       <Box

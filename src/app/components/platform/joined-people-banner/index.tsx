@@ -8,23 +8,21 @@ const JoinedPeople = () => {
     <>
       <Box
         sx={{
-          // padding: '24px 48px',
           borderRadius: '24px',
           backgroundImage:
             'linear-gradient(116.74deg, #634DFD -4.07%, #7E44F1 100.68%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '967.5px',
+          width: '892.5px',
+          padding: '10px 36px',
 
-          '@media (max-width: 824px)': {
-            flexDirection: 'column',
-            padding: '16px',
+          '@media (max-width: 830px)': {
+            padding: '10px',
           },
 
-          '@media (max-width: 576px)': {
-            alignItems: 'flex-start',
-            padding: '16px',
+          '@media (max-width: 768px)': {
+            flexDirection: 'column',
           },
         }}
       >
@@ -33,18 +31,13 @@ const JoinedPeople = () => {
             display: 'flex',
             alignItems: 'center',
             gap: '32px',
-            paddingBlock: '10px',
-            paddingLeft: '36px',
 
-            '@media (max-width: 824px)': {
-              padding: '0px',
-            },
-            '@media (max-width: 576px)': {
+            '@media (max-width: 830px)': {
               gap: '16px',
             },
-            '@media (max-width: 492px)': {
+
+            '@media (max-width: 768px)': {
               flexDirection: 'column',
-              alignItems: 'flex-start',
             },
           }}
         >
@@ -65,12 +58,6 @@ const JoinedPeople = () => {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            paddingBlock: '10px',
-            paddingRight: '36px',
-
-            '@media (max-width: 824px)': {
-              padding: '0px',
-            },
           }}
         >
           <Typography

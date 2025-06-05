@@ -7,7 +7,7 @@ const FrequentlyAskedQuestion = () => {
     <>
       <Typography
         sx={{
-          fontSize: '32px',
+          fontSize: '32px !important',
           fontWeight: '700',
           lineHeight: '38.4px',
           marginBottom: '24px',
@@ -52,7 +52,12 @@ const FrequentlyAskedQuestion = () => {
           width: '100%',
         }}
       >
-        <Box sx={{ maxWidth: '477px' }}>
+        <Box
+          sx={{
+            maxWidth: '477px',
+            '@media (max-width: 976px)': { maxWidth: '100%' },
+          }}
+        >
           <AccordionQuestion
             title="What is Cryptowzrd?"
             summary="Cryptowzrd is a comprehensive platform designed to empower traders in the world of cryptocurrency. We offer a range of educational resources, tools, and support to help traders of all levels succeed in the market."
@@ -73,7 +78,7 @@ const FrequentlyAskedQuestion = () => {
         <Box
           sx={{
             maxWidth: '477px',
-            '@media(max-width: 987px)': {
+            '@media(max-width: 976px)': {
               display: 'none',
             },
           }}

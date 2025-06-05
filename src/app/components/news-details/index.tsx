@@ -60,8 +60,9 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
   return (
     <>
       <Container
+        maxWidth="xl"
         sx={{
-          maxWidth: '100% !important',
+          maxWidth: '1440px !important',
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >
@@ -85,8 +86,7 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
       </Box>
       <Container
         sx={{
-          maxWidth: '89.58% !important',
-          '@media (max-width: 1440px)': { paddingInline: '20px !important' },
+          maxWidth: '1440px !important',
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >
@@ -102,12 +102,8 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
         </Box>
         <Box
           sx={{
-            mt: isArticleDetails ? '60px' : '56px',
-            mb: '48px',
-            '@media (max-width: 978px)': {
-              mt: '64px',
-              mb: '28px',
-            },
+            mt: '72px',
+            mb: '40px',
           }}
         >
           <MemberShipBanner />

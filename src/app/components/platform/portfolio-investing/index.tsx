@@ -14,6 +14,7 @@ const Portfolio = () => {
           alignItems: 'center',
           borderRadius: '24px',
           gap: '40px',
+          overflow: 'hidden',
 
           '@media (max-width: 1024px)': {
             flexDirection: 'column-reverse',
@@ -37,7 +38,11 @@ const Portfolio = () => {
           sx={{
             paddingBlock: '114px',
             '@media (max-width: 1024px)': {
-              padding: '16px',
+              padding: '36px 16px 16px',
+            },
+
+            '@media (max-width: 768px)': {
+              textAlign: 'center',
             },
           }}
         >

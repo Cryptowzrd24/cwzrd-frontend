@@ -31,9 +31,14 @@ const ProgressCard = ({
 
         '@media (max-width: 768px)': {
           boxShadow: 'none',
-          width: 'inherit',
+          width: 'auto',
+          marginLeft: '16px',
           paddingLeft: '18px',
           gap: '20px',
+        },
+
+        '@media (max-width: 576px)': {
+          margin: 0,
         },
       }}
     >

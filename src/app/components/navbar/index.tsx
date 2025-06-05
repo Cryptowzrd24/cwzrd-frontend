@@ -170,7 +170,7 @@ function Navbar() {
               justifyContent: 'space-between',
               alignItems: 'center',
               py: '8px',
-              mt: 3,
+              mt: pathname === '/' ? '' : 3,
             }}
           >
             <Link href="/">

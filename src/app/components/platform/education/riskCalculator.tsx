@@ -19,6 +19,9 @@ const RiskCalculator = () => {
         <Box
           sx={{
             padding: '36px 36px 0 36px',
+            '@media (max-width: 768px)': {
+              textAlign: 'center',
+            },
           }}
         >
           <Typography
@@ -29,10 +32,6 @@ const RiskCalculator = () => {
               letterSpacing: '1px',
               lineHeight: '15.6px',
               mb: '8px',
-
-              '@media (max-width: 576px)': {
-                textAlign: 'center',
-              },
             }}
           >
             RISK CALCULATOR
@@ -43,10 +42,6 @@ const RiskCalculator = () => {
               fontSize: '24px !important',
               fontWeight: 700,
               lineHeight: '28.8px',
-
-              '@media (max-width: 576px)': {
-                textAlign: 'center',
-              },
             }}
           >
             Make Data-Driven Investment Choices{' '}

@@ -14,6 +14,7 @@ const TechnicalDetails = () => {
       <Container
         maxWidth="xl"
         sx={{
+          maxWidth: '1440px !important',
           '@media (max-width: 599px)': { padding: '16px !important' },
         }}
       >
@@ -35,6 +36,7 @@ const TechnicalDetails = () => {
       <Container
         maxWidth="xl"
         sx={{
+          maxWidth: '1440px !important',
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >
@@ -50,8 +52,8 @@ const TechnicalDetails = () => {
         </Box>
         <Box
           sx={{
-            mt: '56px',
-            mb: '42px',
+            mt: '72px',
+            mb: '40px',
             '@media (max-width: 978px)': { mb: '28px' },
           }}
         >

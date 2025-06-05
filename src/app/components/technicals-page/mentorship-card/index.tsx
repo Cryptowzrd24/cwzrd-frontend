@@ -15,6 +15,14 @@ const MentorshipCard = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
+
+        '@media (max-width: 1400px)': {
+          width: '62%',
+        },
+
+        '@media (max-width: 1024px)': {
+          width: '100%',
+        },
       }}
     >
       <Box
@@ -23,6 +31,10 @@ const MentorshipCard = () => {
           height: '170px',
           width: '100%',
           borderRadius: '24px',
+
+          '@media (max-width: 1024px)': {
+            height: '100%',
+          },
         }}
       >
         <img
@@ -41,6 +53,10 @@ const MentorshipCard = () => {
           height: '170px',
           width: '100%',
           borderRadius: '24px',
+
+          '@media (max-width: 1024px)': {
+            display: 'none',
+          },
         }}
       >
         <img

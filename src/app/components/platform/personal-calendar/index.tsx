@@ -10,7 +10,7 @@ import PlusIcon from '../../../../../public/icons/collections/plusIcon';
 const PersonalCalendar = () => {
   const [active, setActive] = useState(false);
   const isTabView = useMediaQuery('(min-width: 978px)');
-  const isSmallView = useMediaQuery('(max-width: 672px)');
+  const isSmallView = useMediaQuery('(max-width: 724px)');
 
   const handleClick = () => {
     setActive((show) => !show);
@@ -69,14 +69,19 @@ const PersonalCalendar = () => {
           width: '100%',
         }}
       >
-        <motion.div
-          style={{
+        <Box
+          component={motion.div}
+          sx={{
             borderRadius: '24px',
             width: '637.5px',
             height: '443.25px',
             boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             position: 'relative',
             transition: 'all 0.325s linear',
+
+            '@media(max-width: 978px)': {
+              width: '100%',
+            },
           }}
           initial="initial"
           animate={active ? 'active' : 'inactive'}
@@ -88,7 +93,7 @@ const PersonalCalendar = () => {
               alignItems: 'center',
               gap: '53.82px',
 
-              '@media (max-width: 672px)': {
+              '@media (max-width: 724px)': {
                 flexDirection: active ? 'column' : 'column-reverse',
                 alignItems: 'flex-start',
                 overflow: 'hidden',
@@ -122,7 +127,11 @@ const PersonalCalendar = () => {
                   width={isSmallView ? 250.18 : 219.18}
                   height={447.98}
                   style={{
-                    paddingLeft: isSmallView ? '0' : '70.5px',
+                    paddingLeft: isTabView
+                      ? isSmallView
+                        ? '0'
+                        : '70.5px'
+                      : '36px',
                     marginTop: isSmallView ? '0' : '57.75px',
                     position: isSmallView ? 'relative' : 'absolute',
                     left: '0',
@@ -168,8 +177,10 @@ const PersonalCalendar = () => {
               sx={{
                 paddingTop: '126.75px',
                 paddingBottom: '79.75px',
-                '@media (max-width: 672px)': {
-                  p: '24px 18px 0',
+                '@media (max-width: 724px)': {
+                  p: '36px 18px 0',
+                  width: '100%',
+                  textAlign: 'center',
                 },
               }}
             >
@@ -188,9 +199,14 @@ const PersonalCalendar = () => {
                     mb: '48.75px',
                     textWrap: 'balance',
 
-                    '@media (max-width: 672px)': {
+                    '@media (max-width: 978px)': {
+                      maxWidth: '500px',
+                      mb: '24px',
+                    },
+
+                    '@media (max-width: 724px)': {
                       fontSize: '24px !important',
-                      maxWidth: '308px',
+                      maxWidth: '100%',
                       letterSpacing: '0.24px',
                       lineHeight: '120%',
                       mb: '16px',
@@ -249,7 +265,7 @@ const PersonalCalendar = () => {
               </motion.div>
             </Box>
           </Box>
-        </motion.div>
+        </Box>
         {isTabView && <ExportCard />}
       </Box>
     </>

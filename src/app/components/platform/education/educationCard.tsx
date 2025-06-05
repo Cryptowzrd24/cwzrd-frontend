@@ -67,7 +67,7 @@ const EducationCard = () => {
           width: isTabView ? '637.5px' : '100%',
           position: 'relative',
           transition: 'all 0.325s linear',
-          height: '693.75px',
+          height: '686.75px',
           '@media (max-width: 678px)': {
             height: '630px',
           },

@@ -11,10 +11,9 @@ const Feature = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          maxWidth: { xs: '100%', md: '1070px' },
+          maxWidth: { xs: 'fit-content', md: '1070px' },
           width: { xs: 'auto', sm: '100%' },
           margin: 'auto',
-          padding: { xs: '16px', md: '0' },
         }}
       >
         <Typography
@@ -57,7 +56,7 @@ const Feature = () => {
           sx={{
             fontSize: { xs: '12px', md: '14px' },
             fontWeight: '400',
-            mb: '24px',
+            mb: '32px',
             textAlign: 'center',
             maxWidth: '850px',
             lineHeight: { xs: '18px', md: '21px' },

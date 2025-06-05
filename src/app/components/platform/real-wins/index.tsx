@@ -15,12 +15,12 @@ const RealWins = () => {
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '32px',
           alignItems: 'center',
-          width: '978px',
-          gap: '52.5px',
+          maxWidth: '978px',
+          width: '100%',
           height: '321px',
 
-          '@media (max-width: 1024px)': {
-            padding: '16px 12px',
+          '@media (max-width: 978px)': {
+            padding: '36px 12px 16px',
             gap: '16px',
             flexDirection: 'column',
             alignItems: 'flex-start',

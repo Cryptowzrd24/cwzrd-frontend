@@ -16,9 +16,14 @@ interface NewsCardProps {
   isTransparent?: boolean;
   imageMargin?: string;
   imageWidth?: string;
+  imageHeight?: string;
   containerWidth?: string;
   justifyContent?: string;
   isMainPage?: boolean;
+  containerPadding?: string;
+  containerHeight?: string;
+  boxMediaQuery?: string;
+  boxMediaQueryWidth?: string;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({
@@ -32,18 +37,21 @@ const NewsCard: React.FC<NewsCardProps> = ({
   isTransparent,
   imageMargin,
   imageWidth,
+  imageHeight,
   containerWidth,
   justifyContent,
   isMainPage,
+  containerPadding,
+  containerHeight,
+  boxMediaQuery,
+  boxMediaQueryWidth,
 }) => {
-  const isTabView = useMediaQuery('@media (max-width: 978px)');
-  const isLargeScreen = useMediaQuery('@media (min-width: 1680px)');
+  const isTabView = useMediaQuery('(max-width: 978px)');
+  const isLargeScreen = useMediaQuery('(min-width: 1680px)');
   return (
     <Box
       sx={{
-        // padding: '8px',
-        // paddingBottom: '12px',
-        padding: isCrypto ? '12px' : '0px',
+        padding: containerPadding ?? (isCrypto ? '12px' : '0px'),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -53,20 +61,29 @@ const NewsCard: React.FC<NewsCardProps> = ({
           : allNews
             ? '328px'
             : containerWidth || '309px',
-        height: allNews ? '252px' : '252px',
+        height: containerHeight ?? (allNews ? '252px' : '252px'),
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
 
         '@media (max-width: 978px)': {
           flexDirection: 'row',
-          width: isVertical ? 'auto' : '100%',
-          height: 'auto',
-          padding: isVertical ? '10px' : '0px',
+          width: 'auto',
+          height: '110px',
+          padding: isVertical ? '10px' : '8px',
+          alignItems: 'flex-start',
+          justifyContent: 'flex-start',
         },
+
+        ...(boxMediaQuery && {
+          [`@media ${boxMediaQuery}`]: {
+            width: boxMediaQueryWidth,
+          },
+        }),
 
         ...(isVertical && {
           '@media (max-width: 576px)': {
             flexDirection: 'column',
+            height: '100%',
           },
         }),
       }}
@@ -74,19 +91,25 @@ const NewsCard: React.FC<NewsCardProps> = ({
       <Box
         sx={{
           width: isLargeScreen ? '100%' : imageWidth || '312px',
-          height: isLargeScreen ? '154px' : '134px',
+          height: isLargeScreen ? '150px' : imageHeight || '134px',
           objectFit: 'cover',
           borderRadius: '12px',
           margin: imageMargin || '8px 8px 0px 8px',
           position: 'relative',
           '@media (max-width: 978px)': {
-            maxWidth: '312px',
-            margin: 0,
+            width: '312px',
+            margin: '0px',
           },
 
           ...(isVertical && {
+            '@media (max-width: 978px)': {
+              margin: '0px',
+              height: '100%',
+            },
+          }),
+
+          ...(isVertical && {
             '@media (max-width: 576px)': {
-              maxWidth: 'none',
               width: '100%',
             },
           }),
@@ -105,7 +128,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
               color: 'white',
 
               '@media (max-width: 576px)': {
-                display: isVertical ? 'block' : 'none',
+                display: 'none',
               },
             }}
             label={
@@ -153,7 +176,14 @@ const NewsCard: React.FC<NewsCardProps> = ({
           }}
         />
       </Box>
-      <Box sx={{ padding: '8px 2px 2px 2px' }}>
+      <Box
+        sx={{
+          padding: '8px 2px 2px 2px',
+          ...(!isVertical && {
+            '@media (max-width: 978px)': { padding: '0px' },
+          }),
+        }}
+      >
         <Box sx={{ paddingInline: isMainPage ? '0px' : '8px' }}>
           <Typography
             sx={{
@@ -281,6 +311,10 @@ const NewsCard: React.FC<NewsCardProps> = ({
             justifyContent: 'start',
             borderRadius: '8px',
             backgroundColor: isTransparent ? 'transparent' : 'rgb(243,243,243)',
+
+            '@media (min-width: 1441px)': {
+              margin: '1px 8px 8px',
+            },
           }}
         >
           <Typography

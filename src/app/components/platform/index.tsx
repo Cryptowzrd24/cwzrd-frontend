@@ -80,7 +80,7 @@ const Platform = () => {
         <Box
           sx={{
             mt: isTabView ? '100px' : '24px',
-            mb: '30px',
+            mb: '24px',
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
@@ -89,7 +89,7 @@ const Platform = () => {
         >
           <TradingPlatform />
         </Box>
-        <Box sx={{ maxWidth: '1060px', mb: '30px', mx: 'auto' }}>
+        <Box sx={{ maxWidth: '1060px', mb: '24px', mx: 'auto' }}>
           <PlatformCards />
         </Box>
         <Box
@@ -103,10 +103,10 @@ const Platform = () => {
         >
           <MemberShipBanner />
         </Box>
-        <Box sx={{ mb: '30px' }}>
+        <Box sx={{ mb: '24px' }}>
           <Feature />
         </Box>
-        <Box sx={{ mt: isTabView ? '100px' : '40px', mb: '30px' }}>
+        <Box sx={{ mt: isTabView ? '76px' : '24px', mb: '24px' }}>
           <Education />
         </Box>
         <Box sx={{ mb: '24px' }}>
@@ -115,26 +115,30 @@ const Platform = () => {
         <Box sx={{ mb: '24px', display: 'flex', justifyContent: 'center' }}>
           <Coverage />
         </Box>
-        <Box sx={{ mb: '24px', display: 'flex', justifyContent: 'center' }}>
+        <Box
+          sx={{
+            mb: '24px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <Portfolio />
         </Box>
         <Box sx={{ mb: '24px' }}>
           <ProgressCards />
         </Box>
-        <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ mb: '24px', display: 'flex', justifyContent: 'center' }}>
           <JoinedPeople />
         </Box>
       </Container>
       <Box
         sx={{
-          mt: isTabView ? '100px' : '40px',
+          mt: isTabView ? '100px' : '24px',
           overflow: 'hidden',
           display: 'flex',
           justifyContent: 'center',
 
           '@media (max-width: 1024px)': {
-            display: 'flex',
-            justifyContent: 'center',
             paddingInline: '40px',
           },
 
@@ -155,12 +159,12 @@ const Platform = () => {
             gap: '56px',
 
             '@media (max-width: 1024px)': {
-              flexDirection: 'column',
               gap: '28px',
+              width: '100%',
               background: 'white',
-              width: 'fit-content',
               borderRadius: '24px',
-              padding: '16px 0 16px 16px',
+              flexDirection: 'column',
+              padding: '36px 0 16px 16px',
             },
           }}
         >
@@ -177,7 +181,7 @@ const Platform = () => {
               src={forexImg}
               alt="macbook"
               style={{
-                width: isDesktopView ? '45%' : '80%',
+                width: isDesktopView ? '45%' : '70%',
                 height: 'auto',
                 flex: isDesktopView ? 1 : 0,
               }}
@@ -193,7 +197,7 @@ const Platform = () => {
           },
         }}
       >
-        <Box sx={{ mt: isTabView ? '100px' : '40px' }}>
+        <Box sx={{ mt: isTabView ? '100px' : '24px' }}>
           <PersonalCalendar />
         </Box>
         {isTabView && (
@@ -210,10 +214,10 @@ const Platform = () => {
         <Box sx={{ mt: '24px' }}>
           <CoverageCards />
         </Box>
-        <Box sx={{ mt: isTabView ? '100px' : '40px' }}>
+        <Box sx={{ mt: isTabView ? '100px' : '24px' }}>
           <FrequentlyAskedQuestion />
         </Box>
-        <Box sx={{ mt: isTabView ? '100px' : '40px', mb: '24px' }}>
+        <Box sx={{ mt: isTabView ? '100px' : '24px', mb: '24px' }}>
           <MemberShipBannerLarge />
         </Box>
       </Container>

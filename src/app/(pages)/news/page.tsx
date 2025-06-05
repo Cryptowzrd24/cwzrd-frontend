@@ -26,9 +26,9 @@ import AudienceCard from '@/app/components/news/main/audience-card';
 import RandomImage from '../../../../public/images/randomImg.png';
 
 const News = () => {
-  const isMobileScreen = useMediaQuery('(max-width: 576px)');
+  const isLargeTabScreen = useMediaQuery('(min-width: 978px)');
   const isLargeScreen = useMediaQuery('(min-width: 1381px)');
-  const isVeryLargeScreen = useMediaQuery('(min-width: 1280px)');
+  const isVeryLargeScreen = useMediaQuery('(min-width: 1281px)');
   return (
     <>
       <Box
@@ -60,7 +60,8 @@ const News = () => {
         </Box>
         <MostRead />
       </Box>
-      <Box sx={{ width: isMobileScreen ? '105%' : '100%' }}>
+      {/* <Box sx={{ width: isMobileScreen ? '105%' : '100%' }}> */}
+      <Box sx={{ width: '100%' }}>
         <RelatedNewsCarousel
           descriptionLines={1}
           showSlider={true}
@@ -173,32 +174,38 @@ const News = () => {
           >
             <TagCard
               height={'520px'}
-              width={'528px'}
+              width={'545px'}
               title="Buy These 5 Crypto Stocks Before the Next Bitcoin Rally"
               description="Users can mint new tokens using the company's new Alloy platform, which will be part of Tether's upcoming tokenization ventures platform"
               image={TagCardImage}
             />
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.8 }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 1.8,
+              }}
+            >
               <NewsCard
                 allNews={true}
                 image={CardImage}
                 showChips={true}
+                isVertical={true}
                 title="Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
                 description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for"
-                isVertical
               />
               <NewsCard
                 allNews={true}
                 image={CardImage}
                 showChips={true}
+                isVertical={true}
                 title="Michael Saylor's MicroStrategy Acquires 11.9K More Bitcoin"
                 description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin {{BTC}}, has acquired another 11,931 BTC for"
-                isVertical
               />
             </Box>
           </Box>
 
-          <NewsRightPanel isMainPage={true} />
+          <NewsRightPanel isMainPage={true} width={'auto'} />
         </Box>
       </>
 
@@ -227,7 +234,7 @@ const News = () => {
         </>
       )}
 
-      <Box sx={{ marginTop: '24px' }}>
+      <Box sx={{ marginTop: '16px' }}>
         <NewsLetterBanner />
       </Box>
 
@@ -310,7 +317,7 @@ const News = () => {
         <Box
           sx={{
             display: 'flex',
-            gap: 1,
+            gap: 2,
             '@media (max-width: 1380px)': {
               flexDirection: 'column',
             },
@@ -470,6 +477,7 @@ const News = () => {
             display: 'flex',
             gap: '12px',
             justifyContent: 'center',
+            '@media (max-width: 834px)': { flexWrap: 'wrap' },
             '@media (max-width: 576px)': { flexDirection: 'column' },
           }}
         >
@@ -498,7 +506,8 @@ const News = () => {
             description="Nasdaq-listed software firm MicroStrategy (MSTR), the largest corporate holder of bitcoin BTC, has acquired another 11,931 BTC for"
           />
         </Box>
-        <Box sx={{ mt: '-10px', width: isMobileScreen ? '105%' : '100%' }}>
+        {/* <Box sx={{ mt: '-10px', width: isMobileScreen ? '100%' : '100%' }}> */}
+        <Box sx={{ mt: '-10px', width: '100%' }}>
           <RelatedNewsCarousel />
         </Box>
       </>
@@ -587,11 +596,11 @@ const News = () => {
       <Box
         sx={{
           display: 'flex',
-          gap: 3 / 2,
-          maxHeight: '850px',
+          gap: '16px',
+          height: '510px',
           '@media (max-width: 978px)': {
             flexDirection: 'column',
-            maxHeight: '100%',
+            height: '100%',
           },
         }}
       >
@@ -603,7 +612,7 @@ const News = () => {
             },
           }}
         >
-          <NewsCarouselBig isDetailPage={true} height={'535px'} />
+          <NewsCarouselBig isDetailPage={true} height={'510px'} />
         </Box>
         <Box
           sx={{
@@ -616,7 +625,7 @@ const News = () => {
             '@media (max-width: 978px)': {
               width: '100%',
               flexDirection: 'row',
-              gap: '8px',
+              gap: '16px',
             },
 
             '@media (max-width: 768px)': {
@@ -633,6 +642,7 @@ const News = () => {
               descriptionLines={1}
               isMainPage={true}
               image={CardImage}
+              textEllipsis={true}
               title={
                 "VanEck's Spot Bitcoin ETF Goes Live on Australia's Biggest Stock Exchange"
               }
@@ -645,7 +655,11 @@ const News = () => {
             maxHeight={'max-content'}
             sx={{ '@media (max-width: 978px)': { maxHeight: '100%' } }}
           >
-            <TrendingNewsList height="250px" maxCards={3} marginLeft="10px" />
+            <TrendingNewsList
+              height="fit-content"
+              maxCards={3}
+              marginLeft="10px"
+            />
           </Box>
         </Box>
         <Box
@@ -654,7 +668,7 @@ const News = () => {
             '@media (max-width: 978px)': {
               width: '100%',
               display: 'flex',
-              gap: '8px',
+              gap: '16px',
               alignItems: 'center',
             },
 
@@ -663,9 +677,18 @@ const News = () => {
             },
           }}
         >
-          <TrendingNewsList height="200px" maxCards={2} marginLeft="0px" />
+          <TrendingNewsList
+            height="200px"
+            maxCards={isLargeTabScreen ? 2 : 4}
+            marginLeft="0px"
+          />
 
-          <NewsMileStones />
+          <NewsMileStones
+            containerpadding={'18px 0px 0px 18px'}
+            containerMinHeight={'315px'}
+            titleMaxWidth={'100%'}
+            descriptionMaxWidth={'100%'}
+          />
         </Box>
       </Box>
 
@@ -754,23 +777,24 @@ const News = () => {
             '@media(max-width: 1280px)': { flexDirection: 'column' },
           }}
         >
-          {/* <Box> */}
           <NewsCarouselBig
             latest={true}
             isDetailPage={true}
             width={isVeryLargeScreen ? '75%' : '100%'}
             height={'440px'}
           />
-          {/* </Box> */}
           <Box
             maxHeight={'440px'}
-            maxWidth={'300px'}
+            maxWidth={'340px'}
+            width={'340px'}
             sx={{
               '@media(max-width: 1280px)': {
                 maxWidth: '100%',
+                width: '100%',
                 maxHeight: '100%',
               },
               overflowY: 'scroll',
+              scrollbarWidth: 'none',
             }}
           >
             <GlobalNews />

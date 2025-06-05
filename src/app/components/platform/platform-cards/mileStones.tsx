@@ -117,6 +117,10 @@ const MileStones = () => {
                 maxWidth: '184.5px',
                 lineHeight: '33px',
                 fontWeight: 700,
+
+                '@media (max-width: 768px)': {
+                  maxWidth: '100%',
+                },
               }}
             >
               The Smallest trading community

@@ -20,8 +20,11 @@ const Forex = () => {
             lineHeight: '38.4px',
             color: 'rgba(17, 17, 17, 1)',
             maxWidth: '590px',
-            // minWidth: '590px',
             mb: '16px',
+
+            '@media (max-width: 1024px)': {
+              textAlign: 'center',
+            },
 
             '@media (max-width: 576px)': {
               fontSize: '24px !important',
@@ -40,6 +43,10 @@ const Forex = () => {
             lineHeight: '24px',
             color: 'rgba(17, 17, 17, 0.8)',
             maxWidth: '590px',
+
+            '@media (max-width: 1024px)': {
+              textAlign: 'center',
+            },
 
             '@media (max-width: 576px)': {
               fontSize: '14px !important',

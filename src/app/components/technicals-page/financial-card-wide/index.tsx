@@ -14,7 +14,7 @@ function FinancialCardWide({ image }: FinancialCardProps) {
   return (
     <Box
       sx={{
-        width: '316.5px',
+        width: '292px',
         // height: '274px',
         padding: '8px',
         background: 'rgba(255, 255, 255, 1)',
@@ -49,7 +49,7 @@ function FinancialCardWide({ image }: FinancialCardProps) {
         </Box>
         <Box
           sx={{
-            width: '315.5px',
+            width: 'auto.5px',
             height: '158px',
             borderRadius: '12px',
             overflow: 'hidden',
