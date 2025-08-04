@@ -8,6 +8,22 @@ import { ArrowRight } from '../../../../public/icons/arrowRight';
 import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { usePathname, useRouter } from 'next/navigation';
 
+/**
+ * DataTable Component with Pinned Columns Support
+ * 
+ * To use pinned columns, pass the pinnedColumns prop with an array of column field names:
+ * 
+ * Example usage:
+ * <DataTable
+ *   rowData={data}
+ *   columnDefs={columns}
+ *   pinnedColumns={['index', 'name']} // These columns will stay visible when scrolling horizontally
+ * />
+ * 
+ * The pinned columns will remain visible on the left side while the rest of the table scrolls horizontally.
+ * By default, 'index' and 'name' columns are pinned if no pinnedColumns prop is provided.
+ */
+
 interface DataTableProps {
   title?: string;
   rowData: any[];
@@ -21,6 +37,7 @@ interface DataTableProps {
   height?: string;
   rowHeight?: number;
   getAirDropMain?: boolean;
+  pinnedColumns?: string[]; // Array of column field names to pin
 }
 
 const DataTable = memo(
@@ -36,6 +53,7 @@ const DataTable = memo(
     height,
     rowHeight,
     getAirDropMain = false,
+    pinnedColumns = ['index', 'name'], // Default pinned columns
   }: DataTableProps) => {
     const router = useRouter();
     const pathname = usePathname();
@@ -43,9 +61,13 @@ const DataTable = memo(
     const modifiedColumnDefs = useMemo(
       () =>
         columnDefs.map((colDef) => {
+          // Add pinned property for specified columns
+          const isPinned = pinnedColumns.includes(colDef.field);
+          
           if (colDef.field === 'price') {
             return {
               ...colDef,
+              pinned: isPinned ? 'left' : undefined,
               cellRenderer: (params: any) => {
                 const ref = (el: any) => {
                   if (priceRefs) {
@@ -61,11 +83,12 @@ const DataTable = memo(
           }
           return {
             ...colDef,
+            pinned: isPinned ? 'left' : undefined,
             suppressMovable: true,
             resizable: false,
           };
         }),
-      [columnDefs, priceRefs],
+      [columnDefs, priceRefs, pinnedColumns],
     );
 
     return (

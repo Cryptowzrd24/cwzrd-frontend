@@ -34,6 +34,15 @@
   border: none !important;
 }
 
+/* Pinned column styles */
+.ag-theme-material .ag-cell.ag-cell-pinned-left {
+  border-right: 1px solid rgba(17, 17, 17, 0.1) !important;
+}
+
+.ag-theme-material .ag-header-cell.ag-header-cell-pinned-left {
+  border-right: 1px solid rgba(17, 17, 17, 0.1) !important;
+}
+
 .ag-header {
   min-height: 42px !important;
   padding: 4px 0 0 0;

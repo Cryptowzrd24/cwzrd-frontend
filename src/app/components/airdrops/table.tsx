@@ -53,6 +53,7 @@ const Table = () => {
           columnDefs={columnAirDropsDef}
           width="100%"
           getAirDropMain={true}
+          pinnedColumns={['index', 'project_name']} // Pin the index and project name columns
         />
       </div>
       <Pagination

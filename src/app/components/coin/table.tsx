@@ -185,6 +185,7 @@ const Table = () => {
             gridApiRef={gridApiRef}
             getRowId={(params: any) => params.data.coin_id}
             priceRefs={priceRefs}
+            pinnedColumns={['index', 'name']} // Pin the index and name columns
           />
         )}
       </div>
