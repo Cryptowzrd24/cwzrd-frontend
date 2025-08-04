@@ -60,6 +60,11 @@ const Portfolio = () => {
               '@media (max-width: 1024px)': {
                 width: '100%',
               },
+              '@media (max-width: 576px)': {
+                fontSize: '24px !important',
+                lineHeight: '120%',
+                letterSpacing: '-0.46px',
+              },
             }}
           >
             Portfolio Investing for long term growth
@@ -75,6 +80,11 @@ const Portfolio = () => {
 
               '@media (max-width: 1024px)': {
                 width: '100%',
+              },
+              '@media (max-width: 576px)': {
+                fontSize: '12px !important',
+                lineHeight: '150%',
+                letterSpacing: '0.24px',
               },
             }}
           >

@@ -420,7 +420,14 @@ function TechnicalsPageFx() {
             },
           }}
         >
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 1,
+              '@media (max-width: 1400px)': { display: 'none' },
+            }}
+          >
             <NewsCard
               image={usaIcon}
               isShort={true}

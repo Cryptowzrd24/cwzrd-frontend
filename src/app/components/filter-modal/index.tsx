@@ -157,8 +157,34 @@ function FilterModal({ open, setOpen }: FilterModalProps) {
         aria-describedby="modal-modal-description"
       >
         <Box
-          sx={styles.modalFilterMain}
-          style={{ height: '585px', overflowY: 'scroll', width: '436px' }}
+          sx={{
+            ...styles.modalFilterMain,
+            width: {
+              xs: '90%',
+              sm: '436px',
+              md: '496px',
+            },
+            height: {
+              xs: '50vh',
+              sm: '500px',
+              md: '585px',
+            },
+            maxWidth: {
+              xs: '400px',
+              sm: '436px',
+              md: '496px',
+            },
+            maxHeight: {
+              xs: '600px',
+              sm: '500px',
+              md: '585px',
+            },
+            padding: {
+              xs: '16px',
+              sm: '24px',
+              md: '32px',
+            },
+          }}
         >
           <Box
             sx={{

@@ -24,10 +24,51 @@ interface CardContentProps {
 
 const CardContent = ({ cardsData }: CardContentProps) => {
   return (
-    <Box sx={{ flexGrow: 1, padding: '16px' }}>
-      <Grid container spacing={3} sx={{ display: 'flex', flexWrap: 'wrap' }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        padding: {
+          xs: '8px',
+          sm: '12px',
+          md: '16px',
+        },
+      }}
+    >
+      <Grid
+        container
+        spacing={{
+          xs: 1,
+          sm: 2,
+          md: 3,
+        }}
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: {
+            xs: 'center',
+            sm: 'center',
+            md: 'center',
+          },
+        }}
+      >
         {cardsData.map((card) => (
-          <Grid item xs={12} sm={6} md={4} key={card.id}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            lg={4}
+            xl={4}
+            key={card.id}
+            sx={{
+              display: 'flex',
+              justifyContent: {
+                xs: 'center',
+                sm: 'center',
+                md: 'center',
+              },
+            }}
+          >
             <Card
               title={card.name}
               price={card.new_price}

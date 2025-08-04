@@ -9,7 +9,14 @@ function NewsQuote({
   isArticleDetails?: boolean;
 }) {
   return (
-    <Box sx={{ display: 'flex', gap: '24px', alignItems: 'start' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        gap: '24px',
+        alignItems: 'start',
+        '@media (max-width: 600px)': { gap: '12px' },
+      }}
+    >
       <Typography
         sx={{
           fontSize: isArticleDetails ? '40px' : '18.5px',

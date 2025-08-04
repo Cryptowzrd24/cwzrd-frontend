@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 import feature from '../../../../public/images/platform/feature.png';
 import Image from 'next/image';
@@ -61,21 +61,32 @@ const Feature = () => {
             maxWidth: '850px',
             lineHeight: { xs: '18px', md: '21px' },
             color: 'rgba(17, 17, 17, 0.8)',
+            '@media (max-width: 576px)': {
+              mb: '0px',
+            },
           }}
         >
           Keep a detailed record of your trades and transactions with our trade
           tracker tool, providing valuable insights into your trading activity
           and performance over time.
         </Typography>
-        <Image
-          src={feature}
-          alt="feature"
-          width={1079}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
+        <Box
+          sx={{
+            '@media (max-width: 576px)': {
+              display: 'none',
+            },
           }}
-        />
+        >
+          <Image
+            src={feature}
+            alt="feature"
+            width={1079}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
+          />
+        </Box>
       </Stack>
     </>
   );

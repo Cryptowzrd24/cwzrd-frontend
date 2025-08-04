@@ -79,7 +79,6 @@ const NewsMileStones = ({
 
           '@media (max-width: 768px)': {
             maxWidth: '100%',
-            width: '100%',
           },
         }}
         initial="initial"

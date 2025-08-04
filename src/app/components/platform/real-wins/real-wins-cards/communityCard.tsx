@@ -39,6 +39,7 @@ const CommunityCard = () => {
 
             '@media (max-width: 576px)': {
               mt: '20px',
+              paddingRight: '24px',
             },
           }}
         >
@@ -49,7 +50,7 @@ const CommunityCard = () => {
               fontWeight: '500',
               color: 'rgba(255, 255, 255, 1)',
               lineHeight: '18.2px',
-              mt: '16.75px',
+              mt: '12px',
             }}
           >
             Community Success
@@ -62,6 +63,11 @@ const CommunityCard = () => {
               color: 'rgba(255, 255, 255, 0.8)',
               lineHeight: '16px',
               mt: '3px',
+              '@media (max-width: 576px)': {
+                fontSize: '12px',
+                lineHeight: '130%',
+                mb: '36px',
+              },
             }}
           >
             You will stay updated with the market in real-time, receive calls

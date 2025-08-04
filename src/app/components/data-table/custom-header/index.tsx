@@ -58,6 +58,11 @@ const stylesPage = {
       alignItems: 'center',
       borderRadius: '8px',
       paddingRight: '24px !important',
+      '@media (max-width: 600px)': {
+        fontSize: '12px',
+        padding: '4px 12px',
+        paddingRight: '20px !important',
+      },
     },
     '& .MuiSvgIcon-root': {
       color: '#7248F7',
@@ -67,6 +72,9 @@ const stylesPage = {
     },
     '& .MuiSelect-icon': {
       right: '15px',
+      '@media (max-width: 600px)': {
+        right: '10px',
+      },
     },
     backgroundColor: '#F0ECFF',
     borderRadius: '8px',
@@ -204,17 +212,26 @@ export const CustomHeader = ({
         key={key}
         sx={{
           width: 'auto',
-          height: '33px',
+          height: {
+            xs: '28px',
+            sm: '33px',
+          },
           border: isMatching ? '1px solid #7248F7' : 'none',
           borderRadius: '8px',
-          padding: '16px 12px 16px 16px',
+          padding: {
+            xs: '12px 8px 12px 12px',
+            sm: '16px 12px 16px 16px',
+          },
           backgroundColor: 'rgba(114, 72, 247, 0.1)',
           color: 'rgba(114, 72, 247, 1)',
           '& .MuiChip-icon': {
             order: 2,
             color: 'rgba(114, 72, 247, 1)',
             margin: '0',
-            fontSize: '16px',
+            fontSize: {
+              xs: '14px',
+              sm: '16px',
+            },
           },
           '&:hover': {
             backgroundColor: 'rgba(114, 72, 247, 0.2)',
@@ -227,7 +244,10 @@ export const CustomHeader = ({
             paddingRight: '2px',
           },
           fontWeight: 700,
-          fontSize: '14px',
+          fontSize: {
+            xs: '12px',
+            sm: '14px',
+          },
         }}
         label={label}
         icon={
@@ -255,17 +275,29 @@ export const CustomHeader = ({
   const chip = (
     <Chip
       sx={{
-        width: '100px',
-        height: '33px',
+        width: {
+          xs: '80px',
+          sm: '100px',
+        },
+        height: {
+          xs: '28px',
+          sm: '33px',
+        },
         borderRadius: '8px',
-        padding: '10px 12px 10px 16px',
+        padding: {
+          xs: '8px 8px 8px 12px',
+          sm: '10px 12px 10px 16px',
+        },
         backgroundColor: 'rgba(114, 72, 247, 0.1)',
         color: 'rgba(114, 72, 247, 1)',
         '& .MuiChip-icon': {
           order: 1,
           color: 'rgba(114, 72, 247, 1)',
           margin: '0',
-          fontSize: '16px',
+          fontSize: {
+            xs: '14px',
+            sm: '16px',
+          },
         },
         '&:hover': {
           backgroundColor: 'rgba(114, 72, 247, 0.2)',
@@ -274,11 +306,20 @@ export const CustomHeader = ({
         '& .MuiChip-label': {
           order: 2,
           overflow: 'visible !important',
-          paddingLeft: '4px',
-          paddingRight: '15px',
+          paddingLeft: {
+            xs: '2px',
+            sm: '4px',
+          },
+          paddingRight: {
+            xs: '10px',
+            sm: '15px',
+          },
         },
         fontWeight: 700,
-        fontSize: '14px',
+        fontSize: {
+          xs: '12px',
+          sm: '14px',
+        },
       }}
       label="Add Filter"
       onClick={handleOpenFilterModal}
@@ -315,16 +356,31 @@ export const CustomHeader = ({
   }, [filterItem]);
   return (
     <Box sx={styles.container}>
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        {links.map((link, index) => (
-          <Link
-            key={index}
-            href={link.href}
-            style={styles.link(pathname === link.href)}
-          >
-            {link.label}
-          </Link>
-        ))}
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '24px',
+          '@media (max-width: 550px)': {
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+          },
+        }}
+      >
+        <div style={{ overflowX: 'auto', display: 'flex', width: '100%' }}>
+          {links.map((link, index) => (
+            <Link
+              key={index}
+              href={link.href}
+              style={{
+                ...styles.link(pathname === link.href),
+                minWidth: 'max-content',
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
         <Box sx={styles.filterContainer}>
           {isPathNameMatching && (
             <Box
@@ -365,6 +421,10 @@ export const CustomHeader = ({
                   display: option === pageSize ? 'none' : 'block',
                   fontSize: '16px',
                   fontWeight: 700,
+                  '@media (max-width: 600px)': {
+                    fontSize: '14px',
+                    padding: '8px 12px',
+                  },
                 }}
                 onClick={() => setPagination(option)}
               >
@@ -397,6 +457,10 @@ export const CustomHeader = ({
                     display: v === volume ? 'none' : 'block',
                     fontSize: '16px',
                     fontWeight: 700,
+                    '@media (max-width: 600px)': {
+                      fontSize: '14px',
+                      padding: '8px 12px',
+                    },
                   }}
                 >
                   {v}
@@ -410,8 +474,19 @@ export const CustomHeader = ({
               onClick={handleFilterActiveToggle}
               sx={
                 filterActive
-                  ? { ...styles.iconBox, ...styles.filterActive }
-                  : { ...styles.iconBox }
+                  ? {
+                      ...styles.iconBox,
+                      ...styles.filterActive,
+                      '@media (max-width: 550px)': {
+                        marginLeft: 'auto',
+                      },
+                    }
+                  : {
+                      ...styles.iconBox,
+                      '@media (max-width: 550px)': {
+                        marginLeft: 'auto',
+                      },
+                    }
               }
             >
               <FilterIcon />

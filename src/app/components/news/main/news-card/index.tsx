@@ -201,6 +201,9 @@ const NewsCard: React.FC<NewsCardProps> = ({
                 lineHeight: '130% !important',
                 letterSpacing: '0.24px !important',
               },
+              '@media (max-width: 576px)': {
+                fontSize: '18px !important',
+              },
             }}
             variant="body1"
           >
@@ -229,6 +232,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
                       fontWeight: '400 !important',
                       lineHeight: '120% !important',
                     },
+                    '@media (max-width: 576px)': {
+                      fontSize: '12px !important',
+                      lineHeight: '150% !important',
+                      letterSpacing: '0.24px !important',
+                    },
                   }
                 : {
                     fontWeight: '400',
@@ -246,6 +254,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
                       fontSize: '8px !important',
                       fontWeight: '400 !important',
                       lineHeight: '120% !important',
+                    },
+                    '@media (max-width: 576px)': {
+                      fontSize: '12px !important',
+                      lineHeight: '150% !important',
+                      letterSpacing: '0.24px !important',
                     },
                   }
             }
@@ -329,6 +342,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
                 fontSize: '8px !important',
                 fontWeight: '400 !important',
                 lineHeight: '130% !important',
+              },
+              '@media (max-width: 576px)': {
+                fontSize: '10px !important',
+                lineHeight: '130% !important',
+                letterSpacing: '0.2px !important',
+                color: 'rgba(17, 17, 17, 1) !important',
               },
             }}
           >

@@ -57,7 +57,7 @@ const Card: React.FC<CardProps> = ({
             alt="main picture"
             width={isMainPage ? 158 : isNewsDetail ? 86 : 150}
             height={isMainPage ? 161 : isNewsDetail ? 90 : 106}
-            className="rounded-lg"
+            className="rounded-lg card-image"
             style={{
               borderRadius: isMainPage || isNewsDetail ? '12px' : 0,
               objectFit: isMainPage || isNewsDetail ? 'cover' : 'none',

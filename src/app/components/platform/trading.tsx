@@ -24,6 +24,8 @@ const TradingPlatform = () => {
             fontWeight: 700,
             lineHeight: '28.8px',
             letterSpacing: '0.24px',
+            mb: '16px',
+            mt: '32px',
           },
         }}
       >
@@ -40,13 +42,7 @@ const TradingPlatform = () => {
           overflow: 'hidden',
         }}
       >
-        <Image
-          src={mask}
-          alt="mask"
-          layout="responsive"
-          width={1096}
-          style={{ marginBottom: '48px' }}
-        />
+        <Image src={mask} alt="mask" layout="responsive" width={1096} />
         <Stack
           sx={{
             display: 'flex',
@@ -55,6 +51,10 @@ const TradingPlatform = () => {
             maxWidth: '1096px',
             width: '100%',
             margin: 'auto',
+            mt: '48px',
+            '@media (max-width: 576px)': {
+              mt: '16px',
+            },
           }}
         >
           <Typography
@@ -78,6 +78,9 @@ const TradingPlatform = () => {
               color: 'rgba(17, 17, 17, 0.8)',
               lineHeight: { xs: '18px', md: '20px' },
               width: { xs: '100%', md: '750px' },
+              '@media (max-width: 576px)': {
+                width: '90%',
+              },
             }}
           >
             We are fully committed to your success in every aspect of your

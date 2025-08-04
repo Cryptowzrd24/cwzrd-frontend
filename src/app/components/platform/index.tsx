@@ -48,7 +48,14 @@ const Platform = () => {
           },
         }}
       >
-        <Box sx={{ mt: '64px' }}>
+        <Box
+          sx={{
+            mt: '64px',
+            '@media (max-width: 576px)': {
+              mt: '32px',
+            },
+          }}
+        >
           <PlatformHeader />
         </Box>
       </Container>
@@ -109,10 +116,26 @@ const Platform = () => {
         <Box sx={{ mt: isTabView ? '76px' : '24px', mb: '24px' }}>
           <Education />
         </Box>
-        <Box sx={{ mb: '24px' }}>
+        <Box
+          sx={{
+            mb: '24px',
+            '@media (max-width: 576px)': {
+              display: 'none',
+            },
+          }}
+        >
           <ExaminationPart />
         </Box>
-        <Box sx={{ mb: '24px', display: 'flex', justifyContent: 'center' }}>
+        <Box
+          sx={{
+            mb: '24px',
+            display: 'flex',
+            justifyContent: 'center',
+            '@media (max-width: 576px)': {
+              display: 'none',
+            },
+          }}
+        >
           <Coverage />
         </Box>
         <Box
@@ -124,7 +147,7 @@ const Platform = () => {
         >
           <Portfolio />
         </Box>
-        <Box sx={{ mb: '24px' }}>
+        <Box sx={{ mb: isTabView ? '24px' : '48px' }}>
           <ProgressCards />
         </Box>
         <Box sx={{ mb: '24px', display: 'flex', justifyContent: 'center' }}>
@@ -147,7 +170,7 @@ const Platform = () => {
           },
 
           '@media (max-width: 576px)': {
-            paddingInline: '5px',
+            paddingInline: '16px',
           },
         }}
       >
@@ -166,6 +189,9 @@ const Platform = () => {
               flexDirection: 'column',
               padding: '36px 0 16px 16px',
             },
+            '@media (max-width: 576px)': {
+              padding: '24px 0 24px 16px',
+            },
           }}
         >
           <Forex />
@@ -181,7 +207,7 @@ const Platform = () => {
               src={forexImg}
               alt="macbook"
               style={{
-                width: isDesktopView ? '45%' : '70%',
+                width: isDesktopView ? '45%' : '90%',
                 height: 'auto',
                 flex: isDesktopView ? 1 : 0,
               }}
@@ -211,10 +237,17 @@ const Platform = () => {
             <RealTimeMarketData />
           </Box>
         )}
-        <Box sx={{ mt: '24px' }}>
+        <Box
+          sx={{
+            mt: '24px',
+            '@media (max-width: 576px)': {
+              display: 'none',
+            },
+          }}
+        >
           <CoverageCards />
         </Box>
-        <Box sx={{ mt: isTabView ? '100px' : '24px' }}>
+        <Box sx={{ mt: isTabView ? '100px' : '48px' }}>
           <FrequentlyAskedQuestion />
         </Box>
         <Box sx={{ mt: isTabView ? '100px' : '24px', mb: '24px' }}>

@@ -131,7 +131,7 @@ const PersonalCalendar = () => {
                       ? isSmallView
                         ? '0'
                         : '70.5px'
-                      : '36px',
+                      : '20px',
                     marginTop: isSmallView ? '0' : '57.75px',
                     position: isSmallView ? 'relative' : 'absolute',
                     left: '0',
@@ -211,6 +211,13 @@ const PersonalCalendar = () => {
                       lineHeight: '120%',
                       mb: '16px',
                     },
+                    '@media (max-width: 576px)': {
+                      fontSize: '24px !important',
+                      letterSpacing: '0.24px',
+                      lineHeight: '120%',
+                      mb: '16px',
+                      width: '92%',
+                    },
                   }}
                 >
                   Personal Calendar:
@@ -225,6 +232,9 @@ const PersonalCalendar = () => {
                     color: 'rgba(17, 17, 17, 1)',
                     textTransform: 'uppercase',
                     letterSpacing: '1px',
+                    '@media (max-width: 576px)': {
+                      width: '92%',
+                    },
                   }}
                 >
                   Your Life, Your Schedule

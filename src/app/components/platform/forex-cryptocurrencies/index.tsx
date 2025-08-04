@@ -31,6 +31,8 @@ const Forex = () => {
               lineHeight: '28.8px',
               fontWeight: '700',
               letterSpacing: '0.24px',
+              marginRight: '16px',
+              textAlign: 'start',
             },
           }}
         >
@@ -52,6 +54,8 @@ const Forex = () => {
               fontSize: '14px !important',
               lineHeight: '150%',
               letterSpacing: '-0.135px',
+              textAlign: 'start',
+              width: '90%',
             },
           }}
         >

@@ -478,7 +478,7 @@ const News = () => {
             gap: '12px',
             justifyContent: 'center',
             '@media (max-width: 834px)': { flexWrap: 'wrap' },
-            '@media (max-width: 576px)': { flexDirection: 'column' },
+            '@media (max-width: 576px)': { display: 'none' },
           }}
         >
           <AudienceCard

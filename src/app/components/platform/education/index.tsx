@@ -29,6 +29,9 @@ const Education = () => {
             '@media (max-width: 1023px)': {
               width: '100%',
             },
+            '@media (max-width: 576px)': {
+              display: 'none',
+            },
           }}
         >
           <RiskCalculator />

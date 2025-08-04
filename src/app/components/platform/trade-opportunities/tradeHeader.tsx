@@ -33,9 +33,10 @@ const TradeHeader = () => {
           lineHeight: '38.4px',
           mb: '12px',
           '@media (max-width: 978px)': {
-            fontSize: '21px !important',
-            lineHeight: '28.8px',
-            letterSpacing: '0.24px',
+            fontSize: '24px !important',
+            lineHeight: '120%',
+            letterSpacing: '-0.46px',
+            textAlign: 'center',
           },
         }}
       >
@@ -68,6 +69,13 @@ const TradeHeader = () => {
           textAlign: 'center',
           lineHeight: '21px',
           color: 'rgba(17, 17, 17, 0.8)',
+          '@media (max-width: 978px)': {
+            fontSize: '12px !important',
+            lineHeight: '150%',
+            letterSpacing: '0.24px',
+            textAlign: 'center',
+            mb: '18px',
+          },
         }}
       >
         Join the industry's most exclusive Trading Community and unlock a wealth

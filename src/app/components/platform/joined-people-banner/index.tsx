@@ -23,6 +23,7 @@ const JoinedPeople = () => {
 
           '@media (max-width: 768px)': {
             flexDirection: 'column',
+            padding: '16px',
           },
         }}
       >

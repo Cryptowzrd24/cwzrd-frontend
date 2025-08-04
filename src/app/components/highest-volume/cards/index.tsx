@@ -97,9 +97,17 @@ const Card = ({
   return (
     <Box
       sx={{
-        padding: '16px',
+        padding: {
+          xs: '8px',
+          sm: '12px',
+          md: '16px',
+        },
         borderRadius: '8px',
-        maxWidth: '362px',
+        maxWidth: {
+          xs: '100%',
+          sm: '340px',
+          md: '362px',
+        },
         width: '100%',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
@@ -114,7 +122,11 @@ const Card = ({
       >
         <Box
           sx={{
-            padding: '16px',
+            padding: {
+              xs: '8px',
+              sm: '12px',
+              md: '16px',
+            },
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
@@ -127,7 +139,11 @@ const Card = ({
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              mb: '16px',
+              mb: {
+                xs: '8px',
+                sm: '12px',
+                md: '16px',
+              },
             }}
           >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -145,7 +161,11 @@ const Card = ({
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '18px',
+                    fontSize: {
+                      xs: '14px',
+                      sm: '16px',
+                      md: '18px',
+                    },
                     fontWeight: '500',
                     color: 'rgba(255, 255, 255, 1)',
                   }}
@@ -155,7 +175,10 @@ const Card = ({
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '12px',
+                    fontSize: {
+                      xs: '10px',
+                      sm: '12px',
+                    },
                     fontWeight: '400',
                     color: 'rgba(255, 255, 255, 0.6)',
                   }}
@@ -166,7 +189,11 @@ const Card = ({
             </Box>
             <Box
               sx={{
-                padding: '5px 12px 5px 12px',
+                padding: {
+                  xs: '4px 10px',
+                  sm: '5px 11px',
+                  md: '5px 12px',
+                },
                 borderRadius: '24px',
                 display: 'flex',
                 justifyContent: 'center',
@@ -181,7 +208,11 @@ const Card = ({
             <Typography
               variant="h5"
               sx={{
-                fontSize: '32px',
+                fontSize: {
+                  xs: '24px',
+                  sm: '28px',
+                  md: '32px',
+                },
                 fontWeight: '500',
                 color: 'rgba(255, 255, 255, 1)',
               }}
@@ -191,14 +222,22 @@ const Card = ({
             <Box
               sx={{
                 borderRadius: '24px',
-                padding: '4px 8px',
+                padding: {
+                  xs: '3px 6px',
+                  sm: '4px 7px',
+                  md: '4px 8px',
+                },
                 background: changeColor,
               }}
             >
               <Typography
                 variant="body2"
                 sx={{
-                  fontSize: '14px',
+                  fontSize: {
+                    xs: '12px',
+                    sm: '13px',
+                    md: '14px',
+                  },
                   fontWeight: '700',
                   color: 'rgba(255, 255, 255, 1)',
                 }}
@@ -212,8 +251,16 @@ const Card = ({
           sx={{
             display: 'flex',
             alignItems: 'center',
-            mt: '24px',
-            gap: '48px',
+            mt: {
+              xs: '16px',
+              sm: '20px',
+              md: '24px',
+            },
+            gap: {
+              xs: '24px',
+              sm: '36px',
+              md: '48px',
+            },
             mb: '-4px',
             marginLeft: '6px',
           }}
@@ -223,7 +270,10 @@ const Card = ({
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '12px',
+                  fontSize: {
+                    xs: '11px',
+                    sm: '12px',
+                  },
                   fontWeight: '400',
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
@@ -265,7 +315,11 @@ const Card = ({
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '18px',
+                  fontSize: {
+                    xs: '16px',
+                    sm: '17px',
+                    md: '18px',
+                  },
                   fontWeight: '500',
                   color: 'rgba(17, 17, 17, 1)',
                 }}
@@ -277,7 +331,10 @@ const Card = ({
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '12px',
+                  fontSize: {
+                    xs: '11px',
+                    sm: '12px',
+                  },
                   fontWeight: '400',
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
@@ -318,7 +375,11 @@ const Card = ({
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '18px',
+                  fontSize: {
+                    xs: '16px',
+                    sm: '17px',
+                    md: '18px',
+                  },
                   fontWeight: '500',
                   color: 'rgba(17, 17, 17, 1)',
                 }}
@@ -332,7 +393,10 @@ const Card = ({
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '12px',
+                  fontSize: {
+                    xs: '11px',
+                    sm: '12px',
+                  },
                   fontWeight: '400',
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
@@ -373,7 +437,11 @@ const Card = ({
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '18px',
+                  fontSize: {
+                    xs: '16px',
+                    sm: '17px',
+                    md: '18px',
+                  },
                   fontWeight: '500',
                   color: 'rgba(17, 17, 17, 1)',
                 }}
@@ -385,7 +453,10 @@ const Card = ({
               <Typography
                 variant="body2"
                 sx={{
-                  fontSize: '12px',
+                  fontSize: {
+                    xs: '11px',
+                    sm: '12px',
+                  },
                   fontWeight: '400',
                   color: 'rgba(17, 17, 17, 0.4)',
                 }}
@@ -427,7 +498,11 @@ const Card = ({
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '18px',
+                    fontSize: {
+                      xs: '16px',
+                      sm: '17px',
+                      md: '18px',
+                    },
                     fontWeight: '500',
                     color: 'rgba(17, 17, 17, 1)',
                   }}
@@ -440,7 +515,15 @@ const Card = ({
             </Stack>
           </Box>
         </Box>
-        <Box sx={{ mt: '24px' }}>
+        <Box
+          sx={{
+            mt: {
+              xs: '16px',
+              sm: '20px',
+              md: '24px',
+            },
+          }}
+        >
           <Box
             sx={{
               borderTop: '1px solid rgba(17, 17, 17, 0.05)',

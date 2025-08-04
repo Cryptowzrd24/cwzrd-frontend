@@ -18,10 +18,14 @@ const MentorshipCard = () => {
 
         '@media (max-width: 1400px)': {
           width: '62%',
+          display: 'none',
         },
 
         '@media (max-width: 1024px)': {
           width: '100%',
+        },
+        '@media (max-width: 576px)': {
+          display: 'none',
         },
       }}
     >

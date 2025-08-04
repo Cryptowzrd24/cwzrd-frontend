@@ -13,6 +13,9 @@ const TradeCards = () => {
         '@media (max-width: 834px)': {
           flexDirection: 'column',
         },
+        '@media (max-width: 576px)': {
+          gap: '16px',
+        },
       }}
     >
       <Box
@@ -30,10 +33,13 @@ const TradeCards = () => {
         <Box
           sx={{
             paddingLeft: '32px',
-            paddingBottom: '40px',
+            paddingBottom: '24px',
             '@media (max-width: 834px)': {
               paddingLeft: '16px',
               paddingBottom: '20px',
+            },
+            '@media (max-width: 576px)': {
+              paddingBottom: '16px',
             },
           }}
         >
@@ -54,7 +60,6 @@ const TradeCards = () => {
             '@media (max-width: 834px)': {
               padding: '16px',
               maxWidth: '100%',
-              textAlign: 'center',
             },
           }}
         >
@@ -64,6 +69,10 @@ const TradeCards = () => {
               fontWeight: '600',
               color: 'rgba(17, 17, 17, 1)',
               lineHeight: '16.9px',
+              mb: '8px',
+              '@media (max-width: 576px)': {
+                fontWeight: '600',
+              },
             }}
           >
             Daily WZRD Intraday Setup Calls
@@ -97,7 +106,6 @@ const TradeCards = () => {
             padding: '36px 32px',
             width: 'auto',
             height: '400px',
-            textAlign: 'center',
           },
 
           '@media (max-width: 576px)': {
@@ -113,6 +121,11 @@ const TradeCards = () => {
             lineHeight: '26.44px',
             mb: '8px',
             fontFamily: 'Sf Pro Display',
+            '@media (max-width: 576px)': {
+              fontSize: '16px !important',
+              lineHeight: '120%',
+              letterSpacing: '-0.4px',
+            },
           }}
         >
           Trade Signals
@@ -127,8 +140,8 @@ const TradeCards = () => {
             lineHeight: '18px',
 
             '@media (max-width: 834px)': {
-              width: '340px',
-              mx: 'auto',
+              maxWidth: '340px',
+              width: '100%',
             },
           }}
         >

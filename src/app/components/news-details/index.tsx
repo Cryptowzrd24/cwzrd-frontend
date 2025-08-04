@@ -66,7 +66,9 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >
-        <Box sx={{ mt: '32px' }}>
+        <Box
+          sx={{ mt: '32px', '@media (max-width: 980px)': { display: 'none' } }}
+        >
           <BreadCrumb
             origin={'News'}
             description={

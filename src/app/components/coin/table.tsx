@@ -170,6 +170,7 @@ const Table = () => {
         style={{
           display: 'flex',
           gap: '36px',
+          overflow: 'hidden',
         }}
       >
         {showCards ? (

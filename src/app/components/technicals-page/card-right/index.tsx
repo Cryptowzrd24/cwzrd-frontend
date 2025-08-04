@@ -7,7 +7,13 @@ import React from 'react';
 
 const RightCard = () => {
   return (
-    <Box>
+    <Box
+      sx={{
+        '@media (max-width: 1000px)': {
+          display: 'none',
+        },
+      }}
+    >
       <Box
         sx={{
           display: 'flex',

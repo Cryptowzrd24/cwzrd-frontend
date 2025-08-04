@@ -11,7 +11,6 @@ const Text = () => {
           width: '100%',
           '@media (max-width: 978px)': {
             maxWidth: '100%',
-            textAlign: 'center',
           },
         }}
       >
@@ -30,6 +29,7 @@ const Text = () => {
               fontWeight: '700',
               lineHeight: '110%',
               letterSpacing: '0.24px',
+              width: '80%',
             },
           }}
         >
@@ -46,7 +46,9 @@ const Text = () => {
 
             '@media (max-width: 978px)': {
               width: '100%',
-              textAlign: 'center',
+            },
+            '@media (max-width: 576px)': {
+              width: '90%',
             },
           }}
         >
@@ -60,7 +62,6 @@ const Text = () => {
             '@media (max-width: 978px)': {
               mt: '8px',
               display: 'flex',
-              justifyContent: 'center',
             },
           }}
         >

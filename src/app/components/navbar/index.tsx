@@ -173,7 +173,7 @@ function Navbar() {
               mt: pathname === '/' ? '' : 3,
             }}
           >
-            <Link href="/">
+            <Link className="logo-navbar" href="/">
               {pathname === '/news' ||
               pathname === '/technicals' ||
               pathname === '/articles' ||

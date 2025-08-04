@@ -411,7 +411,7 @@ function TechnicalsPageCrypto({
                 overflow: 'auto',
                 height: '380px',
                 scrollbarWidth: 'none',
-                '@media (max-width: 1400px)': { display: 'flex' },
+                '@media (max-width: 1400px)': { display: 'none' },
               }}
             >
               <NewsCard image={xrpImg} isShort={true} rightTextPadding="0px" />

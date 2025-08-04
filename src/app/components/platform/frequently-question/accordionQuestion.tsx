@@ -111,6 +111,11 @@ export default function AccordionQuestion({
               color: 'rgba(17, 17, 17, 0.8)',
               lineHeight: '18.85px',
               fontFamily: 'Sf Pro Display',
+              '@media (max-width: 576px)': {
+                fontSize: '14px !important',
+                lineHeight: '150%',
+                letterSpacing: '0.24px',
+              },
             }}
           >
             {summary}
