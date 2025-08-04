@@ -59,7 +59,6 @@ const DailyCoverageCard = () => {
     <>
       <motion.div
         style={{
-          // padding: '32px 56px 80px 32px',
           width: '307.5px',
           height: '354.25px',
           borderRadius: '24px',
@@ -74,7 +73,7 @@ const DailyCoverageCard = () => {
       >
         <Typography
           sx={{
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontWeight: '400',
             color: 'rgba(255, 255, 255, 1)',
             textTransform: 'uppercase',
@@ -83,13 +82,16 @@ const DailyCoverageCard = () => {
             lineHeight: '15.6px',
             paddingLeft: '24px',
             paddingTop: '24px',
+
+            '@media (max-width: 1046px)': {
+              textAlign: 'center',
+            },
           }}
         >
           Daily Coverage
         </Typography>
         <Box
           sx={{
-            widht: '243px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -124,6 +126,13 @@ const DailyCoverageCard = () => {
                 fontWeight: '700',
                 paddingInline: '40.5px',
                 textWrap: 'balance',
+
+                '@media (max-width: 1046px)': {
+                  width: '100%',
+                  maxWidth: '100%',
+                  paddingInline: '0px',
+                  textAlign: 'center',
+                },
               }}
             >
               Daily Coverage on over 25 Cryptocurrencies
@@ -137,17 +146,19 @@ const DailyCoverageCard = () => {
             >
               <Typography
                 sx={{
-                  fontSize: '12px',
+                  fontSize: '12px !important',
                   color: 'rgba(255, 255, 255, 1)',
                   mt: '70px',
                   letterSpacing: 0.1,
                   lineHeight: '20px',
                   textAlign: 'start',
                   marginLeft: '14px',
+                  px: '24px',
 
                   '@media (max-width: 576px)': {
                     mt: '50px',
                     mx: '14px',
+                    px: '0px',
                   },
                 }}
               >

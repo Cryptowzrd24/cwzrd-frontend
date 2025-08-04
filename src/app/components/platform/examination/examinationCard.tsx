@@ -55,7 +55,6 @@ const ExaminationCard = () => {
     <>
       <motion.div
         style={{
-          // padding: '24px 42px 60px 24px',
           width: isTabView ? '307.5px' : '100%',
           height: '352.75px',
           borderRadius: '24px',
@@ -75,7 +74,11 @@ const ExaminationCard = () => {
             mb: '18px',
             letterSpacing: '1px',
             lineHeight: '15.6px',
-            padding: '24px 0 0 24px',
+            padding: '36px 0 0 24px',
+
+            '@media (max-width: 834px)': {
+              textAlign: 'center',
+            },
           }}
         >
           Examinations
@@ -87,6 +90,12 @@ const ExaminationCard = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             paddingBottom: '60px',
+
+            '@media (max-width: 834px)': {
+              padding: 0,
+              alignItems: 'center',
+              width: '100%',
+            },
           }}
         >
           <motion.img
@@ -103,6 +112,7 @@ const ExaminationCard = () => {
             variants={imgAndTextVariants}
             initial="initial"
             animate={active ? 'active' : 'inactive'}
+            style={{ width: '100%' }}
           >
             <Typography
               sx={{
@@ -115,6 +125,12 @@ const ExaminationCard = () => {
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
                 paddingLeft: '18px',
+
+                '@media (max-width: 834px)': {
+                  textAlign: 'center',
+                  width: 'auto',
+                  px: '24px',
+                },
               }}
             >
               Featuring with 450 questions spread across 47 exams.
@@ -129,7 +145,7 @@ const ExaminationCard = () => {
             >
               <Typography
                 sx={{
-                  fontSize: '12px',
+                  fontSize: '12px !important',
                   color: 'rgba(255, 255, 255, 1)',
                   mt: '82px',
                   letterSpacing: 0.1,
@@ -137,6 +153,12 @@ const ExaminationCard = () => {
                   textAlign: 'start',
                   marginLeft: '-34px',
                   paddingLeft: '24px',
+                  paddingRight: '10px',
+
+                  '@media (max-width: 834px)': {
+                    marginLeft: 0,
+                    px: '24px',
+                  },
                 }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting

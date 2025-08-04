@@ -118,18 +118,44 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
                 },
               }}
             >
-              <FinancialCard image={goldbarImg} />
-              <FinancialCard image={goldbarImg} />
-              <FinancialCard image={goldbarImg} />
-              <FinancialCard image={goldbarImg} />
+              <FinancialCard
+                image={goldbarImg}
+                imageContainerWidth="100%"
+                titleMaxWidth="100%"
+              />
+              <FinancialCard
+                image={goldbarImg}
+                imageContainerWidth="100%"
+                titleMaxWidth="100%"
+              />
+              <FinancialCard
+                image={goldbarImg}
+                imageContainerWidth="100%"
+                titleMaxWidth="100%"
+              />
+              <FinancialCard
+                image={goldbarImg}
+                imageContainerWidth="100%"
+                titleMaxWidth="100%"
+              />
             </Box>
           ) : (
             <Box sx={{ mb: '32px' }}>
-              <FinancialNewsCarousel noBackground={true} image={goldbarImg} />
+              <FinancialNewsCarousel
+                noBackground={true}
+                image={goldbarImg}
+                titleWidth="auto"
+                descriptionWidth="auto"
+              />
             </Box>
           )}
           {isTabView && (
-            <FinancialNewsCarousel noBackground={true} image={goldbarImg} />
+            <FinancialNewsCarousel
+              noBackground={true}
+              image={goldbarImg}
+              titleWidth="auto"
+              descriptionWidth="auto"
+            />
           )}
         </Stack>
       )}

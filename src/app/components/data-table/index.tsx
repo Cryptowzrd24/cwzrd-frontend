@@ -74,7 +74,7 @@ const DataTable = memo(
         style={{
           width,
           height,
-          maxHeight: '400px',
+          // maxHeight: '400px',
           minHeight: height ? height : 'auto',
           overflowX: 'auto',
         }}

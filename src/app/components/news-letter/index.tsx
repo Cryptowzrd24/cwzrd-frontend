@@ -94,14 +94,17 @@ function NewsLetter() {
             marginTop: '16px',
           }}
         >
-          <div
-            style={{
+          <Box
+            sx={{
               flex: 1,
               marginRight: '30px',
+              '@media (max-width: 577px)': {
+                marginRight: '0px',
+              },
             }}
           >
             <CardContent />
-          </div>
+          </Box>
           <Box
             sx={{
               width: '330px',

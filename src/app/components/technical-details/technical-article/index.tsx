@@ -15,7 +15,8 @@ function TechnicalArticle() {
   led to a new historical high in their Bitcoin balance.`;
   const quoteTwo = `Looking forward, several factors could potentially reignite Bitcoin’s upward trajectory. These include an increase in average daily ETF buying activity, a reduction in selling pressure from long-term holders, and a rise in liquidity, which could be triggered by the anticipated rate cut.`;
   return (
-    <Box style={{ maxWidth: '770px' }}>
+    // <Box style={{ maxWidth: '770px' }}>
+    <Box>
       <Box
         sx={{
           display: 'flex',

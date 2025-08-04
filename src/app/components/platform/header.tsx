@@ -85,7 +85,8 @@ const PlatformHeader = () => {
 
               '@media (max-width: 576px)': {
                 fontSize: '12px',
-                lineHeight: '18px',
+                lineHeight: '150%',
+                mb: '16px',
               },
             }}
           >
@@ -100,14 +101,14 @@ const PlatformHeader = () => {
               alignItems: 'center',
               padding: '8px 16px 8px 8px',
               borderRadius: '32px',
-              maxWidth: '272px',
+              maxWidth: '255px',
               width: '100%',
               background: 'rgba(255, 255, 255, 1)',
               boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
               // mb: '36px',
 
               '@media (max-width: 576px)': {
-                maxWidth: '280px',
+                maxWidth: '255px',
                 mb: '20px',
               },
             }}
@@ -134,7 +135,7 @@ const PlatformHeader = () => {
                   lineHeight: '19.2px',
                 }}
               >
-                people who already joined us
+                people already joined us
               </span>
             </Typography>
           </Box>

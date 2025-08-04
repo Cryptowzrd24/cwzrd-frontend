@@ -9,7 +9,6 @@ const Coverage = () => {
     <>
       <Box
         sx={{
-          // padding: '45.75px 66px 45.75px 66px',
           borderRadius: '24px',
           display: 'flex',
           gap: '36px',
@@ -20,7 +19,7 @@ const Coverage = () => {
 
           '@media (max-width: 768px)': {
             flexDirection: 'column',
-            padding: '16px',
+            padding: '36px 16px 16px',
             gap: '16px',
           },
         }}
@@ -49,7 +48,7 @@ const Coverage = () => {
                 lineHeight: '33px',
                 fontWeight: 700,
 
-                '@media (max-width: 576px)': {
+                '@media (max-width: 768px)': {
                   fontSize: '24px !important',
                   lineHeight: '110%',
                   letterSpacing: '0.24px',
@@ -66,6 +65,10 @@ const Coverage = () => {
                 lineHeight: '20.25px',
                 fontSize: '13.5px !important',
                 color: 'rgba(17, 17, 17, 0.8)',
+
+                '@media (max-width: 768px)': {
+                  textAlign: 'center',
+                },
               }}
             >
               Stay updated with continuous market coverage, including Daily

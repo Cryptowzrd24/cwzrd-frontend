@@ -1,5 +1,5 @@
 'use client';
-import { Box, Chip, Typography, useMediaQuery } from '@mui/material';
+import { Box, Chip, Typography } from '@mui/material';
 import PeopleImage from '../../../../../../public/images/news-letter/people.svg';
 import Image from 'next/image';
 import React from 'react';
@@ -11,6 +11,8 @@ interface TrendingNewsCardProps {
   isDetailPage?: boolean;
   descriptionLines?: number;
   isMainPage?: boolean;
+  paddingInline?: string;
+  textEllipsis?: boolean;
 }
 
 const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
@@ -19,9 +21,9 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
   description,
   isDetailPage,
   descriptionLines,
+  paddingInline,
+  textEllipsis,
 }) => {
-  const isMobile = useMediaQuery('(max-width: 576px)');
-  const isLargeScreen = useMediaQuery('@media (min-width: 1680px)');
   return (
     <Box
       sx={{
@@ -88,7 +90,7 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
           },
         }}
       />
-      <Box sx={{ width: '100%', height: isLargeScreen ? '150px' : '130px' }}>
+      <Box sx={{ width: '100%', height: '150px' }}>
         <Image
           alt="news"
           src={
@@ -99,18 +101,25 @@ const TrendingNewsCard: React.FC<TrendingNewsCardProps> = ({
             objectFit: 'cover',
             borderRadius: '12px',
             width: '100%',
-            height: isLargeScreen ? '150px' : '130px',
+            height: '150px',
           }}
         />
       </Box>
-      <Box sx={{ paddingInline: '8px', marginTop: '8px' }}>
+      <Box sx={{ paddingInline: paddingInline ?? '8px', marginTop: '8px' }}>
         <Typography
           sx={{
             fontWeight: '700',
             fontSize: '14px !important',
             lineHeight: '18.2px',
             letterSpacing: '0.3px',
-            width: isMobile ? '100%' : isDetailPage ? '264px' : '100%',
+            width: '100%',
+            ...(textEllipsis && {
+              display: '-webkit-box',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+            }),
           }}
           variant="body1"
         >

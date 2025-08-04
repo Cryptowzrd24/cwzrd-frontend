@@ -8,6 +8,10 @@ const styles = {
     padding: '11px 16px',
     lineHeight: '15.6px',
     borderRadius: '40px',
+    '@media (max-width: 600px)': {
+      fontSize: 10,
+      padding: '8px 12px',
+    },
   }),
   iconBox: {
     padding: '8px',
@@ -15,6 +19,10 @@ const styles = {
     background: '#7248F71A',
     height: '16px',
     cursor: 'pointer',
+    '@media (max-width: 600px)': {
+      padding: '6px',
+      height: '14px',
+    },
   },
   select: {
     '& .MuiSelect-select': {
@@ -27,6 +35,10 @@ const styles = {
       display: 'flex',
       alignItems: 'center',
       borderRadius: '8px',
+      '@media (max-width: 600px)': {
+        fontSize: '14px',
+        padding: '7px 12px',
+      },
     },
     '& .MuiSvgIcon-root': {
       color: '#7248F7',
@@ -36,6 +48,9 @@ const styles = {
     },
     '& .MuiSelect-icon': {
       right: '15px',
+      '@media (max-width: 600px)': {
+        right: '10px',
+      },
     },
 
     backgroundColor: '#F0ECFF',
@@ -49,6 +64,10 @@ const styles = {
     marginTop: '12px',
     paddingBlock: '12px 0px',
     gap: '16px',
+    '@media (max-width: 600px)': {
+      gap: '12px',
+      paddingBlock: '8px 0px',
+    },
   },
   searchBox: {
     display: 'flex',
@@ -61,6 +80,11 @@ const styles = {
     borderRadius: '38px',
     width: '100%',
     boxShadow: '0px 4px 24px 0px #00000005',
+    '@media (max-width: 600px)': {
+      padding: '4px 16px',
+      maxHeight: '40px',
+      gap: '6px',
+    },
   },
   filterActive: {
     border: '1px solid rgba(114, 72, 247, 1)',
@@ -75,6 +99,11 @@ const styles = {
     gap: '8px',
     marginTop: '12px',
     justifyContent: 'space-between',
+    '@media (max-width: 600px)': {
+      paddingInline: '0px',
+      gap: '6px',
+      paddingTop: '8px',
+    },
   },
   searchInput: {
     outline: 'none',
@@ -86,23 +115,37 @@ const styles = {
     fontFamily: 'Sf Pro Display',
     color: '#111111',
     width: '100%',
+    '@media (max-width: 600px)': {
+      fontSize: '14px',
+    },
   },
   container: {
     display: 'flex',
     flexDirection: 'column',
     marginBottom: '12px',
+    '@media (max-width: 600px)': {
+      marginBottom: '8px',
+    },
   },
   typography: {
     fontSize: '12px',
     fontWeight: 600,
     lineHeight: '15.6px',
     color: '#11111199',
+    '@media (max-width: 600px)': {
+      fontSize: '10px',
+    },
   },
   filterContainer: {
-    marginLeft: 'auto',
     display: 'flex',
     gap: '8px',
     alignItems: 'center',
+    '@media (max-width: 600px)': {
+      gap: '6px',
+    },
+    '@media (max-width: 550px)': {
+      width: '100%',
+    },
   },
 };
 export default styles;

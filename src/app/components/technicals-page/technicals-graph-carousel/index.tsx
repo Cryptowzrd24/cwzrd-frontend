@@ -116,7 +116,8 @@ import CarouselCard from './carousel-card';
 const TechnicalGraphCarousel = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // <600px
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md')); // 600px - 900px
+  // const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md')); // 600px - 900px
+  const isTabView = useMediaQuery('(max-width: 978px)');
 
   const PreviousArrow = ({ onClick }: any) => (
     <IconButton
@@ -124,7 +125,7 @@ const TechnicalGraphCarousel = () => {
       sx={{
         cursor: 'pointer',
         position: 'absolute',
-        top: isTablet || isMobile ? '110%' : '52%',
+        top: isTabView || isMobile ? '110%' : '52%',
         left: '11px',
         width: '40px',
         height: '40px',
@@ -151,7 +152,7 @@ const TechnicalGraphCarousel = () => {
       sx={{
         cursor: 'pointer',
         position: 'absolute',
-        top: isTablet || isMobile ? '110%' : '52%',
+        top: isTabView || isMobile ? '110%' : '52%',
         right: '11px',
         width: '40px',
         height: '40px',
@@ -173,7 +174,7 @@ const TechnicalGraphCarousel = () => {
   );
 
   const settings = {
-    dots: isMobile || isTablet,
+    dots: isMobile || isTabView,
     infinite: false,
     speed: 500,
     slidesToShow: 1,
@@ -201,8 +202,8 @@ const TechnicalGraphCarousel = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        marginBottom: isTablet || isMobile ? '64px' : '0px',
-        marginTop: isTablet || isMobile ? '0px' : '-85px',
+        marginBottom: isTabView || isMobile ? '64px' : '0px',
+        marginTop: isTabView || isMobile ? '24px' : '-85px',
       }}
     >
       <Slider className="technicals-slick" {...settings}>

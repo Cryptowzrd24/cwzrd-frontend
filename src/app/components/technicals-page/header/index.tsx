@@ -20,6 +20,7 @@ const TechnicalsHeader = ({
         '@media (max-width: 768px)': {
           flexDirection: 'column',
           alignItems: 'flex-start',
+          mt: '16px',
         },
       }}
     >

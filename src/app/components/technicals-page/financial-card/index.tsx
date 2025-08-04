@@ -20,7 +20,12 @@ function FinancialCard({
   isFxPage,
   dualImg,
   isMainPage,
-}: FinancialCardProps) {
+  imageContainerWidth,
+  titleMaxWidth,
+}: FinancialCardProps & {
+  imageContainerWidth?: string;
+  titleMaxWidth?: string;
+}) {
   return (
     <Box
       sx={() => {
@@ -95,7 +100,7 @@ function FinancialCard({
 
         <Box
           sx={{
-            width: isMainPage ? 'auto' : '218px',
+            width: imageContainerWidth || isMainPage ? 'auto' : '218px',
             height: '132px',
             borderRadius: '12px',
             overflow: 'hidden',
@@ -105,9 +110,9 @@ function FinancialCard({
           <Image
             src={techGraph}
             alt="analysis card"
-            width={300}
             height={132}
             style={{
+              width: '100%',
               boxShadow: '0px 0px 12px 0px rgba(114, 72, 247, 0.1) inset',
               borderRadius: '12px',
             }}
@@ -120,7 +125,7 @@ function FinancialCard({
           fontWeight: '700',
           lineHeight: '18.2px',
           paddingInline: '8px',
-          width: '204px',
+          width: titleMaxWidth || '204px',
           boxSizing: 'border-box',
         }}
       >

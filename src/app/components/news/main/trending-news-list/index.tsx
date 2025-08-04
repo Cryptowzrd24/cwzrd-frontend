@@ -159,7 +159,9 @@ const Card = ({ title, image, description }: any) => {
             src={image.src}
           />
         </Box>
-        <Box sx={{ width: '53%' }}>
+        <Box
+          sx={{ width: '53%', '@media (max-width: 768px)': { width: '80%' } }}
+        >
           <Typography
             sx={{
               fontSize: '12px !important',

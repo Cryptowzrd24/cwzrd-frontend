@@ -56,7 +56,7 @@ function DetailsSection({
       {isTabView && (
         <Box
           sx={{
-            my: '20px',
+            mb: '20px',
             position: 'sticky',
             zIndex: '100',
             top: '60px',
@@ -73,6 +73,7 @@ function DetailsSection({
       <Container
         maxWidth="xl"
         sx={{
+          maxWidth: '1440px !important',
           '@media (max-width: 599px)': { paddingInline: '16px !important' },
         }}
       >

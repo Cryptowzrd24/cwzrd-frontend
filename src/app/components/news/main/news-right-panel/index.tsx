@@ -6,7 +6,7 @@ import EyeImage from '../../../../../../public/images/eyeImage.png';
 import RandomImg from '../../../../../../public/images/randomImg.png';
 import RandomImg2 from '../../../../../../public/images/randomImg2.png';
 
-function NewsRightPanel({ isDetailPage, isMainPage }: any) {
+function NewsRightPanel({ isDetailPage, isMainPage, width }: any) {
   const cardData = [
     {
       id: 1,
@@ -45,7 +45,7 @@ function NewsRightPanel({ isDetailPage, isMainPage }: any) {
     },
   ];
   const renderCard = cardData.map((card) => {
-    return <NewsRightPanelCard key={card.id} cardData={card} />;
+    return <NewsRightPanelCard key={card.id} cardData={card} width={width} />;
   });
   return (
     <Box

@@ -170,10 +170,10 @@ function Navbar() {
               justifyContent: 'space-between',
               alignItems: 'center',
               py: '8px',
-              mt: 3,
+              mt: pathname === '/' ? '' : 3,
             }}
           >
-            <Link href="/">
+            <Link className="logo-navbar" href="/">
               {pathname === '/news' ||
               pathname === '/technicals' ||
               pathname === '/articles' ||

@@ -32,7 +32,11 @@ const WzrdStrategy = () => {
             },
           }}
         >
-          <Stack>
+          <Stack
+            sx={{
+              '@media (max-width: 768px)': { textAlign: 'center' },
+            }}
+          >
             <Typography
               sx={{
                 fontSize: '14px !important',
@@ -42,6 +46,7 @@ const WzrdStrategy = () => {
                 lineHeight: '18.2px',
                 fontWeight: '500',
                 mb: '8px',
+                '@media (max-width: 768px)': { maxWidth: '100%' },
               }}
             >
               The WZRD Strategy
@@ -54,6 +59,7 @@ const WzrdStrategy = () => {
                 maxWidth: '298px',
                 fontWeight: '400',
                 lineHeight: '18px',
+                '@media (max-width: 768px)': { maxWidth: '100%' },
               }}
             >
               Master trading with our essential guides and lessons, covering our

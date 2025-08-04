@@ -246,7 +246,7 @@ const RelatedNewsCarousel = ({
     <Box
       key={index}
       sx={{
-        padding: '0 5px',
+        padding: '0 5px 0px 0px',
         boxSizing: 'border-box',
         marginBottom: '10px',
       }}
@@ -254,6 +254,7 @@ const RelatedNewsCarousel = ({
       <TrendingNewsCard
         descriptionLines={descriptionLines}
         image={imageArray[index % imageArray.length]}
+        paddingInline={'0px'}
         title={
           'Dogecoin Long Liquidations Surge Past $60 Million Amid Market Dip'
         }

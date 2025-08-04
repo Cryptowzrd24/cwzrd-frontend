@@ -11,11 +11,12 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const ProgressCards = () => {
   const isSmallScreen = useMediaQuery('(max-width:768px)');
+  const isMobileScreen = useMediaQuery('(max-width:576px)');
   const sliderRef = useRef<Slider | null>(null);
 
   const settings = {
     infinite: true,
-    slidesToShow: 1,
+    slidesToShow: isMobileScreen ? 1 : 2,
     slidesToScroll: 1,
     arrows: false,
     dots: true,

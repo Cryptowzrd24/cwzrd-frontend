@@ -13,6 +13,7 @@ interface NewsCardProps {
   isFirst?: boolean;
   dualImg?: any;
   isFxPage?: boolean;
+  height?: string;
 }
 
 function AnalysisCard({
@@ -22,12 +23,13 @@ function AnalysisCard({
   isFirst,
   dualImg,
   isFxPage,
+  height,
 }: NewsCardProps) {
   return (
     <Box
       sx={{
         width: isFourth ? '644px' : !isThird ? 'auto' : '468px',
-        height: 'auto',
+        height: height ? height : 'auto',
         borderRadius: '16px',
         background: isFourth
           ? 'radial-gradient(83.94% 66.65% at 16.06% 44.55%, rgba(114, 72, 247, 0.14) 43.91%, rgba(191, 72, 247, 0.08) 100%)'
@@ -38,6 +40,13 @@ function AnalysisCard({
         paddingInline: '16px',
         marginBottom: isFourth ? '0x' : isFirst ? '0px' : '0px',
         boxSizing: 'border-box',
+
+        ...(isFirst && {
+          '@media (max-width: 1360px)': {
+            width: 'auto',
+            height: 'auto',
+          },
+        }),
 
         '@media (max-width: 1024px)': {
           width: 'auto',

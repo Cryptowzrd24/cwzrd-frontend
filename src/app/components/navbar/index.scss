@@ -49,3 +49,24 @@
     height: 300px;
   }
 }
+
+@media screen and (max-width: 576px) {
+  .logo-navbar svg {
+    width: 100px;
+  }
+}
+
+#stats-tooltip .MuiTooltip-tooltip {
+  background-color: #fff !important;
+}
+
+.news-letter-container {
+  @media (max-width: 577px) {
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+  }
+}

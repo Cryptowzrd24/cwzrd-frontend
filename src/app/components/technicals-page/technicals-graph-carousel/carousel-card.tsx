@@ -8,7 +8,7 @@ function CarouselCard() {
       sx={{
         borderRadius: '16px',
         background: '#FFFFFF',
-        boxShadow: '0px 4px 28px 0px #0000000D ',
+        // boxShadow: '0px 4px 28px 0px #0000000D ',
         padding: '20px 12px',
         width: '85%',
 
@@ -20,7 +20,7 @@ function CarouselCard() {
       <Box sx={{ marginLeft: '8px' }}>
         <Typography
           sx={{
-            fontSize: '12px',
+            fontSize: '12px !important',
             fontWeight: 600,
             fontFamily: 'Sf Pro Display',
             lineHeight: '15.6px',
@@ -32,7 +32,7 @@ function CarouselCard() {
         </Typography>
         <Typography
           sx={{
-            fontSize: '18px',
+            fontSize: '18px !important',
             fontWeight: 500,
             lineHeight: '23.4px',
             fontFamily: 'Sf Pro Display',
@@ -45,7 +45,7 @@ function CarouselCard() {
         </Typography>
         <Typography
           sx={{
-            fontSize: '13px',
+            fontSize: '13px !important',
             fontWeight: 400,
             lineHeight: '18.85px',
             fontFamily: 'Sf Pro Display',

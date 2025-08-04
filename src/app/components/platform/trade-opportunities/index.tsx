@@ -15,16 +15,14 @@ const TradeOpportunities = () => {
             background: 'linear-gradient(180deg, #7248F7 0%, #BF48F7 100%)',
             padding: '10px 16px 10px 20px',
             borderRadius: '56px',
-            // width: '168px',
-            // mb: '64px',
-            marginTop: '32px',
+            marginTop: '48px',
           }}
         >
           <Typography
             variant="body1"
             sx={{
               fontSize: '14px',
-              fontWeight: '500',
+              fontWeight: '600',
               color: 'rgba(255, 255, 255, 1)',
               display: 'flex',
               alignItems: 'center',

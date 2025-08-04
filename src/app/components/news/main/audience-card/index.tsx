@@ -24,7 +24,11 @@ const AudienceCard = ({
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         boxSizing: 'border-box',
 
-        '@media (max-width: 724px)': {
+        '@media (max-width: 720px)': {
+          width: '48%',
+        },
+
+        '@media (max-width: 576px)': {
           width: 'auto',
         },
       }}

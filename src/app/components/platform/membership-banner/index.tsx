@@ -45,7 +45,7 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
               lineHeight: '33px',
               letterSpacing: '2px',
               marginBottom: '0px',
-              fontSize: '30px',
+              fontSize: '30px !important',
 
               '@media (max-width: 576px)': {
                 fontWeight: 700,
@@ -60,7 +60,7 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
           <Typography
             variant="body1"
             sx={{
-              color: '#FFFFFFCC',
+              color: '#FFFFFFFF',
               fontSize: '10px !important',
               lineHeight: '15px',
               fontWeight: '400',
@@ -77,7 +77,7 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
               alignItems: 'center',
               padding: '6px 12px 6px 6px',
               borderRadius: '32px',
-              width: '289px',
+              width: '255px',
               background: 'rgba(255, 255, 255, 1)',
 
               '@media (max-width: 576px)': {
@@ -109,7 +109,7 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
                   lineHeight: '14.4px',
                 }}
               >
-                people who already joined us
+                people already joined us
               </span>
             </Typography>
           </Box>

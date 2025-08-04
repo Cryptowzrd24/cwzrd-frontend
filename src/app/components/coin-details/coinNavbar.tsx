@@ -59,6 +59,9 @@ const CoinNavbar = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        '@media (max-width: 660px)': {
+          display: 'none',
+        },
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '24px' }}>

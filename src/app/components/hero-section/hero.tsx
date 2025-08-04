@@ -61,7 +61,11 @@ const Hero: React.FC = () => {
             </Box>
           </Box>
           <Typography
-            sx={{ fontSize: '13px !important', fontWeight: '400' }}
+            sx={{
+              fontSize: '13px !important',
+              fontWeight: '400',
+              '@media (max-width: 599px)': { display: 'none' },
+            }}
             variant="body1"
           >
             Show Stats

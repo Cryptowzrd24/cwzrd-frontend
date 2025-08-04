@@ -11,13 +11,22 @@ interface NewsCardProps {
   image?: any;
   isFxPage?: boolean;
   dualImg?: any;
+  cardWidth?: string;
+  rightTextPadding?: string;
 }
-function NewsCard({ isShort, image, isFxPage, dualImg }: NewsCardProps) {
+function NewsCard({
+  isShort,
+  image,
+  isFxPage,
+  dualImg,
+  cardWidth,
+  rightTextPadding,
+}: NewsCardProps) {
   const isMobile = useMediaQuery('(max-width: 767px)');
   return (
     <Box
       sx={{
-        width: isShort ? '300px' : '402px',
+        width: cardWidth ? cardWidth : isShort ? '300px' : '402px',
         padding: '8px',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
@@ -90,7 +99,7 @@ function NewsCard({ isShort, image, isFxPage, dualImg }: NewsCardProps) {
             ? {
                 marginTop: '6px',
                 paddingLeft: '12px',
-                paddingRight: isMobile ? '6px' : '22px',
+                paddingRight: rightTextPadding || isMobile ? '6px' : '22px',
               }
             : { paddingBlock: '6.5px', marginTop: '6px' }
         }

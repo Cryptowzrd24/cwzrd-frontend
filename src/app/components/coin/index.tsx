@@ -18,7 +18,7 @@ function Coin() {
         '@media (max-width: 599px)': { paddingInline: '16px !important' },
       }}
     >
-      <Box sx={{ mt: '48px' }}>
+      <Box sx={{ mt: '48px', '@media (max-width: 577px)': { mt: '32px' } }}>
         <Hero />
         <HeroContent />
         <Stats />
@@ -29,13 +29,12 @@ function Coin() {
       <Box sx={{ mt: '48px' }}>
         <NewsLetterBanner />
       </Box>
-      <Box sx={{ mt: '48px' }}>
+      <Box sx={{ mt: '48px' }} className="news-letter-container">
         <NewsLetter />
       </Box>
       <Box sx={{ mt: '48px' }}>
         <Technicals />
       </Box>
-
       <Box sx={{ mt: '48px', mb: '48px' }}>
         <MemberShipBanner />
       </Box>

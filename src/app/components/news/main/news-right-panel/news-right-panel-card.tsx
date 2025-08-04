@@ -11,13 +11,14 @@ interface CardDataProps {
     title: string;
     subTitle: string;
   };
+  width?: string;
 }
 
-function NewsRightPanelCard({ cardData }: CardDataProps) {
+function NewsRightPanelCard({ cardData, width }: CardDataProps) {
   return (
     <Box
       sx={{
-        width: '410px',
+        width: width || '410px',
         padding: '8px',
         borderRadius: '16px',
         background: 'rgba(255, 255, 255, 1)',

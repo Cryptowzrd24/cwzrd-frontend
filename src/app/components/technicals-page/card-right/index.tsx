@@ -7,7 +7,13 @@ import React from 'react';
 
 const RightCard = () => {
   return (
-    <Box>
+    <Box
+      sx={{
+        '@media (max-width: 1000px)': {
+          display: 'none',
+        },
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
@@ -50,7 +56,14 @@ const RightCard = () => {
           }}
         />
       </Box>
-      <Box sx={{ overflow: 'hidden' }}>
+      <Box
+        sx={{
+          overflow: 'hidden',
+          '@media (max-width: 1360px) and (min-width: 1024px)': {
+            height: '250px',
+          },
+        }}
+      >
         <img
           src={pepiBigImg.src}
           alt="pepi image"

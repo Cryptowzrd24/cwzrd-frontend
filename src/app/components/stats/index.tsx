@@ -187,10 +187,11 @@ const Divider = () => (
 
 const StatItem = ({ label, value, change, data }: StatItemProps) => (
   <Tooltip
+    id="stats-tooltip"
     componentsProps={{
       tooltip: {
         sx: {
-          background: '#FFFFFF !important',
+          backgroundColor: '#FFFFFF !important',
           boxShadow: '0px 4px 28px 0px #0000000D',
           width: '350px',
           padding: '16px',
@@ -209,6 +210,7 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
         background: data ? '#7248F71A' : 'transparent',
         borderRadius: '40px',
         cursor: data ? 'pointer' : 'default',
+        minWidth: 'max-content',
       }}
     >
       <Typography
@@ -217,6 +219,9 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
           fontWeight: 500,
           lineHeight: '16.9px',
           color: '#11111199',
+          '@media (max-width: 599px)': {
+            fontSize: '12px',
+          },
         }}
       >
         {label}
@@ -227,6 +232,9 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
           fontWeight: 500,
           lineHeight: '16.9px',
           color: '#7248F7',
+          '@media (max-width: 599px)': {
+            fontSize: '12px',
+          },
         }}
       >
         {value}
@@ -242,6 +250,9 @@ const StatItem = ({ label, value, change, data }: StatItemProps) => (
             borderRadius: '11px',
             color: change.includes('-') ? '#F74848' : '#1FD773',
             backgroundColor: change.includes('-') ? '#F748481A' : '#1FD7731A',
+            '@media (max-width: 599px)': {
+              fontSize: '12px',
+            },
           }}
         >
           {change}
@@ -264,6 +275,11 @@ const Stats: React.FC = async () => {
         backgroundColor: 'white',
         borderRadius: '24px',
         boxShadow: '0px 4px 28px 0px #0000000D',
+        overflowX: 'auto',
+        gap: '24px',
+        '@media (max-width: 599px)': {
+          padding: '8px 16px',
+        },
       }}
     >
       {rowData.map((stat: StatItemProps, index: number) => (

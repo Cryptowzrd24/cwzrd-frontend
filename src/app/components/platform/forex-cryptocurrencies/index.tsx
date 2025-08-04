@@ -20,14 +20,19 @@ const Forex = () => {
             lineHeight: '38.4px',
             color: 'rgba(17, 17, 17, 1)',
             maxWidth: '590px',
-            // minWidth: '590px',
             mb: '16px',
+
+            '@media (max-width: 1024px)': {
+              textAlign: 'center',
+            },
 
             '@media (max-width: 576px)': {
               fontSize: '24px !important',
               lineHeight: '28.8px',
               fontWeight: '700',
               letterSpacing: '0.24px',
+              marginRight: '16px',
+              textAlign: 'start',
             },
           }}
         >
@@ -41,10 +46,16 @@ const Forex = () => {
             color: 'rgba(17, 17, 17, 0.8)',
             maxWidth: '590px',
 
+            '@media (max-width: 1024px)': {
+              textAlign: 'center',
+            },
+
             '@media (max-width: 576px)': {
               fontSize: '14px !important',
               lineHeight: '150%',
               letterSpacing: '-0.135px',
+              textAlign: 'start',
+              width: '90%',
             },
           }}
         >

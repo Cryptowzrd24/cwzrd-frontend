@@ -9,9 +9,13 @@ import CommentsLikes from '../comments-likes';
 function FinancialNewsCardVertical({
   noBackground = false,
   image,
+  titleMaxWidth,
+  descriptionMaxWidth,
 }: {
   noBackground?: boolean;
   image?: string | StaticImageData;
+  titleMaxWidth?: string;
+  descriptionMaxWidth?: string;
 }) {
   return (
     <Box
@@ -91,7 +95,7 @@ function FinancialNewsCardVertical({
             fontSize: '14px !important',
             lineHeight: '18.2px',
             fontFamily: 'Sf Pro Display',
-            width: noBackground ? 'auto' : '219.6px',
+            width: titleMaxWidth ?? '219.6px',
           }}
         >
           The EURJPY takes advantage of the support line stability
@@ -101,7 +105,7 @@ function FinancialNewsCardVertical({
             fontWeight: 400,
             fontSize: '12px !important',
             fontFamily: 'Sf Pro Display',
-            width: noBackground ? 'auto' : '219.6px',
+            width: descriptionMaxWidth ?? '219.6px',
             lineHeight: '17.4px',
             color: 'rgba(17, 17, 17, 0.8)',
             marginTop: '4px',

@@ -55,7 +55,7 @@ function RelatedNewsCards() {
           justifyContent: 'space-evenly',
         },
 
-        '@media (max-width: 978px)': {
+        '@media (max-width: 878px)': {
           flexDirection: 'column',
         },
       }}
@@ -65,7 +65,12 @@ function RelatedNewsCards() {
           image={news.image}
           title={news.title}
           description={news.description}
-          imageWidth={news.width}
+          imageWidth={'100%'}
+          imageMargin="0px"
+          containerHeight="100%"
+          containerPadding="8px"
+          boxMediaQuery="(max-width: 1360px) and (min-width: 978px)"
+          boxMediaQueryWidth="45%"
         />
       ))}
     </Box>
