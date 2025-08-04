@@ -67,7 +67,10 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
         }}
       >
         <Box
-          sx={{ mt: '32px', '@media (max-width: 980px)': { display: 'none' } }}
+          sx={{
+            mt: '32px',
+            '@media (max-width: 980px)': { display: 'block', mt: '0px' },
+          }}
         >
           <BreadCrumb
             origin={'News'}
@@ -77,7 +80,12 @@ const NewsDetails = ({ isArticleDetails }: { isArticleDetails?: boolean }) => {
           />
         </Box>
       </Container>
-      <Box sx={{ mt: '24px' }}>
+      <Box
+        sx={{
+          mt: '24px',
+          '@media (max-width: 980px)': { mt: '0px !important' },
+        }}
+      >
         <DetailsSection
           sections={sections}
           activeSection={activeSection} // Pass activeSection to DetailsSection

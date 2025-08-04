@@ -56,7 +56,7 @@ function DetailsSection({
       {isTabView && (
         <Box
           sx={{
-            my: '20px',
+            mb: '20px',
             position: 'sticky',
             zIndex: '100',
             top: '60px',
