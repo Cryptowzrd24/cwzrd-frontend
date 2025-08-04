@@ -55,7 +55,7 @@ function RelatedNewsCards() {
           justifyContent: 'space-evenly',
         },
 
-        '@media (max-width: 978px)': {
+        '@media (max-width: 878px)': {
           flexDirection: 'column',
         },
       }}

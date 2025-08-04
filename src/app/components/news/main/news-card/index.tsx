@@ -42,7 +42,6 @@ const NewsCard: React.FC<NewsCardProps> = ({
   justifyContent,
   isMainPage,
   containerPadding,
-  containerHeight,
   boxMediaQuery,
   boxMediaQueryWidth,
 }) => {
@@ -61,15 +60,15 @@ const NewsCard: React.FC<NewsCardProps> = ({
           : allNews
             ? '328px'
             : containerWidth || '309px',
-        height: containerHeight ?? (allNews ? '252px' : '252px'),
+        // height: containerHeight ?? (allNews ? '252px' : '252px'),
         borderRadius: '16px',
         boxShadow: '0px 4px 28px 0px #0000000D',
 
-        '@media (max-width: 978px)': {
+        '@media (max-width: 878px)': {
           flexDirection: 'row',
-          width: 'auto',
-          height: '110px',
-          padding: isVertical ? '10px' : '8px',
+          width: '100%',
+          // height: '110px',
+          // padding: isVertical ? '10px' : '8px',
           alignItems: 'flex-start',
           justifyContent: 'flex-start',
         },
@@ -202,7 +201,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
                 letterSpacing: '0.24px !important',
               },
               '@media (max-width: 576px)': {
-                fontSize: '18px !important',
+                fontSize: '12px !important',
               },
             }}
             variant="body1"
@@ -256,7 +255,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
                       lineHeight: '120% !important',
                     },
                     '@media (max-width: 576px)': {
-                      fontSize: '12px !important',
+                      fontSize: '11px !important',
                       lineHeight: '150% !important',
                       letterSpacing: '0.24px !important',
                     },
