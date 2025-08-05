@@ -46,7 +46,7 @@
     "styled-components": "^6.1.12",
     "styled-jsx": "^5.1.6",
     "swiper": "^11.1.14"
-  },
+  }, 
   "devDependencies": {
     "@types/highcharts": "^7.0.0",
     "@types/js-cookie": "^3.0.6",
