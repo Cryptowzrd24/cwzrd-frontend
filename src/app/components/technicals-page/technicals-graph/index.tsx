@@ -1,5 +1,5 @@
 'use client';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import React, { useRef, useState } from 'react';
 import Graph from './technicals-graph';
 
@@ -9,6 +9,7 @@ import GraphFilter from '../../coin-details/graph-filter';
 
 function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
   const chartRef = useRef<HTMLDivElement>(null);
+  const isSmallScreen = useMediaQuery('(max-width: 576px)');
 
   //   const [isFullScreen, setIsFullScreen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('filter');
@@ -45,8 +46,8 @@ function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
       <Box
         sx={{
           position: 'relative',
-          top: '-400px',
-          left: isMainPage ? '79%' : '50px',
+          top: isSmallScreen ? '-480px' : '-400px',
+          left: isMainPage ? '79%' : isSmallScreen ? '20px' : '50px',
           width: 'fit-content',
         }}
       >
