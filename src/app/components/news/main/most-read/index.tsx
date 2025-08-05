@@ -10,9 +10,9 @@ function MostRead({
   height?: string;
   width?: string;
   isMainPage?: boolean;
-  }) {
-    const renderCard = [1, 2, 3, 4, 5, 6, 7].map((cardId,index) => {
-      return <MostReadCard key={cardId} countNumber={index} />;
+}) {
+  const renderCard = [1, 2, 3, 4, 5, 6, 7].map((cardId, index) => {
+    return <MostReadCard key={cardId} countNumber={index} />;
   });
   const isTabView = useMediaQuery('(max-width: 978px)');
   return (

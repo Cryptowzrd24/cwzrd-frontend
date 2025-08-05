@@ -73,7 +73,7 @@ const PersonalCalendar = () => {
           component={motion.div}
           sx={{
             borderRadius: '24px',
-            width: '637.5px',
+            width: isTabView ? '637.5px' : '100%',
             height: '443.25px',
             boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
             position: 'relative',

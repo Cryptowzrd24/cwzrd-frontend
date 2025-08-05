@@ -15,7 +15,7 @@ const CoverageCards = () => {
           justifyContent: 'center',
           flexWrap: 'wrap',
           gap: '22px',
-          maxWidth: '967.5px',
+          // maxWidth: '967.5px',
           mx: 'auto',
         }}
       >
@@ -23,9 +23,7 @@ const CoverageCards = () => {
         <CommunityCard />
         <DailyCoverageCard />
       </Box>
-      <Box sx={{ mt: '24px', display: 'flex', justifyContent: 'center' }}>
-        <MemberCard />
-      </Box>
+      <MemberCard />
     </>
   );
 };

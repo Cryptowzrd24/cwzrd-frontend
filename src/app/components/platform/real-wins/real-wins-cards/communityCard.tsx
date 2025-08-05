@@ -13,9 +13,15 @@ const CommunityCard = () => {
           backgroundPosition: 'center',
           padding: '24px 0 23.75px 24px',
           borderRadius: '24px',
-          // minHeight: '250px',
-          width: '295px',
+          minHeight: '250px',
           overflow: 'hidden',
+          boxSizing: 'border-box',
+          height: '276px',
+
+          '@media (max-width: 1024px)': {
+            width: '100%',
+            height: '100%',
+          },
 
           '@media (max-width: 576px)': {
             width: 'auto',
@@ -64,9 +70,7 @@ const CommunityCard = () => {
               lineHeight: '16px',
               mt: '3px',
               '@media (max-width: 576px)': {
-                fontSize: '12px',
-                lineHeight: '130%',
-                mb: '36px',
+                mt: '12px',
               },
             }}
           >

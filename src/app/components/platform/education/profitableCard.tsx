@@ -68,7 +68,7 @@ const ProfitableCard = () => {
         <motion.img
           src={'/images/platform/vector.png'}
           alt="vector"
-          width={135}
+          width={isTabView ? 135 : 100}
           variants={imgAndTextVariants}
           initial="initial"
           animate={active ? 'active' : 'inactive'}
@@ -86,11 +86,13 @@ const ProfitableCard = () => {
               textAlign: 'center',
               lineHeight: '33px',
               marginTop: '24px',
-              marginBottom: '22px',
+              marginBottom: '24px',
               fontFamily: 'Sf Pro Display',
 
               '@media (max-width: 576px)': {
                 paddingInline: '20px',
+                fontWeight: '600',
+                fontSize: '24px !important',
               },
             }}
           >

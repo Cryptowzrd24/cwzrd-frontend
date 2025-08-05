@@ -6,7 +6,8 @@ function MostReadCard({ countNumber }: { countNumber: number }) {
     <Box
       sx={{
         // height: '80px',
-        borderTop: countNumber===0?'none':'1px solid rgba(17, 17, 17, 0.1)',
+        borderTop:
+          countNumber === 0 ? 'none' : '1px solid rgba(17, 17, 17, 0.1)',
         marginTop: '12px',
         // paddingBottom: '10px',
       }}

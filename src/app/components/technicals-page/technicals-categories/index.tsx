@@ -48,7 +48,7 @@ export const TechnicalsCategory: React.FC = () => {
           alignItems: 'center',
           height: '100%',
           flex: 1,
-          
+
           '@media (max-width: 768px)': {
             overflowX: 'auto',
             overflowY: 'hidden',

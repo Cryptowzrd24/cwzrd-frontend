@@ -15,14 +15,13 @@ const MemberCard = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '890.5px',
+          width: '100%',
+          boxSizing: 'border-box',
 
-          '@media (max-width: 830px)': {
-            padding: '10px',
-          },
-
-          '@media (max-width: 768px)': {
+          '@media (max-width: 824px)': {
             flexDirection: 'column',
+            alignItems: 'flex-start',
+            padding: '16px',
           },
         }}
       >
@@ -32,7 +31,8 @@ const MemberCard = () => {
             alignItems: 'center',
             gap: '15px',
 
-            '@media (max-width: 768px)': {
+            '@media (max-width: 824px)': {
+              alignItems: 'flex-start',
               flexDirection: 'column',
             },
           }}

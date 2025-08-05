@@ -4,7 +4,15 @@ import AccordionQuestion from './accordionQuestion';
 
 const FrequentlyAskedQuestion = () => {
   return (
-    <>
+    <Box
+      sx={{
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '24px',
+      }}
+    >
       <Typography
         sx={{
           fontSize: '32px !important',
@@ -14,10 +22,11 @@ const FrequentlyAskedQuestion = () => {
           textAlign: 'center',
           letterSpacing: '1px',
           fontFamily: 'Sf Pro Display',
+          margin: 0,
 
           '@media (max-width: 576px)': {
             fontSize: '24px !important',
-            lineHeight: '120%',
+            lineHeight: '1.2',
             letterSpacing: '0.24px',
           },
         }}
@@ -55,7 +64,7 @@ const FrequentlyAskedQuestion = () => {
         <Box
           sx={{
             maxWidth: '477px',
-            '@media (max-width: 976px)': { maxWidth: '100%' },
+            '@media(max-width: 987px)': { maxWidth: '100%', width: '100%' },
           }}
         >
           <AccordionQuestion
@@ -101,7 +110,7 @@ const FrequentlyAskedQuestion = () => {
           />
         </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 

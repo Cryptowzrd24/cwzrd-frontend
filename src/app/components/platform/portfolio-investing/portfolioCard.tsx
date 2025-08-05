@@ -21,6 +21,8 @@ const PortfolioCard = () => {
             width: '100%',
             padding: '20px',
             boxSizing: 'border-box',
+            WebkitBorderTopRightRadius: '0px',
+            WebkitBorderBottomLeftRadius: '0px',
           },
         }}
       >

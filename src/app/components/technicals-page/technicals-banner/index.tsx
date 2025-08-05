@@ -481,7 +481,14 @@ function TechnicalsBanner({
         }}
       >
         {/* Row 1: Image, Title, and Accordion Button */}
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: '16px',
+          }}
+        >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <Box sx={{ display: 'flex' }}>
               <Box
@@ -553,7 +560,14 @@ function TechnicalsBanner({
         </Box>
 
         {/* Row 2: Price and 1h% (Always visible) */}
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '20px',
+          }}
+        >
           <Box sx={{ flex: 1, textAlign: 'left' }}>
             <Typography
               sx={{
@@ -612,7 +626,14 @@ function TechnicalsBanner({
         {isExpanded && (
           <>
             {/* Row 3: 24h% and 7d% */}
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '20px',
+              }}
+            >
               <Box sx={{ flex: 1, textAlign: 'left' }}>
                 <Typography
                   sx={{
@@ -622,7 +643,6 @@ function TechnicalsBanner({
                     fontFamily: 'Sf Pro Display',
                     color: 'rgba(255, 255, 255, 1)',
                     marginBottom: '6px',
-                    
                   }}
                 >
                   24h%
@@ -669,7 +689,14 @@ function TechnicalsBanner({
             </Box>
 
             {/* Row 4: Market Cap and Graph */}
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '16px',
+              }}
+            >
               <Box sx={{ flex: 1, textAlign: 'left' }}>
                 <Typography
                   sx={{
@@ -719,7 +746,14 @@ function TechnicalsBanner({
             </Box>
 
             {/* Row 5: Read More */}
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', padding:'12px' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                padding: '12px',
+              }}
+            >
               <Typography
                 sx={{
                   color: 'rgba(255, 255, 255, 1)',
