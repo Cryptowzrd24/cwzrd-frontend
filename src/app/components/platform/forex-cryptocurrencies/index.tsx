@@ -31,7 +31,7 @@ const Forex = () => {
             },
           }}
         >
-          Daily Technical Analysis on Cryptocurrencies and Forex
+          Daily Technical Analysis <br/> on Cryptocurrencies and Forex
         </Typography>
         <Typography
           sx={{

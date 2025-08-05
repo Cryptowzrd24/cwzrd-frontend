@@ -14,8 +14,14 @@ const CommunityCard = () => {
           padding: '24px 0 23.75px 24px',
           borderRadius: '24px',
           minHeight: '250px',
-          width: '295px',
           overflow: 'hidden',
+          boxSizing:'border-box',
+          height:'276px',
+
+          '@media (max-width: 1024px)': {
+            width: '100%',
+            height: '100%',
+          },
 
           '@media (max-width: 576px)': {
             width: 'auto',
@@ -62,6 +68,9 @@ const CommunityCard = () => {
               color: 'rgba(255, 255, 255, 0.8)',
               lineHeight: '16px',
               mt: '3px',
+              '@media (max-width: 576px)': {
+              mt: '12px',
+            },
             }}
           >
             You will stay updated with the market in real-time, receive calls

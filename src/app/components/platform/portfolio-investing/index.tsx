@@ -7,13 +7,14 @@ const Portfolio = () => {
     <>
       <Box
         sx={{
-          width: '967.5px',
+          width: '100%',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           display: 'flex',
           alignItems: 'center',
           borderRadius: '24px',
           gap: '40px',
+          overflow:'hidden',
 
           '@media (max-width: 1024px)': {
             flexDirection: 'column-reverse',

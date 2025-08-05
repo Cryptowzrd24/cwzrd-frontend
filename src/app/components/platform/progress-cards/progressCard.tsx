@@ -27,6 +27,8 @@ const ProgressCard = ({
         '@media (max-width: 978px)': {
           gap: '10px',
           paddingLeft: '6px',
+          width:'100%',
+          boxSizing:'border-box',
         },
 
         '@media (max-width: 768px)': {

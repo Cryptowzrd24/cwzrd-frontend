@@ -16,7 +16,8 @@ const MemberCard = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '967.5px',
+          width: '100%',
+          boxSizing:'border-box',
 
           '@media (max-width: 824px)': {
             flexDirection: 'column',

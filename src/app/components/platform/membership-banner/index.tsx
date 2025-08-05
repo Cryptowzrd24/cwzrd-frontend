@@ -11,10 +11,13 @@ interface MemberShipBannerProps {
 function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
   return (
     <Box
+      sx={{
+        width: '100%',
+        boxSizing: 'border-box',
+      }}
       className={styles.bannerBox2}
       style={isNftDetail ? { width: '1290px' } : {}}
     >
-      <Box>
         <Stack
           sx={{
             width: '100%',
@@ -114,7 +117,6 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
             </Typography>
           </Box>
         </Stack>
-      </Box>
     </Box>
   );
 }

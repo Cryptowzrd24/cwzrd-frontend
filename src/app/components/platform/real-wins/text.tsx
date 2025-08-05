@@ -4,7 +4,6 @@ import RightBlue from '../../../../../public/icons/collections/rightBlue';
 
 const Text = () => {
   return (
-    <>
       <Box sx={{ maxWidth: '460px', width: '100%' }}>
         <Typography
           variant="h1"
@@ -33,7 +32,11 @@ const Text = () => {
             fontWeight: '400',
             lineHeight: '18px',
             color: 'rgba(17, 17, 17, 0.8)',
-            width: '342px',
+            width: '100%',
+            '@media (max-width: 576px)': {
+              fontSize: '10px !important',
+              lineHeight: '15px',
+            },
           }}
         >
           See real wins and success stories from traders who have used our
@@ -42,6 +45,7 @@ const Text = () => {
         <Box
           sx={{
             mt: '42px',
+            width: '100%',
             '@media (max-width: 576px)': {
               mt: '8px',
             },
@@ -65,7 +69,6 @@ const Text = () => {
           </Typography>
         </Box>
       </Box>
-    </>
   );
 };
 

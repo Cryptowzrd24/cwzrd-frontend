@@ -33,10 +33,23 @@ export default function AccordionQuestion({
           borderRadius: '16px',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          maxWidth: '437px',
+          width:'100%',
+          boxSizing:'border-box',
+          // maxWidth: '437px',
           height: 'auto',
           '&:last-of-type': {
             borderRadius: '16px',
+          },
+          '@media (max-width: 576px)': {
+            maxWidth: '100%',
+            padding: '16px 16px 16px 16px',
+            borderRadius: '0px',
+            boxShadow: 'none',
+            background: 'transparent',
+            borderBottom: '1px solid rgba(0, 0, 0, 0.10)',
+            '&:last-of-type': {
+            borderRadius: '0px',
+          },
           },
         }}
       >
@@ -109,6 +122,10 @@ export default function AccordionQuestion({
               color: 'rgba(17, 17, 17, 0.8)',
               lineHeight: '18.85px',
               fontFamily: 'Sf Pro Display',
+              '@media (max-width: 576px)': {
+                fontSize: '13px',
+                lineHeight: '18.82px',
+              },
             }}
           >
             {summary}

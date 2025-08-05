@@ -23,7 +23,6 @@ const TradeCards = () => {
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           borderRadius: '32px',
           // width: '41.2%',
-          width: '390px',
 
           '@media (max-width: 786px)': {
             width: 'inherit',
@@ -73,7 +72,7 @@ const TradeCards = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          padding: '64px 0 0 48px',
+          // padding: '64px 0 0 48px',
           borderRadius: '32px',
           position: 'relative',
           width: '555px',

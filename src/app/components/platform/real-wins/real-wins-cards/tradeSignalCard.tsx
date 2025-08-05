@@ -6,22 +6,17 @@ const TradeSignalCard = () => {
       <Box
         sx={{
           padding: '18px',
+          boxSizing:'border-box',
           backgroundImage:
             ' linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)',
           borderRadius: '24px',
-          width: '136.5px',
-          // height: '156px',
-
-          '@media (max-width: 1024px)': {
-            width: 'auto',
-          },
-
-          '@media (max-width: 576px)': {
-            padding: '16px',
-          },
+          height:'100%',
         }}
       >
-        <Stack>
+        <Stack sx={{
+          height:'100%',
+          justifyContent:'space-between',
+        }}>
           <Typography
             sx={{
               fontSize: '10px !important',
@@ -36,6 +31,7 @@ const TradeSignalCard = () => {
           >
             Trade Signals{' '}
           </Typography>
+          <Stack>
           <Typography
             sx={{
               fontSize: '48px !important',
@@ -61,6 +57,7 @@ const TradeSignalCard = () => {
           >
             Win Rate
           </Typography>
+          </Stack>
         </Stack>
       </Box>
     </>

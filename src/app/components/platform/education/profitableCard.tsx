@@ -86,7 +86,7 @@ const ProfitableCard = () => {
               textAlign: 'center',
               lineHeight: '33px',
               marginTop: '24px',
-              marginBottom: '22px',
+              marginBottom: '24px',
               fontFamily: 'Sf Pro Display',
 
               '@media (max-width: 576px)': {

@@ -25,7 +25,9 @@ const PlatformCards = () => {
     };
 
     return (
-      <>
+      <Box sx={{
+        width:'100%'
+      }}>
         <Slider ref={sliderRef} {...settings}>
           <TradeManagement />
           <MileStones />
@@ -63,7 +65,7 @@ const PlatformCards = () => {
             <ChevronRightIcon />
           </IconButton>
         </Box>
-      </>
+      </Box>
     );
   }
 
@@ -74,6 +76,7 @@ const PlatformCards = () => {
         alignItems: 'center',
         justifyContent: 'center',
         gap: '12px',
+        width:"100%"
       }}
     >
       <TradeManagement />

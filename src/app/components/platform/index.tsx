@@ -1,5 +1,5 @@
 'use client';
-import { Box, Container, useMediaQuery } from '@mui/material';
+import { Box, Container, useMediaQuery, styled } from '@mui/material';
 import React, { useEffect } from 'react';
 import PlatformHeader from './header';
 import TradingPlatform from './trading';
@@ -27,6 +27,65 @@ import forexImg from '../../../../public/images/platform/forexImg.png';
 
 import Forex from './forex-cryptocurrencies';
 import MemberShipBanner from './membership-banner';
+import BecomeMember from './become-member';
+
+// Styled components
+const CenteredBox = styled(Box)({
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '24px',
+});
+
+const MainLayoutBox = styled(Box)({
+  display: 'flex',
+  width: '970px',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '100px',
+  overflow: 'hidden',
+  marginX: 'auto',
+  '@media (max-width: 1024px)': {
+    width: '100%',
+    paddingInline: '16px !important',
+    gap: '24px',
+  },
+});
+
+const SubLayoutBox = styled(MainLayoutBox)({
+  width: '1010px',
+
+  '@media (max-width: 1024px)': {
+    width:'100%',
+    gap:'24px',
+    paddingInline:'16px'
+  },
+
+});
+
+const RootLayoutBox = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '100px',
+  width: '100%',
+  margin: "0 auto",
+  boxSizing: 'border-box',
+  paddingBlock: '24px',
+  '@media (max-width: 1024px)': {
+    width: '100%',
+    paddingInline:'16px',
+    gap:'24px'
+  },
+
+  '@media (max-width: 576px)': {
+    gap: '24px',
+  }
+});
 
 const Platform = () => {
   const isTabView = useMediaQuery('(min-width: 978px)');
@@ -39,103 +98,58 @@ const Platform = () => {
     };
   }, []);
   return (
-    <>
-      <Container
-        maxWidth="xl"
-        sx={{
-          '@media (max-width: 576px)': {
-            paddingInline: '16px !important',
-          },
-        }}
-      >
-        <Box sx={{ mt: '64px' }}>
-          <PlatformHeader />
-        </Box>
-      </Container>
-      <Image
-        src={platformHeader}
-        alt="header"
-        style={{ maxWidth: '100%', height: 'auto' }}
-      />
-      <Container
-        maxWidth="xl"
-        sx={{
-          '@media (max-width: 576px)': {
-            paddingInline: '16px !important',
-          },
-        }}
-      >
-        <Box sx={{ mb: '24px' }}>
+    <RootLayoutBox>
+      <CenteredBox sx={
+        {
+          marginTop: '61px'
+        }
+      }>
+        <PlatformHeader />
+        <Image
+          src={platformHeader}
+          alt="header"
+          style={{ maxWidth: '100%', height: 'auto' }}
+        />
+        <BecomeMember />
+      </CenteredBox>
+      <MainLayoutBox>
+        <CenteredBox>
           <TradeOpportunities />
-        </Box>
-        <Box
-          sx={{
-            mb: '24px',
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
           <RealWins />
-        </Box>
-        <Box
-          sx={{
-            mt: isTabView ? '100px' : '24px',
-            mb: '30px',
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
+        </CenteredBox>
+
+        <CenteredBox>
           <TradingPlatform />
-        </Box>
-        <Box sx={{ maxWidth: '1060px', mb: '30px', mx: 'auto' }}>
           <PlatformCards />
-        </Box>
-        <Box
-          sx={{
-            mx: 'auto',
-            mb: isTabView ? '100px' : '24px',
-            display: 'flex',
-            justifyContent: 'center',
-            maxWidth: '1060px',
-          }}
-        >
           <MemberShipBanner />
-        </Box>
-        <Box sx={{ mb: '30px' }}>
+        </CenteredBox>
+        <CenteredBox>
           <Feature />
-        </Box>
-        <Box sx={{ mt: isTabView ? '100px' : '40px', mb: '30px' }}>
+        </CenteredBox>
+        <CenteredBox>
           <Education />
-        </Box>
-        <Box sx={{ mb: '24px' }}>
           <ExaminationPart />
-        </Box>
-        <Box sx={{ mb: '24px', display: 'flex', justifyContent: 'center' }}>
           <Coverage />
-        </Box>
-        <Box sx={{ mb: '24px', display: 'flex', justifyContent: 'center' }}>
           <Portfolio />
-        </Box>
-        <Box sx={{ mb: '24px' }}>
           <ProgressCards />
-        </Box>
-        <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'center' }}>
           <JoinedPeople />
-        </Box>
-      </Container>
+        </CenteredBox>
+      </MainLayoutBox>
       <Box
         sx={{
-          mt: isTabView ? '100px' : '40px',
           overflow: 'hidden',
           display: 'flex',
           justifyContent: 'center',
-
+          boxSizing: 'border-box',
+          width: '100%',
+          margin: "0 auto",
+          paddingInline: '16px',
           '@media (max-width: 1024px)': {
             display: 'flex',
             justifyContent: 'center',
             paddingInline: '40px',
+            width:'100%',
+            boxSizing:'border-box',
           },
 
           '@media (max-width: 599px)': {
@@ -185,39 +199,20 @@ const Platform = () => {
           </Box>
         </Box>
       </Box>
-      <Container
-        maxWidth="xl"
-        sx={{
-          '@media (max-width: 576px)': {
-            paddingInline: '16px !important',
-          },
-        }}
-      >
-        <Box sx={{ mt: isTabView ? '100px' : '40px' }}>
+      <MainLayoutBox>
+        <CenteredBox>
           <PersonalCalendar />
-        </Box>
-        {isTabView && (
-          <Box
-            sx={{
-              mt: '24px',
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
+          {isTabView &&
             <RealTimeMarketData />
-          </Box>
-        )}
-        <Box sx={{ mt: '24px' }}>
+          }
           <CoverageCards />
-        </Box>
-        <Box sx={{ mt: isTabView ? '100px' : '40px' }}>
-          <FrequentlyAskedQuestion />
-        </Box>
-        <Box sx={{ mt: isTabView ? '100px' : '40px', mb: '24px' }}>
-          <MemberShipBannerLarge />
-        </Box>
-      </Container>
-    </>
+        </CenteredBox>
+        <FrequentlyAskedQuestion />
+      </MainLayoutBox>
+      <SubLayoutBox>
+        <MemberShipBannerLarge />
+      </SubLayoutBox>
+    </RootLayoutBox>
   );
 };
 
