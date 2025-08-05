@@ -11,6 +11,9 @@ const TradeHeader = () => {
         maxWidth: '1070px',
         width: '100%',
         margin: 'auto',
+        '@media (max-width: 576px)': {
+          boxSizing:'border-box'
+        }
       }}
     >
       <Typography
@@ -22,6 +25,9 @@ const TradeHeader = () => {
           letterSpacing: 2,
           lineHeight: '18.2px',
           mb: '8px',
+          '@media (max-width: 576px)': {
+            textAlign:'center',
+          }
         }}
       >
         features
@@ -37,6 +43,9 @@ const TradeHeader = () => {
             lineHeight: '28.8px',
             letterSpacing: '0.24px',
           },
+          '@media (max-width: 576px)': {
+            textAlign:'center',
+          }
         }}
       >
         <Typography
@@ -52,6 +61,7 @@ const TradeHeader = () => {
             WebkitTextFillColor: 'transparent',
             marginLeft: '10px',
             '@media (max-width: 978px)': { marginLeft: '0px' },
+
           }}
         >
           Profitable

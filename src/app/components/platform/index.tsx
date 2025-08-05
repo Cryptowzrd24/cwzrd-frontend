@@ -50,7 +50,6 @@ const MainLayoutBox = styled(Box)({
   marginX: 'auto',
   '@media (max-width: 1024px)': {
     width: '100%',
-    paddingInline: '16px !important',
     gap: '24px',
   },
 });
@@ -63,7 +62,29 @@ const SubLayoutBox = styled(MainLayoutBox)({
     gap:'24px',
     paddingInline:'16px'
   },
+});
 
+const ForexLayoutBox = styled(Box)({
+  overflow: 'hidden',
+  display: 'flex',
+  justifyContent: 'center',
+  boxSizing: 'border-box',
+  width: '100%',
+  margin: "0 auto",
+  paddingInline: '16px',
+  '@media (max-width: 1024px)': {
+    display: 'flex',
+    justifyContent: 'center',
+    paddingInline: '40px',
+    width:'100%',
+    boxSizing:'border-box',
+  },
+  '@media (max-width: 599px)': {
+    paddingInline: '20px',
+  },
+  '@media (max-width: 576px)': {
+    paddingInline: '5px',
+  },
 });
 
 const RootLayoutBox = styled(Box)({
@@ -117,7 +138,6 @@ const Platform = () => {
           <TradeOpportunities />
           <RealWins />
         </CenteredBox>
-
         <CenteredBox>
           <TradingPlatform />
           <PlatformCards />
@@ -135,32 +155,7 @@ const Platform = () => {
           <JoinedPeople />
         </CenteredBox>
       </MainLayoutBox>
-      <Box
-        sx={{
-          overflow: 'hidden',
-          display: 'flex',
-          justifyContent: 'center',
-          boxSizing: 'border-box',
-          width: '100%',
-          margin: "0 auto",
-          paddingInline: '16px',
-          '@media (max-width: 1024px)': {
-            display: 'flex',
-            justifyContent: 'center',
-            paddingInline: '40px',
-            width:'100%',
-            boxSizing:'border-box',
-          },
-
-          '@media (max-width: 599px)': {
-            paddingInline: '20px',
-          },
-
-          '@media (max-width: 576px)': {
-            paddingInline: '5px',
-          },
-        }}
-      >
+      <ForexLayoutBox>
         <Box
           sx={{
             display: 'flex',
@@ -198,7 +193,7 @@ const Platform = () => {
             />
           </Box>
         </Box>
-      </Box>
+      </ForexLayoutBox>
       <MainLayoutBox>
         <CenteredBox>
           <PersonalCalendar />

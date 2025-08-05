@@ -13,7 +13,7 @@ const TradeOpportunities = () => {
       alignItems: 'center',
       justifyContent: 'center',
     }}>
-      <Box sx={{ '@media (max-width: 978px)': { mt: '30px' }, width: '100%' }}>
+      <Box sx={{ '@media (max-width: 978px)': { width: '100%' }}}>
         <TradeHeader />
       </Box>
       <Box sx={{ width: '100%' }}>

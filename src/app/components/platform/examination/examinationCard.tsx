@@ -76,6 +76,10 @@ const ExaminationCard = () => {
             letterSpacing: '1px',
             lineHeight: '15.6px',
             padding: '24px 0 0 24px',
+            '@media (max-width: 576px)': {
+              fontSize: '10px !important',
+              padding: '16px 0 0 16px',
+            }
           }}
         >
           Examinations
@@ -115,6 +119,11 @@ const ExaminationCard = () => {
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
                 paddingLeft: '18px',
+                '@media (max-width: 576px)': {
+                  fontSize: '24px !important',
+                  // width: '100%',
+                  fontWeight : '600',
+                }
               }}
             >
               Featuring with 450 questions spread across 47 exams.

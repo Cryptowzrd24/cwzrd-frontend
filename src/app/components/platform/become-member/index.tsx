@@ -14,7 +14,11 @@ const BecomeMember = (props: Props) => {
                 marginTop: '32px',
                 marginBottom:'41px',
                 width:'max-content',
-                marginInline:'auto'
+                marginInline:'auto',
+                '@media (max-width: 576px)': {
+                    marginTop:'16px',
+                    marginBottom:'16px',
+                }
             }}
         >
             < Typography

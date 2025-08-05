@@ -44,6 +44,7 @@ const WizardLibrary = () => {
                 lineHeight: '120%',
                 letterSpacing: '0.24px',
                 textAlign: 'center',
+                fontWeight: '600',
               },
             }}
           >

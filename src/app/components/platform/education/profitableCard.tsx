@@ -68,7 +68,7 @@ const ProfitableCard = () => {
         <motion.img
           src={'/images/platform/vector.png'}
           alt="vector"
-          width={135}
+          width={isTabView ? 135 : 100}
           variants={imgAndTextVariants}
           initial="initial"
           animate={active ? 'active' : 'inactive'}
@@ -91,6 +91,8 @@ const ProfitableCard = () => {
 
               '@media (max-width: 576px)': {
                 paddingInline: '20px',
+                fontWeight: '600',
+                fontSize: '24px !important',
               },
             }}
           >

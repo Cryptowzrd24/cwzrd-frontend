@@ -55,6 +55,7 @@ const Portfolio = () => {
 
               '@media (max-width: 1024px)': {
                 width: '100%',
+                fontSize: '24px !important',
               },
             }}
           >

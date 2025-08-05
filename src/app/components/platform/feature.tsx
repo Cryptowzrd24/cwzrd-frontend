@@ -14,7 +14,11 @@ const Feature = () => {
           maxWidth: { xs: '100%', md: '1070px' },
           width: { xs: 'auto', sm: '100%' },
           margin: 'auto',
-          padding: { xs: '16px', md: '0' },
+          '@media (max-width: 576px)': {
+            paddingInline:'24px',
+            width:'100%',
+            boxSizing:'border-box'
+          }
         }}
       >
         <Typography

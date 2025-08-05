@@ -4,7 +4,7 @@ import { Box, Typography, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
 import ArrowRight from '../../../../../public/icons/News-Letter/arrowRight';
 const MemberCard = () => {
-  const isSmallScreen = useMediaQuery('(min-width: 576px)');
+  const isSmallScreen = useMediaQuery('(min-width: 824px)');
   return (
     <>
       <Box
@@ -21,9 +21,6 @@ const MemberCard = () => {
 
           '@media (max-width: 824px)': {
             flexDirection: 'column',
-          },
-
-          '@media (max-width: 576px)': {
             alignItems: 'flex-start',
             padding: '16px',
           },
@@ -35,7 +32,7 @@ const MemberCard = () => {
             alignItems: 'center',
             gap: '15px',
 
-            '@media (max-width: 576px)': {
+            '@media (max-width: 824px)': {
               alignItems: 'flex-start',
               flexDirection: 'column',
             },
