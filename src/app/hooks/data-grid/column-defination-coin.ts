@@ -26,7 +26,7 @@ const useColumnCoinDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 205,
+            width: 190,
           };
         case 'new_price':
           return {
