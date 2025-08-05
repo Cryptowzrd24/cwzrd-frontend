@@ -191,7 +191,8 @@ const FinancialNewsCarousel = ({
     <Box
       key={i}
       sx={{
-        padding: { xs: '4px', sm: '6px', md: '8px' },
+        // padding: { xs: '4px', sm: '6px', md: '8px' },
+        marginInline: '-10px',
         boxSizing: 'border-box',
       }}
     >
