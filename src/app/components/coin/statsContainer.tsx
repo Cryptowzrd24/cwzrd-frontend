@@ -23,10 +23,9 @@ const StatsContainer = ({ isMainPage }: { isMainPage?: boolean }) => {
             sx={{
               display: 'flex',
               flexDirection: 'row',
+              flexWrap: 'wrap',
               gap: '10px',
-              alignItems: 'center',
               maxWidth: '100%',
-              justifyContent: 'space-between',
               marginBottom: isMainPage ? '0px' : '20px',
             }}
             className="coin__container"

@@ -5,6 +5,7 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import SolidGauge from 'highcharts/modules/solid-gauge';
 import { Card, Typography } from '@mui/material';
 import styles from './index.module.scss';
+import { useMediaQuery } from 'rsuite/esm/useMediaQuery/useMediaQuery';
 
 if (typeof Highcharts === 'object') {
   HighchartsMore(Highcharts);
@@ -12,6 +13,7 @@ if (typeof Highcharts === 'object') {
 }
 
 const GaugeChart = () => {
+  const isLargeScreen = useMediaQuery('(max-width: 1200px)');
   const [val, setVal] = useState(0);
   const [classification, setClassification] = useState('');
   async function getFearGreedIndex() {
@@ -154,6 +156,7 @@ const GaugeChart = () => {
     <div
       style={{
         width: '100%',
+        minWidth: isLargeScreen ? '' : '40%',
         display: 'flex',
         borderRadius: '15px',
         border: '1px solid rgba(17, 17, 17, 0.05)',

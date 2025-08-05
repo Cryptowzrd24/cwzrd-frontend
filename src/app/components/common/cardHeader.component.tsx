@@ -16,8 +16,9 @@ const CardHeader = (props: ICardHeaderProps) => {
     <div className={styles.heading}>
       <Typography
         sx={{
-          fontSize: '12px',
+          fontSize: '12px !important',
           lineHeight: '15.6px',
+          marginBottom: '10px',
           fontWeight: '700',
           color: `${staticTextColor ?? '#111'}`,
           letterSpacing: '1.4px',

@@ -29,6 +29,24 @@ const StyledSlider = styled(Slider)`
   }
 `;
 
+function formatNumberString(input: string): string {
+  const num = parseFloat(input.replace(/,/g, ''));
+
+  if (isNaN(num)) return 'Invalid number';
+
+  if (num >= 1_000_000_000_000) {
+    return `${(num / 1_000_000_000_000).toFixed(1).replace(/\.0$/, '')}T`;
+  } else if (num >= 1_000_000_000) {
+    return `${(num / 1_000_000_000).toFixed(1).replace(/\.0$/, '')}B`;
+  } else if (num >= 1_000_000) {
+    return `${(num / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`;
+  } else if (num >= 1_000) {
+    return `${(num / 1_000).toFixed(1).replace(/\.0$/, '')}K`;
+  } else {
+    return `${num}`;
+  }
+}
+
 const GraphCard = (props: IMarketCapCardProps) => {
   const { heading, value, percent, graphAttr } = props;
   const [currentStep, setCurrentStep] = useState(0);
@@ -184,19 +202,20 @@ const GraphCard = (props: IMarketCapCardProps) => {
     <Box
       sx={{
         p: '16px',
-        background: 'red',
+        boxSizing: 'border-box',
         borderRadius: '15px',
-        width: '24%',
-        height: '150px',
+        width: { xs: '48%' },
+        // height: '150px',
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'column',
+        boxShadow: '0 0 10px 0 #ccc',
       }}
     >
       <CardHeader heading={heading} />
       <Box sx={{ display: 'flex', gap: '4px' }}>
         <Typography>{value?.prefix}</Typography>
-        <Typography>{value.data}</Typography>
+        <Typography>{formatNumberString(value.data)}</Typography>
         <Typography>{value?.postfix}</Typography>
       </Box>
       <Box

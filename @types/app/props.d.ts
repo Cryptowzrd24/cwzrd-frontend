@@ -4,7 +4,7 @@ declare global {
   interface IMarketCapCardProps {
     heading: string;
     value: {
-      data: number | string;
+      data: string;
       postfix?: string;
       prefix?: string;
     };

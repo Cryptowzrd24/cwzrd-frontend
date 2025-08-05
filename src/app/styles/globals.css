@@ -325,3 +325,9 @@ body {
 /* div[col-id='index'] {
   left: -7px !important;
 } */
+
+@media (max-width: 1200px) {
+  .common_guage_card_wrapper__UVzni {
+    min-height: auto !important;
+  }
+}
