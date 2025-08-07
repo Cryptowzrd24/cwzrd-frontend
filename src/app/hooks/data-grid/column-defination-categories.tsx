@@ -11,6 +11,7 @@ import firstRank from '../../../../public/icons/first-rank.png';
 import secondRank from '../../../../public/icons/second-rank.png';
 import thirdRank from '../../../../public/icons/third-rank.png';
 import Image from 'next/image';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 
 const NumOfTokens = ({ value }: { value: any }) => {
   return (
@@ -84,18 +85,20 @@ const useColumnCategoryDefs = (columns: any) => {
           return {
             field: 'index',
             headerName: '#',
-            width: 50,
             cellRenderer: RankDisplay,
-            // valueFormatter: (p: any) => {
-            //   return p.rowIndex;
-            // },
+            pinned: 'left',
+            width: getResponsiveWidth(50, 40, 30),
+            cellClass: 'tight-cell',
           };
         case 'category':
           return {
             field: 'category',
             headerName: 'Category',
             cellRenderer: CategoryName,
-            width: 240,
+            width: getResponsiveWidth(240, 180, 125),
+            pinned: 'left',
+            headerClass: 'left-align-header',
+            cellClass: 'tight-cell',
           };
         case 'top_gainers':
           return {

@@ -11,6 +11,7 @@ import {
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
 import NewCoin from '@/app/components/data-table/price';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 
 const useColumnTrendingDefs = (columns: any) => {
   return useMemo(() => {
@@ -21,14 +22,19 @@ const useColumnTrendingDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 70,
+            pinned: 'left',
+            width: getResponsiveWidth(70, 70, 60),
+            cellClass: 'tight-cell',
           };
         case 'name':
           return {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 220,
+            width: getResponsiveWidth(220, 170, 125),
+            pinned: 'left',
+            headerClass: 'left-align-header',
+            cellClass: 'tight-cell',
           };
         case 'new_price':
           return {

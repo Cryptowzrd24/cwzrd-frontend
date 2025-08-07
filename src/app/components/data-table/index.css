@@ -6,6 +6,24 @@
   overflow-x: auto;
 }
 
+@media (max-width: 500px) {
+  .data-table-wrapper {
+    padding: 8px 4px;
+    width: 100%;
+  }
+
+  .ag-theme-material .tight-cell {
+    padding: 2px 4px;
+  }
+}
+.tight-cell:last-child {
+  text-align: start !important;
+}
+
+.ag-theme-material .left-align-header .ag-header-cell-label {
+  justify-content: flex-start !important;
+}
+
 .ag-theme-material {
   --ag-grid-size: 5px;
   --ag-row-height: 60px;
@@ -49,7 +67,7 @@
 
 .ag-theme-material .ag-row {
   cursor: pointer;
-  width: 1330px;
+  /* width: 1330px; */
 }
 
 .ag-paging-panel {

@@ -1,34 +1,45 @@
 .currency-comp {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 7px;
-    height: 60px;
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 7px;
+  height: 60px;
+  margin-top: 10px;
 }
 
 .name-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: -15px;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -15px;
+  cursor: pointer;
 }
 
-
 .full-name {
-    margin-top: -7px;
-    font-size: 14px;
-    margin: 0;
-    font-weight: 600;
-    line-height: 18.2px;
-    cursor: pointer;
+  margin-top: -7px;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 600;
+  line-height: 18.2px;
+  cursor: pointer;
 }
 
 .short-name {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(17, 17, 17, 0.6);
+  line-height: 15.6px;
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .full-name {
     font-size: 12px;
-    font-weight: 400;
-    color: rgba(17, 17, 17, 0.6);
-    line-height: 15.6px;
-    margin: 0;
+    max-width: 95px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .short-name {
+    font-size: 11px;
+  }
 }

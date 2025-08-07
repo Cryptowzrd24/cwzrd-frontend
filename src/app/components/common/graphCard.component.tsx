@@ -48,7 +48,7 @@ function formatNumberString(input: string): string {
 }
 
 const GraphCard = (props: IMarketCapCardProps) => {
-  const { heading, value, percent, graphAttr } = props;
+  const { showLargeCard = false, heading, value, percent, graphAttr } = props;
   const [currentStep, setCurrentStep] = useState(0);
   const sliderRef = useRef<Slider>(null);
   const isLargeScreen = useMediaQuery('(min-width: 1200px)');
@@ -71,10 +71,10 @@ const GraphCard = (props: IMarketCapCardProps) => {
     sliderRef.current?.slickGoTo(index);
   };
 
-  return isLargeScreen ? (
+  return isLargeScreen || showLargeCard ? (
     <div
       style={{
-        width: '24%',
+        width: showLargeCard ? '100%' : '24%',
         display: 'flex',
         borderRadius: '15px',
         border: '1px solid rgba(17, 17, 17, 0.05)',
@@ -204,7 +204,9 @@ const GraphCard = (props: IMarketCapCardProps) => {
         p: '16px',
         boxSizing: 'border-box',
         borderRadius: '15px',
-        width: { xs: '48%' },
+        width: { xs: '48%', md: '24%' },
+        height: '150px',
+        '@media (max-width: 400px)': { height: '120px' },
         // height: '150px',
         display: 'flex',
         justifyContent: 'center',
@@ -213,10 +215,37 @@ const GraphCard = (props: IMarketCapCardProps) => {
       }}
     >
       <CardHeader heading={heading} />
-      <Box sx={{ display: 'flex', gap: '4px' }}>
-        <Typography>{value?.prefix}</Typography>
-        <Typography>{formatNumberString(value.data)}</Typography>
-        <Typography>{value?.postfix}</Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '4px',
+          fontSize: { xs: '12px !important', sm: '16px !important' },
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: { xs: '14px !important', sm: '16px !important' },
+            fontWeight: 'bold',
+          }}
+        >
+          {value?.prefix}
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: { xs: '14px !important', sm: '16px !important' },
+            fontWeight: 'bold',
+          }}
+        >
+          {formatNumberString(value.data)}
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: { xs: '14px !important', sm: '16px !important' },
+            fontWeight: 'bold',
+          }}
+        >
+          {value?.postfix}
+        </Typography>
       </Box>
       <Box
         style={{
@@ -225,10 +254,11 @@ const GraphCard = (props: IMarketCapCardProps) => {
       >
         <Typography
           sx={{
-            fontSize: '14px',
+            fontSize: '13px',
             fontFamily: 'Sf Pro Display',
             lineHeight: '18.2px',
-            marginLeft: '-8px',
+            mt: '5px',
+            // marginLeft: '-8px',
             color:
               getPositiveNegativeIcon(percent) === '-' ? '#F56D6D' : '#45CA94',
           }}

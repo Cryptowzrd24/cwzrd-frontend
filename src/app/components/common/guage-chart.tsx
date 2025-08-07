@@ -13,7 +13,10 @@ if (typeof Highcharts === 'object') {
 }
 
 const GaugeChart = () => {
-  const isLargeScreen = useMediaQuery('(max-width: 1200px)');
+  const isLargeScreen = useMediaQuery('(max-width: 900px)');
+
+  console.log(isLargeScreen);
+
   const [val, setVal] = useState(0);
   const [classification, setClassification] = useState('');
   async function getFearGreedIndex() {
@@ -141,8 +144,8 @@ const GaugeChart = () => {
             borderWidth: 0,
             useHTML: true,
             format: `<div style="text-align:center;">
-                      <span style="font-size:36px;">{y}</span><br/>
-                      <span style="font-size:14px; letter-spacing:10%;">${classification?.toUpperCase()}</span>
+                      <span className="greed-value" style="fontSize: 36px">{y}</span><br/>
+                      <span className="greed-class" style="font-size:14px; letter-spacing:10%;">${classification?.toUpperCase()}</span>
                      </div>`,
           },
         },
@@ -156,7 +159,7 @@ const GaugeChart = () => {
     <div
       style={{
         width: '100%',
-        minWidth: isLargeScreen ? '' : '40%',
+        height: '100%',
         display: 'flex',
         borderRadius: '15px',
         border: '1px solid rgba(17, 17, 17, 0.05)',
@@ -171,7 +174,7 @@ const GaugeChart = () => {
             paddingTop: '15px',
             fontWeight: 600,
             fontFamily: 'Sf Pro Display',
-            fontSize: '16px',
+            fontSize: { xs: '14px !important', sm: '16px !important' },
           }}
         >
           Index Fear & Greed

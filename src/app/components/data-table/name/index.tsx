@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styles from './index.module.css';
 
 import { CustomCellRendererProps } from 'ag-grid-react';
-import { Tooltip } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 
 export const CurrencyNameComponent = (props: CustomCellRendererProps) => {
   const imgId =
@@ -15,17 +15,27 @@ export const CurrencyNameComponent = (props: CustomCellRendererProps) => {
 
   return (
     <div className={styles['currency-comp']}>
-      <Image
-        loader={() => imgId}
-        width={32}
-        height={32}
-        style={{
-          marginBottom: '18px',
-          borderRadius: '50%',
+      <Box
+        sx={{
+          maxWidth: { xs: '24px', sm: '32px' },
+          minWidth: { xs: '24px', sm: '32px' },
+          mb: { xs: '10px', sm: '0px' },
         }}
-        src={imgId}
-        alt=""
-      />
+      >
+        <Image
+          loader={() => imgId}
+          width={100}
+          height={100}
+          style={{
+            // marginBottom: '18px',
+            borderRadius: '50%',
+            width: '100%',
+            height: '100%',
+          }}
+          src={imgId}
+          alt=""
+        />
+      </Box>
       <div className={styles['name-section']}>
         {props.value.length > 13 ? (
           <Tooltip

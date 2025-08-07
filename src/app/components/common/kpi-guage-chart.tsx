@@ -249,7 +249,6 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
   return (
     <div
       style={{
-        width: '24%',
         display: 'flex',
         borderRadius: '15px',
         border: '1px solid rgba(17, 17, 17, 0.05)',

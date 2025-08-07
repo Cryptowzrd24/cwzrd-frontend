@@ -12,7 +12,17 @@ import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
 function HeroContent() {
   return (
     <>
-      <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
+      <Typography
+        variant="h1"
+        sx={{
+          maxWidth: '960px',
+          '@media (max-width: 576px)': {
+            fontSize: '24px !important',
+            fontWeight: '700 !important',
+            mt: '10px',
+          },
+        }}
+      >
         <span
           style={{
             backgroundImage:
@@ -48,6 +58,7 @@ function HeroContent() {
           <Box
             sx={{
               display: 'flex',
+              flexWrap: 'wrap',
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
@@ -56,28 +67,44 @@ function HeroContent() {
               marginBottom: '20px',
             }}
           >
-            <GraphCardTop
-              heading="🚀 Top Gain"
-              percent={0.32}
-              graphAttr={{ type: 'area', data: areaChartData }}
-            />
-            <GraphCardTop
-              heading="🚨 Top Losers"
-              percent={-0.32}
-              graphAttr={{ type: 'area', data: areaChartData }}
-            />
-            <Card3
-              transparentButton={true}
-              bgImage={cardBgImage7}
-              staticTextColor={colorConfig.white}
-              textColor={colorConfig.green}
-              heading="Top Gain"
-              name="Dogwifhat"
-              desc="took first place with a gain of"
-              value="+29.32%"
-              end="in 7 days."
-            />
-            <GaugeChart />
+            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
+              <GraphCardTop
+                heading="🚀 Top Gain"
+                percent={0.32}
+                graphAttr={{ type: 'area', data: areaChartData }}
+              />
+            </Box>
+            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
+              <GraphCardTop
+                heading="🚨 Top Losers"
+                percent={-0.32}
+                graphAttr={{ type: 'area', data: areaChartData }}
+              />
+            </Box>
+            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
+              <Card3
+                transparentButton={true}
+                bgImage={cardBgImage7}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Top Gain"
+                name="Dogwifhat"
+                desc="took first place with a gain of"
+                value="+29.32%"
+                end="in 7 days."
+              />
+            </Box>
+            <Box
+              sx={{
+                width: { xs: '100%', sm: '48%', lg: '24%' },
+                height: { xs: '185px' },
+
+                // '@media (max-width: 400px)': { height: '120px' },
+              }}
+              className="custom-gauge"
+            >
+              <GaugeChart />
+            </Box>
           </Box>
         </motion.div>
       </AnimatePresence>

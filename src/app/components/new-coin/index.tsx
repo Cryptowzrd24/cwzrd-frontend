@@ -8,6 +8,7 @@ import Technicals from '../technicals';
 import MemberShipBanner from '../banners/memberShipBanner';
 import Table from '@/app/components/new-coin/table';
 import Stats from '../stats';
+import './newCoin.css';
 
 const NewCoin = () => {
   return (

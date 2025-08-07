@@ -48,7 +48,17 @@ const StatsContainer = ({ isMainPage }: { isMainPage?: boolean }) => {
               percent={-0.32}
               graphAttr={{ type: 'area', data: areaChartData }}
             />
-            <GaugeChart />
+            <Box
+              sx={{
+                width: { xs: '48%', md: '24%' },
+                height: { xs: '150px' },
+
+                '@media (max-width: 400px)': { height: '120px' },
+              }}
+              className="custom-gauge"
+            >
+              <GaugeChart />
+            </Box>
           </Box>
         </motion.div>
       )}
