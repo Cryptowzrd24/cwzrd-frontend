@@ -37,7 +37,7 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
             },
 
             '@media (max-width: 425px)': {
-              fontSize: '16px',
+              fontSize: '22px',
             },
           }}
         >
@@ -91,7 +91,7 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
         </Box>
       ) : (
         <Stack spacing="16px" sx={{ mt: '24px' }}>
-          {isTabView ? (
+          {isTabView && (
             <Box
               sx={{
                 display: 'flex',
@@ -139,24 +139,23 @@ function RelatedNews({ isArticleDetails }: { isArticleDetails?: boolean }) {
                 titleMaxWidth="100%"
               />
             </Box>
-          ) : (
-            <Box sx={{ mb: '32px' }}>
-              <FinancialNewsCarousel
-                noBackground={true}
-                image={goldbarImg}
-                titleWidth="auto"
-                descriptionWidth="auto"
-              />
-            </Box>
           )}
-          {isTabView && (
+          <Box sx={{ mb: '32px' }}>
             <FinancialNewsCarousel
               noBackground={true}
               image={goldbarImg}
               titleWidth="auto"
               descriptionWidth="auto"
             />
-          )}
+          </Box>
+          {/* {isTabView && (
+            <FinancialNewsCarousel
+              noBackground={true}
+              image={goldbarImg}
+              titleWidth="auto"
+              descriptionWidth="auto"
+            />
+          )} */}
         </Stack>
       )}
     </Box>

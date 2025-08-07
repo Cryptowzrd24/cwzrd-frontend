@@ -14,8 +14,8 @@ const JoinedPeople = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '892.5px',
-          padding: '10px 36px',
+          width: '100%',
+          boxSizing: 'border-box',
 
           '@media (max-width: 830px)': {
             padding: '10px',

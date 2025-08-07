@@ -7,7 +7,7 @@ const Portfolio = () => {
     <>
       <Box
         sx={{
-          width: '967.5px',
+          width: '100%',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: ' rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
           display: 'flex',
@@ -59,11 +59,7 @@ const Portfolio = () => {
 
               '@media (max-width: 1024px)': {
                 width: '100%',
-              },
-              '@media (max-width: 576px)': {
                 fontSize: '24px !important',
-                lineHeight: '120%',
-                letterSpacing: '-0.46px',
               },
             }}
           >

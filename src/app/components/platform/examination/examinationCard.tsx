@@ -74,10 +74,10 @@ const ExaminationCard = () => {
             mb: '18px',
             letterSpacing: '1px',
             lineHeight: '15.6px',
-            padding: '36px 0 0 24px',
-
-            '@media (max-width: 834px)': {
-              textAlign: 'center',
+            padding: '24px 0 0 24px',
+            '@media (max-width: 576px)': {
+              fontSize: '10px !important',
+              padding: '16px 0 0 16px',
             },
           }}
         >
@@ -125,11 +125,10 @@ const ExaminationCard = () => {
                 fontWeight: 700,
                 fontFamily: 'Sf Pro Display',
                 paddingLeft: '18px',
-
-                '@media (max-width: 834px)': {
-                  textAlign: 'center',
-                  width: 'auto',
-                  px: '24px',
+                '@media (max-width: 576px)': {
+                  fontSize: '24px !important',
+                  // width: '100%',
+                  fontWeight: '600',
                 },
               }}
             >

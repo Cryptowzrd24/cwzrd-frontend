@@ -5,7 +5,7 @@
   background-size: cover;
   padding: 42px 75px;
   border-radius: 32px;
-  width: 967px;
+  box-sizing:'border-box',
 }
 
 .bannerBox img {

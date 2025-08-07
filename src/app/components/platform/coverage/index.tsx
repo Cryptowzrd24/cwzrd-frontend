@@ -15,7 +15,8 @@ const Coverage = () => {
           alignItems: 'center',
           background: 'rgba(255, 255, 255, 1)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
-          width: '967px',
+          width: '100%',
+          boxSizing: 'border-box',
 
           '@media (max-width: 768px)': {
             flexDirection: 'column',
@@ -28,6 +29,7 @@ const Coverage = () => {
           sx={{
             paddingBlock: '31.75px',
             paddingLeft: '66px',
+
             '@media (max-width: 768px)': {
               padding: '0px',
             },

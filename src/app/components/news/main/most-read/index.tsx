@@ -11,8 +11,8 @@ function MostRead({
   width?: string;
   isMainPage?: boolean;
 }) {
-  const renderCard = [1, 2, 3, 4, 5, 6, 7].map(() => {
-    return <MostReadCard />;
+  const renderCard = [1, 2, 3, 4, 5, 6, 7].map((cardId, index) => {
+    return <MostReadCard key={cardId} countNumber={index} />;
   });
   const isTabView = useMediaQuery('(max-width: 978px)');
   return (
@@ -23,9 +23,9 @@ function MostRead({
         borderRadius: '16px',
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-        padding: isMainPage ? '12px 0px 0px' : '18px 12px 24px 12px',
-        overflow: 'auto',
-        scrollbarWidth: 'none',
+        padding: isMainPage ? '0px' : '18px 12px 24px 12px',
+        display: 'flex',
+        flexDirection: 'column',
 
         '@media (max-width: 1380px)': {
           width: 'auto',
@@ -38,6 +38,12 @@ function MostRead({
           alignItems: 'center',
           justifyContent: isTabView ? 'space-evenly' : 'center',
           gap: '15px',
+          padding: isMainPage ? '12px 0px 0px' : '0px',
+          position: 'sticky',
+          top: 0,
+          backgroundColor: 'rgba(255, 255, 255, 1)',
+          zIndex: 1,
+          borderBottom: isMainPage ? '1px solid rgba(0, 0, 0, 0.1)' : 'none',
         }}
       >
         <Box>
@@ -78,7 +84,24 @@ function MostRead({
           </Typography>
         </Box>
       </Box>
-      {renderCard}
+      <Divider
+        flexItem
+        sx={{
+          height: '11px',
+          marginTop: '2px',
+          borderColor: 'rgba(17, 17, 17, 0.1)',
+        }}
+      />
+      <Box
+        sx={{
+          flex: 1,
+          overflow: 'auto',
+          scrollbarWidth: 'none',
+          padding: isMainPage ? '0px' : '0px',
+        }}
+      >
+        {renderCard}
+      </Box>
     </Box>
   );
 }

@@ -11,6 +11,9 @@ const TradeHeader = () => {
         maxWidth: '1070px',
         width: '100%',
         margin: 'auto',
+        '@media (max-width: 576px)': {
+          boxSizing: 'border-box',
+        },
       }}
     >
       <Typography
@@ -22,6 +25,9 @@ const TradeHeader = () => {
           letterSpacing: 2,
           lineHeight: '18.2px',
           mb: '8px',
+          '@media (max-width: 576px)': {
+            textAlign: 'center',
+          },
         }}
       >
         features
@@ -36,6 +42,9 @@ const TradeHeader = () => {
             fontSize: '24px !important',
             lineHeight: '120%',
             letterSpacing: '-0.46px',
+            textAlign: 'center',
+          },
+          '@media (max-width: 576px)': {
             textAlign: 'center',
           },
         }}

@@ -6,22 +6,19 @@ const TradeSignalCard = () => {
       <Box
         sx={{
           padding: '18px',
+          boxSizing: 'border-box',
           backgroundImage:
             ' linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)',
           borderRadius: '24px',
-          width: '136.5px',
-          // height: '156px',
-
-          '@media (max-width: 1024px)': {
-            width: 'auto',
-          },
-
-          '@media (max-width: 576px)': {
-            padding: '16px',
-          },
+          height: '100%',
         }}
       >
-        <Stack>
+        <Stack
+          sx={{
+            height: '100%',
+            justifyContent: 'space-between',
+          }}
+        >
           <Typography
             sx={{
               fontSize: '10px !important',
@@ -36,31 +33,33 @@ const TradeSignalCard = () => {
           >
             Trade Signals{' '}
           </Typography>
-          <Typography
-            sx={{
-              fontSize: '48px !important',
-              fontWeight: '500',
-              color: 'rgba(255, 255, 255, 1)',
-              lineHeight: '52.8px',
-              letterSpacing: '1px',
-              maxWidth: '165px',
-            }}
-          >
-            95%
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: '13.5px',
-              fontWeight: '500',
-              color: '#FFFFFFCC',
-              lineHeight: '17.55px',
-              letterSpacing: '1px',
-              maxWidth: '165px',
-            }}
-          >
-            Win Rate
-          </Typography>
+          <Stack>
+            <Typography
+              sx={{
+                fontSize: '48px !important',
+                fontWeight: '500',
+                color: 'rgba(255, 255, 255, 1)',
+                lineHeight: '52.8px',
+                letterSpacing: '1px',
+                maxWidth: '165px',
+              }}
+            >
+              95%
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '13.5px',
+                fontWeight: '500',
+                color: '#FFFFFFCC',
+                lineHeight: '17.55px',
+                letterSpacing: '1px',
+                maxWidth: '165px',
+              }}
+            >
+              Win Rate
+            </Typography>
+          </Stack>
         </Stack>
       </Box>
     </>

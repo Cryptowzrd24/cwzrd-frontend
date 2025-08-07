@@ -315,10 +315,12 @@ function TechnicalsBanner({
 export default TechnicalsBanner;*/
 }
 
-// Responsive Technical Banner
-import { Box, Typography } from '@mui/material';
+// Responsive Technical Banner with Accordion for Mobile
+import { Box, Typography, IconButton } from '@mui/material';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import bannerGraph from '../../../../../public/images/technicals-page/techBannerGraph.png';
 import bannerBg from '../../../../../public/images/technicals-page/techBannerBgImg.jpeg';
@@ -352,6 +354,8 @@ function TechnicalsBanner({
   width,
   borderRadius,
 }: TechnicalsBannerProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   const background =
     bgColor === 'blue'
       ? bannerBgSkyBlue
@@ -390,15 +394,22 @@ function TechnicalsBanner({
         '@media (max-width: 576px)': {
           flexDirection: 'column',
           px: '16px',
+          position: 'relative',
+          padding: '20px',
         },
       }}
     >
+      {/* Desktop Layout */}
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
           gap: '12px',
           maxWidth: '254px',
+
+          '@media (max-width: 576px)': {
+            display: 'none',
+          },
         }}
       >
         <Box sx={{ display: 'flex' }}>
@@ -457,6 +468,319 @@ function TechnicalsBanner({
           {coinName} Live Analysis
         </Typography>
       </Box>
+
+      {/* Mobile Accordion Layout */}
+      <Box
+        sx={{
+          display: 'none',
+          width: '100%',
+
+          '@media (max-width: 576px)': {
+            display: 'block',
+          },
+        }}
+      >
+        {/* Row 1: Image, Title, and Accordion Button */}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: '16px',
+          }}
+        >
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <Box sx={{ display: 'flex' }}>
+              <Box
+                sx={{
+                  width: '44px',
+                  height: '44px',
+                  background: 'rgba(255, 255, 255, 1)',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <Image
+                  src={isFxPage ? ausIcon : coinImg}
+                  alt="analysis card"
+                  width={32}
+                  height={32}
+                />
+              </Box>
+              {isFxPage && (
+                <Box
+                  sx={{
+                    width: '44px',
+                    height: '44px',
+                    background: 'rgba(255, 255, 255, 1)',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    position: 'relative',
+                    left: '-10px',
+                  }}
+                >
+                  <Image
+                    src={isFxPage ? usaIcon : coinImg}
+                    alt="analysis card"
+                    width={32}
+                    height={32}
+                  />
+                </Box>
+              )}
+            </Box>
+            <Typography
+              sx={{
+                fontSize: '16px',
+                fontWeight: 600,
+                fontFamily: 'Sf Pro Display',
+                color: 'rgba(255, 255, 255, 1)',
+                lineHeight: '20.8px',
+              }}
+            >
+              {coinName} Live Analysis
+            </Typography>
+          </Box>
+          <IconButton
+            onClick={() => setIsExpanded(!isExpanded)}
+            sx={{
+              color: 'rgba(255, 255, 255, 1)',
+              padding: '4px',
+            }}
+          >
+            {isExpanded ? (
+              <KeyboardArrowUpIcon sx={{ fontSize: '26px' }} />
+            ) : (
+              <KeyboardArrowDownIcon sx={{ fontSize: '26px' }} />
+            )}
+          </IconButton>
+        </Box>
+
+        {/* Row 2: Price and 1h% (Always visible) */}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '20px',
+          }}
+        >
+          <Box sx={{ flex: 1, textAlign: 'left' }}>
+            <Typography
+              sx={{
+                fontSize: '10px',
+                lineHeight: '13px',
+                fontWeight: 400,
+                fontFamily: 'Sf Pro Display',
+                color: 'rgba(255, 255, 255, 1)',
+                marginBottom: '6px',
+              }}
+            >
+              Price
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: '14px',
+                lineHeight: '18.2px',
+                fontWeight: 600,
+                fontFamily: 'Sf Pro Display',
+                color: 'rgba(255, 255, 255, 1)',
+                marginBottom: '4px',
+              }}
+            >
+              $123,710.68
+            </Typography>
+          </Box>
+          <Box sx={{ flex: 1, textAlign: 'center', marginLeft: '20px' }}>
+            <Typography
+              sx={{
+                fontSize: '10px',
+                lineHeight: '13px',
+                fontWeight: 400,
+                fontFamily: 'Sf Pro Display',
+                color: 'rgba(255, 255, 255, 1)',
+                marginBottom: '6px',
+              }}
+            >
+              1h%
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: '14px',
+                lineHeight: '18.2px',
+                fontWeight: 500,
+                fontFamily: 'Sf Pro Display',
+                color: 'rgba(76, 254, 182, 1)',
+                marginTop: '2px',
+              }}
+            >
+              +7.37%
+            </Typography>
+          </Box>
+        </Box>
+
+        {/* Expanded Content */}
+        {isExpanded && (
+          <>
+            {/* Row 3: 24h% and 7d% */}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '20px',
+              }}
+            >
+              <Box sx={{ flex: 1, textAlign: 'left' }}>
+                <Typography
+                  sx={{
+                    fontSize: '10px',
+                    lineHeight: '13px',
+                    fontWeight: 400,
+                    fontFamily: 'Sf Pro Display',
+                    color: 'rgba(255, 255, 255, 1)',
+                    marginBottom: '6px',
+                  }}
+                >
+                  24h%
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: '14px',
+                    lineHeight: '18.2px',
+                    fontWeight: 500,
+                    fontFamily: 'Sf Pro Display',
+                    color: 'rgba(245, 109, 109, 1)',
+                    marginTop: '2px',
+                  }}
+                >
+                  -7.37%
+                </Typography>
+              </Box>
+              <Box sx={{ flex: 1, textAlign: 'center', marginLeft: '20px' }}>
+                <Typography
+                  sx={{
+                    fontSize: '10px',
+                    lineHeight: '13px',
+                    fontWeight: 400,
+                    fontFamily: 'Sf Pro Display',
+                    color: 'rgba(255, 255, 255, 1)',
+                    marginBottom: '6px',
+                  }}
+                >
+                  7d%
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: '14px',
+                    lineHeight: '18.2px',
+                    fontWeight: 500,
+                    fontFamily: 'Sf Pro Display',
+                    color: 'rgba(76, 254, 182, 1)',
+                    marginTop: '2px',
+                  }}
+                >
+                  +7.37%
+                </Typography>
+              </Box>
+            </Box>
+
+            {/* Row 4: Market Cap and Graph */}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '16px',
+              }}
+            >
+              <Box sx={{ flex: 1, textAlign: 'left' }}>
+                <Typography
+                  sx={{
+                    fontSize: '10px',
+                    lineHeight: '13px',
+                    fontWeight: 400,
+                    fontFamily: 'Sf Pro Display',
+                    color: 'rgba(255, 255, 255, 1)',
+                    marginBottom: '6px',
+                  }}
+                >
+                  Market Cap
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: '14px',
+                    lineHeight: '18.2px',
+                    fontWeight: 600,
+                    fontFamily: 'Sf Pro Display',
+                    color: 'rgba(255, 255, 255, 1)',
+                    marginTop: '2px',
+                  }}
+                >
+                  $987,847,229.10
+                  <span
+                    style={{
+                      marginLeft: '8px',
+                      color: 'rgba(76, 254, 182, 1)',
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      fontFamily: 'Sf Pro Display',
+                      lineHeight: '15.6px',
+                    }}
+                  >
+                    +7.37%
+                  </span>
+                </Typography>
+              </Box>
+              <Box sx={{ flex: 0, textAlign: 'right' }}>
+                <Image
+                  src={bannerGraph}
+                  alt="banner-graph"
+                  width={120}
+                  height={45}
+                />
+              </Box>
+            </Box>
+
+            {/* Row 5: Read More */}
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                padding: '12px',
+              }}
+            >
+              <Typography
+                sx={{
+                  color: 'rgba(255, 255, 255, 1)',
+                  fontWeight: '600',
+                  fontSize: '12px',
+                  lineHeight: '15.6px',
+                  fontFamily: 'Sf Pro Display',
+                }}
+              >
+                Read More
+              </Typography>
+              <Box
+                sx={{
+                  ml: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <ReadMoreIcon isGradient={true} />
+              </Box>
+            </Box>
+          </>
+        )}
+      </Box>
+
+      {/* Desktop Stats */}
       <Box
         sx={{
           display: 'flex',
@@ -465,6 +789,9 @@ function TechnicalsBanner({
           '@media (max-width: 786px)': {
             flexDirection: 'column',
             gap: '16px',
+          },
+          '@media (max-width: 576px)': {
+            display: 'none',
           },
         }}
       >
@@ -644,11 +971,17 @@ function TechnicalsBanner({
           </Box>
         </Box>
       </Box>
+
+      {/* Desktop Read More */}
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-start',
+
+          '@media (max-width: 576px)': {
+            display: 'none',
+          },
         }}
       >
         <Typography

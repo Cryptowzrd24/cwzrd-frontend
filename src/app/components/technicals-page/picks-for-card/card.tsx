@@ -39,6 +39,9 @@ function Card({ textWidth = '240px' }: { textWidth?: string }) {
             '@media (max-width: 1024px)': {
               width: '250px',
             },
+            '@media (max-width: 576px)': {
+              width: 'auto !important',
+            },
           }}
         >
           Comprehensive Ethereum Price Forecast and Market Update for ETH/USD

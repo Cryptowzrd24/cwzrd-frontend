@@ -5,32 +5,49 @@ import Image from 'next/image';
 
 const TradingPlatform = () => {
   return (
-    <>
-      <Typography
+    <Box
+      sx={{
+        width: '100%',
+        boxSizing: 'border-box',
+      }}
+    >
+      <Box
         sx={{
-          fontSize: '32px !important',
-          fontWeight: '600',
-          backgroundImage:
-            'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          marginLeft: '-860px',
-          mb: '16px',
-          width: 'min-content',
+          paddingLeft: '40px',
+          textAlign: 'left',
+          marginBottom: '16px',
 
-          '@media (max-width: 1024px)': { marginLeft: '0px' },
-          '@mdeia (max-width: 576px)': {
-            fontSize: '24px !important',
-            fontWeight: 700,
+          '@media (max-width: 1024px)': {
+            paddingLeft: '0px',
+            width: '100%',
+            textAlign: 'center',
+          },
+          '@media (max-width: 576px)': {
             lineHeight: '28.8px',
             letterSpacing: '0.24px',
-            mb: '16px',
-            mt: '32px',
           },
         }}
       >
-        Trading
-      </Typography>
+        <Typography
+          component={'span'}
+          sx={{
+            fontSize: '32px !important',
+            fontWeight: '600',
+            backgroundImage:
+              'linear-gradient(90deg, #634DFD 0%, #7248F7 50%, #BF48F7 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+
+            '@media (max-width: 1024px)': { fontSize: '24px !important' },
+            '@media (max-width: 576px)': {
+              fontSize: '24px !important',
+              fontWeight: 700,
+            },
+          }}
+        >
+          Trading
+        </Typography>
+      </Box>
       <Box
         sx={{
           padding: { xs: '0 16px 24px 16px', md: '0 0 54px 0' },
@@ -51,9 +68,9 @@ const TradingPlatform = () => {
             maxWidth: '1096px',
             width: '100%',
             margin: 'auto',
-            mt: '48px',
+            marginTop: '36px',
             '@media (max-width: 576px)': {
-              mt: '16px',
+              marginTop: '16px',
             },
           }}
         >
@@ -90,7 +107,7 @@ const TradingPlatform = () => {
           </Typography>
         </Stack>
       </Box>
-    </>
+    </Box>
   );
 };
 

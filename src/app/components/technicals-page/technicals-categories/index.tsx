@@ -33,14 +33,37 @@ export const TechnicalsCategory: React.FC = () => {
         '@media (max-width: 1024px)': {
           marginTop: '10px',
         },
+
+        '@media (max-width: 768px)': {
+          backgroundColor: 'transparent',
+          boxShadow: 'none',
+          paddingInline: '0px !important',
+          marginTop: '0px',
+        },
       }}
     >
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
-          overflowX: 'auto',
           height: '100%',
+          flex: 1,
+
+          '@media (max-width: 768px)': {
+            overflowX: 'auto',
+            overflowY: 'hidden',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            paddingLeft: '16px',
+            paddingRight: '16px',
+            '@media (max-width: 576px)': {
+              paddingLeft: '0px',
+              paddingRight: '0px',
+            },
+          },
         }}
       >
         {newsData.map((item, index) => (
@@ -58,9 +81,11 @@ export const TechnicalsCategory: React.FC = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'rgba(17, 17, 17, 0.6)',
+                    flexShrink: 0,
                   }
                 : {
                     color: 'rgba(17, 17, 17, 0.6)',
+                    flexShrink: 0,
                   }
             }
           >
@@ -91,9 +116,14 @@ export const TechnicalsCategory: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           paddingLeft: '8px',
+          flexShrink: 0,
 
           ':hover': {
             cursor: 'pointer',
+          },
+
+          '@media (max-width: 768px)': {
+            paddingRight: '16px',
           },
         }}
       >

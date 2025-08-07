@@ -39,6 +39,10 @@ function TechnicalsPageCrypto({
             borderRadius: '24px',
             background: isMainPage ? '#FFF' : 'transparent',
             boxShadow: '0px 4px 28px 0px #0000000D',
+            '@media (max-width: 576px)': {
+              width: '100%',
+              marginTop: '50px',
+            },
           }}
         >
           <TechnicalsGraph />
