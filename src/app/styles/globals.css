@@ -129,13 +129,11 @@ body {
   box-shadow: none !important;
 }
 
-.coin__container .guage-chart {
+/* .coin__container .guage-chart {
   width: calc(25% - 7.5px) !important;
-}
+} */
+
 .high_volume__container .guage-chart {
-  width: calc(25% - 7.5px) !important;
-}
-.chains__container .guage-chart {
   width: calc(25% - 7.5px) !important;
 }
 
@@ -324,4 +322,68 @@ body {
 
 /* div[col-id='index'] {
   left: -7px !important;
+} */
+
+@media (max-width: 1200px) {
+  .common_guage_card_wrapper__UVzni {
+    min-height: auto !important;
+  }
+  .custom-gauge #gauge-container {
+    height: 170% !important;
+    width: auto !important;
+    margin: 20px auto;
+    min-width: 150px !important;
+    aspect-ratio: 6/8 !important;
+  }
+
+  .custom-gauge #gauge-container .greed-value {
+    font-size: 20px !important;
+  }
+
+  .custom-gauge .highcharts-label {
+    margin-top: 20px !important;
+  }
+
+  .custom-gauge .highcharts-label div > span:first-of-type {
+    font-size: 20px !important;
+  }
+
+  .custom-gauge .highcharts-label div > span:nth-of-type(2) {
+    font-size: 12px !important;
+  }
+}
+@media (max-width: 400px) {
+  .custom-gauge .common_guage_card_wrapper__UVzni {
+    min-height: auto !important;
+  }
+  .custom-gauge #gauge-container {
+    /* height: 200px !important; */
+    margin-top: 0px;
+  }
+
+  .custom-gauge #gauge-container .greed-value {
+    font-size: 20px !important;
+  }
+
+  .custom-gauge .highcharts-label {
+    margin-top: 25px !important;
+  }
+
+  .custom-gauge .highcharts-label div > span:first-of-type {
+    font-size: 18px !important;
+  }
+
+  .custom-gauge .highcharts-label div > span:nth-of-type(2) {
+    font-size: 10px !important;
+  }
+}
+
+/* @media (max-width: 600px) {
+  .custom-gauge #gauge-container {
+    max-width: 300px;
+  }
+} */
+
+/* body {
+  background-color: red !important;
 } */

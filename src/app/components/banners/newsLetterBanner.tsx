@@ -116,7 +116,7 @@ function NewsLetterBanner() {
               fontSize: '40px !important',
 
               '@media (max-width: 576px)': {
-                fontSize: '32px !important',
+                fontSize: '28px !important',
                 lineHeight: '110%',
                 letterSpacing: '0.32px',
               },

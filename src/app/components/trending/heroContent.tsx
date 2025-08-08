@@ -13,7 +13,17 @@ import CandlestickCard from '../common/candlestickCard';
 function HeroContent() {
   return (
     <>
-      <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
+      <Typography
+        variant="h1"
+        sx={{
+          maxWidth: '960px',
+          '@media (max-width: 576px)': {
+            fontSize: '24px !important',
+            fontWeight: '700 !important',
+            mt: '10px',
+          },
+        }}
+      >
         What Are The{' '}
         <span
           style={{
@@ -51,6 +61,7 @@ function HeroContent() {
           <Box
             sx={{
               display: 'flex',
+              flexWrap: 'wrap',
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
@@ -59,50 +70,78 @@ function HeroContent() {
               marginBottom: '20px',
             }}
           >
-            <Card1
-              type="percent"
-              heading="⭐️ Trending"
-              items={[
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: 29.32,
-                },
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: 29.32,
-                },
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: -0.12,
-                },
-              ]}
-            />
-            <CandlestickCard
-              heading="Bitcoin"
-              value={{ data: '36,606,531,750.36', prefix: '$' }}
-              percent={6.32}
-            />
-            <Card3
-              transparentButton={true}
-              bgImage={cardBgImage7}
-              staticTextColor={colorConfig.white}
-              textColor={colorConfig.green}
-              heading="Top Gain"
-              name="Dogwifhat"
-              desc="took first place with a gain of"
-              value="+29.32%"
-              end="in 7 days."
-            />
-            <GaugeChart />
+            <Box
+              sx={{
+                width: { xs: '100%', sm: '48%', lg: '24%' },
+              }}
+            >
+              <Card1
+                type="percent"
+                heading="⭐️ Trending"
+                items={[
+                  {
+                    medal: '🥇',
+                    image: btc,
+                    text1: 'Bitcoin',
+                    text2: 'BTC',
+                    percent: 29.32,
+                  },
+                  {
+                    medal: '🥇',
+                    image: btc,
+                    text1: 'Bitcoin',
+                    text2: 'BTC',
+                    percent: 29.32,
+                  },
+                  {
+                    medal: '🥇',
+                    image: btc,
+                    text1: 'Bitcoin',
+                    text2: 'BTC',
+                    percent: -0.12,
+                  },
+                ]}
+              />
+            </Box>
+            <Box
+              sx={{
+                width: { xs: '100%', sm: '48%', lg: '24%' },
+              }}
+            >
+              <CandlestickCard
+                heading="Bitcoin"
+                value={{ data: '36,606,531,750.36', prefix: '$' }}
+                percent={6.32}
+              />
+            </Box>
+            <Box
+              sx={{
+                width: { xs: '100%', sm: '48%', lg: '24%' },
+              }}
+            >
+              <Card3
+                transparentButton={true}
+                bgImage={cardBgImage7}
+                staticTextColor={colorConfig.white}
+                textColor={colorConfig.green}
+                heading="Top Gain"
+                name="Dogwifhat"
+                desc="took first place with a gain of"
+                value="+29.32%"
+                end="in 7 days."
+              />
+            </Box>
+            <Box
+              sx={{
+                width: { xs: '100%', sm: '48%', lg: '24%' },
+                height: { xs: '185px' },
+
+                // '@media (max-width: 400px)': { height: '120px' },
+              }}
+              className="custom-gauge"
+            >
+              <GaugeChart />
+            </Box>
           </Box>
         </motion.div>
       </AnimatePresence>

@@ -9,6 +9,7 @@ import { VolumeComponent } from '../../components/data-table/volume';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { CirculatingSupply } from '@/app/components/data-table/circulating-supply';
 import NewCoin from '@/app/components/data-table/price';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 
 const useColumnCoinDefs = (columns: any) => {
   return useMemo(() => {
@@ -19,14 +20,19 @@ const useColumnCoinDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 60,
+            width: getResponsiveWidth(60, 60, 60),
+            pinned: 'left',
+            cellClass: 'tight-cell',
           };
         case 'name':
           return {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 190,
+            width: getResponsiveWidth(190, 170, 140),
+            pinned: 'left',
+            headerClass: 'left-align-header',
+            cellClass: 'tight-cell',
           };
         case 'new_price':
           return {

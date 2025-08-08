@@ -10,6 +10,7 @@ import {
 } from '@/utils/price-number-formater';
 import { getPercentStyle } from '@/utils/profit-loss-color';
 import { profitLossCheck } from '@/utils/profit-loss-val-check';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 
 const useColumnChainsDefs = (columns: any) => {
   return useMemo(() => {
@@ -20,14 +21,19 @@ const useColumnChainsDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 70,
+            pinned: 'left',
+            width: getResponsiveWidth(70, 70, 60),
+            cellClass: 'tight-cell',
           };
         case 'name':
           return {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 260,
+            width: getResponsiveWidth(260, 170, 125),
+            pinned: 'left',
+            headerClass: 'left-align-header',
+            cellClass: 'tight-cell',
           };
 
         case 'protocols':

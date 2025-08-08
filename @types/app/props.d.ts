@@ -2,9 +2,10 @@ export {};
 
 declare global {
   interface IMarketCapCardProps {
+    showLargeCard?: boolean;
     heading: string;
     value: {
-      data: number | string;
+      data: string;
       postfix?: string;
       prefix?: string;
     };

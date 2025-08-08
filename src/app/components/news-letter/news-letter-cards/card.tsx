@@ -51,16 +51,20 @@ const Card: React.FC<CardProps> = ({
           },
         }}
       >
-        <Box height={isMainPage ? 161 : isNewsDetail ? 90 : 106}>
+        <Box
+          height={isMainPage ? 161 : isNewsDetail ? 90 : 106}
+          // sx={{ width: '100px' }}
+        >
           <Image
             src={img2}
             alt="main picture"
-            width={isMainPage ? 158 : isNewsDetail ? 86 : 150}
-            height={isMainPage ? 161 : isNewsDetail ? 90 : 106}
+            width={isMainPage ? 158 : isNewsDetail ? 86 : 120}
+            height={isMainPage ? 161 : isNewsDetail ? 90 : 80}
             className="rounded-lg card-image"
             style={{
-              borderRadius: isMainPage || isNewsDetail ? '12px' : 0,
+              borderRadius: isMainPage || isNewsDetail ? '12px' : '12px',
               objectFit: isMainPage || isNewsDetail ? 'cover' : 'none',
+              width: '100%',
             }}
           />
         </Box>
@@ -124,10 +128,10 @@ const Card: React.FC<CardProps> = ({
               variant="h5"
               sx={{
                 mb: description && '8px',
-                width: '90%',
+                // width: '90%',
                 '@media (max-width: 576px)': {
                   width: '100%',
-                  fontSize: '14px !important',
+                  fontSize: '13px !important',
                 },
               }}
             >

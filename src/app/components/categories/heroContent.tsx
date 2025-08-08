@@ -21,7 +21,17 @@ function HeroContent() {
   };
   return (
     <>
-      <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
+      <Typography
+        variant="h1"
+        sx={{
+          maxWidth: '960px',
+          '@media (max-width: 576px)': {
+            fontSize: '24px !important',
+            fontWeight: '700 !important',
+            mt: '10px',
+          },
+        }}
+      >
         Top Crypto{' '}
         <span
           style={{
@@ -75,6 +85,7 @@ function HeroContent() {
           <Box
             sx={{
               display: 'flex',
+              flexWrap: 'wrap',
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
@@ -83,40 +94,60 @@ function HeroContent() {
               marginBottom: '20px',
             }}
           >
-            <Card2
-              heading="🎖 Top Categories"
-              items={[
-                {
-                  medal: '🥇',
-                  text1: 'Base Ecosystem',
-                  images: [nft, btc, frogImage],
-                },
-                {
-                  medal: '🥇',
-                  text1: 'Base Ecosystem',
-                  images: [nft, btc, frogImage],
-                },
-                {
-                  medal: '🥇',
-                  text1: 'Base Ecosystem',
-                  images: [nft, btc, frogImage],
-                },
-              ]}
-            />
-            <TopNftCollection
-              heading="🎖 Top NFT Colllections"
-              percent={-0.32}
-              graphAttr={{ type: 'area', data: areaChartData }}
-            />
-            <Card4
-              bgImage={newsImage}
-              heading={'📈️ News'}
-              staticTextColor={colorConfig.white}
-              mainText="Gucci Burberry join Booming Scotland."
-              date={new Date()}
-              name={'John Smith'}
-            />
-            <GaugeChart />
+            <Box
+              sx={{
+                width: { xs: '100%', sm: '48%', lg: '24%' },
+              }}
+            >
+              <Card2
+                heading="🎖 Top Categories"
+                items={[
+                  {
+                    medal: '🥇',
+                    text1: 'Base Ecosystem',
+                    images: [nft, btc, frogImage],
+                  },
+                  {
+                    medal: '🥇',
+                    text1: 'Base Ecosystem',
+                    images: [nft, btc, frogImage],
+                  },
+                  {
+                    medal: '🥇',
+                    text1: 'Base Ecosystem',
+                    images: [nft, btc, frogImage],
+                  },
+                ]}
+              />
+            </Box>
+            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
+              <TopNftCollection
+                heading="🎖 Top NFT Colllections"
+                percent={-0.32}
+                graphAttr={{ type: 'area', data: areaChartData }}
+              />
+            </Box>
+            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
+              <Card4
+                bgImage={newsImage}
+                heading={'📈️ News'}
+                staticTextColor={colorConfig.white}
+                mainText="Gucci Burberry join Booming Scotland."
+                date={new Date()}
+                name={'John Smith'}
+              />
+            </Box>
+            <Box
+              sx={{
+                width: { xs: '100%', sm: '48%', lg: '24%' },
+                height: { xs: '185px' },
+
+                // '@media (max-width: 400px)': { height: '120px' },
+              }}
+              className="custom-gauge"
+            >
+              <GaugeChart />
+            </Box>
           </Box>
         </motion.div>
       </AnimatePresence>

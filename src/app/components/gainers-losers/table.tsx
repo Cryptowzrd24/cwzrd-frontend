@@ -8,6 +8,7 @@ import { columnsGainers, columnsLosers } from '@/app/constants/columns';
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchGainersLosersDataQuery } from '@/app/redux/reducers/data-grid';
 import { scrollToTop } from '@/utils/scroll-to-top';
+import { Box } from '@mui/material';
 
 const Table = () => {
   const columnGainersDef = useColumnGainersDefs(columnsGainers);
@@ -84,25 +85,28 @@ const Table = () => {
       <div
         style={{
           display: 'flex',
+          flexWrap: 'wrap',
           gap: '36px',
           borderTop: '1px solid #1111111A',
           paddingTop: '16px',
         }}
       >
-        <DataTable
-          search={search}
-          title={'Top Gainers'}
-          rowData={rowGainersData}
-          columnDefs={columnGainersDef}
-          width="50%"
-        />
-        <DataTable
-          search={search}
-          title={'Top Losers'}
-          rowData={rowLosersData}
-          columnDefs={columnLosersDef}
-          width="50%"
-        />
+        <Box sx={{ width: { xs: '100%', md: '47%' } }}>
+          <DataTable
+            search={search}
+            title={'Top Gainers'}
+            rowData={rowGainersData}
+            columnDefs={columnGainersDef}
+          />
+        </Box>
+        <Box sx={{ width: { xs: '100%', md: '47%' } }}>
+          <DataTable
+            search={search}
+            title={'Top Losers'}
+            rowData={rowLosersData}
+            columnDefs={columnLosersDef}
+          />
+        </Box>
       </div>
       <Pagination
         length={data?.count}
