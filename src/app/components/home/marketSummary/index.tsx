@@ -16,6 +16,21 @@ const MarketSummary = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '32px',
+        '@media (max-width: 1024px)': {
+          mt: '60px',
+          mb: '24px',
+          gap: '24px',
+        },
+        '@media (max-width: 768px)': {
+          mt: '40px',
+          mb: '20px',
+          gap: '20px',
+        },
+        '@media (max-width: 576px)': {
+          mt: '32px',
+          mb: '16px',
+          gap: '16px',
+        },
       }}
     >
       {/* Heading */}
@@ -27,6 +42,18 @@ const MarketSummary = () => {
             fontWeight: '700',
             lineHeight: '120%',
             letterSpacing: '0.36px',
+            '@media (max-width: 1024px)': {
+              fontSize: '32px',
+              letterSpacing: '0.32px',
+            },
+            '@media (max-width: 768px)': {
+              fontSize: '28px',
+              letterSpacing: '0.28px',
+            },
+            '@media (max-width: 576px)': {
+              fontSize: '24px',
+              letterSpacing: '0.24px',
+            },
           }}
         >
           <span
@@ -49,6 +76,14 @@ const MarketSummary = () => {
             fontWeight: '400',
             lineHeight: '150%',
             letterSpacing: '-0.16px',
+            '@media (max-width: 768px)': {
+              fontSize: '14px',
+              letterSpacing: '-0.14px',
+            },
+            '@media (max-width: 576px)': {
+              fontSize: '12px',
+              letterSpacing: '-0.12px',
+            },
           }}
         >
           The overall market capitalization of the crypto market is{' '}
@@ -68,7 +103,12 @@ const MarketSummary = () => {
           width="auto"
           borderRadius="16px"
         />
-        <Box>
+        <Box sx={{
+          '@media (max-width: 1024px)': {
+            // display: 'none',
+            overflow: 'hidden',
+          },
+        }}>
           <TechnicalsGraph isMainPage={true} />
         </Box>
       </Box>

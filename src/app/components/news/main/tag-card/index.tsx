@@ -31,7 +31,7 @@ const TagCard: React.FC<TagCardProps> = ({
         borderRadius: '12px',
         height: height ? height : '512px',
         width: width ? width : '548px',
-        boxShadow: '0px -6px 30px rgba(0, 0, 0, 0.07)',
+        boxShadow: isMainPage ? 'none' : '0px -6px 30px rgba(0, 0, 0, 0.07)',
         paddingBottom: '2px',
 
         '@media (max-width: 1380px)': {
@@ -73,8 +73,9 @@ const TagCard: React.FC<TagCardProps> = ({
           <Chip
             sx={{
               background:
+                isMainPage ? 'transparent' :
                 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
-              backdropFilter: 'blur(10px)',
+              backdropFilter: isMainPage ? 'none' : 'blur(10px)',
             }}
             key={'123'}
             label={

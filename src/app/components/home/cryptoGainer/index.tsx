@@ -13,9 +13,37 @@ const CryptoGainer = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '24px',
+        '@media (max-width: 1024px)': {
+          pt: '24px',
+          mb: '36px',
+          gap: '20px',
+        },
+        '@media (max-width: 768px)': {
+          pt: '20px',
+          mb: '28px',
+          gap: '16px',
+        },
+        '@media (max-width: 576px)': {
+          pt: '16px',
+          mb: '24px',
+          gap: '12px',
+        },
       }}
     >
-      <Box sx={{ display: 'flex', gap: '24px' }}>
+      <Box sx={{ 
+        display: 'flex', 
+        gap: '24px',
+        '@media (max-width: 1024px)': {
+          flexDirection: 'column',
+          gap: '16px',
+        },
+        '@media (max-width: 768px)': {
+          gap: '12px',
+        },
+        '@media (max-width: 576px)': {
+          gap: '8px',
+        },
+      }}>
         <Box
           sx={{
             padding: '16px 12px 12px',
@@ -27,6 +55,21 @@ const CryptoGainer = () => {
             flexDirection: 'column',
             gap: '16px',
             flex: 1,
+            '@media (max-width: 1024px)': {
+              padding: '12px 8px 8px',
+              borderRadius: '12px',
+              gap: '12px',
+            },
+            '@media (max-width: 768px)': {
+              padding: '10px 6px 6px',
+              borderRadius: '10px',
+              gap: '10px',
+            },
+            '@media (max-width: 576px)': {
+              padding: '8px 4px 4px',
+              borderRadius: '8px',
+              gap: '8px',
+            },
           }}
         >
           <Box
@@ -42,6 +85,18 @@ const CryptoGainer = () => {
                 fontWeight: '700',
                 lineHeight: '120%',
                 letterSpacing: '0.24px',
+                '@media (max-width: 1024px)': {
+                  fontSize: '20px',
+                  letterSpacing: '0.20px',
+                },
+                '@media (max-width: 768px)': {
+                  fontSize: '18px',
+                  letterSpacing: '0.18px',
+                },
+                '@media (max-width: 576px)': {
+                  fontSize: '16px',
+                  letterSpacing: '0.16px',
+                },
               }}
             >
               Top{' '}
@@ -73,6 +128,14 @@ const CryptoGainer = () => {
                   fontWeight: '600',
                   fontSize: '14px',
                   lineHeight: '18.2px',
+                  '@media (max-width: 768px)': {
+                    fontSize: '12px',
+                    lineHeight: '16px',
+                  },
+                  '@media (max-width: 576px)': {
+                    fontSize: '10px',
+                    lineHeight: '14px',
+                  },
                 }}
                 variant="body2"
                 right={1}
@@ -85,6 +148,12 @@ const CryptoGainer = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  '@media (max-width: 768px)': {
+                    ml: '8px',
+                  },
+                  '@media (max-width: 576px)': {
+                    ml: '6px',
+                  },
                 }}
               >
                 <ReadMoreIcon isMainPage={true} />
@@ -105,6 +174,21 @@ const CryptoGainer = () => {
             flexDirection: 'column',
             gap: '16px',
             flex: 1,
+            '@media (max-width: 1024px)': {
+              padding: '12px 8px 8px',
+              borderRadius: '12px',
+              gap: '12px',
+            },
+            '@media (max-width: 768px)': {
+              padding: '10px 6px 6px',
+              borderRadius: '10px',
+              gap: '10px',
+            },
+            '@media (max-width: 576px)': {
+              padding: '8px 4px 4px',
+              borderRadius: '8px',
+              gap: '8px',
+            },
           }}
         >
           <Box
@@ -120,6 +204,18 @@ const CryptoGainer = () => {
                 fontWeight: '700',
                 lineHeight: '120%',
                 letterSpacing: '0.24px',
+                '@media (max-width: 1024px)': {
+                  fontSize: '20px',
+                  letterSpacing: '0.20px',
+                },
+                '@media (max-width: 768px)': {
+                  fontSize: '18px',
+                  letterSpacing: '0.18px',
+                },
+                '@media (max-width: 576px)': {
+                  fontSize: '16px',
+                  letterSpacing: '0.16px',
+                },
               }}
             >
               Top{' '}
@@ -151,6 +247,14 @@ const CryptoGainer = () => {
                   fontWeight: '600',
                   fontSize: '14px',
                   lineHeight: '18.2px',
+                  '@media (max-width: 768px)': {
+                    fontSize: '12px',
+                    lineHeight: '16px',
+                  },
+                  '@media (max-width: 576px)': {
+                    fontSize: '10px',
+                    lineHeight: '14px',
+                  },
                 }}
                 variant="body2"
                 right={1}
@@ -163,6 +267,12 @@ const CryptoGainer = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  '@media (max-width: 768px)': {
+                    ml: '8px',
+                  },
+                  '@media (max-width: 576px)': {
+                    ml: '6px',
+                  },
                 }}
               >
                 <ReadMoreIcon isMainPage />

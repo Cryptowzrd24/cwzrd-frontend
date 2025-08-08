@@ -1,18 +1,24 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import React from 'react';
 import CommentsLikes from '../../technicals-page/comments-likes';
 import BitcoinBlackkBg from '../../../../../public/icons/bitcoinBlkBg';
 
 const BitCoinPotential = () => {
+  const isMobileScreen = useMediaQuery('(max-width: 576px)');
+  const isTabletScreen = useMediaQuery('(max-width: 768px)');
+  const isTabScreen = useMediaQuery('(max-width: 1024px)');
   return (
     <Box
       sx={{
         height: '596px',
-        width: '617px',
+        width: isTabletScreen ? '100%' : '617px',
         background: '#44008D',
         borderRadius: '12px',
         position: 'relative',
         overflow: 'hidden',
+        '@media (max-width: 1024px)': {
+          width: '100%',
+        },
       }}
     >
       <Box

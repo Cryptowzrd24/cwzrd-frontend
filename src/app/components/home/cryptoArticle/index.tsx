@@ -13,6 +13,21 @@ const CryptoArticle = () => {
         display: 'flex',
         gap: '24px',
         flexDirection: 'column',
+        '@media (max-width: 1024px)': {
+          pt: '24px',
+          mb: '24px',
+          gap: '20px',
+        },
+        '@media (max-width: 768px)': {
+          pt: '20px',
+          mb: '20px',
+          gap: '16px',
+        },
+        '@media (max-width: 576px)': {
+          pt: '16px',
+          mb: '16px',
+          gap: '12px',
+        },
       }}
     >
       <Box>
@@ -22,6 +37,12 @@ const CryptoArticle = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             marginBottom: '16px',
+            '@media (max-width: 768px)': {
+              marginBottom: '12px',
+            },
+            '@media (max-width: 576px)': {
+              marginBottom: '8px',
+            },
           }}
         >
           <Typography
@@ -30,6 +51,18 @@ const CryptoArticle = () => {
               fontWeight: '700',
               lineHeight: '120%',
               letterSpacing: '0.24px',
+              '@media (max-width: 1024px)': {
+                fontSize: '20px',
+                letterSpacing: '0.20px',
+              },
+              '@media (max-width: 768px)': {
+                fontSize: '18px',
+                letterSpacing: '0.18px',
+              },
+              '@media (max-width: 576px)': {
+                fontSize: '16px',
+                letterSpacing: '0.16px',
+              },
             }}
           >
             <span
@@ -60,6 +93,14 @@ const CryptoArticle = () => {
                 fontWeight: '600',
                 fontSize: '14px',
                 lineHeight: '18.2px',
+                '@media (max-width: 768px)': {
+                  fontSize: '12px',
+                  lineHeight: '16px',
+                },
+                '@media (max-width: 576px)': {
+                  fontSize: '10px',
+                  lineHeight: '14px',
+                },
               }}
               variant="body2"
               right={1}
@@ -72,6 +113,12 @@ const CryptoArticle = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                '@media (max-width: 768px)': {
+                  ml: '8px',
+                },
+                '@media (max-width: 576px)': {
+                  ml: '6px',
+                },
               }}
             >
               <ReadMoreIcon isMainPage />
@@ -85,6 +132,18 @@ const CryptoArticle = () => {
             fontWeight: '400',
             lineHeight: '150%',
             letterSpacing: '-0.2px',
+            '@media (max-width: 1024px)': {
+              fontSize: '18px',
+              letterSpacing: '-0.18px',
+            },
+            '@media (max-width: 768px)': {
+              fontSize: '16px',
+              letterSpacing: '-0.16px',
+            },
+            '@media (max-width: 576px)': {
+              fontSize: '14px',
+              letterSpacing: '-0.14px',
+            },
           }}
         >
           the overall market capitalization of the crypto market is{' '}
@@ -103,6 +162,22 @@ const CryptoArticle = () => {
           borderRadius: '20px',
           background: 'rgba(255,255,255,0.40)',
           backdropFilter: 'blur(8px)',
+          '@media (max-width: 1024px)': {
+            padding: '10px',
+            gap: '8px',
+            borderRadius: '16px',
+          },
+          '@media (max-width: 768px)': {
+            padding: '8px',
+            gap: '6px',
+            borderRadius: '12px',
+            flexDirection: 'column',
+          },
+          '@media (max-width: 576px)': {
+            padding: '6px',
+            gap: '4px',
+            borderRadius: '10px',
+          },
         }}
       >
         <InfoCard />

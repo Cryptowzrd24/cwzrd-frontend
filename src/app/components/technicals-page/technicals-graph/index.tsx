@@ -47,7 +47,7 @@ function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
         sx={{
           position: 'relative',
           top: isSmallScreen ? '-480px' : '-400px',
-          left: isMainPage ? '79%' : isSmallScreen ? '20px' : '50px',
+          left: isSmallScreen ? '20px' : '50px',
           width: 'fit-content',
         }}
       >

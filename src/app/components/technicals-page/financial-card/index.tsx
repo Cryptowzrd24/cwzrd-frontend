@@ -45,7 +45,7 @@ function FinancialCard({
 
         return {
           ...baseStyles,
-          ...(isMainPage && { width: '217px' }),
+          // ...(isMainPage && { width: '217px' }),
         };
       }}
     >

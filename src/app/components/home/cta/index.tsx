@@ -14,6 +14,18 @@ const CTA = () => {
           'linear-gradient(117deg, #634DFD -4.07%, #7E44F1 100.68%), #EDF0FF',
         pt: '80px',
         pb: '30px',
+        '@media (max-width: 1024px)': {
+          pt: '60px',
+          pb: '24px',
+        },
+        '@media (max-width: 768px)': {
+          pt: '40px',
+          pb: '20px',
+        },
+        '@media (max-width: 576px)': {
+          pt: '32px',
+          pb: '16px',
+        },
       }}
     >
       <Box
@@ -25,6 +37,21 @@ const CTA = () => {
           mx: 'auto',
           position: 'relative',
           overflow: 'hidden',
+          '@media (max-width: 1024px)': {
+            width: '90%',
+            height: '600px',
+            borderRadius: '20px',
+          },
+          '@media (max-width: 768px)': {
+            width: '95%',
+            height: '500px',
+            borderRadius: '16px',
+          },
+          '@media (max-width: 576px)': {
+            width: '98%',
+            height: '400px',
+            borderRadius: '12px',
+          },
         }}
       >
         <Box
@@ -37,6 +64,21 @@ const CTA = () => {
             position: 'absolute',
             top: '70px',
             right: '0',
+            '@media (max-width: 1024px)': {
+              height: '350px',
+              width: '500px',
+              top: '50px',
+            },
+            '@media (max-width: 768px)': {
+              height: '250px',
+              width: '350px',
+              top: '30px',
+            },
+            '@media (max-width: 576px)': {
+              height: '200px',
+              width: '280px',
+              top: '20px',
+            },
           }}
         />
         <Check />

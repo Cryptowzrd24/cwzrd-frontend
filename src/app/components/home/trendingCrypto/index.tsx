@@ -24,6 +24,21 @@ const TrendingCrypto = ({
         display: 'flex',
         flexDirection: 'column',
         gap: '24px',
+        '@media (max-width: 1024px)': {
+          pt: '24px',
+          pb: '48px',
+          gap: '20px',
+        },
+        '@media (max-width: 768px)': {
+          pt: '20px',
+          pb: '40px',
+          gap: '16px',
+        },
+        '@media (max-width: 576px)': {
+          pt: '16px',
+          pb: '32px',
+          gap: '12px',
+        },
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
@@ -36,6 +51,18 @@ const TrendingCrypto = ({
               fontWeight: '700',
               lineHeight: '120%',
               letterSpacing: '0.32px',
+              '@media (max-width: 1024px)': {
+                fontSize: '28px',
+                letterSpacing: '0.28px',
+              },
+              '@media (max-width: 768px)': {
+                fontSize: '24px',
+                letterSpacing: '0.24px',
+              },
+              '@media (max-width: 576px)': {
+                fontSize: '20px',
+                letterSpacing: '0.20px',
+              },
             }}
           >
             <span
@@ -59,6 +86,14 @@ const TrendingCrypto = ({
               fontWeight: '400',
               lineHeight: '150%',
               letterSpacing: '-0.16px',
+              '@media (max-width: 768px)': {
+                fontSize: '14px',
+                letterSpacing: '-0.14px',
+              },
+              '@media (max-width: 576px)': {
+                fontSize: '12px',
+                letterSpacing: '-0.12px',
+              },
             }}
           >
             Provides the latest market trends, technical analysis, and trading
@@ -70,7 +105,20 @@ const TrendingCrypto = ({
           handleCurrencyChange={handleCurrencyChange}
         />
       </Box>
-      <Box sx={{ display: 'flex', gap: '24px' }}>
+      <Box sx={{
+        display: 'flex',
+        gap: '24px',
+        '@media (max-width: 1024px)': {
+          flexDirection: 'column',
+          gap: '16px',
+        },
+        '@media (max-width: 768px)': {
+          gap: '12px',
+        },
+        '@media (max-width: 576px)': {
+          gap: '8px',
+        },
+      }}>
         <Box
           sx={{
             maxWidth: '957px',
@@ -82,19 +130,104 @@ const TrendingCrypto = ({
             border: '0.5px solid #FFF',
             background: 'rgba(255,255,255,0.40)',
             backdropFilter: 'blur(8px)',
+            '@media (max-width: 1024px)': {
+              maxWidth: '100%',
+              padding: '10px',
+              gap: '20px',
+              borderRadius: '16px',
+              flexDirection: 'column',
+            },
+            '@media (max-width: 768px)': {
+              padding: '8px',
+              gap: '16px',
+              borderRadius: '12px',
+            },
+            '@media (max-width: 576px)': {
+              padding: '6px',
+              gap: '12px',
+              borderRadius: '10px',
+            },
           }}
         >
-          <Box sx={{ display: 'flex', gap: '16px' }}>
+          <Box sx={{
+            display: 'flex',
+            gap: '16px',
+            '@media (max-width: 1024px)': {
+              gap: '12px',
+            },
+            '@media (max-width: 768px)': {
+              flexDirection: 'column',
+              gap: '8px',
+            },
+            '@media (max-width: 576px)': {
+              gap: '6px',
+            },
+          }}>
             <BitCoinPotential />
             <Box>
               <FinancialRight isMainPage />
             </Box>
           </Box>
-          <Box sx={{ display: 'flex', gap: '8px' }}>
-            <FinancialCard image={chainLinkImg} isMainPage />
-            <FinancialCard image={chainLinkImg} isMainPage />
-            <FinancialCard image={chainLinkImg} isMainPage />
-            <FinancialCard image={chainLinkImg} isMainPage />
+          <Box sx={{
+            display: 'flex',
+            gap: '8px',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            '@media (max-width: 1024px)': {
+              flexWrap: 'wrap',
+              gap: '6px',
+            },
+            '@media (max-width: 768px)': {
+              gap: '4px',
+            },
+            '@media (max-width: 576px)': {
+              gap: '3px',
+            },
+          }}>
+            <Box sx={{
+              width: '217px',
+              '@media (max-width: 1024px)': {
+                width: '49%',
+              },
+              '@media (max-width: 768px)': {
+                width: '100%',
+              },
+            }}>
+              <FinancialCard image={chainLinkImg} isMainPage />
+            </Box>
+            <Box sx={{
+              width: '217px',
+              '@media (max-width: 1024px)': {
+                width: '49%',
+              },
+              '@media (max-width: 768px)': {
+                width: '100%',
+              },
+            }}>
+              <FinancialCard image={chainLinkImg} isMainPage />
+            </Box>
+            <Box sx={{
+              width: '217px',
+              '@media (max-width: 1024px)': {
+                width: '49%',
+              },
+              '@media (max-width: 768px)': {
+                width: '100%',
+              },
+            }}>
+              <FinancialCard image={chainLinkImg} isMainPage />
+            </Box>
+            <Box sx={{
+              width: '217px',
+              '@media (max-width: 1024px)': {
+                width: '49%',
+              },
+              '@media (max-width: 768px)': {
+                width: '100%',
+              },
+            }}>
+              <FinancialCard image={chainLinkImg} isMainPage />
+            </Box>
           </Box>
         </Box>
         <Box
@@ -102,6 +235,16 @@ const TrendingCrypto = ({
             display: 'flex',
             flexDirection: 'column',
             gap: '24px',
+            '@media (max-width: 1024px)': {
+              width: '100%',
+              gap: '16px',
+            },
+            '@media (max-width: 768px)': {
+              gap: '12px',
+            },
+            '@media (max-width: 576px)': {
+              gap: '8px',
+            },
           }}
         >
           <TradeProfitCard />
