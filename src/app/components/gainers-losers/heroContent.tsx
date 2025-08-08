@@ -8,6 +8,7 @@ import { areaChartData } from '@/app/constants/charts';
 import Card3 from '../common/card3.component';
 import { colorConfig } from '@/app/helpers/config';
 import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
+import GaugeChartWrapper from '../common/GaugeChartWrapper';
 
 function HeroContent() {
   return (
@@ -58,7 +59,9 @@ function HeroContent() {
           <Box
             sx={{
               display: 'flex',
-              flexWrap: 'wrap',
+              // flexWrap: 'wrap',
+              overflow: 'auto',
+              height: { xs: '155px', lg: '190px' },
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
@@ -81,7 +84,7 @@ function HeroContent() {
                 graphAttr={{ type: 'area', data: areaChartData }}
               />
             </Box>
-            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
+            <Box sx={{ width: '24%', minWidth: '230px' }}>
               <Card3
                 transparentButton={true}
                 bgImage={cardBgImage7}
@@ -94,17 +97,9 @@ function HeroContent() {
                 end="in 7 days."
               />
             </Box>
-            <Box
-              sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
-                height: { xs: '185px' },
-
-                // '@media (max-width: 400px)': { height: '120px' },
-              }}
-              className="custom-gauge"
-            >
+            <GaugeChartWrapper>
               <GaugeChart />
-            </Box>
+            </GaugeChartWrapper>
           </Box>
         </motion.div>
       </AnimatePresence>

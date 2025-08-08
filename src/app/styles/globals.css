@@ -137,7 +137,7 @@ body {
   width: calc(25% - 7.5px) !important;
 }
 
-.defi__container .guage-chart {
+/* .defi__container .guage-chart {
   width: calc(25% - 7.5px) !important;
 }
 
@@ -147,7 +147,7 @@ body {
 
 .defi__container .defi__trending_card {
   width: calc(25% - 7.5px) !important;
-}
+} */
 
 #explorer {
   padding: 2px 12px !important;

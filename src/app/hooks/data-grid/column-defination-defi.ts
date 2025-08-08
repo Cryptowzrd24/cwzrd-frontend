@@ -11,6 +11,7 @@ import { priceNumberFormatDigits } from '@/utils/price-number-formater';
 import NewCoin from '@/app/components/data-table/price';
 import { CirculatingSupply } from '@/app/components/data-table/circulating-supply';
 import { RowTooltip } from '@/app/components/row-tooltip';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 
 const useColumnDefiDefs = (columns: any) => {
   return useMemo(() => {
@@ -21,14 +22,19 @@ const useColumnDefiDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 70,
+            width: getResponsiveWidth(60, 60, 45),
+            pinned: 'left',
+            cellClass: 'tight-cell',
           };
         case 'name':
           return {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 205,
+            width: getResponsiveWidth(205, 170, 135),
+            pinned: 'left',
+            headerClass: 'left-align-header',
+            cellClass: 'tight-cell',
           };
         case 'new_price':
           return {

@@ -12,8 +12,8 @@ import Stats from '../stats';
 const Defi = () => {
   return (
     <>
-      <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '48px' }}>
+      <Container maxWidth="xl" sx={{ overflow: 'hidden', p: '0px' }}>
+        <Box sx={{ mt: { xs: '20px', sm: '24px', md: '48px' } }}>
           <Hero />
           <HeroContent />
           <Stats />

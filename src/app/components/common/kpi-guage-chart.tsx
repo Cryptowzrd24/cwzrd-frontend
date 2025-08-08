@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import SolidGauge from 'highcharts/modules/solid-gauge';
-import { Card, Typography } from '@mui/material';
+import { Box, Card, Typography } from '@mui/material';
 import styles from './index.module.scss';
 
 interface TvlChainCardProps {
@@ -301,11 +301,11 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
               }}
               id="container"
             ></div>
-            <div
-              style={{
+            <Box
+              sx={{
                 display: 'flex',
                 flexWrap: 'wrap',
-                gap: '5px',
+                gap: { xs: '2px', sm: '5px' },
                 paddingLeft: '5px',
                 paddingTop: '10px',
                 height: '30px',
@@ -374,7 +374,7 @@ const KpiGuageChart = ({ isDarkTheme }: TvlChainCardProps) => {
                   </p>
                 </div>
               ))}
-            </div>
+            </Box>
           </div>
         </div>
       </Card>

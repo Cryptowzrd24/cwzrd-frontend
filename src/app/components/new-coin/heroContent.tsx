@@ -56,76 +56,82 @@ function HeroContent() {
           transition={{ duration: 0.2 }}
         >
           <Box
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              flexDirection: 'row',
-              gap: '10px',
-              alignItems: 'center',
-              maxWidth: '100%',
-              justifyContent: 'space-between',
-              marginBottom: '20px',
-            }}
+            sx={{ overflowX: 'auto', marginBottom: { xs: '10px', lg: '20px' } }}
           >
-            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
-              <Card1
-                type="time"
-                heading="✨ Recently Added"
-                items={[
-                  {
-                    medal: '🥇',
-                    image: frogImage,
-                    text1: 'PEPI',
-                    text2: 'PEPI',
-                    time: 4,
-                  },
-                  {
-                    medal: '🥇',
-                    image: frogImage,
-                    text1: 'PEPI',
-                    text2: 'PEPI',
-                    time: 4,
-                  },
-                  {
-                    medal: '🥇',
-                    image: frogImage,
-                    text1: 'PEPI',
-                    text2: 'PEPI',
-                    time: 4,
-                  },
-                ]}
-              />
-            </Box>
-            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
-              <GraphCardTop
-                heading="🚨 Top Losers"
-                percent={-0.32}
-                graphAttr={{ type: 'area', data: areaChartData }}
-              />
-            </Box>
-            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
-              <Card3
-                transparentButton={true}
-                bgImage={cardBgImage}
-                staticTextColor={colorConfig.white}
-                textColor={colorConfig.green}
-                heading="Trending"
-                name="Bitcoin"
-                value="+29.32%"
-                desc="are placing in the first place with"
-                end="in 7 days."
-              />
-            </Box>
             <Box
               sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
-                height: { xs: '185px' },
-
-                // '@media (max-width: 400px)': { height: '120px' },
+                display: 'flex',
+                // flexWrap: 'wrap',
+                flexDirection: 'row',
+                height: { xs: '155px', lg: '190px' },
+                gap: '10px',
+                width: '99%',
+                alignItems: 'center',
+                maxWidth: '100%',
+                justifyContent: 'space-between',
               }}
-              className="custom-gauge"
             >
-              <GaugeChart />
+              <Box sx={{ width: '24%', minWidth: '220px' }}>
+                <Card1
+                  type="time"
+                  heading="✨ Recently Added"
+                  items={[
+                    {
+                      medal: '🥇',
+                      image: frogImage,
+                      text1: 'PEPI',
+                      text2: 'PEPI',
+                      time: 4,
+                    },
+                    {
+                      medal: '🥇',
+                      image: frogImage,
+                      text1: 'PEPI',
+                      text2: 'PEPI',
+                      time: 4,
+                    },
+                    {
+                      medal: '🥇',
+                      image: frogImage,
+                      text1: 'PEPI',
+                      text2: 'PEPI',
+                      time: 4,
+                    },
+                  ]}
+                />
+              </Box>
+              <Box sx={{ width: '24%', minWidth: '210px' }}>
+                <GraphCardTop
+                  heading="🚨 Top Losers"
+                  percent={-0.32}
+                  graphAttr={{ type: 'area', data: areaChartData }}
+                />
+              </Box>
+              <Box sx={{ width: '24%', minWidth: '230px' }}>
+                <Card3
+                  transparentButton={true}
+                  bgImage={cardBgImage}
+                  staticTextColor={colorConfig.white}
+                  textColor={colorConfig.green}
+                  heading="Trending"
+                  name="Bitcoin"
+                  value="+29.32%"
+                  desc="are placing in the first place with"
+                  end="in 7 days."
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: '24%',
+                  minWidth: '180px',
+                  height: { xs: '150px', lg: '185px' },
+
+                  // '@media (max-width: 400px)': { height: '120px' },
+                }}
+                className="custom-gauge"
+              >
+                <GaugeChart />
+              </Box>
             </Box>
           </Box>
         </motion.div>
