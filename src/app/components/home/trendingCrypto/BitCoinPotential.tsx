@@ -4,14 +4,11 @@ import CommentsLikes from '../../technicals-page/comments-likes';
 import BitcoinBlackkBg from '../../../../../public/icons/bitcoinBlkBg';
 
 const BitCoinPotential = () => {
-  const isMobileScreen = useMediaQuery('(max-width: 576px)');
-  const isTabletScreen = useMediaQuery('(max-width: 768px)');
-  const isTabScreen = useMediaQuery('(max-width: 1024px)');
   return (
     <Box
       sx={{
-        height: '596px',
-        width: isTabletScreen ? '100%' : '617px',
+        height:'100%',
+        width: '100%',
         background: '#44008D',
         borderRadius: '12px',
         position: 'relative',

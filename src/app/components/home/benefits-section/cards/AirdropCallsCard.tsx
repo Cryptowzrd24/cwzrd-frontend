@@ -39,12 +39,12 @@ const AirdropCallsCard: React.FC = () => {
       <Box
         sx={{
           position: 'absolute',
-          right: '56px',
+          right: '11px',
           top: '54%',
-          transform: 'translateY(-50%)',
-          width: '360px',
+          transform: 'translateY(-60%)',
           zIndex: 2,
           color: 'white',
+          width: '50%',
         }}
       >
         <Typography
@@ -60,7 +60,7 @@ const AirdropCallsCard: React.FC = () => {
         </Typography>
         <Typography
           sx={{
-            mt: '8px',
+            mt: '10px',
             fontSize: { xs: '13px', sm: '14px' },
             lineHeight: '20px',
             opacity: 0.95,

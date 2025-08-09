@@ -19,26 +19,12 @@ const TrendingCrypto = ({
   return (
     <Box
       sx={{
+        width:'100%',
         pt: '30px',
         pb: '60px',
         display: 'flex',
         flexDirection: 'column',
         gap: '24px',
-        '@media (max-width: 1024px)': {
-          pt: '24px',
-          pb: '48px',
-          gap: '20px',
-        },
-        '@media (max-width: 768px)': {
-          pt: '20px',
-          pb: '40px',
-          gap: '16px',
-        },
-        '@media (max-width: 576px)': {
-          pt: '16px',
-          pb: '32px',
-          gap: '12px',
-        },
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
@@ -106,65 +92,52 @@ const TrendingCrypto = ({
         />
       </Box>
       <Box sx={{
+        width:'100%',
         display: 'flex',
         gap: '24px',
-        '@media (max-width: 1024px)': {
-          flexDirection: 'column',
-          gap: '16px',
-        },
-        '@media (max-width: 768px)': {
-          gap: '12px',
-        },
-        '@media (max-width: 576px)': {
-          gap: '8px',
-        },
+        flexDirection:{xs:'column',sm:'column',md:'row',lg:'row'},
+        boxSizing:'border-box',
+        padding: {xs:"0px",md:'12px',lg:'14px',xl:'16px'},
       }}>
         <Box
           sx={{
-            maxWidth: '957px',
-            padding: '12px',
+            // maxWidth: '957px',
+            padding: {xs:'0px',lg:'12px'},
             display: 'flex',
             flexDirection: 'column',
+            justifyContent:'space-between',
             gap: '24px',
             borderRadius: '20px',
-            border: '0.5px solid #FFF',
-            background: 'rgba(255,255,255,0.40)',
-            backdropFilter: 'blur(8px)',
-            '@media (max-width: 1024px)': {
-              maxWidth: '100%',
-              padding: '10px',
-              gap: '20px',
-              borderRadius: '16px',
-              flexDirection: 'column',
-            },
-            '@media (max-width: 768px)': {
-              padding: '8px',
-              gap: '16px',
-              borderRadius: '12px',
-            },
-            '@media (max-width: 576px)': {
-              padding: '6px',
-              gap: '12px',
-              borderRadius: '10px',
-            },
+            border: {xs:'none',lg:'0.5px solid #FFF'},
+            background: {xs:'transparent',lg:'rgba(255,255,255,0.40)'},
+            backdropFilter: {xs:'none',lg:'blur(8px)'},
+            width:{xs:'100%',sm:'100%',md:'70%',lg:'70%'},
+            boxSizing:'border-box'
           }}
         >
           <Box sx={{
             display: 'flex',
             gap: '16px',
-            '@media (max-width: 1024px)': {
-              gap: '12px',
-            },
-            '@media (max-width: 768px)': {
-              flexDirection: 'column',
-              gap: '8px',
-            },
-            '@media (max-width: 576px)': {
-              gap: '6px',
-            },
+            flexDirection:{xs:'column',sm:'column',md:'column',lg:'row'},
+            overflowX:'hidden',
+            width:'100%',
+            boxSizing:'border-box'
           }}>
-            <BitCoinPotential />
-            <Box>
+            <Box sx={{
+              width: { xs: '100%', sm: '100%', md: '100%', lg: '60%', xl: '60%' },
+              height: { xs: '596px', sm: '596px', md: '596px', lg: '100%', xl: '100%' },
+              overflowX: 'hidden',
+              boxSizing:'border-box'
+            }}  >
+              <BitCoinPotential />
+            </Box>
+            <Box
+              sx={{
+                width: { xs: '100%', sm: '100%', md: '100%', lg: '40%', xl: '40%' },
+                overflowX: 'hidden',
+                height: { xs: '596px', sm: '596px', md: '596px', lg: '100%', xl: '100%' },
+                boxSizing: 'border-box'
+              }}>
               <FinancialRight isMainPage />
             </Box>
           </Box>
@@ -173,58 +146,30 @@ const TrendingCrypto = ({
             gap: '8px',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
-            '@media (max-width: 1024px)': {
-              flexWrap: 'wrap',
-              gap: '6px',
-            },
-            '@media (max-width: 768px)': {
-              gap: '4px',
-            },
-            '@media (max-width: 576px)': {
-              gap: '3px',
-            },
+            width:'100%',
+            boxSizing:'border-box'
           }}>
             <Box sx={{
-              width: '217px',
-              '@media (max-width: 1024px)': {
-                width: '49%',
-              },
-              '@media (max-width: 768px)': {
-                width: '100%',
-              },
+              width: {xs:'100%',sm:'100%',md:'49%',lg:'24%'},
+              overflowX:'hidden'
             }}>
               <FinancialCard image={chainLinkImg} isMainPage />
             </Box>
             <Box sx={{
-              width: '217px',
-              '@media (max-width: 1024px)': {
-                width: '49%',
-              },
-              '@media (max-width: 768px)': {
-                width: '100%',
-              },
+              width: {xs:'100%',sm:'100%',md:'49%',lg:'24%'},
+              overflowX:'hidden'
             }}>
               <FinancialCard image={chainLinkImg} isMainPage />
             </Box>
             <Box sx={{
-              width: '217px',
-              '@media (max-width: 1024px)': {
-                width: '49%',
-              },
-              '@media (max-width: 768px)': {
-                width: '100%',
-              },
+              width: {xs:'100%',sm:'100%',md:'49%',lg:'24%'},
+              overflowX:'hidden'
             }}>
               <FinancialCard image={chainLinkImg} isMainPage />
             </Box>
             <Box sx={{
-              width: '217px',
-              '@media (max-width: 1024px)': {
-                width: '49%',
-              },
-              '@media (max-width: 768px)': {
-                width: '100%',
-              },
+              width: {xs:'100%',sm:'100%',md:'49%',lg:'24%'},
+              overflowX:'hidden'
             }}>
               <FinancialCard image={chainLinkImg} isMainPage />
             </Box>
@@ -235,16 +180,8 @@ const TrendingCrypto = ({
             display: 'flex',
             flexDirection: 'column',
             gap: '24px',
-            '@media (max-width: 1024px)': {
-              width: '100%',
-              gap: '16px',
-            },
-            '@media (max-width: 768px)': {
-              gap: '12px',
-            },
-            '@media (max-width: 576px)': {
-              gap: '8px',
-            },
+            width:{xs:'100%',sm:'100%',md:'30%',lg: '30%'},
+            boxSizing:'border-box',
           }}
         >
           <TradeProfitCard />

@@ -36,7 +36,17 @@ const CryptoInfoCard = ({
         borderRadius: '20px',
       }}
     >
-      <Box sx={{ display: 'flex', gap: '8px' }}>
+      {/* Chart: first on xs/sm, last on lg */}
+      <Box sx={{ order: { xs: 1, sm: 1, md: 1, lg: 3 } }}>
+        {parseFloat(priceRate) > 0 && parseFloat(marketCapRate) > 0 ? (
+          <IncreaseChart />
+        ) : (
+          <DecreaseChart />
+        )}
+      </Box>
+
+      {/* Logo + Title: second on xs/sm, first on lg */}
+      <Box sx={{ display: 'flex', gap: '8px', order: { xs: 2, sm: 2, md: 2, lg: 1 } }}>
         <Box
           sx={{
             width: 40,
@@ -66,11 +76,13 @@ const CryptoInfoCard = ({
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+
+      {/* Stats: third on xs/sm, middle on lg; keep vertical */}
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start', order: { xs: 3, sm: 3, md: 3, lg: 2 } }}>
         <Box>
           <Typography
             sx={{
-              color: '##747474',
+              color: '#747474',
               fontSize: '12px',
               fontWeight: '400',
               lineHeight: '130%',
@@ -107,7 +119,7 @@ const CryptoInfoCard = ({
         <Box>
           <Typography
             sx={{
-              color: '##747474',
+              color: '#747474',
               fontSize: '12px',
               fontWeight: '400',
               lineHeight: '130%',
@@ -141,11 +153,6 @@ const CryptoInfoCard = ({
             </Typography>
           </Box>
         </Box>
-        {parseFloat(priceRate) > 0 && parseFloat(marketCapRate) > 0 ? (
-          <IncreaseChart />
-        ) : (
-          <DecreaseChart />
-        )}
       </Box>
     </Box>
   );

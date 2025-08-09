@@ -7,7 +7,7 @@ const FinancialRight = ({ isMainPage }: { isMainPage: boolean }) => {
   return (
     <Box
       sx={{
-        width: '314px',
+        width: '100%',
         height: isMainPage ? '580px' : '600px',
         background: isMainPage
           ? 'rgba(255,255,255,1)'

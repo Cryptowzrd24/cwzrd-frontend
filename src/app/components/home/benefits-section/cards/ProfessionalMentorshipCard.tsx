@@ -22,6 +22,9 @@ const ProfessionalMentorshipCard: React.FC = () => {
           position: 'absolute',
           inset: 0,
           backgroundImage: 'url(/images/home/benefits-section/professional_mentorship_bg.png)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center', 
         }}
       />
 
@@ -32,8 +35,8 @@ const ProfessionalMentorshipCard: React.FC = () => {
           top: '28%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: 88,
-          height: 88,
+          width: 64,
+          height: 64,
           borderRadius: '9999px',
           background: 'rgba(255,255,255,0.20)',
           border: '1px solid rgba(255,255,255,0.25)',
@@ -43,14 +46,14 @@ const ProfessionalMentorshipCard: React.FC = () => {
           zIndex: 1,
         }}
       >
-        <Image src={ProfessionalMentorshipIcon} alt="professional-mentorship" width={64} height={64} />
+        <Image src={ProfessionalMentorshipIcon} alt="professional-mentorship" width={40} height={40} />
       </Box>  
 
       {/* centered text */}
       <Box
         sx={{
           position: 'absolute',
-          top: '56%',
+          top: '64%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           width: '420px',
@@ -63,7 +66,7 @@ const ProfessionalMentorshipCard: React.FC = () => {
         <Typography sx={{ fontSize: { xs: '18px', sm: '20px' }, fontWeight: 700, lineHeight: '24px',color:'white' }}>
           Professional Mentorship
         </Typography>
-        <Typography sx={{ mt: '8px', fontSize: { xs: '13px', sm: '14px' }, lineHeight: '20px', opacity: 0.95, color:'white' }}>
+        <Typography sx={{ mt: '16px', fontSize: { xs: '13px', sm: '14px' }, lineHeight: '20px', opacity: 0.95, color:'white' }}>
           Receive direct mentorship from experienced traders. Our professional guidance ensures you have the support needed to improve your skills and strategies.
         </Typography>
       </Box>

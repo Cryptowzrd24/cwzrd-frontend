@@ -8,30 +8,16 @@ const CryptoGainer = () => {
   return (
     <Box
       sx={{
+        width:'100%',
         pt: '30px',
         mb: '45px',
         display: 'flex',
         flexDirection: 'column',
         gap: '24px',
-        '@media (max-width: 1024px)': {
-          pt: '24px',
-          mb: '36px',
-          gap: '20px',
-        },
-        '@media (max-width: 768px)': {
-          pt: '20px',
-          mb: '28px',
-          gap: '16px',
-        },
-        '@media (max-width: 576px)': {
-          pt: '16px',
-          mb: '24px',
-          gap: '12px',
-        },
       }}
     >
       <Box sx={{ 
-        display: 'flex', 
+        display: 'flex',
         gap: '24px',
         '@media (max-width: 1024px)': {
           flexDirection: 'column',

@@ -24,7 +24,7 @@ const MarketOutlooksCard: React.FC = () => {
       {/* content top-left */}
       <Box sx={{ position: 'absolute', top: '20px', left: '20px', right: '20px', zIndex: 2 }}>
         <Typography sx={{ fontSize: { xs: '18px', sm: '20px' }, fontWeight: 700, color: '#007BFF', lineHeight: '24px' }}>
-          Market Outlooks
+          Market <span style={{ color: 'white' }}>Outlooks</span>
         </Typography>
         <Typography sx={{ mt: '8px', color: 'rgba(255,255,255,0.72)', fontSize: { xs: '13px', sm: '14px' }, lineHeight: '20px' }}>
           Get a clear perspective on market trends with our expert market outlooks. Know where the market is heading and adjust your strategies accordingly.

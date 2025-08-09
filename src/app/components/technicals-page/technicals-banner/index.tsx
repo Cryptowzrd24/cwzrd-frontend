@@ -351,7 +351,7 @@ function TechnicalsBanner({
   coinName,
   coinImg,
   isFxPage,
-  width,
+  width = 'auto',
   borderRadius,
 }: TechnicalsBannerProps) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -381,8 +381,9 @@ function TechnicalsBanner({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        width: width || 'auto',
+        width: width,
         padding: '20px 16px',
+        boxSizing:'border-box',
 
         '@media (max-width: 1120px)': {
           flexDirection: 'column',

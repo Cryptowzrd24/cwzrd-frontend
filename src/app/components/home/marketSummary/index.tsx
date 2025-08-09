@@ -16,21 +16,6 @@ const MarketSummary = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '32px',
-        '@media (max-width: 1024px)': {
-          mt: '60px',
-          mb: '24px',
-          gap: '24px',
-        },
-        '@media (max-width: 768px)': {
-          mt: '40px',
-          mb: '20px',
-          gap: '20px',
-        },
-        '@media (max-width: 576px)': {
-          mt: '32px',
-          mb: '16px',
-          gap: '16px',
-        },
       }}
     >
       {/* Heading */}
@@ -38,22 +23,10 @@ const MarketSummary = () => {
         <Typography
           sx={{
             color: '#111',
-            fontSize: '36px',
+            fontSize: { lg: '36px', md: '32px', sm: '28px', xs: '24px' },
             fontWeight: '700',
             lineHeight: '120%',
-            letterSpacing: '0.36px',
-            '@media (max-width: 1024px)': {
-              fontSize: '32px',
-              letterSpacing: '0.32px',
-            },
-            '@media (max-width: 768px)': {
-              fontSize: '28px',
-              letterSpacing: '0.28px',
-            },
-            '@media (max-width: 576px)': {
-              fontSize: '24px',
-              letterSpacing: '0.24px',
-            },
+            letterSpacing: { lg: '0.36px', md: '0.32px', sm: '0.28px', xs: '0.24px' },
           }}
         >
           <span
@@ -72,18 +45,10 @@ const MarketSummary = () => {
         <Typography
           sx={{
             color: 'rgba(17,17,17,0.80)',
-            fontSize: '16px',
+            fontSize: { lg: '16px', md: '14px', sm: '12px', xs: '10px' },
             fontWeight: '400',
             lineHeight: '150%',
-            letterSpacing: '-0.16px',
-            '@media (max-width: 768px)': {
-              fontSize: '14px',
-              letterSpacing: '-0.14px',
-            },
-            '@media (max-width: 576px)': {
-              fontSize: '12px',
-              letterSpacing: '-0.12px',
-            },
+            letterSpacing: { lg: '-0.16px', md: '-0.14px', sm: '-0.12px', xs: '-0.10px' },
           }}
         >
           The overall market capitalization of the crypto market is{' '}
@@ -94,26 +59,31 @@ const MarketSummary = () => {
         </Typography>
       </Box>
       {/* Charts */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px',width:'100%' }}>
         <StatsContainer isMainPage />
+        <Box sx={{
+          width: {xs:'100%',sm:'100%',md:'100%',lg:'100%',xl:'100%'},
+          boxSizing:'border-box',
+          padding: {xs:"0px",md:'12px',lg:'14px',xl:'16px'},
+          overflow:'hidden'
+        }}>
         <TechnicalsBanner
           bgColor="blue"
           coinName="Etherium"
           coinImg={bitcoinImg}
-          width="auto"
+          width="100%"
           borderRadius="16px"
-        />
+          />
+          </Box>
         <Box sx={{
-          '@media (max-width: 1024px)': {
-            // display: 'none',
-            overflow: 'hidden',
-          },
+          overflow: 'hidden',
+          width: '100%'
         }}>
           <TechnicalsGraph isMainPage={true} />
         </Box>
       </Box>
       {/* Slider */}
-      <Box sx={{ marginTop: '-32px', height: '60px' }}>
+      <Box sx={{ marginTop: '-32px', width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <CryptoSlider />
       </Box>
     </Box>

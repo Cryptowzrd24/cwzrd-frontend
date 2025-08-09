@@ -26,22 +26,20 @@ function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
     }
   };
   return (
-    <>
+    <Box sx={{ width: '100%' }}>
       <Box
         sx={{
           width: '100%',
           height: '400px',
         }}
       >
-        <Box>
-          <Graph
-            data={areachartData}
-            color={getGraphColor(20)}
-            percent={true}
-            fill="transparent"
-            isMainPage={isMainPage}
-          />
-        </Box>
+        <Graph
+          data={areachartData}
+          color={getGraphColor(20)}
+          percent={true}
+          fill="transparent"
+          isMainPage={isMainPage}
+        />
       </Box>
       <Box
         sx={{
@@ -59,7 +57,7 @@ function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
           handleFullScreen={handleFullScreen}
         />
       </Box>
-    </>
+    </Box>
   );
 }
 

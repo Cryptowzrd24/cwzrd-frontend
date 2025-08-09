@@ -13,9 +13,8 @@ import CarouselWrapper from '../../common/ReusableCarousel/CarouselWrapper';
 import { responsiveConfigs } from '../../common/ReusableCarousel/responsiveConfigs';
 
 const CryptoHero = () => {
-  const isMobileScreen = useMediaQuery('(max-width: 576px)');
-  const isTabletScreen = useMediaQuery('(max-width: 768px)');
-  const isTabScreen = useMediaQuery('(max-width: 1024px)');
+  const isTabletScreen = useMediaQuery('(max-width: 600px)');
+  const isTabScreen = useMediaQuery('(max-width: 900px)');
 
   // Card data for the grid section
   const gridCards = Array.from({ length: 4 }, (_, index) => (
@@ -203,7 +202,7 @@ const CryptoHero = () => {
             </Box>
           </Box>
           <Divider />
-          
+
           {/* Grid Section - Use carousel for mobile/tablet, grid for desktop */}
           {isTabScreen ? (
             <CarouselWrapper
@@ -223,9 +222,9 @@ const CryptoHero = () => {
               {gridCards}
             </Box>
           )}
-          
+
           <Divider />
-          
+
           {/* Bottom Section - Use carousel for mobile/tablet, columns for desktop */}
           {isTabScreen ? (
             <CarouselWrapper
@@ -289,9 +288,28 @@ const CryptoHero = () => {
           },
         }}
       >
-        <MostRead height="510px" width="auto" isMainPage />
-        <JoinCrypto isMainPage={true} />
-        <LiveMarket isMainPage />
+        <Box sx={{
+          // height: '100%',
+          width: '100%',
+          overflow: 'hidden',
+          boxSizing: 'border-box',
+        }}>
+          <MostRead height="510px" width="auto" isMainPage />
+        </Box>
+        <Box sx={{
+          width: '100%',
+          overflow: 'hidden',
+          boxSizing: 'border-box',
+        }}>
+          <JoinCrypto isMainPage={true} />
+        </Box>
+        <Box sx={{
+          width: '100%',
+          overflow: 'hidden',
+          boxSizing: 'border-box',
+        }}>
+          <LiveMarket isMainPage />
+        </Box>
       </Box>
     </Box>
   );

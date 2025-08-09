@@ -27,7 +27,7 @@ const ExpertLessonsCard: React.FC = () => {
       />
 
       {/* centered glowing screen icon */}
-      <Box sx={{ position: 'absolute', left: '50%', top: '40%', transform: 'translate(-50%, -50%)' }}>
+      <Box sx={{ position: 'absolute', left: '50%', top: '30%', transform: 'translate(-50%, -50%)' }}>
         <Image src={ExpertLessonsIcon} alt="Expert Lessons" width={151} height={153} />
       </Box>
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-import TakeProfitBg from '../../../../../../public/images/home/benefits-section/profit_guidance_bg.png';
-import Image from 'next/image';
 
 
 const TakeProfitCard: React.FC = () => {
@@ -24,13 +22,12 @@ const TakeProfitCard: React.FC = () => {
           position: 'absolute',
           inset: 0,
           background: 'radial-gradient(ellipse 95.44% 211.15% at 93.63% 67.54%, rgba(0, 0, 0, 0.24) 0%, black 100%), #FFF600',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center', 
+          backgroundImage: 'url(/images/home/benefits-section/profit_guidance_bg.png)',
         }}
       />
-
-      {/* btc background art */}
-      <Box sx={{ position: 'absolute', left: 0, top: -54, zIndex: 1 }}>
-        <Image src={TakeProfitBg} alt="Take Profit Background" width={628} height={419} />
-      </Box>
 
       {/* left content */}
       <Box sx={{ position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)', width: 270, color: 'white', zIndex: 2 }}>
