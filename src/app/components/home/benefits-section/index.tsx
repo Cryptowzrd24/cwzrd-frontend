@@ -1,21 +1,28 @@
 import { Box, Container, Typography } from '@mui/material';
 import React from 'react';
-import BenefitCard from './BenefitCard';
-import EducationalGuidesCard from './EducationalGuidesCard';
-import { benefitsData, Benefit } from './benefitsData';
+import AirdropCallsCard from './cards/AirdropCallsCard';
+import ProfessionalMentorshipCard from './cards/ProfessionalMentorshipCard';
+import MarketOutlooksCard from './cards/MarketOutlooksCard';
+import RiskManagementCard from './cards/RiskManagementCard';
+import ExpertLessonsCard from './cards/ExpertLessonsCard';
+import EducationalGuidesRow from './cards/EducationalGuidesRow';
+import WZRDStrategiesCard from './cards/WZRDStrategiesCard';
+import TakeProfitCard from './cards/TakeProfitCard';
 
 const BenefitsSection = () => {
   return (
     <Box
       sx={{
-        background: '#F8F9FA',
-        padding: { xs: '60px 0', sm: '70px 0', md: '80px 0' },
+        background: '#EDF0FF',
         minHeight: { xs: 'auto', lg: '100vh' },
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
       }}
     >
-      <Container maxWidth="xl">
+      
         {/* Section Title */}
         <Box
           sx={{
@@ -26,16 +33,16 @@ const BenefitsSection = () => {
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: '24px', sm: '28px', md: '32px', lg: '36px', xl: '40px' },
+              fontSize: { xs: '24px', sm: '28px', md: '32px' },
               fontWeight: 700,
-              background: 'linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              lineHeight: '38.40px',
+              letterSpacing: '0.32px',
+              fontFamily: 'SF Pro Display, sans-serif',
               marginBottom: '16px',
             }}
           >
-            Benefits of Wizard Membership
+            <Box component="span" sx={{ color: '#634DFD' }}>Benefits</Box>{' '}
+            <Box component="span" sx={{ color: '#111111' }}>of Wizard Membership</Box>
           </Typography>
         </Box>
 
@@ -45,56 +52,31 @@ const BenefitsSection = () => {
             display: 'flex',
             flexDirection: 'column',
             gap: { xs: '16px', sm: '20px', md: '24px' },
-            maxWidth: '100%',
-            margin: '0 auto',
+            width: '100%',
           }}
         >
           {/* Row 1 */}
-          <Box
-            sx={{
-              display: 'flex',
-              gap: { xs: '16px', sm: '20px', md: '24px' },
-              flexWrap: { xs: 'wrap', lg: 'nowrap' },
-              justifyContent: { xs: 'center', lg: 'flex-start' },
-            }}
-          >
-            {benefitsData.slice(0, 2).map((benefit: Benefit) => (
-              <BenefitCard key={benefit.id} {...benefit} />
-            ))}
+          <Box sx={{ display: 'flex', gap: { xs: '16px', sm: '20px', md: '24px' }, flexWrap: 'wrap', justifyContent: 'space-between' }}>
+            <AirdropCallsCard />
+            <ProfessionalMentorshipCard />
           </Box>
 
           {/* Row 2 */}
-          <Box
-            sx={{
-              display: 'flex',
-              gap: { xs: '16px', sm: '20px', md: '24px' },
-              flexWrap: { xs: 'wrap', lg: 'nowrap' },
-              justifyContent: { xs: 'center', lg: 'flex-start' },
-            }}
-          >
-            {benefitsData.slice(2, 5).map((benefit: Benefit) => (
-              <BenefitCard key={benefit.id} {...benefit} />
-            ))}
+          <Box sx={{ display: 'flex', gap: { xs: '16px', sm: '20px', md: '24px' }, flexWrap: 'wrap', justifyContent: 'space-between' }}>
+            <MarketOutlooksCard />
+            <RiskManagementCard />
+            <ExpertLessonsCard />
           </Box>
 
           {/* Row 3 - Educational Guides */}
-          <EducationalGuidesCard subIcons={benefitsData[5].subIcons || []} />
+          <EducationalGuidesRow />
 
           {/* Row 4 */}
-          <Box
-            sx={{
-              display: 'flex',
-              gap: { xs: '16px', sm: '20px', md: '24px' },
-              flexWrap: { xs: 'wrap', lg: 'nowrap' },
-              justifyContent: { xs: 'center', lg: 'flex-start' },
-            }}
-          >
-            {benefitsData.slice(6, 8).map((benefit: Benefit) => (
-              <BenefitCard key={benefit.id} {...benefit} />
-            ))}
+          <Box sx={{ display: 'flex', gap: { xs: '16px', sm: '20px', md: '24px' }, flexWrap: 'wrap', justifyContent: 'space-between' }}>
+            <WZRDStrategiesCard />
+            <TakeProfitCard />
           </Box>
         </Box>
-      </Container>
     </Box>
   );
 };

@@ -18,20 +18,19 @@ const Home = () => {
   const handleCurrencyChange = (title: 'crypto' | 'forex') => {
     setTabSelected(title);
   };
-  
+
   return (
-    <ResponsiveProvider 
-      responsiveConfig={responsiveConfigs.heroCards} 
+    <ResponsiveProvider
+      responsiveConfig={responsiveConfigs.heroCards}
       overrideResponsive={true}
     >
       <Box sx={{ background: '#EDF0FF' }}>
         <Container
           maxWidth="xl"
           sx={{
-            '@media (max-width: 1440px)': { paddingInline: '80px !important' },
-            '@media (max-width: 1024px)': { paddingInline: '40px !important' },
-            '@media (max-width: 768px)': { paddingInline: '24px !important' },
-            '@media (max-width: 576px)': { paddingInline: '16px !important' },
+            margin:'0 auto',
+            overflow: 'hidden',
+            width: { xs: '90%', sm: '90%', md: '90%', lg: '1062px' },
           }}
         >
           {/* Hero section */}
@@ -54,12 +53,23 @@ const Home = () => {
         </Container>
       </Box>
 
+
       {/* Community Hero section */}
       <CommunityHero />
+      <Box sx={{ background: '#EDF0FF' }}>
 
-      {/* Benefits section */}
-      <BenefitsSection />
-
+        <Container
+          maxWidth="xl"
+          sx={{
+            margin:'0 auto',
+            overflowX: 'hidden',
+            width: { xs: '90%', sm: '90%', md: '90%', lg: '1062px' },
+          }}
+        >
+          {/* Benefits section */}
+          <BenefitsSection />
+        </Container>
+      </Box>
       {/* CTA section */}
       <CTA />
     </ResponsiveProvider>

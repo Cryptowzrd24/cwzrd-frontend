@@ -21,7 +21,7 @@ const EducationalGuidesCard: React.FC<EducationalGuidesCardProps> = ({ subIcons 
         minHeight: { xs: '200px', sm: '216px' },
         background: 'white',
         borderRadius: '16px',
-        padding: { xs: '16px', sm: '18px', lg: '51px ,48px,51px,28px' },
+        padding: { xs: '16px', sm: '18px', lg: '20px' },
         boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.1)',
         border: '1px solid rgba(0, 0, 0, 0.05)',
         transition: 'all 0.3s ease',
@@ -29,7 +29,7 @@ const EducationalGuidesCard: React.FC<EducationalGuidesCardProps> = ({ subIcons 
         flexDirection: { xs: 'column', lg: 'row' },
         alignItems: 'center',
         justifyContent: 'space-between',
-        gap: { xs: '16px', sm: '20px', lg: '99px' },
+        gap: { xs: '16px', sm: '20px', lg: '24px' },
         '&:hover': {
           transform: 'translateY(-2px)',
           boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.15)',
@@ -42,7 +42,6 @@ const EducationalGuidesCard: React.FC<EducationalGuidesCardProps> = ({ subIcons 
           flexDirection: 'column',
           gap: { xs: '6px', sm: '8px', lg: '9px' },
           flex: 1,
-          width: { xs: '100%', md: '10%', lg: '25%' },
         }}
       >
         <Typography
@@ -83,7 +82,6 @@ const EducationalGuidesCard: React.FC<EducationalGuidesCardProps> = ({ subIcons 
           flexShrink: 0,
           flexWrap: { xs: 'wrap', sm: 'nowrap' },
           justifyContent: { xs: 'center', lg: 'flex-end' },
-          width: { xs: '100%', md: '100%', lg: '45%' },
         }}
       >
         {subIcons.map((iconData, index) => (
