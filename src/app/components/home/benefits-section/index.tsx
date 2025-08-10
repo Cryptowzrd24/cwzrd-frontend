@@ -20,6 +20,7 @@ const BenefitsSection = () => {
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
+        padding:{xs:"60px 0px",lg:'60px'}
       }}
     >
       

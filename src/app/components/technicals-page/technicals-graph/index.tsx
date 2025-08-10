@@ -30,7 +30,7 @@ function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
       <Box
         sx={{
           width: '100%',
-          height: '400px',
+          height: {lg:'400px',xs:'auto'},
         }}
       >
         <Graph

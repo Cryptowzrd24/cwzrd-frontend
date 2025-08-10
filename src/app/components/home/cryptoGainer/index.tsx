@@ -8,8 +8,6 @@ import { ReadMoreIcon } from '../../../../../public/icons/readMoreIcon';
 // Styled Components
 const Container = styled(Box)({
   width: '100%',
-  paddingTop: '30px',
-  marginBottom: '45px',
   display: 'flex',
   flexDirection: 'column',
   gap: '24px',

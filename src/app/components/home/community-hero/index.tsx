@@ -3,12 +3,27 @@ import React from 'react';
 import communityChart from "../../../../../public/images/home/join-community/community_chart.png"
 import Image from 'next/image';
 import { ArrowRight } from '../../../../../public/icons/arrowRight';
+import NoOfUser from './NoOfUsers';
+import CourseBox from './CourseBox';
 
 const CommunityHero = () => {
     return (
         <Box
             sx={{
                 background: '#14003B',
+                // backgroundImage: 'url(/images/home/join-community/home_community_background_Vector.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'bottom',
+                backgroundRepeat: 'no-repeat',
+                backgroundImage: `
+                    linear-gradient(
+                    to bottom,
+                    rgba(20, 0, 59, 0.95) 0%,
+                    rgba(20, 0, 59, 0.85) 50%,
+                    rgba(20, 0, 59, 0.7) 100%
+                    ),
+                    url(/images/home/join-community/home_community_background_Vector.png)
+                `,
                 padding: { xs: '60px 0 0', sm: '70px 0 0', md: '80px 0 0' },
                 position: 'relative',
                 overflow: 'hidden',
@@ -73,10 +88,10 @@ const CommunityHero = () => {
                         sx={{
                             background: 'white',
                             color: '#2D1B69',
-                            padding: { xs: '12px 24px', sm: '14px 28px', md: '16px 32px' },
-                            fontSize: { xs: '16px', md: '18px' },
+                            padding: { xs: '10px 16px', sm: '14px 22px', md: '16px 24px' },
+                            fontSize: { xs: '12px', sm: '18px' },
                             fontWeight: 500,
-                            borderRadius: '25px',
+                            borderRadius: '50px',
                             textTransform: 'none',
                             boxShadow: '0px 8px 24px rgba(255, 255, 255, 0.2)',
                             '&:hover': {
@@ -85,17 +100,18 @@ const CommunityHero = () => {
                             },
                         }}
                     >
-                        Get Started  <ArrowRight fill="gray" />
+                        <span>Get Started</span><ArrowRight fill="black" width={18} height={18} />
                     </Button>
 
                     {/* Trading Dashboard Mockup */}
                     <Box
                         sx={{
-                            marginTop: { xs: '24px', sm: '32px', md: '40px' },
                             display: 'flex',
                             justifyContent: 'center',
                             width: '100%',
-                            maxWidth: { xs: '100%', sm: '500px', md: '600px', lg: '700px' },
+                            maxWidth: '75%',
+                            position: 'relative',
+                            backgrounColor: 'red'
                         }}
                     >
                         <Image
@@ -103,6 +119,22 @@ const CommunityHero = () => {
                             alt="image"
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         />
+                        <Box sx={{
+                            display: { xs: 'none', md: 'inline-block' },
+                            position: 'absolute',
+                            top: '60%',
+                            left: '-20%',
+                        }}>
+                            <NoOfUser />
+                        </Box>
+                        <Box sx={{
+                            display: { xs: 'none', md: 'inline-block' },
+                            position: 'absolute',
+                            top: '30%',
+                            right: '-15%',
+                        }}>
+                            <CourseBox />
+                        </Box>
                     </Box>
                 </Box>
             </Container>

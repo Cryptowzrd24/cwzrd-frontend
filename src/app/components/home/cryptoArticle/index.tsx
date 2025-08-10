@@ -9,8 +9,6 @@ const CryptoArticle = () => {
     <Box
       sx={{
         width:"100%",
-        pt: '30px',
-        mb: '30px',
         display: 'flex',
         gap: '24px',
         flexDirection: 'column',

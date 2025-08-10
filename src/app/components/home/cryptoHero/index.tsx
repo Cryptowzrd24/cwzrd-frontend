@@ -1,5 +1,6 @@
 import { Box, Divider, useMediaQuery } from '@mui/material';
 import React from 'react';
+import styled from 'styled-components';
 import TagCard from '../../news/main/tag-card';
 import TagCardImage from '../../../../../public/images/tagCard.png';
 import CardImage from '../../../../../public/images/news-letter/image-car-news.png';
@@ -11,6 +12,52 @@ import LiveMarket from '../../news/components/main/live-market';
 import Card from '../../news-letter/news-letter-cards/card';
 import CarouselWrapper from '../../common/ReusableCarousel/CarouselWrapper';
 import { responsiveConfigs } from '../../common/ReusableCarousel/responsiveConfigs';
+
+// Styled components for the right sidebar with height distribution
+const RightSidebarContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 300px;
+  height: 100%;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    gap: 16px;
+  }
+
+  @media (max-width: 900px) {
+    gap: 12px;
+  }
+
+  @media (max-width: 600px) {
+    gap: 8px;
+  }
+`;
+
+const TallComponentWrapper = styled(Box)`
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  // flex: 2; // Takes 2x height on large screens
+  // min-height: 0; // Allows flex shrinking
+  height:700px;
+  @media (max-width: 1200px) {
+    height:auto;
+  }
+`;
+
+const ShortComponentWrapper = styled(Box)`
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  // flex: 1; // Takes 1x height on large screens
+  // min-height: 0; // Allows flex shrinking
+  height:350px;
+  @media (max-width: 1200px) {
+    height:auto;
+  }
+`;
 
 const CryptoHero = () => {
   const isTabletScreen = useMediaQuery('(max-width: 600px)');
@@ -73,23 +120,8 @@ const CryptoHero = () => {
       sx={{
         width: '100%',
         display: 'flex',
-        gap: '24px',
-        pt: '60px',
-        '@media (max-width: 1024px)': {
-          flexDirection: 'column',
-          gap: '16px',
-          pt: '40px',
-        },
-        '@media (max-width: 768px)': {
-          flexDirection: 'column',
-          gap: '12px',
-          pt: '32px',
-        },
-        '@media (max-width: 576px)': {
-          flexDirection: 'column',
-          gap: '8px',
-          pt: '24px',
-        },
+        gap: {xs:"8px",sm:"12px",md:"16px",lg:'24px'},
+        flexDirection:{xs:"column",lg:"row"},
       }}
     >
       <Box
@@ -270,47 +302,17 @@ const CryptoHero = () => {
         </Box>
         <MainMembershipBanner isMainPage={true} />
       </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '24px',
-          width: '300px',
-          '@media (max-width: 1024px)': {
-            width: '100%',
-            gap: '16px',
-          },
-          '@media (max-width: 768px)': {
-            gap: '12px',
-          },
-          '@media (max-width: 576px)': {
-            gap: '8px',
-          },
-        }}
-      >
-        <Box sx={{
-          // height: '100%',
-          width: '100%',
-          overflow: 'hidden',
-          boxSizing: 'border-box',
-        }}>
-          <MostRead height="510px" width="auto" isMainPage />
-        </Box>
-        <Box sx={{
-          width: '100%',
-          overflow: 'hidden',
-          boxSizing: 'border-box',
-        }}>
-          <JoinCrypto isMainPage={true} />
-        </Box>
-        <Box sx={{
-          width: '100%',
-          overflow: 'hidden',
-          boxSizing: 'border-box',
-        }}>
+      <RightSidebarContainer>
+        <TallComponentWrapper>
+          <MostRead height="100%" width="auto" isMainPage />
+        </TallComponentWrapper>
+        <ShortComponentWrapper>
+          <JoinCrypto isMainPage />
+        </ShortComponentWrapper>
+        <TallComponentWrapper>
           <LiveMarket isMainPage />
-        </Box>
-      </Box>
+        </TallComponentWrapper>
+      </RightSidebarContainer>
     </Box>
   );
 };

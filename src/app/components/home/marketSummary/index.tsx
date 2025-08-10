@@ -11,8 +11,6 @@ const MarketSummary = () => {
     <Box
       sx={{
         width: '100%',
-        mt: '90px',
-        mb: '30px',
         display: 'flex',
         flexDirection: 'column',
         gap: '32px',
@@ -64,7 +62,6 @@ const MarketSummary = () => {
         <Box sx={{
           width: {xs:'100%',sm:'100%',md:'100%',lg:'100%',xl:'100%'},
           boxSizing:'border-box',
-          padding: {xs:"0px",md:'12px',lg:'14px',xl:'16px'},
           overflow:'hidden'
         }}>
         <TechnicalsBanner
@@ -73,6 +70,7 @@ const MarketSummary = () => {
           coinImg={bitcoinImg}
           width="100%"
           borderRadius="16px"
+          isMainPage
           />
           </Box>
         <Box sx={{

@@ -11,7 +11,7 @@ const CTA = () => {
     <Box
       sx={{
         background: 'linear-gradient(117deg, #634DFD -4.07%, #7E44F1 100.68%), #EDF0FF',
-        pt: { xs: '32px', sm: '40px', md: '60px', lg: '80px' },
+        pt: { xs: '60px', sm: '60px', md: '60px', lg: '80px' },
         pb: { xs: '16px', sm: '20px', md: '24px', lg: '30px' },
         px: { xs: '12px', lg: 0 },
       }}
@@ -28,7 +28,7 @@ const CTA = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           gap: { xs: '40px', lg: 0 },
-          overflow: 'hidden',
+          // overflow: 'hidden',
         }}
       >
         {/* Left side: Text content */}

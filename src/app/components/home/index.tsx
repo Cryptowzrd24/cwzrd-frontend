@@ -43,6 +43,9 @@ const Home = () => {
           width: { xs: '100%', sm: '95%', md: '900px', lg: "1150px",xl:"1281px" },
           boxSizing:'border-box',
           padding: {xs:"12px",md:'12px',lg:'14px',xl:'16px'},
+          display:'flex',
+          flexDirection:'column',
+          gap:"60px"
         }}>
 
           {/* Hero section */}

@@ -20,8 +20,6 @@ const TrendingCrypto = ({
     <Box
       sx={{
         width:'100%',
-        pt: '30px',
-        pb: '60px',
         display: 'flex',
         flexDirection: 'column',
         gap: '24px',
@@ -124,7 +122,7 @@ const TrendingCrypto = ({
             boxSizing:'border-box'
           }}>
             <Box sx={{
-              width: { xs: '100%', sm: '100%', md: '100%', lg: '60%', xl: '60%' },
+              width: { xs: '100%', sm: '100%', md: '100%', lg: '65%', xl: '65%' },
               height: { xs: '596px', sm: '596px', md: '596px', lg: '100%', xl: '100%' },
               overflowX: 'hidden',
               boxSizing:'border-box'
@@ -133,7 +131,7 @@ const TrendingCrypto = ({
             </Box>
             <Box
               sx={{
-                width: { xs: '100%', sm: '100%', md: '100%', lg: '40%', xl: '40%' },
+                width: { xs: '100%', sm: '100%', md: '100%', lg: '35%', xl: '35%' },
                 overflowX: 'hidden',
                 height: { xs: '596px', sm: '596px', md: '596px', lg: '100%', xl: '100%' },
                 boxSizing: 'border-box'
@@ -153,25 +151,25 @@ const TrendingCrypto = ({
               width: {xs:'100%',sm:'100%',md:'49%',lg:'24%'},
               overflowX:'hidden'
             }}>
-              <FinancialCard image={chainLinkImg} isMainPage />
+              <FinancialCard image={chainLinkImg} titleMaxWidth={'100%'} isMainPage />
             </Box>
             <Box sx={{
               width: {xs:'100%',sm:'100%',md:'49%',lg:'24%'},
               overflowX:'hidden'
             }}>
-              <FinancialCard image={chainLinkImg} isMainPage />
+              <FinancialCard image={chainLinkImg} isMainPage titleMaxWidth={'100%'}/>
             </Box>
             <Box sx={{
               width: {xs:'100%',sm:'100%',md:'49%',lg:'24%'},
               overflowX:'hidden'
             }}>
-              <FinancialCard image={chainLinkImg} isMainPage />
+              <FinancialCard image={chainLinkImg} isMainPage titleMaxWidth={'100%'}/>
             </Box>
             <Box sx={{
               width: {xs:'100%',sm:'100%',md:'49%',lg:'24%'},
               overflowX:'hidden'
             }}>
-              <FinancialCard image={chainLinkImg} isMainPage />
+              <FinancialCard image={chainLinkImg} isMainPage titleMaxWidth={'100%'}/>
             </Box>
           </Box>
         </Box>
