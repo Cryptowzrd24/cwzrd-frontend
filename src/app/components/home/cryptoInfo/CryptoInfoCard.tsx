@@ -1,4 +1,5 @@
-import { Box, Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
+import styled from 'styled-components';
 import Image from 'next/image';
 import React from 'react';
 
@@ -12,6 +13,151 @@ interface CryptoInfoCardProps {
   marketCapRate: string;
 }
 
+const CardContainer = styled(Box)`
+  display: flex;
+  padding: 12px;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFF;
+  border: 0.5px solid #FFF;
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  flex-wrap: nowrap;
+  gap: 16px;
+
+  @media (max-width: 600px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+`;
+
+const LogoTitleContainer = styled(Box)`
+  display: flex;
+  gap: 8px;
+  height: 100%;
+  order: 1;
+  width: auto;
+
+  @media (max-width: 600px) {
+    height: 50%;
+    width: 49%;
+  }
+`;
+
+const IconContainer = styled(Box)`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12);
+`;
+
+const TitleContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+`;
+
+const StatsContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  order: 2;
+  width: auto;
+
+  @media (max-width: 600px) {
+    height: 50%;
+    width: 45%;
+    order: 3;
+    gap: 8px;
+  }
+`;
+
+const MarketCapContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  order: 3;
+  width: auto;
+
+  @media (max-width: 600px) {
+    height: 50%;
+    width: 45%;
+    align-items: flex-end;
+    order: 4;
+    gap: 8px;
+  }
+`;
+
+const ChartContainer = styled(Box)`
+  height: 100%;
+  width: auto;
+  order: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  @media (max-width: 600px) {
+    height: 50%;
+    width: 45%;
+    order: 2;
+    
+  }
+`;
+
+const StatsLabel = styled(Typography)`
+  color: #747474;
+  font-weight: 400;
+  line-height: 130%;
+  font-size: 12px;
+
+  @media (max-width: 600px) {
+    font-size: 10px;
+  }
+`;
+
+const StatsValue = styled(Typography)`
+  color: #111;
+  font-weight: 700;
+  line-height: 130%;
+  letter-spacing: -0.12px;
+  font-size: 12px;
+
+  @media (max-width: 600px) {
+    font-size: 10px;
+  }
+`;
+
+const StatsRate = styled(Typography)<{ $isPositive: boolean }>`
+  color: ${props => props.$isPositive ? '#00BA6E' : '#F56D6D'};
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: -0.1px;
+  font-size: 12px;
+
+  @media (max-width: 600px) {
+    font-size: 10px;
+  }
+`;
+
+const StatsRow = styled(Box)`
+  display: flex;
+  gap: 8px;
+`;
+
 const CryptoInfoCard = ({
   icon,
   name,
@@ -23,42 +169,11 @@ const CryptoInfoCard = ({
 }: CryptoInfoCardProps) => {
   const isPositivePrice = parseFloat(priceRate) >= 0;
   const isPositiveMarket = parseFloat(marketCapRate) >= 0;
+  
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        padding: '12px',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        background: '#FFF',
-        border: '0.5px solid #FFF',
-        backdropFilter: 'blur(8px)',
-        borderRadius: '20px',
-      }}
-    >
-      {/* Chart: first on xs/sm, last on lg */}
-      <Box sx={{ order: { xs: 1, sm: 1, md: 1, lg: 3 } }}>
-        {parseFloat(priceRate) > 0 && parseFloat(marketCapRate) > 0 ? (
-          <IncreaseChart />
-        ) : (
-          <DecreaseChart />
-        )}
-      </Box>
-
-      {/* Logo + Title: second on xs/sm, first on lg */}
-      <Box sx={{ display: 'flex', gap: '8px', order: { xs: 2, sm: 2, md: 2, lg: 1 } }}>
-        <Box
-          sx={{
-            width: 40,
-            height: 40,
-            borderRadius: '50%',
-            background: '#fff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: 1,
-          }}
-        >
+    <CardContainer>
+      <LogoTitleContainer>
+        <IconContainer>
           <Image
             src={icon}
             alt="icon"
@@ -66,95 +181,55 @@ const CryptoInfoCard = ({
             height={100}
             style={{ width: '100%', height: '100%' }}
           />
-        </Box>
-        <Box>
+        </IconContainer>
+        <TitleContainer>
           <Typography variant="body2" fontWeight={600}>
             {name}
           </Typography>
           <Typography variant="caption" color="text.secondary">
             {symbol}
           </Typography>
-        </Box>
-      </Box>
+        </TitleContainer>
+      </LogoTitleContainer>
 
-      {/* Stats: third on xs/sm, middle on lg; keep vertical */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start', order: { xs: 3, sm: 3, md: 3, lg: 2 } }}>
-        <Box>
-          <Typography
-            sx={{
-              color: '#747474',
-              fontSize: '12px',
-              fontWeight: '400',
-              lineHeight: '130%',
-            }}
-          >
-            Price
-          </Typography>
-          <Box sx={{ display: 'flex', gap: '8px' }}>
-            <Typography
-              sx={{
-                color: '#111',
-                fontSize: '12px',
-                fontWeight: '700',
-                lineHeight: '130%',
-                letterSpacing: '-0.12px',
-              }}
-            >
-              {price}
-            </Typography>
-            <Typography
-              sx={{
-                color: isPositiveMarket ? '#00BA6E' : '#F56D6D',
-                fontSize: '10px',
-                fontWeight: '600',
-                lineHeight: '130%',
-                letterSpacing: '-0.1px',
-              }}
-            >
-              {isPositivePrice ? '+' : ''}
-              {priceRate}%
-            </Typography>
-          </Box>
-        </Box>
-        <Box>
-          <Typography
-            sx={{
-              color: '#747474',
-              fontSize: '12px',
-              fontWeight: '400',
-              lineHeight: '130%',
-            }}
-          >
-            Market Cap
-          </Typography>
-          <Box sx={{ display: 'flex', gap: '8px' }}>
-            <Typography
-              sx={{
-                color: '#111',
-                fontSize: '12px',
-                fontWeight: '700',
-                lineHeight: '130%',
-                letterSpacing: '-0.12px',
-              }}
-            >
-              {marketCap}
-            </Typography>
-            <Typography
-              sx={{
-                color: isPositiveMarket ? '#00BA6E' : '#F56D6D',
-                fontSize: '10px',
-                fontWeight: '600',
-                lineHeight: '130%',
-                letterSpacing: '-0.1px',
-              }}
-            >
-              {isPositiveMarket ? '+' : ''}
-              {marketCapRate}%
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+      <StatsContainer>
+        <StatsLabel variant="body2">
+          Price
+        </StatsLabel>
+        <StatsRow>
+          <StatsValue variant="body2">
+            {price}
+          </StatsValue>
+          <StatsRate variant="body2" $isPositive={isPositivePrice}>
+            {isPositivePrice ? '+' : ''}
+            {priceRate}%
+          </StatsRate>
+        </StatsRow>
+      </StatsContainer>
+
+      <MarketCapContainer>
+        <StatsLabel variant="body2">
+          Market Cap
+        </StatsLabel>
+        <StatsRow>
+          <StatsValue variant="body2">
+            {marketCap}
+          </StatsValue>
+          <StatsRate variant="body2" $isPositive={isPositiveMarket}>
+            {isPositiveMarket ? '+' : ''}
+            {marketCapRate}%
+          </StatsRate>
+        </StatsRow>
+      </MarketCapContainer>
+
+      <ChartContainer>
+        {parseFloat(priceRate) > 0 && parseFloat(marketCapRate) > 0 ? (
+          <IncreaseChart />
+        ) : (
+          <DecreaseChart />
+        )}
+      </ChartContainer>
+    </CardContainer>
   );
 };
 

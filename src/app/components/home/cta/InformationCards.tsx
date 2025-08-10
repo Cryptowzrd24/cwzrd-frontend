@@ -5,13 +5,13 @@ const InformationCards = () => {
   return (
     <Box
       sx={{
-        width: '612px',
+        width: '100%',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        position: 'absolute',
-        right: '40px',
-        bottom: '51px',
+        flexDirection: {xs:'column',md:'row'},
+        gap: {xs:'20px',lg:'0px'},
+        padding: {xs:'20px',lg:'0px'},
       }}
     >
       <InformationCard

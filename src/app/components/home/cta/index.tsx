@@ -10,82 +10,88 @@ const CTA = () => {
   return (
     <Box
       sx={{
-        background:
-          'linear-gradient(117deg, #634DFD -4.07%, #7E44F1 100.68%), #EDF0FF',
-        pt: '80px',
-        pb: '30px',
-        '@media (max-width: 1024px)': {
-          pt: '60px',
-          pb: '24px',
-        },
-        '@media (max-width: 768px)': {
-          pt: '40px',
-          pb: '20px',
-        },
-        '@media (max-width: 576px)': {
-          pt: '32px',
-          pb: '16px',
-        },
+        background: 'linear-gradient(117deg, #634DFD -4.07%, #7E44F1 100.68%), #EDF0FF',
+        pt: { xs: '32px', sm: '40px', md: '60px', lg: '80px' },
+        pb: { xs: '16px', sm: '20px', md: '24px', lg: '30px' },
+        px: { xs: '12px', lg: 0 },
       }}
     >
       <Box
         sx={{
-          height: '670px',
-          width: '1290px',
-          borderRadius: '24px',
           background: '#FFF',
           mx: 'auto',
-          position: 'relative',
+          width: { xs: '100%', lg: '1290px' },
+          height: { xs: 'auto', lg: '670px' },
+          borderRadius: { xs: '12px', sm: '16px', md: '20px', lg: '24px' },
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: { xs: '40px', lg: 0 },
           overflow: 'hidden',
-          '@media (max-width: 1024px)': {
-            width: '90%',
-            height: '600px',
-            borderRadius: '20px',
-          },
-          '@media (max-width: 768px)': {
-            width: '95%',
-            height: '500px',
-            borderRadius: '16px',
-          },
-          '@media (max-width: 576px)': {
-            width: '98%',
-            height: '400px',
-            borderRadius: '12px',
-          },
         }}
       >
+        {/* Left side: Text content */}
         <Box
           sx={{
-            backgroundImage: 'url("/images/mainScreenLaptop.png")',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            height: '450px',
-            width: '650px',
-            position: 'absolute',
-            top: '70px',
-            right: '0',
-            '@media (max-width: 1024px)': {
-              height: '350px',
-              width: '500px',
-              top: '50px',
-            },
-            '@media (max-width: 768px)': {
-              height: '250px',
-              width: '350px',
-              top: '30px',
-            },
-            '@media (max-width: 576px)': {
-              height: '200px',
-              width: '280px',
-              top: '20px',
-            },
+            width: { xs: '100%', md: '50%' },
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            px: { xs: '20px', md: '72px' },
+            order: { xs: 1, md: 0 },
           }}
-        />
-        <Check />
-        <CourseBox />
-        <InformationCards />
-        <NoOfUser />
-        <JoinNow />
+        >
+          <JoinNow />
+        </Box>
+
+        {/* Right side: Image with overlays */}
+        <Box
+          sx={{
+            width: { xs: '100%', md: '50%' },
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+            gap: '20px',
+            order: { xs: 0, md: 1 },
+          }}
+        >
+          {/* Image container */}
+          <Box
+            sx={{
+              width: '100%',
+              maxWidth: '650px',
+              height: '450px',
+              position: 'relative',
+              mx: 'auto',
+            }}
+          >
+            {/* Background image */}
+            <Box
+              sx={{
+                width: '100%',
+                height: '100%',
+                backgroundImage: 'url("/images/mainScreenLaptop.png")',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                position: 'absolute',
+                inset: 0,
+              }}
+            />
+            
+            {/* Overlays positioned relative to image */}
+            <Check />
+            <CourseBox />
+            <NoOfUser />
+          </Box>
+
+          {/* Information cards below image on small screens */}
+          <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+            <InformationCards />
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

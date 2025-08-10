@@ -15,8 +15,8 @@ const CourseBox = () => {
         boxShadow: ' 0px 4.119px 24.713px 0px rgba(0, 0, 0, 0.07)',
         minWidth: '200px',
         position: 'absolute',
-        top: '32px',
-        right: '220px',
+        top: '-42px',
+        right: {xs:'100px',lg:'220px'},
       }}
     >
       <Typography>Course</Typography>
