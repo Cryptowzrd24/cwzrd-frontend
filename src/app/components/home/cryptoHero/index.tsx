@@ -39,24 +39,12 @@ const TallComponentWrapper = styled(Box)`
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
-  // flex: 2; // Takes 2x height on large screens
-  // min-height: 0; // Allows flex shrinking
-  height:700px;
-  @media (max-width: 1200px) {
-    height:auto;
-  }
 `;
 
 const ShortComponentWrapper = styled(Box)`
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
-  // flex: 1; // Takes 1x height on large screens
-  // min-height: 0; // Allows flex shrinking
-  height:350px;
-  @media (max-width: 1200px) {
-    height:auto;
-  }
 `;
 
 const CryptoHero = () => {
@@ -122,6 +110,7 @@ const CryptoHero = () => {
         display: 'flex',
         gap: {xs:"8px",sm:"12px",md:"16px",lg:'24px'},
         flexDirection:{xs:"column",lg:"row"},
+        height:"min-content"
       }}
     >
       <Box
@@ -304,7 +293,7 @@ const CryptoHero = () => {
       </Box>
       <RightSidebarContainer>
         <TallComponentWrapper>
-          <MostRead height="100%" width="auto" isMainPage />
+          <MostRead height="670px" width="auto" isMainPage />
         </TallComponentWrapper>
         <ShortComponentWrapper>
           <JoinCrypto isMainPage />
