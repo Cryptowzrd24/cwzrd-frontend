@@ -23,10 +23,12 @@ const StatsContainer = ({ isMainPage }: { isMainPage?: boolean }) => {
             sx={{
               display: 'flex',
               flexDirection: 'row',
-              flexWrap: 'wrap',
+              height: { xs: '155px', lg: '190px' },
+              // flexWrap: 'wrap',
+              overflow: 'auto',
               gap: '10px',
               maxWidth: '100%',
-              marginBottom: isMainPage ? '0px' : '20px',
+              marginBottom: isMainPage ? '0px' : { xs: '10px', lg: '20px' },
             }}
             className="coin__container"
           >
@@ -52,8 +54,9 @@ const StatsContainer = ({ isMainPage }: { isMainPage?: boolean }) => {
               sx={{
                 width: { xs: '48%', md: '24%' },
                 height: { xs: '150px' },
+                minWidth: '180px',
 
-                '@media (max-width: 400px)': { height: '120px' },
+                // '@media (max-width: 400px)': { height: '120px' },
               }}
               className="custom-gauge"
             >

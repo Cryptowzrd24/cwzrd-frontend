@@ -10,7 +10,7 @@ import {
 } from '@/app/helpers/functions';
 
 import styles from './index.module.scss';
-import { Card } from '@mui/material';
+import { Box, Card } from '@mui/material';
 import CardHeader from './cardHeader.component';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -66,15 +66,16 @@ const Card1 = (props: ICard1Props) => {
                   <div className={styles.medal}>
                     <span>{item.medal}</span>
                   </div>
-                  <div className={styles.profile_block}>
+                  <Box className={styles.profile_block}>
                     <Image
                       width={28}
                       height={28}
                       className={styles.image}
                       src={item.image}
+                      style={{ width: '100%', height: '100%' }}
                       alt=""
                     />
-                  </div>
+                  </Box>
                   <div className={styles.title}>
                     <span>{item.text1}</span>
                     <span>{item.text2}</span>

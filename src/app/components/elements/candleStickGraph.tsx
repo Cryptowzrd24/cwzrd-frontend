@@ -9,16 +9,22 @@ import HighchartsReact, {
 const CandlestickChart: React.FC = () => {
   const chartRef = useRef<HighchartsReactRefObject>(null);
 
+  const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
+
+  const isTablet = screenWidth < 1200;
+
   useEffect(() => {
     if (chartRef.current) {
       const chartContainer = chartRef.current.container.current;
 
+      console.log(isTablet);
+
       if (chartContainer) {
-        chartContainer.style.height = '135px';
+        chartContainer.style.height = isTablet ? '105px' : '135px';
         chartContainer.style.marginTop = '-12px';
       }
     }
-  }, []);
+  }, [screenWidth]);
 
   const options = {
     chart: {

@@ -7,6 +7,7 @@ import React from 'react';
 import KpiGuageChart from '../common/kpi-guage-chart';
 import GraphCard from '../common/graphCard.component';
 import GaugeChart from '../common/guage-chart';
+import GaugeChartWrapper from '../common/GaugeChartWrapper';
 
 function HeroContent() {
   return (
@@ -57,60 +58,41 @@ function HeroContent() {
           <Box
             sx={{
               display: 'flex',
-              flexWrap: 'wrap',
+              // flexWrap: 'wrap',
+              height: { xs: '155px', lg: '190px' },
+              overflow: 'auto',
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
               maxWidth: '100%',
               justifyContent: 'space-between',
-              marginBottom: '20px',
+              marginBottom: { xs: '10px', lg: '20px' },
             }}
             className="chains__container"
           >
             <Box
               sx={{
                 width: { xs: '100%', sm: '48%', lg: '24%' },
+                minWidth: '270px',
               }}
             >
               <KpiGuageChart isDarkTheme={false} />
             </Box>
-            <Box
-              sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
-              }}
-            >
-              <GraphCard
-                showLargeCard={true}
-                heading="🔥 24 hour volume"
-                value={{ data: '51.88', prefix: '$' }}
-                percent={-0.32}
-                graphAttr={{ type: 'bar', data: areaChartData }}
-              />
-            </Box>
-            <Box
-              sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
-              }}
-            >
-              <GraphCard
-                showLargeCard={true}
-                heading="🔥 Bitcoin Dominance"
-                value={{ data: '51.88', postfix: '%' }}
-                percent={-0.32}
-                graphAttr={{ type: 'area', data: areaChartData }}
-              />
-            </Box>
-            <Box
-              sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
-                height: { xs: '185px' },
-
-                // '@media (max-width: 400px)': { height: '120px' },
-              }}
-              className="custom-gauge"
-            >
+            <GraphCard
+              heading="🔥 24 hour volume"
+              value={{ data: '51.88', prefix: '$' }}
+              percent={-0.32}
+              graphAttr={{ type: 'bar', data: areaChartData }}
+            />
+            <GraphCard
+              heading="🔥 Bitcoin Dominance"
+              value={{ data: '51.88', postfix: '%' }}
+              percent={-0.32}
+              graphAttr={{ type: 'area', data: areaChartData }}
+            />
+            <GaugeChartWrapper>
               <GaugeChart />
-            </Box>
+            </GaugeChartWrapper>
           </Box>
         </motion.div>
       </AnimatePresence>
