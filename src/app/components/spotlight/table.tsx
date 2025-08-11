@@ -186,7 +186,7 @@ const Table = () => {
           style={{
             display: 'flex',
             gap: '24px',
-            width: '100%',
+            // width: '100%',
           }}
         >
           <DataTable

@@ -7,6 +7,7 @@ import { priceNumberFormatter } from '@/utils/price-number-formater';
 import { Score } from '@/app/components/data-table/score';
 import { ExchangeNameComponent } from '@/app/components/data-table/exchange-name';
 import { FiatSupported } from '@/app/components/data-table/fiat-supported';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 
 const useColumnExchangeDefs = (columns: any) => {
   return useMemo(() => {
@@ -17,14 +18,19 @@ const useColumnExchangeDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 40,
+            pinned: 'left',
+            width: getResponsiveWidth(50, 40, 40),
+            cellClass: 'tight-cell',
           };
         case 'exchange':
           return {
             field: 'exchange',
             headerName: 'Exchanges',
             cellRenderer: ExchangeNameComponent,
-            width: 240,
+            width: getResponsiveWidth(240, 220, 165),
+            pinned: 'left',
+            headerClass: 'left-align-header',
+            cellClass: 'tight-cell',
           };
         case 'score':
           return {

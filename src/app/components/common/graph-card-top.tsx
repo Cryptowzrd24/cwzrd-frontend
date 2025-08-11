@@ -12,7 +12,7 @@ import {
 
 import styles from './index.module.scss';
 import BarChart from '../elements/barGraphCard.element';
-import { Card } from '@mui/material';
+import { Box, Card } from '@mui/material';
 import CardHeader from './cardHeader.component';
 
 import chainCoin1 from '../../assets/icons/chainIcon1.svg';
@@ -74,13 +74,13 @@ const GraphCardTop = (props: any) => {
             </span>
           </div>
         </div>
-        <div
-          style={{
+        <Box
+          sx={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             marginTop: '-10px',
-            height: '160px',
+            height: { xs: '105px', lg: '160px' },
           }}
         >
           {graphAttr.type === 'area' ? (
@@ -89,7 +89,7 @@ const GraphCardTop = (props: any) => {
           {graphAttr.type === 'bar' ? (
             <BarChart data={graphAttr.data} color={getBarGraphColor(percent)} />
           ) : null}
-        </div>
+        </Box>
       </Card>
     </div>
   );

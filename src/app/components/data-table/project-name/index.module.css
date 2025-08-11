@@ -19,6 +19,12 @@
   line-height: 20.4px;
 }
 
+@media (max-width: 787) {
+  .container__box-main-text {
+    font-size: 14px;
+  }
+}
+
 .container__box-code-text {
   font-size: 12px;
   font-weight: 400;

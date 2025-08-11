@@ -130,7 +130,10 @@ const theme = createTheme({
     MuiContainer: {
       styleOverrides: {
         root: {
-          '@media (max-width: 599px)': {
+          '@media (max-width: 399px)': {
+            paddingInline: '10px !important',
+          },
+          '@media (max-width: 599px)  and (min-width: 400px)': {
             paddingInline: '20px !important',
           },
           '@media (max-width: 1079px) and (min-width: 600px)': {

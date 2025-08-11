@@ -9,13 +9,15 @@ const Card2 = () => {
       sx={{
         padding: '16px 16px 32px 16px',
         borderRadius: '16px',
-        maxWidth: '300px',
-        width: '100%',
+        // maxWidth: '300px',
+        boxSizing: 'border-box',
+
+        width: { xs: '49%', lg: '22%' },
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         cursor: 'pointer',
         height: 'auto',
         backgroundImage: `url('/images/airdrops/5.png')`,
-        backgroundSize: '123%',
+        backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       }}

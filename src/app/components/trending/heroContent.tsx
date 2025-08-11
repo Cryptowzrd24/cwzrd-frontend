@@ -9,6 +9,7 @@ import Card3 from '../common/card3.component';
 import { colorConfig } from '@/app/helpers/config';
 import cardBgImage7 from '@/app/assets/images/cardImagebg7.png';
 import CandlestickCard from '../common/candlestickCard';
+import GaugeChartWrapper from '../common/GaugeChartWrapper';
 
 function HeroContent() {
   return (
@@ -59,88 +60,88 @@ function HeroContent() {
           transition={{ duration: 0.2 }}
         >
           <Box
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              flexDirection: 'row',
-              gap: '10px',
-              alignItems: 'center',
-              maxWidth: '100%',
-              justifyContent: 'space-between',
-              marginBottom: '20px',
-            }}
+            sx={{ overflow: 'auto', marginBottom: { xs: '10px', lg: '20px' } }}
           >
             <Box
               sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
+                display: 'flex',
+                // flexWrap: 'wrap',
+                width: '99%',
+                height: { xs: '155px', lg: '190px' },
+                flexDirection: 'row',
+                gap: '10px',
+                alignItems: 'center',
+                maxWidth: '100%',
+                justifyContent: 'space-between',
               }}
             >
-              <Card1
-                type="percent"
-                heading="⭐️ Trending"
-                items={[
-                  {
-                    medal: '🥇',
-                    image: btc,
-                    text1: 'Bitcoin',
-                    text2: 'BTC',
-                    percent: 29.32,
-                  },
-                  {
-                    medal: '🥇',
-                    image: btc,
-                    text1: 'Bitcoin',
-                    text2: 'BTC',
-                    percent: 29.32,
-                  },
-                  {
-                    medal: '🥇',
-                    image: btc,
-                    text1: 'Bitcoin',
-                    text2: 'BTC',
-                    percent: -0.12,
-                  },
-                ]}
-              />
-            </Box>
-            <Box
-              sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
-              }}
-            >
-              <CandlestickCard
-                heading="Bitcoin"
-                value={{ data: '36,606,531,750.36', prefix: '$' }}
-                percent={6.32}
-              />
-            </Box>
-            <Box
-              sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
-              }}
-            >
-              <Card3
-                transparentButton={true}
-                bgImage={cardBgImage7}
-                staticTextColor={colorConfig.white}
-                textColor={colorConfig.green}
-                heading="Top Gain"
-                name="Dogwifhat"
-                desc="took first place with a gain of"
-                value="+29.32%"
-                end="in 7 days."
-              />
-            </Box>
-            <Box
-              sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
-                height: { xs: '185px' },
-
-                // '@media (max-width: 400px)': { height: '120px' },
-              }}
-              className="custom-gauge"
-            >
-              <GaugeChart />
+              <Box
+                sx={{
+                  width: '24%',
+                  minWidth: '220px',
+                }}
+              >
+                <Card1
+                  type="percent"
+                  heading="⭐️ Trending"
+                  items={[
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      percent: 29.32,
+                    },
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      percent: 29.32,
+                    },
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      percent: -0.12,
+                    },
+                  ]}
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: '24%',
+                  minWidth: '220px',
+                }}
+              >
+                <CandlestickCard
+                  heading="Bitcoin"
+                  value={{ data: '36,606,531,750.36', prefix: '$' }}
+                  percent={6.32}
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: '24%',
+                  minWidth: '230px',
+                }}
+              >
+                <Card3
+                  transparentButton={true}
+                  bgImage={cardBgImage7}
+                  staticTextColor={colorConfig.white}
+                  textColor={colorConfig.green}
+                  heading="Top Gain"
+                  name="Dogwifhat"
+                  desc="took first place with a gain of"
+                  value="+29.32%"
+                  end="in 7 days."
+                />
+              </Box>
+              <GaugeChartWrapper>
+                <GaugeChart />
+              </GaugeChartWrapper>
             </Box>
           </Box>
         </motion.div>

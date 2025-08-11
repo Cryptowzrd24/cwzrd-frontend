@@ -19,6 +19,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Card2 from './card2.component';
 import btc from '@/app/assets/images/btc.png';
 import nft from '@/app/assets/images/nft.png';
+import { shrinkLargeNumber } from '@/utils/shrinkLargeNumber';
 
 const StyledSlider = styled(Slider)`
   .slick-track,
@@ -28,24 +29,6 @@ const StyledSlider = styled(Slider)`
     margin-left: -0.5px;
   }
 `;
-
-function formatNumberString(input: string): string {
-  const num = parseFloat(input.replace(/,/g, ''));
-
-  if (isNaN(num)) return 'Invalid number';
-
-  if (num >= 1_000_000_000_000) {
-    return `${(num / 1_000_000_000_000).toFixed(1).replace(/\.0$/, '')}T`;
-  } else if (num >= 1_000_000_000) {
-    return `${(num / 1_000_000_000).toFixed(1).replace(/\.0$/, '')}B`;
-  } else if (num >= 1_000_000) {
-    return `${(num / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`;
-  } else if (num >= 1_000) {
-    return `${(num / 1_000).toFixed(1).replace(/\.0$/, '')}K`;
-  } else {
-    return `${num}`;
-  }
-}
 
 const GraphCard = (props: IMarketCapCardProps) => {
   const { showLargeCard = false, heading, value, percent, graphAttr } = props;
@@ -74,6 +57,7 @@ const GraphCard = (props: IMarketCapCardProps) => {
   return isLargeScreen || showLargeCard ? (
     <div
       style={{
+        boxSizing: 'border-box',
         width: showLargeCard ? '100%' : '24%',
         display: 'flex',
         borderRadius: '15px',
@@ -205,14 +189,16 @@ const GraphCard = (props: IMarketCapCardProps) => {
         boxSizing: 'border-box',
         borderRadius: '15px',
         width: { xs: '48%', md: '24%' },
+        minWidth: '190px',
         height: '150px',
-        '@media (max-width: 400px)': { height: '120px' },
+        // '@media (max-width: 400px)': { height: '120px' },
         // height: '150px',
         display: 'flex',
+        rowGap: '5px',
         justifyContent: 'center',
         flexDirection: 'column',
-        boxShadow: '0 0 10px 0 #ccc',
         backgroundColor: 'white',
+        boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
       }}
     >
       <CardHeader heading={heading} />
@@ -237,7 +223,7 @@ const GraphCard = (props: IMarketCapCardProps) => {
             fontWeight: 'bold',
           }}
         >
-          {formatNumberString(value.data)}
+          {shrinkLargeNumber(value.data)}
         </Typography>
         <Typography
           sx={{

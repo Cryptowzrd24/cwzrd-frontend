@@ -5,9 +5,10 @@ import React from 'react';
 import { getPositiveNegativeIcon } from '@/app/helpers/functions';
 
 import styles from './index.module.scss';
-import { Card } from '@mui/material';
+import { Box, Card } from '@mui/material';
 import CardHeader from './cardHeader.component';
 import CandlestickChart from '../elements/candleStickGraph';
+import { shrinkLargeNumber } from '@/utils/shrinkLargeNumber';
 
 const CandlestickCard = (props: IMarketCapCardProps) => {
   const { heading, value, percent } = props;
@@ -33,11 +34,20 @@ const CandlestickCard = (props: IMarketCapCardProps) => {
             />
             <CardHeader heading={heading} />
           </div>
-          <div className={styles.value}>
-            {value?.prefix}
-            {value.data}
-            {value?.postfix}
-          </div>
+          <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+            <div className={styles.value}>
+              {value?.prefix}
+              {value.data}
+              {value?.postfix}
+            </div>
+          </Box>
+          <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
+            <div className={styles.value}>
+              {value?.prefix}
+              {shrinkLargeNumber(value.data)}
+              {value?.postfix}
+            </div>
+          </Box>
           <div
             style={{
               fontSize: '14px',
@@ -53,16 +63,17 @@ const CandlestickCard = (props: IMarketCapCardProps) => {
             {Math.abs(percent)}%
           </div>
         </div>
-        <div
-          style={{
+        <Box
+          sx={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             marginTop: '15px',
+            '@media (max-width: 1200px)': { marginTop: '0px' },
           }}
         >
           <CandlestickChart />
-        </div>
+        </Box>
       </Card>
     </div>
   );

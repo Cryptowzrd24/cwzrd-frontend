@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { Button, Card, Stack, Typography } from '@mui/material';
+import { Box, Button, Card, Stack, Typography } from '@mui/material';
 
 import styles from './index.module.scss';
 import { colorConfig } from '@/app/helpers/config';
@@ -70,17 +70,20 @@ const Card3 = (props: ICard3Props) => {
           backgroundImage: `url(${bgImage.src}) !important`,
         }}
       >
-        <div
+        <Box
+          sx={{
+            padding: { xs: '15px 10px 0', lg: '15px 22px 0 22px' },
+            marginBottom: '8px',
+          }}
           className={styles.header_wrapper}
           style={{ position: 'relative', zIndex: 2 }}
         >
           <CardHeader heading={heading} staticTextColor={staticTextColor} />
-        </div>
+        </Box>
         <Typography
           sx={{
-            marginLeft: '22px',
-            fontSize: '18px',
-            marginRight: '37px',
+            fontSize: { xs: '14px', lg: '18px' },
+            margin: { xs: '4px 10px 0 10px', lg: '8px 37px 0px 22px' },
             fontWeight: '500',
             lineHeight: '26px',
             letterSpacing: '1px',
@@ -116,6 +119,7 @@ const Card3 = (props: ICard3Props) => {
               borderRadius: '25px',
               zIndex: 2,
               position: 'relative',
+              fontSize: { xs: '11px', lg: '14px' },
             }}
           >
             See all &nbsp; <ArrowForwardIosIcon sx={{ fontSize: '12px' }} />
