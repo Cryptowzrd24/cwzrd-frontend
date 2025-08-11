@@ -20,7 +20,7 @@ const WZRDStrategiesCard: React.FC = () => {
     >
       {/* centered target icon */}
       <Box sx={{ position: 'absolute', left: '50%', top: '36%', transform: 'translate(-50%, -50%)' }}>
-        <Image src={WZRDStrategiesIcon} alt="WZRD Strategies" width={284} height={237} />
+        <Image src={WZRDStrategiesIcon} alt="WZRD Strategies" width={180} height={180} />
       </Box>
 
       {/* bottom-centered text */}
