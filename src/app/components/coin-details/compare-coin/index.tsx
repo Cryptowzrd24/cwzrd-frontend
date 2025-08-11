@@ -7,10 +7,10 @@ const CompareCoin = ({ setSelectedCompareCoinId, compareData }: any) => {
       showSearch
       allowClear
       style={{
-        width: 180,
+        width: '100%',
         height: 40,
-        position: 'relative',
-        top: '20px',
+        // position: 'relative',
+        // top: '20px',
         fontFamily: 'Sf Pro Display',
         color: '#11111199',
       }}

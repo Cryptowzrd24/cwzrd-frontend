@@ -65,6 +65,7 @@ function Technicals() {
           <Typography
             variant="h3"
             sx={{
+              // width: '70%',
               color: 'rgba(17, 17, 17, 0.8)',
               maxWidth: { xs: '80%', md: '630px' },
               textAlign: { xs: 'center', md: 'left' },
@@ -72,7 +73,7 @@ function Technicals() {
               fontWeight: { xs: '400', md: '700' },
               letterSpacing: { xs: '0.24px', md: '0.24px' },
               lineHeight: { xs: '150%', md: '30px' },
-              margin: { xs: '0px auto', md: '0 45px 0 0' },
+              // margin: { xs: '0px auto', md: '0 45px 0 0' },
             }}
           >
             Receive expert commentary, market trends, and technical analysis
@@ -102,11 +103,11 @@ function Technicals() {
           variant="body1"
           sx={{
             background: 'rgba(17, 17, 17, 0.05)',
-            padding: '11px 16px 11px  16px',
+            padding: {xs:'11px 12px 11px  12px',sm:'11px 16px 11px  16px'},
             fontWeight: '600',
             display: 'flex',
             justifyContent: 'center',
-            fontSize: '14px',
+            fontSize: {xs:'12px',sm:'14px',md:'14px'},
             alignItems: 'center',
             gap: '4px',
             borderRadius: '56px',

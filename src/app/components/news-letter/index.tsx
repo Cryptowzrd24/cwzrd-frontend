@@ -8,7 +8,7 @@ import ArrowRightBlack from '../../../../public/icons/News-Letter/arrowRightBlac
 function NewsLetter() {
   return (
     <>
-      <Box>
+      <Box >
         <Box
           sx={{
             display: 'flex',

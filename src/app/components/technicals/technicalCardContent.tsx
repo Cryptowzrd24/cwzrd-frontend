@@ -5,6 +5,7 @@ import TechnicalCard from './technicalCard';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+// import './technicalCardContent.css';
 import ArrowLeftDark from '../../../../public/icons/collections/arrowLeftDark';
 import ArrowRightDark from '../../../../public/icons/collections/arrowRightDark';
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
@@ -20,14 +21,29 @@ const TechnicalCardContent: React.FC = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow:1,
-    slidesToScroll: isMobile ? 1 : isTablet ? 2 : 4,
+    slidesToShow: isMobile ? 1 : isTablet ? 2 : 3,
+    slidesToScroll: 1,
     arrows: false,
     afterChange: (current: any) => setCurrentSlide(current),
-    variableWidth: true,
-    style: {
-      height: '350px',
-    },
+    variableWidth: false, // Fixed width for consistent sizing
+    centerMode: false,
+    dots: false,
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };
 
   const handlePrev = () => {
@@ -37,13 +53,20 @@ const TechnicalCardContent: React.FC = () => {
   const handleNext = () => {
     sliderRef.current?.slickNext();
   };
-  const totalSlides = Math.ceil(
-    TechnicalCardData.length / settings.slidesToShow,
-  );
+  const totalSlides = TechnicalCardData.length;
 
   return (
-    <Box style={{ position: 'relative', width: '100%' , backgroundColor: 'red'}}>
-      <Slider className="technicals-slick" ref={sliderRef} {...settings}>
+    <Box sx={{ 
+      position: 'relative', 
+      width: '100%',
+      height: '350px', // Fixed height for consistency
+      // overflow: 'hidden'
+    }}>
+      <Slider 
+        className="technicals-slick" 
+        ref={sliderRef} 
+        {...settings}
+      >
         {TechnicalCardData.map((card) => (
           <TechnicalCard
             key={card.id}
@@ -62,13 +85,13 @@ const TechnicalCardContent: React.FC = () => {
       <Box
         sx={{
           position: 'absolute',
-          bottom: '-60px',
+          bottom: {xs:'-64px',sm:'-60px',md:'-60px'},
           transform: 'translateX(-50%)',
           display: 'flex',
           justifyContent: 'space-between',
           width: '48px',
           gap: '8px',
-          right: '4%',
+          right: '5%',
 
           '@media (max-width: 576px)': {
             transform: 'translateX(-100%)',
@@ -123,7 +146,7 @@ const TechnicalCardContent: React.FC = () => {
             lineHeight: '18.2px',
           }}
         >
-          {`${Math.ceil(currentSlide / settings.slidesToScroll) + 1}/${totalSlides}`}
+          {`${currentSlide + 1}/${totalSlides}`}
         </Typography>
       )}
     </Box>

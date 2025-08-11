@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import StockChart from '../stock-chart';
 import GraphCustomHeader from '../graph-custom-header';
-import { Box, Button } from '@mui/material';
+import { Box, Button, useMediaQuery } from '@mui/material';
 import GraphFilter from '../graph-filter';
 import CompareCoin from '../compare-coin';
 import { useFetchCoinsListQuery } from '@/app/redux/reducers/data-grid';
@@ -25,6 +25,7 @@ function GraphLayout({ coinSymbol }: any) {
   const [tradingViewClicked, setTradingViewClicked] = useState('close');
 
   const { data } = useFetchCoinsListQuery({});
+  const isMobile = useMediaQuery('(max-width: 600px)');
 
   const foundCoin = data?.find(
     (coin: any) => coin.coin_id === selectedCompareCoinId,
@@ -89,59 +90,68 @@ function GraphLayout({ coinSymbol }: any) {
           </motion.div>
         )}
       </AnimatePresence>
-      <Box sx={{ width: '100%', height: '100%', overflow: 'hidden', backgroundColor: 'white',boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px', borderRadius: '24px' }}>
+      <Box sx={{ width: '100%', height: '100%', overflow: 'hidden', backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px', borderRadius: '24px' }}>
         <Box
           sx={{
             display: 'flex',
-            justifyContent: {xs:'center', md:'space-between'},
-            alignItems: {xs:'flex-start', md:'center'},
-            // flexDirection: {xs:'column', md:'row'},
-            gap: {xs:'16px', md:'24px'},
+            justifyContent: { xs: 'center', md: 'space-between' },
+            alignItems: { xs: 'flex-start', md: 'center' },
+            flexDirection: { xs: 'column', sm: 'row' },
+            gap: { xs: '16px', md: '24px' },
             boxSizing: 'border-box',
             width: '100%',
             flexWrap: 'wrap',
-            padding: {xs:'16px', md:'10px'},
+            padding: { xs: '8px', sm: '10px' },
+
           }}
         >
-          <GraphCustomHeader
-            selectedTab={selectedTab}
-            setSelectedTab={setSelectedTab}
-          />
-          <Button
-            onClick={handleOpenTradingView}
-            sx={{
-              width: 'auto',
-              background: '#f3f3f3',
-              height: '40px',
-              top: '20px',
-              left: selectedFilter === 'candlestick' ? '150px' : '50px',
-              borderRadius: '8px',
-              fontSize: '14px',
-              color: 'rgba(17, 17, 17, 0.6)',
-              fontFamily: 'Sf Pro Display',
-              fontWeight: 600,
-              lineHeight: '18.2px',
-              padding: '14px 18px',
-            }}
-            startIcon={<TradingViewIcon />}
-          >
-            TradingView
-          </Button>
-          {selectedFilter !== 'candlestick' && (
-            <CompareCoin
-              compareData={data}
-              setSelectedCompareCoinId={setSelectedCompareCoinId}
+          <Box sx={{ width: { xs: "100%", md: '22%' }, flex: { xs: 1, md: 1 } }}>
+            <GraphCustomHeader
+              selectedTab={selectedTab}
+              setSelectedTab={setSelectedTab}
             />
-          )}
-          <GraphFilter
-            selectedFilter={selectedFilter}
-            setSelectedFilter={setSelectedFilter}
-            volumeValue={volumeValue}
-            setVolumeValue={setVolumeValue}
-            handleFullScreen={handleFullScreen}
-            selectedTab={selectedTab}
-            width={selectedTab === 'Market Cap' || selectedTab === 'Compare with' ? '100%' : '260px'}
-          />
+          </Box>
+          <Box sx={{ width: { xs: "100%", md: '19%' }, flex: { xs: 1, md: 1 } }}>
+            <Button
+              onClick={handleOpenTradingView}
+              sx={{
+                width: '100%',
+                background: '#f3f3f3',
+                height: '40px',
+                // top: '20px',
+                // left: selectedFilter === 'candlestick' ? '150px' : '50px',
+                borderRadius: '8px',
+                fontSize: '14px',
+                color: 'rgba(17, 17, 17, 0.6)',
+                fontFamily: 'Sf Pro Display',
+                fontWeight: 600,
+                lineHeight: '18.2px',
+                padding: '14px 18px',
+              }}
+              startIcon={<TradingViewIcon />}
+            >
+              TradingView
+            </Button>
+          </Box>
+          <Box sx={{ width: { xs: "100%", md: '19%' }, flex: { xs: 1, md: 1 } }}>
+            {selectedFilter !== 'candlestick' && (
+              <CompareCoin
+                compareData={data}
+                setSelectedCompareCoinId={setSelectedCompareCoinId}
+              />
+            )}
+          </Box>
+          <Box sx={{ width: { xs: '100%', md: '40%' }, flex: { xs: 1, md: 2 }, boxSizing: 'border-box' }}>
+            <GraphFilter
+              selectedFilter={selectedFilter}
+              setSelectedFilter={setSelectedFilter}
+              volumeValue={volumeValue}
+              setVolumeValue={setVolumeValue}
+              handleFullScreen={handleFullScreen}
+              selectedTab={selectedTab}
+              width={selectedTab === 'Market Cap' || selectedTab === 'Compare with' || isMobile ? '100%' : '260px'}
+            />
+          </Box>
         </Box>
         <StockChart
           selectedGraph={selectedTab}

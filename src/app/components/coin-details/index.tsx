@@ -24,7 +24,10 @@ const CoinDetails = ({ serverCoindata }: any) => {
   return (
     <Box
       sx={{
-        background: '#EDF0FF'
+        background: 'white',
+        width: '100%',
+        boxSizing: 'border-box',
+        height: '100%'
       }}
     >
       <Box sx={{
@@ -32,10 +35,10 @@ const CoinDetails = ({ serverCoindata }: any) => {
         overflow: 'hidden',
         width: { xs: '100%', sm: '95%', md: '900px', lg: "1150px", xl: "1290px" },
         boxSizing: 'border-box',
-        padding: { xs: "12px", md: '12px', lg: '14px 0', xl: '16px 0' },
+        padding: { xs: "12px", md: '12px', lg: '14px', xl: '16px' },
         display: 'flex',
         flexDirection: 'column',
-        gap: {xs:"24px", md:"48px"},
+        gap: {xs:"48px", md:"48px"},
       }}>
         <Box id="hero" sx={{ width: '100%' }}>
           <CoinHeroSection coinDetails={serverCoindata} />

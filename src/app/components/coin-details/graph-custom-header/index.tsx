@@ -26,6 +26,7 @@ function GraphCustomHeader({
     <div className={styles.graphCustomHeader}>
       {headerOptions.map((opt) => (
         <div
+          style={{width:'50%'}}
           key={opt}
           onClick={() => handleTabSelect(opt)}
           className={`${styles.tab} ${

@@ -61,7 +61,7 @@ const Title = ({ name }: { name: string }) => {
         <Box sx={{
           display: 'flex',
           alignItems: 'center',
-          gap: { xs: '16px', md: '0px' },
+          gap: { xs: '16px', md: '16px' },
           textAlign: { xs: 'center', md: 'left' },
           justifyContent: { xs: 'center', md: 'flex-end' },
         }}>

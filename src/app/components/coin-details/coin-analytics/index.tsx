@@ -101,7 +101,7 @@ const CoinAnalytics = ({ coinId }: any) => {
   }, [rowData, currentPage, pageSize]);
 
   return (
-    <Box sx={{ width: '100%', overflow: 'hidden' }}>
+    <Box sx={{ width: '100%' }}>
       <Typography
         variant="body1"
         sx={{
@@ -244,7 +244,8 @@ const CoinAnalytics = ({ coinId }: any) => {
           mt: '16px',
           backgroundColor: 'rgba(255, 255, 255, 1)',
           padding: '24px',
-          width: '1290px',
+          width: '100%',
+          boxSizing: 'border-box',
           borderRadius: '24px',
           boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           '& .ag-header-cell:last-child .ag-header-cell-label': {

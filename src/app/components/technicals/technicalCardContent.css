@@ -1,0 +1,28 @@
+.technicals-slick {
+  height: 100% !important;
+}
+
+.technicals-slick .slick-slide {
+  height: 350px !important;
+  padding: 0 8px;
+}
+
+.technicals-slick .slick-track {
+  height: 350px !important;
+}
+
+.technicals-slick .slick-list {
+  height: 350px !important;
+}
+
+/* Ensure consistent card sizing */
+.technicals-slick .slick-slide > div {
+  height: 100%;
+}
+
+/* Mobile optimizations */
+@media (max-width: 600px) {
+  .technicals-slick .slick-slide {
+    padding: 0 4px;
+  }
+}
