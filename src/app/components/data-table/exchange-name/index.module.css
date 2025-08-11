@@ -17,6 +17,14 @@
   border-radius: 50%;
 }
 
+@media (max-width: 500px) {
+  .exchange-icon {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+  }
+}
+
 .exchange-comp p {
   margin: 0;
   padding: 0;
@@ -26,6 +34,12 @@
   font-size: 14px;
   font-family: 'SF Pro Display';
   font-weight: 600;
+}
+
+@media (max-width: 500px) {
+  .full-name {
+    font-size: 13px;
+  }
 }
 
 .name {

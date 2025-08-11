@@ -7,11 +7,33 @@ function HeroContent() {
     <>
       <Typography
         variant="h4"
-        sx={{ letterSpacing: '1px', fontSize: 14, marginBottom: '8px' }}
+        sx={{
+          letterSpacing: '1px',
+          fontSize: 14,
+          marginBottom: '8px',
+          '@media (max-width: 576px)': {
+            fontSize: '24px !important',
+            fontWeight: '700 !important',
+            lineHeight: '120%',
+            letterSpacing: '0.24px',
+          },
+        }}
       >
         MARKET CAP
       </Typography>
-      <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
+      <Typography
+        variant="h1"
+        sx={{
+          maxWidth: '960px',
+          marginTop: '-10px',
+          '@media (max-width: 576px)': {
+            fontSize: '24px !important',
+            fontWeight: '700 !important',
+            lineHeight: '120%',
+            letterSpacing: '0.24px',
+          },
+        }}
+      >
         Top Cryptocurrency Spot
         <span
           style={{

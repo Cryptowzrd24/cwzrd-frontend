@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Card, Stack, Typography, styled } from '@mui/material';
+import { Box, Button, Card, Stack, Typography, styled } from '@mui/material';
 import React from 'react';
 
 import styles from './index.module.scss';
@@ -43,7 +43,12 @@ const Card4 = (props: ICard4Props) => {
             <CardHeader heading={heading} staticTextColor={staticTextColor} />
           </div>
 
-          <div style={{ padding: '0px 8px 0px 8px', marginTop: '26px' }}>
+          <Box
+            sx={{
+              padding: '0px 8px 0px 8px',
+              marginTop: { xs: '0', lg: '26px' },
+            }}
+          >
             <div style={{ padding: '0px 8px 0px 8px' }}>
               <Typography
                 sx={{
@@ -61,7 +66,7 @@ const Card4 = (props: ICard4Props) => {
             <div style={{ padding: '0px 8px 0px 8px', marginTop: '7px' }}>
               <Typography
                 sx={{
-                  fontSize: '10px',
+                  fontSize: { xs: '10px' },
                   lineHeight: '15.6px',
                   fontWeight: '400',
                   color: `${staticTextColor}`,
@@ -71,7 +76,7 @@ const Card4 = (props: ICard4Props) => {
                 {formatDate(date)} &nbsp; | &nbsp; {name}
               </Typography>
             </div>
-          </div>
+          </Box>
           <Stack direction="row" style={{ marginLeft: '-6px' }}>
             <BootstrapButton
               variant="text"

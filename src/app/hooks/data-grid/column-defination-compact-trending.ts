@@ -8,6 +8,7 @@ import { profitLossCheck } from '@/utils/profit-loss-val-check';
 
 import '../../../app/styles/new-coins.css';
 import NewCoin from '@/app/components/data-table/price';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 
 const useColumnCompactTrendingDefs = (columns: any) => {
   return useMemo(() => {
@@ -18,14 +19,19 @@ const useColumnCompactTrendingDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 50,
+            pinned: 'left',
+            width: getResponsiveWidth(50, 40, 30),
+            cellClass: 'tight-cell',
           };
         case 'name':
           return {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 160,
+            width: getResponsiveWidth(160, 150, 125),
+            pinned: 'left',
+            headerClass: 'left-align-header',
+            cellClass: 'tight-cell',
           };
         case 'new_price':
           return {

@@ -8,7 +8,14 @@ import Card3 from './card3';
 const Card = () => {
   return (
     <>
-      <Box sx={{ display: 'flex', gap: '30px' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          // gap: '10px',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+        }}
+      >
         <Card1 />
         <Card2 />
         <Card3 />

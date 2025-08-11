@@ -12,6 +12,7 @@ import { colorConfig } from '@/app/helpers/config';
 import newsImage from '@/app/assets/images/newsBgImage.png';
 import TopNftCollection from '../common/top-nft-collections-card';
 import { areaChartData } from '@/app/constants/charts';
+import GaugeChartWrapper from '../common/GaugeChartWrapper';
 
 function HeroContent() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -83,70 +84,67 @@ function HeroContent() {
           transition={{ duration: 0.2 }}
         >
           <Box
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              flexDirection: 'row',
-              gap: '10px',
-              alignItems: 'center',
-              maxWidth: '100%',
-              justifyContent: 'space-between',
-              marginBottom: '20px',
-            }}
+            sx={{ overflow: 'auto', marginBottom: { xs: '10px', lg: '20px' } }}
           >
             <Box
               sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
+                display: 'flex',
+                flexDirection: 'row',
+                width: '99%',
+                height: { xs: '155px', lg: '190px' },
+                gap: '10px',
+                alignItems: 'center',
+                maxWidth: '100%',
+                justifyContent: 'space-between',
               }}
             >
-              <Card2
-                heading="🎖 Top Categories"
-                items={[
-                  {
-                    medal: '🥇',
-                    text1: 'Base Ecosystem',
-                    images: [nft, btc, frogImage],
-                  },
-                  {
-                    medal: '🥇',
-                    text1: 'Base Ecosystem',
-                    images: [nft, btc, frogImage],
-                  },
-                  {
-                    medal: '🥇',
-                    text1: 'Base Ecosystem',
-                    images: [nft, btc, frogImage],
-                  },
-                ]}
-              />
-            </Box>
-            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
-              <TopNftCollection
-                heading="🎖 Top NFT Colllections"
-                percent={-0.32}
-                graphAttr={{ type: 'area', data: areaChartData }}
-              />
-            </Box>
-            <Box sx={{ width: { xs: '100%', sm: '48%', lg: '24%' } }}>
-              <Card4
-                bgImage={newsImage}
-                heading={'📈️ News'}
-                staticTextColor={colorConfig.white}
-                mainText="Gucci Burberry join Booming Scotland."
-                date={new Date()}
-                name={'John Smith'}
-              />
-            </Box>
-            <Box
-              sx={{
-                width: { xs: '100%', sm: '48%', lg: '24%' },
-                height: { xs: '185px' },
-
-                // '@media (max-width: 400px)': { height: '120px' },
-              }}
-              className="custom-gauge"
-            >
-              <GaugeChart />
+              <Box
+                sx={{
+                  width: '24%',
+                  minWidth: '250px',
+                }}
+              >
+                <Card2
+                  heading="🎖 Top Categories"
+                  items={[
+                    {
+                      medal: '🥇',
+                      text1: 'Base Ecosystem',
+                      images: [nft, btc, frogImage],
+                    },
+                    {
+                      medal: '🥇',
+                      text1: 'Base Ecosystem',
+                      images: [nft, btc, frogImage],
+                    },
+                    {
+                      medal: '🥇',
+                      text1: 'Base Ecosystem',
+                      images: [nft, btc, frogImage],
+                    },
+                  ]}
+                />
+              </Box>
+              <Box sx={{ width: '24%', minWidth: '250px' }}>
+                <TopNftCollection
+                  heading="🎖 Top NFT Collections"
+                  percent={-0.32}
+                  graphAttr={{ type: 'area', data: areaChartData }}
+                />
+              </Box>
+              <Box sx={{ width: '24%', minWidth: '240px' }}>
+                <Card4
+                  bgImage={newsImage}
+                  heading={'📈️ News'}
+                  staticTextColor={colorConfig.white}
+                  mainText="Gucci Burberry join Booming Scotland."
+                  date={new Date()}
+                  name={'John Smith'}
+                />
+              </Box>
+              <GaugeChartWrapper>
+                <GaugeChart />
+              </GaugeChartWrapper>
             </Box>
           </Box>
         </motion.div>

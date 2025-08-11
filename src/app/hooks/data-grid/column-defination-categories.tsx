@@ -104,7 +104,7 @@ const useColumnCategoryDefs = (columns: any) => {
           return {
             field: 'top_gainers',
             headerName: 'Top Gainers',
-            width: 160,
+            width: getResponsiveWidth(160, 150, 120),
             cellRenderer: TopGainers,
           };
         case 'avg_price_change':

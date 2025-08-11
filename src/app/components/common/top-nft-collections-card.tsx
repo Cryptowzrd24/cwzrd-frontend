@@ -7,7 +7,7 @@ import AreaChart from '../elements/areaGraphCard.element';
 import { getGraphColor } from '@/app/helpers/functions';
 
 import styles from './index.module.scss';
-import { Card } from '@mui/material';
+import { Box, Card } from '@mui/material';
 import CardHeader from './cardHeader.component';
 
 import chainCoin1 from '../../assets/icons/chainIcon1.svg';
@@ -21,17 +21,17 @@ const TopNftCollection = (props: any) => {
         <div className={styles.header_wrapper}>
           <CardHeader heading={heading} />
         </div>
-        <div
-          style={{
+        <Box
+          sx={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            padding: '5px 22px 10px 22px',
+            padding: { xs: '5px 10px', lg: '5px 22px 10px 22px' },
           }}
         >
-          <div style={{ display: 'flex' }}>
+          <Box sx={{ display: 'flex', gap: '4px' }}>
             <Image src={chainCoin1} alt="" />
-            <div style={{ marginLeft: '-35px' }}>
+            <div>
               <p
                 style={{
                   fontSize: '14px',
@@ -53,7 +53,7 @@ const TopNftCollection = (props: any) => {
                 ETH
               </p>
             </div>
-          </div>
+          </Box>
           <div>
             <span
               style={{
@@ -65,14 +65,14 @@ const TopNftCollection = (props: any) => {
               254,567 ETH
             </span>
           </div>
-        </div>
-        <div
-          style={{
+        </Box>
+        <Box
+          sx={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             marginTop: '15px',
-            height: '120px',
+            height: { xs: '80px', lg: '120px' },
           }}
         >
           <AreaChart
@@ -80,7 +80,7 @@ const TopNftCollection = (props: any) => {
             color={getGraphColor(percent)}
             isMarker={true}
           />
-        </div>
+        </Box>
       </Card>
     </div>
   );

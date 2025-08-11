@@ -4,6 +4,7 @@ import { ProjectName } from '@/app/components/data-table/project-name';
 import { AirdropStatus } from '@/app/components/data-table/airdrop-status';
 import { TaskType } from '@/app/components/data-table/task-type';
 import { EligibilityPeriod } from '@/app/components/data-table/eligibility-period';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 
 const useColumnAirdropsDefs = (columns: any) => {
   return useMemo(() => {
@@ -14,14 +15,19 @@ const useColumnAirdropsDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 70,
+            pinned: 'left',
+            width: getResponsiveWidth(50, 40, 30),
+            cellClass: 'tight-cell',
           };
         case 'project_name':
           return {
             field: 'project_name',
             headerName: col.headerName,
             cellRenderer: ProjectName,
-            width: 195,
+            width: getResponsiveWidth(190, 150, 125),
+            pinned: 'left',
+            headerClass: 'left-align-header',
+            cellClass: 'tight-cell',
           };
         case 'description':
           return {

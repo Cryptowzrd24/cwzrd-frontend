@@ -9,10 +9,12 @@ const Card1 = () => {
         padding: '16px 16px 32px 16px',
         borderRadius: '16px',
         maxWidth: '300px',
-        width: '100%',
+        width: '22%',
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         cursor: 'pointer',
         background: '#0e0e0e',
+        boxSizing: 'border-box',
+
         height: 'auto',
         backgroundImage:
           'linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)',
