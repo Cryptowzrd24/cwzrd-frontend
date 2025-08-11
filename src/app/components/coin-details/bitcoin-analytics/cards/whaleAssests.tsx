@@ -2807,9 +2807,17 @@ const WhaleAssetsCard = () => {
           {/* <Image className={styles['info-icon']} src={infoIcon} alt="" /> */}
         </Tooltip>
       </Box>
-      <Box sx={{ display: 'flex', gap: '56px', alignItems: 'center' }}>
+      <Box 
+      sx={{ display: 'flex', 
+        alignItems: 'center',
+        flexDirection:'row' ,
+        gap: { xs: '20px', md: '56px' },
+        textAlign: { xs: 'center', md: 'left' },
+        justifyContent: { xs: 'flex-start', md: 'flex-end' },
+        flexWrap: 'wrap',
+       }}>
         {/* Legend for Whales */}
-        <Stack>
+        <Stack sx={{minWidth:'130px'}}>
           <Box sx={{ display: 'flex', gap: '8px', alignItems: 'baseline' }}>
             <Box
               sx={{
@@ -2821,7 +2829,7 @@ const WhaleAssetsCard = () => {
                   'linear-gradient(116.74deg, #F7841A -4.07%, #F74848 100.68%)',
               }}
             ></Box>
-            <Stack>
+            <Stack sx={{minWidth:'130px'}}>
               <Typography
                 variant="body1"
                 sx={{
@@ -2849,7 +2857,7 @@ const WhaleAssetsCard = () => {
           </Box>
         </Stack>
         {/* Legend for Others */}
-        <Stack>
+        <Stack sx={{minWidth:'130px'}}>
           <Box sx={{ display: 'flex', gap: '8px', alignItems: 'baseline' }}>
             <Box
               sx={{
@@ -2860,7 +2868,7 @@ const WhaleAssetsCard = () => {
                 background: 'rgba(69, 202, 148, 1)',
               }}
             ></Box>
-            <Stack>
+            <Stack sx={{minWidth:'130px'}}>
               <Typography
                 variant="body1"
                 sx={{

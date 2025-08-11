@@ -128,7 +128,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
   }, [data, currentPage, pageSize, active]);
 
   return (
-    <>
+    <Box sx={{ width: '100%', overflow: 'hidden' }}>
       <Typography
         variant="body1"
         sx={{
@@ -138,6 +138,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
           lineHeight: 1,
           letterSpacing: '2px',
           mb: '4px',
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
         MARKET
@@ -146,7 +147,9 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
+          alignItems: 'center' ,
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: '16px', md: '0px' },
         }}
       >
         <Box>
@@ -171,7 +174,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
             </span>{' '}
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center', }}>
           <Box
             onClick={() => handleClick('Spot')}
             sx={{
@@ -257,10 +260,11 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
         sx={{
           mt: '16px',
           backgroundColor: 'rgba(255, 255, 255, 1)',
-          padding: '24px',
-          width: '1340px',
+          padding: {xs:'12px', md:'24px'},
+          width: '100%',
           borderRadius: '24px',
           boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+          boxSizing: 'border-box',
           '& .ag-header-cell:last-child .ag-header-cell-label': {
             justifyContent: 'flex-start !important',
           },
@@ -291,7 +295,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
           onPageChange={handlePageChange}
         />
       </Box>
-    </>
+    </Box>
   );
 };
 

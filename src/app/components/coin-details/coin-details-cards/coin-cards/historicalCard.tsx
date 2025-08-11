@@ -196,12 +196,15 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
     </Box>
     <Box
       sx={{
-        padding: '6px 10px',
+        padding: {xs:'10px', md:'6px 10px'},
         background: 'rgba(114, 72, 247, 1)',
         display: 'flex',
-        justifyContent: 'space-between',
         borderRadius: '8px',
-        alignItems: 'center',
+        alignItems: {xs:'flex-start', md:'center'},
+        flexDirection: { xs: 'column', md: 'row' },
+        gap: { xs: '8px', md: '0px' },
+        textAlign: { xs: 'center', md: 'left' },
+        justifyContent: { xs: 'center', md: 'space-between' },
       }}
     >
       <Typography
@@ -212,7 +215,7 @@ const HistoricalCardContent = ({ coinDetails }: any) => (
           fontWeight: '700',
           letterSpacing: '1px',
           textTransform: 'uppercase',
-          maxWidth: '120px',
+          maxWidth: {xs:'100%', md:'120px'},
           lineHeight: '13px',
         }}
       >
@@ -301,11 +304,12 @@ const HistoricalCard = ({ coinDetails }: any) => {
         backgroundImage: "url('/images/nft/trending.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
-        maxWidth: '306px',
+        maxWidth: {xs:'100%', md:'330px', lg:'330px', xl:'330px'},
         width: '100%',
         boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
         borderRadius: '16px',
         position: 'relative',
+        boxSizing: 'border-box'
       }}
     >
       <style jsx global>{`

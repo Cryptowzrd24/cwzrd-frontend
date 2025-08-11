@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './index.module.css';
 import StockChart from '../stock-chart';
 import GraphCustomHeader from '../graph-custom-header';
 import { Box, Button } from '@mui/material';
@@ -63,7 +62,7 @@ function GraphLayout({ coinSymbol }: any) {
   };
 
   return (
-    <>
+    <Box sx={{ width: '100%', height: '100%', overflow: 'hidden' }}>
       <AnimatePresence>
         {isScriptReady && tradingViewClicked === 'open' && (
           <motion.div
@@ -90,12 +89,18 @@ function GraphLayout({ coinSymbol }: any) {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className={styles.graphLayout}>
+      <Box sx={{ width: '100%', height: '100%', overflow: 'hidden', backgroundColor: 'white',boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px', borderRadius: '24px' }}>
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            justifyContent: {xs:'center', md:'space-between'},
+            alignItems: {xs:'flex-start', md:'center'},
+            // flexDirection: {xs:'column', md:'row'},
+            gap: {xs:'16px', md:'24px'},
+            boxSizing: 'border-box',
+            width: '100%',
+            flexWrap: 'wrap',
+            padding: {xs:'16px', md:'10px'},
           }}
         >
           <GraphCustomHeader
@@ -135,6 +140,7 @@ function GraphLayout({ coinSymbol }: any) {
             setVolumeValue={setVolumeValue}
             handleFullScreen={handleFullScreen}
             selectedTab={selectedTab}
+            width={selectedTab === 'Market Cap' || selectedTab === 'Compare with' ? '100%' : '260px'}
           />
         </Box>
         <StockChart
@@ -155,8 +161,8 @@ function GraphLayout({ coinSymbol }: any) {
             setIsScriptReady(true);
           }}
         />
-      </div>
-    </>
+      </Box>
+    </Box>
   );
 }
 

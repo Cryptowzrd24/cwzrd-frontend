@@ -34,8 +34,9 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
         padding: '8px',
         maxWidth: '310px',
         width: '100%',
-        marginRight: '10px',
+        margin: '0 auto',
         boxShadow: '0px 4px 6px 0px #00000005',
+        boxSizing: 'border-box',
       }}
     >
       <div

@@ -20,7 +20,7 @@ const TechnicalCardContent: React.FC = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: isMobile ? 1 : isTablet ? 2 : 4,
+    slidesToShow:1,
     slidesToScroll: isMobile ? 1 : isTablet ? 2 : 4,
     arrows: false,
     afterChange: (current: any) => setCurrentSlide(current),
@@ -42,7 +42,7 @@ const TechnicalCardContent: React.FC = () => {
   );
 
   return (
-    <Box style={{ position: 'relative', width: '100%' }}>
+    <Box style={{ position: 'relative', width: '100%' , backgroundColor: 'red'}}>
       <Slider className="technicals-slick" ref={sliderRef} {...settings}>
         {TechnicalCardData.map((card) => (
           <TechnicalCard
@@ -62,13 +62,13 @@ const TechnicalCardContent: React.FC = () => {
       <Box
         sx={{
           position: 'absolute',
-          bottom: '-70px',
+          bottom: '-60px',
           transform: 'translateX(-50%)',
           display: 'flex',
           justifyContent: 'space-between',
           width: '48px',
           gap: '8px',
-          right: '2%',
+          right: '4%',
 
           '@media (max-width: 576px)': {
             transform: 'translateX(-100%)',

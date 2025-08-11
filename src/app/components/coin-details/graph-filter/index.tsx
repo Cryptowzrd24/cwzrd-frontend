@@ -15,6 +15,7 @@ interface GraphFilterProps {
   setVolumeValue: (val: string) => void;
   handleFullScreen: () => void;
   selectedTab?: string;
+  width?: string;
 }
 
 const stylesPage = {
@@ -53,6 +54,7 @@ function GraphFilter({
   setVolumeValue,
   handleFullScreen,
   selectedTab,
+  width,
 }: GraphFilterProps) {
   const volumes = ['1D', '7D', '1M', '1Y', 'ALL'];
   const getSelectClass = (value: any) => {
@@ -72,6 +74,7 @@ function GraphFilter({
   return (
     <div
       style={{
+        width:width||'261px',
         justifyContent: isSelectedTabMarket ? 'space-evenly' : 'flex-start',
       }}
       className={styles.graphCustomHeader}

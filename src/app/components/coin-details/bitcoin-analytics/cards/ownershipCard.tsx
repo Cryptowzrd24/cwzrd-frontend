@@ -2441,9 +2441,17 @@ Holders:
           <Image src={infoIcon} alt="" className="info-icon" />
         </Tooltip>
       </Box>
-      <Box sx={{ display: 'flex', gap: '56px', alignItems: 'center' }}>
+      <Box sx={{ 
+        display: 'flex', 
+        alignItems: 'center',
+        flexDirection:'row' ,
+        gap: { xs: '20px', md: '56px' },
+        textAlign: { xs: 'center', md: 'left' },
+        justifyContent: { xs: 'flex-start', md: 'flex-end' },
+        flexWrap: 'wrap',
+       }}>
         {/* Legend for Holders */}
-        <Stack>
+        <Stack sx={{minWidth:'130px'}}>
           <Box sx={{ display: 'flex', gap: '8px', alignItems: 'baseline' }}>
             <Box
               sx={{
@@ -2482,7 +2490,7 @@ Holders:
           </Box>
         </Stack>
         {/* Legend for Traders */}
-        <Stack>
+        <Stack sx={{minWidth:'130px'}}>
           <Box sx={{ display: 'flex', gap: '8px', alignItems: 'baseline' }}>
             <Box
               sx={{
@@ -2521,7 +2529,7 @@ Holders:
           </Box>
         </Stack>
         {/* Legend for Holders */}
-        <Stack>
+        <Stack sx={{minWidth:'130px'}}>
           <Box sx={{ display: 'flex', gap: '8px', alignItems: 'baseline' }}>
             <Box
               sx={{

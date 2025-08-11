@@ -7,7 +7,7 @@ import TransactionCard from './transactionCard';
 
 const BitcoinCard = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, width: '100%' }}>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <PossessionCard />
