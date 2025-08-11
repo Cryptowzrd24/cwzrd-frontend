@@ -12,8 +12,8 @@ const Check = () => {
         borderRadius: '100px 100px 0px 100px',
         background: '#22C833',
         position: 'absolute',
-        right: '45px',
-        bottom: '295px',
+        right: {xs:'10px',lg:'45px'},
+        bottom: '100px',
       }}
     >
       <svg

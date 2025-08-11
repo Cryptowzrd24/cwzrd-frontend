@@ -197,6 +197,7 @@ const GraphCard = (props: IMarketCapCardProps) => {
         rowGap: '5px',
         justifyContent: 'center',
         flexDirection: 'column',
+        backgroundColor: 'white',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
       }}
     >

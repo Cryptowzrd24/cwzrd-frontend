@@ -8,11 +8,12 @@ const CryptoArticle = () => {
   return (
     <Box
       sx={{
-        pt: '30px',
-        mb: '30px',
+        width:"100%",
         display: 'flex',
         gap: '24px',
         flexDirection: 'column',
+        boxSizing:'border-box',
+        padding: {xs:'0px',lg:'12px'},
       }}
     >
       <Box>
@@ -26,10 +27,10 @@ const CryptoArticle = () => {
         >
           <Typography
             sx={{
-              fontSize: '24px',
+              fontSize: {xs:'16px',sm:'18px',md:'20px',lg:'24px'},
               fontWeight: '700',
               lineHeight: '120%',
-              letterSpacing: '0.24px',
+              letterSpacing: {xs:'0.16px',sm:'0.18px',md:'0.20px',lg:'0.24px'},
             }}
           >
             <span
@@ -58,8 +59,8 @@ const CryptoArticle = () => {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 fontWeight: '600',
-                fontSize: '14px',
-                lineHeight: '18.2px',
+                fontSize: {xs:'12px',sm:'14px',md:'16px',lg:'18px'},
+                lineHeight: {xs:'16px',sm:'18px',md:'20px',lg:'22px'},
               }}
               variant="body2"
               right={1}
@@ -68,10 +69,10 @@ const CryptoArticle = () => {
             </Typography>
             <Box
               sx={{
-                ml: '10px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                ml: {xs:'6px',sm:'8px',md:'10px',lg:'12px'},
               }}
             >
               <ReadMoreIcon isMainPage />
@@ -81,10 +82,10 @@ const CryptoArticle = () => {
         <Typography
           sx={{
             color: 'rgba(17, 17, 17, 0.80)',
-            fontSize: '20px',
             fontWeight: '400',
             lineHeight: '150%',
-            letterSpacing: '-0.2px',
+            fontSize: {xs:'14px',sm:'16px',md:'18px',lg:'20px'},
+            letterSpacing: {xs:'-0.14px',sm:'-0.16px',md:'-0.18px',lg:'-0.20px'},
           }}
         >
           the overall market capitalization of the crypto market is{' '}
@@ -96,13 +97,16 @@ const CryptoArticle = () => {
       </Box>
       <Box
         sx={{
-          padding: '12px',
           display: 'flex',
-          gap: '9px',
-          border: '0.5px solid #FFF',
-          borderRadius: '20px',
-          background: 'rgba(255,255,255,0.40)',
-          backdropFilter: 'blur(8px)',
+          border: {xs:'none',lg:'0.5px solid #FFF'},
+          background: {xs:'transparent',lg:'rgba(255,255,255,0.40)'},
+          backdropFilter: {xs:'none',lg:'blur(8px)'},
+          flexDirection: {xs:'column',sm:'column',md:'row',lg:'row'},
+          gap: {xs:'8px',sm:'10px',md:'12px',lg:'14px',xl:'16px'},
+          borderRadius: {xs:'12px',sm:'14px',md:'16px',lg:'20px',xl:'24px'},
+          padding: {xs:"0px",md:'12px',lg:'14px',xl:'16px'},
+          width:'100%',
+          boxSizing:'border-box',
         }}
       >
         <InfoCard />

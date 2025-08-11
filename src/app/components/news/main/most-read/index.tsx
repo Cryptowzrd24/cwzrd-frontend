@@ -12,9 +12,10 @@ function MostRead({
   isMainPage?: boolean;
 }) {
   const renderCard = [1, 2, 3, 4, 5, 6, 7].map((cardId, index) => {
-    return <MostReadCard key={cardId} countNumber={index} />;
+    return <MostReadCard isFirstCard={index === 0} isMainPage={isMainPage} key={cardId} />;
   });
   const isTabView = useMediaQuery('(max-width: 978px)');
+  
   return (
     <Box
       sx={{
@@ -24,26 +25,31 @@ function MostRead({
         background: 'rgba(255, 255, 255, 1)',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
         padding: isMainPage ? '0px' : '18px 12px 24px 12px',
-        display: 'flex',
-        flexDirection: 'column',
+        display: isMainPage ? 'flex' : 'block',
+        flexDirection: isMainPage ? 'column' : 'unset',
+        overflow: isMainPage ? 'hidden' : 'auto', // Only apply flex layout for main page
+        scrollbarWidth: isMainPage ? 'none' : 'auto',
 
         '@media (max-width: 1380px)': {
           width: 'auto',
         },
       }}
     >
+      {/* Header - Sticky only for main page */}
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: isTabView ? 'space-evenly' : 'center',
           gap: '15px',
-          padding: isMainPage ? '12px 0px 0px' : '0px',
-          position: 'sticky',
-          top: 0,
+          padding: isMainPage ? '12px 12px 8px 12px' : '0px',
+          background: isMainPage ? 'rgba(255, 255, 255, 1)' : 'transparent',
+          borderBottom: isMainPage ? '1px solid rgba(17, 17, 17, 0.1)' : 'none',
+          position: isMainPage ? 'sticky' : 'static',
+          top: isMainPage ? 0 : 'unset',
+          zIndex: isMainPage ? 1 : 'auto',
+          flexShrink: isMainPage ? 0 : 'unset',
           backgroundColor: 'rgba(255, 255, 255, 1)',
-          zIndex: 1,
-          borderBottom: isMainPage ? '1px solid rgba(0, 0, 0, 0.1)' : 'none',
         }}
       >
         <Box>
@@ -84,24 +90,30 @@ function MostRead({
           </Typography>
         </Box>
       </Box>
-      <Divider
-        flexItem
-        sx={{
-          height: '11px',
-          marginTop: '2px',
-          borderColor: 'rgba(17, 17, 17, 0.1)',
-        }}
-      />
-      <Box
-        sx={{
-          flex: 1,
-          overflow: 'auto',
-          scrollbarWidth: 'none',
-          padding: isMainPage ? '0px' : '0px',
-        }}
-      >
-        {renderCard}
-      </Box>
+      
+      {/* Content - Scrollable only for main page */}
+      {isMainPage ? (
+        <Box
+          sx={{
+            flex: 1,
+            overflow: 'auto',
+            scrollbarWidth: 'none',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+            '&::-webkit-scrollbar-track': {
+              display: 'none',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              display: 'none',
+            },
+          }}
+        >
+          {renderCard}
+        </Box>
+      ) : (
+        renderCard
+      )}
     </Box>
   );
 }

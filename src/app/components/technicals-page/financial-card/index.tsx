@@ -45,11 +45,11 @@ function FinancialCard({
 
         return {
           ...baseStyles,
-          ...(isMainPage && { width: '217px' }),
+          // ...(isMainPage && { width: '217px' }),
         };
       }}
     >
-      <Box>
+      <Box sx={{boxSizing:'border-box'}}>
         <Box sx={{ display: 'flex', position: 'absolute' }}>
           <Box
             sx={{

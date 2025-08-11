@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import ChevronRightHead from '../../../../public/icons/chevronRightHead';
 
-const MainMembershipBanner = () => {
+const MainMembershipBanner = ({ isMainPage = false }: { isMainPage?: boolean }) => {
   return (
     <Box
       sx={{
@@ -18,6 +18,20 @@ const MainMembershipBanner = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         gap: '16px',
+        '@media (max-width: 1024px)': {
+          height: isMainPage ? '80px' : '100px',
+          padding: isMainPage ? '12px 20px' : '16px 24px',
+        },
+        '@media (max-width: 768px)': {
+          height: isMainPage ? '70px' : '100px',
+          padding: isMainPage ? '10px 16px' : '16px 24px',
+          gap: isMainPage ? '12px' : '16px',
+        },
+        '@media (max-width: 576px)': {
+          height: isMainPage ? '60px' : '100px',
+          padding: isMainPage ? '8px 12px' : '16px 24px',
+          gap: isMainPage ? '8px' : '16px',
+        },
       }}
     >
       <Box sx={{ flex: 1 }}>
@@ -30,6 +44,14 @@ const MainMembershipBanner = () => {
             letterSpacing: '1.4px',
             textTransform: 'uppercase',
             mb: '8px',
+            '@media (max-width: 768px)': {
+              fontSize: isMainPage ? '12px' : '14px',
+              mb: isMainPage ? '4px' : '8px',
+            },
+            '@media (max-width: 576px)': {
+              fontSize: isMainPage ? '10px' : '14px',
+              mb: isMainPage ? '2px' : '8px',
+            },
           }}
         >
           Benefit of Membership
@@ -45,6 +67,15 @@ const MainMembershipBanner = () => {
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
+            '@media (max-width: 1024px)': {
+              fontSize: isMainPage ? '20px' : '24px',
+            },
+            '@media (max-width: 768px)': {
+              fontSize: isMainPage ? '16px' : '24px',
+            },
+            '@media (max-width: 576px)': {
+              fontSize: isMainPage ? '14px' : '24px',
+            },
           }}
         >
           Explore Benefits of Wizard Membership
@@ -64,6 +95,12 @@ const MainMembershipBanner = () => {
             '&:hover': {
               background: '#F0F0F0',
             },
+            '@media (max-width: 768px)': {
+              padding: isMainPage ? '6px 12px' : '8px 16px',
+            },
+            '@media (max-width: 576px)': {
+              padding: isMainPage ? '4px 8px' : '8px 16px',
+            },
           }}
         >
           <Typography
@@ -72,6 +109,12 @@ const MainMembershipBanner = () => {
               fontSize: '18px',
               fontWeight: '500',
               lineHeight: '130%',
+              '@media (max-width: 768px)': {
+                fontSize: isMainPage ? '14px' : '18px',
+              },
+              '@media (max-width: 576px)': {
+                fontSize: isMainPage ? '12px' : '18px',
+              },
             }}
           >
             Get Started

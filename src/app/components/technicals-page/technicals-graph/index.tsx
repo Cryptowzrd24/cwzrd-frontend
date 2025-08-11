@@ -26,28 +26,26 @@ function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
     }
   };
   return (
-    <>
+    <Box sx={{ width: '100%' }}>
       <Box
         sx={{
           width: '100%',
-          height: '400px',
+          height: {lg:'400px',xs:'auto'},
         }}
       >
-        <Box>
-          <Graph
-            data={areachartData}
-            color={getGraphColor(20)}
-            percent={true}
-            fill="transparent"
-            isMainPage={isMainPage}
-          />
-        </Box>
+        <Graph
+          data={areachartData}
+          color={getGraphColor(20)}
+          percent={true}
+          fill="transparent"
+          isMainPage={isMainPage}
+        />
       </Box>
       <Box
         sx={{
           position: 'relative',
           top: isSmallScreen ? '-480px' : '-400px',
-          left: isMainPage ? '79%' : isSmallScreen ? '20px' : '50px',
+          left: isSmallScreen ? '20px' : '50px',
           width: 'fit-content',
         }}
       >
@@ -59,7 +57,7 @@ function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
           handleFullScreen={handleFullScreen}
         />
       </Box>
-    </>
+    </Box>
   );
 }
 

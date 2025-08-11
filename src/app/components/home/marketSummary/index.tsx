@@ -11,8 +11,6 @@ const MarketSummary = () => {
     <Box
       sx={{
         width: '100%',
-        mt: '90px',
-        mb: '30px',
         display: 'flex',
         flexDirection: 'column',
         gap: '32px',
@@ -23,10 +21,10 @@ const MarketSummary = () => {
         <Typography
           sx={{
             color: '#111',
-            fontSize: '36px',
+            fontSize: { lg: '36px', md: '32px', sm: '28px', xs: '24px' },
             fontWeight: '700',
             lineHeight: '120%',
-            letterSpacing: '0.36px',
+            letterSpacing: { lg: '0.36px', md: '0.32px', sm: '0.28px', xs: '0.24px' },
           }}
         >
           <span
@@ -45,10 +43,10 @@ const MarketSummary = () => {
         <Typography
           sx={{
             color: 'rgba(17,17,17,0.80)',
-            fontSize: '16px',
+            fontSize: { lg: '16px', md: '14px', sm: '12px', xs: '10px' },
             fontWeight: '400',
             lineHeight: '150%',
-            letterSpacing: '-0.16px',
+            letterSpacing: { lg: '-0.16px', md: '-0.14px', sm: '-0.12px', xs: '-0.10px' },
           }}
         >
           The overall market capitalization of the crypto market is{' '}
@@ -59,21 +57,31 @@ const MarketSummary = () => {
         </Typography>
       </Box>
       {/* Charts */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px',width:'100%' }}>
         <StatsContainer isMainPage />
+        <Box sx={{
+          width: {xs:'100%',sm:'100%',md:'100%',lg:'100%',xl:'100%'},
+          boxSizing:'border-box',
+          overflow:'hidden'
+        }}>
         <TechnicalsBanner
           bgColor="blue"
           coinName="Etherium"
           coinImg={bitcoinImg}
-          width="auto"
+          width="100%"
           borderRadius="16px"
-        />
-        <Box>
+          isMainPage
+          />
+          </Box>
+        <Box sx={{
+          overflow: 'hidden',
+          width: '100%'
+        }}>
           <TechnicalsGraph isMainPage={true} />
         </Box>
       </Box>
       {/* Slider */}
-      <Box sx={{ marginTop: '-32px', height: '60px' }}>
+      <Box sx={{ marginTop: '-32px', width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <CryptoSlider />
       </Box>
     </Box>

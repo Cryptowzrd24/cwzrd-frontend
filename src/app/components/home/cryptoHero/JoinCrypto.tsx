@@ -3,7 +3,7 @@ import React from 'react';
 import ChevronRightHead from '../../../../../public/icons/chevronRightHead';
 import Image from 'next/image';
 
-const JoinCrypto = () => {
+const JoinCrypto = ({ isMainPage = false }: { isMainPage?: boolean }) => {
   return (
     <Box
       sx={{
@@ -21,6 +21,18 @@ const JoinCrypto = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
+        '@media (max-width: 1024px)': {
+          height: isMainPage ? '280px' : '335px',
+          padding: isMainPage ? '20px' : '24px',
+        },
+        '@media (max-width: 768px)': {
+          height: isMainPage ? '240px' : '335px',
+          padding: isMainPage ? '16px' : '24px',
+        },
+        '@media (max-width: 576px)': {
+          height: isMainPage ? '200px' : '335px',
+          padding: isMainPage ? '12px' : '24px',
+        },
       }}
     >
       <Box
@@ -50,6 +62,12 @@ const JoinCrypto = () => {
             letterSpacing: '1.4px',
             color: '#FFF',
             textTransform: 'uppercase',
+            '@media (max-width: 768px)': {
+              fontSize: isMainPage ? '12px' : '14px',
+            },
+            '@media (max-width: 576px)': {
+              fontSize: isMainPage ? '10px' : '14px',
+            },
           }}
         >
           ⭐️ Membership
@@ -61,6 +79,15 @@ const JoinCrypto = () => {
             fontWeight: '600',
             lineHeight: '130%',
             letterSpacing: '0.48px',
+            '@media (max-width: 1024px)': {
+              fontSize: isMainPage ? '20px' : '24px',
+            },
+            '@media (max-width: 768px)': {
+              fontSize: isMainPage ? '16px' : '24px',
+            },
+            '@media (max-width: 576px)': {
+              fontSize: isMainPage ? '14px' : '24px',
+            },
           }}
         >
           Join the Cryptowzrd Community today!
@@ -71,6 +98,12 @@ const JoinCrypto = () => {
             fontSize: '14px',
             fontWeight: '400',
             lineHeight: '150%',
+            '@media (max-width: 768px)': {
+              fontSize: isMainPage ? '12px' : '14px',
+            },
+            '@media (max-width: 576px)': {
+              fontSize: isMainPage ? '10px' : '14px',
+            },
           }}
         >
           Access detailed daily analysis on the forex markets. Whether you're a
@@ -93,6 +126,12 @@ const JoinCrypto = () => {
             '&:hover': {
               backgroundColor: '#F0F0F0',
             },
+            '@media (max-width: 768px)': {
+              padding: isMainPage ? '8px 16px' : '12px 24px',
+            },
+            '@media (max-width: 576px)': {
+              padding: isMainPage ? '6px 12px' : '12px 24px',
+            },
           }}
           onClick={() => {
             alert('working');
@@ -104,6 +143,12 @@ const JoinCrypto = () => {
               fontSize: '18px',
               fontWeight: '500',
               lineHeight: '130%',
+              '@media (max-width: 768px)': {
+                fontSize: isMainPage ? '14px' : '18px',
+              },
+              '@media (max-width: 576px)': {
+                fontSize: isMainPage ? '12px' : '18px',
+              },
             }}
           >
             Get Started

@@ -344,6 +344,7 @@ interface TechnicalsBannerProps {
   isFxPage?: boolean;
   width?: string;
   borderRadius?: string;
+  isMainPage?:boolean
 }
 
 function TechnicalsBanner({
@@ -351,8 +352,9 @@ function TechnicalsBanner({
   coinName,
   coinImg,
   isFxPage,
-  width,
+  width = 'auto',
   borderRadius,
+  isMainPage
 }: TechnicalsBannerProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -381,9 +383,9 @@ function TechnicalsBanner({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        width: width || 'auto',
+        width: width,
         padding: '20px 16px',
-
+        boxSizing:'border-box',
         '@media (max-width: 1120px)': {
           flexDirection: 'column',
           alignItems: 'flex-start',
@@ -784,7 +786,7 @@ function TechnicalsBanner({
       <Box
         sx={{
           display: 'flex',
-          gap: '146px',
+          gap: isMainPage?'26px':'146px',
           '@media (max-width:1230px)': { gap: '32px' },
           '@media (max-width: 786px)': {
             flexDirection: 'column',

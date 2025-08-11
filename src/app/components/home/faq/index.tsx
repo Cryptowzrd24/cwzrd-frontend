@@ -33,6 +33,22 @@ const FAQ = () => {
           maxWidth: '972px',
           display: 'flex',
           justifyContent: 'space-between',
+          '@media (max-width: 1024px)': {
+            my: '60px',
+            flexDirection: 'column',
+            gap: '32px',
+            padding: '0 40px',
+          },
+          '@media (max-width: 768px)': {
+            my: '40px',
+            gap: '24px',
+            padding: '0 24px',
+          },
+          '@media (max-width: 576px)': {
+            my: '32px',
+            gap: '20px',
+            padding: '0 16px',
+          },
         }}
       >
         <Box
@@ -41,6 +57,18 @@ const FAQ = () => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
+            '@media (max-width: 1024px)': {
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: '24px',
+            },
+            '@media (max-width: 768px)': {
+              flexDirection: 'column',
+              gap: '16px',
+            },
+            '@media (max-width: 576px)': {
+              gap: '12px',
+            },
           }}
         >
           {/* Text */}
@@ -52,6 +80,14 @@ const FAQ = () => {
                 fontWeight: '500',
                 lineHeight: '130%',
                 letterSpacing: '1.4px',
+                '@media (max-width: 768px)': {
+                  fontSize: '12px',
+                  letterSpacing: '1.2px',
+                },
+                '@media (max-width: 576px)': {
+                  fontSize: '10px',
+                  letterSpacing: '1px',
+                },
               }}
             >
               EFFORTLESS TRADING
@@ -64,13 +100,41 @@ const FAQ = () => {
                 lineHeight: '120%',
                 letterSpacing: '0.32px',
                 maxWidth: '374px',
+                '@media (max-width: 1024px)': {
+                  fontSize: '28px',
+                  letterSpacing: '0.28px',
+                  maxWidth: '100%',
+                },
+                '@media (max-width: 768px)': {
+                  fontSize: '24px',
+                  letterSpacing: '0.24px',
+                },
+                '@media (max-width: 576px)': {
+                  fontSize: '20px',
+                  letterSpacing: '0.20px',
+                },
               }}
             >
               Frequently Asked Questions
             </Typography>
           </Box>
           {/* Image */}
-          <Box sx={{ height: '374px', width: '374px' }}>
+          <Box sx={{ 
+            height: '374px', 
+            width: '374px',
+            '@media (max-width: 1024px)': {
+              height: '300px',
+              width: '300px',
+            },
+            '@media (max-width: 768px)': {
+              height: '250px',
+              width: '250px',
+            },
+            '@media (max-width: 576px)': {
+              height: '200px',
+              width: '200px',
+            },
+          }}>
             <Image
               src={EmojiStart}
               alt=""
@@ -84,6 +148,15 @@ const FAQ = () => {
             display: 'flex',
             flexDirection: 'column',
             gap: '16px',
+            '@media (max-width: 1024px)': {
+              gap: '12px',
+            },
+            '@media (max-width: 768px)': {
+              gap: '8px',
+            },
+            '@media (max-width: 576px)': {
+              gap: '6px',
+            },
           }}
         >
           <AccordionQuestion
