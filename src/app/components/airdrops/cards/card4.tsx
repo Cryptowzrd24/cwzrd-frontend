@@ -8,14 +8,15 @@ const Card4 = () => {
       sx={{
         padding: '16px 16px 32px 16px',
         borderRadius: '16px',
-        maxWidth: '300px',
-        width: '100%',
+        boxSizing: 'border-box',
+        // maxWidth: '300px',
+        width: '22%',
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         cursor: 'pointer',
         background: '#0e0e0e',
         height: 'auto',
         backgroundImage: `url('/images/airdrops/7.png')`,
-        backgroundSize: '125%',
+        backgroundSize: '150%',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       }}

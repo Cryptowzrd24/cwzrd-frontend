@@ -5,6 +5,7 @@ import React from 'react';
 import Card1 from '../common/card1.component';
 import GaugeChart from '../common/guage-chart';
 import btc from '@/app/assets/images/btc.png';
+import GaugeChartWrapper from '../common/GaugeChartWrapper';
 
 function HeroContent() {
   return (
@@ -43,99 +44,111 @@ function HeroContent() {
           transition={{ duration: 0.2 }}
         >
           <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              gap: '10px',
-              alignItems: 'center',
-              maxWidth: '100%',
-              justifyContent: 'space-between',
-              marginBottom: '20px',
-            }}
+            sx={{ overflow: 'auto', marginBottom: { xs: '10px', lg: '20px' } }}
           >
-            <Card1
-              type="percent"
-              heading="⭐️ Trending"
-              items={[
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: 29.32,
-                },
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: 29.32,
-                },
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: -0.12,
-                },
-              ]}
-            />
-            <Card1
-              type="visited"
-              heading="👁️ Most Visited"
-              items={[
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  count: 1900,
-                },
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  count: 500,
-                },
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  count: 2600,
-                },
-              ]}
-            />
-
-            <Card1
-              type="percent"
-              heading="🚀 Top Gain"
-              items={[
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: 29.32,
-                },
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: 29.32,
-                },
-                {
-                  medal: '🥇',
-                  image: btc,
-                  text1: 'Bitcoin',
-                  text2: 'BTC',
-                  percent: 0.12,
-                },
-              ]}
-            />
-            <GaugeChart />
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                width: '99.5%',
+                gap: '10px',
+                height: { xs: '155px', lg: '190px' },
+                alignItems: 'center',
+                maxWidth: '100%',
+                justifyContent: 'space-between',
+              }}
+            >
+              <Box sx={{ width: '24%', minWidth: '190px' }}>
+                <Card1
+                  type="percent"
+                  heading="⭐️ Trending"
+                  items={[
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      percent: 29.32,
+                    },
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      percent: 29.32,
+                    },
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      percent: -0.12,
+                    },
+                  ]}
+                />
+              </Box>
+              <Box sx={{ width: '24%', minWidth: '200px' }}>
+                <Card1
+                  type="visited"
+                  heading="👁️ Most Visited"
+                  items={[
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      count: 1900,
+                    },
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      count: 500,
+                    },
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      count: 2600,
+                    },
+                  ]}
+                />
+              </Box>
+              <Box sx={{ width: '24%', minWidth: '200px' }}>
+                <Card1
+                  type="percent"
+                  heading="🚀 Top Gain"
+                  items={[
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      percent: 29.32,
+                    },
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      percent: 29.32,
+                    },
+                    {
+                      medal: '🥇',
+                      image: btc,
+                      text1: 'Bitcoin',
+                      text2: 'BTC',
+                      percent: 0.12,
+                    },
+                  ]}
+                />
+              </Box>
+              <GaugeChartWrapper>
+                <GaugeChart />
+              </GaugeChartWrapper>
+            </Box>
           </Box>
         </motion.div>
       </AnimatePresence>
