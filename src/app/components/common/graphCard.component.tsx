@@ -212,6 +212,7 @@ const GraphCard = (props: IMarketCapCardProps) => {
         justifyContent: 'center',
         flexDirection: 'column',
         boxShadow: '0 0 10px 0 #ccc',
+        backgroundColor: 'white',
       }}
     >
       <CardHeader heading={heading} />
