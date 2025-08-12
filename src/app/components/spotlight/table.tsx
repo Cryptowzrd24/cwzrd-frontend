@@ -19,6 +19,7 @@ import useColumnCompactMostVisitedDefs from '@/app/hooks/data-grid/column-defina
 import { Pagination } from '@/app/components/data-table/pagination';
 import { useFetchSpotlightDataQuery } from '@/app/redux/reducers/data-grid';
 import { scrollToTop } from '@/utils/scroll-to-top';
+import { Box } from '@mui/material';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -173,8 +174,8 @@ const Table = () => {
         setPagination={handlePageSizeChange}
         pageSize={pageSize}
       />
-      <div
-        style={{
+      <Box
+        sx={{
           display: 'flex',
           gap: '72px',
           borderTop: '1px solid #1111111A',
@@ -182,71 +183,89 @@ const Table = () => {
           flexDirection: 'column',
         }}
       >
-        <div
-          style={{
+        <Box
+          sx={{
             display: 'flex',
             gap: '24px',
-            // width: '100%',
+            width: '100%',
+            flexDirection: { xs: 'column', sm: 'row' },
+            flexWrap: { xs: 'wrap' },
           }}
         >
-          <DataTable
-            search={search}
-            title={'Trending'}
-            rowData={spotlightData.trending}
-            columnDefs={columnTrendingDef}
-            width="33%"
-            seeMore={'/market/trending'}
-          />
-          <DataTable
-            search={search}
-            title={'Biggest Gainers'}
-            rowData={spotlightData.top_gainers}
-            columnDefs={columnGainersDef}
-            width="33%"
-            seeMore={'/market/gainers-losers'}
-          />
-          <DataTable
-            search={search}
-            title={'Biggest Losers'}
-            rowData={spotlightData.top_losers}
-            columnDefs={columnLosersDef}
-            width="33%"
-            seeMore={'/market/gainers-losers'}
-          />
-        </div>
-        <div
-          style={{
+          <Box sx={{ width: { xs: '100%', sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+            <DataTable
+              search={search}
+              title={'Trending'}
+              rowData={spotlightData.trending}
+              columnDefs={columnTrendingDef}
+              width="100%"
+              seeMore={'/market/trending'}
+            />
+          </Box>
+
+          <Box sx={{ width: { xs: '100%',sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+            <DataTable
+              search={search}
+              title={'Biggest Gainers'}
+              rowData={spotlightData.top_gainers}
+              columnDefs={columnGainersDef}
+              width="100%"
+              seeMore={'/market/gainers-losers'}
+            />
+          </Box>
+
+          <Box sx={{ width: { xs: '100%',sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+            <DataTable
+              search={search}
+              title={'Biggest Losers'}
+              rowData={spotlightData.top_losers}
+              columnDefs={columnLosersDef}
+              width="100%"
+              seeMore={'/market/gainers-losers'}
+            />
+          </Box>
+        {/* </Box>
+        <Box
+          sx={{
             display: 'flex',
             gap: '24px',
             width: '100%',
           }}
-        >
-          <DataTable
-            search={search}
-            title={'Most Visited'}
-            rowData={spotlightData.most_visited}
-            columnDefs={columnMostVisitedDefs}
-            width="33%"
-            seeMore={'/market/most-visited'}
-          />
-          <DataTable
-            search={search}
-            title={'Recently Added'}
-            rowData={spotlightData.recently_added}
-            columnDefs={columnRecentlyAddedDef}
-            width="33%"
-            seeMore={'/market/new-coin'}
-          />
-          <DataTable
-            search={search}
-            title={'Highest Volume'}
-            rowData={spotlightData.highest_volume}
-            columnDefs={columnHighestVolumeDef}
-            width="33%"
-            seeMore={'/market/highest-volume'}
-          />
-        </div>
-      </div>
+        > */}
+          <Box sx={{ width: { xs: '100%',sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+            <DataTable
+              search={search}
+              title={'Most Visited'}
+              rowData={spotlightData.most_visited}
+              columnDefs={columnMostVisitedDefs}
+              width="100%"
+              seeMore={'/market/most-visited'}
+            />
+          </Box>
+
+          <Box sx={{ width: { xs: '100%',sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+            <DataTable
+              search={search}
+              title={'Recently Added'}
+              rowData={spotlightData.recently_added}
+              columnDefs={columnRecentlyAddedDef}
+              width="100%"
+              seeMore={'/market/new-coin'}
+            />
+          </Box>
+
+          <Box sx={{ width: { xs: '100%',sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+            <DataTable
+              search={search}
+              title={'Highest Volume'}
+              rowData={spotlightData.highest_volume}
+              columnDefs={columnHighestVolumeDef}
+              width="100%"
+              seeMore={'/market/highest-volume'}
+            />
+          </Box>
+        </Box>
+      </Box>
       <Pagination
         length={data?.count}
         pageSize={pageSize}
