@@ -71,10 +71,15 @@ const CollectionBanner = () => {
                   backgroundSize: 'cover',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center center',
-                  padding: '52px 48px 52px 100px',
+                  padding: { xs: '30px 60px', md: '52px 48px 52px 100px' },
                   display: 'flex',
+                  gap: '10px',
+                  flexDirection: {
+                    xs: 'column',
+                    lg: 'row',
+                  },
                   justifyContent: 'space-between',
-                  alignItems: 'end',
+                  alignItems: { xs: 'start', lg: 'end' },
                   position: 'relative',
                   borderRadius: '24px',
                 }}

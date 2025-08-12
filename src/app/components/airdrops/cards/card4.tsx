@@ -10,13 +10,13 @@ const Card4 = () => {
         borderRadius: '16px',
         boxSizing: 'border-box',
         // maxWidth: '300px',
-        width: '22%',
+        width: { xs: '100%', sm: '49%', md: '24%' },
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         cursor: 'pointer',
         background: '#0e0e0e',
         height: 'auto',
         backgroundImage: `url('/images/airdrops/7.png')`,
-        backgroundSize: '150%',
+        backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       }}
@@ -26,14 +26,13 @@ const Card4 = () => {
           padding: '8px 12px',
           borderRadius: '24px',
           background: 'rgba(255, 255, 255, 1)',
-          maxWidth: '18%',
-          width: '100%',
+          width: 'fit-content',
           mb: '44px',
         }}
       >
         <Typography
           variant="body1"
-          sx={{ fontSize: '14px', fontWeight: '700' }}
+          sx={{ fontSize: '14px !important', fontWeight: '700' }}
         >
           STEP 4
         </Typography>
@@ -48,7 +47,7 @@ const Card4 = () => {
       >
         <Image src={img1} alt="card1" width={220} height={190} />
       </Box>
-      <Stack sx={{ textAlign: 'center' }}>
+      <Stack sx={{ textAlign: 'center', alignItems: 'center' }}>
         <Typography
           variant="body2"
           sx={{

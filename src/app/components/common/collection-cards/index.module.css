@@ -13,10 +13,24 @@
     0 1px 2px 0 rgba(88, 102, 126, 0.12);
 }
 
+@media (max-width: 1200px) {
+  .collectionCardWrapper {
+    padding: 10px;
+    height: 240px;
+  }
+}
+
 .cardHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 1200px) {
+  .cardHeader {
+    flex-direction: column;
+    align-items: self-start;
+  }
 }
 
 /* graph filter css */
@@ -29,6 +43,7 @@
   align-items: center;
   gap: 0px;
   background-color: #f3f3f3;
+  align-self: flex-end;
 }
 
 /* graph filter css */

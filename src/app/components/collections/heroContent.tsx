@@ -19,7 +19,19 @@ function HeroContent() {
       >
         MARKET CAP
       </Typography>
-      <Typography variant="h1" sx={{ maxWidth: '830px', width: '100%' }}>
+      <Typography
+        variant="h1"
+        sx={{
+          maxWidth: '830px',
+          width: '100%',
+          '@media (max-width: 576px)': {
+            fontSize: '24px !important',
+            fontWeight: '700 !important',
+            lineHeight: '120%',
+            letterSpacing: '0.24px',
+          },
+        }}
+      >
         Top NFT
         <span
           style={{
@@ -75,7 +87,11 @@ function HeroContent() {
               flexDirection: 'row',
               gap: '10px',
               alignItems: 'center',
-              justifyContent: 'center',
+              justifyContent: 'start',
+              // height: { xs: '300px', lg: '300px' },
+              height: 'auto',
+              overflow: 'auto',
+              overflowY: 'hidden',
               marginTop: '16px',
             }}
           >

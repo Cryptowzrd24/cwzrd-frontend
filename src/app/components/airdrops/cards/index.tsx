@@ -11,7 +11,7 @@ const Card = () => {
       <Box
         sx={{
           display: 'flex',
-          // gap: '10px',
+          gap: '10px',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
         }}

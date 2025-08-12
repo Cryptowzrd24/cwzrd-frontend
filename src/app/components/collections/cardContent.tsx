@@ -32,7 +32,7 @@ const CardContent = () => {
       </Box>
       <Grid container spacing={3}>
         {cardData.map((card) => (
-          <Grid item xs={6} sm={4} md={3} key={card.id}>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={card.id}>
             <Card {...card} />
           </Grid>
         ))}

@@ -33,7 +33,8 @@ const Card: React.FC<CardProps> = ({
         style={{
           padding: '16px 16px 16px 16px',
           borderRadius: '16px',
-
+          justifyContent: 'center',
+          display: 'flex',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 7px 29px 0px',
           cursor: 'pointer',
         }}
@@ -84,6 +85,7 @@ const Card: React.FC<CardProps> = ({
               background: 'rgba(17, 17, 17, 0.05)',
               display: 'flex',
               alignItems: 'center',
+
               // maxWidth: '293px',
               // width: '100%',
               gap: '48px',
@@ -97,7 +99,7 @@ const Card: React.FC<CardProps> = ({
               <Typography
                 variant="body2"
                 sx={{
-                  fontSize: '12px',
+                  fontSize: '12px !important',
                   fontWeight: '400',
                   color: 'rgba(17, 17, 17, 0.6)',
                 }}
@@ -106,7 +108,7 @@ const Card: React.FC<CardProps> = ({
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ fontSize: '14px', fontWeight: '700' }}
+                sx={{ fontSize: '14px  !important', fontWeight: '700' }}
               >
                 {statusAction}
               </Typography>
@@ -119,7 +121,7 @@ const Card: React.FC<CardProps> = ({
               <Typography
                 variant="body2"
                 sx={{
-                  fontSize: '12px',
+                  fontSize: '12px  !important',
                   fontWeight: '400',
                   color: 'rgba(17, 17, 17, 0.6)',
                 }}
@@ -128,7 +130,7 @@ const Card: React.FC<CardProps> = ({
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ fontSize: '14px', fontWeight: '700' }}
+                sx={{ fontSize: '14px  !important', fontWeight: '700' }}
               >
                 {amount}{' '}
               </Typography>
