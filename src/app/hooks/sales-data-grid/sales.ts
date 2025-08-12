@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 
 import ValueRenderer from './valueRenderer';
 import { DateAdded } from '@/app/components/data-table/date-component';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 
 const useColumnSalesDefs = (columns: any) => {
   return useMemo(() => {
@@ -14,14 +15,18 @@ const useColumnSalesDefs = (columns: any) => {
           return {
             field: 'index',
             headerName: '#',
-            width: 70,
+            pinned: 'left',
+            width: getResponsiveWidth(70, 70, 60),
+            cellClass: 'tight-cell',
           };
         case 'item':
           return {
             field: 'item',
             headerName: 'Items',
             cellRenderer: SalesItems,
-            width: 180,
+            pinned: 'left',
+            width: getResponsiveWidth(150, 120, 30 ),
+            cellClass: 'tight-cell',
           };
         case 'rarity':
           return {
