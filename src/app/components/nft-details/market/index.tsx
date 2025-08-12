@@ -89,7 +89,7 @@ const Market = ({ serverNftData }: any) => {
   }, [itemStart, active]);
 
   return (
-    <>
+    <Box sx={{ width: '100%' }}>
       <Typography
         variant="body1"
         sx={{
@@ -99,6 +99,7 @@ const Market = ({ serverNftData }: any) => {
           lineHeight: 1,
           letterSpacing: '2px',
           mb: '4px',
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
         MARKET
@@ -107,7 +108,9 @@ const Market = ({ serverNftData }: any) => {
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
+          alignItems: 'center' ,
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: '16px', md: '0px' },
         }}
       >
         <Box>
@@ -137,7 +140,6 @@ const Market = ({ serverNftData }: any) => {
             display: 'flex',
             gap: '8px',
             alignItems: 'center',
-            marginRight: '-45px',
           }}
         >
           <Box
@@ -221,10 +223,12 @@ const Market = ({ serverNftData }: any) => {
         sx={{
           mt: '16px',
           background: 'rgba(255, 255, 255, 1)',
-          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           width: '100%',
           borderRadius: '24px',
-          padding: '20px 24px 20px 24px',
+          padding: {xs:'12px', md:'20px', lg:'24px'},
+          overflow: 'hidden',
+          boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
+          boxSizing: 'border-box',
           '& .ag-header': {
             borderTop: 'none',
           },
@@ -248,7 +252,7 @@ const Market = ({ serverNftData }: any) => {
           onPageChange={handlePageChange}
         />
       </Box>
-    </>
+    </Box>
   );
 };
 

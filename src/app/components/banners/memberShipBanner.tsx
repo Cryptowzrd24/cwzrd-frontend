@@ -13,7 +13,7 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
     <Box
       className={styles.bannerBox2}
       style={
-        isNftDetail ? { width: '1290px' } : { width: '100%', margin: '0 auto' }
+        { width: '100%', margin: '0 auto' }
       }
     >
       <Box>

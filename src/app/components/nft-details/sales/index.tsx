@@ -65,7 +65,7 @@ const Sales = ({ serverNftData }: any) => {
   }, []);
 
   return (
-    <>
+    <Box sx={{ width: '100%' }}>
       <Typography
         variant="body1"
         sx={{
@@ -75,6 +75,7 @@ const Sales = ({ serverNftData }: any) => {
           lineHeight: 1,
           letterSpacing: '2px',
           mb: '4px',
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
         SALES
@@ -85,6 +86,8 @@ const Sales = ({ serverNftData }: any) => {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginRight: '-42px',
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: '16px', md: '0px' },
         }}
       >
         <Box>
@@ -94,6 +97,7 @@ const Sales = ({ serverNftData }: any) => {
               fontSize: '32px',
               fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
+              textAlign: { xs: 'center', md: 'left' },
             }}
           >
             {serverNftData?.name}{' '}
@@ -138,10 +142,12 @@ const Sales = ({ serverNftData }: any) => {
         sx={{
           mt: '16px',
           background: 'rgba(255, 255, 255, 1)',
-          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           width: '100%',
           borderRadius: '24px',
-          padding: '20px 24px 20px 24px',
+          padding: {xs:'12px', md:'20px', lg:'24px'},
+          overflow: 'hidden',
+          boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
+          boxSizing: 'border-box',
           '& .ag-header': {
             borderTop: 'none',
           },
@@ -163,7 +169,7 @@ const Sales = ({ serverNftData }: any) => {
         <Typography
           variant="body1"
           sx={{
-            width: '10%',
+            width: '120px',
             background: 'rgba(17, 17, 17, 0.05)',
             padding: '10px 12px 10px 16px',
             fontWeight: '600',
@@ -185,7 +191,7 @@ const Sales = ({ serverNftData }: any) => {
           <ArrowRightBlack />
         </Typography>
       </Box>
-    </>
+    </Box>
   );
 };
 

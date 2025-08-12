@@ -23,29 +23,32 @@ function GraphLayout({ coinSymbol }: any) {
   };
 
   return (
-    <>
-      <div
+      <Box
         style={{
-          width: '1010px',
-          height: '718px',
-          borderRadius: '24px',
-          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+          width: '100%',
+          height: '100%',
+          boxSizing: 'border-box',
         }}
       >
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center',
+            alignItems: { xs: 'center', lg: 'center' },
+            width: '100%',
+            padding: { xs: '12px', lg: '20px' },
+            flexDirection: { xs: 'column', md: 'row' },
+            boxSizing: 'border-box',
+            gap: { xs: '16px', lg: '0px' },
           }}
         >
           <Box
             sx={{
-              top: 20,
-              left: 20,
-              position: 'relative',
+              width: '100%',
               display: 'flex',
-              gap: '32px',
+              gap: { xs: '16px', lg: '32px' },
+              flexDirection: { xs: 'column', lg: 'row' },
+              boxSizing: 'border-box',
             }}
           >
             <Typography
@@ -53,11 +56,13 @@ function GraphLayout({ coinSymbol }: any) {
                 fontWeight: 700,
                 fontSize: '24px',
                 color: 'rgba(17, 17, 17, 1)',
+                textAlign: { xs: 'center', md: 'left' },
+                boxSizing: 'border-box',
               }}
             >
               Price & Sales
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px', boxSizing: 'border-box' }}>
               <Box
                 sx={{
                   display: 'flex',
@@ -75,7 +80,7 @@ function GraphLayout({ coinSymbol }: any) {
                 ></Box>
                 <Typography
                   sx={{
-                    fontSize: '12px',
+                    fontSize: { xs: '12px', lg: '16px' },
                     fontFamily: 'Sf Pro Display',
                     fontWeight: 500,
                     color: 'rgba(17, 17, 17, 1)',
@@ -103,7 +108,7 @@ function GraphLayout({ coinSymbol }: any) {
                 ></Box>
                 <Typography
                   sx={{
-                    fontSize: '12px',
+                    fontSize: { xs: '12px', lg: '16px' },
                     fontFamily: 'Sf Pro Display',
                     fontWeight: 500,
                     color: 'rgba(17, 17, 17, 1)',
@@ -131,7 +136,7 @@ function GraphLayout({ coinSymbol }: any) {
                 ></Box>
                 <Typography
                   sx={{
-                    fontSize: '12px',
+                    fontSize: { xs: '12px', lg: '16px' },
                     fontFamily: 'Sf Pro Display',
                     fontWeight: 500,
                     color: 'rgba(17, 17, 17, 1)',
@@ -157,8 +162,7 @@ function GraphLayout({ coinSymbol }: any) {
           setIsFullScreen={setIsFullScreen}
           coinSymbol={coinSymbol}
         />
-      </div>
-    </>
+      </Box>
   );
 }
 

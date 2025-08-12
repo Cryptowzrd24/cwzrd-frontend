@@ -7,13 +7,13 @@ import Thought from './thoght';
 const PriceCards = ({ serverNftData }: any) => {
   return (
     <>
-      <Box sx={{ mb: '12px' }}>
+      <Box sx={{ mb: '8px', width: '100%', height: 'auto', overflow: 'hidden' }}>
         <InfoCard serverNftData={serverNftData} />
       </Box>
-      <Box sx={{ mb: '12px' }}>
+      <Box sx={{ mb: '8px', width: '100%', height: 'auto', overflow: 'hidden' }}>
         <LinksCard serverNftData={serverNftData} />
       </Box>
-      <Box sx={{ mb: '12px' }}>
+      <Box sx={{ mb: '8px', width: '100%', height: 'auto', overflow: 'hidden' }}>
         <Thought />
       </Box>
     </>

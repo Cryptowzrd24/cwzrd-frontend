@@ -22,7 +22,7 @@ const HeroSection = ({ serverNftData }: any) => {
   const progressVal =
     (serverNftData?.volume24h / serverNftData?.totalVolume) * 100;
 
-  const CustomLinearProgress = styled(LinearProgress)(({}) => ({
+  const CustomLinearProgress = styled(LinearProgress)(({ }) => ({
     height: '10px !important',
     borderRadius: 16,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -40,67 +40,70 @@ const HeroSection = ({ serverNftData }: any) => {
     },
   };
   return (
-    <>
+    <Box
+      sx={{
+        backgroundImage: `linear-gradient(180deg, rgba(17, 17, 17, 0.16) 0%, rgba(17, 17, 17, 0.8) 70%), url("/images/nft/background.png")`,
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover',
+        padding: { xs: '16px', md: '24px', lg: '24px 32px' },
+        borderRadius: '24px',
+        width: '100%',
+        boxSizing: 'border-box',
+      }}
+    >
       <Box
         sx={{
-          backgroundImage: `linear-gradient(180deg, rgba(17, 17, 17, 0.16) 0%, rgba(17, 17, 17, 0.8) 70%), url("/images/nft/background.png")`,
-          backgroundPosition: 'center center',
-          backgroundSize: 'cover',
-          padding: '24px 32px',
-          borderRadius: '24px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          mb: '24px',
+          width: '100%',
+          boxSizing: 'border-box',
         }}
       >
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'space-between',
             alignItems: 'center',
-            mb: '24px',
+            gap: '8px',
           }}
         >
           <Box
             sx={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
+              width: '48px',
+              height: '48px',
+              borderRadius: '50%',
+              overflow: 'hidden',
             }}
           >
-            <Box
+            <img src={imageUrl} alt="persona" width={48} height={48} />
+          </Box>
+          <Stack>
+            <Typography
+              variant="body1"
               sx={{
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
-                overflow: 'hidden',
+                fontSize: '24px',
+                fontWeight: '500',
+                color: 'rgba(255, 255, 255, 1)',
+                lineHeight: 1,
               }}
             >
-              <img src={imageUrl} alt="persona" width={48} height={48} />
-            </Box>
-            <Stack>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '24px',
-                  fontWeight: '500',
-                  color: 'rgba(255, 255, 255, 1)',
-                  lineHeight: 1,
-                }}
-              >
-                {serverNftData?.name}
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '14px',
-                  fontWeight: '400',
-                  color: 'rgba(255, 255, 255, 1)',
-                }}
-              >
-                {serverNftData?.blockChain}
-              </Typography>
-            </Stack>
-          </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            {/* <Box
+              {serverNftData?.name}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '14px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              {serverNftData?.blockChain}
+            </Typography>
+          </Stack>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {/* <Box
               sx={{
                 borderRadius: '8px',
                 padding: '8px',
@@ -113,259 +116,257 @@ const HeroSection = ({ serverNftData }: any) => {
             >
               <Star />
             </Box> */}
-            <Box
-              sx={{
-                borderRadius: '8px',
-                padding: '8px',
-                background: 'rgba(255, 255, 255, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-              }}
-            >
-              {/* <Upload /> */}
-              <ShareComponent
-                coinData={coinData}
-                coinImage={serverNftData?.logo}
-                isNftDetails={true}
-              />
-            </Box>
-          </Box>
-        </Box>
-        {/* --------------------------------------------------------------------------------- */}
-        {/* --------------------------------------------------------------------------------- */}
-
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            maxWidth: '1126px',
-            width: '100%',
-            paddingRight: '64px',
-          }}
-        >
-          <Stack sx={{ maxWidth: '356px', width: '100%' }}>
-            <Box
-              sx={{
-                mb: '16px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-              }}
-            >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '24px',
-                  fontWeight: '700',
-                  color: 'rgba(255, 255, 255, 1)',
-                  lineHeight: 1,
-                }}
-              >
-                {priceNumberFormatDigits(serverNftData?.avgPrice24h)}{' '}
-                {serverNftData?.floorPriceToken}
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: '16px',
-                  fontWeight: '500',
-                  color: 'rgba(76, 254, 182, 1)',
-                  lineHeight: 1,
-                }}
-              >
-                {/* +7,37%{' '} */}
-              </Typography>
-            </Box>
-            <Box sx={{ mb: '8px', width: '100%' }}>
-              <CustomLinearProgress variant="determinate" value={progressVal} />
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <Typography
-                variant="body2"
-                sx={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: 'rgba(255, 255, 255, 1)',
-                }}
-              >
-                24h Volume
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: 'rgba(255, 255, 255, 1)',
-                }}
-              >
-                {priceNumberFormatDigits(serverNftData?.volume24h)}{' '}
-                {serverNftData?.floorPriceToken}
-              </Typography>
-            </Box>
-          </Stack>
-
-          {/* --------------------------------------------------------------------------------- */}
-          <Box>
-            <Stack>
-              <Box sx={{ mb: '10px' }}>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '12px',
-                    fontWeight: '400',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  Items
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '16px',
-                    fontWeight: '700',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  {priceNumberFormatDigits(serverNftData?.totalItems)}
-                </Typography>
-              </Box>
-              <Box>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '12px',
-                    fontWeight: '400',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  Total Owners
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '16px',
-                    fontWeight: '700',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  {serverNftData?.totalOwners ?? '-'}
-                </Typography>
-              </Box>
-            </Stack>
-          </Box>
-          {/* -------------------------------------------------------------------------- */}
-          <Box>
-            <Stack>
-              <Box sx={{ mb: '10px' }}>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '12px',
-                    fontWeight: '400',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  24h Volume
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '16px',
-                    fontWeight: '700',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  {priceNumberFormatDigits(serverNftData?.volume24h)}{' '}
-                  {serverNftData?.floorPriceToken}
-                </Typography>
-              </Box>
-              <Box>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '12px',
-                    fontWeight: '400',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  24h Sales
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '16px',
-                    fontWeight: '700',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  {serverNftData?.sales24h}
-                </Typography>
-              </Box>
-            </Stack>
-          </Box>
-          {/* ------------------------------------------------------------------------------------------- */}
-          <Box>
-            <Stack>
-              <Box sx={{ mb: '10px' }}>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '12px',
-                    fontWeight: '400',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  Total Volume
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '16px',
-                    fontWeight: '700',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  {priceNumberFormatDigits(serverNftData?.totalVolume)}{' '}
-                  {serverNftData?.floorPriceToken}
-                </Typography>
-              </Box>
-              <Box>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '12px',
-                    fontWeight: '400',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  Floor Price
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: '16px',
-                    fontWeight: '700',
-                    color: 'rgba(255, 255, 255, 1)',
-                  }}
-                >
-                  {priceNumberFormatDigits(serverNftData?.floorPrice)}{' '}
-                  {serverNftData?.floorPriceToken}
-                </Typography>
-              </Box>
-            </Stack>
+          <Box
+            sx={{
+              borderRadius: '8px',
+              padding: '8px',
+              background: 'rgba(255, 255, 255, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+            }}
+          >
+            {/* <Upload /> */}
+            <ShareComponent
+              coinData={coinData}
+              coinImage={serverNftData?.logo}
+              isNftDetails={true}
+            />
           </Box>
         </Box>
       </Box>
-    </>
+      {/* --------------------------------------------------------------------------------- */}
+      {/* --------------------------------------------------------------------------------- */}
+
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          maxWidth: '1126px',
+          paddingRight: { xs: '0px', sm: '0px', md: '64px' },
+          flexDirection: { xs: 'column', sm: 'row' },
+          gap: { xs: '24px', md: '10px' },
+          // flexWrap: { sm: 'wrap', md: 'nowrap' },
+          width: '100%',
+        }}
+      >
+        <Stack sx={{ width: { xs: '100%', sm: '40%' }, flex: { xs: 1, sm: 1, md: 2 } }}>
+          <Box
+            sx={{
+              mb: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              width: '100%',
+              boxSizing: 'border-box',
+            }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '24px',
+                fontWeight: '700',
+                color: 'rgba(255, 255, 255, 1)',
+                lineHeight: 1,
+              }}
+            >
+              {priceNumberFormatDigits(serverNftData?.avgPrice24h)}{' '}
+              {serverNftData?.floorPriceToken}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(76, 254, 182, 1)',
+                lineHeight: 1,
+              }}
+            >
+              {/* +7,37%{' '} */}
+            </Typography>
+          </Box>
+          <Box sx={{ mb: '8px', width: '100%' }}>
+            <CustomLinearProgress variant="determinate" value={progressVal} />
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              24h Volume
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              {priceNumberFormatDigits(serverNftData?.volume24h)}{' '}
+              {serverNftData?.floorPriceToken}
+            </Typography>
+          </Box>
+        </Stack>
+
+        {/* --------------------------------------------------------------------------------- */}
+        <Stack sx={{flexDirection: {xs:'row',sm:'column'},justifyContent: {xs:'space-between',sm:'flex-start'}, width: { xs: '100%', sm: '20%' }, flex: {md:1}, padding: { xs: '0px', md: '16px' } }}>
+          <Box sx={{ mb: '10px' }}>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              Items
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '700',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              {priceNumberFormatDigits(serverNftData?.totalItems)}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              Total Owners
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '700',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              {serverNftData?.totalOwners ?? '-'}
+            </Typography>
+          </Box>
+        </Stack>
+        {/* -------------------------------------------------------------------------- */}
+        <Stack sx={{flexDirection: {xs:'row',sm:'column'},justifyContent: {xs:'space-between',sm:'flex-start'}, width: { xs: '100%', sm: '20%' }, flex: {md:1}, padding: { xs: '0px', md: '16px' } }}>
+          <Box sx={{ mb: '10px' }}>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              24h Volume
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '700',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              {priceNumberFormatDigits(serverNftData?.volume24h)}{' '}
+              {serverNftData?.floorPriceToken}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              24h Sales
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '700',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              {serverNftData?.sales24h}
+            </Typography>
+          </Box>
+        </Stack>
+        {/* ------------------------------------------------------------------------------------------- */}
+        <Stack sx={{flexDirection: {xs:'row',sm:'column'},justifyContent: {xs:'space-between',sm:'flex-start'}, width: { xs: '100%', sm: '20%' }, flex: {md:1}, padding: { xs: '0px', md: '16px' } }}>
+          <Box sx={{ mb: '10px' }}>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              Total Volume
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '700',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              {priceNumberFormatDigits(serverNftData?.totalVolume)}{' '}
+              {serverNftData?.floorPriceToken}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              Floor Price
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '700',
+                color: 'rgba(255, 255, 255, 1)',
+              }}
+            >
+              {priceNumberFormatDigits(serverNftData?.floorPrice)}{' '}
+              {serverNftData?.floorPriceToken}
+            </Typography>
+          </Box>
+        </Stack>
+      </Box>
+    </Box>
   );
 };
 
