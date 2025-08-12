@@ -18,8 +18,8 @@ const CardContainer = styled(Box)`
   padding: 12px;
   justify-content: space-between;
   align-items: center;
-  background: #FFF;
-  border: 0.5px solid #FFF;
+  background: #fff;
+  border: 0.5px solid #fff;
   backdrop-filter: blur(8px);
   border-radius: 20px;
   flex-direction: row;
@@ -114,7 +114,6 @@ const ChartContainer = styled(Box)`
     height: 50%;
     width: 45%;
     order: 2;
-    
   }
 `;
 
@@ -142,7 +141,7 @@ const StatsValue = styled(Typography)`
 `;
 
 const StatsRate = styled(Typography)<{ $isPositive: boolean }>`
-  color: ${props => props.$isPositive ? '#00BA6E' : '#F56D6D'};
+  color: ${(props) => (props.$isPositive ? '#00BA6E' : '#F56D6D')};
   font-weight: 600;
   line-height: 130%;
   letter-spacing: -0.1px;
@@ -169,7 +168,7 @@ const CryptoInfoCard = ({
 }: CryptoInfoCardProps) => {
   const isPositivePrice = parseFloat(priceRate) >= 0;
   const isPositiveMarket = parseFloat(marketCapRate) >= 0;
-  
+
   return (
     <CardContainer>
       <LogoTitleContainer>
@@ -193,13 +192,9 @@ const CryptoInfoCard = ({
       </LogoTitleContainer>
 
       <StatsContainer>
-        <StatsLabel variant="body2">
-          Price
-        </StatsLabel>
+        <StatsLabel variant="body2">Price</StatsLabel>
         <StatsRow>
-          <StatsValue variant="body2">
-            {price}
-          </StatsValue>
+          <StatsValue variant="body2">{price}</StatsValue>
           <StatsRate variant="body2" $isPositive={isPositivePrice}>
             {isPositivePrice ? '+' : ''}
             {priceRate}%
@@ -208,13 +203,9 @@ const CryptoInfoCard = ({
       </StatsContainer>
 
       <MarketCapContainer>
-        <StatsLabel variant="body2">
-          Market Cap
-        </StatsLabel>
+        <StatsLabel variant="body2">Market Cap</StatsLabel>
         <StatsRow>
-          <StatsValue variant="body2">
-            {marketCap}
-          </StatsValue>
+          <StatsValue variant="body2">{marketCap}</StatsValue>
           <StatsRate variant="body2" $isPositive={isPositiveMarket}>
             {isPositiveMarket ? '+' : ''}
             {marketCapRate}%

@@ -29,7 +29,7 @@ export function uniqueDropdownStrings(items: string[]): string[] {
 // - Uniqueness is determined by label (case-insensitive)
 // - Keeps the first occurrence's value as-is, only normalizes label casing
 export function uniqueDropdownOptions<T extends DropdownOption>(
-  items: T[]
+  items: T[],
 ): T[] {
   const seen = new Set<string>();
   const result: T[] = [];

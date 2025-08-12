@@ -94,7 +94,8 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
         borderRadius: '16px',
         padding: { xs: '16px', sm: '18px', lg: '20px' },
         boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.1)',
-        border: background === 'white' ? '1px solid rgba(0, 0, 0, 0.05)' : 'none',
+        border:
+          background === 'white' ? '1px solid rgba(0, 0, 0, 0.05)' : 'none',
         transition: 'all 0.3s ease',
         display: 'flex',
         flexDirection: 'column',
@@ -124,7 +125,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
       )}
 
       {/* Foreground Icon - Fixed positioning based on image */}
-          {renderIcon() && (
+      {renderIcon() && (
         <Box
           sx={{
             position: 'absolute',
@@ -143,16 +144,28 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              border: '1px solid rgba(255,255,255,0.25)'
+              border: '1px solid rgba(255,255,255,0.25)',
             }),
             // Market Outlooks - Bottom right, mobile dashboard
             ...(id === 3 && { right: '10px', bottom: '10px' }),
             // Risk Management - Centered green chart
-            ...(id === 4 && { left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }),
+            ...(id === 4 && {
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%)',
+            }),
             // Expert Lessons - Centered blue glowing screen
-            ...(id === 5 && { left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }),
+            ...(id === 5 && {
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%)',
+            }),
             // WZRD Strategies - Centered purple target
-            ...(id === 7 && { left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }),
+            ...(id === 7 && {
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%)',
+            }),
             // Take Profit - Background Bitcoin symbol
             ...(id === 8 && { left: '0px', top: '-54px' }),
           }}
@@ -172,66 +185,66 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
           justifyContent: 'space-between',
           gap: { xs: '12px', sm: '16px', lg: '24px' },
           // Airdrop Calls - Right side content
-            ...(id === 1 && { 
+          ...(id === 1 && {
             position: 'absolute',
             right: '56px',
             top: '54%',
             transform: 'translateY(-50%)',
             width: '360px',
-            textAlign: 'left'
+            textAlign: 'left',
           }),
           // Professional Mentorship - Bottom content
-          ...(id === 2 && { 
+          ...(id === 2 && {
             position: 'absolute',
             top: '56%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: '420px',
             maxWidth: 'calc(100% - 40px)',
-            textAlign: 'center'
+            textAlign: 'center',
           }),
           // Market Outlooks - Top content
-          ...(id === 3 && { 
+          ...(id === 3 && {
             position: 'absolute',
             top: '20px',
             left: '20px',
             right: '20px',
-            textAlign: 'left'
+            textAlign: 'left',
           }),
           // Risk Management - Bottom content
-          ...(id === 4 && { 
+          ...(id === 4 && {
             position: 'absolute',
             bottom: '32px',
             left: '50%',
             transform: 'translateX(-50%)',
             width: 'calc(100% - 40px)',
             maxWidth: '320px',
-            textAlign: 'center'
+            textAlign: 'center',
           }),
           // Expert Lessons - Bottom content
-          ...(id === 5 && { 
+          ...(id === 5 && {
             position: 'absolute',
             bottom: '20px',
             left: '20px',
             right: '20px',
-            textAlign: 'left'
+            textAlign: 'left',
           }),
           // WZRD Strategies - Bottom content
-          ...(id === 7 && { 
+          ...(id === 7 && {
             position: 'absolute',
             bottom: '20px',
             left: '20px',
             right: '20px',
-            textAlign: 'center'
+            textAlign: 'center',
           }),
           // Take Profit - Left side content
-          ...(id === 8 && { 
+          ...(id === 8 && {
             position: 'absolute',
             left: '20px',
             top: '50%',
             transform: 'translateY(-50%)',
             width: '270px',
-            textAlign: 'left'
+            textAlign: 'left',
           }),
         }}
       >
@@ -257,7 +270,9 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
         <Typography
           variant="body2"
           sx={{
-            color: descriptionColor || (textColor === 'white' ? 'rgba(255, 255, 255, 0.9)' : '#6B7280'),
+            color:
+              descriptionColor ||
+              (textColor === 'white' ? 'rgba(255, 255, 255, 0.9)' : '#6B7280'),
             lineHeight: descriptionLineHeight,
             marginBottom: { xs: '12px', sm: '16px' },
             fontSize: { xs: '13px', sm: descriptionFontSize },

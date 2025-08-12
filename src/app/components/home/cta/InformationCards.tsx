@@ -9,9 +9,9 @@ const InformationCards = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        flexDirection: {xs:'column',md:'row'},
-        gap: {xs:'20px',lg:'0px'},
-        padding: {xs:'20px',lg:'0px'},
+        flexDirection: { xs: 'column', md: 'row' },
+        gap: { xs: '20px', lg: '0px' },
+        padding: { xs: '20px', lg: '0px' },
       }}
     >
       <InformationCard

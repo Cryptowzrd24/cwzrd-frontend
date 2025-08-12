@@ -7,7 +7,7 @@ const ProfessionalMentorshipCard: React.FC = () => {
   return (
     <Box
       sx={{
-        width: { xs: '100%', md:'calc(40% - 12px)' },
+        width: { xs: '100%', md: 'calc(40% - 12px)' },
         height: { xs: 'auto', lg: '311px' },
         minHeight: { xs: '280px', sm: '300px', lg: '311px' },
         position: 'relative',
@@ -21,10 +21,11 @@ const ProfessionalMentorshipCard: React.FC = () => {
         sx={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url(/images/home/benefits-section/professional_mentorship_bg.png)',
+          backgroundImage:
+            'url(/images/home/benefits-section/professional_mentorship_bg.png)',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          backgroundPosition: 'center', 
+          backgroundPosition: 'center',
         }}
       />
 
@@ -46,8 +47,13 @@ const ProfessionalMentorshipCard: React.FC = () => {
           zIndex: 1,
         }}
       >
-        <Image src={ProfessionalMentorshipIcon} alt="professional-mentorship" width={40} height={40} />
-      </Box>  
+        <Image
+          src={ProfessionalMentorshipIcon}
+          alt="professional-mentorship"
+          width={40}
+          height={40}
+        />
+      </Box>
 
       {/* centered text */}
       <Box
@@ -63,11 +69,28 @@ const ProfessionalMentorshipCard: React.FC = () => {
           zIndex: 1,
         }}
       >
-        <Typography sx={{ fontSize: { xs: '18px', sm: '20px' }, fontWeight: 700, lineHeight: '24px',color:'white' }}>
+        <Typography
+          sx={{
+            fontSize: { xs: '18px', sm: '20px' },
+            fontWeight: 700,
+            lineHeight: '24px',
+            color: 'white',
+          }}
+        >
           Professional Mentorship
         </Typography>
-        <Typography sx={{ mt: '16px', fontSize: { xs: '13px', sm: '14px' }, lineHeight: '20px', opacity: 0.95, color:'white' }}>
-          Receive direct mentorship from experienced traders. Our professional guidance ensures you have the support needed to improve your skills and strategies.
+        <Typography
+          sx={{
+            mt: '16px',
+            fontSize: { xs: '13px', sm: '14px' },
+            lineHeight: '20px',
+            opacity: 0.95,
+            color: 'white',
+          }}
+        >
+          Receive direct mentorship from experienced traders. Our professional
+          guidance ensures you have the support needed to improve your skills
+          and strategies.
         </Typography>
       </Box>
     </Box>
@@ -75,4 +98,3 @@ const ProfessionalMentorshipCard: React.FC = () => {
 };
 
 export default ProfessionalMentorshipCard;
-

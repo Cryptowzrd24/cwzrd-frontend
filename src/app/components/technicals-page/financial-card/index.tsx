@@ -49,7 +49,7 @@ function FinancialCard({
         };
       }}
     >
-      <Box sx={{boxSizing:'border-box'}}>
+      <Box sx={{ boxSizing: 'border-box' }}>
         <Box sx={{ display: 'flex', position: 'absolute' }}>
           <Box
             sx={{

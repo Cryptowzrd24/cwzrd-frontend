@@ -97,7 +97,7 @@ const CryptoHero = () => {
       isTransparent
       imageMargin="0px"
       imageWidth="100%"
-      containerWidth={isTabScreen ? "100%" : "252px"}
+      containerWidth={isTabScreen ? '100%' : '252px'}
       justifyContent="flex-start"
       isMainPage
     />
@@ -108,9 +108,9 @@ const CryptoHero = () => {
       sx={{
         width: '100%',
         display: 'flex',
-        gap: {xs:"8px",sm:"12px",md:"16px",lg:'24px'},
-        flexDirection:{xs:"column",lg:"row"},
-        height:"min-content"
+        gap: { xs: '8px', sm: '12px', md: '16px', lg: '24px' },
+        flexDirection: { xs: 'column', lg: 'row' },
+        height: 'min-content',
       }}
     >
       <Box
@@ -152,31 +152,33 @@ const CryptoHero = () => {
             },
           }}
         >
-          <Box sx={{
-            display: 'flex',
-            gap: '16px',
-            height: '560px',
-            overflow: 'hidden',
-            boxSizing: 'border-box',
-            paddingBottom: '16px',
-            '@media (max-width: 1024px)': {
-              width: '100%',
-              flexDirection: 'column',
-              height: 'auto',
-              gap: '12px',
-              paddingBottom: '12px',
-            },
-            '@media (max-width: 768px)': {
-              width: '100%',
-              gap: '8px',
-              paddingBottom: '8px',
-            },
-            '@media (max-width: 576px)': {
-              width: '100%',
-              gap: '6px',
-              paddingBottom: '6px',
-            },
-          }}>
+          <Box
+            sx={{
+              display: 'flex',
+              gap: '16px',
+              height: '560px',
+              overflow: 'hidden',
+              boxSizing: 'border-box',
+              paddingBottom: '16px',
+              '@media (max-width: 1024px)': {
+                width: '100%',
+                flexDirection: 'column',
+                height: 'auto',
+                gap: '12px',
+                paddingBottom: '12px',
+              },
+              '@media (max-width: 768px)': {
+                width: '100%',
+                gap: '8px',
+                paddingBottom: '8px',
+              },
+              '@media (max-width: 576px)': {
+                width: '100%',
+                gap: '6px',
+                paddingBottom: '6px',
+              },
+            }}
+          >
             <TagCard
               height={'100%'}
               width={'73%'}

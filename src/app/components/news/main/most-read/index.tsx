@@ -12,10 +12,16 @@ function MostRead({
   isMainPage?: boolean;
 }) {
   const renderCard = [1, 2, 3, 4, 5, 6, 7].map((cardId, index) => {
-    return <MostReadCard isFirstCard={index === 0} isMainPage={isMainPage} key={cardId} />;
+    return (
+      <MostReadCard
+        isFirstCard={index === 0}
+        isMainPage={isMainPage}
+        key={cardId}
+      />
+    );
   });
   const isTabView = useMediaQuery('(max-width: 978px)');
-  
+
   return (
     <Box
       sx={{
@@ -90,7 +96,7 @@ function MostRead({
           </Typography>
         </Box>
       </Box>
-      
+
       {/* Content - Scrollable only for main page */}
       {isMainPage ? (
         <Box

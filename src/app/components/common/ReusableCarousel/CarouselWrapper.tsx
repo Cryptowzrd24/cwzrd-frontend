@@ -1,5 +1,8 @@
 import React, { ReactNode } from 'react';
-import ReusableCarousel, { ResponsiveConfig, ResponsiveProvider } from './index';
+import ReusableCarousel, {
+  ResponsiveConfig,
+  ResponsiveProvider,
+} from './index';
 
 interface CarouselWrapperProps {
   items: ReactNode[];
@@ -21,8 +24,8 @@ const CarouselWrapper: React.FC<CarouselWrapperProps> = ({
   sx,
 }) => {
   return (
-    <ResponsiveProvider 
-      responsiveConfig={responsiveConfig} 
+    <ResponsiveProvider
+      responsiveConfig={responsiveConfig}
       overrideResponsive={overrideResponsive}
     >
       <ReusableCarousel
@@ -42,4 +45,4 @@ const CarouselWrapper: React.FC<CarouselWrapperProps> = ({
   );
 };
 
-export default CarouselWrapper; 
+export default CarouselWrapper;

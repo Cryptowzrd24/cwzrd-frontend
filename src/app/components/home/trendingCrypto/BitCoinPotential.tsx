@@ -1,4 +1,4 @@
-import { Box, Typography, useMediaQuery } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 import CommentsLikes from '../../technicals-page/comments-likes';
 import BitcoinBlackkBg from '../../../../../public/icons/bitcoinBlkBg';
@@ -7,7 +7,7 @@ const BitCoinPotential = () => {
   return (
     <Box
       sx={{
-        height:'100%',
+        height: '100%',
         width: '100%',
         background: '#44008D',
         borderRadius: '12px',

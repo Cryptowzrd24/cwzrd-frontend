@@ -119,22 +119,24 @@ const FAQ = () => {
             </Typography>
           </Box>
           {/* Image */}
-          <Box sx={{ 
-            height: '374px', 
-            width: '374px',
-            '@media (max-width: 1024px)': {
-              height: '300px',
-              width: '300px',
-            },
-            '@media (max-width: 768px)': {
-              height: '250px',
-              width: '250px',
-            },
-            '@media (max-width: 576px)': {
-              height: '200px',
-              width: '200px',
-            },
-          }}>
+          <Box
+            sx={{
+              height: '374px',
+              width: '374px',
+              '@media (max-width: 1024px)': {
+                height: '300px',
+                width: '300px',
+              },
+              '@media (max-width: 768px)': {
+                height: '250px',
+                width: '250px',
+              },
+              '@media (max-width: 576px)': {
+                height: '200px',
+                width: '200px',
+              },
+            }}
+          >
             <Image
               src={EmojiStart}
               alt=""

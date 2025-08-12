@@ -29,7 +29,7 @@ export default function CryptoCard({
         backgroundColor: 'rgba(255, 255, 255, 0.48)',
         transition: 'all 0.3s',
         backdropFilter: 'blur(8px)',
-        margin:'0 auto',
+        margin: '0 auto',
         '&:hover': {
           backgroundColor: 'rgba(255, 255, 255, 1)',
           border: '2px solid #7248F7',

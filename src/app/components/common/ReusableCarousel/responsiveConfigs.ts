@@ -138,7 +138,7 @@ export const createResponsiveConfig = (
     arrows?: boolean;
     infinite?: boolean;
     speed?: number;
-  }
+  },
 ): ResponsiveConfig[] => [
   {
     breakpoint: 1024,
@@ -161,6 +161,8 @@ export const createResponsiveConfig = (
 ];
 
 // Helper function to get responsive config by name
-export const getResponsiveConfig = (name: keyof typeof responsiveConfigs): ResponsiveConfig[] => {
+export const getResponsiveConfig = (
+  name: keyof typeof responsiveConfigs,
+): ResponsiveConfig[] => {
   return responsiveConfigs[name];
 };

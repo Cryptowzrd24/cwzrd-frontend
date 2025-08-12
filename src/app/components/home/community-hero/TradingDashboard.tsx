@@ -5,7 +5,12 @@ const TradingDashboard = () => {
   const tickers = [
     { symbol: 'LTC', price: '$67.93', change: '-0.9997', percent: '-1.64%' },
     { symbol: 'DASH', price: '$28.55', change: '-0.6662', percent: '-2.27%' },
-    { symbol: 'XRP', price: '$0.5387', change: '-0.01605560', percent: '-2.89%' },
+    {
+      symbol: 'XRP',
+      price: '$0.5387',
+      change: '-0.01605560',
+      percent: '-2.89%',
+    },
     { symbol: 'MIOTA', price: '$0.2654', change: '-0.0088', percent: '' },
   ];
 
@@ -17,9 +22,18 @@ const TradingDashboard = () => {
   ];
 
   const navItems = [
-    'Dashboard', 'Course', 'Library', 'Examinations', 'Trader\'s Hub', 
-    'Charts', 'Portfolio', 'Trade Trader', 'Journal', 'Calculator', 
-    'Technicals', 'Algo Generator'
+    'Dashboard',
+    'Course',
+    'Library',
+    'Examinations',
+    "Trader's Hub",
+    'Charts',
+    'Portfolio',
+    'Trade Trader',
+    'Journal',
+    'Calculator',
+    'Technicals',
+    'Algo Generator',
   ];
 
   return (
@@ -93,7 +107,14 @@ const TradingDashboard = () => {
               justifyContent: 'center',
             }}
           >
-            <Typography sx={{ fontSize: { xs: '8px', sm: '9px', md: '10px' }, color: 'white' }}>🔔</Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: '8px', sm: '9px', md: '10px' },
+                color: 'white',
+              }}
+            >
+              🔔
+            </Typography>
           </Box>
           <Box
             sx={{
@@ -106,7 +127,14 @@ const TradingDashboard = () => {
               justifyContent: 'center',
             }}
           >
-            <Typography sx={{ fontSize: { xs: '8px', sm: '9px', md: '10px' }, color: 'white' }}>👤</Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: '8px', sm: '9px', md: '10px' },
+                color: 'white',
+              }}
+            >
+              👤
+            </Typography>
           </Box>
         </Box>
       </Box>
@@ -239,7 +267,8 @@ const TradingDashboard = () => {
             <Box
               sx={{
                 height: { xs: '40px', sm: '45px', md: '50px' },
-                background: 'linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+                background:
+                  'linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
                 borderRadius: { xs: '3px', sm: '3px', md: '4px' },
                 position: 'relative',
                 '&::after': {
@@ -249,7 +278,8 @@ const TradingDashboard = () => {
                   left: 0,
                   right: 0,
                   height: '2px',
-                  background: 'linear-gradient(90deg, #4CAF50 0%, #FF9800 100%)',
+                  background:
+                    'linear-gradient(90deg, #4CAF50 0%, #FF9800 100%)',
                   transform: 'translateY(-50%)',
                 },
               }}

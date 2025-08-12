@@ -12,7 +12,9 @@ interface EducationalGuidesCardProps {
   subIcons: SubIcon[];
 }
 
-const EducationalGuidesCard: React.FC<EducationalGuidesCardProps> = ({ subIcons }) => {
+const EducationalGuidesCard: React.FC<EducationalGuidesCardProps> = ({
+  subIcons,
+}) => {
   return (
     <Box
       sx={{
@@ -70,7 +72,8 @@ const EducationalGuidesCard: React.FC<EducationalGuidesCardProps> = ({ subIcons 
             opacity: 0.56,
           }}
         >
-          Access comprehensive guides designed to educate and empower traders at all levels. Master the markets with our in-depth resources.
+          Access comprehensive guides designed to educate and empower traders at
+          all levels. Master the markets with our in-depth resources.
         </Typography>
       </Box>
 
@@ -90,22 +93,38 @@ const EducationalGuidesCard: React.FC<EducationalGuidesCardProps> = ({ subIcons 
           <Box
             key={index}
             sx={{
-              padding: { xs: `${iconData.size * 0.2}px`, sm: `${iconData.size * 0.25}px` },
+              padding: {
+                xs: `${iconData.size * 0.2}px`,
+                sm: `${iconData.size * 0.25}px`,
+              },
               background: iconData.background,
-              borderRadius: { xs: `${iconData.size * 0.2}px`, sm: `${iconData.size * 0.25}px` },
+              borderRadius: {
+                xs: `${iconData.size * 0.2}px`,
+                sm: `${iconData.size * 0.25}px`,
+              },
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: { xs: `${iconData.size * 0.8}px`, sm: `${iconData.size}px` },
-              height: { xs: `${iconData.size * 0.8}px`, sm: `${iconData.size}px` },
+              width: {
+                xs: `${iconData.size * 0.8}px`,
+                sm: `${iconData.size}px`,
+              },
+              height: {
+                xs: `${iconData.size * 0.8}px`,
+                sm: `${iconData.size}px`,
+              },
               ...(iconData.glow && {
-                boxShadow: '0px 3.318117380142212px 120px rgba(65, 185, 245, 0.60)',
+                boxShadow:
+                  '0px 3.318117380142212px 120px rgba(65, 185, 245, 0.60)',
               }),
             }}
           >
             <Box
               sx={{
-                fontSize: { xs: `${iconData.size * 0.4}px`, sm: `${iconData.size * 0.6}px` },
+                fontSize: {
+                  xs: `${iconData.size * 0.4}px`,
+                  sm: `${iconData.size * 0.6}px`,
+                },
                 color: '#111111',
                 display: 'flex',
                 alignItems: 'center',

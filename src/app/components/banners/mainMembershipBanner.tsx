@@ -2,7 +2,11 @@ import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import ChevronRightHead from '../../../../public/icons/chevronRightHead';
 
-const MainMembershipBanner = ({ isMainPage = false }: { isMainPage?: boolean }) => {
+const MainMembershipBanner = ({
+  isMainPage = false,
+}: {
+  isMainPage?: boolean;
+}) => {
   return (
     <Box
       sx={{

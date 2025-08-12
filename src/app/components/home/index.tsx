@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, styled } from '@mui/material';
+import { Box, styled } from '@mui/material';
 import React, { useState } from 'react';
 import CTA from './cta';
 import TrendingCrypto from './trendingCrypto';
@@ -34,20 +34,27 @@ const Home = () => {
     >
       <Box
         sx={{
-          background: '#EDF0FF'
+          background: '#EDF0FF',
         }}
       >
-        <Box sx={{
-          margin: '0 auto',
-          overflow: 'hidden',
-          width: { xs: '100%', sm: '95%', md: '900px', lg: "1150px",xl:"1281px" },
-          boxSizing:'border-box',
-          padding: {xs:"12px",md:'12px',lg:'14px',xl:'16px'},
-          display:'flex',
-          flexDirection:'column',
-          gap:"60px"
-        }}>
-
+        <Box
+          sx={{
+            margin: '0 auto',
+            overflow: 'hidden',
+            width: {
+              xs: '100%',
+              sm: '95%',
+              md: '900px',
+              lg: '1150px',
+              xl: '1281px',
+            },
+            boxSizing: 'border-box',
+            padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '60px',
+          }}
+        >
           {/* Hero section */}
           <CenteredBox>
             <CryptoHero />
@@ -78,14 +85,21 @@ const Home = () => {
         </Box>
         {/* Community Hero section */}
         <CommunityHero />
-        <Box sx={{
-          background: '#EDF0FF',
-          margin: '0 auto',
-          overflowX: 'hidden',
-          width: { xs: '100%', sm: '95%', md: '900px', lg: "1150px",xl:"1281px" },
-          boxSizing:'border-box',
-          padding: {xs:"12px",md:'12px',lg:'14px',xl:'16px'},
-        }}
+        <Box
+          sx={{
+            background: '#EDF0FF',
+            margin: '0 auto',
+            overflowX: 'hidden',
+            width: {
+              xs: '100%',
+              sm: '95%',
+              md: '900px',
+              lg: '1150px',
+              xl: '1281px',
+            },
+            boxSizing: 'border-box',
+            padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
+          }}
         >
           {/* Benefits section */}
           <CenteredBox>

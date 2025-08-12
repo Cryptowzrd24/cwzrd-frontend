@@ -8,7 +8,7 @@ const AirdropCallsCard: React.FC = () => {
   return (
     <Box
       sx={{
-        width: { xs: '100%', md:'calc(60% - 12px)'},
+        width: { xs: '100%', md: 'calc(60% - 12px)' },
         height: { xs: 'auto', lg: '311px' },
         minHeight: { xs: '280px', sm: '300px', lg: '311px' },
         position: 'relative',
@@ -23,7 +23,8 @@ const AirdropCallsCard: React.FC = () => {
           position: 'absolute',
           inset: 0,
           // background: 'linear-gradient(0deg, #270FAD 0%, #270FAD 100%)',
-          backgroundImage: 'url(/images/home/benefits-section/airdrop_call_bg.png)',
+          backgroundImage:
+            'url(/images/home/benefits-section/airdrop_call_bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -32,7 +33,12 @@ const AirdropCallsCard: React.FC = () => {
 
       {/* artwork */}
       <Box sx={{ position: 'absolute', left: '10px', top: '-5px', zIndex: 1 }}>
-        <Image src={AirdropCallsIcon} alt="airdrop-calls" width={285} height={267} />
+        <Image
+          src={AirdropCallsIcon}
+          alt="airdrop-calls"
+          width={285}
+          height={267}
+        />
       </Box>
 
       {/* content */}
@@ -53,7 +59,7 @@ const AirdropCallsCard: React.FC = () => {
             fontWeight: 700,
             lineHeight: '24px',
             letterSpacing: '0.2px',
-            color:'white'
+            color: 'white',
           }}
         >
           Airdrop Calls
@@ -64,10 +70,11 @@ const AirdropCallsCard: React.FC = () => {
             fontSize: { xs: '13px', sm: '14px' },
             lineHeight: '20px',
             opacity: 0.95,
-            color:'white'
+            color: 'white',
           }}
         >
-          Don't miss out on free opportunities. Stay informed on the latest airdrop calls and discover how to earn from them.
+          Don't miss out on free opportunities. Stay informed on the latest
+          airdrop calls and discover how to earn from them.
         </Typography>
         <Button
           variant="contained"
@@ -93,4 +100,3 @@ const AirdropCallsCard: React.FC = () => {
 };
 
 export default AirdropCallsCard;
-

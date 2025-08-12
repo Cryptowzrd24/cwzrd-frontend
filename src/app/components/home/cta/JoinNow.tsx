@@ -13,8 +13,8 @@ const JoinNow = () => {
         alignItems: 'flex-start',
         maxWidth: '580px',
         height: '100%',
-        marginLeft: {xs:'0px',lg:'72px'},
-        padding: {xs:'20px',lg:'0px'},
+        marginLeft: { xs: '0px', lg: '72px' },
+        padding: { xs: '20px', lg: '0px' },
       }}
     >
       <Box>

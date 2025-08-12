@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 
-
 const TakeProfitCard: React.FC = () => {
   return (
     <Box
@@ -13,7 +12,7 @@ const TakeProfitCard: React.FC = () => {
         borderRadius: '16px',
         overflow: 'hidden',
         position: 'relative',
-        boxShadow: '0px 2px 8px rgba(0,0,0,0.1)'
+        boxShadow: '0px 2px 8px rgba(0,0,0,0.1)',
       }}
     >
       {/* yellow background with radial */}
@@ -21,21 +20,49 @@ const TakeProfitCard: React.FC = () => {
         sx={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse 95.44% 211.15% at 93.63% 67.54%, rgba(0, 0, 0, 0.24) 0%, black 100%), #FFF600',
+          background:
+            'radial-gradient(ellipse 95.44% 211.15% at 93.63% 67.54%, rgba(0, 0, 0, 0.24) 0%, black 100%), #FFF600',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          backgroundPosition: 'center', 
-          backgroundImage: 'url(/images/home/benefits-section/profit_guidance_bg.png)',
+          backgroundPosition: 'center',
+          backgroundImage:
+            'url(/images/home/benefits-section/profit_guidance_bg.png)',
         }}
       />
 
       {/* left content */}
-      <Box sx={{ position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)', width: 270, color: 'white', zIndex: 2 }}>
-        <Typography sx={{ fontSize: { xs: 18, sm: 20 }, fontWeight: 700, lineHeight: '24px', color: 'white' }}>
+      <Box
+        sx={{
+          position: 'absolute',
+          left: 20,
+          top: '50%',
+          transform: 'translateY(-50%)',
+          width: 270,
+          color: 'white',
+          zIndex: 2,
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: { xs: 18, sm: 20 },
+            fontWeight: 700,
+            lineHeight: '24px',
+            color: 'white',
+          }}
+        >
           Take Profit Guidance
         </Typography>
-        <Typography sx={{ mt: '8px', fontSize: { xs: 13, sm: 14 }, lineHeight: '18.2px', opacity: 0.56, color: 'white' }}>
-          Maximize your earnings with expert take profit strategies. We help identify the perfect moments to cash in on your trades.
+        <Typography
+          sx={{
+            mt: '8px',
+            fontSize: { xs: 13, sm: 14 },
+            lineHeight: '18.2px',
+            opacity: 0.56,
+            color: 'white',
+          }}
+        >
+          Maximize your earnings with expert take profit strategies. We help
+          identify the perfect moments to cash in on your trades.
         </Typography>
         <Button
           variant="contained"
@@ -61,4 +88,3 @@ const TakeProfitCard: React.FC = () => {
 };
 
 export default TakeProfitCard;
-

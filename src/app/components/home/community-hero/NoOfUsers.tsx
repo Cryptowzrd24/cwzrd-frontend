@@ -10,11 +10,11 @@ const NoOfUser = () => {
         display: 'flex',
         gap: '8px',
         alignItems: 'center',
-        padding: {md:'12px 24px',xs: '12px'},
+        padding: { md: '12px 24px', xs: '12px' },
         borderRadius: '60px',
         maxWidth: 'fit-content',
         background: 'rgb(255, 255, 255)',
-        flexDirection:{xs:'column',md:'row'},
+        flexDirection: { xs: 'column', md: 'row' },
       }}
     >
       <Image
@@ -27,10 +27,10 @@ const NoOfUser = () => {
       <Typography
         sx={{
           color: '#111',
-          fontSize: {lg:'16px',xs:'12px'},
-          fontWeight: {lg:'600',xs:'400'},
-          lineHeight: {lg:'19.2px',xs:'100%'},
-          letterSpacing: {lg:'-0.16px',xs:'0.16px'},
+          fontSize: { lg: '16px', xs: '12px' },
+          fontWeight: { lg: '600', xs: '400' },
+          lineHeight: { lg: '19.2px', xs: '100%' },
+          letterSpacing: { lg: '-0.16px', xs: '0.16px' },
         }}
       >
         3000+{' '}

@@ -40,7 +40,11 @@ const FinancialRight = ({ isMainPage }: { isMainPage: boolean }) => {
       >
         {isMainPage ? (
           <Box
-            sx={{ display: 'flex', justifyContent: 'space-between', mb: '16px' }}
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              mb: '16px',
+            }}
           >
             <Typography
               sx={{
@@ -104,7 +108,9 @@ const FinancialRight = ({ isMainPage }: { isMainPage: boolean }) => {
               }}
             >
               📰 New Update{' '}
-              <span style={{ color: 'rgba(17,17,17,0.3)', paddingLeft: '10px' }}>
+              <span
+                style={{ color: 'rgba(17,17,17,0.3)', paddingLeft: '10px' }}
+              >
                 | <span style={{ marginLeft: '8px', color: '#111' }}>🔥</span>{' '}
                 Trending
               </span>
@@ -113,7 +119,7 @@ const FinancialRight = ({ isMainPage }: { isMainPage: boolean }) => {
         )}
         <Divider />
       </Box>
-      
+
       {/* Content - Scrollable */}
       <Box
         sx={{

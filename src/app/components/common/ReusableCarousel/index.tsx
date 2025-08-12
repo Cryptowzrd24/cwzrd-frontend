@@ -1,6 +1,6 @@
 'use client';
 import React, { ReactNode, createContext, useContext } from 'react';
-import { Box, IconButton, useMediaQuery, useTheme } from '@mui/material';
+import { Box, IconButton, useMediaQuery } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -33,7 +33,9 @@ export const ResponsiveProvider: React.FC<{
   overrideResponsive?: boolean;
 }> = ({ children, responsiveConfig, overrideResponsive = false }) => {
   return (
-    <ResponsiveContext.Provider value={{ responsiveConfig, overrideResponsive }}>
+    <ResponsiveContext.Provider
+      value={{ responsiveConfig, overrideResponsive }}
+    >
       {children}
     </ResponsiveContext.Provider>
   );
@@ -91,12 +93,13 @@ const ReusableCarousel: React.FC<ReusableCarouselProps> = ({
   responsiveConfig,
   overrideResponsive = false,
 }) => {
-  const theme = useTheme();
-  const { responsiveConfig: contextConfig, overrideResponsive: contextOverride } = useResponsiveConfig();
-  
+  const {
+    responsiveConfig: contextConfig,
+    overrideResponsive: contextOverride,
+  } = useResponsiveConfig();
+
   const isMobile = useMediaQuery('(max-width: 576px)');
   const isTablet = useMediaQuery('(max-width: 768px)');
-  const isTab = useMediaQuery('(max-width: 1024px)');
 
   // Use provided responsive config or context config or default
   const finalResponsiveConfig = responsiveConfig || contextConfig;
@@ -129,7 +132,7 @@ const ReusableCarousel: React.FC<ReusableCarouselProps> = ({
 
   // Convert custom responsive config to slick format
   const convertResponsiveConfig = (config: ResponsiveConfig[]) => {
-    return config.map(item => ({
+    return config.map((item) => ({
       breakpoint: item.breakpoint,
       settings: {
         slidesToShow: item.slidesToShow,
@@ -143,9 +146,10 @@ const ReusableCarousel: React.FC<ReusableCarouselProps> = ({
   };
 
   // Use custom responsive config if provided, otherwise use default
-  const finalResponsive = shouldOverride && finalResponsiveConfig 
-    ? convertResponsiveConfig(finalResponsiveConfig)
-    : defaultResponsive;
+  const finalResponsive =
+    shouldOverride && finalResponsiveConfig
+      ? convertResponsiveConfig(finalResponsiveConfig)
+      : defaultResponsive;
 
   // Calculate arrow positioning with full width span
   const getArrowPosition = () => {
@@ -239,8 +243,14 @@ const ReusableCarousel: React.FC<ReusableCarouselProps> = ({
     ...defaultSettings,
     ...settings,
     // Ensure arrows are properly set if user overrides
-    prevArrow: settings.arrows !== false ? (settings.prevArrow || <PreviousArrow />) : undefined,
-    nextArrow: settings.arrows !== false ? (settings.nextArrow || <NextArrow />) : undefined,
+    prevArrow:
+      settings.arrows !== false
+        ? settings.prevArrow || <PreviousArrow />
+        : undefined,
+    nextArrow:
+      settings.arrows !== false
+        ? settings.nextArrow || <NextArrow />
+        : undefined,
   };
 
   return (
@@ -290,4 +300,4 @@ const ReusableCarousel: React.FC<ReusableCarouselProps> = ({
   );
 };
 
-export default ReusableCarousel; 
+export default ReusableCarousel;

@@ -59,14 +59,14 @@ const NewsCard: React.FC<NewsCardProps> = ({
           ? '389px'
           : allNews
             ? '328px'
-            : containerWidth || '309px',  
+            : containerWidth || '309px',
         height: isMainPage ? '100%' : '100%',
         // height: containerHeight ?? (allNews ? '252px' : '252px'),
         borderRadius: '16px',
         boxShadow: isMainPage ? 'none' : '0px 4px 28px 0px #0000000D',
 
         '@media (max-width: 878px)': {
-          flexDirection: isMainPage?'column':'row',
+          flexDirection: isMainPage ? 'column' : 'row',
           width: '100%',
           // height: '110px',
           // padding: isVertical ? '10px' : '8px',

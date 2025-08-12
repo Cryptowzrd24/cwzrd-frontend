@@ -72,9 +72,9 @@ const TagCard: React.FC<TagCardProps> = ({
           0
           <Chip
             sx={{
-              background:
-                isMainPage ? 'transparent' :
-                'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
+              background: isMainPage
+                ? 'transparent'
+                : 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)',
               backdropFilter: isMainPage ? 'none' : 'blur(10px)',
             }}
             key={'123'}

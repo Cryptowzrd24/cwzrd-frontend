@@ -84,8 +84,14 @@ export default function CryptoSlider() {
   };
 
   return (
-    <Box display="flex" justifyContent="center"  margin='0 auto' width='100%' height={{xs:'140px', sm:'70px'}}>
-      <Box sx={{width:{xs:'100%',sm:'70%', md:'85%'}}} height='100%'>
+    <Box
+      display="flex"
+      justifyContent="center"
+      margin="0 auto"
+      width="100%"
+      height={{ xs: '140px', sm: '70px' }}
+    >
+      <Box sx={{ width: { xs: '100%', sm: '70%', md: '85%' } }} height="100%">
         <Slider {...settings} className="technicals-slick">
           {cryptoData.map((crypto) => (
             <Box key={crypto.symbol}>

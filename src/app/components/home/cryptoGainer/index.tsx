@@ -135,7 +135,8 @@ const CryptoGainer = () => {
               Top{' '}
               <span
                 style={{
-                  background: 'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
+                  background:
+                    'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 }}
@@ -145,15 +146,13 @@ const CryptoGainer = () => {
             </CardTitle>
 
             <SeeAllContainer>
-              <SeeAllText variant="body2">
-                See All
-              </SeeAllText>
+              <SeeAllText variant="body2">See All</SeeAllText>
               <IconContainer>
                 <ReadMoreIcon isMainPage={true} />
               </IconContainer>
             </SeeAllContainer>
           </CardHeader>
-          
+
           <CardsContent>
             <CryptoInfo type="crypto" />
           </CardsContent>
@@ -166,7 +165,8 @@ const CryptoGainer = () => {
               Top{' '}
               <span
                 style={{
-                  background: 'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
+                  background:
+                    'linear-gradient(90deg, #7248F7 0%, #BF48F7 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 }}
@@ -176,21 +176,19 @@ const CryptoGainer = () => {
             </CardTitle>
 
             <SeeAllContainer>
-              <SeeAllText variant="body2">
-                See All
-              </SeeAllText>
+              <SeeAllText variant="body2">See All</SeeAllText>
               <IconContainer>
                 <ReadMoreIcon isMainPage />
               </IconContainer>
             </SeeAllContainer>
           </CardHeader>
-          
+
           <CardsContent>
             <CryptoInfo type="gain" />
           </CardsContent>
         </CardWrapper>
       </CardsContainer>
-      
+
       <MarketAnaylsisBanner />
     </Container>
   );

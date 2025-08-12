@@ -16,7 +16,7 @@ const CourseBox = () => {
         minWidth: '200px',
         position: 'absolute',
         top: '-42px',
-        right: {xs:'100px',lg:'220px'},
+        right: { xs: '100px', lg: '220px' },
       }}
     >
       <Typography>Course</Typography>

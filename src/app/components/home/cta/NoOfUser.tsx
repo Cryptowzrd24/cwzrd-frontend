@@ -15,7 +15,7 @@ const NoOfUser = () => {
         maxWidth: 'fit-content',
         background: 'rgb(255, 255, 255)',
         position: 'absolute',
-        right: {xs:'10px',lg:'45px'},
+        right: { xs: '10px', lg: '45px' },
         bottom: '35px',
       }}
     >
