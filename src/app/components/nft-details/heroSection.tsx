@@ -252,6 +252,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '12px',
                 fontWeight: '400',
                 color: 'rgba(255, 255, 255, 1)',
+                textAlign: {xs:'right',sm:'left'},
               }}
             >
               Total Owners
@@ -262,6 +263,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '16px',
                 fontWeight: '700',
                 color: 'rgba(255, 255, 255, 1)',
+                textAlign: {xs:'right',sm:'left'},
               }}
             >
               {serverNftData?.totalOwners ?? '-'}
@@ -300,6 +302,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '12px',
                 fontWeight: '400',
                 color: 'rgba(255, 255, 255, 1)',
+                textAlign: {xs:'right',sm:'left'},
               }}
             >
               24h Sales
@@ -310,6 +313,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '16px',
                 fontWeight: '700',
                 color: 'rgba(255, 255, 255, 1)',
+                textAlign: {xs:'right',sm:'left'},
               }}
             >
               {serverNftData?.sales24h}
@@ -348,6 +352,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '12px',
                 fontWeight: '400',
                 color: 'rgba(255, 255, 255, 1)',
+                textAlign: {xs:'right',sm:'left'},
               }}
             >
               Floor Price
@@ -358,6 +363,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '16px',
                 fontWeight: '700',
                 color: 'rgba(255, 255, 255, 1)',
+                textAlign: {xs:'right',sm:'left'},
               }}
             >
               {priceNumberFormatDigits(serverNftData?.floorPrice)}{' '}

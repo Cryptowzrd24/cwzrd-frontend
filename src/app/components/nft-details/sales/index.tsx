@@ -85,7 +85,7 @@ const Sales = ({ serverNftData }: any) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginRight: '-42px',
+          marginRight: {xs:0,lg:'-42px'},
           flexDirection: { xs: 'column', md: 'row' },
           gap: { xs: '16px', md: '0px' },
         }}
