@@ -8,8 +8,8 @@ const Card1 = () => {
       sx={{
         padding: '16px 16px 32px 16px',
         borderRadius: '16px',
-        maxWidth: '300px',
-        width: '22%',
+        // maxWidth: '300px',
+        width: { xs: '100%', sm: '49%', md: '24%' },
         boxShadow: 'rgba(27, 4, 4, 0.05) 0px 7px 29px 0px',
         cursor: 'pointer',
         background: '#0e0e0e',
@@ -25,14 +25,13 @@ const Card1 = () => {
           padding: '8px 12px',
           borderRadius: '24px',
           background: 'rgba(255, 255, 255, 1)',
-          maxWidth: '15%',
-          width: '100%',
+          width: 'fit-content',
           mb: '44px',
         }}
       >
         <Typography
           variant="body1"
-          sx={{ fontSize: '14px', fontWeight: '700' }}
+          sx={{ fontSize: '14px !important', fontWeight: '700' }}
         >
           STEP 1
         </Typography>

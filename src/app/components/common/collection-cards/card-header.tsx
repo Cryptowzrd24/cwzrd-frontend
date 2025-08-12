@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import infoIcon from '@/app/assets/icons/infoIcon.svg';
 
-import { Tooltip } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 import { HeaderTooltip } from '../../header-tooltip';
 import DownArrow from '../../../../../public/icons/coin-details/downArrow';
 
@@ -55,9 +55,9 @@ function CardHeader({
         <div className={styles.graphCustomHeader}>{renderHeaderOptions}</div>
       </div>
       <div style={{ display: 'flex', marginTop: '10px', gap: '10px' }}>
-        <span style={{ fontSize: '20px', fontWeight: '700' }}>
+        <Box sx={{ fontSize: { xs: '16px', lg: '20px' }, fontWeight: '700' }}>
           $3,096,908,099.62
-        </span>
+        </Box>
         <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
           <DownArrow />
           <span

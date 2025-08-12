@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import { CurrencyNameComponent } from '@/app/components/data-table/name';
 import { ID } from '@/app/components/data-table/id';
 import { Volume24 } from '@/app/components/data-table/volume-24';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 
 const useColumnCollectionsDefs = (columns: any) => {
   return useMemo(() => {
@@ -13,14 +14,19 @@ const useColumnCollectionsDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: ID,
-            width: 40,
+            width: getResponsiveWidth(60, 60, 60),
+            pinned: 'left',
+            cellClass: 'tight-cell',
           };
         case 'name':
           return {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: 200,
+            width: getResponsiveWidth(190, 170, 140),
+            pinned: 'left',
+            headerClass: 'left-align-header',
+            cellClass: 'tight-cell',
           };
         case 'volume_24':
           return {

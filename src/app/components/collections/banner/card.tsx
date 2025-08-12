@@ -33,18 +33,18 @@ const CollectionCard = ({ id, cardDetails }: cardProps) => {
         /> */}
         <Box
           sx={{
-            padding: '5px 12px',
+            padding: { xs: '5px', lg: '5px 12px' },
             borderRadius: '8px',
             background: 'rgba(17, 17, 17, 1)',
             position: 'absolute',
-            top: '26px',
+            top: { xs: '15px', md: '26px' },
             right: '30px',
           }}
         >
           <Typography
             variant="body2"
             sx={{
-              background: 'rgba(17, 17, 17, 1)',
+              background: 'rgb(18, 15, 15)',
               fontSize: '16px',
               fontWeight: '500',
               color: 'rgba(255, 255, 255, 1)',
@@ -55,13 +55,32 @@ const CollectionCard = ({ id, cardDetails }: cardProps) => {
         </Box>
       </Box>
 
-      <Box sx={{ padding: '24px' }}>
-        <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-          <Box sx={{ mt: '8px' }}>
+      <Box
+        sx={{
+          padding: { xs: '10px', md: '24px' },
+          mt: { xs: '40px', sm: '0' },
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: { xs: '8px', sm: '16px' },
+          }}
+        >
+          <Box
+            sx={{
+              mt: '8px',
+              width: { xs: '30px', sm: '48px' },
+              height: { xs: '30px', sm: '48px' },
+            }}
+          >
             <Image
               style={{
                 objectFit: 'cover',
                 borderRadius: '50%',
+                maxWidth: '100%',
+                maxHeight: '100%',
               }}
               loader={({ src }) => src}
               src={cardData.image2}

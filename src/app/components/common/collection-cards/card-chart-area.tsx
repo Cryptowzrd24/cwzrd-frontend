@@ -2,17 +2,22 @@
 import React, { useEffect, useRef } from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts';
+import { useMediaQuery } from 'rsuite/esm/useMediaQuery/useMediaQuery';
 
 const CardChartArea = (props: any) => {
   const { data, color, isMarker } = props;
   const chartRef: any = useRef(null);
+
+  const isLargeScreen = useMediaQuery('(min-width: 1200px)');
+
+  console.log(isLargeScreen[0], isLargeScreen?.[0] ? 168 : 130);
 
   const chartOptions: any = {
     chart: {
       type: 'area',
       plotBorderWidth: 0,
       plotMarginBottom: 0,
-      height: 168,
+      height: isLargeScreen?.[0] ? 168 : 130,
       width: 394,
     },
     xAxis: {
@@ -168,7 +173,7 @@ const CardChartArea = (props: any) => {
 
   useEffect(() => {
     if (chartRef.current) {
-      chartRef.current?.chart.setSize(394, 168);
+      chartRef.current?.chart.setSize(394, isLargeScreen?.[0] ? 168 : 130);
       const innerDiv = chartRef.current.container.current.querySelector('div');
       if (innerDiv) {
         innerDiv.style.height = 'auto';
