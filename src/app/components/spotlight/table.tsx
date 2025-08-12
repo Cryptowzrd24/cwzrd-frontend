@@ -192,7 +192,12 @@ const Table = () => {
             flexWrap: { xs: 'wrap' },
           }}
         >
-          <Box sx={{ width: { xs: '100%', sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+          <Box
+            sx={{
+              width: { xs: '100%', sm: '47%', md: '31%' },
+              boxSizing: 'border-box',
+            }}
+          >
             <DataTable
               search={search}
               title={'Trending'}
@@ -203,7 +208,12 @@ const Table = () => {
             />
           </Box>
 
-          <Box sx={{ width: { xs: '100%',sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+          <Box
+            sx={{
+              width: { xs: '100%', sm: '47%', md: '31%' },
+              boxSizing: 'border-box',
+            }}
+          >
             <DataTable
               search={search}
               title={'Biggest Gainers'}
@@ -214,7 +224,12 @@ const Table = () => {
             />
           </Box>
 
-          <Box sx={{ width: { xs: '100%',sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+          <Box
+            sx={{
+              width: { xs: '100%', sm: '47%', md: '31%' },
+              boxSizing: 'border-box',
+            }}
+          >
             <DataTable
               search={search}
               title={'Biggest Losers'}
@@ -224,7 +239,7 @@ const Table = () => {
               seeMore={'/market/gainers-losers'}
             />
           </Box>
-        {/* </Box>
+          {/* </Box>
         <Box
           sx={{
             display: 'flex',
@@ -232,7 +247,12 @@ const Table = () => {
             width: '100%',
           }}
         > */}
-          <Box sx={{ width: { xs: '100%',sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+          <Box
+            sx={{
+              width: { xs: '100%', sm: '47%', md: '31%' },
+              boxSizing: 'border-box',
+            }}
+          >
             <DataTable
               search={search}
               title={'Most Visited'}
@@ -243,7 +263,12 @@ const Table = () => {
             />
           </Box>
 
-          <Box sx={{ width: { xs: '100%',sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+          <Box
+            sx={{
+              width: { xs: '100%', sm: '47%', md: '31%' },
+              boxSizing: 'border-box',
+            }}
+          >
             <DataTable
               search={search}
               title={'Recently Added'}
@@ -254,7 +279,12 @@ const Table = () => {
             />
           </Box>
 
-          <Box sx={{ width: { xs: '100%',sm: '47%', md: '31%' }, boxSizing: 'border-box' }}>
+          <Box
+            sx={{
+              width: { xs: '100%', sm: '47%', md: '31%' },
+              boxSizing: 'border-box',
+            }}
+          >
             <DataTable
               search={search}
               title={'Highest Volume'}
