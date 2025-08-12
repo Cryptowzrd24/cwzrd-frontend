@@ -20,7 +20,7 @@ const useColumnCompactTrendingDefs = (columns: any) => {
             headerName: '#',
             cellRenderer: ID,
             pinned: 'left',
-            width: getResponsiveWidth(50, 40, 30),
+            width: getResponsiveWidth(50, 40, 40),
             cellClass: 'tight-cell',
           };
         case 'name':
@@ -28,7 +28,7 @@ const useColumnCompactTrendingDefs = (columns: any) => {
             field: 'name',
             headerName: 'Name',
             cellRenderer: CurrencyNameComponent,
-            width: getResponsiveWidth(160, 150, 125),
+            width: getResponsiveWidth(160, 150, 115),
             pinned: 'left',
             headerClass: 'left-align-header',
             cellClass: 'tight-cell',
