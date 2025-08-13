@@ -22,8 +22,6 @@ const OptionMenu = ({
   handleClose,
   open,
   anchorEl,
-  isActive,
-  setIsActive,
   NavbarData,
   setActiveId,
 }: OptionMenuProps) => {
@@ -39,7 +37,7 @@ const OptionMenu = ({
         },
       }}
     >
-      <ThemeToggle isActive={isActive} setIsActive={setIsActive} />
+      <ThemeToggle />
 
       <SearchIcon
         color={

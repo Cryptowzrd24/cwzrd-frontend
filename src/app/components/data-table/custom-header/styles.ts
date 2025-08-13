@@ -16,12 +16,14 @@ const styles = {
   iconBox: {
     padding: '8px',
     borderRadius: '8px',
+    display: 'flex',
+    alignItems: 'center',
     background: '#7248F71A',
-    height: '16px',
+    height: '100%',
     cursor: 'pointer',
     '@media (max-width: 600px)': {
       padding: '6px',
-      height: '14px',
+      height: '100%',
     },
   },
   select: {

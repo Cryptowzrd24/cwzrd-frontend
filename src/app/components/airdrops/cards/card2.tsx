@@ -68,7 +68,7 @@ const Card2 = () => {
         <Typography
           variant="body2"
           sx={{
-            color: 'rgba(255, 255, 255, 1)',
+            color: 'text.primary',
             fontWeight: '400',
             fontSize: '13px',
             lineHeight: '18.85px',

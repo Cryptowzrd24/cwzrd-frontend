@@ -43,9 +43,9 @@ const GraphCardTop = (props: any) => {
             padding: '2px 21px 20px 18px',
           }}
         >
-          <div style={{ display: 'flex' }}>
+          <div style={{ display: 'flex', gap: '2px' }}>
             <Image src={chainCoin1} alt="" />
-            <div style={{ marginLeft: '-35px' }}>
+            <div>
               <p
                 style={{
                   fontSize: '14px',
