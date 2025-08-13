@@ -5,15 +5,15 @@ const Check = () => {
   return (
     <Box
       sx={{
-        padding: '8px 8px 5px',
+        padding: {lg:'8px 8px 5px',xs:'5px 5px 3px'},
         displat: 'inline-flex',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: '100px 100px 0px 100px',
         background: '#22C833',
         position: 'absolute',
-        right: { xs: '10px', lg: '45px' },
-        bottom: '100px',
+        right: "0px",
+        top:"-40px"
       }}
     >
       <svg
