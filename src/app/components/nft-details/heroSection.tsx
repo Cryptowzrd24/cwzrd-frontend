@@ -22,7 +22,7 @@ const HeroSection = ({ serverNftData }: any) => {
   const progressVal =
     (serverNftData?.volume24h / serverNftData?.totalVolume) * 100;
 
-  const CustomLinearProgress = styled(LinearProgress)(({ }) => ({
+  const CustomLinearProgress = styled(LinearProgress)(({}) => ({
     height: '10px !important',
     borderRadius: 16,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -152,7 +152,12 @@ const HeroSection = ({ serverNftData }: any) => {
           width: '100%',
         }}
       >
-        <Stack sx={{ width: { xs: '100%', sm: '40%' }, flex: { xs: 1, sm: 1, md: 2 } }}>
+        <Stack
+          sx={{
+            width: { xs: '100%', sm: '40%' },
+            flex: { xs: 1, sm: 1, md: 2 },
+          }}
+        >
           <Box
             sx={{
               mb: '16px',
@@ -222,7 +227,15 @@ const HeroSection = ({ serverNftData }: any) => {
         </Stack>
 
         {/* --------------------------------------------------------------------------------- */}
-        <Stack sx={{flexDirection: {xs:'row',sm:'column'},justifyContent: {xs:'space-between',sm:'flex-start'}, width: { xs: '100%', sm: '20%' }, flex: {md:1}, padding: { xs: '0px', md: '16px' } }}>
+        <Stack
+          sx={{
+            flexDirection: { xs: 'row', sm: 'column' },
+            justifyContent: { xs: 'space-between', sm: 'flex-start' },
+            width: { xs: '100%', sm: '20%' },
+            flex: { md: 1 },
+            padding: { xs: '0px', md: '16px' },
+          }}
+        >
           <Box sx={{ mb: '10px' }}>
             <Typography
               variant="body2"
@@ -252,7 +265,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '12px',
                 fontWeight: '400',
                 color: 'rgba(255, 255, 255, 1)',
-                textAlign: {xs:'right',sm:'left'},
+                textAlign: { xs: 'right', sm: 'left' },
               }}
             >
               Total Owners
@@ -263,7 +276,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '16px',
                 fontWeight: '700',
                 color: 'rgba(255, 255, 255, 1)',
-                textAlign: {xs:'right',sm:'left'},
+                textAlign: { xs: 'right', sm: 'left' },
               }}
             >
               {serverNftData?.totalOwners ?? '-'}
@@ -271,7 +284,15 @@ const HeroSection = ({ serverNftData }: any) => {
           </Box>
         </Stack>
         {/* -------------------------------------------------------------------------- */}
-        <Stack sx={{flexDirection: {xs:'row',sm:'column'},justifyContent: {xs:'space-between',sm:'flex-start'}, width: { xs: '100%', sm: '20%' }, flex: {md:1}, padding: { xs: '0px', md: '16px' } }}>
+        <Stack
+          sx={{
+            flexDirection: { xs: 'row', sm: 'column' },
+            justifyContent: { xs: 'space-between', sm: 'flex-start' },
+            width: { xs: '100%', sm: '20%' },
+            flex: { md: 1 },
+            padding: { xs: '0px', md: '16px' },
+          }}
+        >
           <Box sx={{ mb: '10px' }}>
             <Typography
               variant="body2"
@@ -302,7 +323,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '12px',
                 fontWeight: '400',
                 color: 'rgba(255, 255, 255, 1)',
-                textAlign: {xs:'right',sm:'left'},
+                textAlign: { xs: 'right', sm: 'left' },
               }}
             >
               24h Sales
@@ -313,7 +334,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '16px',
                 fontWeight: '700',
                 color: 'rgba(255, 255, 255, 1)',
-                textAlign: {xs:'right',sm:'left'},
+                textAlign: { xs: 'right', sm: 'left' },
               }}
             >
               {serverNftData?.sales24h}
@@ -321,7 +342,15 @@ const HeroSection = ({ serverNftData }: any) => {
           </Box>
         </Stack>
         {/* ------------------------------------------------------------------------------------------- */}
-        <Stack sx={{flexDirection: {xs:'row',sm:'column'},justifyContent: {xs:'space-between',sm:'flex-start'}, width: { xs: '100%', sm: '20%' }, flex: {md:1}, padding: { xs: '0px', md: '16px' } }}>
+        <Stack
+          sx={{
+            flexDirection: { xs: 'row', sm: 'column' },
+            justifyContent: { xs: 'space-between', sm: 'flex-start' },
+            width: { xs: '100%', sm: '20%' },
+            flex: { md: 1 },
+            padding: { xs: '0px', md: '16px' },
+          }}
+        >
           <Box sx={{ mb: '10px' }}>
             <Typography
               variant="body2"
@@ -352,7 +381,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '12px',
                 fontWeight: '400',
                 color: 'rgba(255, 255, 255, 1)',
-                textAlign: {xs:'right',sm:'left'},
+                textAlign: { xs: 'right', sm: 'left' },
               }}
             >
               Floor Price
@@ -363,7 +392,7 @@ const HeroSection = ({ serverNftData }: any) => {
                 fontSize: '16px',
                 fontWeight: '700',
                 color: 'rgba(255, 255, 255, 1)',
-                textAlign: {xs:'right',sm:'left'},
+                textAlign: { xs: 'right', sm: 'left' },
               }}
             >
               {priceNumberFormatDigits(serverNftData?.floorPrice)}{' '}

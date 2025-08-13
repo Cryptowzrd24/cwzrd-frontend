@@ -4,17 +4,11 @@ import React from 'react';
 import styles from './style.module.scss';
 import Avatar from '../../../../public/images/banner/avatar.png';
 
-interface MemberShipBannerProps {
-  isNftDetail?: boolean;
-}
-
-function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
+function MemberShipBanner() {
   return (
     <Box
       className={styles.bannerBox2}
-      style={
-        { width: '100%', margin: '0 auto' }
-      }
+      style={{ width: '100%', margin: '0 auto' }}
     >
       <Box>
         <Stack

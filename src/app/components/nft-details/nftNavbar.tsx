@@ -33,7 +33,7 @@ const NftNavbar = () => {
   return (
     <Box
       sx={{
-        padding: {xs:'12px', md:'16px', xl:'24px'},
+        padding: { xs: '12px', md: '16px', xl: '24px' },
         borderRadius: '24px',
         boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
         background: 'rgba(255, 255, 255, 1)',
@@ -58,7 +58,10 @@ const NftNavbar = () => {
                 ? 'rgba(114, 72, 247, 0.1)'
                 : 'transparent',
             borderRadius: activeHeading === heading ? '40px' : '0px',
-            padding: activeHeading === heading ? {xs:'4px 8px', md:'11px 16px'} : '0px',
+            padding:
+              activeHeading === heading
+                ? { xs: '4px 8px', md: '11px 16px' }
+                : '0px',
             cursor: 'pointer',
           }}
           onClick={() => handleHeadingClick(heading)}

@@ -118,7 +118,7 @@ const Activity = ({ serverNftData }: any) => {
           background: 'rgba(255, 255, 255, 1)',
           width: '100%',
           borderRadius: '24px',
-          padding: {xs:'12px', md:'20px', lg:'24px'},
+          padding: { xs: '12px', md: '20px', lg: '24px' },
           overflow: 'hidden',
           boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
           boxSizing: 'border-box',

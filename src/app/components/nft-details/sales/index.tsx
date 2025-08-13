@@ -85,7 +85,7 @@ const Sales = ({ serverNftData }: any) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginRight: {xs:0,lg:'-42px'},
+          marginRight: { xs: 0, lg: '-42px' },
           flexDirection: { xs: 'column', md: 'row' },
           gap: { xs: '16px', md: '0px' },
         }}
@@ -144,7 +144,7 @@ const Sales = ({ serverNftData }: any) => {
           background: 'rgba(255, 255, 255, 1)',
           width: '100%',
           borderRadius: '24px',
-          padding: {xs:'12px', md:'20px', lg:'24px'},
+          padding: { xs: '12px', md: '20px', lg: '24px' },
           overflow: 'hidden',
           boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
           boxSizing: 'border-box',

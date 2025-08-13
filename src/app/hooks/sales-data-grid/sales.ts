@@ -25,7 +25,7 @@ const useColumnSalesDefs = (columns: any) => {
             headerName: 'Items',
             cellRenderer: SalesItems,
             pinned: 'left',
-            width: getResponsiveWidth(150, 120, 30 ),
+            width: getResponsiveWidth(150, 120, 30),
             cellClass: 'tight-cell',
           };
         case 'rarity':
