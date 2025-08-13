@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 import CoinHeroSection from './coinHeroSection';
 import CoinNavbar from './coinNavbar';
@@ -20,61 +20,101 @@ const CoinDetails = ({ serverCoindata }: any) => {
   const coinName = serverCoindata?.name;
   const coinId = serverCoindata?.coin_id;
   const coinSymbol = serverCoindata?.about_coin?.symbol;
+
   return (
-    <>
-      <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box id="hero" sx={{ mt: '48px', mb: '16px' }}>
+    <Box
+      sx={{
+        background: 'white',
+        width: '100%',
+        boxSizing: 'border-box',
+        height: '100%',
+      }}
+    >
+      <Box
+        sx={{
+          margin: '0 auto',
+          overflow: 'hidden',
+          width: {
+            xs: '100%',
+            sm: '95%',
+            md: '900px',
+            lg: '1150px',
+            xl: '1290px',
+          },
+          boxSizing: 'border-box',
+          padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
+          display: 'flex',
+          flexDirection: 'column',
+          gap: { xs: '48px', md: '48px' },
+        }}
+      >
+        <Box id="hero" sx={{ width: '100%' }}>
           <CoinHeroSection coinDetails={serverCoindata} />
         </Box>
-        <Box id="overview" sx={{ mb: '16px' }}>
+        <Box id="overview" sx={{ width: '100%' }}>
           <CoinNavbar />
         </Box>
         <Box
           id="details"
           sx={{
             display: 'flex',
-            mb: '8px',
             gap: '30px',
             width: '100%',
+            alignItems: 'stretch',
+            flexDirection: { xs: 'column', md: 'row' },
           }}
         >
-          <Box sx={{ flex: 1 }}>
+          <Box
+            sx={{
+              flex: { xs: 3, md: 3 }, // Equal width distribution
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden',
+            }}
+          >
             <GraphLayout coinSymbol={coinSymbol} />
           </Box>
-          <Box sx={{ flex: 1 }}>
+          <Box
+            sx={{
+              flex: 1, // Equal width distribution
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden',
+            }}
+          >
             <CoinDetailsCard coinDetails={serverCoindata} />
           </Box>
         </Box>
-        <Box id="about" sx={{ mt: '-24px', mb: '48px' }}>
+        <Box id="about" sx={{ width: '100%' }}>
           <CoinInfo coinDetails={serverCoindata} />
         </Box>
-        <Box id="news" sx={{ mb: '48px' }}>
+        <Box id="news" sx={{ width: '100%' }}>
           <NewsLetter />
         </Box>
-        <Box id="market" sx={{ mb: '48px' }}>
+        <Box id="market" sx={{ width: '100%' }}>
           <CoinMarket coinName={coinName} />
         </Box>
-        <Box id="technicals" sx={{ mb: '48px' }}>
+        <Box id="technicals" sx={{ width: '100%' }}>
           <Technicals />
         </Box>
-        <Box id="converter" sx={{ mb: '48px' }}>
+        <Box id="converter" sx={{ width: '100%' }}>
           <Converter coinDetails={serverCoindata} />
         </Box>
-        <Box id="newsletter-banner" sx={{ mb: '48px' }}>
+        <Box id="newsletter-banner" sx={{ width: '100%' }}>
           <NewsLetterBanner />
         </Box>
-        <Box id="analytics" sx={{ mb: '48px' }}>
+        <Box id="analytics" sx={{ width: '100%' }}>
           <BitcoinAnalytics name={coinName} />
         </Box>
-        <Box id="historical" sx={{ mb: '48px' }}>
+        <Box id="historical" sx={{ width: '100%' }}>
           <CoinAnalytics coinId={coinId} />
         </Box>
-        <Box id="membership-banner" sx={{ mb: '48px' }}>
+        <Box id="membership-banner" sx={{ width: '100%' }}>
           <MemberShipBanner />
         </Box>
-      </Container>
+      </Box>
       <Script src="/coin_details_banner_websocket.js" />
-    </>
+    </Box>
   );
 };
 

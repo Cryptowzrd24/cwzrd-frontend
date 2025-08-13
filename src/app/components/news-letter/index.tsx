@@ -14,12 +14,9 @@ function NewsLetter() {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-
-            '@media (max-width: 978px)': {
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              gap: '8px',
-            },
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: { xs: '16px', md: '0px' },
+            textAlign: { xs: 'center', md: 'left' },
           }}
         >
           <div>
@@ -71,9 +68,10 @@ function NewsLetter() {
             variant="h3"
             sx={{
               color: 'rgba(17, 17, 17, 0.8)',
-              maxWidth: '630px',
+              maxWidth: { xs: '80%', md: '630px' },
               lineHeight: '30px',
-              marginRight: '45px',
+              margin: { xs: '0px auto', md: '0 45px 0 0' },
+              textAlign: { xs: 'center', md: 'left' },
 
               '@media (max-width: 576px)': {
                 fontSize: '12px !important',

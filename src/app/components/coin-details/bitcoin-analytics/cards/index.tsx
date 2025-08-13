@@ -7,19 +7,33 @@ import TransactionCard from './transactionCard';
 
 const BitcoinCard = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <PossessionCard />
+    <Box sx={{ flexGrow: 1, width: '100%' }}>
+      <Grid
+        container
+        spacing={3}
+        sx={{
+          alignItems: 'stretch', // This makes all items stretch to equal height
+        }}
+      >
+        <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
+          <Box sx={{ width: '100%', height: '100%' }}>
+            <PossessionCard />
+          </Box>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <WhaleAssetsCard />
+        <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
+          <Box sx={{ width: '100%', height: '100%' }}>
+            <WhaleAssetsCard />
+          </Box>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <OwnershipCard />
+        <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
+          <Box sx={{ width: '100%', height: '100%' }}>
+            <OwnershipCard />
+          </Box>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <TransactionCard />
+        <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
+          <Box sx={{ width: '100%', height: '100%' }}>
+            <TransactionCard />
+          </Box>
         </Grid>
       </Grid>
     </Box>

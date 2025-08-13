@@ -148,16 +148,26 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            paddingRight: '64px',
+            paddingRight: { xs: '0px', sm: '0px', md: '64px' },
+            flexDirection: { xs: 'column', sm: 'row' },
+            gap: { xs: '24px', md: '10px' },
+            flexWrap: { sm: 'wrap', md: 'nowrap' },
+            width: '100%',
           }}
         >
-          <Stack sx={{ maxWidth: '356px', width: '100%' }}>
+          <Stack
+            sx={{
+              width: { xs: '100%', sm: '50%', md: '40%' },
+              flex: { xs: 1, sm: 1, md: 2 },
+            }}
+          >
             <Box
               sx={{
                 mb: '12px',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '12px',
+                width: '100%',
               }}
             >
               <Typography
@@ -265,103 +275,109 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             sx={{
               backgroundColor: 'rgba(255, 255, 255, 0.3)',
               opacity: 0.5,
+              display: { xs: 'none', sm: 'block' },
             }}
           />
 
           {/* --------------------------------------------------------------------------------- */}
-          <Box>
-            <Stack>
-              <Box
-                sx={{
-                  mb: '16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '24px',
-                  width: '323px',
-                }}
-              >
-                <Stack>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '12px',
-                      fontWeight: '400',
-                      color: 'rgba(255, 255, 255, 1)',
-                      mb: '2px',
-                    }}
-                  >
-                    Market Cap
-                  </Typography>
-                  <Typography
-                    id={`banner-market-cap-${coinDetails?.coin_id}`}
-                    variant="body2"
-                    sx={{
-                      fontSize: '16px',
-                      fontWeight: '700',
-                      color: 'rgba(255, 255, 255, 1)',
-                    }}
-                  >
-                    ${priceNumberFormatDigits(coinDetails?.quote?.market_cap)}
-                  </Typography>
-                </Stack>
+          <Stack
+            sx={{
+              width: { xs: '100%', sm: '50%', md: '20%' },
+              flex: 1,
+              padding: { xs: '0px', md: '16px' },
+            }}
+          >
+            <Box
+              sx={{
+                mb: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '24px',
+                width: '100%',
+              }}
+            >
+              <Stack>
                 <Typography
-                  variant="body1"
+                  variant="body2"
                   sx={{
-                    fontSize: '14px',
-                    fontWeight: '600',
-                    ...getPercentColor(
-                      coinDetails?.statistics?.marketCapChangePercentage24h,
-                    ),
+                    fontSize: '12px',
+                    fontWeight: '400',
+                    color: 'rgba(255, 255, 255, 1)',
+                    mb: '2px',
                   }}
                 >
-                  {coinDetails?.statistics?.marketCapChangePercentage24h
-                    ?.toString()
-                    .includes('-')
-                    ? ''
-                    : '+'}
-                  {priceNumberFormatDigits(
-                    coinDetails?.statistics?.marketCapChangePercentage24h,
-                  )}
-                  %
+                  Market Cap
                 </Typography>
-              </Box>
-              <Box
+                <Typography
+                  id={`banner-market-cap-${coinDetails?.coin_id}`}
+                  variant="body2"
+                  sx={{
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    color: 'rgba(255, 255, 255, 1)',
+                  }}
+                >
+                  ${priceNumberFormatDigits(coinDetails?.quote?.market_cap)}
+                </Typography>
+              </Stack>
+              <Typography
+                variant="body1"
                 sx={{
-                  // mb: '16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '24px',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  ...getPercentColor(
+                    coinDetails?.statistics?.marketCapChangePercentage24h,
+                  ),
                 }}
               >
-                <Stack>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '12px',
-                      fontWeight: '400',
-                      color: 'rgba(255, 255, 255, 1)',
-                      mb: '2px',
-                    }}
-                  >
-                    1D Trading Vol
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '16px',
-                      fontWeight: '700',
-                      color: 'rgba(255, 255, 255, 1)',
-                    }}
-                  >
-                    $
-                    {priceNumberFormatDigits(
-                      coinDetails?.statistics?.volumeYesterday,
-                    )}
-                  </Typography>
-                </Stack>
-                {/* <Typography
+                {coinDetails?.statistics?.marketCapChangePercentage24h
+                  ?.toString()
+                  .includes('-')
+                  ? ''
+                  : '+'}
+                {priceNumberFormatDigits(
+                  coinDetails?.statistics?.marketCapChangePercentage24h,
+                )}
+                %
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                // mb: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '24px',
+              }}
+            >
+              <Stack>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '12px',
+                    fontWeight: '400',
+                    color: 'rgba(255, 255, 255, 1)',
+                    mb: '2px',
+                  }}
+                >
+                  1D Trading Vol
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    color: 'rgba(255, 255, 255, 1)',
+                  }}
+                >
+                  $
+                  {priceNumberFormatDigits(
+                    coinDetails?.statistics?.volumeYesterday,
+                  )}
+                </Typography>
+              </Stack>
+              {/* <Typography
                   variant="body1"
                   sx={{
                     color: 'rgba(76, 254, 182, 1)',
@@ -371,202 +387,217 @@ const CoinHeroSection = ({ coinDetails }: any) => {
                 >
                   +7.37%
                 </Typography> */}
-              </Box>
-            </Stack>
-          </Box>
+            </Box>
+          </Stack>
           <Divider
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', opacity: 0.5 }}
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.3)',
+              opacity: 0.5,
+              display: { xs: 'none', md: 'block' },
+            }}
           />
 
           {/* -------------------------------------------------------------------------- */}
-          <Box>
-            <Stack>
-              <Box
-                sx={{
-                  mb: '16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '24px',
-                  width: '323px',
-                }}
-              >
-                <Stack>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '12px',
-                      fontWeight: '400',
-                      color: 'rgba(255, 255, 255, 1)',
-                      mb: '2px',
-                    }}
-                  >
-                    Diluted Valuation
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '16px',
-                      fontWeight: '700',
-                      color: 'rgba(255, 255, 255, 1)',
-                    }}
-                  >
-                    $
-                    {priceNumberFormatDigits(
-                      coinDetails?.quote?.fully_diluted_market_cap,
-                    )}
-                  </Typography>
-                </Stack>
+          <Stack
+            sx={{
+              width: { xs: '100%', sm: '50%', md: '20%' },
+              flex: 1,
+              padding: { xs: '0px', md: '16px' },
+            }}
+          >
+            <Box
+              sx={{
+                mb: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '24px',
+                width: '100%',
+              }}
+            >
+              <Stack>
                 <Typography
-                  variant="body1"
+                  variant="body2"
                   sx={{
-                    // color: 'rgba(76, 254, 182, 1)',
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    ...getPercentColor(
-                      coinDetails?.statistics
-                        ?.fullyDilutedMarketCapChangePercentage24h,
-                    ),
+                    fontSize: '12px',
+                    fontWeight: '400',
+                    color: 'rgba(255, 255, 255, 1)',
+                    mb: '2px',
                   }}
                 >
-                  {coinDetails?.statistics?.fullyDilutedMarketCapChangePercentage24h
-                    ?.toString()
-                    .includes('-')
-                    ? ''
-                    : '+'}
+                  Diluted Valuation
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    color: 'rgba(255, 255, 255, 1)',
+                  }}
+                >
+                  $
                   {priceNumberFormatDigits(
+                    coinDetails?.quote?.fully_diluted_market_cap,
+                  )}
+                </Typography>
+              </Stack>
+              <Typography
+                variant="body1"
+                sx={{
+                  // color: 'rgba(76, 254, 182, 1)',
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  ...getPercentColor(
                     coinDetails?.statistics
                       ?.fullyDilutedMarketCapChangePercentage24h,
-                  )}
-                  %
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  // mb: '16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '24px',
+                  ),
                 }}
               >
-                <Stack>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '12px',
-                      fontWeight: '400',
-                      color: 'rgba(255, 255, 255, 1)',
-                      mb: '2px',
-                    }}
-                  >
-                    Circulating Supply
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '16px',
-                      fontWeight: '700',
-                      color: 'rgba(255, 255, 255, 1)',
-                    }}
-                  >
-                    {coinDetails?.about_coin?.symbol}{' '}
-                    {priceNumberFormatDigits(
-                      coinDetails?.statistics?.circulatingSupply,
-                    )}
-                  </Typography>
-                </Stack>
-              </Box>
-            </Stack>
-          </Box>
+                {coinDetails?.statistics?.fullyDilutedMarketCapChangePercentage24h
+                  ?.toString()
+                  .includes('-')
+                  ? ''
+                  : '+'}
+                {priceNumberFormatDigits(
+                  coinDetails?.statistics
+                    ?.fullyDilutedMarketCapChangePercentage24h,
+                )}
+                %
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                // mb: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '24px',
+              }}
+            >
+              <Stack>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '12px',
+                    fontWeight: '400',
+                    color: 'rgba(255, 255, 255, 1)',
+                    mb: '2px',
+                  }}
+                >
+                  Circulating Supply
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    color: 'rgba(255, 255, 255, 1)',
+                  }}
+                >
+                  {coinDetails?.about_coin?.symbol}{' '}
+                  {priceNumberFormatDigits(
+                    coinDetails?.statistics?.circulatingSupply,
+                  )}
+                </Typography>
+              </Stack>
+            </Box>
+          </Stack>
           <Divider
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', opacity: 0.5 }}
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.3)',
+              opacity: 0.5,
+              display: { xs: 'none', sm: 'block' },
+            }}
           />
 
           {/* ------------------------------------------------------------------------------------------- */}
-          <Box>
-            <Stack>
-              <Box
-                sx={{
-                  mb: '16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '24px',
-                }}
-              >
-                <Stack>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '12px',
-                      fontWeight: '400',
-                      color: 'rgba(255, 255, 255, 1)',
-                      mb: '2px',
-                    }}
-                  >
-                    Total Supply
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '16px',
-                      fontWeight: '700',
-                      color: 'rgba(255, 255, 255, 1)',
-                    }}
-                  >
-                    {coinDetails?.about_coin?.symbol}{' '}
-                    {priceNumberFormatDigits(
-                      coinDetails?.statistics?.totalSupply,
-                    )}
-                  </Typography>
-                </Stack>
-              </Box>
-              <Box
-                sx={{
-                  // mb: '16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '24px',
-                }}
-              >
-                <Stack>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '12px',
-                      fontWeight: '400',
-                      color: 'rgba(255, 255, 255, 1)',
-                      mb: '2px',
-                    }}
-                  >
-                    Max Supply
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: '16px',
-                      fontWeight: '700',
-                      color: 'rgba(255, 255, 255, 1)',
-                    }}
-                  >
-                    {coinDetails?.statistics?.maxSupply ? (
-                      `$${priceNumberFormatDigits(coinDetails?.statistics?.maxSupply)}`
-                    ) : (
-                      <Image src={infinityIconWhite} alt="infinity-icon" />
-                    )}
-                  </Typography>
-                </Stack>
-              </Box>
-            </Stack>
-          </Box>
+          <Stack
+            sx={{
+              width: { xs: '100%', sm: '50%', md: '20%' },
+              flex: 1,
+              padding: { xs: '0px', md: '16px' },
+            }}
+          >
+            <Box
+              sx={{
+                mb: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '24px',
+              }}
+            >
+              <Stack>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '12px',
+                    fontWeight: '400',
+                    color: 'rgba(255, 255, 255, 1)',
+                    mb: '2px',
+                  }}
+                >
+                  Total Supply
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    color: 'rgba(255, 255, 255, 1)',
+                  }}
+                >
+                  {coinDetails?.about_coin?.symbol}{' '}
+                  {priceNumberFormatDigits(
+                    coinDetails?.statistics?.totalSupply,
+                  )}
+                </Typography>
+              </Stack>
+            </Box>
+            <Box
+              sx={{
+                // mb: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '24px',
+              }}
+            >
+              <Stack>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '12px',
+                    fontWeight: '400',
+                    color: 'rgba(255, 255, 255, 1)',
+                    mb: '2px',
+                  }}
+                >
+                  Max Supply
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    color: 'rgba(255, 255, 255, 1)',
+                  }}
+                >
+                  {coinDetails?.statistics?.maxSupply ? (
+                    `$${priceNumberFormatDigits(coinDetails?.statistics?.maxSupply)}`
+                  ) : (
+                    <Image src={infinityIconWhite} alt="infinity-icon" />
+                  )}
+                </Typography>
+              </Stack>
+            </Box>
+          </Stack>
         </Box>
       </Box>
     </>

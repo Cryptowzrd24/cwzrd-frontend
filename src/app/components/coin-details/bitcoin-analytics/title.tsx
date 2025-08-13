@@ -20,6 +20,7 @@ const Title = ({ name }: { name: string }) => {
           letterSpacing: '2px',
           mb: '4px',
           ml: '4px',
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
         Analytics
@@ -29,6 +30,9 @@ const Title = ({ name }: { name: string }) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: '16px', md: '0px' },
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
         <Box>
@@ -53,7 +57,15 @@ const Title = ({ name }: { name: string }) => {
             </span>{' '}
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: { xs: '16px', md: '16px' },
+            textAlign: { xs: 'center', md: 'left' },
+            justifyContent: { xs: 'center', md: 'flex-end' },
+          }}
+        >
           <Box
             onClick={() => handleClick('1 Month')}
             sx={{

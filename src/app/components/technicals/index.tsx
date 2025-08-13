@@ -5,19 +5,16 @@ import ArrowRightBlack from '../../../../public/icons/News-Letter/arrowRightBlac
 
 function Technicals() {
   return (
-    <>
-      <Box>
+    <Box sx={{ width: '100%', overflow: 'hidden' }}>
+      <Box sx={{ width: '100%', overflow: 'hidden' }}>
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-
-            '@media (max-width: 978px)': {
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              gap: '8px',
-            },
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: { xs: '16px', md: '0px' },
+            textAlign: { xs: 'center', md: 'left' },
           }}
         >
           <div>
@@ -68,15 +65,15 @@ function Technicals() {
           <Typography
             variant="h3"
             sx={{
+              // width: '70%',
               color: 'rgba(17, 17, 17, 0.8)',
-              maxWidth: '630px',
-              lineHeight: '30px',
-
-              '@media (max-width: 576px)': {
-                fontSize: '12px !important',
-                fontWeight: '400 !important',
-                lineHeight: '150%',
-              },
+              maxWidth: { xs: '80%', md: '630px' },
+              textAlign: { xs: 'center', md: 'left' },
+              fontSize: { xs: '12px', md: '16px' },
+              fontWeight: { xs: '400', md: '700' },
+              letterSpacing: { xs: '0.24px', md: '0.24px' },
+              lineHeight: { xs: '150%', md: '30px' },
+              // margin: { xs: '0px auto', md: '0 45px 0 0' },
             }}
           >
             Receive expert commentary, market trends, and technical analysis
@@ -84,7 +81,7 @@ function Technicals() {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ marginTop: '16px' }}>
+      <Box sx={{ marginTop: '16px', width: '100%' }}>
         <TechnicalCardContent />
       </Box>
       <Box
@@ -93,6 +90,8 @@ function Technicals() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          width: '100%',
+          overflow: 'hidden',
 
           '@media (max-width: 576px)': {
             alignItems: 'flex-start',
@@ -104,11 +103,11 @@ function Technicals() {
           variant="body1"
           sx={{
             background: 'rgba(17, 17, 17, 0.05)',
-            padding: '11px 16px 11px  16px',
+            padding: { xs: '11px 12px 11px  12px', sm: '11px 16px 11px  16px' },
             fontWeight: '600',
             display: 'flex',
             justifyContent: 'center',
-            fontSize: '14px',
+            fontSize: { xs: '12px', sm: '14px', md: '14px' },
             alignItems: 'center',
             gap: '4px',
             borderRadius: '56px',
@@ -124,7 +123,7 @@ function Technicals() {
           <ArrowRightBlack />
         </Typography>
       </Box>
-    </>
+    </Box>
   );
 }
 

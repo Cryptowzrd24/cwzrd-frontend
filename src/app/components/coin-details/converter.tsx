@@ -6,8 +6,10 @@ import Refresh from '../../../../public/icons/coin-details/refresh';
 import ArrowRightBlack from '../../../../public/icons/News-Letter/arrowRightBlack';
 import TimeAgo from 'react-timeago';
 import IconConvertor from '../../../../public/icons/coin-details/converter';
+import { useMediaQuery } from '@mui/material';
 
 const Converter = ({ coinDetails }: any) => {
+  const isMobile = useMediaQuery('(max-width: 576px)');
   const [currency, setCurrency] = useState('');
   const [bitcoinAmount, setBitcoinAmount] = useState(1);
   const [convertedVal, setConvertedVal] = useState(coinDetails?.quote?.price);
@@ -28,7 +30,7 @@ const Converter = ({ coinDetails }: any) => {
     <Box
       sx={{
         boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
-        padding: '64px 80px 56px 80px',
+        padding: { xs: '24px', md: '64px 80px 56px 80px' },
         borderRadius: '24px',
         background: 'rgba(255, 255, 255, 1)',
         marginBottom: '24px',
@@ -45,7 +47,7 @@ const Converter = ({ coinDetails }: any) => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '16px',
+              fontSize: { xs: '12px', md: '16px' },
               fontWeight: '400',
               color: 'rgba(17, 17, 17, 1)',
               letterSpacing: '2px',
@@ -58,7 +60,7 @@ const Converter = ({ coinDetails }: any) => {
           <Typography
             variant="h2"
             sx={{
-              fontSize: '40px',
+              fontSize: { xs: '24px', md: '40px' },
               fontWeight: '700',
               color: 'rgba(17, 17, 17, 1)',
               mb: '16px',
@@ -80,7 +82,7 @@ const Converter = ({ coinDetails }: any) => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '14px',
+              fontSize: { xs: '12px', md: '14px' },
               fontWeight: '400',
               color: 'rgba(17, 17, 17, 0.8)',
               mb: '16px',
@@ -105,7 +107,7 @@ const Converter = ({ coinDetails }: any) => {
                 fontWeight: '600',
                 display: 'flex',
                 justifyContent: 'center',
-                fontSize: '14px',
+                fontSize: { xs: '12px', md: '14px' },
                 alignItems: 'center',
                 gap: '4px',
                 borderRadius: '56px',
@@ -118,7 +120,10 @@ const Converter = ({ coinDetails }: any) => {
               }}
             >
               Buy {coinDetails?.name}
-              <ArrowRightBlack />
+              <ArrowRightBlack
+                width={isMobile ? 16 : 20}
+                height={isMobile ? 16 : 20}
+              />
             </Typography>
           </Box>
         </Stack>
@@ -135,51 +140,55 @@ const Converter = ({ coinDetails }: any) => {
           marginBottom: '24px',
           display: 'flex',
           alignItems: 'center',
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: '16px', md: '0px' },
         }}
       >
-        <input
-          type="number"
-          value={bitcoinAmount}
-          onChange={handleBitcoinAmountChange}
-          style={{
-            borderRadius: '100px',
-            padding: '13px 24px',
-            border: '1px solid rgba(17, 17, 17, 0.05)',
-            outline: 'none',
-            fontSize: '16px',
-            fontWeight: '500',
-            color: 'rgba(17, 17, 17, 1)',
-            maxWidth: '396px',
-            width: '100%',
-            marginRight: '10px',
-          }}
-          placeholder="1"
-        />
-        <Box
-          sx={{
-            borderRadius: '100px',
-            padding: '9px 20px 9px 16px',
-            background: 'rgba(17, 17, 17, 0.05)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '4px',
-            marginRight: '16px',
-          }}
-        >
-          <img src={imgId} alt="bitcoin" width={30} height={30} />
-          <Typography
-            variant="body1"
-            sx={{
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <input
+            type="number"
+            value={bitcoinAmount}
+            onChange={handleBitcoinAmountChange}
+            style={{
+              borderRadius: '100px',
+              padding: '13px 24px',
+              border: '1px solid rgba(17, 17, 17, 0.05)',
+              outline: 'none',
               fontSize: '16px',
               fontWeight: '500',
-              color: 'rgba(17, 17, 17, 0.8)',
+              color: 'rgba(17, 17, 17, 1)',
+              maxWidth: '396px',
+              width: '100%',
+              marginRight: '10px',
+            }}
+            placeholder="1"
+          />
+          <Box
+            sx={{
+              borderRadius: '100px',
+              padding: '9px 20px 9px 16px',
+              background: 'rgba(17, 17, 17, 0.05)',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '4px',
+              marginRight: '16px',
             }}
           >
-            {coinDetails?.about_coin?.symbol}{' '}
-          </Typography>
+            <img src={imgId} alt="bitcoin" width={30} height={30} />
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(17, 17, 17, 0.8)',
+              }}
+            >
+              {coinDetails?.about_coin?.symbol}{' '}
+            </Typography>
+          </Box>
         </Box>
-        <Box sx={{ mr: '16px', cursor: 'pointer' }}>
+        <Box sx={{ mr: { xs: '8px', md: '16px' }, cursor: 'pointer' }}>
           {/* <Image
             src={converter}
             alt="converter"
@@ -187,9 +196,12 @@ const Converter = ({ coinDetails }: any) => {
             height={48}
             style={{ cursor: 'pointer' }}
           /> */}
-          <IconConvertor />
+          <IconConvertor
+            width={isMobile ? 24 : 48}
+            height={isMobile ? 24 : 48}
+          />
         </Box>
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <input
             type="text"
             defaultValue={coinDetails?.quote?.price?.toFixed(2)}
@@ -208,48 +220,48 @@ const Converter = ({ coinDetails }: any) => {
             }}
             placeholder={coinDetails?.quote?.price}
           />
-        </Box>
-        <Box
-          sx={{
-            borderRadius: '100px',
-            padding: '13px 14px 13px 20px',
-            background: 'rgba(17, 17, 17, 0.05)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '4px',
-          }}
-        >
-          <Select
-            value={currency}
-            onChange={handleCurrencyChange}
-            displayEmpty
-            inputProps={{ 'aria-label': 'Without label' }}
-            IconComponent={KeyboardArrowDownIcon}
+          <Box
             sx={{
-              border: 'none',
-              background: 'none',
-              fontSize: '16px',
-              fontWeight: '500',
-              color: 'rgba(17, 17, 17, 1)',
+              borderRadius: '100px',
+              padding: '13px 14px 13px 20px',
+              background: 'rgba(17, 17, 17, 0.05)',
               display: 'flex',
+              justifyContent: 'center',
               alignItems: 'center',
-              '& .MuiSelect-select': {
-                padding: 0,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-              },
-              '& .MuiOutlinedInput-notchedOutline': {
-                border: 'none',
-              },
+              gap: '4px',
             }}
           >
-            <MenuItem value="" key="">
-              USD
-            </MenuItem>
-            {/* Add more currencies as needed */}
-          </Select>
+            <Select
+              value={currency}
+              onChange={handleCurrencyChange}
+              displayEmpty
+              inputProps={{ 'aria-label': 'Without label' }}
+              IconComponent={KeyboardArrowDownIcon}
+              sx={{
+                border: 'none',
+                background: 'none',
+                fontSize: '16px',
+                fontWeight: '500',
+                color: 'rgba(17, 17, 17, 1)',
+                display: 'flex',
+                alignItems: 'center',
+                '& .MuiSelect-select': {
+                  padding: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  border: 'none',
+                },
+              }}
+            >
+              <MenuItem value="" key="">
+                USD
+              </MenuItem>
+              {/* Add more currencies as needed */}
+            </Select>
+          </Box>
         </Box>
       </Box>
       <Box

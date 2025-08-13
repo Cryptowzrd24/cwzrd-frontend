@@ -101,7 +101,7 @@ const CoinAnalytics = ({ coinId }: any) => {
   }, [rowData, currentPage, pageSize]);
 
   return (
-    <>
+    <Box sx={{ width: '100%' }}>
       <Typography
         variant="body1"
         sx={{
@@ -112,6 +112,7 @@ const CoinAnalytics = ({ coinId }: any) => {
           letterSpacing: '2px',
           mb: '4px',
           ml: '4px',
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
         Analytics
@@ -121,6 +122,9 @@ const CoinAnalytics = ({ coinId }: any) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: '16px', md: '0px' },
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
         <Box>
@@ -148,9 +152,10 @@ const CoinAnalytics = ({ coinId }: any) => {
         <Box
           sx={{
             display: 'flex',
-            gap: '8px',
             alignItems: 'center',
-            marginRight: '45px',
+            gap: { xs: '16px', md: '0px' },
+            textAlign: { xs: 'center', md: 'left' },
+            justifyContent: { xs: 'center', md: 'flex-end' },
           }}
         >
           <Box
@@ -239,7 +244,8 @@ const CoinAnalytics = ({ coinId }: any) => {
           mt: '16px',
           backgroundColor: 'rgba(255, 255, 255, 1)',
           padding: '24px',
-          width: '1290px',
+          width: '100%',
+          boxSizing: 'border-box',
           borderRadius: '24px',
           boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           '& .ag-header-cell:last-child .ag-header-cell-label': {
@@ -264,7 +270,7 @@ const CoinAnalytics = ({ coinId }: any) => {
           onPageChange={handlePageChange}
         />
       </Box>
-    </>
+    </Box>
   );
 };
 

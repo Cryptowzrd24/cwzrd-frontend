@@ -38,10 +38,11 @@ const InfoCard = ({ coinDetails }: any) => {
         backgroundImage: "url('/images/nft/trending.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
-        maxWidth: '290px',
+        maxWidth: { xs: '100%', md: '330px', lg: '330px', xl: '330px' },
         width: '100%',
         boxShadow: 'rgba(0,0,0, 0.05) 0px 4px 28px 0px',
         borderRadius: '16px',
+        boxSizing: 'border-box',
       }}
     >
       <Stack>
