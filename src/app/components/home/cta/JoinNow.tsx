@@ -32,7 +32,7 @@ const JoinNow = () => {
         <Typography
           sx={{
             color: '#111',
-            fontSize: '56px',
+            fontSize: { xs: '36px', lg: '56px' },
             fontWeight: '500',
             lineHeight: '110%',
             letterSpacing: '0.56px',
