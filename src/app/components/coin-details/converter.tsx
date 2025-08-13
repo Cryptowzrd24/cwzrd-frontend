@@ -120,7 +120,10 @@ const Converter = ({ coinDetails }: any) => {
               }}
             >
               Buy {coinDetails?.name}
-              <ArrowRightBlack width={isMobile ? 16 : 20} height={isMobile ? 16 : 20} />
+              <ArrowRightBlack
+                width={isMobile ? 16 : 20}
+                height={isMobile ? 16 : 20}
+              />
             </Typography>
           </Box>
         </Stack>
@@ -137,8 +140,8 @@ const Converter = ({ coinDetails }: any) => {
           marginBottom: '24px',
           display: 'flex',
           alignItems: 'center',
-          flexDirection: {xs:'column', md:'row'},
-          gap: {xs:'16px', md:'0px'},
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: '16px', md: '0px' },
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -193,27 +196,30 @@ const Converter = ({ coinDetails }: any) => {
             height={48}
             style={{ cursor: 'pointer' }}
           /> */}
-          <IconConvertor width={isMobile ? 24 : 48} height={isMobile ? 24 : 48} />
+          <IconConvertor
+            width={isMobile ? 24 : 48}
+            height={isMobile ? 24 : 48}
+          />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <input
-              type="text"
-              defaultValue={coinDetails?.quote?.price?.toFixed(2)}
-              value={convertedVal?.toFixed(2)}
-              readOnly
-              style={{
-                borderRadius: '100px',
-                padding: '13px 24px',
-                border: '1px solid rgba(17, 17, 17, 0.05)',
-                outline: 'none',
-                fontSize: '16px',
-                fontWeight: '500',
-                color: 'rgba(17, 17, 17, 1)',
-                width: '84%',
-                marginRight: '10px',
-              }}
-              placeholder={coinDetails?.quote?.price}
-            />
+          <input
+            type="text"
+            defaultValue={coinDetails?.quote?.price?.toFixed(2)}
+            value={convertedVal?.toFixed(2)}
+            readOnly
+            style={{
+              borderRadius: '100px',
+              padding: '13px 24px',
+              border: '1px solid rgba(17, 17, 17, 0.05)',
+              outline: 'none',
+              fontSize: '16px',
+              fontWeight: '500',
+              color: 'rgba(17, 17, 17, 1)',
+              width: '84%',
+              marginRight: '10px',
+            }}
+            placeholder={coinDetails?.quote?.price}
+          />
           <Box
             sx={{
               borderRadius: '100px',

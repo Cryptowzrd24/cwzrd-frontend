@@ -32,7 +32,7 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
         display: 'flex',
         borderRadius: '16px',
         padding: '8px',
-        maxWidth: {xs:'330px',sm:'310px'},
+        maxWidth: { xs: '330px', sm: '310px' },
         width: '95%',
         margin: '0 auto',
         boxShadow: '0px 4px 6px 0px #00000005',
@@ -50,7 +50,7 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
             mb: '8px',
             color: 'rgba(55, 97, 251, 1)',
             fontWeight: 700,
-            fontSize: {xs:'10px',sm:'11px',md:'11px'},
+            fontSize: { xs: '10px', sm: '11px', md: '11px' },
             letterSpacing: '0.8px',
           }}
         >
@@ -60,9 +60,9 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
           variant="h5"
           sx={{
             mb: '6px',
-            fontSize: {xs:'12px',sm:'14px',md:'14px'},
+            fontSize: { xs: '12px', sm: '14px', md: '14px' },
             fontWeight: '500',
-            lineHeight: {xs:'14px',sm:'15.4px',md:'15.4px'},
+            lineHeight: { xs: '14px', sm: '15.4px', md: '15.4px' },
             letterSpacing: '0.8px',
           }}
         >
@@ -74,8 +74,8 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
             mb: '8px',
             color: 'rgba(17, 17, 17, 0.8)',
             fontWeight: '400',
-            fontSize: {xs:'10px',sm:'11px',md:'11px'},
-            lineHeight: {xs:'14px',sm:'16.5px',md:'16.5px'},
+            fontSize: { xs: '10px', sm: '11px', md: '11px' },
+            lineHeight: { xs: '14px', sm: '16.5px', md: '16.5px' },
           }}
         >
           {desc}{' '}

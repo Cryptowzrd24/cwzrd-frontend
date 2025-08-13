@@ -34,16 +34,16 @@ const TechnicalCardContent: React.FC = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 
   const handlePrev = () => {
@@ -56,17 +56,15 @@ const TechnicalCardContent: React.FC = () => {
   const totalSlides = TechnicalCardData.length;
 
   return (
-    <Box sx={{ 
-      position: 'relative', 
-      width: '100%',
-      height: '350px', // Fixed height for consistency
-      // overflow: 'hidden'
-    }}>
-      <Slider 
-        className="technicals-slick" 
-        ref={sliderRef} 
-        {...settings}
-      >
+    <Box
+      sx={{
+        position: 'relative',
+        width: '100%',
+        height: '350px', // Fixed height for consistency
+        // overflow: 'hidden'
+      }}
+    >
+      <Slider className="technicals-slick" ref={sliderRef} {...settings}>
         {TechnicalCardData.map((card) => (
           <TechnicalCard
             key={card.id}
@@ -85,7 +83,7 @@ const TechnicalCardContent: React.FC = () => {
       <Box
         sx={{
           position: 'absolute',
-          bottom: {xs:'-64px',sm:'-60px',md:'-60px'},
+          bottom: { xs: '-64px', sm: '-60px', md: '-60px' },
           transform: 'translateX(-50%)',
           display: 'flex',
           justifyContent: 'space-between',

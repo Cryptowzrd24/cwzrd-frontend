@@ -74,7 +74,7 @@ function GraphFilter({
   return (
     <div
       style={{
-        width:width||'261px',
+        width: width || '261px',
         justifyContent: isSelectedTabMarket ? 'space-evenly' : 'flex-start',
       }}
       className={styles.graphCustomHeader}

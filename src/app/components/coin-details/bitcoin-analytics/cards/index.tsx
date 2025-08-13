@@ -8,8 +8,8 @@ import TransactionCard from './transactionCard';
 const BitcoinCard = () => {
   return (
     <Box sx={{ flexGrow: 1, width: '100%' }}>
-      <Grid 
-        container 
+      <Grid
+        container
         spacing={3}
         sx={{
           alignItems: 'stretch', // This makes all items stretch to equal height

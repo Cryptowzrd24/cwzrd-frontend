@@ -8,7 +8,6 @@ const Title = ({ name }: { name: string }) => {
     setActive(button);
   };
 
-  
   return (
     <>
       <Typography
@@ -58,13 +57,15 @@ const Title = ({ name }: { name: string }) => {
             </span>{' '}
           </Typography>
         </Box>
-        <Box sx={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: { xs: '16px', md: '16px' },
-          textAlign: { xs: 'center', md: 'left' },
-          justifyContent: { xs: 'center', md: 'flex-end' },
-        }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: { xs: '16px', md: '16px' },
+            textAlign: { xs: 'center', md: 'left' },
+            justifyContent: { xs: 'center', md: 'flex-end' },
+          }}
+        >
           <Box
             onClick={() => handleClick('1 Month')}
             sx={{

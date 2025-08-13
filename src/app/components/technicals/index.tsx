@@ -103,11 +103,11 @@ function Technicals() {
           variant="body1"
           sx={{
             background: 'rgba(17, 17, 17, 0.05)',
-            padding: {xs:'11px 12px 11px  12px',sm:'11px 16px 11px  16px'},
+            padding: { xs: '11px 12px 11px  12px', sm: '11px 16px 11px  16px' },
             fontWeight: '600',
             display: 'flex',
             justifyContent: 'center',
-            fontSize: {xs:'12px',sm:'14px',md:'14px'},
+            fontSize: { xs: '12px', sm: '14px', md: '14px' },
             alignItems: 'center',
             gap: '4px',
             borderRadius: '56px',

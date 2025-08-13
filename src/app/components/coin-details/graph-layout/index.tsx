@@ -90,7 +90,16 @@ function GraphLayout({ coinSymbol }: any) {
           </motion.div>
         )}
       </AnimatePresence>
-      <Box sx={{ width: '100%', height: '100%', overflow: 'hidden', backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px', borderRadius: '24px' }}>
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+          backgroundColor: 'white',
+          boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 28px 0px',
+          borderRadius: '24px',
+        }}
+      >
         <Box
           sx={{
             display: 'flex',
@@ -102,16 +111,19 @@ function GraphLayout({ coinSymbol }: any) {
             width: '100%',
             flexWrap: 'wrap',
             padding: { xs: '8px', sm: '10px' },
-
           }}
         >
-          <Box sx={{ width: { xs: "100%", md: '22%' }, flex: { xs: 1, md: 1 } }}>
+          <Box
+            sx={{ width: { xs: '100%', md: '22%' }, flex: { xs: 1, md: 1 } }}
+          >
             <GraphCustomHeader
               selectedTab={selectedTab}
               setSelectedTab={setSelectedTab}
             />
           </Box>
-          <Box sx={{ width: { xs: "100%", md: '19%' }, flex: { xs: 1, md: 1 } }}>
+          <Box
+            sx={{ width: { xs: '100%', md: '19%' }, flex: { xs: 1, md: 1 } }}
+          >
             <Button
               onClick={handleOpenTradingView}
               sx={{
@@ -133,7 +145,9 @@ function GraphLayout({ coinSymbol }: any) {
               TradingView
             </Button>
           </Box>
-          <Box sx={{ width: { xs: "100%", md: '19%' }, flex: { xs: 1, md: 1 } }}>
+          <Box
+            sx={{ width: { xs: '100%', md: '19%' }, flex: { xs: 1, md: 1 } }}
+          >
             {selectedFilter !== 'candlestick' && (
               <CompareCoin
                 compareData={data}
@@ -141,7 +155,13 @@ function GraphLayout({ coinSymbol }: any) {
               />
             )}
           </Box>
-          <Box sx={{ width: { xs: '100%', md: '40%' }, flex: { xs: 1, md: 2 }, boxSizing: 'border-box' }}>
+          <Box
+            sx={{
+              width: { xs: '100%', md: '40%' },
+              flex: { xs: 1, md: 2 },
+              boxSizing: 'border-box',
+            }}
+          >
             <GraphFilter
               selectedFilter={selectedFilter}
               setSelectedFilter={setSelectedFilter}
@@ -149,7 +169,13 @@ function GraphLayout({ coinSymbol }: any) {
               setVolumeValue={setVolumeValue}
               handleFullScreen={handleFullScreen}
               selectedTab={selectedTab}
-              width={selectedTab === 'Market Cap' || selectedTab === 'Compare with' || isMobile ? '100%' : '260px'}
+              width={
+                selectedTab === 'Market Cap' ||
+                selectedTab === 'Compare with' ||
+                isMobile
+                  ? '100%'
+                  : '260px'
+              }
             />
           </Box>
         </Box>

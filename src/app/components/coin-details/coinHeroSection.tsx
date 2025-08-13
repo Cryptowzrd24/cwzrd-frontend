@@ -148,14 +148,19 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            paddingRight: {xs:'0px',sm:'0px',md:'64px'},
+            paddingRight: { xs: '0px', sm: '0px', md: '64px' },
             flexDirection: { xs: 'column', sm: 'row' },
             gap: { xs: '24px', md: '10px' },
-            flexWrap: {sm:'wrap',md:'nowrap'},
+            flexWrap: { sm: 'wrap', md: 'nowrap' },
             width: '100%',
           }}
         >
-          <Stack sx={{ width: { xs: '100%',sm: '50%', md: '40%' }, flex: { xs: 1,sm:1, md: 2 } }}>
+          <Stack
+            sx={{
+              width: { xs: '100%', sm: '50%', md: '40%' },
+              flex: { xs: 1, sm: 1, md: 2 },
+            }}
+          >
             <Box
               sx={{
                 mb: '12px',
@@ -270,12 +275,18 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             sx={{
               backgroundColor: 'rgba(255, 255, 255, 0.3)',
               opacity: 0.5,
-              display: {xs:'none',sm:'block'}
+              display: { xs: 'none', sm: 'block' },
             }}
           />
 
           {/* --------------------------------------------------------------------------------- */}
-          <Stack sx={{ width: { xs: '100%',sm:"50%", md: '20%' }, flex: 1, padding: { xs: '0px', md: '16px' } }}>
+          <Stack
+            sx={{
+              width: { xs: '100%', sm: '50%', md: '20%' },
+              flex: 1,
+              padding: { xs: '0px', md: '16px' },
+            }}
+          >
             <Box
               sx={{
                 mb: '16px',
@@ -382,11 +393,21 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', opacity: 0.5, display: {xs:'none',md:'block'} }}
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.3)',
+              opacity: 0.5,
+              display: { xs: 'none', md: 'block' },
+            }}
           />
 
           {/* -------------------------------------------------------------------------- */}
-          <Stack sx={{ width: { xs: '100%',sm:"50%" ,md: '20%' }, flex: 1, padding: { xs: '0px', md: '16px' } }}>
+          <Stack
+            sx={{
+              width: { xs: '100%', sm: '50%', md: '20%' },
+              flex: 1,
+              padding: { xs: '0px', md: '16px' },
+            }}
+          >
             <Box
               sx={{
                 mb: '16px',
@@ -488,11 +509,21 @@ const CoinHeroSection = ({ coinDetails }: any) => {
             orientation="vertical"
             variant="fullWidth"
             flexItem
-            sx={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', opacity: 0.5, display: {xs:'none',sm:'block'} }}
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.3)',
+              opacity: 0.5,
+              display: { xs: 'none', sm: 'block' },
+            }}
           />
 
           {/* ------------------------------------------------------------------------------------------- */}
-          <Stack sx={{ width: { xs: '100%',sm:"50%", md: '20%' }, flex: 1, padding: { xs: '0px', md: '16px' } }}>
+          <Stack
+            sx={{
+              width: { xs: '100%', sm: '50%', md: '20%' },
+              flex: 1,
+              padding: { xs: '0px', md: '16px' },
+            }}
+          >
             <Box
               sx={{
                 mb: '16px',

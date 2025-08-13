@@ -152,10 +152,10 @@ const CoinAnalytics = ({ coinId }: any) => {
         <Box
           sx={{
             display: 'flex',
-          alignItems: 'center',
-          gap: { xs: '16px', md: '0px' },
-          textAlign: { xs: 'center', md: 'left' },
-          justifyContent: { xs: 'center', md: 'flex-end' },
+            alignItems: 'center',
+            gap: { xs: '16px', md: '0px' },
+            textAlign: { xs: 'center', md: 'left' },
+            justifyContent: { xs: 'center', md: 'flex-end' },
           }}
         >
           <Box

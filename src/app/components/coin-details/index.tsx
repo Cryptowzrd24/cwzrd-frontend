@@ -27,19 +27,27 @@ const CoinDetails = ({ serverCoindata }: any) => {
         background: 'white',
         width: '100%',
         boxSizing: 'border-box',
-        height: '100%'
+        height: '100%',
       }}
     >
-      <Box sx={{
-        margin: '0 auto',
-        overflow: 'hidden',
-        width: { xs: '100%', sm: '95%', md: '900px', lg: "1150px", xl: "1290px" },
-        boxSizing: 'border-box',
-        padding: { xs: "12px", md: '12px', lg: '14px', xl: '16px' },
-        display: 'flex',
-        flexDirection: 'column',
-        gap: {xs:"48px", md:"48px"},
-      }}>
+      <Box
+        sx={{
+          margin: '0 auto',
+          overflow: 'hidden',
+          width: {
+            xs: '100%',
+            sm: '95%',
+            md: '900px',
+            lg: '1150px',
+            xl: '1290px',
+          },
+          boxSizing: 'border-box',
+          padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
+          display: 'flex',
+          flexDirection: 'column',
+          gap: { xs: '48px', md: '48px' },
+        }}
+      >
         <Box id="hero" sx={{ width: '100%' }}>
           <CoinHeroSection coinDetails={serverCoindata} />
         </Box>
@@ -56,20 +64,24 @@ const CoinDetails = ({ serverCoindata }: any) => {
             flexDirection: { xs: 'column', md: 'row' },
           }}
         >
-          <Box sx={{ 
-            flex: { xs: 3, md: 3 }, // Equal width distribution
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden' 
-          }}>
+          <Box
+            sx={{
+              flex: { xs: 3, md: 3 }, // Equal width distribution
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden',
+            }}
+          >
             <GraphLayout coinSymbol={coinSymbol} />
           </Box>
-          <Box sx={{ 
-            flex: 1, // Equal width distribution
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden' 
-          }}>
+          <Box
+            sx={{
+              flex: 1, // Equal width distribution
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden',
+            }}
+          >
             <CoinDetailsCard coinDetails={serverCoindata} />
           </Box>
         </Box>

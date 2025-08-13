@@ -147,10 +147,9 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center' ,
+          alignItems: 'center',
           flexDirection: { xs: 'column', md: 'row' },
           gap: { xs: '16px', md: '0px' },
-          
         }}
       >
         <Box>
@@ -175,7 +174,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
             </span>{' '}
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center', }}>
+        <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <Box
             onClick={() => handleClick('Spot')}
             sx={{
@@ -261,7 +260,7 @@ const CoinMarket = ({ coinName }: CoinMarketProps) => {
         sx={{
           mt: '16px',
           // backgroundColor: 'rgba(255, 255, 255, 1)',
-          padding: {xs:'12px', md:'24px'},
+          padding: { xs: '12px', md: '24px' },
           width: '100%',
           borderRadius: '24px',
           overflow: 'hidden',

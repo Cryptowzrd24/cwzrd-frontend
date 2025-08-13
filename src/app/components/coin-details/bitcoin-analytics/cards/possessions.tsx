@@ -2439,18 +2439,19 @@ const PossessionCard = () => {
           <Image src={infoIcon} alt="" className="info-icon" />
         </Tooltip>
       </Box>
-      <Box 
-      sx={{ 
-        display: 'flex', 
-        alignItems: 'center',
-        flexDirection:'row' ,
-        gap: { xs: '20px', md: '56px' },
-        textAlign: { xs: 'center', md: 'left' },
-        justifyContent: { xs: 'flex-start', md: 'flex-end' },
-        flexWrap: 'wrap',
-       }}>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'row',
+          gap: { xs: '20px', md: '56px' },
+          textAlign: { xs: 'center', md: 'left' },
+          justifyContent: { xs: 'flex-start', md: 'flex-end' },
+          flexWrap: 'wrap',
+        }}
+      >
         {/* Legend for 0 - 1k */}
-        <Stack sx={{minWidth:'130px'}}>
+        <Stack sx={{ minWidth: '130px' }}>
           <Box sx={{ display: 'flex', gap: '8px', alignItems: 'baseline' }}>
             <Box
               sx={{
@@ -2490,7 +2491,7 @@ const PossessionCard = () => {
           </Box>
         </Stack>
         {/* Legend for 1k - 100k */}
-        <Stack sx={{minWidth:'130px'}}>
+        <Stack sx={{ minWidth: '130px' }}>
           <Box sx={{ display: 'flex', gap: '8px', alignItems: 'baseline' }}>
             <Box
               sx={{
@@ -2529,7 +2530,7 @@ const PossessionCard = () => {
           </Box>
         </Stack>
         {/* Legend for 100k+ */}
-        <Stack sx={{minWidth:'130px'}}>
+        <Stack sx={{ minWidth: '130px' }}>
           <Box sx={{ display: 'flex', gap: '8px', alignItems: 'baseline' }}>
             <Box
               sx={{
