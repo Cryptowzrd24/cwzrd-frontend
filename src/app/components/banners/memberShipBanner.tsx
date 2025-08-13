@@ -28,7 +28,7 @@ function MemberShipBanner({ isNftDetail }: MemberShipBannerProps) {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '12px',
+              fontSize: '12px !important',
               color: '#F7841A',
               letterSpacing: '1px',
               lineHeight: '15.6px',

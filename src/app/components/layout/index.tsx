@@ -1,10 +1,9 @@
-import { ThemeProvider } from '@mui/material';
 import Navbar from '../navbar';
 import Footer from '../footer';
-import theme from '@/theme';
 import TickerServer from '../ticker';
 import StoreProvider from '@/app/StoreProvider';
 import Script from 'next/script';
+import ThemeRegistry from '@/app/ThemeRegistry';
 
 export default function CustomLayout({
   children,
@@ -12,18 +11,18 @@ export default function CustomLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider theme={theme}>
-      <html lang="en">
-        <body>
-          <StoreProvider>
-            <TickerServer />
+    <html lang="en">
+      <body>
+        <StoreProvider>
+          <TickerServer />
+          <ThemeRegistry>
             <Navbar />
             {children}
             <Footer />
-          </StoreProvider>
-          <Script src="/ticker_websocket.js" strategy="afterInteractive" />
-        </body>
-      </html>
-    </ThemeProvider>
+          </ThemeRegistry>
+        </StoreProvider>
+        <Script src="/ticker_websocket.js" strategy="afterInteractive" />
+      </body>
+    </html>
   );
 }

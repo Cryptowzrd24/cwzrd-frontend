@@ -2,7 +2,7 @@
   box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.05);
   padding: 20px 24px;
   border-radius: 24px;
-  width: calc(100% - 48px);
+  /* width: calc(100% - 48px); */
   overflow-x: auto;
 }
 

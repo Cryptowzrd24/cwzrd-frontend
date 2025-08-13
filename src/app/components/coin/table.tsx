@@ -154,7 +154,7 @@ const Table = () => {
   );
 
   return (
-    <div className="data-table-wrapper">
+    <Box className="data-table-wrapper">
       <CustomHeader
         filter={true}
         view={true}
@@ -195,7 +195,7 @@ const Table = () => {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
-    </div>
+    </Box>
   );
 };
 

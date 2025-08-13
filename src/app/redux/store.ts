@@ -7,12 +7,14 @@ import filterReducer from './reducers/filters';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { coinDetailsApi } from './coin-details';
 import { nftDetailsApi } from './nft-details';
+import themeReducer from './theme';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       market: marketReducer,
       user: userReducer,
+      theme: themeReducer,
       [dataGridApi.reducerPath]: dataGridApi.reducer,
       [coinDetailsApi.reducerPath]: coinDetailsApi.reducer,
       [nftDetailsApi.reducerPath]: nftDetailsApi.reducer,

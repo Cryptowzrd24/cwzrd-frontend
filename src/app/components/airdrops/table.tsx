@@ -6,6 +6,7 @@ import { columnsAirdrops } from '@/app/constants/columns';
 import { rowAirdrops } from '@/app/constants/row';
 import useColumnAirdropsDefs from '@/app/hooks/data-grid/column-defination-airdrops';
 import { Pagination } from '@/app/components/data-table/pagination';
+import { Box } from '@mui/material';
 
 const Table = () => {
   const [search, setSearch] = useState('');
@@ -33,7 +34,7 @@ const Table = () => {
     setPageSize(page);
   };
   return (
-    <div className="data-table-wrapper">
+    <Box className="data-table-wrapper" sx={{ width: '100%' }}>
       <CustomHeader
         filter={true}
         search={search}
@@ -61,7 +62,7 @@ const Table = () => {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
-    </div>
+    </Box>
   );
 };
 

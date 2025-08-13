@@ -7,7 +7,12 @@ function HeroContent() {
     <>
       <Typography
         variant="h4"
-        sx={{ letterSpacing: '1px', fontSize: 14, marginBottom: '8px' }}
+        sx={{
+          letterSpacing: '1px',
+          fontSize: 14,
+          marginBottom: '8px',
+          color: 'text.primary',
+        }}
       >
         MARKET CAP
       </Typography>

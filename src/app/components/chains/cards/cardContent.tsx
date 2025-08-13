@@ -24,8 +24,8 @@ interface CardContentProps {
 
 const CardContent = ({ cardsData }: CardContentProps) => {
   return (
-    <Box sx={{ flexGrow: 1, padding: '16px' }}>
-      <Grid container spacing={3} sx={{ display: 'flex', flexWrap: 'wrap' }}>
+    <Box sx={{ flexGrow: 1, padding: { xs: '5px', md: '16px' } }}>
+      <Grid container spacing={2} sx={{ display: 'flex', flexWrap: 'wrap' }}>
         {cardsData.map((card) => (
           <Grid item xs={12} sm={6} md={4} key={card.id}>
             <Card
