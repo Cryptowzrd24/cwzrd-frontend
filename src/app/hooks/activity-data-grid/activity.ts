@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 
 import ValueRenderer from '../sales-data-grid/valueRenderer';
 import { DateAdded } from '@/app/components/data-table/date-component';
-
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 const useColumnActivityDefs = (columns: any) => {
   return useMemo(() => {
     return columns.map((col: any) => {
@@ -14,14 +14,18 @@ const useColumnActivityDefs = (columns: any) => {
           return {
             field: 'index',
             headerName: '#',
-            width: 70,
+            pinned: 'left',
+            cellClass: 'tight-cell',
+            width: getResponsiveWidth(70, 70, 60),
           };
         case 'item':
           return {
             field: 'item',
             headerName: 'Items',
             cellRenderer: SalesItems,
-            width: 180,
+            pinned: 'left',
+            cellClass: 'tight-cell',
+            width: getResponsiveWidth(180, 120, 100),
           };
         case 'transaction':
           return {

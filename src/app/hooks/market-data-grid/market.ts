@@ -2,6 +2,7 @@
 
 import { Hash } from '@/app/components/data-table/market-data/hash';
 import MarketPlace from '@/app/components/data-table/market-data/market-place';
+import { getResponsiveWidth } from '@/utils/getTableResponsiveWidth';
 import { useMemo } from 'react';
 
 const useColumnMarketDefs = (columns: any) => {
@@ -13,15 +14,19 @@ const useColumnMarketDefs = (columns: any) => {
             field: 'index',
             headerName: '#',
             cellRenderer: Hash,
-            width: 70,
+            pinned: 'left',
+            cellClass: 'tight-cell',
+            width: getResponsiveWidth(70, 70, 50),
           };
 
         case 'market_place':
           return {
             field: 'market_place',
             headerName: 'Market Place',
-            width: 320,
             cellRenderer: MarketPlace,
+            pinned: 'left',
+            cellClass: 'tight-cell',
+            width: getResponsiveWidth(320, 140, 110),
           };
         case 'distribution_7d':
           return {

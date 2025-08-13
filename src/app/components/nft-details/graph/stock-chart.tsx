@@ -628,7 +628,9 @@ const StockChartNft: React.FC<StockChartProps> = React.memo(
             >
               No data found
             </div>
-            <div style={{ fontSize: '14px', color: 'gray' }}>
+            <div
+              style={{ fontSize: '14px', color: 'gray', textAlign: 'center' }}
+            >
               There is no data to display for the selected period.
             </div>
           </div>

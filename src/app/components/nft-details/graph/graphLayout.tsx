@@ -23,142 +23,154 @@ function GraphLayout({ coinSymbol }: any) {
   };
 
   return (
-    <>
-      <div
-        style={{
-          width: '1010px',
-          height: '718px',
-          borderRadius: '24px',
-          boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+    <Box
+      style={{
+        width: '100%',
+        height: '100%',
+        boxSizing: 'border-box',
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: { xs: 'center', lg: 'center' },
+          width: '100%',
+          padding: { xs: '12px', lg: '20px' },
+          flexDirection: { xs: 'column', md: 'row' },
+          boxSizing: 'border-box',
+          gap: { xs: '16px', lg: '0px' },
         }}
       >
         <Box
           sx={{
+            width: '100%',
             display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            gap: { xs: '16px', lg: '32px' },
+            flexDirection: { xs: 'column', lg: 'row' },
+            boxSizing: 'border-box',
           }}
         >
-          <Box
+          <Typography
             sx={{
-              top: 20,
-              left: 20,
-              position: 'relative',
-              display: 'flex',
-              gap: '32px',
+              fontWeight: 700,
+              fontSize: '24px',
+              color: 'rgba(17, 17, 17, 1)',
+              textAlign: { xs: 'center', md: 'left' },
+              boxSizing: 'border-box',
             }}
           >
-            <Typography
+            Price & Sales
+          </Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '16px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <Box
               sx={{
-                fontWeight: 700,
-                fontSize: '24px',
-                color: 'rgba(17, 17, 17, 1)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
               }}
             >
-              Price & Sales
-            </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <Box
                 sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  background: 'rgba(114, 72, 247, 1)',
+                }}
+              ></Box>
+              <Typography
+                sx={{
+                  fontSize: { xs: '12px', lg: '16px' },
+                  fontFamily: 'Sf Pro Display',
+                  fontWeight: 500,
+                  color: 'rgba(17, 17, 17, 1)',
+                  letterSpacing: '1.5px',
+                  lineHeight: '15.6px',
                 }}
               >
-                <Box
-                  sx={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    background: 'rgba(114, 72, 247, 1)',
-                  }}
-                ></Box>
-                <Typography
-                  sx={{
-                    fontSize: '12px',
-                    fontFamily: 'Sf Pro Display',
-                    fontWeight: 500,
-                    color: 'rgba(17, 17, 17, 1)',
-                    letterSpacing: '1.5px',
-                    lineHeight: '15.6px',
-                  }}
-                >
-                  SALES
-                </Typography>
-              </Box>
+                SALES
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+              }}
+            >
               <Box
                 sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  background: 'rgba(31, 215, 115, 1)',
+                }}
+              ></Box>
+              <Typography
+                sx={{
+                  fontSize: { xs: '12px', lg: '16px' },
+                  fontFamily: 'Sf Pro Display',
+                  fontWeight: 500,
+                  color: 'rgba(17, 17, 17, 1)',
+                  letterSpacing: '1.5px',
+                  lineHeight: '15.6px',
                 }}
               >
-                <Box
-                  sx={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    background: 'rgba(31, 215, 115, 1)',
-                  }}
-                ></Box>
-                <Typography
-                  sx={{
-                    fontSize: '12px',
-                    fontFamily: 'Sf Pro Display',
-                    fontWeight: 500,
-                    color: 'rgba(17, 17, 17, 1)',
-                    letterSpacing: '1.5px',
-                    lineHeight: '15.6px',
-                  }}
-                >
-                  AVERAGE PRICE
-                </Typography>
-              </Box>
+                AVERAGE PRICE
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+              }}
+            >
               <Box
                 sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  background: 'rgba(247, 132, 26, 1)',
+                }}
+              ></Box>
+              <Typography
+                sx={{
+                  fontSize: { xs: '12px', lg: '16px' },
+                  fontFamily: 'Sf Pro Display',
+                  fontWeight: 500,
+                  color: 'rgba(17, 17, 17, 1)',
+                  letterSpacing: '1.5px',
+                  lineHeight: '15.6px',
                 }}
               >
-                <Box
-                  sx={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    background: 'rgba(247, 132, 26, 1)',
-                  }}
-                ></Box>
-                <Typography
-                  sx={{
-                    fontSize: '12px',
-                    fontFamily: 'Sf Pro Display',
-                    fontWeight: 500,
-                    color: 'rgba(17, 17, 17, 1)',
-                    letterSpacing: '1.5px',
-                    lineHeight: '15.6px',
-                  }}
-                >
-                  VOLUME
-                </Typography>
-              </Box>
+                VOLUME
+              </Typography>
             </Box>
           </Box>
-          <GraphFilter
-            volumeValue={volumeValue}
-            setVolumeValue={setVolumeValue}
-            handleFullScreen={handleFullScreen}
-          />
         </Box>
-        <StockChartNft
+        <GraphFilter
           volumeValue={volumeValue}
-          isFullScreen={isFullScreen}
-          chartRef={chartRef}
-          setIsFullScreen={setIsFullScreen}
-          coinSymbol={coinSymbol}
+          setVolumeValue={setVolumeValue}
+          handleFullScreen={handleFullScreen}
         />
-      </div>
-    </>
+      </Box>
+      <StockChartNft
+        volumeValue={volumeValue}
+        isFullScreen={isFullScreen}
+        chartRef={chartRef}
+        setIsFullScreen={setIsFullScreen}
+        coinSymbol={coinSymbol}
+      />
+    </Box>
   );
 }
 
