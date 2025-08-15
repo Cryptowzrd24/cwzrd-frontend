@@ -52,6 +52,38 @@ export const responsiveConfigs = {
     },
   ] as ResponsiveConfig[],
 
+  // For news cards (3 on desktop, 2 on tablet, 1 on mobile)
+  wzrdMembershipCards: [
+    {
+      breakpoint: 1550,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      dots: true,
+      arrows: true,
+    },
+    {
+      breakpoint: 1024,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      dots: true,
+      arrows: true,
+    },
+    {
+      breakpoint: 768,
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      dots: true,
+      arrows: true,
+    },
+    {
+      breakpoint: 576,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: true,
+      arrows: false,
+    },
+  ] as ResponsiveConfig[],
+
   // For crypto cards (4 on desktop, 2 on tablet, 1 on mobile)
   cryptoCards: [
     {
@@ -140,25 +172,25 @@ export const createResponsiveConfig = (
     speed?: number;
   },
 ): ResponsiveConfig[] => [
-  {
-    breakpoint: 1024,
-    slidesToShow: desktop,
-    slidesToScroll: 1,
-    ...options,
-  },
-  {
-    breakpoint: 768,
-    slidesToShow: tablet,
-    slidesToScroll: 1,
-    ...options,
-  },
-  {
-    breakpoint: 576,
-    slidesToShow: mobile,
-    slidesToScroll: 1,
-    ...options,
-  },
-];
+    {
+      breakpoint: 1024,
+      slidesToShow: desktop,
+      slidesToScroll: 1,
+      ...options,
+    },
+    {
+      breakpoint: 768,
+      slidesToShow: tablet,
+      slidesToScroll: 1,
+      ...options,
+    },
+    {
+      breakpoint: 576,
+      slidesToShow: mobile,
+      slidesToScroll: 1,
+      ...options,
+    },
+  ];
 
 // Helper function to get responsive config by name
 export const getResponsiveConfig = (

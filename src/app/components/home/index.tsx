@@ -9,9 +9,14 @@ import CryptoGainer from './cryptoGainer';
 import MarketSummary from './marketSummary';
 import CryptoHero from './cryptoHero';
 import CommunityHero from './community-hero';
+import TradingPotential from "./trading_potential"
 import BenefitsSection from './benefits-section';
 import { ResponsiveProvider } from '../common/ReusableCarousel';
 import { responsiveConfigs } from '../common/ReusableCarousel/responsiveConfigs';
+import FAQ from './faq';
+import ExclusiveMemberShip from './exclusive_membership';
+import TradingJourney from './trading_journey';
+import WzrdMembershipBenefits from './WzrdMembershipBenefits';
 
 const Home = () => {
   const [tabSelected, setTabSelected] = useState<'crypto' | 'forex'>('crypto');
@@ -84,10 +89,10 @@ const Home = () => {
           </CenteredBox>
         </Box>
         {/* Community Hero section */}
-        <CommunityHero />
+        {/* <CommunityHero /> */}
+        <ExclusiveMemberShip />
         <Box
           sx={{
-            background: '#EDF0FF',
             margin: '0 auto',
             overflowX: 'hidden',
             width: {
@@ -101,13 +106,53 @@ const Home = () => {
             padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
           }}
         >
-          {/* Benefits section */}
           <CenteredBox>
-            <BenefitsSection />
+            <TradingPotential />
           </CenteredBox>
         </Box>
-        {/* CTA section */}
-        <CTA />
+        <Box sx={{
+          margin: '0 auto',
+          width: {
+            xs: '100%',
+            sm: '95%',
+            md: '900px',
+            lg: '1150px',
+            xl: '1281px',
+          },
+          boxSizing: 'border-box',
+          padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
+          height:'auto'
+        }}>
+          <WzrdMembershipBenefits/>
+        </Box>
+        <Box sx={{
+          margin: '0 auto',
+          overflowX: 'hidden',
+          width: {
+            xs: '100%',
+            sm: '95%',
+            md: '900px',
+            lg: '1150px',
+            xl: '1281px',
+          },
+          boxSizing: 'border-box',
+          padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
+        }}>
+
+          <CenteredBox>
+            <TradingJourney />
+          </CenteredBox>
+          {/* Benefits section */}
+          {/* <CenteredBox>
+            <BenefitsSection />
+          </CenteredBox> */}
+        </Box>
+        <Box>
+          {/* FAQ section */}
+          <FAQ />
+          {/* CTA section */}
+          <CTA />
+        </Box>
       </Box>
     </ResponsiveProvider>
   );
