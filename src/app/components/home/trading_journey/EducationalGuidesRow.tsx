@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import BrainIcon from '../../../../../public/images/home/benefits-section/education_guides/brain.svg';
-import DocumentIcon from '../../../../../public/images/home/benefits-section/education_guides/chip.svg';
-import GraduationCapIcon from '../../../../../public/images/home/benefits-section/education_guides/scholar_hat.svg';
-import FlagIcon from '../../../../../public/images/home/benefits-section/education_guides/glass.svg';
-import DataIcon from '../../../../../public/images/home/benefits-section/education_guides/Teach_Poll.svg';
+// import BrainIcon from '../../../../../public/images/home/benefits-section/education_guides/brain.svg';
+// import DocumentIcon from '../../../../../public/images/home/benefits-section/education_guides/chip.svg';
+// import GraduationCapIcon from '../../../../../public/images/home/benefits-section/education_guides/scholar_hat.svg';
+// import FlagIcon from '../../../../../public/images/home/benefits-section/education_guides/glass.svg';
+// import DataIcon from '../../../../../public/images/home/benefits-section/education_guides/Teach_Poll.svg';
 import Image from 'next/image';
-import EducartionalGuidesIcon from "../../../../../public/images/home/trading_journey/educational_guide_icons.svg"
+import EducartionalGuidesIcon from '../../../../../public/images/home/trading_journey/educational_guide_icons.svg';
 
 const EducationalGuidesRow: React.FC = () => {
   return (
@@ -27,13 +27,13 @@ const EducationalGuidesRow: React.FC = () => {
         border: '1px solid rgba(0,0,0,0.05)',
         overflow: 'hidden',
         boxSizing: 'border-box',
-        backgroundColor:"#7248F7",
-        color:'white',
+        backgroundColor: '#7248F7',
+        color: 'white',
       }}
     >
       <Box
         sx={{
-          boxSizing:"border-box",
+          boxSizing: 'border-box',
           display: 'flex',
           flexDirection: 'column',
           gap: '9px',
@@ -50,8 +50,7 @@ const EducationalGuidesRow: React.FC = () => {
             lineHeight: '24px',
             width: '100%',
             textWrap: 'wrap',
-            color:'#FFFFFF'
-
+            color: '#FFFFFF',
           }}
         >
           Educational Guides
@@ -63,7 +62,7 @@ const EducationalGuidesRow: React.FC = () => {
             opacity: 0.56,
             textWrap: 'wrap',
             width: '100%',
-            color:"#FFFFFF"
+            color: '#FFFFFF',
           }}
         >
           Access comprehensive guides designed to educate and empower traders at
@@ -113,14 +112,21 @@ const EducationalGuidesRow: React.FC = () => {
           <Image src={DocumentIcon} alt="Document" width={44} height={44} />
         </Box>
       </Box> */}
-      <Box sx={{
-        // backgroundImage:'url(/images/home/trading_journey/educational_guide_icons.svg)',
-        // backgroundSize:'contain',
-        // backgroundRepeat:"no-repeat",
-        height:'100%',
-        width:{sx:"100%",lg:"50%"},
-      }}>
-        <Image src={EducartionalGuidesIcon} width={500} height={215} alt="dedicated professional icons"/>
+      <Box
+        sx={{
+          // backgroundImage:'url(/images/home/trading_journey/educational_guide_icons.svg)',
+          // backgroundSize:'contain',
+          // backgroundRepeat:"no-repeat",
+          height: '100%',
+          width: { sx: '100%', lg: '50%' },
+        }}
+      >
+        <Image
+          src={EducartionalGuidesIcon}
+          width={500}
+          height={215}
+          alt="dedicated professional icons"
+        />
       </Box>
     </Box>
   );

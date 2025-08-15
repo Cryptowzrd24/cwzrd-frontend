@@ -13,10 +13,11 @@ const MarketOutlooksCard: React.FC = () => {
         boxShadow: '0px 2px 8px rgba(0,0,0,0.1)',
         backgroundImage:
           'url(/images/home/trading_potential/market_outlooks_bg.svg)',
-          backgroundRepeat:'no-repeat',
-        backgroundSize:'cover',
-        borderRadius:'24px',
-        aspectRatio:'1'
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        borderRadius: '24px',
+        backgroundPositionX: 'start',
+        aspectRatio: { xs: '1', sm: 3 / 1, md: '1' },
       }}
     >
       {/* device artwork bottom-right */}
@@ -36,7 +37,7 @@ const MarketOutlooksCard: React.FC = () => {
             fontSize: { xs: '18px', sm: '20px' },
             fontWeight: 700,
             lineHeight: '24px',
-            color:"white"
+            color: 'white',
           }}
         >
           Market Outlooks
@@ -54,7 +55,6 @@ const MarketOutlooksCard: React.FC = () => {
           accordingly.
         </Typography>
       </Box>
-     
     </Box>
   );
 };

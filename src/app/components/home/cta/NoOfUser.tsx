@@ -10,7 +10,7 @@ const NoOfUser = () => {
       sx={{
         display: 'flex',
         gap: '8px',
-        alignItems: {xs:'flex-start',sm:'center'},
+        alignItems: { xs: 'flex-start', sm: 'center' },
         padding: '8px 16px 8px 8px',
         borderRadius: '32px 32px 0px 32px',
         maxWidth: 'fit-content',
@@ -18,7 +18,7 @@ const NoOfUser = () => {
         position: 'absolute',
         right: { xs: '10px', lg: '45px' },
         bottom: '35px',
-        flexDirection: {xs:'column',sm:'row'},
+        flexDirection: { xs: 'column', sm: 'row' },
       }}
     >
       <Check />

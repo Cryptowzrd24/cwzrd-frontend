@@ -172,25 +172,25 @@ export const createResponsiveConfig = (
     speed?: number;
   },
 ): ResponsiveConfig[] => [
-    {
-      breakpoint: 1024,
-      slidesToShow: desktop,
-      slidesToScroll: 1,
-      ...options,
-    },
-    {
-      breakpoint: 768,
-      slidesToShow: tablet,
-      slidesToScroll: 1,
-      ...options,
-    },
-    {
-      breakpoint: 576,
-      slidesToShow: mobile,
-      slidesToScroll: 1,
-      ...options,
-    },
-  ];
+  {
+    breakpoint: 1024,
+    slidesToShow: desktop,
+    slidesToScroll: 1,
+    ...options,
+  },
+  {
+    breakpoint: 768,
+    slidesToShow: tablet,
+    slidesToScroll: 1,
+    ...options,
+  },
+  {
+    breakpoint: 576,
+    slidesToShow: mobile,
+    slidesToScroll: 1,
+    ...options,
+  },
+];
 
 // Helper function to get responsive config by name
 export const getResponsiveConfig = (

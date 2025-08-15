@@ -1,6 +1,5 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import Check from './Check';
 import CourseBox from './CourseBox';
 import InformationCards from './InformationCards';
 import NoOfUser from './NoOfUser';
@@ -30,7 +29,7 @@ const CTA = () => {
           gap: { xs: '40px', lg: 0 },
           padding: { xs: '20px', md: '20px 0px 20px 20px' },
           boxSizing: 'border-box',
-          flexDirection: { xs: 'column', lg: 'row' }
+          flexDirection: { xs: 'column', lg: 'row' },
           // overflow: 'hidden',
         }}
       >
@@ -58,14 +57,14 @@ const CTA = () => {
             flexDirection: 'column',
             gap: '20px',
             // order: { xs: 0, md: 1 },
-            height:"100%"
+            height: '100%',
           }}
         >
           {/* Image container */}
           <Box
             sx={{
               width: '100%',
-              maxWidth: {lg:'650px',xs:'585px'},
+              maxWidth: { lg: '650px', xs: '585px' },
               height: '450px',
               position: 'relative',
               mx: 'auto',
@@ -78,7 +77,7 @@ const CTA = () => {
                 height: '100%',
                 backgroundImage: 'url("/images/mainScreenLaptop.png")',
                 backgroundRepeat: 'no-repeat',
-                backgroundSize: {lg:'contain',xs:'cover'},
+                backgroundSize: { lg: 'contain', xs: 'cover' },
                 backgroundPosition: 'center',
               }}
             />
@@ -89,7 +88,9 @@ const CTA = () => {
           </Box>
 
           {/* Information cards below image on small screens */}
-          <Box sx={{ display: { xs: 'block', maxWidth: '580px', width: '100%' } }}>
+          <Box
+            sx={{ display: { xs: 'block', maxWidth: '580px', width: '100%' } }}
+          >
             <InformationCards />
           </Box>
         </Box>

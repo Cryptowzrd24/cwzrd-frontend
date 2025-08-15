@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import Image from 'next/image';
 
 const ExpertLessonsCard: React.FC = () => {
   return (
@@ -13,17 +12,17 @@ const ExpertLessonsCard: React.FC = () => {
         borderRadius: '16px',
         boxShadow: '0px 2px 8px rgba(0,0,0,0.1)',
         backgroundImage:
-            'url(/images/home/trading_potential/expert_lessons_bg.svg)',
-        backgroundRepeat:'no-repeat',
-        backgroundSize:'cover',
-        aspectRatio:'1'
+          'url(/images/home/trading_potential/expert_lessons_bg.svg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        aspectRatio: { xs: '1', sm: 3 / 1, md: '1' },
       }}
     >
       {/* bottom-left text */}
       <Box
         sx={{
           color: 'white',
-          padding:"20px"
+          padding: '20px',
         }}
       >
         <Typography

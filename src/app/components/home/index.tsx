@@ -8,9 +8,7 @@ import CryptoArticle from './cryptoArticle';
 import CryptoGainer from './cryptoGainer';
 import MarketSummary from './marketSummary';
 import CryptoHero from './cryptoHero';
-import CommunityHero from './community-hero';
-import TradingPotential from "./trading_potential"
-import BenefitsSection from './benefits-section';
+import TradingPotential from './trading_potential';
 import { ResponsiveProvider } from '../common/ReusableCarousel';
 import { responsiveConfigs } from '../common/ReusableCarousel/responsiveConfigs';
 import FAQ from './faq';
@@ -110,35 +108,38 @@ const Home = () => {
             <TradingPotential />
           </CenteredBox>
         </Box>
-        <Box sx={{
-          margin: '0 auto',
-          width: {
-            xs: '100%',
-            sm: '95%',
-            md: '900px',
-            lg: '1150px',
-            xl: '1281px',
-          },
-          boxSizing: 'border-box',
-          padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
-          height:'auto'
-        }}>
-          <WzrdMembershipBenefits/>
+        <Box
+          sx={{
+            margin: '0 auto',
+            width: {
+              xs: '100%',
+              sm: '95%',
+              md: '900px',
+              lg: '1150px',
+              xl: '1281px',
+            },
+            boxSizing: 'border-box',
+            padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
+            height: 'auto',
+          }}
+        >
+          <WzrdMembershipBenefits />
         </Box>
-        <Box sx={{
-          margin: '0 auto',
-          overflowX: 'hidden',
-          width: {
-            xs: '100%',
-            sm: '95%',
-            md: '900px',
-            lg: '1150px',
-            xl: '1281px',
-          },
-          boxSizing: 'border-box',
-          padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
-        }}>
-
+        <Box
+          sx={{
+            margin: '0 auto',
+            overflowX: 'hidden',
+            width: {
+              xs: '100%',
+              sm: '95%',
+              md: '900px',
+              lg: '1150px',
+              xl: '1281px',
+            },
+            boxSizing: 'border-box',
+            padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
+          }}
+        >
           <CenteredBox>
             <TradingJourney />
           </CenteredBox>

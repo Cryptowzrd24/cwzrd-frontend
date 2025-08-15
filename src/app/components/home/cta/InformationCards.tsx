@@ -12,7 +12,7 @@ const InformationCards = () => {
         flexDirection: { xs: '', sm: 'row' },
         gap: { xs: '30px', lg: '30px' },
         padding: { xs: '20px', lg: '0px' },
-        flexWrap: {xs:'wrap',sm:"nowrap"},
+        flexWrap: { xs: 'wrap', sm: 'nowrap' },
       }}
     >
       <InformationCard

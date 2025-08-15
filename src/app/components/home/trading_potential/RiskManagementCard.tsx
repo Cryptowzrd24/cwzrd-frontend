@@ -16,7 +16,7 @@ const RiskManagementCard: React.FC = () => {
         overflow: 'hidden',
         boxShadow: '0px 2px 8px rgba(0,0,0,0.1)',
         border: '1px solid rgba(0,0,0,0.05)',
-        aspectRatio:'1'
+        aspectRatio: { xs: '1', sm: 3 / 1, md: '1' },
       }}
     >
       {/* centered icon */}

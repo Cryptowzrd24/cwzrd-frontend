@@ -13,20 +13,29 @@ const DailyModeSimplified = () => {
         backgroundRepeat: 'no-repeat, no-repeat',
         backgroundPosition: 'center center, center center', // front, back
         backgroundSize: 'cover, cover', // first is background, second is front
-        boxSizing:'border-box',
-        width:{xs:"95%",sm:"270px"},
-        margin:"0 auto",
-        borderRadius:"24px",
+        boxSizing: 'border-box',
+        width: { xs: '95%', sm: '270px' },
+        margin: '0 auto',
+        borderRadius: '24px',
       }}
     >
-      <Box sx={{ p: 3, display:'flex', flexDirection:"column", gap:"10px", borderRadius:"24px", overflow:'hidden' }}>
+      <Box
+        sx={{
+          p: 3,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '10px',
+          borderRadius: '24px',
+          overflow: 'hidden',
+        }}
+      >
         <Typography
           sx={{
             fontSize: '20px',
             fontWeight: 700,
             letterSpacing: '0.02em',
-            color:'white',
-            textAlign:"center"
+            color: 'white',
+            textAlign: 'center',
           }}
         >
           Daily Market Analysis on 30 Cryptos
@@ -37,12 +46,13 @@ const DailyModeSimplified = () => {
             fontWeight: 400,
             lineHeight: 1.5,
             maxWidth: '400px',
-            color:'white',
-            textAlign:'center'
+            color: 'white',
+            textAlign: 'center',
           }}
         >
-          Stay updated with daily, in-depth market analysis on 30 cryptocurrencies. 
-          Get the insights you need to make informed trading decisions.
+          Stay updated with daily, in-depth market analysis on 30
+          cryptocurrencies. Get the insights you need to make informed trading
+          decisions.
         </Typography>
       </Box>
     </Box>
