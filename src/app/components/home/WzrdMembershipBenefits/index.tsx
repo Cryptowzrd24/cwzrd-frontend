@@ -79,7 +79,10 @@ const WzrdMembershipBenefits = () => {
       >
         <Slider ref={sliderRef} {...settings}>
           {cardsList.map((card, index) => (
-            <Box key={index} sx={{ padding:"0 2px", overflow:"hidden", width:'100%' }}>
+            <Box
+              key={index}
+              sx={{ padding: '0 2px', overflow: 'hidden', width: '100%' }}
+            >
               {card}
             </Box>
           ))}

@@ -17,14 +17,18 @@ const PrivateCommunity = () => {
         gap: '20px',
         boxSizing: 'border-box',
         justifyContent: 'space-between',
-        width:'96%',
+        width: '96%',
         margin: '0 auto',
       }}
     >
       <Image src={RadialShield} height={200} width={200} alt="radial shield" />
       <Box>
         <Typography
-          sx={{ color: 'white', fontWeight: {xs:'600'}, fontSize: {xs:'16px'} }}
+          sx={{
+            color: 'white',
+            fontWeight: { xs: '600' },
+            fontSize: { xs: '16px' },
+          }}
         >
           Private Community
         </Typography>

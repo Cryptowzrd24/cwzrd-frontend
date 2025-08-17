@@ -81,9 +81,12 @@ const EcnomicBreakdowns = () => {
           </Typography>
           <Button
             sx={{
-              fontSize: {xs:'12px',sm:"14",md:'16px',lg:'18px'},
+              fontSize: { xs: '12px', sm: '14', md: '16px', lg: '18px' },
               fontWeight: '500',
-              padding: {md:'6px 12px !important',lg:'10px 20px !important' },
+              padding: {
+                md: '6px 12px !important',
+                lg: '10px 20px !important',
+              },
               backgroundColor: 'white',
               borderRadius: '25px',
             }}

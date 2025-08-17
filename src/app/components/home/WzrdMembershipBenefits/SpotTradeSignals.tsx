@@ -15,7 +15,7 @@ const SpotTradeSignals = () => {
         padding: '28px',
         boxSizing: 'border-box',
         // width: { xs: '95%', sm: '270px' },
-        width:"96%",
+        width: '96%',
         margin: '0 auto',
         overflow: 'hidden',
         borderRadius: '24px',

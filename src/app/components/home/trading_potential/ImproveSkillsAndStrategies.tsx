@@ -30,7 +30,7 @@ const ImproveSkillsAndStrategies = () => {
       >
         <Typography
           sx={{
-            fontSize: {fontSize:'14px'},
+            fontSize: { fontSize: '14px' },
             lineHeight: '1.3',
             fontWeight: '400',
             width: '100%',
@@ -42,7 +42,7 @@ const ImproveSkillsAndStrategies = () => {
           sx={{
             width: '100%',
             fontWeight: '700',
-            fontSize:{xs:'24px'},
+            fontSize: { xs: '24px' },
             lineHeight: '1.2',
           }}
         >

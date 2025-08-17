@@ -18,15 +18,15 @@ const CardWrapper = ({ children }: any) => {
     >
       {children}
     </Box>
-  )
-}
+  );
+};
 
 const index = () => {
   return (
     <Box
       sx={{
         width: '100%',
-        height:"100%",
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         gap: { xs: '12px', lg: '24px' },

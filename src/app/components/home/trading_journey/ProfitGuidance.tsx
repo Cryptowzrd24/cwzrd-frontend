@@ -1,8 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import { ArrowRight } from '../../../../../public/icons/arrowRight';
-import Image from 'next/image';
-import ProfitGraphLine from '../../../../../public/images/home/trading_journey/profit_graph_line.svg';
 
 const ProfitGuidance = () => {
   return (
@@ -57,10 +55,11 @@ const ProfitGuidance = () => {
       <Box
         sx={{
           width: '100%',
-          height: "200px",
-          backgroundImage: ('url("/images/home/trading_journey/profit_graph_line.svg")'),
-          backgroundPosition:"origin",
-          backgroundSize:"cover"
+          height: '200px',
+          backgroundImage:
+            'url("/images/home/trading_journey/profit_graph_line.svg")',
+          backgroundPosition: 'origin',
+          backgroundSize: 'cover',
         }}
       >
         {/* <Image

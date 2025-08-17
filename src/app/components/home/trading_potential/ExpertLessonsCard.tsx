@@ -5,7 +5,7 @@ const ExpertLessonsCard: React.FC = () => {
   return (
     <Box
       sx={{
-        width:  "100%",
+        width: '100%',
         height: { xs: '100%', lg: '311px' },
         minHeight: { xs: '280px', sm: '300px', lg: '311px' },
         overflow: 'hidden',
@@ -38,7 +38,7 @@ const ExpertLessonsCard: React.FC = () => {
         <Typography
           sx={{
             mt: '8px',
-            fontSize: { xs:'14px' },
+            fontSize: { xs: '14px' },
             lineHeight: '18.2px',
             color: 'white',
           }}
