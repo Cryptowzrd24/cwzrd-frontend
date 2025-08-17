@@ -16,7 +16,8 @@ const TradeManagement = () => {
         padding: '24px',
         boxSizing: 'border-box',
         justifyContent: 'space-between',
-        width: { xs: '95%', sm: '270px' },
+        // width: { xs: '95%', sm: '270px' },
+        width:"96%",
         margin: '0 auto',
       }}
     >

@@ -30,7 +30,7 @@ const CTA = () => {
           padding: { xs: '20px', md: '20px 0px 20px 20px' },
           boxSizing: 'border-box',
           flexDirection: { xs: 'column', lg: 'row' },
-          // overflow: 'hidden',
+          overflow: 'hidden',
         }}
       >
         {/* Left side: Text content */}

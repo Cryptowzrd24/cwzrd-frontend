@@ -16,9 +16,11 @@ const DailyTradeSignals = () => {
           height: '423px',
           position: 'relative',
           boxSizing: 'border-box',
-          width: { xs: '95%', sm: '270px' },
+          // width: { xs: '95%', sm: '270px' },
+          width:'96%',
           margin: '0 auto',
           borderRadius: '24px',
+          overflow:"hidden",
         }}
       >
         <Box

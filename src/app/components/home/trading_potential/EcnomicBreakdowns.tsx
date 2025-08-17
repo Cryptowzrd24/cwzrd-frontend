@@ -11,7 +11,7 @@ const EcnomicBreakdowns = () => {
     <Box
       sx={{
         width: '100%',
-        height: '100%',
+        height: { xs: 'auto', lg: '311px' },
         overflow: 'hidden',
         display: 'flex',
         justifyContent: 'space-between',
@@ -23,7 +23,7 @@ const EcnomicBreakdowns = () => {
         borderRadius: '24px',
         padding: '20px',
         boxSizing: 'border-box',
-        flexDirection: { xs: 'column-reverse', lg: 'row' },
+        flexDirection: { xs: 'column-reverse', sm: 'row' },
       }}
     >
       <Box
@@ -81,14 +81,14 @@ const EcnomicBreakdowns = () => {
           </Typography>
           <Button
             sx={{
-              fontSize: '18px',
+              fontSize: {xs:'12px',sm:"14",md:'16px',lg:'18px'},
               fontWeight: '500',
-              padding: '10px 20px',
+              padding: {md:'6px 12px !important',lg:'10px 20px !important' },
               backgroundColor: 'white',
               borderRadius: '25px',
             }}
           >
-            <span>Get Started</span> <ArrowRightBlack width={20} height={20} />
+            Get Started <ArrowRightBlack width={16} height={16} />
           </Button>
         </Box>
       </Box>

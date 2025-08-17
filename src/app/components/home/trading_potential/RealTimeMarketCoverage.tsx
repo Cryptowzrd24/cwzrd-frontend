@@ -33,8 +33,8 @@ const RealTimeMarketCoverage = () => {
       >
         <Typography
           sx={{
-            fontSize: '24px',
-            fontWeight: '500',
+            fontSize: {xs:"18px",lg:'24px'},
+            fontWeight: {xs:"500",lg:'500'},
             color: 'white',
           }}
         >
@@ -42,7 +42,7 @@ const RealTimeMarketCoverage = () => {
         </Typography>
         <Typography
           sx={{
-            fontSize: '14px',
+            fontSize: {xs:"12px",lg:'14px'},
             fontWeight: '400',
             color: 'white',
             lineHeight: '1.5',

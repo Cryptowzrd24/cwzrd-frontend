@@ -7,8 +7,8 @@ const RiskManagementCard: React.FC = () => {
   return (
     <Box
       sx={{
-        width: { xs: '100%', md: 'calc(33% - 12px)' },
-        height: { xs: 'auto', lg: '311px' },
+        width: '100%',
+        height: { xs: '100%', lg: '311px' },
         minHeight: { xs: '280px', sm: '300px', lg: '311px' },
         background: 'white',
         borderRadius: '16px',
@@ -50,7 +50,7 @@ const RiskManagementCard: React.FC = () => {
       >
         <Typography
           sx={{
-            fontSize: { xs: '16px', sm: '16px' },
+            fontSize: { xs: '16px' },
             fontWeight: 700,
             color: '#111111',
             lineHeight: '19.2px',
@@ -61,7 +61,7 @@ const RiskManagementCard: React.FC = () => {
         <Typography
           sx={{
             mt: '8px',
-            fontSize: { xs: '13px', sm: '14px' },
+            fontSize: { xs: '14px' },
             color: '#111111',
             opacity: 0.56,
             lineHeight: '18.2px',

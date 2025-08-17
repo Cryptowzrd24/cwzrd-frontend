@@ -5,8 +5,8 @@ const MarketOutlooksCard: React.FC = () => {
   return (
     <Box
       sx={{
-        width: { xs: '100%', md: 'calc(33% - 12px)' },
-        height: { xs: 'auto', lg: '311px' },
+        width: '100%',
+        height: { xs: '100%', lg: '311px' },
         minHeight: { xs: '280px', sm: '300px', lg: '311px' },
         position: 'relative',
         overflow: 'hidden',
@@ -34,7 +34,7 @@ const MarketOutlooksCard: React.FC = () => {
       >
         <Typography
           sx={{
-            fontSize: { xs: '18px', sm: '20px' },
+            fontSize: { xs: '20px' },
             fontWeight: 700,
             lineHeight: '24px',
             color: 'white',
@@ -46,7 +46,7 @@ const MarketOutlooksCard: React.FC = () => {
           sx={{
             mt: '8px',
             color: 'rgba(255,255,255,0.72)',
-            fontSize: { xs: '13px', sm: '14px' },
+            fontSize: { xs: '14px' },
             lineHeight: '20px',
           }}
         >

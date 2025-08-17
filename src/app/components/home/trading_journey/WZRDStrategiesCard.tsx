@@ -8,7 +8,7 @@ const WZRDStrategiesCard: React.FC = () => {
     <Box
       sx={{
         width: '100%',
-        height: { xs: 'auto', lg: '311px' },
+        height: { xs: '100%', lg: '311px' },
         minHeight: { xs: '280px', sm: '300px', lg: '311px' },
         background: 'white',
         borderRadius: '16px',

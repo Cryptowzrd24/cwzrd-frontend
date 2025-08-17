@@ -12,7 +12,6 @@ const ProfitGuidance = () => {
         height: '100%',
         bgcolor: 'white',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-        padding: '20px 20px 0',
         borderRadius: '24px',
         boxSizing: 'border-box',
         overflow: 'hidden',
@@ -23,6 +22,7 @@ const ProfitGuidance = () => {
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
+          padding: '20px 20px 0',
         }}
       >
         <Typography
@@ -57,9 +57,13 @@ const ProfitGuidance = () => {
       <Box
         sx={{
           width: '100%',
+          height: "200px",
+          backgroundImage: ('url("/images/home/trading_journey/profit_graph_line.svg")'),
+          backgroundPosition:"origin",
+          backgroundSize:"cover"
         }}
       >
-        <Image
+        {/* <Image
           src={ProfitGraphLine}
           width={500}
           height={160}
@@ -68,7 +72,7 @@ const ProfitGuidance = () => {
             width: '100%',
             objectFit: 'cover',
           }}
-        />
+        /> */}
       </Box>
     </Box>
   );

@@ -15,7 +15,8 @@ const DayTradeSetups = () => {
         padding: '20px',
         borderRadius: '24px',
         boxSizing: 'border-box',
-        width: { xs: '95%', sm: '270px' },
+        // width: { xs: '95%', sm: '270px' },
+        width:'96%',
         margin: '0 auto',
       }}
     >
