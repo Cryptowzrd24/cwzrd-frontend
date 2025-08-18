@@ -157,11 +157,13 @@ function NewsLetterBanner() {
               sx={{
                 display: 'flex',
                 height: '40px',
-                minWidth: '128px',
+                minWidth: { xs: 'fitContent', sm: '128px' },
+                whiteSpace: 'nowrap',
                 background: 'linear-gradient(180deg, #3761FB 0%, #37A9FB 100%)',
                 borderRadius: '56px',
                 alignItems: 'center',
                 justifyContent: 'center',
+                padding: { xs: '0 8px', sm: '0' },
               }}
             >
               <Button
@@ -176,7 +178,7 @@ function NewsLetterBanner() {
                   justifyContent: 'center',
                   background: '#3761FB01',
                   fontWeight: '600',
-                  fontSize: '14px',
+                  fontSize: { xs: '13px', sm: '14px' },
                   lineHeight: '18.2px',
                   width: '100%',
                   padding: 0,
