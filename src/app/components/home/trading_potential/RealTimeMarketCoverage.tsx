@@ -54,16 +54,19 @@ const RealTimeMarketCoverage = () => {
         </Typography>
         <Button
           sx={{
-            fontSize: '18px',
+            fontSize: { xs: '12px', sm: '14', md: '16px', lg: '18px' },
             fontWeight: '500',
-            padding: '10px 20px',
+            padding: {
+              xs: '6px 12px !important',
+              lg: '10px 20px !important',
+            },
             backgroundColor: 'white',
             borderRadius: '25px',
-            width: '158px',
-            height: '39px',
+            width: { xs: '120px', md: '140px', lg: '158px' },
+            height: { xs: 'auto', md: 'auto', lg: '39px' },
           }}
         >
-          <span>Get Started</span> <ArrowRightBlack width={20} height={20} />
+          <span>Get Started</span> <ArrowRightBlack width={16} height={16} />
         </Button>
       </Box>
     </Box>

@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
-import ChevronRightHead from '../../../../public/icons/chevronRightHead';
+import ArrowRightBlack from '../../../../public/icons/News-Letter/arrowRightBlack';
 
 const MainMembershipBanner = ({
   isMainPage = false,
@@ -88,42 +88,19 @@ const MainMembershipBanner = ({
       <Box>
         <Button
           sx={{
-            display: 'flex',
-            padding: '8px 16px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '4px',
-            borderRadius: '56px',
-            background: '#FFF',
-
-            '&:hover': {
-              background: '#F0F0F0',
+            fontSize: { xs: '12px', sm: '14', md: '16px', lg: '18px' },
+            fontWeight: '500',
+            padding: {
+              xs: '6px 12px !important',
+              lg: '10px 20px !important',
             },
-            '@media (max-width: 768px)': {
-              padding: isMainPage ? '6px 12px' : '8px 16px',
-            },
-            '@media (max-width: 576px)': {
-              padding: isMainPage ? '4px 8px' : '8px 16px',
-            },
+            backgroundColor: 'white',
+            borderRadius: '25px',
+            width: { xs: '120px', md: '140px', lg: '158px' },
+            height: { xs: 'auto', md: 'auto', lg: '39px' },
           }}
         >
-          <Typography
-            sx={{
-              color: '#111',
-              fontSize: '18px',
-              fontWeight: '500',
-              lineHeight: '130%',
-              '@media (max-width: 768px)': {
-                fontSize: isMainPage ? '14px' : '18px',
-              },
-              '@media (max-width: 576px)': {
-                fontSize: isMainPage ? '12px' : '18px',
-              },
-            }}
-          >
-            Get Started
-          </Typography>
-          <ChevronRightHead />
+          <span>Get Started</span> <ArrowRightBlack width={16} height={16} />
         </Button>
       </Box>
     </Box>

@@ -3,7 +3,7 @@ import React from 'react';
 import BlueArcLg from '../../../../public/icons/blueArcLg.svg';
 import BlueArcSm from '../../../../public/icons/blueArcSm.svg';
 import Image from 'next/image';
-import ChevronRightHead from '../../../../public/icons/chevronRightHead';
+import ArrowRightBlack from '../../../../public/icons/News-Letter/arrowRightBlack';
 
 const MarketAnaylsisBanner = () => {
   return (
@@ -74,30 +74,19 @@ const MarketAnaylsisBanner = () => {
       <Box>
         <Button
           sx={{
-            display: 'flex',
-            padding: '8px 16px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '4px',
-            borderRadius: '56px',
-            background: '#FFF',
-
-            '&:hover': {
-              background: '#F0F0F0',
+            fontSize: { xs: '12px', sm: '14', md: '16px', lg: '18px' },
+            fontWeight: '500',
+            padding: {
+              xs: '6px 12px !important',
+              lg: '10px 20px !important',
             },
+            backgroundColor: 'white',
+            borderRadius: '25px',
+            width: { xs: '120px', md: '140px', lg: '158px' },
+            height: { xs: 'auto', md: 'auto', lg: '39px' },
           }}
         >
-          <Typography
-            sx={{
-              color: '#111',
-              fontSize: '18px',
-              fontWeight: '500',
-              lineHeight: '130%',
-            }}
-          >
-            Get Started
-          </Typography>
-          <ChevronRightHead />
+          <span>Get Started</span> <ArrowRightBlack width={16} height={16} />
         </Button>
       </Box>
     </Box>
