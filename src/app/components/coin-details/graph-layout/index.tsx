@@ -13,7 +13,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { TradingViewIcon } from '../../../../../public/icons/tradingView';
 
-function GraphLayout({ coinSymbol,isCoinDetailPage=false }: any) {
+function GraphLayout({ coinSymbol, isCoinDetailPage = false }: any) {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
 

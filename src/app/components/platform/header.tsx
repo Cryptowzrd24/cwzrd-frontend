@@ -48,7 +48,7 @@ const PlatformHeader = () => {
                 fontSize: '24px',
                 lineHeight: '120%',
                 letterSpacing: '0.24px',
-                textAlign:'center'
+                textAlign: 'center',
               },
             }}
           >

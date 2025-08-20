@@ -24,7 +24,7 @@ interface StockChartProps {
   selectedCompareCoinId: any;
   coinSymbol: any;
   compareCoinSymbol: any;
-  isCoinDetailPage:boolean;
+  isCoinDetailPage: boolean;
 }
 
 const StockChart: React.FC<StockChartProps> = React.memo(
@@ -38,7 +38,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
     selectedCompareCoinId,
     coinSymbol,
     compareCoinSymbol,
-    isCoinDetailPage=false
+    isCoinDetailPage = false,
   }) => {
     const pathname = usePathname();
     const [options, setOptions] = useState({});
@@ -728,7 +728,7 @@ const StockChart: React.FC<StockChartProps> = React.memo(
       <div
         ref={chartRef}
         style={{
-          padding:isCoinDetailPage || isFullScreen ? '0' : '0 24px 34px 22px',
+          padding: isCoinDetailPage || isFullScreen ? '0' : '0 24px 34px 22px',
           height: isFullScreen ? '90vh' : '610px',
           position: 'relative',
           marginTop: '35px',

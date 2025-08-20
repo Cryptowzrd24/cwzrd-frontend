@@ -11,7 +11,7 @@ const CommunityCard = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          padding: {xs:"10px",sm:'24px 0 23.75px 24px'},
+          padding: { xs: '10px', sm: '24px 0 23.75px 24px' },
           borderRadius: '24px',
           minHeight: '250px',
           overflow: 'hidden',

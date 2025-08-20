@@ -72,7 +72,7 @@ const CoinDetails = ({ serverCoindata }: any) => {
               overflow: 'hidden',
             }}
           >
-            <GraphLayout coinSymbol={coinSymbol} isCoinDetailPage/>
+            <GraphLayout coinSymbol={coinSymbol} isCoinDetailPage />
           </Box>
           <Box
             sx={{
