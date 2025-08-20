@@ -1,13 +1,8 @@
 import TechnicalsPage from '@/app/components/technicals-page';
-import { Box } from '@mui/material';
 import React from 'react';
 
 function Technicals() {
-  return (
-    <Box>
-      <TechnicalsPage />
-    </Box>
-  );
+  return <TechnicalsPage />;
 }
 
 export default Technicals;

@@ -179,7 +179,7 @@ const FinancialNewsCarousel = ({
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: isMobile ? 1 : isTablet ? 2 : 5, // Adjusts based on screen size
+    slidesToShow: isMobile ? 1 : isTablet ? 2 : 4, // Adjusts based on screen size
     slidesToScroll: 1,
     arrows: true,
     prevArrow: <PreviousArrow />,
@@ -191,7 +191,7 @@ const FinancialNewsCarousel = ({
     <Box
       key={i}
       sx={{
-        // padding: { xs: '4px', sm: '6px', md: '8px' },
+        padding: { xs: '4px', sm: '6px', md: '8px' },
         marginInline: '-10px',
         boxSizing: 'border-box',
       }}

@@ -1,5 +1,5 @@
 'use client';
-import { Box, useMediaQuery } from '@mui/material';
+import { Box } from '@mui/material';
 import React, { useRef, useState } from 'react';
 import Graph from './technicals-graph';
 
@@ -9,7 +9,6 @@ import GraphFilter from '../../coin-details/graph-filter';
 
 function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
   const chartRef = useRef<HTMLDivElement>(null);
-  const isSmallScreen = useMediaQuery('(max-width: 576px)');
 
   //   const [isFullScreen, setIsFullScreen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('filter');
@@ -30,7 +29,9 @@ function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
       <Box
         sx={{
           width: '100%',
-          height: { lg: '400px', xs: 'auto' },
+          height: { sm: '400px', xs: 'auto' },
+          minHeight: '380px',
+          position: 'relative',
         }}
       >
         <Graph
@@ -40,22 +41,23 @@ function TechnicalsGraph({ isMainPage = false }: { isMainPage?: boolean }) {
           fill="transparent"
           isMainPage={isMainPage}
         />
-      </Box>
-      <Box
-        sx={{
-          position: 'relative',
-          top: isSmallScreen ? '-480px' : '-400px',
-          left: isSmallScreen ? '20px' : '50px',
-          width: 'fit-content',
-        }}
-      >
-        <GraphFilter
-          selectedFilter={selectedFilter}
-          setSelectedFilter={setSelectedFilter}
-          volumeValue={volumeValue}
-          setVolumeValue={setVolumeValue}
-          handleFullScreen={handleFullScreen}
-        />
+        <Box
+          sx={{
+            zIndex: '1000',
+            position: 'absolute',
+            top: { xs: '-60px', sm: '10px' },
+            left: { xs: '8px', md: '30px' },
+            width: 'fit-content',
+          }}
+        >
+          <GraphFilter
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
+            volumeValue={volumeValue}
+            setVolumeValue={setVolumeValue}
+            handleFullScreen={handleFullScreen}
+          />
+        </Box>
       </Box>
     </Box>
   );

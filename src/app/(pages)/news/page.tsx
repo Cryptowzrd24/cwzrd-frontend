@@ -125,7 +125,7 @@ const News = () => {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               fontWeight: '600',
-              fontSize: '14px',
+              fontSize: { xs: '12px !important', md: '14px' },
               lineHeight: '18.2px',
             }}
           >

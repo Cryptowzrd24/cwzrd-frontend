@@ -33,7 +33,7 @@ const TechnicalCard: React.FC<TechnicalProps> = ({
         borderRadius: '16px',
         padding: '8px',
         maxWidth: { xs: '330px', sm: '310px' },
-        width: '95%',
+        width: { xs: '100%', md: '95%' },
         margin: '0 auto',
         boxShadow: '0px 4px 6px 0px #00000005',
         boxSizing: 'border-box',
