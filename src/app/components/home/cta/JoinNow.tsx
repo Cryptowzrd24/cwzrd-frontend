@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
-import ChevronRightHead from '../../../../../public/icons/chevronRightHead';
+import { ArrowRight } from '../../../../../public/icons/arrowRight';
 
 const JoinNow = () => {
   return (
@@ -32,7 +32,7 @@ const JoinNow = () => {
         <Typography
           sx={{
             color: '#111',
-            fontSize: '56px',
+            fontSize: { xs: '36px', lg: '56px' },
             fontWeight: '500',
             lineHeight: '110%',
             letterSpacing: '0.56px',
@@ -73,14 +73,14 @@ const JoinNow = () => {
           <Typography
             sx={{
               color: '#FFF',
-              fontSize: '18px',
+              fontSize: { xs: '12px', sm: '14', md: '16px', lg: '18px' },
               fontWeight: '500',
               lineHeight: '130%',
             }}
           >
             Get Started
           </Typography>
-          <ChevronRightHead isWhite />
+          <ArrowRight fill="white" width={16} height={16} />
         </Button>
       </Box>
     </Box>

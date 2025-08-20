@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import Avatar from '../../../../../public/images/banner/avatar.png';
+import Check from './Check';
 
 const NoOfUser = () => {
   return (
@@ -9,7 +10,7 @@ const NoOfUser = () => {
       sx={{
         display: 'flex',
         gap: '8px',
-        alignItems: 'center',
+        alignItems: { xs: 'flex-start', sm: 'center' },
         padding: '8px 16px 8px 8px',
         borderRadius: '32px 32px 0px 32px',
         maxWidth: 'fit-content',
@@ -17,8 +18,10 @@ const NoOfUser = () => {
         position: 'absolute',
         right: { xs: '10px', lg: '45px' },
         bottom: '35px',
+        flexDirection: { xs: 'column', sm: 'row' },
       }}
     >
+      <Check />
       <Image
         src={Avatar}
         width={100}

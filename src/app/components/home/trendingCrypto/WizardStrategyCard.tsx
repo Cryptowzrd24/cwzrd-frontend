@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
-import ChevronRightHead from '../../../../../public/icons/chevronRightHead';
 import YellowArc from '../../../../../public/icons/yellowArc';
+import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
 
 const WizardStrategyCard = () => {
   return (
@@ -59,29 +59,19 @@ const WizardStrategyCard = () => {
       <Box>
         <Button
           sx={{
-            display: 'flex',
-            padding: '12px 24px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '4px',
-            borderRadius: '56px',
-            background: '#FFF',
-            '&:hover': {
-              background: '#F0F0F0',
+            fontSize: { xs: '12px', sm: '14', md: '16px', lg: '18px' },
+            fontWeight: '500',
+            padding: {
+              xs: '6px 12px !important',
+              lg: '10px 20px !important',
             },
+            backgroundColor: 'white',
+            borderRadius: '25px',
+            width: { xs: '120px', md: '140px', lg: '158px' },
+            height: { xs: 'auto', md: 'auto', lg: '39px' },
           }}
         >
-          <Typography
-            sx={{
-              color: '#111',
-              fontSize: '18px',
-              fontWeight: '500',
-              lineHeight: '130%',
-            }}
-          >
-            Get Started
-          </Typography>
-          <ChevronRightHead />
+          <span>Get Started</span> <ArrowRightBlack width={16} height={16} />
         </Button>
       </Box>
     </Box>
