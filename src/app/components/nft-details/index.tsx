@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroSection from './heroSection';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import Sales from './sales';
 import Market from './market';
 import NftNavbar from './nftNavbar';
@@ -15,23 +15,69 @@ import GraphLayout from './graph/graphLayout';
 
 const NftDetails = ({ serverNftData }: any) => {
   return (
-    <>
-      <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box id="hero" sx={{ mt: '48px' }}>
+    <Box
+      sx={{
+        background: 'white',
+        width: '100%',
+        boxSizing: 'border-box',
+        height: '100%',
+      }}
+    >
+      <Box
+        sx={{
+          margin: '0 auto',
+          overflow: 'hidden',
+          width: {
+            xs: '100%',
+            sm: '95%',
+            md: '900px',
+            lg: '1150px',
+            xl: '1290px',
+          },
+          boxSizing: 'border-box',
+          padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
+          display: 'flex',
+          flexDirection: 'column',
+          gap: { xs: '48px', md: '48px' },
+        }}
+      >
+        <Box id="hero" sx={{ width: '100%' }}>
           <HeroSection serverNftData={serverNftData} />
         </Box>
-        <Box id="overview" sx={{ mt: '16px', mb: '16px' }}>
+        <Box id="overview" sx={{ width: '100%' }}>
           <NftNavbar />
         </Box>
         <Box
           sx={{
             display: 'flex',
             gap: '30px',
-            height: '718px',
+            width: '100%',
+            alignItems: 'stretch',
+            flexDirection: { xs: 'column', md: 'row' },
+            boxSizing: 'border-box',
           }}
         >
-          <GraphLayout coinSymbol={'BTC'} />
-          <PriceSales serverNftData={serverNftData} />
+          <Box
+            sx={{
+              flex: { xs: 3, md: 3 }, // Equal width distribution
+              display: 'flex',
+              flexDirection: 'column',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
+            }}
+          >
+            <GraphLayout coinSymbol={'BTC'} />
+          </Box>
+          <Box
+            sx={{
+              flex: 1, // Equal width distribution
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <PriceSales serverNftData={serverNftData} />
+          </Box>
         </Box>
         {/* <Box
           sx={{
@@ -46,26 +92,26 @@ const NftDetails = ({ serverNftData }: any) => {
             </Box>
           ))}
         </Box> */}
-        {/* <Box id="about" sx={{ mt: '48px' }}>
+        {/* <Box id="about" sx={{ width: '100%' }}>
           <Info />
         </Box> */}
-        <Box id="news" sx={{ mt: '48px' }}>
+        <Box id="news" sx={{ width: '100%' }}>
           <NewsLetter />
         </Box>
-        <Box id="sales" sx={{ mt: '48px' }}>
+        <Box id="sales" sx={{ width: '100%' }}>
           <Sales serverNftData={serverNftData} />
         </Box>
-        <Box id="market" sx={{ mt: '48px' }}>
+        <Box id="market" sx={{ width: '100%' }}>
           <Market serverNftData={serverNftData} />
         </Box>
-        <Box id="activity" sx={{ mt: '48px' }}>
+        <Box id="activity" sx={{ width: '100%' }}>
           <Activity serverNftData={serverNftData} />
         </Box>
-        <Box sx={{ mt: '48px', mb: '48px' }}>
-          <MemberShipBanner isNftDetail={true} />
+        <Box id="membership-banner" sx={{ width: '100%' }}>
+          <MemberShipBanner />
         </Box>
-      </Container>
-    </>
+      </Box>
+    </Box>
   );
 };
 

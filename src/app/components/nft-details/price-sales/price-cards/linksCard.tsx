@@ -9,9 +9,11 @@ const LinksCard = ({ serverNftData }: any) => {
         backgroundImage: "url('/images/nft/trending.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
-        width: '330px',
+        maxWidth: { xs: '100%', md: '330px', lg: '330px', xl: '330px' },
+        width: '100%',
         boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
-        borderRadius: '16px',
+        borderRadius: '24px',
+        boxSizing: 'border-box',
       }}
     >
       <Stack>
@@ -112,7 +114,6 @@ const LinksCard = ({ serverNftData }: any) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
-                  padding: '7px 12px',
                   borderRadius: '8px',
                   background: '#EFEEF2',
                   transition: 'all 0.3s ',
@@ -123,14 +124,20 @@ const LinksCard = ({ serverNftData }: any) => {
                   justifyContent: 'center',
                   alignItems: 'center',
                   textDecoration: 'none',
+                  boxSizing: 'border-box',
+                  flexWrap: { xs: 'wrap', md: 'nowrap' },
                 }}
               >
                 <Typography
-                  variant="body1"
+                  // variant="body1"
                   sx={{
-                    fontSize: '11px',
                     fontWeight: '500',
                     color: 'rgba(17, 17, 17, 1)',
+                    padding: {
+                      xs: '4px 8px !important',
+                      sm: '7px 12px !important',
+                    },
+                    fontSize: { xs: '10px !important', sm: '12px !important' },
                   }}
                 >
                   {item?.name}

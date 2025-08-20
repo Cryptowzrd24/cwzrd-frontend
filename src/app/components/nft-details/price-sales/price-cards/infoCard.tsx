@@ -43,9 +43,11 @@ const InfoCard = ({ serverNftData }: any) => {
           backgroundImage: "url('/images/nft/trending.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
-          width: '330px',
+          maxWidth: { xs: '100%', md: '330px', lg: '330px', xl: '330px' },
+          width: '100%',
           boxShadow: '0px 4px 28px 0px rgba(0, 0, 0, 0.05)',
           borderRadius: '24px',
+          boxSizing: 'border-box',
         }}
       >
         <Stack>

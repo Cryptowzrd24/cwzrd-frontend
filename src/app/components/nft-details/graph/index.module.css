@@ -8,9 +8,6 @@
   align-items: center;
   gap: 8px;
   background-color: #f3f3f3;
-  position: relative;
-  top: 20px;
-  right: 21px;
 }
 
 .filterHeaderSecOne {
