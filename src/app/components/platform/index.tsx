@@ -60,7 +60,7 @@ const SubLayoutBox = styled(MainLayoutBox)({
   '@media (max-width: 1024px)': {
     width: '100%',
     gap: '24px',
-    paddingInline: '16px',
+    paddingInline: {xs:"0px",md:'16px'},
   },
 });
 
@@ -122,7 +122,7 @@ const Platform = () => {
     <RootLayoutBox>
       <CenteredBox
         sx={{
-          marginTop: '61px',
+          marginTop: { xs: "20px", lg: '61px' },
         }}
       >
         <PlatformHeader />
