@@ -13,6 +13,7 @@ const CardContent: React.FC = () => {
         gridTemplateColumns: '1fr 1fr',
         rowGap: '12px',
         columnGap: '16px',
+        width: '100%',
         '@media (max-width: 978px)': {
           gridTemplateColumns: '1fr',
         },

@@ -38,7 +38,7 @@ const NftDetails = ({ serverNftData }: any) => {
           padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
           display: 'flex',
           flexDirection: 'column',
-          gap: { xs: '48px', md: '48px' },
+          gap: { xs: '24px', md: '48px' },
         }}
       >
         <Box id="hero" sx={{ width: '100%' }}>
