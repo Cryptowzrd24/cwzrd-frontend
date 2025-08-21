@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
+import CheckTooltip from './CheckTooltip';
 
 const MarketOutlooksCard: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const MarketOutlooksCard: React.FC = () => {
         backgroundSize: 'cover',
         borderRadius: '24px',
         backgroundPositionX: 'start',
-        aspectRatio: { xs: '1', sm: 3 / 1, md: '1' },
+        aspectRatio: '1',
       }}
     >
       {/* device artwork bottom-right */}
@@ -54,6 +55,24 @@ const MarketOutlooksCard: React.FC = () => {
           outlooks. Know where the market is heading and adjust your strategies
           accordingly.
         </Typography>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: { xs: '150px', md: '200px', lg: '130px' },
+            left: '5px',
+          }}
+        >
+          <CheckTooltip type="market-outlook-check" text="Market Outlooks" />
+        </Box>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: { xs: '220px', md: '260px', lg: '200px' },
+            right: '10px',
+          }}
+        >
+          <CheckTooltip type="market-outlook-arrow" text="Bulish trend" />
+        </Box>
       </Box>
     </Box>
   );

@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
+import CheckTooltip from './CheckTooltip';
 // import ImproveSkillsAndStrategiesImg from '../../../../../public/images/home/trading_potential/improve_skills_strategies.svg';
 
 const ImproveSkillsAndStrategies = () => {
@@ -16,11 +17,30 @@ const ImproveSkillsAndStrategies = () => {
         backgroundRepeat: 'no-repeat',
         borderRadius: '24px',
         aspectRatio: { xs: '1', lg: 'auto' },
+        position: 'relative',
       }}
     >
       <Box
         sx={{
-          width: '215px',
+          position: 'absolute',
+          top: { xs: '100px', sm: '100px', md: '100px', lg: '60px' },
+          right: '40px',
+        }}
+      >
+        <CheckTooltip text="Risk Management" />
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '40px',
+          left: '10px',
+        }}
+      >
+        <CheckTooltip text="Advanced Technical Analysis" />
+      </Box>
+      <Box
+        sx={{
+          width: { xs: 'auto', md: '215px' },
           height: '84px',
           display: 'flex',
           flexDirection: 'column',
