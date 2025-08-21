@@ -52,16 +52,14 @@ const CoinNavbar = () => {
   return (
     <Box
       sx={{
-        padding: '16px 24px',
+        padding: { xs: '8px 12px', md: '16px 24px' },
         borderRadius: '24px',
         boxShadow: '0px 4px 28px 0px rgba(0,0,0,0.05)',
         background: 'rgba(255, 255, 255, 1)',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        '@media (max-width: 660px)': {
-          display: 'none',
-        },
+        overflowX: { xs: 'scroll', md: 'hidden' },
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
@@ -70,7 +68,7 @@ const CoinNavbar = () => {
             key={heading}
             variant="body1"
             sx={{
-              fontSize: '12px',
+              fontSize: { xs: '12px', md: '16px' },
               fontWeight: activeHeading === heading ? '700' : '600',
               color:
                 activeHeading === heading
@@ -80,8 +78,12 @@ const CoinNavbar = () => {
                 activeHeading === heading
                   ? 'rgba(114, 72, 247, 0.1)'
                   : 'transparent',
-              borderRadius: activeHeading === heading ? '40px' : '0px',
-              padding: activeHeading === heading ? '11px 16px' : '0px',
+              borderRadius:
+                activeHeading === heading ? { xs: '20px', md: '40px' } : '0px',
+              padding:
+                activeHeading === heading
+                  ? { xs: '5px 8px', lg: '11px 16px' }
+                  : '0px',
               cursor: 'pointer',
             }}
             onClick={() => handleHeadingClick(heading)}

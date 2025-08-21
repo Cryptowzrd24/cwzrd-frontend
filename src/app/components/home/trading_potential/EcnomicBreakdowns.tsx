@@ -3,8 +3,8 @@ import { Button } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import GlobeIcon from '../../../../../public/icons/home/Globe.svg';
-import LeftPartImage from '../../../../../public/images/home/exclusive_membership/exclusive_membership_benefits_right_part.svg';
 import ArrowRightBlack from '../../../../../public/icons/News-Letter/arrowRightBlack';
+import CheckTooltip from './CheckTooltip';
 
 const EcnomicBreakdowns = () => {
   return (
@@ -24,6 +24,7 @@ const EcnomicBreakdowns = () => {
         padding: '20px',
         boxSizing: 'border-box',
         flexDirection: { xs: 'column-reverse', sm: 'row' },
+        gap: { xs: '40px', sm: '0px' },
       }}
     >
       <Box
@@ -33,12 +34,35 @@ const EcnomicBreakdowns = () => {
           justifyContent: 'center',
         }}
       >
-        <Image
-          src={LeftPartImage}
-          width={200}
-          height={200}
-          alt="exclusive member right part"
-        />
+        <Box sx={{ position: 'relative', width: '300px', height: '200px' }}>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: { xs: '20px', md: '20px', lg: '20px' },
+              left: '30px',
+            }}
+          >
+            <CheckTooltip type="in-depth-economy" text="ECONOMIC UPDATE" />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: { xs: '70px', md: '70px', lg: '70px' },
+              left: '100px',
+            }}
+          >
+            <CheckTooltip type="in-depth-economy" text="TRENDING NEWS" />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: { xs: '120px', md: '120px', lg: '120px' },
+              left: '30px',
+            }}
+          >
+            <CheckTooltip type="in-depth-economy" text="BREGULATION NEWS" />
+          </Box>
+        </Box>
       </Box>
       <Box
         sx={{

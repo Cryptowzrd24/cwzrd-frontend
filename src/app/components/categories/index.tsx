@@ -13,7 +13,7 @@ const Categories = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-        <Box sx={{ mt: '48px' }}>
+        <Box sx={{ mt: { xs: '24px', md: '48px' } }}>
           <Hero />
           <HeroContent />
           <Stats />
@@ -21,17 +21,22 @@ const Categories = () => {
         <Box sx={{ mt: '16px' }}>
           <Table />
         </Box>
-        <Box sx={{ mt: '48px' }}>
+        <Box sx={{ mt: { xs: '24px', md: '48px' } }}>
           <NewsLetterBanner />
         </Box>
-        <Box sx={{ mt: '48px' }}>
+        <Box sx={{ mt: { xs: '24px', md: '48px' } }}>
           <NewsLetter />
         </Box>
-        <Box sx={{ mt: '48px' }}>
+        <Box sx={{ mt: { xs: '24px', md: '48px' } }}>
           <Technicals />
         </Box>
 
-        <Box sx={{ mt: '48px', mb: '48px' }}>
+        <Box
+          sx={{
+            mt: { xs: '24px', md: '48px' },
+            mb: { xs: '24px', md: '48px' },
+          }}
+        >
           <MemberShipBanner />
         </Box>
       </Container>

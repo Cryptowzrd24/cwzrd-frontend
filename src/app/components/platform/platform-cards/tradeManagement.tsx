@@ -71,7 +71,6 @@ const TradeManagement = () => {
 
           '@media (max-width: 768px)': {
             maxWidth: '100%',
-            width: 'calc(100% - 50px)',
           },
         }}
         initial="initial"

@@ -10,7 +10,10 @@ import GaugeChartWrapper from '../common/GaugeChartWrapper';
 function HeroContent() {
   return (
     <>
-      <Typography variant="h1" sx={{ maxWidth: '960px', marginTop: '-10px' }}>
+      <Typography
+        variant="h1"
+        sx={{ maxWidth: '960px', marginTop: { xs: '0', md: '-10px' } }}
+      >
         Best{' '}
         <span
           style={{

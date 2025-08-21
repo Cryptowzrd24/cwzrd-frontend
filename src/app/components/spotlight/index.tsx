@@ -34,7 +34,7 @@ const Spotlight = () => {
           padding: { xs: '12px', md: '12px', lg: '14px', xl: '16px' },
           display: 'flex',
           flexDirection: 'column',
-          gap: { xs: '48px', md: '48px' },
+          gap: { xs: '24px', md: '48px' },
         }}
       >
         <Box
@@ -43,7 +43,7 @@ const Spotlight = () => {
             width: '100%',
             display: 'flex',
             gap: { xs: '8px', md: '8px' },
-            flexDirection: { xs: 'column', md: 'row' },
+            flexDirection: { xs: 'column' },
           }}
         >
           <Hero />

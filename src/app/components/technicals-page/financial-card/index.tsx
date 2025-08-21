@@ -19,8 +19,6 @@ function FinancialCard({
   image,
   isFxPage,
   dualImg,
-  isMainPage,
-  imageContainerWidth,
   titleMaxWidth,
 }: FinancialCardProps & {
   imageContainerWidth?: string;
@@ -36,7 +34,9 @@ function FinancialCard({
           borderRadius: '16px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '8px',
+          gap: '4px',
+          width: '100%',
+          boxSizing: 'border-box',
         };
 
         if (isFourth) {
@@ -100,7 +100,8 @@ function FinancialCard({
 
         <Box
           sx={{
-            width: imageContainerWidth || isMainPage ? 'auto' : '218px',
+            // width:"100%",
+            // width: imageContainerWidth || isMainPage ? 'auto' : '218px',
             height: '132px',
             borderRadius: '12px',
             overflow: 'hidden',

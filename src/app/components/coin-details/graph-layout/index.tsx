@@ -13,7 +13,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { TradingViewIcon } from '../../../../../public/icons/tradingView';
 
-function GraphLayout({ coinSymbol }: any) {
+function GraphLayout({ coinSymbol, isCoinDetailPage = false }: any) {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
@@ -189,6 +189,7 @@ function GraphLayout({ coinSymbol }: any) {
           selectedCompareCoinId={selectedCompareCoinId}
           coinSymbol={coinSymbol}
           compareCoinSymbol={compareCoinSymbol}
+          isCoinDetailPage={isCoinDetailPage}
         />
         <Script
           src="/static/datafeeds/udf/dist/bundle.js"

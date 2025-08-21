@@ -23,6 +23,7 @@ function FinancialNewsCardVertical({
         width: 'auto',
         height: 'auto',
         padding: '8px',
+        margin: '0 auto',
         background: noBackground ? 'transparent' : 'rgba(255, 255, 255, 1)',
         boxShadow: noBackground
           ? 'none'

@@ -441,16 +441,21 @@ function TechnicalsPageCrypto({
           sx={{
             display: 'flex',
             gap: '16px',
-            '@media (max-width: 1360px)': {
-              flexDirection: 'column',
-              width: '100%',
-            },
+            flexDirection: { xs: 'column', lg: 'row' },
+            width: '100%',
           }}
         >
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 1,
+              width: { lg: '25%' },
+            }}
+          >
             <FinancialRight isMainPage={false} />
           </Box>
-          <Box>
+          <Box sx={{ width: { lg: '75%' } }}>
             <GraphDetailsCard isInverted={true} image={chainLinkImg} />
             <Box
               sx={{
@@ -458,6 +463,8 @@ function TechnicalsPageCrypto({
                 gap: 1,
                 marginTop: '12px',
                 marginBottom: isMediumLaptop ? '0px' : '50px',
+                overflow: 'hidden',
+                width: '100%',
                 '@media (max-width: 1360px)': {
                   flexWrap: 'wrap',
                   justifyContent: 'center',
@@ -465,12 +472,26 @@ function TechnicalsPageCrypto({
               }}
             >
               {isMediumLaptop ? (
-                <>
-                  <FinancialCard image={chainLinkImg} />
-                  <FinancialCard image={chainLinkImg} />
-                  <FinancialCard image={chainLinkImg} />
-                  <FinancialCard image={chainLinkImg} />
-                </>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                  }}
+                >
+                  <Box sx={{ width: '23%' }}>
+                    <FinancialCard image={chainLinkImg} />
+                  </Box>
+                  <Box sx={{ width: '23%' }}>
+                    <FinancialCard image={chainLinkImg} />
+                  </Box>
+                  <Box sx={{ width: '23%' }}>
+                    <FinancialCard image={chainLinkImg} />
+                  </Box>
+                  <Box sx={{ width: '23%' }}>
+                    <FinancialCard image={chainLinkImg} />
+                  </Box>
+                </Box>
               ) : (
                 <FinancialNewsCarousel
                   image={chainLinkImg}

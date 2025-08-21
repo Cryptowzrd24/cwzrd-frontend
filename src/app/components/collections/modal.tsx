@@ -180,11 +180,11 @@ const Modal: React.FC<ModalProps> = ({ image }) => {
                 borderRadius: '100px',
                 border: '1px solid rgba(17, 17, 17, 0.1)',
                 display: 'flex',
-                gap: '4px',
+                justifyContent: 'center',
+                gap: '6px',
                 alignItems: 'center',
                 mb: '16px',
-                width: '100%',
-                maxWidth: '10%',
+                width: '80px',
               }}
             >
               <Image src={img2} alt="ellipse" width={16} height={16} />
@@ -201,7 +201,8 @@ const Modal: React.FC<ModalProps> = ({ image }) => {
                 background: 'rgba(17, 17, 17, 0.05)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '64px',
+                justifyContent: 'space-around',
+                gap: { xs: '10px', sm: '64px' },
                 mb: '16px',
               }}
             >
@@ -302,11 +303,12 @@ const Modal: React.FC<ModalProps> = ({ image }) => {
                   borderRadius: '100px',
                   border: '1px solid rgba(17, 17, 17, 0.1)',
                   display: 'flex',
+                  justifyContent: 'center',
                   gap: '4px',
                   alignItems: 'center',
                   // mb: '4px',
-                  width: '100%',
-                  maxWidth: '15%',
+                  width: '100px',
+                  // maxWidth: '82px',
                   cursor: 'pointer',
                 }}
               >
@@ -324,11 +326,10 @@ const Modal: React.FC<ModalProps> = ({ image }) => {
                   borderRadius: '100px',
                   border: '1px solid rgba(17, 17, 17, 0.1)',
                   display: 'flex',
+                  justifyContent: 'center',
                   gap: '4px',
                   alignItems: 'center',
-                  // mb: '16px',
-                  width: '100%',
-                  maxWidth: '12%',
+                  width: '80px',
                   cursor: 'pointer',
                 }}
               >
@@ -346,11 +347,11 @@ const Modal: React.FC<ModalProps> = ({ image }) => {
                   borderRadius: '100px',
                   border: '1px solid rgba(17, 17, 17, 0.1)',
                   display: 'flex',
+                  justifyContent: 'center',
                   gap: '4px',
                   alignItems: 'center',
                   // mb: '16px',
-                  width: '100%',
-                  maxWidth: '12%',
+                  width: '80px',
                   cursor: 'pointer',
                 }}
               >
